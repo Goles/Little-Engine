@@ -17,6 +17,10 @@
 
 @interface ES1Renderer : NSObject <ESRenderer>
 {
+	
+	//Particles displayer.
+	ParticleContainer *theCanister;
+
 @private
 	EAGLContext *context;
 	
@@ -29,14 +33,13 @@
 	
 	// The OpenGL names for the framebuffer and renderbuffer used to render to this view
 	GLuint defaultFramebuffer, colorRenderbuffer;
-	
-	//Particles displayer.
-	ParticleContainer *theCanister;
-	
+
 	Texture2D	*testTex;
 	Texture2D	*backgroundTex;
 	
 }
+
+@property (nonatomic, retain) ParticleContainer *theCanister;
 
 - (void) render;
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer;

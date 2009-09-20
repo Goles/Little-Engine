@@ -11,23 +11,19 @@
 @class Particle;
 @class Texture2D;
 
-typedef struct 
-{
-	short v[2];
-	unsigned color;
-	float uv[2];
-}	ParticleVertex;
-
-
 @interface ParticleContainer : NSObject 
 {
+	CGPoint source;
 	Texture2D	*particleTexture;
 	int particleNumber;
 	Particle	**array;
-	
 }
 
-- (id) initWithParticles:(int) particleNum;
-- (void) draw;
+@property (readwrite) CGPoint source;
+@property (nonatomic, retain) Texture2D *particleTexture;
 
+- (id) initWithParticles:(int) particleNum;
+- (void) moveSource:(CGPoint) newSource;
+- (void) draw;
+- (void) flush;
 @end

@@ -11,6 +11,7 @@
 
 @interface Particle : NSObject 
 {
+	CGPoint source;
 	CGPoint position;
 	float	xSpeed,ySpeed;
 	float	xAccel,yAccel;
@@ -19,6 +20,7 @@
 }
 
 @property (readwrite) CGPoint position;
+@property (readwrite) CGPoint source;
 @property (readwrite) float xSpeed;
 @property (readwrite) float ySpeed;
 @property (readwrite) float xAccel;
@@ -26,6 +28,7 @@
 @property (readwrite) float lifeTime;
 @property (readwrite) float rotation;
 
+- (id) initWithSource:(CGPoint) aSource;
 - (void) update;
 - (void) reset;
 

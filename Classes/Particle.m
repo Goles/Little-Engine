@@ -12,6 +12,7 @@
 @implementation Particle
 
 @synthesize position;
+@synthesize source;
 @synthesize xSpeed;
 @synthesize ySpeed;
 @synthesize xAccel;
@@ -19,17 +20,18 @@
 @synthesize lifeTime;
 @synthesize rotation;
 
-- (id) init
+- (id) initWithSource:(CGPoint) aSource
 {
 	if((self = [super init]))
 	{
-		position = CGPointMake(320.0/2, 480/2);
+		source	 = aSource;
+		position = source;
 		srand([[NSDate date] timeIntervalSince1970]);
 		xSpeed = 0;
 		ySpeed = 0;
 		xAccel = CCRANDOM_0_1()/100;
 		yAccel = CCRANDOM_0_1()/10;
-		lifeTime = 2.0;
+		lifeTime = 1.0;
 		rotation = 0;
 	}
 	
@@ -38,22 +40,25 @@
 
 - (void) update
 {	
+	//if(ySpeed > 3)
+	//	ySpeed = 0;
+	
 	xSpeed += xAccel;
 	ySpeed += yAccel;
 	position.x += xSpeed;
 	position.y += ySpeed;
-	lifeTime -= CCRANDOM_0_1()/15;
+	lifeTime -= CCRANDOM_0_1()/35;
 	rotation++;
 }
 
 - (void) reset
 {	
-	position = CGPointMake(320.0/2 + 4*CCRANDOM_0_1(), 480/2+ 4*CCRANDOM_0_1());
+	position = CGPointMake(source.x + CCRANDOM_0_1()*5, source.y +  CCRANDOM_0_1()*10);
 	xSpeed = 0;
 	ySpeed = 0;
 	xAccel = CCRANDOM_0_1()/100;
 	yAccel = CCRANDOM_0_1()/10;
-	lifeTime = 2.0;
+	lifeTime = 1.0;
 }
 
 - (void) dealloc

@@ -124,6 +124,8 @@ These functions require GL_TEXTURE_2D and both GL_VERTEX_ARRAY and GL_TEXTURE_CO
 - (void) drawInRect:(CGRect)rect;
 - (void) drawInRect:(CGRect)rect depth:(CGFloat)depth;
 - (CGFloat) getWidth;
+- (CGFloat) getHeight;
+- (void) bind;
 @end
 
 /*

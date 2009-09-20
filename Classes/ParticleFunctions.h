@@ -6,9 +6,19 @@
  *  Copyright 2009 __MyCompanyName__. All rights reserved.
  *
  */
+
+
 #define MAX_VERTEX 20000
 
-static ParticleVertex _interleavedVertexs[20000];
+typedef struct 
+{
+	short v[2];
+	unsigned color;
+	float uv[2];
+	float col[4];
+}	ParticleVertex;
+
+static ParticleVertex _interleavedVertexs[MAX_VERTEX];
 static unsigned _vertexCount = 0;
 
 enum { H, S, V };
@@ -67,7 +77,18 @@ void _HSVToRGB(const float *HSV, unsigned char *RGB)
 			
         default:
             RGB[0] = RGB[1] = RGB[2] = 0.0f;
-            NSLog(@"um that's not a color");
+            //NSLog(@"um that's not a color");
 			break;
     }
+}
+
+static void addVertex(float x, float y, float uvx, float uvy, unsigned color)
+{
+	ParticleVertex *vert = &_interleavedVertexs[_vertexCount];
+	vert->v[0]	= x;
+	vert->v[1]	= y;
+	vert->uv[0]	= uvx;
+	vert->uv[1] = uvy;
+	vert->color	= color;
+	_vertexCount++;
 }

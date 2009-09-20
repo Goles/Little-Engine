@@ -10,6 +10,8 @@
 
 #import "ES1Renderer.h"
 #import "ES2Renderer.h"
+#import "ConstantsAndMacros.h"
+#import "ParticleContainer.h"
 
 @implementation EAGLView
 
@@ -138,6 +140,29 @@
 		
 		animating = FALSE;
 	}
+}
+
+#pragma mark touches
+
+- (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
+{	
+	UITouch * touch = [touches anyObject];
+	CGPoint loc = [touch locationInView:self];
+	loc.y = SCREEN_HEIGHT - loc.y + 20;
+	loc.x += 20;
+	
+	[[(ES1Renderer *)renderer theCanister] moveSource:loc];
+
+}
+
+- (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	UITouch * touch = [touches anyObject];
+	CGPoint loc = [touch locationInView:self];
+	loc.y = SCREEN_HEIGHT - loc.y + 20;
+	loc.x += 20;
+	
+	[[(ES1Renderer *)renderer theCanister] moveSource:loc];
 }
 
 - (void) dealloc

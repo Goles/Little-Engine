@@ -589,9 +589,9 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 - (void) drawAtPoint:(CGPoint)point depth:(CGFloat)depth
 {
 	GLfloat				coordinates[] = {
-							0,				1,
+							0,			1,
 							1,			1,
-							0,				0,
+							0,			0,
 							1,			0
 						};
 	GLfloat				width = (GLfloat)_width * _maxS,
@@ -638,6 +638,19 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 - (CGFloat) getWidth
 {
 	return (_size.width);
+}
+
+- (CGFloat) getHeight
+{
+	return (_size.height);
+}
+
+- (void) bind
+{
+    if (!_name)
+        return;
+	
+	glBindTexture(GL_TEXTURE_2D, _name);
 }
 
 @end

@@ -13,6 +13,8 @@
 
 @implementation ES1Renderer
 
+@synthesize theCanister;
+
 // Create an ES 1.1 context
 - (id) init
 {
@@ -26,7 +28,7 @@
             return nil;
         }
 		
-		theCanister = [[ParticleContainer alloc] initWithParticles:50];
+		theCanister = [[ParticleContainer alloc] initWithParticles:500];
 		
 		// Create default framebuffer object. The backing will be allocated for the current layer in -resizeFromLayer
 		glGenFramebuffersOES(1, &defaultFramebuffer);
@@ -45,28 +47,38 @@
 	glViewport(0, 0, backingWidth, backingHeight);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrthof(0, 320, 0, 480, -1, 1);
+	glOrthof(0, 320, 0, 480, 0, 1);
 	glMatrixMode(GL_MODELVIEW);
 }
 
 - (void) render
 {
+	[EAGLContext setCurrentContext:context];
+	glBindFramebufferOES(GL_FRAMEBUFFER_OES, defaultFramebuffer);
+
 	if(!viewSetup)
 	{
 		[self setupView];
 		viewSetup = YES;
 	}
-
-	[EAGLContext setCurrentContext:context];
-	glBindFramebufferOES(GL_FRAMEBUFFER_OES, defaultFramebuffer);
-
+	
 	// clear background to gray (don't need these if you draw a background image, since it will draw over whatever's there)
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
+	glEnable(GL_TEXTURE_2D);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE);
+	//glHint(GL_PERSPECTIVE_CORRECTION_HINT,GL_NICEST);			// Really Nice Perspective Calculations
+	//glHint(GL_POINT_SMOOTH_HINT,GL_NICEST);	
+	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+	glEnableClientState(GL_COLOR_ARRAY);
+	glEnableClientState(GL_VERTEX_ARRAY);
+ 	[[theCanister particleTexture] bind];
 	[theCanister draw];
+	[theCanister flush];
 		
-    glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
+    //glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
     [context presentRenderbuffer:GL_RENDERBUFFER_OES];
 }
 
