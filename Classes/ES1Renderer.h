@@ -11,15 +11,15 @@
 #import <OpenGLES/ES1/gl.h>
 #import <OpenGLES/ES1/glext.h>
 
-@class ParticleContainer;
+@class ParticleController;
 @class Texture2D;
 
 
 @interface ES1Renderer : NSObject <ESRenderer>
 {
 	
-	//Particles displayer.
-	ParticleContainer *theCanister;
+	//Particles controller.
+	ParticleController *theCanister;
 
 @private
 	EAGLContext *context;
@@ -39,7 +39,7 @@
 	
 }
 
-@property (nonatomic, retain) ParticleContainer *theCanister;
+@property (nonatomic, retain) ParticleController *theCanister;
 
 - (void) render;
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer;

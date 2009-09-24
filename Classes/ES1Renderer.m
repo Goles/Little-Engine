@@ -8,7 +8,7 @@
 
 #import "ES1Renderer.h"
 #import "ConstantsAndMacros.h"
-#import "ParticleContainer.h"
+#import "ParticleController.h"
 #import "Texture2D.h"
 
 @implementation ES1Renderer
@@ -28,7 +28,7 @@
             return nil;
         }
 		
-		theCanister = [[ParticleContainer alloc] initWithParticles:500];
+		theCanister = [[ParticleController alloc] initWithParticles:100];
 		
 		// Create default framebuffer object. The backing will be allocated for the current layer in -resizeFromLayer
 		glGenFramebuffersOES(1, &defaultFramebuffer);

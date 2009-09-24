@@ -47,7 +47,16 @@
 	ySpeed += yAccel;
 	position.x += xSpeed;
 	position.y += ySpeed;
-	lifeTime -= CCRANDOM_0_1()/35;
+	
+	float kRandom = CCRANDOM_0_1();
+	
+	if(lifeTime >= kRandom/35)
+		lifeTime -= kRandom/35;
+	else {
+		lifeTime = 0.0;
+	}
+
+	
 	rotation++;
 }
 

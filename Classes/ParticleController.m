@@ -1,18 +1,32 @@
 //
-//  ParticleContainer.m
+//  ParticleController.m
 //  Particles
 //
 //  Created by Nicolas Goles on 9/18/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 Gando Games. All rights reserved.
 //
 
-#import "ParticleContainer.h"
+/*
+ *
+ *	
+	The Particle controller is responsible for particle (of the System Array) actions as a set.
+ 
+	Ex: 
+		- Rotation around a point.
+		- Variable particle sizes.
+		- Variable particle colors.
+		- Areas around the system to which the particles react in different ways.
+		- Collision detection. ( with other objects or particles if necesary)
+ *
+ */
+ 
+#import "ParticleController.h"
 #import "ConstantsAndMacros.h"
 #import "ParticleFunctions.h"
 #import "Texture2D.h"
 #import "Particle.h"
 
-@implementation ParticleContainer
+@implementation ParticleController
 
 @synthesize	source;
 @synthesize particleTexture;
@@ -50,7 +64,11 @@
 		
 		/*First we asign the Color to the particle.*/
 		unsigned char RGB[3];
-		float HSV[3] = {array[i].lifeTime * 255, 1, 1};
+		
+		//if(array[i].lifeTime < 0.0)
+		//	array[i].lifeTime = 0.0;
+		
+		float HSV[3] = {/*array[i].lifeTime */ 230, 80, 1};
 		//float HSV[3] = {255.0f, 1, 1};
 		_HSVToRGB(HSV, RGB);
 		
@@ -101,8 +119,6 @@
 
 - (void) flush
 {
-	
-	
     if (!_vertexCount)
         return;
 

@@ -11,7 +11,7 @@
 #import "ES1Renderer.h"
 #import "ES2Renderer.h"
 #import "ConstantsAndMacros.h"
-#import "ParticleContainer.h"
+#import "ParticleController.h"
 
 @implementation EAGLView
 

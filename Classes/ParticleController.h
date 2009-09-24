@@ -11,7 +11,7 @@
 @class Particle;
 @class Texture2D;
 
-@interface ParticleContainer : NSObject 
+@interface ParticleController : NSObject 
 {
 	CGPoint source;
 	Texture2D	*particleTexture;
@@ -26,4 +26,5 @@
 - (void) moveSource:(CGPoint) newSource;
 - (void) draw;
 - (void) flush;
+
 @end

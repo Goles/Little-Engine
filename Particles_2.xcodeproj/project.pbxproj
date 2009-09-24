@@ -20,10 +20,12 @@
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
 		633C889410649219003911A0 /* Particle.m in Sources */ = {isa = PBXBuildFile; fileRef = 633C889110649219003911A0 /* Particle.m */; };
-		633C889510649219003911A0 /* ParticleContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 633C889310649219003911A0 /* ParticleContainer.m */; };
+		633C889510649219003911A0 /* ParticleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633C889310649219003911A0 /* ParticleController.m */; };
 		633C88CF106493A6003911A0 /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 633C88CE106493A6003911A0 /* Texture2D.m */; };
 		633C88D51064942D003911A0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633C88D41064942D003911A0 /* CoreGraphics.framework */; };
 		638DD31C1064C1040032ACF1 /* Particle.png in Resources */ = {isa = PBXBuildFile; fileRef = 638DD31B1064C1040032ACF1 /* Particle.png */; };
+		63F01864106AF201008FABF0 /* ParticleEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F01863106AF201008FABF0 /* ParticleEmitter.m */; };
+		63F01867106AF218008FABF0 /* ParticleRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F01866106AF218008FABF0 /* ParticleRenderer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,8 +50,8 @@
 		32CA4F630368D1EE00C91783 /* Particles_2_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particles_2_Prefix.pch; sourceTree = "<group>"; };
 		633C889010649219003911A0 /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particle.h; sourceTree = "<group>"; };
 		633C889110649219003911A0 /* Particle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Particle.m; sourceTree = "<group>"; };
-		633C889210649219003911A0 /* ParticleContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleContainer.h; sourceTree = "<group>"; };
-		633C889310649219003911A0 /* ParticleContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleContainer.m; sourceTree = "<group>"; };
+		633C889210649219003911A0 /* ParticleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleController.h; sourceTree = "<group>"; };
+		633C889310649219003911A0 /* ParticleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleController.m; sourceTree = "<group>"; };
 		633C88CD106493A6003911A0 /* Texture2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture2D.h; sourceTree = "<group>"; };
 		633C88CE106493A6003911A0 /* Texture2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Texture2D.m; sourceTree = "<group>"; };
 		633C88D41064942D003911A0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -57,6 +59,10 @@
 		633C88ED106495CE003911A0 /* ConstantsAndMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConstantsAndMacros.h; path = "../../Baytex/ReleaseProjects/ChainReaction-Git/Graphics-ChainReaction/Classes/ConstantsAndMacros.h"; sourceTree = SOURCE_ROOT; };
 		638DD31B1064C1040032ACF1 /* Particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Particle.png; sourceTree = "<group>"; };
 		63C41BF2106555E3007B8E94 /* ParticleFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleFunctions.h; sourceTree = "<group>"; };
+		63F01862106AF201008FABF0 /* ParticleEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleEmitter.h; sourceTree = "<group>"; };
+		63F01863106AF201008FABF0 /* ParticleEmitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleEmitter.m; sourceTree = "<group>"; };
+		63F01865106AF218008FABF0 /* ParticleRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleRenderer.h; sourceTree = "<group>"; };
+		63F01866106AF218008FABF0 /* ParticleRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleRenderer.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Particles_2-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Particles_2-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,8 +161,12 @@
 				63C41BF2106555E3007B8E94 /* ParticleFunctions.h */,
 				633C889010649219003911A0 /* Particle.h */,
 				633C889110649219003911A0 /* Particle.m */,
-				633C889210649219003911A0 /* ParticleContainer.h */,
-				633C889310649219003911A0 /* ParticleContainer.m */,
+				633C889210649219003911A0 /* ParticleController.h */,
+				633C889310649219003911A0 /* ParticleController.m */,
+				63F01862106AF201008FABF0 /* ParticleEmitter.h */,
+				63F01863106AF201008FABF0 /* ParticleEmitter.m */,
+				63F01865106AF218008FABF0 /* ParticleRenderer.h */,
+				63F01866106AF218008FABF0 /* ParticleRenderer.m */,
 			);
 			name = Particles;
 			sourceTree = "<group>";
@@ -256,8 +266,10 @@
 				2514C27210084DB100A42282 /* ES1Renderer.m in Sources */,
 				2514C27310084DB100A42282 /* ES2Renderer.m in Sources */,
 				633C889410649219003911A0 /* Particle.m in Sources */,
-				633C889510649219003911A0 /* ParticleContainer.m in Sources */,
+				633C889510649219003911A0 /* ParticleController.m in Sources */,
 				633C88CF106493A6003911A0 /* Texture2D.m in Sources */,
+				63F01864106AF201008FABF0 /* ParticleEmitter.m in Sources */,
+				63F01867106AF218008FABF0 /* ParticleRenderer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

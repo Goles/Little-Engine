@@ -77,7 +77,7 @@ void _HSVToRGB(const float *HSV, unsigned char *RGB)
 			
         default:
             RGB[0] = RGB[1] = RGB[2] = 0.0f;
-            //NSLog(@"um that's not a color");
+            NSLog(@"um that's not a color");
 			break;
     }
 }
