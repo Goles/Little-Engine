@@ -28,7 +28,7 @@
 @property (readwrite) float lifeTime;
 @property (readwrite) float rotation;
 
-- (id) initWithSource:(CGPoint) aSource;
+- (id) init;
 - (void) update;
 - (void) reset;
 

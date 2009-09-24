@@ -9,11 +9,12 @@
 #import "ES1Renderer.h"
 #import "ConstantsAndMacros.h"
 #import "ParticleController.h"
+#import "ParticleSystem.h"
 #import "Texture2D.h"
 
 @implementation ES1Renderer
 
-@synthesize theCanister;
+//@synthesize theCanister;
 
 // Create an ES 1.1 context
 - (id) init
@@ -28,7 +29,17 @@
             return nil;
         }
 		
-		theCanister = [[ParticleController alloc] initWithParticles:100];
+		//theCanister = [[ParticleController alloc] initWithParticles:100];
+		aSystem	= [[ParticleSystem alloc] initWithParticles:100];
+		
+		[[aSystem systemEmitter] setEmitionSource:CGPointZero];
+		
+		
+		/*for(int i = 0; i < [aSystem particleNumber]; i++)
+		{
+			[[aSystem systemEmitter] 
+		}*/
+		
 		
 		// Create default framebuffer object. The backing will be allocated for the current layer in -resizeFromLayer
 		glGenFramebuffersOES(1, &defaultFramebuffer);
@@ -74,10 +85,12 @@
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 	glEnableClientState(GL_COLOR_ARRAY);
 	glEnableClientState(GL_VERTEX_ARRAY);
- 	[[theCanister particleTexture] bind];
+ 	
+	/*
+	[[theCanister particleTexture] bind];
 	[theCanister draw];
 	[theCanister flush];
-		
+		*/
     //glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
     [context presentRenderbuffer:GL_RENDERBUFFER_OES];
 }

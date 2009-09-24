@@ -9,8 +9,11 @@
 #import <Foundation/Foundation.h>
 
 
-@interface ParticleRenderer : NSObject {
-
+@interface ParticleRenderer : NSObject 
+{
+	id delegate;
 }
+
+@property (nonatomic, retain) id delegate;
 
 @end

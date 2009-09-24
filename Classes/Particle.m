@@ -20,33 +20,29 @@
 @synthesize lifeTime;
 @synthesize rotation;
 
-- (id) initWithSource:(CGPoint) aSource
+- (id) init
 {
 	if((self = [super init]))
 	{
-		source	 = aSource;
-		position = source;
 		srand([[NSDate date] timeIntervalSince1970]);
-		xSpeed = 0;
-		ySpeed = 0;
-		xAccel = CCRANDOM_0_1()/100;
-		yAccel = CCRANDOM_0_1()/10;
-		lifeTime = 1.0;
-		rotation = 0;
+		source		= CGPointZero;
+		position	= CGPointZero;
+		xSpeed		= 0;
+		ySpeed		= 0;
+		xAccel		= 0;
+		yAccel		= 0;
+		lifeTime	= 1.0;
+		rotation	= 0;
 	}
-	
 	return self;
 }
 
 - (void) update
 {	
-	//if(ySpeed > 3)
-	//	ySpeed = 0;
-	
-	xSpeed += xAccel;
-	ySpeed += yAccel;
-	position.x += xSpeed;
-	position.y += ySpeed;
+	xSpeed		+= xAccel;
+	ySpeed		+= yAccel;
+	position.x	+= xSpeed;
+	position.y	+= ySpeed;
 	
 	float kRandom = CCRANDOM_0_1();
 	
@@ -55,7 +51,6 @@
 	else {
 		lifeTime = 0.0;
 	}
-
 	
 	rotation++;
 }

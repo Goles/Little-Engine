@@ -11,4 +11,6 @@
 
 @implementation ParticleRenderer
 
+@synthesize delegate;
+
 @end

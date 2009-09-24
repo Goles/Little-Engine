@@ -13,13 +13,15 @@
 
 @class ParticleController;
 @class Texture2D;
-
+@class ParticleSystem;
 
 @interface ES1Renderer : NSObject <ESRenderer>
 {
 	
 	//Particles controller.
-	ParticleController *theCanister;
+	//ParticleController *theCanister;
+	ParticleSystem *aSystem;
+	
 
 @private
 	EAGLContext *context;
@@ -39,7 +41,7 @@
 	
 }
 
-@property (nonatomic, retain) ParticleController *theCanister;
+//@property (nonatomic, retain) ParticleController *theCanister;
 
 - (void) render;
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer;

@@ -28,6 +28,8 @@
 
 @implementation ParticleController
 
+@synthesize delegate;
+
 @synthesize	source;
 @synthesize particleTexture;
 
