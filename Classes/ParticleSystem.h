@@ -14,25 +14,31 @@
  */
 
 #import <Foundation/Foundation.h>
-
+@class Texture2D;
 @class Particle;
 @class ParticleController;
 @class ParticleEmitter;
 @class ParticleRenderer;
 
+
 @interface ParticleSystem : NSObject 
 {
 	unsigned int		particleNumber;		//Total number of particles in the system
+	BOOL				textureBound;
 	
 	Particle			**array;
-	ParticleController	*systemController;	
 	ParticleEmitter		*systemEmitter;
+	ParticleController	*systemController;
 	ParticleRenderer	*systemRenderer;
 }
 
-@property(retain, nonatomic) ParticleEmitter *systemEmitter;
-
+@property (readwrite) BOOL textureBound;
 @property (readwrite) unsigned int particleNumber;
+@property (retain, nonatomic) ParticleEmitter *systemEmitter;
 @property Particle **array;
 
+- (void) update;
+- (void) draw;
+- (id) initWithParticles:(int)number;
+- (Texture2D *) currentTexture;
 @end

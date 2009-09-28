@@ -14,8 +14,9 @@
 
 @implementation ParticleSystem
 
-@synthesize systemEmitter;
+@synthesize textureBound;
 @synthesize particleNumber;
+@synthesize systemEmitter;
 @synthesize array;
 
 - (id) initWithParticles:(int)number
@@ -30,23 +31,35 @@
 		for(int i = 0; i < particleNumber; i++)
 		{
 			array[i] = [[Particle alloc] init];
-			[array[i] setXSpeed:99.0f];
 		}
 		
 		/* 2) Allocate the system's renderer */
-		systemRenderer	= [[ParticleRenderer alloc] init];
-		[systemRenderer setDelegate:self];
+		systemRenderer	= [[ParticleRenderer alloc] initWithDelegate:self];
 		
 		/* 3) Allocate the system's Emitter */
-		systemEmitter	= [[ParticleEmitter alloc] init];
-		[systemEmitter	setDelegate:self];
+		systemEmitter	= [[ParticleEmitter alloc] initWithDelegate:self];
 		
 		/* 4) Allocate the system's Controller */
-		systemController = [[ParticleController alloc] init];
-		[systemController setDelegate:self];
+		systemController = [[ParticleController alloc] initWithDelegate:self];
 	}
 	
 	return self;
+}
+
+- (Texture2D *) currentTexture
+{
+	return ([systemRenderer particleTexture]);
+}
+
+- (void) draw
+{
+	[systemRenderer draw];
+}
+
+- (void) update
+{
+	[systemEmitter update];
+	[systemRenderer pushVertexs];
 }
 
 - (Particle **) array

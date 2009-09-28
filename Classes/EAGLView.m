@@ -11,7 +11,9 @@
 #import "ES1Renderer.h"
 #import "ES2Renderer.h"
 #import "ConstantsAndMacros.h"
-#import "ParticleController.h"
+#import "EmitterFunctions.h"
+#import "ParticleSystem.h"
+#import "ParticleEmitter.h"
 
 @implementation EAGLView
 
@@ -146,13 +148,57 @@
 
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
 {	
-	UITouch * touch = [touches anyObject];
-	CGPoint loc = [touch locationInView:self];
-	loc.y = SCREEN_HEIGHT - loc.y + 20;
-	loc.x += 20;
+	/*
+	*/
+	UITouch *touch1,
+			*touch2;
 	
-	[[(ES1Renderer *)renderer theCanister] moveSource:loc];
-
+	CGPoint loc1,
+			loc2,
+			locAux;
+	
+	
+	NSSet *allTouches = [event allTouches];
+	
+	switch ([allTouches count]) 
+	{
+		case 1:
+			touch1	= [touches anyObject];
+			loc1	= [touch1 locationInView:self];
+			loc1.y	= SCREEN_HEIGHT - loc1.y + 20;
+			loc1.x	+= 20;
+			[[[renderer aSystem] systemEmitter] setCurrentFX:kEmmiterFX_none withSource:loc1 andEnd:loc1];
+			//NSLog(@"(loc1X:%f | loc1Y:%f)",loc1.x,loc1.y);
+//			[[[renderer aSystem] systemEmitter] setEmitionSource:loc1];
+			break;
+		case 2:
+			touch1	= [[allTouches allObjects] objectAtIndex:0];
+			touch2	= [[allTouches allObjects] objectAtIndex:1];
+			loc1	= [touch1 locationInView:self];
+			loc2	= [touch2 locationInView:self];
+			
+			loc1.y	= SCREEN_HEIGHT - loc1.y;
+			loc2.y	= SCREEN_HEIGHT - loc2.y;
+			
+			if(loc1.y > loc2.y)
+			{
+				locAux	= loc2;
+				loc2	= loc1;
+				loc1	= locAux;
+			}
+			
+			NSLog(@"(loc1X:%f | loc1Y:%f)",loc1.x,loc1.y);
+			NSLog(@"(loc2X:%f | loc2Y:%f)",loc2.x, loc2.y);
+			NSLog(@"-----");
+			
+			[[[renderer aSystem] systemEmitter] setCurrentFX:kEmmiterFX_linear withSource:loc1 andEnd:loc2];
+			break;
+		default:
+			break;
+	}
+	
+	
+	//[[[renderer aSystem] systemEmitter] setEmitionSource:loc];
 }
 
 - (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
@@ -162,14 +208,7 @@
 	loc.y = SCREEN_HEIGHT - loc.y + 20;
 	loc.x += 20;
 	
-	[[(ES1Renderer *)renderer theCanister] moveSource:loc];
-}
-
-- (void) dealloc
-{
-    [renderer release];
-	
-    [super dealloc];
+	[[[renderer aSystem] systemEmitter] setCurrentFX:kEmmiterFX_none withSource:loc andEnd:loc];
 }
 
 @end

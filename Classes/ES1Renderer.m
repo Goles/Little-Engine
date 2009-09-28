@@ -8,13 +8,16 @@
 
 #import "ES1Renderer.h"
 #import "ConstantsAndMacros.h"
-#import "ParticleController.h"
-#import "ParticleSystem.h"
+#import "EmitterFunctions.h"
 #import "Texture2D.h"
+#import "ParticleSystem.h"
+#import "ParticleEmitter.h"
+
+
 
 @implementation ES1Renderer
 
-//@synthesize theCanister;
+@synthesize aSystem;
 
 // Create an ES 1.1 context
 - (id) init
@@ -29,17 +32,17 @@
             return nil;
         }
 		
-		//theCanister = [[ParticleController alloc] initWithParticles:100];
-		aSystem	= [[ParticleSystem alloc] initWithParticles:100];
+		aSystem	= [[ParticleSystem alloc] initWithParticles:600];
 		
-		[[aSystem systemEmitter] setEmitionSource:CGPointZero];
+		[[aSystem systemEmitter] setSystemXSpeed:0.0 
+										  ySpeed:0.0 
+										  xAccel:0.0
+										  yAccel:0.0
+										lifeTime:0.0
+										  source:CGPointMake(160, 200) 
+										position:CGPointMake(160, 200)];
 		
-		
-		/*for(int i = 0; i < [aSystem particleNumber]; i++)
-		{
-			[[aSystem systemEmitter] 
-		}*/
-		
+		[[aSystem systemEmitter] setCurrentFX:kEmmiterFX_linear withSource:CGPointMake(10.0f, 10.0f) andEnd:CGPointMake(100.0f, 100.0f)];
 		
 		// Create default framebuffer object. The backing will be allocated for the current layer in -resizeFromLayer
 		glGenFramebuffersOES(1, &defaultFramebuffer);
@@ -73,7 +76,7 @@
 		viewSetup = YES;
 	}
 	
-	// clear background to gray (don't need these if you draw a background image, since it will draw over whatever's there)
+	// clear background to black (don't need these if you draw a background image, since it will draw over whatever's there)
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
@@ -86,11 +89,15 @@
 	glEnableClientState(GL_COLOR_ARRAY);
 	glEnableClientState(GL_VERTEX_ARRAY);
  	
-	/*
-	[[theCanister particleTexture] bind];
-	[theCanister draw];
-	[theCanister flush];
-		*/
+	if(![aSystem textureBound])
+	{
+		[[aSystem currentTexture] bind];
+		[aSystem setTextureBound:YES];
+	}
+
+	[aSystem update];
+	[aSystem draw];
+	
     //glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
     [context presentRenderbuffer:GL_RENDERBUFFER_OES];
 }

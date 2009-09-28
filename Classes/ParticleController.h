@@ -13,22 +13,12 @@
 
 @interface ParticleController : NSObject 
 {
-	id delegate;	//this delegate should be the particle system.
-	
-	CGPoint source;
-	Texture2D	*particleTexture;
-	int particleNumber;
-	Particle	**array;
+	id			delegate;	//this delegate should be the particle system.
+	Particle	**array;	//should hold reference only.
 }
 
 @property (nonatomic, retain) id delegate;
 
-@property (readwrite) CGPoint source;
-@property (nonatomic, retain) Texture2D *particleTexture;
-
-- (id) initWithParticles:(int) particleNum;
-- (void) moveSource:(CGPoint) newSource;
-- (void) draw;
-- (void) flush;
+- (id) initWithDelegate:(id)inDelegate;
 
 @end

@@ -17,13 +17,10 @@
 
 @interface ES1Renderer : NSObject <ESRenderer>
 {
-	
-	//Particles controller.
-	//ParticleController *theCanister;
-	ParticleSystem *aSystem;
-	
 
 @private
+	ParticleSystem *aSystem;
+	
 	EAGLContext *context;
 	
 	// The pixel dimensions of the CAEAGLLayer
@@ -38,10 +35,9 @@
 
 	Texture2D	*testTex;
 	Texture2D	*backgroundTex;
-	
 }
 
-//@property (nonatomic, retain) ParticleController *theCanister;
+@property (nonatomic, retain) ParticleSystem *aSystem;
 
 - (void) render;
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer;

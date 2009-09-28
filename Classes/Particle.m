@@ -51,13 +51,11 @@
 	else {
 		lifeTime = 0.0;
 	}
-	
-	rotation++;
 }
 
 - (void) reset
 {	
-	position = CGPointMake(source.x + CCRANDOM_0_1()*5, source.y +  CCRANDOM_0_1()*10);
+	position = CGPointMake(source.x + CCRANDOM_0_1()*5, source.y +  CCRANDOM_0_1()*5);
 	xSpeed = 0;
 	ySpeed = 0;
 	xAccel = CCRANDOM_0_1()/100;

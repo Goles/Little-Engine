@@ -1,14 +1,11 @@
 /*
- *  ParticleFunctions.h
+ *  RendererFunctions.h
  *  Particles_2
  *
- *  Created by Nicolas Goles on 9/19/09.
- *  Copyright 2009 __MyCompanyName__. All rights reserved.
+ *  Created by Nicolas Goles on 9/25/09.
+ *  Copyright 2009 Gando Games. All rights reserved.
  *
  */
-
-
-#define MAX_VERTEX 20000
 
 typedef struct 
 {
@@ -18,14 +15,18 @@ typedef struct
 	float col[4];
 }	ParticleVertex;
 
-static ParticleVertex _interleavedVertexs[MAX_VERTEX];
-static unsigned _vertexCount = 0;
-
 enum { H, S, V };
 
-void _HSVToRGB(const float *HSV, unsigned char *RGB)
+#define MAX_VERTEX 20000
+
+ParticleVertex _interleavedVertexs[MAX_VERTEX];
+static unsigned _vertexCount = 0;
+
+static inline void _HSVToRGB(const float *HSV, unsigned char *RGB)
 {
-    float h = HSV[H], s = HSV[S], v = HSV[V];
+    float	h = HSV[H], 
+			s = HSV[S], 
+			v = HSV[V];
     float w = roundf(h) / 60.0f;
     float h1 = fmodf(floorf(w), 6.0f);
     float f = w - floorf(w);
@@ -82,7 +83,7 @@ void _HSVToRGB(const float *HSV, unsigned char *RGB)
     }
 }
 
-static void addVertex(float x, float y, float uvx, float uvy, unsigned color)
+static inline void addVertex(float x, float y, float uvx, float uvy, unsigned color)
 {
 	ParticleVertex *vert = &_interleavedVertexs[_vertexCount];
 	vert->v[0]	= x;

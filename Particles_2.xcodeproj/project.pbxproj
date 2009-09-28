@@ -56,10 +56,11 @@
 		633C88CD106493A6003911A0 /* Texture2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture2D.h; sourceTree = "<group>"; };
 		633C88CE106493A6003911A0 /* Texture2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Texture2D.m; sourceTree = "<group>"; };
 		633C88D41064942D003911A0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		633C88EC106495CE003911A0 /* OpenGLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenGLCommon.h; path = "../../Baytex/ReleaseProjects/ChainReaction-Git/Graphics-ChainReaction/Classes/OpenGLCommon.h"; sourceTree = SOURCE_ROOT; };
-		633C88ED106495CE003911A0 /* ConstantsAndMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConstantsAndMacros.h; path = "../../Baytex/ReleaseProjects/ChainReaction-Git/Graphics-ChainReaction/Classes/ConstantsAndMacros.h"; sourceTree = SOURCE_ROOT; };
+		63716F89106FC18E00B3C783 /* EmitterFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmitterFunctions.h; sourceTree = "<group>"; };
 		638DD31B1064C1040032ACF1 /* Particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Particle.png; sourceTree = "<group>"; };
-		63C41BF2106555E3007B8E94 /* ParticleFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleFunctions.h; sourceTree = "<group>"; };
+		63C154FB106D4CC60053E452 /* RendererFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RendererFunctions.h; sourceTree = "<group>"; };
+		63C1574A106DB7080053E452 /* ConstantsAndMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantsAndMacros.h; sourceTree = "<group>"; };
+		63C1574B106DB7080053E452 /* OpenGLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLCommon.h; sourceTree = "<group>"; };
 		63EF8D22106B0FF2007C2E58 /* ParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSystem.h; sourceTree = "<group>"; };
 		63EF8D23106B0FF2007C2E58 /* ParticleSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleSystem.m; sourceTree = "<group>"; };
 		63F01862106AF201008FABF0 /* ParticleEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleEmitter.h; sourceTree = "<group>"; };
@@ -161,17 +162,17 @@
 		633C888F10649219003911A0 /* Particles */ = {
 			isa = PBXGroup;
 			children = (
-				63C41BF2106555E3007B8E94 /* ParticleFunctions.h */,
+				63716FA1106FC34200B3C783 /* static */,
 				63EF8D22106B0FF2007C2E58 /* ParticleSystem.h */,
 				63EF8D23106B0FF2007C2E58 /* ParticleSystem.m */,
 				633C889010649219003911A0 /* Particle.h */,
 				633C889110649219003911A0 /* Particle.m */,
 				63F01862106AF201008FABF0 /* ParticleEmitter.h */,
 				63F01863106AF201008FABF0 /* ParticleEmitter.m */,
-				63F01865106AF218008FABF0 /* ParticleRenderer.h */,
-				63F01866106AF218008FABF0 /* ParticleRenderer.m */,
 				633C889210649219003911A0 /* ParticleController.h */,
 				633C889310649219003911A0 /* ParticleController.m */,
+				63F01865106AF218008FABF0 /* ParticleRenderer.h */,
+				63F01866106AF218008FABF0 /* ParticleRenderer.m */,
 			);
 			name = Particles;
 			sourceTree = "<group>";
@@ -193,8 +194,8 @@
 		633C88DA10649445003911A0 /* OpenGL */ = {
 			isa = PBXGroup;
 			children = (
-				633C88EC106495CE003911A0 /* OpenGLCommon.h */,
-				633C88ED106495CE003911A0 /* ConstantsAndMacros.h */,
+				63C1574A106DB7080053E452 /* ConstantsAndMacros.h */,
+				63C1574B106DB7080053E452 /* OpenGLCommon.h */,
 				633C88DB1064944B003911A0 /* Textures */,
 			);
 			name = OpenGL;
@@ -207,6 +208,15 @@
 				633C88CE106493A6003911A0 /* Texture2D.m */,
 			);
 			name = Textures;
+			sourceTree = "<group>";
+		};
+		63716FA1106FC34200B3C783 /* static */ = {
+			isa = PBXGroup;
+			children = (
+				63C154FB106D4CC60053E452 /* RendererFunctions.h */,
+				63716F89106FC18E00B3C783 /* EmitterFunctions.h */,
+			);
+			name = static;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +312,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
+				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Particles_2_Prefix.pch;
 				GCC_THUMB_SUPPORT = NO;
@@ -310,6 +321,36 @@
 				PRODUCT_NAME = Particles_2;
 			};
 			name = Release;
+		};
+		63AF7A7B106EA5BC0086AF07 /* Release - Shark */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_THUMB_SUPPORT = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos3.1;
+			};
+			name = "Release - Shark";
+		};
+		63AF7A7C106EA5BC0086AF07 /* Release - Shark */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DEBUGGING_SYMBOLS = full;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Particles_2_Prefix.pch;
+				GCC_THUMB_SUPPORT = NO;
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				INFOPLIST_FILE = "Particles_2-Info.plist";
+				PRODUCT_NAME = Particles_2;
+			};
+			name = "Release - Shark";
 		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -330,12 +371,15 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
 				SDKROOT = iphoneos3.1;
+				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Release;
 		};
@@ -347,6 +391,7 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
+				63AF7A7C106EA5BC0086AF07 /* Release - Shark */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -356,6 +401,7 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+				63AF7A7B106EA5BC0086AF07 /* Release - Shark */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
