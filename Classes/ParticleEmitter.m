@@ -103,8 +103,6 @@
 	[self updateEmitionSource];
 }
 
-
-
 /*
  *The first FX allows to emit particles following a rect between a source CGPoint and an End CGPoint
  */

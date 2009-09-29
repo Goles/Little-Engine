@@ -8,9 +8,11 @@
 
 #import "ParticleSystem.h"
 #import "Particle.h"
-#import "ParticleController.h";
-#import "ParticleEmitter.h";
-#import "ParticleRenderer.h";
+#import "ParticleController.h"
+#import "ParticleEmitter.h"
+#import "RendererFunctions.h"
+#import "ParticleRenderer.h"
+
 
 @implementation ParticleSystem
 
@@ -58,8 +60,9 @@
 
 - (void) update
 {
+	/*First we tell our emitter to update all his particles*/
 	[systemEmitter update];
-	[systemRenderer pushVertexs];
+	[systemRenderer update];
 }
 
 - (Particle **) array

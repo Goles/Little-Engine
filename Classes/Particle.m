@@ -19,6 +19,7 @@
 @synthesize yAccel;
 @synthesize lifeTime;
 @synthesize rotation;
+@synthesize size;
 
 - (id) init
 {
@@ -33,6 +34,7 @@
 		yAccel		= 0;
 		lifeTime	= 1.0;
 		rotation	= 0;
+		size		= 32;
 	}
 	return self;
 }

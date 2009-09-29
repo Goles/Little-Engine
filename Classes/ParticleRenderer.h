@@ -16,15 +16,20 @@
 @interface ParticleRenderer : NSObject 
 {
 	id			delegate;
-	Particle	**array;	//this will be a reference to the system array.
+	Particle	**array;			//this will be a reference to the system array.	
 	Texture2D	*particleTexture;
+	
+	int renderingMode;
 }
 
 @property (nonatomic, retain) id delegate;
 @property (nonatomic, retain) Texture2D *particleTexture;
+@property (readwrite) int renderingMode;
 
+- (void) update;
 - (void) draw;
-- (void) pushVertexs;
+- (void) pushVertexs2XTriangles;
+- (void) pushVertexsPointSprites;
 - (void) setArrayReference;
 - (id) initWithDelegate:(id)inDelegate;
 

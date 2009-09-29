@@ -17,6 +17,7 @@
 	float	xAccel,yAccel;
 	float	lifeTime;
 	float	rotation;
+	float	size;
 }
 
 @property (readwrite) CGPoint position;
@@ -27,6 +28,7 @@
 @property (readwrite) float yAccel;
 @property (readwrite) float lifeTime;
 @property (readwrite) float rotation;
+@property (readwrite) float size;
 
 - (id) init;
 - (void) update;

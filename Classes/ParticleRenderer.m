@@ -17,6 +17,7 @@
 
 @synthesize delegate;
 @synthesize particleTexture;
+@synthesize renderingMode;
 
 - (id) initWithDelegate:(id) inDelegate
 {
@@ -28,6 +29,7 @@
 		{
 			[self setArrayReference];
 			particleTexture = [[Texture2D alloc] initWithImagePath:@"Particle.png"]; // For now this will be instanciated here, in the future must be a pointer to a texture stored somewhere.
+			renderingMode	= kRenderingMode_PointSprites;
 		}
 	}
 	
@@ -39,7 +41,9 @@
 	array = [(ParticleSystem *)delegate array];
 }
 
-- (void) pushVertexs
+#pragma mark vertexPushingModes
+
+- (void) pushVertexs2XTriangles
 {
 	/*
 	 * We asume the whole system will use the same texture, so this will not change.
@@ -95,16 +99,81 @@
 	}
 }
 
+- (void) pushVertexsPointSprites
+{
+	for(int i = 0; i < [delegate particleNumber]; i++)
+	{
+		/*First we asign the Color to the particle.*/
+		unsigned char RGB[3];
+		
+		float HSV[3] = {array[i].lifeTime *225.0f, 1.0f, 100.0f};
+		//float HSV[3] = {255.0f, 1, 1};
+		_HSVToRGB(HSV, RGB);
+		
+		unsigned char shortAlpha = (array[i].lifeTime)*150.0f;
+		unsigned color = (shortAlpha << 24) | (RGB[0] << 16) | (RGB[1] << 8) | (RGB[2] << 0);
+		
+		/*We add the point sprite to the array.*/
+		addPointSprite(array[i].position.x, array[i].position.y, color, array[i].size);
+		
+		if (_pointSpriteCount >= MAX_VERTEX)
+		{
+			_pointSpriteCount = MAX_VERTEX;
+		}
+	}
+}
+
+/*This will fill the correct interleaved arrays.*/
+- (void) update
+{
+	switch (renderingMode) {
+		case kRenderingMode_2xTriangles:
+			[self pushVertexs2XTriangles];
+			break;
+		case kRenderingMode_PointSprites:
+			[self pushVertexsPointSprites];
+			break;
+		default:
+			NSLog(@"Unrecognized Rendering mode when trying to update the interleaved arrays.");
+			break;
+	}
+}
+
 - (void) draw
 {
-    if (!_vertexCount)
-        return;
-	
-    glVertexPointer(2, GL_SHORT, sizeof(ParticleVertex), &_interleavedVertexs[0].v);
-    glTexCoordPointer(2, GL_FLOAT, sizeof(ParticleVertex), &_interleavedVertexs[0].uv);
-    glColorPointer(4, GL_UNSIGNED_BYTE, sizeof(ParticleVertex), &_interleavedVertexs[0].color);
-    glDrawArrays(GL_TRIANGLES, 0, _vertexCount);
-    _vertexCount = 0;
+	switch (renderingMode) {
+		case kRenderingMode_2xTriangles: //If we are drawing triangles.
+			if (!_vertexCount)
+				return;	
+			
+			glVertexPointer(2, GL_SHORT, sizeof(ParticleVertex), &_interleavedVertexs[0].v);
+			glTexCoordPointer(2, GL_FLOAT, sizeof(ParticleVertex), &_interleavedVertexs[0].uv);
+			glColorPointer(4, GL_UNSIGNED_BYTE, sizeof(ParticleVertex), &_interleavedVertexs[0].color);
+			glDrawArrays(GL_TRIANGLES, 0, _vertexCount);
+			_vertexCount = 0;
+			
+			break;
+		case kRenderingMode_PointSprites: //If We are drawing pointSprites.
+			if(!_pointSpriteCount)
+				return;
+			
+			glEnable(GL_POINT_SPRITE_OES);
+			glTexEnvi(GL_POINT_SPRITE_OES, GL_COORD_REPLACE_OES, GL_TRUE);
+			glEnableClientState(GL_POINT_SIZE_ARRAY_OES);
+			
+			glVertexPointer(2, GL_SHORT, sizeof(PointSprite), &_interleavedPointSprites[0].v);
+			glPointSizePointerOES(GL_FLOAT, sizeof(PointSprite), &_interleavedPointSprites[0].size);
+			glColorPointer(4, GL_UNSIGNED_BYTE, sizeof(PointSprite), &_interleavedPointSprites[0].color);
+			
+			glDrawArrays(GL_POINTS, 0, _pointSpriteCount);
+			_pointSpriteCount = 0;
+			break;
+		default:
+			
+			NSLog(@"Unrecognized rendering mode. This shouldn't happen.");
+			
+			break;
+	}
 }
 
 @end

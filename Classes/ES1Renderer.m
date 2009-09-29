@@ -13,8 +13,6 @@
 #import "ParticleSystem.h"
 #import "ParticleEmitter.h"
 
-
-
 @implementation ES1Renderer
 
 @synthesize aSystem;
@@ -32,7 +30,7 @@
             return nil;
         }
 		
-		aSystem	= [[ParticleSystem alloc] initWithParticles:600];
+		aSystem	= [[ParticleSystem alloc] initWithParticles:500];
 		
 		[[aSystem systemEmitter] setSystemXSpeed:0.0 
 										  ySpeed:0.0 
@@ -63,6 +61,7 @@
 	glLoadIdentity();
 	glOrthof(0, 320, 0, 480, 0, 1);
 	glMatrixMode(GL_MODELVIEW);
+	glDisable(GL_DEPTH_TEST);
 }
 
 - (void) render
@@ -83,8 +82,6 @@
 	glEnable(GL_TEXTURE_2D);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE);
-	//glHint(GL_PERSPECTIVE_CORRECTION_HINT,GL_NICEST);			// Really Nice Perspective Calculations
-	//glHint(GL_POINT_SMOOTH_HINT,GL_NICEST);	
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 	glEnableClientState(GL_COLOR_ARRAY);
 	glEnableClientState(GL_VERTEX_ARRAY);
