@@ -68,16 +68,10 @@
 
 - (void) update
 {
-	for(int i = 0; i < [(ParticleSystem *)delegate particleNumber]; i++)
+	/*for(int i = 0; i < [(ParticleSystem *)delegate particleNumber]; i++)
 	{
-		if(array[i].lifeTime > 0.0)
-		{	
-			[array[i] update];
-		}
-		else {
-			[array[i] reset];
-		}
-	}
+
+	}*/
 }
 
 #pragma mark SpecialFX

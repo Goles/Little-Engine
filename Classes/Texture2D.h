@@ -81,6 +81,10 @@ typedef enum {
 	kTexture2DPixelFormat_RGBA_PVRTC4
 } Texture2DPixelFormat;
 
+
+/* TEXTURE 2D added by cocos for MIN-MAG Filtering*/
+
+
 //CLASS INTERFACES:
 
 /*
@@ -147,4 +151,47 @@ Note that the generated textures are of type A8 - use the blending mode (GL_SRC_
 @interface Texture2D (Text)
 - (id) initWithString:(NSString*)string dimensions:(CGSize)dimensions alignment:(UITextAlignment)alignment fontName:(NSString*)name fontSize:(CGFloat)size;
 - (id) initWithString:(NSString*)string dimensions:(CGSize)dimensions alignment:(UITextAlignment)alignment font:(UIFont*)font;
+@end
+
+
+/**
+ Extension to set the Min / Mag filter
+ */
+typedef struct _ccTexParams {
+	GLuint	minFilter;
+	GLuint	magFilter;
+	GLuint	wrapS;
+	GLuint	wrapT;
+} ccTexParams;
+
+@interface Texture2D (GLFilter)
+/** sets the min filter, mag filter, wrap s and wrap t texture parameters
+ @since v0.8
+ */
+-(void) setTexParameters: (ccTexParams*) texParams;
+
+/** sets antialias texture parameters:
+ TEXTURE_MIN_FILTER = LINEAR
+ TEXTURE_MAG_FILTER = LINEAR
+ @since v0.8
+ */
+- (void) setAntiAliasTexParameters;
+
+/** sets alias texture parameters:
+ TEXTURE_MIN_FILTER = NEAREST
+ TEXTURE_MAG_FILTER = NEAREST
+ @since v0.8
+ */
+- (void) setAliasTexParameters;
+@end
+
+/**
+ Extensions to make it easy to create a Texture2D object from a PVRTC file
+ Note that the generated textures are don't have their alpha premultiplied - use the blending mode (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA).
+ */
+@interface Texture2D (PVRTC)
+/** Initializes a texture from a PVRTC buffer */
+-(id) initWithPVRTCData: (const void*)data level:(int)level bpp:(int)bpp hasAlpha:(BOOL)hasAlpha length:(int)length;
+/** Initializes a texture from a PVRTC file */
+-(id) initWithPVRTCFile: (NSString*) file;
 @end

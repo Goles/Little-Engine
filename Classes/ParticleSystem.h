@@ -35,6 +35,7 @@
 @property (readwrite) BOOL textureBound;
 @property (readwrite) unsigned int particleNumber;
 @property (retain, nonatomic) ParticleEmitter *systemEmitter;
+@property (retain, nonatomic) ParticleRenderer *systemRenderer;
 @property Particle **array;
 
 - (void) update;

@@ -1,27 +1,35 @@
-//
-// ChainReactionconstants.h
-//  ChainReaction
-//
-//  Created by Mr.Gando on 6/14/09.
-//  Copyright __MyCompanyName__ 2009. All rights reserved.
-//
+/*
+ * Constants and Macros
+ */
+ 
 
-// How many times a second to refresh the screen
-#define kRenderingFrequency 60.0
+#import <math.h>
 
-// For setting up perspective, define near, far, and angle of view
-#define kZNear			0.01
-#define kZFar			1000.0
-#define kFieldOfView	45.0
+//Screen definitions
+#define SCREEN_HEIGHT 480
+#define SCREEN_WIDTH  320
 
-// Macros
-#define DEGREES_TO_RADIANS(__ANGLE__) ((__ANGLE__) / 180.0 * M_PI)
+//simple macro that swaps 2 variables
+#define CC_SWAP( x, y )			\
+({ __typeof__(x) temp  = (x);		\
+		x = y; y = temp;		\
+})
+
+/// returns a random float between -1 and 1
+#define CCRANDOM_MINUS1_1() ((random() / (float)0x3fffffff )-1.0f)
 
 /// returns a random float between 0 and 1
 #define CCRANDOM_0_1() ((random() / (float)0x7fffffff ))
 
-//Game Screen size
+/// converts degrees to radians
+#define CC_DEGREES_TO_RADIANS(__ANGLE__) ((__ANGLE__) / 180.0f * (float)M_PI)
 
-#define SCREEN_HEIGHT 480.0
-#define SCREEN_WIDTH  320.0
+/// converts radians to degrees
+#define CC_RADIANS_TO_DEGREES(__ANGLE__) ((__ANGLE__) / (float)M_PI * 180.0f)
+
+/// default gl blend src function
+//#define CC_BLEND_SRC GL_SRC_ALPHA
+#define CC_BLEND_SRC GL_ONE
+/// default gl blend dst function
+#define CC_BLEND_DST GL_ONE_MINUS_SRC_ALPHA
 

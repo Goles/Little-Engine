@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-#define MAX_VERTEX 20000
+#import "OpenGLCommon.h"
 
 @class Texture2D;
 @class Particle;
@@ -18,8 +17,9 @@
 	id			delegate;
 	Particle	**array;			//this will be a reference to the system array.	
 	Texture2D	*particleTexture;
-	
 	int renderingMode;
+	GLuint bufferID;
+	GLuint colorBufferID;
 }
 
 @property (nonatomic, retain) id delegate;

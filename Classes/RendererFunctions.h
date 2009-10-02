@@ -11,8 +11,8 @@
 
 typedef enum
 {
-	kRenderingMode_2xTriangles = 0,
-	kRenderingMode_PointSprites,
+	kRenderingMode_PointSprites = 0,
+	kRenderingMode_2xTriangles,
 } EmmiterFX;
 
 /*Structure used when not using point-sprites. (using 2xtriangles instead to simulate quad)*/
@@ -34,9 +34,10 @@ typedef struct
 enum { H, S, V };
 
 #define MAX_VERTEX 20000
+#define MAX_POINT_SPRITE 20000
 
 ParticleVertex	_interleavedVertexs[MAX_VERTEX];
-PointSprite		_interleavedPointSprites[MAX_VERTEX];
+PointSprite		_interleavedPointSprites[MAX_POINT_SPRITE];
 
 static unsigned _vertexCount		= 0;
 static unsigned _pointSpriteCount	= 0;
@@ -46,9 +47,13 @@ static inline void _HSVToRGB(const float *HSV, unsigned char *RGB)
     float	h = HSV[H], 
 			s = HSV[S], 
 			v = HSV[V];
+	
+
+	
     float w = roundf(h) / 60.0f;
-    float h1 = fmodf(floorf(w), 6.0f);
-    float f = w - floorf(w);
+	float floorW = floor(w);
+    float h1 = fmodf(floorW, 6.0f);
+    float f = w - floorW;
     float p = v * (1.0f - s);
     float q = v * (1.0f - (f * s));
     float t = v * (1.0f - ((1.0f - f) * s));

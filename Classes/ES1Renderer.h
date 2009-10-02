@@ -17,9 +17,10 @@
 
 @interface ES1Renderer : NSObject <ESRenderer>
 {
-
-@private
+@public
 	ParticleSystem *aSystem;
+@private
+	
 	
 	EAGLContext *context;
 	

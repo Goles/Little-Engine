@@ -34,23 +34,23 @@
 		yAccel		= 0;
 		lifeTime	= 1.0;
 		rotation	= 0;
-		size		= 32;
+		size		= 64.0;
 	}
 	return self;
 }
 
 - (void) update
 {	
-	xSpeed		+= xAccel;
-	ySpeed		+= yAccel;
-	position.x	+= xSpeed;
-	position.y	+= ySpeed;
+	float kRandom = CCRANDOM_0_1()/35;
 	
-	float kRandom = CCRANDOM_0_1();
-	
-	if(lifeTime >= kRandom/35)
-		lifeTime -= kRandom/35;
-	else {
+	if(lifeTime >= kRandom){
+		xSpeed		+= xAccel;
+		ySpeed		+= yAccel;
+		position.x	+= xSpeed;
+		position.y	+= ySpeed;
+		lifeTime -= kRandom;
+		
+	}else {
 		lifeTime = 0.0;
 	}
 }

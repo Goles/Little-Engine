@@ -61,6 +61,7 @@
 	glLoadIdentity();
 	glOrthof(0, 320, 0, 480, 0, 1);
 	glMatrixMode(GL_MODELVIEW);
+	glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_BLEND_SRC);
 	glDisable(GL_DEPTH_TEST);
 }
 
@@ -82,9 +83,6 @@
 	glEnable(GL_TEXTURE_2D);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE);
-	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-	glEnableClientState(GL_COLOR_ARRAY);
-	glEnableClientState(GL_VERTEX_ARRAY);
  	
 	if(![aSystem textureBound])
 	{

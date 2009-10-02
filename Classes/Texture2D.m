@@ -63,6 +63,7 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 #import <OpenGLES/ES1/glext.h>
 
 #import "Texture2D.h"
+#import "PVRTexture.h"
 
 //CONSTANTS:
 
@@ -653,4 +654,87 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 	glBindTexture(GL_TEXTURE_2D, _name);
 }
 
+@end
+
+//
+// Use to apply MIN/MAG filter
+//
+@implementation Texture2D (GLFilter)
+
+-(void) setTexParameters: (ccTexParams*) texParams
+{
+	glBindTexture( GL_TEXTURE_2D, self.name );
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, texParams->minFilter );
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, texParams->magFilter );
+	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, texParams->wrapS );
+	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, texParams->wrapT );
+}
+
+-(void) setAliasTexParameters
+{
+	ccTexParams texParams = { GL_NEAREST, GL_NEAREST, GL_CLAMP_TO_EDGE, GL_CLAMP_TO_EDGE };
+	[self setTexParameters: &texParams];
+}
+
+-(void) setAntiAliasTexParameters
+{
+	ccTexParams texParams = { GL_LINEAR, GL_LINEAR, GL_CLAMP_TO_EDGE, GL_CLAMP_TO_EDGE };
+	[self setTexParameters:&texParams];
+}
+@end
+
+@implementation Texture2D (PVRTC)
+-(id) initWithPVRTCData: (const void*)data level:(int)level bpp:(int)bpp hasAlpha:(BOOL)hasAlpha length:(int)length
+{
+	//	GLint					saveName;
+	
+	if((self = [super init])) {
+		glGenTextures(1, &_name);
+		//		glGetIntegerv(GL_TEXTURE_BINDING_2D, &saveName);
+		glBindTexture(GL_TEXTURE_2D, _name);
+		
+		[self setAntiAliasTexParameters];
+		
+		GLenum format;
+		GLsizei size = length * length * bpp / 8;
+		if(hasAlpha) {
+			format = (bpp == 4) ? GL_COMPRESSED_RGBA_PVRTC_4BPPV1_IMG : GL_COMPRESSED_RGBA_PVRTC_2BPPV1_IMG;
+		} else {
+			format = (bpp == 4) ? GL_COMPRESSED_RGB_PVRTC_4BPPV1_IMG : GL_COMPRESSED_RGB_PVRTC_2BPPV1_IMG;
+		}
+		if(size < 32) {
+			size = 32;
+		}
+		glCompressedTexImage2D(GL_TEXTURE_2D, level, format, length, length, 0, size, data);
+		
+		//		glBindTexture(GL_TEXTURE_2D, saveName);
+		
+		_size = CGSizeMake(length, length);
+		_width = length;
+		_height = length;
+		_maxS = 1.0f;
+		_maxT = 1.0f;
+	}					
+	return self;
+}
+
+-(id) initWithPVRTCFile: (NSString*) file
+{	
+	if( (self = [super init]) ) {
+		PVRTexture *pvr = [[PVRTexture alloc] initWithContentsOfFile:file];
+		pvr.retainName = YES;	// don't dealloc texture on release
+		
+		_name = pvr.name;	// texture id
+		_maxS = 1.0f;
+		_maxT = 1.0f;
+		_width = pvr.width;		// width
+		_height = pvr.height;	// height
+		_size = CGSizeMake(_width, _height);
+		
+		[pvr release];
+		
+		[self setAntiAliasTexParameters];
+	}
+	return self;
+}
 @end

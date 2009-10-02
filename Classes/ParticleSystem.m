@@ -18,6 +18,7 @@
 
 @synthesize textureBound;
 @synthesize particleNumber;
+@synthesize systemRenderer;
 @synthesize systemEmitter;
 @synthesize array;
 
@@ -61,7 +62,7 @@
 - (void) update
 {
 	/*First we tell our emitter to update all his particles*/
-	[systemEmitter update];
+	//[systemEmitter update];
 	[systemRenderer update];
 }
 
