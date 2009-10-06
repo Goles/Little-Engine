@@ -232,6 +232,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -316,14 +318,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>RendererFunctions.h</string>
+								<string>ParticleRenderer.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -331,11 +331,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>RendererFunctions.h</string>
+										<string>ParticleRenderer.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>635A3A6C107B0C2E0010163F</string>
+										<string>63253CF3107B0C8A002DDE3D</string>
 										<key>history</key>
 										<array>
 											<string>63950A0D107109FB00291639</string>
@@ -376,8 +376,8 @@
 											<string>635A3A67107B0C2E0010163F</string>
 											<string>635A3A68107B0C2E0010163F</string>
 											<string>635A3A69107B0C2E0010163F</string>
+											<string>63253CF2107B0C8A002DDE3D</string>
 											<string>635A3A6A107B0C2E0010163F</string>
-											<string>635A3A6B107B0C2E0010163F</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -435,9 +435,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>635A38EB107AF36C0010163F</string>
+				<string>63253CF4107B0C8A002DDE3D</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>635A38EC107AF36C0010163F</string>
+				<string>63253CF5107B0C8A002DDE3D</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -575,13 +575,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1C530D57069F1CE1000CFCEE</string>
-		<string>635A39A5107B00090010163F</string>
-		<string>635A3901107AF4F00010163F</string>
-		<string>635A3903107AF4F00010163F</string>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>633C88BE106492C2003911A0</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/nicog/Programming/iPhone/Prototypes/Particles_2/Particles_2.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -601,14 +595,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>ParticleEmitter.m</string>
+								<string></string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -664,7 +656,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>633C88BE106492C2003911A0</string>
-				<string>635A38ED107AF36C0010163F</string>
+				<string>63253CF6107B0C8A002DDE3D</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
