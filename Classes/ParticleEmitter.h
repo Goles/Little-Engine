@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "OpenGLCommon.h"
 
 @class Particle;
 
@@ -31,13 +32,21 @@
 @property (readwrite) CGPoint emitionSource;
 
 - (void) update;
-- (void) setSystemXSpeed:(float) inXSpeed 
-				  ySpeed:(float) inYSpeed 
-				  xAccel:(float) inXAccel 
-				  yAccel:(float) inYAccel 
-				lifeTime:(float) inLifeTime 
-				  source:(CGPoint) inSource 
-				position:(CGPoint) inPosition;
+- (void) setSystemXInitialSpeed:(float) inXSpeed 
+				  initialYSpeed:(float) inYSpeed 
+						 xAccel:(float) inXAccel 
+						 yAccel:(float) inYAccel
+				 xAccelVariance:(float) inXAccelVariance
+				 yAccelVariance:(float) inYAccelVariance
+					   xGravity:(float) inXGravity
+					   yGravity:(float) inYGravity
+					   lifeTime:(float) inLifeTime 
+						 source:(CGPoint) inSource 
+				 decreaseFactor:(float) inDecreaseFactor
+					   position:(CGPoint) inPosition
+						   size:(float) inSize
+					 startColor:(Color3D) inStartColor
+					   endColor:(Color3D)inEndColor;
 
 - (id) initWithDelegate:(id)inDelegate;
 - (void) setCurrentFX:(int)fx withSource:(CGPoint)inSource andEnd:(CGPoint)inEnd;

@@ -21,6 +21,8 @@
 	ParticleSystem *aSystem;
 @private
 	
+	/* Time since the last frame was rendered */
+	CFTimeInterval lastTime;
 	
 	EAGLContext *context;
 	

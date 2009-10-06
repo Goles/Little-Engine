@@ -48,8 +48,6 @@ static inline void _HSVToRGB(const float *HSV, unsigned char *RGB)
 			s = HSV[S], 
 			v = HSV[V];
 	
-
-	
     float w = roundf(h) / 60.0f;
 	float floorW = floor(w);
     float h1 = fmodf(floorW, 6.0f);

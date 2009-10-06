@@ -43,25 +43,47 @@
 	array = [(ParticleSystem *)delegate array];
 }
 
-- (void) setSystemXSpeed:(float) inXSpeed 
-				  ySpeed:(float) inYSpeed 
-				  xAccel:(float) inXAccel 
-				  yAccel:(float) inYAccel 
-				lifeTime:(float) inLifeTime 
-				  source:(CGPoint) inSource 
-				position:(CGPoint) inPosition
+- (void) setSystemXInitialSpeed:(float) inXSpeed 
+				  initialYSpeed:(float) inYSpeed 
+						 xAccel:(float) inXAccel 
+						 yAccel:(float) inYAccel
+				 xAccelVariance:(float) inXAccelVariance
+				 yAccelVariance:(float) inYAccelVariance
+					   xGravity:(float) inXGravity
+					   yGravity:(float) inYGravity
+					   lifeTime:(float) inLifeTime 
+						 source:(CGPoint) inSource
+				 decreaseFactor:(float) inDecreaseFactor
+					   position:(CGPoint) inPosition
+						   size:(float) inSize
+					 startColor:(Color3D) inStartColor
+					   endColor:(Color3D) inEndColor
 {
 	if(array)
 	{
 		for(int i = 0; i < [(ParticleSystem *)delegate particleNumber]; i++)
 		{
-			[array[i] setXSpeed:inXSpeed];
-			[array[i] setYSpeed:inYSpeed];
+			[array[i] setXInitialSpeed:inXSpeed];
+			[array[i] setYInitialSpeed:inYSpeed];
 			[array[i] setXAccel:inXAccel];
 			[array[i] setYAccel:inYAccel];
+			[array[i] setXAccelVariance:inXAccelVariance];
+			[array[i] setYAccelVariance:inYAccelVariance];
+			[array[i] setXGravity:inXGravity];
+			[array[i] setYGravity:inYGravity];
 			[array[i] setLifeTime:inLifeTime];
 			[array[i] setSource:inSource];
+			[array[i] setDecreaseFactor:inDecreaseFactor];
 			[array[i] setPosition:inPosition];
+			[array[i] setSize:inSize];
+			[array[i] setStartColor:inStartColor];
+
+			/*We must calculate the delta from which the startColor will transform in End Color.*/
+			[array[i] setDeltaColor:Color3DMake((inEndColor.red - inStartColor.red), 
+												(inEndColor.green - inStartColor.green), 
+												(inEndColor.blue - inStartColor.blue), 
+												0)];
+			
 		}
 	}
 }

@@ -30,17 +30,25 @@
             return nil;
         }
 		
-		aSystem	= [[ParticleSystem alloc] initWithParticles:500];
+		aSystem	= [[ParticleSystem alloc] initWithParticles:1000];
 		
-		[[aSystem systemEmitter] setSystemXSpeed:0.0 
-										  ySpeed:0.0 
-										  xAccel:0.0
-										  yAccel:0.0
-										lifeTime:0.0
-										  source:CGPointMake(160, 200) 
-										position:CGPointMake(160, 200)];
+		[[aSystem systemEmitter] setSystemXInitialSpeed:0.0 
+										  initialYSpeed:8 
+												 xAccel:0
+												 yAccel:-0.2
+										 xAccelVariance:0.4
+										 yAccelVariance:0.1
+											   xGravity:0
+											   yGravity:0
+											   lifeTime:0.0
+												 source:CGPointMake(160, 200) 
+										 decreaseFactor:20	//Bigger means slower decrease. => Higher life time
+											   position:CGPointMake(160, 200)
+												   size:64
+											 startColor:Color3DMake(0, 0, 255, 0)
+											   endColor:Color3DMake(255, 0, 0, 0)];
 		
-		[[aSystem systemEmitter] setCurrentFX:kEmmiterFX_linear withSource:CGPointMake(10.0f, 10.0f) andEnd:CGPointMake(100.0f, 100.0f)];
+		[[aSystem systemEmitter] setCurrentFX:kEmmiterFX_none withSource:CGPointMake(160, 200) andEnd:CGPointMake(100.0f, 100.0f)];
 		
 		// Create default framebuffer object. The backing will be allocated for the current layer in -resizeFromLayer
 		glGenFramebuffersOES(1, &defaultFramebuffer);
@@ -61,7 +69,6 @@
 	glLoadIdentity();
 	glOrthof(0, 320, 0, 480, 0, 1);
 	glMatrixMode(GL_MODELVIEW);
-	glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_BLEND_SRC);
 	glDisable(GL_DEPTH_TEST);
 }
 
@@ -79,11 +86,9 @@
 	// clear background to black (don't need these if you draw a background image, since it will draw over whatever's there)
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
-	
-	glEnable(GL_TEXTURE_2D);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE);
  	
+	glEnable(GL_TEXTURE_2D);
+	
 	if(![aSystem textureBound])
 	{
 		[[aSystem currentTexture] bind];
@@ -93,8 +98,20 @@
 	[aSystem update];
 	[aSystem draw];
 	
-    //glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
+    glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
     [context presentRenderbuffer:GL_RENDERBUFFER_OES];
+}
+
+- (void) mainGameLoop
+{
+	CFTimeInterval		time;
+	float				delta;
+	time	= CFAbsoluteTimeGetCurrent();
+	delta	= time - lastTime;
+	
+	//[self render:delta];
+	
+	lastTime = time;
 }
 
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer
