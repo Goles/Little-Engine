@@ -20,11 +20,14 @@
 	int renderingMode;
 	GLuint bufferID;
 	GLuint colorBufferID;
+	
+	BOOL continuousRendering;
 }
 
 @property (nonatomic, retain) id delegate;
 @property (nonatomic, retain) Texture2D *particleTexture;
 @property (readwrite) int renderingMode;
+@property (readwrite) BOOL continuousRendering;
 
 - (void) update;
 - (void) draw;

@@ -27,6 +27,7 @@
 @synthesize rotation;
 @synthesize decreaseFactor;
 @synthesize size;
+@synthesize isActive;
 
 - (id) init
 {
@@ -46,8 +47,8 @@
 		lifeTime		= 1.0;
 		rotation		= 0;
 		size			= 16.0;
+		isActive		= YES;
 	}
-	
 	
 	return self;
 }
@@ -74,6 +75,7 @@
 		
 	}else {
 		lifeTime = 0.0;
+		isActive = NO;
 	}
 }
 
@@ -84,6 +86,7 @@
 	ySpeed = yInitialSpeed;
 	currentColor = startColor; 
 	lifeTime = 1.0;
+	isActive = YES;
 }
 
 #pragma mark coloring

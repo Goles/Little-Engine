@@ -25,6 +25,7 @@
 {
 	unsigned int		particleNumber;		//Total number of particles in the system
 	BOOL				textureBound;
+	BOOL				isActive;
 	
 	Particle			**array;
 	ParticleEmitter		*systemEmitter;
@@ -33,13 +34,16 @@
 }
 
 @property (readwrite) BOOL textureBound;
+@property (readwrite) BOOL isActive;
 @property (readwrite) unsigned int particleNumber;
 @property (retain, nonatomic) ParticleEmitter *systemEmitter;
 @property (retain, nonatomic) ParticleRenderer *systemRenderer;
 @property Particle **array;
 
+
+- (id) initWithParticles:(int)number
+			  continuous:(BOOL)inContinuous;
 - (void) update;
 - (void) draw;
-- (id) initWithParticles:(int)number;
 - (Texture2D *) currentTexture;
 @end

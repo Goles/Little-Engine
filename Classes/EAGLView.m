@@ -168,6 +168,7 @@
 			loc1.y	= SCREEN_HEIGHT - loc1.y + 20;
 			loc1.x	+= 20;
 			[[[renderer aSystem] systemEmitter] setCurrentFX:kEmmiterFX_none withSource:loc1 andEnd:loc1];
+			[[[renderer aSystem] systemRenderer] setContinuousRendering:YES];
 			//NSLog(@"(loc1X:%f | loc1Y:%f)",loc1.x,loc1.y);
 //			[[[renderer aSystem] systemEmitter] setEmitionSource:loc1];
 			break;

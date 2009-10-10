@@ -17,16 +17,19 @@
 @implementation ParticleSystem
 
 @synthesize textureBound;
+@synthesize isActive;
 @synthesize particleNumber;
 @synthesize systemRenderer;
 @synthesize systemEmitter;
 @synthesize array;
 
 - (id) initWithParticles:(int)number
+			  continuous:(BOOL)inContinuous
 {
 	if(self = [super init])
 	{
-		particleNumber = number;
+		particleNumber	= number;
+		isActive		= YES;
 		
 		/* 1) Allocate the  system's particles array*/
 		array = (Particle **)malloc(particleNumber * sizeof(Particle *));
@@ -44,6 +47,9 @@
 		
 		/* 4) Allocate the system's Controller */
 		systemController = [[ParticleController alloc] initWithDelegate:self];
+		
+		/* 5) We set the if the emitter will be continuous or not */
+		[systemRenderer setContinuousRendering:inContinuous];
 	}
 	
 	return self;
@@ -56,14 +62,17 @@
 
 - (void) draw
 {
-	[systemRenderer draw];
+	if (isActive)
+		[systemRenderer draw];	
+
 }
 
 - (void) update
 {
-	/*First we tell our emitter to update all his particles*/
+	/* we tell our emitter to update all his particles*/
 	//[systemEmitter update];
-	[systemRenderer update];
+	if (isActive) 
+		[systemRenderer update];
 }
 
 - (Particle **) array

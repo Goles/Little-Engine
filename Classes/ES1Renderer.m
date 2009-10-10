@@ -12,6 +12,7 @@
 #import "Texture2D.h"
 #import "ParticleSystem.h"
 #import "ParticleEmitter.h"
+#import "SingletonParticleSystemManager.h"
 
 @implementation ES1Renderer
 
@@ -30,9 +31,12 @@
             return nil;
         }
 		
-		aSystem	= [[ParticleSystem alloc] initWithParticles:1000];
 		
-		[[aSystem systemEmitter] setSystemXInitialSpeed:0.0 
+		/*FIRE
+		 aSystem	= [[ParticleSystem alloc] initWithParticles:3000
+													 continuous:YES];
+		 */
+		/*[[aSystem systemEmitter] setSystemXInitialSpeed:0.0 
 										  initialYSpeed:8 
 												 xAccel:0
 												 yAccel:-0.2
@@ -44,11 +48,50 @@
 												 source:CGPointMake(160, 200) 
 										 decreaseFactor:20	//Bigger means slower decrease. => Higher life time
 											   position:CGPointMake(160, 200)
-												   size:64
-											 startColor:Color3DMake(0, 0, 255, 0)
-											   endColor:Color3DMake(255, 0, 0, 0)];
+												   size:32
+											 startColor:Color3DMake(252, 164, 38, 0)
+											   endColor:Color3DMake(252, 108, 0, 0)];
+		*/
+		/*Flame thrower fountain
+		 aSystem	= [[ParticleSystem alloc] initWithParticles:1500
+													 continuous:YES];
+		[[aSystem systemEmitter] setSystemXInitialSpeed:0 
+										  initialYSpeed:15
+												 xAccel:0
+												 yAccel:-0.4
+										 xAccelVariance:0.8
+										 yAccelVariance:0.4
+											   xGravity:0
+											   yGravity:0
+											   lifeTime:0.0
+												 source:CGPointMake(160, 200) 
+										 decreaseFactor:20	//Bigger means slower decrease. => Higher life time
+											   position:CGPointMake(160, 200)
+												   size:32
+											 startColor:Color3DMake(255, 127, 77, 0)
+											   endColor:Color3DMake(255, 127, 77, 0)];
+		*/
+		
+		/*aSystem	= [[ParticleSystem alloc] initWithParticles:500
+												 continuous:NO];	 
+		[[aSystem systemEmitter] setSystemXInitialSpeed:0
+										  initialYSpeed:0
+												 xAccel:0
+												 yAccel:0
+										 xAccelVariance:1
+										 yAccelVariance:1
+											   xGravity:0
+											   yGravity:0
+											   lifeTime:0.0
+												 source:CGPointMake(160, 200) 
+										 decreaseFactor:60	//Bigger means slower decrease. => Higher life time
+											   position:CGPointMake(160, 200)
+												   size:32
+											 startColor:Color3DMake(255, 127, 77, 0)
+											   endColor:Color3DMake(255, 127, 77, 0)];
 		
 		[[aSystem systemEmitter] setCurrentFX:kEmmiterFX_none withSource:CGPointMake(160, 200) andEnd:CGPointMake(100.0f, 100.0f)];
+		
 		
 		// Create default framebuffer object. The backing will be allocated for the current layer in -resizeFromLayer
 		glGenFramebuffersOES(1, &defaultFramebuffer);
@@ -56,6 +99,23 @@
 		glBindFramebufferOES(GL_FRAMEBUFFER_OES, defaultFramebuffer);
 		glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
 		glFramebufferRenderbufferOES(GL_FRAMEBUFFER_OES, GL_COLOR_ATTACHMENT0_OES, GL_RENDERBUFFER_OES, colorRenderbuffer);
+		 */
+		
+		SingletonParticleSystemManager *theManager = [[SingletonParticleSystemManager alloc] init];
+		
+		ParticleSystem *someSystem	= [[ParticleSystem alloc] initWithParticles:3 continuous:YES];
+		ParticleSystem *someSystem2	= [[ParticleSystem alloc] initWithParticles:2 continuous:YES];
+		ParticleSystem *someSystem3	= [[ParticleSystem alloc] initWithParticles:1 continuous:YES];
+		
+		[theManager insertEntity:someSystem];
+		[theManager insertEntity:someSystem2];
+		[theManager insertEntity:someSystem3];
+		
+		[theManager printListDebug];
+		
+		[theManager removeEntityAtPosition:2];
+
+		[theManager printListDebug];
 	}
 	
 	return self;

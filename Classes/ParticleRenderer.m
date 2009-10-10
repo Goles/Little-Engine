@@ -15,9 +15,11 @@
 #import "FileUtils.h"
 
 @implementation ParticleRenderer
+
 @synthesize delegate;
 @synthesize particleTexture;
 @synthesize renderingMode;
+@synthesize continuousRendering;
 
 - (id) initWithDelegate:(id) inDelegate
 {
@@ -29,7 +31,7 @@
 		{
 			[self setArrayReference];
 			//particleTexture = [[Texture2D alloc] initWithImagePath:@"Particle2.png"]; // For now this will be instanciated here, in the future must be a pointer to a texture stored somewhere.
-			//particleTexture = [[Texture2D alloc] initWithPVRTCFile:[FileUtils fullPathFromRelativePath:@"Particle2.pvr"]];
+			particleTexture = [[Texture2D alloc] initWithPVRTCFile:[FileUtils fullPathFromRelativePath:@"Particle2.pvr"]];
 			
 			renderingMode	= kRenderingMode_PointSprites;
 			/*we initialize the gl buffer*/
@@ -131,7 +133,7 @@
 		{	
 			[array[i] update];
 		}
-		else {
+		else if(continuousRendering) {
 			[array[i] reset];
 		}
 		
@@ -151,7 +153,8 @@
 		
 		/*We add the point sprite to the array.*/
 				
-		addPointSprite(array[i].position.x, array[i].position.y, color, array[i].size);
+		addPointSprite(array[i].position.x, array[i].position.y, color, array[i].size*cachedParticleLifeTime
+					   );
 
 		
 		if (_pointSpriteCount >= MAX_POINT_SPRITE)
@@ -189,8 +192,6 @@
 		case kRenderingMode_PointSprites: //If We are drawing pointSprites.
 			if(!_pointSpriteCount)
 				return;
-			
-			
 			
 			glEnable(GL_BLEND);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE);

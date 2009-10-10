@@ -19,6 +19,7 @@
 		28FD14FE0DC6FC130079059D /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FD14FD0DC6FC130079059D /* EAGLView.m */; };
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
+		630256C2108053280041B9BA /* SingletonParticleSystemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 630256C1108053280041B9BA /* SingletonParticleSystemManager.m */; };
 		632A3E1B1073211200F8EADC /* PVRTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 632A3E1A1073211200F8EADC /* PVRTexture.m */; };
 		632A3EB61073260B00F8EADC /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 632A3EB51073260B00F8EADC /* Texture2D.m */; };
 		633C889410649219003911A0 /* Particle.m in Sources */ = {isa = PBXBuildFile; fileRef = 633C889110649219003911A0 /* Particle.m */; };
@@ -57,6 +58,8 @@
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Particles_2_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particles_2_Prefix.pch; sourceTree = "<group>"; };
+		630256C0108053280041B9BA /* SingletonParticleSystemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonParticleSystemManager.h; sourceTree = "<group>"; };
+		630256C1108053280041B9BA /* SingletonParticleSystemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingletonParticleSystemManager.m; sourceTree = "<group>"; };
 		632A3E191073211200F8EADC /* PVRTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRTexture.h; sourceTree = "<group>"; };
 		632A3E1A1073211200F8EADC /* PVRTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVRTexture.m; sourceTree = "<group>"; };
 		632A3E1F107321E200F8EADC /* ConstantsAndMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantsAndMacros.h; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 			isa = PBXGroup;
 			children = (
 				63716FA1106FC34200B3C783 /* static */,
+				630256C0108053280041B9BA /* SingletonParticleSystemManager.h */,
+				630256C1108053280041B9BA /* SingletonParticleSystemManager.m */,
 				633C889010649219003911A0 /* Particle.h */,
 				633C889110649219003911A0 /* Particle.m */,
 				63EF8D22106B0FF2007C2E58 /* ParticleSystem.h */,
@@ -342,6 +347,7 @@
 				632A3EB61073260B00F8EADC /* Texture2D.m in Sources */,
 				635C8EF21074761E002F9BB3 /* FileUtils.m in Sources */,
 				63E4F9FC107A2E8900FA74AE /* HardwareClock.cpp in Sources */,
+				630256C2108053280041B9BA /* SingletonParticleSystemManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

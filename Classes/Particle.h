@@ -25,9 +25,7 @@
 	float		rotation;
 	float		decreaseFactor;
 	float		size;
-
-	
-	
+	BOOL		isActive;	
 }
 
 @property (readwrite) CGPoint position;
@@ -46,6 +44,7 @@
 @property (readwrite) float rotation;
 @property (readwrite) float decreaseFactor;
 @property (readwrite) float size;
+@property (readwrite) BOOL	isActive;
 
 
 

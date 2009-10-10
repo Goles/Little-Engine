@@ -83,6 +83,8 @@
 												(inEndColor.green - inStartColor.green), 
 												(inEndColor.blue - inStartColor.blue), 
 												0)];
+			/*Finally we must reset the particle for it to take initial positions.*/
+			[array[i] reset];
 			
 		}
 	}
