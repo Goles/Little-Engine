@@ -10,7 +10,7 @@
 #import "Particle.h"
 #import "ParticleController.h"
 #import "ParticleEmitter.h"
-#import "RendererFunctions.h"
+#import "RenderingFunctions.h"
 #import "ParticleRenderer.h"
 
 
@@ -25,6 +25,7 @@
 
 - (id) initWithParticles:(int)number
 			  continuous:(BOOL)inContinuous
+		   renderingMode:(int)kRenderingMode
 {
 	if(self = [super init])
 	{
@@ -40,7 +41,7 @@
 		}
 		
 		/* 2) Allocate the system's renderer */
-		systemRenderer	= [[ParticleRenderer alloc] initWithDelegate:self];
+		systemRenderer	= [[ParticleRenderer alloc] initWithDelegate:self particles:particleNumber type:kRenderingMode];
 		
 		/* 3) Allocate the system's Emitter */
 		systemEmitter	= [[ParticleEmitter alloc] initWithDelegate:self];
@@ -69,8 +70,6 @@
 
 - (void) update
 {
-	/* we tell our emitter to update all his particles*/
-	//[systemEmitter update];
 	if (isActive) 
 		[systemRenderer update];
 }

@@ -7,27 +7,30 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ParticleSystemManagerFunctions.h"
+
+/* This class contains a Singleton instance of a Global Particle System manager
+ * the idea is to make this class to manage all the game particle systems. (allocs, releases, etc)
+ * the manager should give a key to each particle system in order to deallocate them/deactivate them in the future.
+ *
+ * For some specific inline functions, one should look at "ParticleSystemManagerFunctions.h".
+ *
+ * _NG October 11 - 2009
+ */
 
 @class ParticleSystem;
-@class SystemEntity;
-
-/*This is to make a Particle System list that the manager will hande and reduce the overhead*/
-typedef struct _entity
-{
-	ParticleSystem	*system;
-	struct _entity	*nextSystem;
-} SystemEntity;
 
 @interface SingletonParticleSystemManager : NSObject 
 {
-	SystemEntity *_systemsArray;
 }
 
-- (BOOL) insertEntity:(ParticleSystem *)inSystem;
+- (SystemEntity *) createParticleFX:(int) inParticleFX atStartPosition:(CGPoint) inPosition;
+- (SystemEntity *) insertEntity:(ParticleSystem *)inSystem;
 - (BOOL) deleteEntity:(int) inPosition;
 - (BOOL) removeEntityAtPosition:(int)inPosition;
 - (void) printListDebug;
-   
-//+ (SingletonParticleSystemManager *) sharedParticleSystemManager;
+
+static inline void drawSystems();
++ (SingletonParticleSystemManager *) sharedParticleSystemManager;
 
 @end

@@ -188,10 +188,6 @@
 				loc1	= locAux;
 			}
 			
-			NSLog(@"(loc1X:%f | loc1Y:%f)",loc1.x,loc1.y);
-			NSLog(@"(loc2X:%f | loc2Y:%f)",loc2.x, loc2.y);
-			NSLog(@"-----");
-			
 			[[[renderer aSystem] systemEmitter] setCurrentFX:kEmmiterFX_linear withSource:loc1 andEnd:loc2];
 			break;
 		default:

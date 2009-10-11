@@ -10,7 +10,6 @@
 #import "ParticleSystem.h"
 #import "Texture2D.h"
 #import "Particle.h"
-#import "RendererFunctions.h"
 #import "OpenGLCommon.h"
 #import "FileUtils.h"
 
@@ -21,7 +20,7 @@
 @synthesize renderingMode;
 @synthesize continuousRendering;
 
-- (id) initWithDelegate:(id) inDelegate
+- (id) initWithDelegate:(id) inDelegate particles:(int)inParticleNumber type:(int) inRenderingMode
 {
 	if((self = [super init]))
 	{
@@ -33,7 +32,23 @@
 			//particleTexture = [[Texture2D alloc] initWithImagePath:@"Particle2.png"]; // For now this will be instanciated here, in the future must be a pointer to a texture stored somewhere.
 			particleTexture = [[Texture2D alloc] initWithPVRTCFile:[FileUtils fullPathFromRelativePath:@"Particle2.pvr"]];
 			
-			renderingMode	= kRenderingMode_PointSprites;
+			_vertexCount = 0;
+			_pointSpriteCount = 0;
+			
+			renderingMode	= inRenderingMode;
+			
+			switch (inRenderingMode) {
+				case kRenderingMode_PointSprites:
+					_interleavedPointSprites = malloc(sizeof(PointSprite)*inParticleNumber);
+					break;
+				case kRenderingMode_2xTriangles:
+					_interleavedVertexs = malloc(sizeof(ParticleVertex)*inParticleNumber*2); //The 2x is because two triangles per particle are needed
+					break;
+				default:
+					NSLog(@"Problem when allocating the vertex arrays");
+					break;
+			}
+			
 			/*we initialize the gl buffer*/
 			glGenBuffers(1, &bufferID);
 		}
@@ -104,14 +119,14 @@
 		
 		//Then we pass both of our triangles that actually compose a particle position..
 		// Triangle #1
-        addVertex(topLeftX, topLeftY, 0, 0, color);
-        addVertex(topRightX, topRightY, 1, 0, color);
-        addVertex(bottomLeftX, bottomLeftY, 0, 1, color);
+        addVertex(topLeftX, topLeftY, 0, 0, color, _interleavedVertexs, &_vertexCount);
+        addVertex(topRightX, topRightY, 1, 0, color, _interleavedVertexs, &_vertexCount);
+        addVertex(bottomLeftX, bottomLeftY, 0, 1, color, _interleavedVertexs, &_vertexCount);
         
         // Triangle #2
-        addVertex(topRightX, topRightY, 1, 0, color);
-        addVertex(bottomLeftX, bottomLeftY, 0, 1, color);
-        addVertex(bottomRightX, bottomRightY, 1, 1, color);
+        addVertex(topRightX, topRightY, 1, 0, color, _interleavedVertexs, &_vertexCount);
+        addVertex(bottomLeftX, bottomLeftY, 0, 1, color, _interleavedVertexs, &_vertexCount);
+        addVertex(bottomRightX, bottomRightY, 1, 1, color, _interleavedVertexs, &_vertexCount);
 		
 		if (_vertexCount >= MAX_VERTEX)
 		{
@@ -151,10 +166,8 @@
 		
 		unsigned color = (shortAlpha << 24) | (RGB[0] << 16) | (RGB[1] << 8) | (RGB[2] << 0);
 		
-		/*We add the point sprite to the array.*/
-				
-		addPointSprite(array[i].position.x, array[i].position.y, color, array[i].size*cachedParticleLifeTime
-					   );
+		/*We add the point sprite to the array.*/				
+		addPointSprite(array[i].position.x, array[i].position.y, color, array[i].size*cachedParticleLifeTime, _interleavedPointSprites, &_pointSpriteCount);
 
 		
 		if (_pointSpriteCount >= MAX_POINT_SPRITE)

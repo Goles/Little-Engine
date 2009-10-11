@@ -75,9 +75,10 @@
 		635C8EF01074761E002F9BB3 /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
 		635C8EF11074761E002F9BB3 /* FileUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUtils.m; sourceTree = "<group>"; };
 		635C8F221074790B002F9BB3 /* Particle2.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = Particle2.pvr; sourceTree = "<group>"; };
+		636543491080FCC300EC118E /* ParticleSystemManagerFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSystemManagerFunctions.h; sourceTree = "<group>"; };
 		63716F89106FC18E00B3C783 /* EmitterFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmitterFunctions.h; sourceTree = "<group>"; };
 		638DD31B1064C1040032ACF1 /* Particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Particle.png; sourceTree = "<group>"; };
-		63C154FB106D4CC60053E452 /* RendererFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RendererFunctions.h; sourceTree = "<group>"; };
+		63C154FB106D4CC60053E452 /* RenderingFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderingFunctions.h; sourceTree = "<group>"; };
 		63C1574B106DB7080053E452 /* OpenGLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLCommon.h; sourceTree = "<group>"; };
 		63E2718C1072B42F00807A91 /* Particle3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Particle3.png; sourceTree = "<group>"; };
 		63E272021072E22A00807A91 /* Particle4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Particle4.png; sourceTree = "<group>"; };
@@ -266,8 +267,9 @@
 		63716FA1106FC34200B3C783 /* static */ = {
 			isa = PBXGroup;
 			children = (
-				63C154FB106D4CC60053E452 /* RendererFunctions.h */,
+				63C154FB106D4CC60053E452 /* RenderingFunctions.h */,
 				63716F89106FC18E00B3C783 /* EmitterFunctions.h */,
+				636543491080FCC300EC118E /* ParticleSystemManagerFunctions.h */,
 			);
 			name = static;
 			sourceTree = "<group>";

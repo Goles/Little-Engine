@@ -1,5 +1,5 @@
 /*
- *  RendererFunctions.h
+ *  RenderingFunctions.h
  *  Particles_2
  *
  *  Created by Nicolas Goles on 9/25/09.
@@ -13,7 +13,7 @@ typedef enum
 {
 	kRenderingMode_PointSprites = 0,
 	kRenderingMode_2xTriangles,
-} EmmiterFX;
+} RenderingMode;
 
 /*Structure used when not using point-sprites. (using 2xtriangles instead to simulate quad)*/
 typedef struct 
@@ -35,12 +35,6 @@ enum { H, S, V };
 
 #define MAX_VERTEX 20000
 #define MAX_POINT_SPRITE 20000
-
-ParticleVertex	_interleavedVertexs[MAX_VERTEX];
-PointSprite		_interleavedPointSprites[MAX_POINT_SPRITE];
-
-static unsigned _vertexCount		= 0;
-static unsigned _pointSpriteCount	= 0;
 
 static inline void _HSVToRGB(const float *HSV, unsigned char *RGB)
 {
@@ -106,25 +100,25 @@ static inline void _HSVToRGB(const float *HSV, unsigned char *RGB)
 }
 
 /*Function that adds a whole vertex to the _interleavedVertexs[] array*/
-static inline void addVertex(float x, float y, float uvx, float uvy, unsigned color)
+static inline void addVertex(float x, float y, float uvx, float uvy, unsigned color, ParticleVertex _interleavedVertexs[], unsigned *_vertexCount)
 {
-	ParticleVertex *vert = &_interleavedVertexs[_vertexCount];
+	ParticleVertex *vert = &_interleavedVertexs[(*_vertexCount)];
 	vert->v[0]	= x;
 	vert->v[1]	= y;
 	vert->uv[0]	= uvx;
 	vert->uv[1] = uvy;
 	vert->color	= color;
-	_vertexCount++;
+	(*_vertexCount)++;
 }
 
 /*Function that adds a whole pointSprite to the _interleavedPointSprites[] array*/
-static inline void addPointSprite(float x, float y, unsigned color, float size)
+static inline void addPointSprite(float x, float y, unsigned color, float size, PointSprite _interleavedPointSprites[], unsigned *_pointSpriteCount)
 {
-	PointSprite	*sprite	= &_interleavedPointSprites[_pointSpriteCount];
+	PointSprite	*sprite	= &_interleavedPointSprites[(*_pointSpriteCount)];
 	sprite->v[0]	= x;
 	sprite->v[1]	= y;
 	sprite->size	= size;
 	sprite->color	= color;
 
-	_pointSpriteCount++;
+	(*_pointSpriteCount)++;
 }

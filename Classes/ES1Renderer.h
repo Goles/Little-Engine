@@ -14,6 +14,7 @@
 @class ParticleController;
 @class Texture2D;
 @class ParticleSystem;
+@class SingletonParticleSystemManager;
 
 @interface ES1Renderer : NSObject <ESRenderer>
 {

@@ -13,6 +13,18 @@ typedef enum
 	kEmmiterFX_linear,
 } EmmiterFX;
 
+typedef enum
+{
+	kParticleSystemFX_smallFire = 0,
+	kParticleSystemFX_mediumFire,
+	kParticleSystemFX_bigFire,
+	kParticleSystemFX_smallFireExplosion,
+	kParticleSystemFX_mediumFireExplosion,
+	kParticleSystemFX_bigFireExplosion,
+	kParticleSystemFX_smallFireFountain,
+	kParticleSystemFX_mediumFireFountain,
+	kParticleSystemFX_bigFireFountain,
+} ParticleSystemFX;
 
 /*
  *This function gives me the Y coordinate when I apply a linear emition.

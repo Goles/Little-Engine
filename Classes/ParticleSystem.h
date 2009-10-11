@@ -42,7 +42,8 @@
 
 
 - (id) initWithParticles:(int)number
-			  continuous:(BOOL)inContinuous;
+			  continuous:(BOOL)inContinuous
+		   renderingMode:(int)kRenderingMode;
 - (void) update;
 - (void) draw;
 - (Texture2D *) currentTexture;

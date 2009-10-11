@@ -8,10 +8,11 @@
 
 #import "ES1Renderer.h"
 #import "ConstantsAndMacros.h"
-#import "EmitterFunctions.h"
 #import "Texture2D.h"
+#import "EmitterFunctions.h"
 #import "ParticleSystem.h"
 #import "ParticleEmitter.h"
+#import "RenderingFunctions.h"
 #import "SingletonParticleSystemManager.h"
 
 @implementation ES1Renderer
@@ -72,36 +73,9 @@
 											   endColor:Color3DMake(255, 127, 77, 0)];
 		*/
 		
-		/*aSystem	= [[ParticleSystem alloc] initWithParticles:500
-												 continuous:NO];	 
-		[[aSystem systemEmitter] setSystemXInitialSpeed:0
-										  initialYSpeed:0
-												 xAccel:0
-												 yAccel:0
-										 xAccelVariance:1
-										 yAccelVariance:1
-											   xGravity:0
-											   yGravity:0
-											   lifeTime:0.0
-												 source:CGPointMake(160, 200) 
-										 decreaseFactor:60	//Bigger means slower decrease. => Higher life time
-											   position:CGPointMake(160, 200)
-												   size:32
-											 startColor:Color3DMake(255, 127, 77, 0)
-											   endColor:Color3DMake(255, 127, 77, 0)];
+
 		
-		[[aSystem systemEmitter] setCurrentFX:kEmmiterFX_none withSource:CGPointMake(160, 200) andEnd:CGPointMake(100.0f, 100.0f)];
-		
-		
-		// Create default framebuffer object. The backing will be allocated for the current layer in -resizeFromLayer
-		glGenFramebuffersOES(1, &defaultFramebuffer);
-		glGenRenderbuffersOES(1, &colorRenderbuffer);
-		glBindFramebufferOES(GL_FRAMEBUFFER_OES, defaultFramebuffer);
-		glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
-		glFramebufferRenderbufferOES(GL_FRAMEBUFFER_OES, GL_COLOR_ATTACHMENT0_OES, GL_RENDERBUFFER_OES, colorRenderbuffer);
-		 */
-		
-		SingletonParticleSystemManager *theManager = [[SingletonParticleSystemManager alloc] init];
+		/*SingletonParticleSystemManager *theManager = [[SingletonParticleSystemManager alloc] init];
 		
 		ParticleSystem *someSystem	= [[ParticleSystem alloc] initWithParticles:3 continuous:YES];
 		ParticleSystem *someSystem2	= [[ParticleSystem alloc] initWithParticles:2 continuous:YES];
@@ -115,7 +89,90 @@
 		
 		[theManager removeEntityAtPosition:2];
 
-		[theManager printListDebug];
+		[theManager printListDebug];*/
+		
+		/*aSystem	= [[ParticleSystem alloc] initWithParticles:40 continuous:YES renderingMode:kRenderingMode_PointSprites];
+		
+		[[aSystem systemEmitter] setSystemXInitialSpeed:0
+										  initialYSpeed:0
+												 xAccel:0
+												 yAccel:0.03
+										 xAccelVariance:0.1
+										 yAccelVariance:0.1
+											   xGravity:0
+											   yGravity:0
+											   lifeTime:0.0
+												 source:CGPointMake(160, 200) 
+										 decreaseFactor:20	//Bigger means slower decrease. => Higher life time
+											   position:CGPointMake(160, 200)
+												   size:16
+											 startColor:Color3DMake(255, 127, 77, 0)
+											   endColor:Color3DMake(255, 127, 77, 0)];
+
+		[[aSystem systemEmitter] setCurrentFX:kEmmiterFX_none withSource:CGPointMake(160, 200) andEnd:CGPointMake(100.0f, 100.0f)];
+*/
+		/*
+		
+		ParticleSystem *aSystem2	= [[ParticleSystem alloc] initWithParticles:1000 continuous:YES renderingMode:kRenderingMode_PointSprites];
+		
+		[[aSystem2 systemEmitter] setSystemXInitialSpeed:0
+										  initialYSpeed:0
+												 xAccel:0
+												 yAccel:0
+										 xAccelVariance:1
+										 yAccelVariance:1
+											   xGravity:0
+											   yGravity:0
+											   lifeTime:0.0
+												 source:CGPointMake(160, 200) 
+										 decreaseFactor:60	//Bigger means slower decrease. => Higher life time
+											   position:CGPointMake(160, 200)
+												   size:16
+											 startColor:Color3DMake(1, 50, 255, 0)
+											   endColor:Color3DMake(255, 10, 255, 0)];
+		
+		[[aSystem2 systemEmitter] setCurrentFX:kEmmiterFX_none withSource:CGPointMake(160, 200) andEnd:CGPointMake(100.0f, 100.0f)];
+		*/
+		
+		/*ParticleSystem *aSystem3	= [[ParticleSystem alloc] initWithParticles:1000 continuous:YES renderingMode:kRenderingMode_PointSprites];
+		[[aSystem3 systemEmitter] setSystemXInitialSpeed:0 
+										  initialYSpeed:10
+												 xAccel:0
+												 yAccel:-0.4
+										 xAccelVariance:0.8
+										 yAccelVariance:0.4
+											   xGravity:0
+											   yGravity:0
+											   lifeTime:0.0
+												 source:CGPointMake(160, 200) 
+										 decreaseFactor:20	//Bigger means slower decrease. => Higher life time
+											   position:CGPointMake(160, 200)
+												   size:32
+											 startColor:Color3DMake(50, 30, 77, 0)
+											   endColor:Color3DMake(255, 127, 77, 0)];
+		
+		[[aSystem3 systemEmitter] setCurrentFX:kEmmiterFX_none withSource:CGPointMake(160, 300) andEnd:CGPointMake(100.0f, 100.0f)]; 
+		*/
+		
+		/*
+		 *This is a benchmark.
+		 */
+		for(int i = 20; i < 320; i+= 40)
+			for(int j = 30; j < 480; j+= 30)
+				[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_smallFire atStartPosition:CGPointMake(i, j)];
+
+		
+		
+		//[[SingletonParticleSystemManager sharedParticleSystemManager] insertEntity:aSystem2];
+		//[[SingletonParticleSystemManager sharedParticleSystemManager] insertEntity:aSystem3];
+		
+		// Create default framebuffer object. The backing will be allocated for the current layer in -resizeFromLayer
+		glGenFramebuffersOES(1, &defaultFramebuffer);
+		glGenRenderbuffersOES(1, &colorRenderbuffer);
+		glBindFramebufferOES(GL_FRAMEBUFFER_OES, defaultFramebuffer);
+		glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
+		glFramebufferRenderbufferOES(GL_FRAMEBUFFER_OES, GL_COLOR_ATTACHMENT0_OES, GL_RENDERBUFFER_OES, colorRenderbuffer);
+		 
 	}
 	
 	return self;
@@ -155,9 +212,11 @@
 		[aSystem setTextureBound:YES];
 	}
 
-	[aSystem update];
+	/*[aSystem update];
 	[aSystem draw];
+	*/
 	
+	drawSystems();
     glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
     [context presentRenderbuffer:GL_RENDERBUFFER_OES];
 }

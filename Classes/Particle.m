@@ -66,7 +66,6 @@
 		position.x	+= xSpeed;
 		position.y	+= ySpeed;
 
-		
 		currentColor.red		+= deltaColor.red*kRandom;
 		currentColor.green		+= deltaColor.green*kRandom;
 		currentColor.blue		+= deltaColor.blue*kRandom;
@@ -81,9 +80,9 @@
 
 - (void) reset
 {	
-	position = CGPointMake(source.x /*+ CCRANDOM_MINUS1_1()*5*/, source.y);
-	xSpeed = xInitialSpeed;
-	ySpeed = yInitialSpeed;
+	position = CGPointMake(source.x + CCRANDOM_MINUS1_1()*5, source.y + CCRANDOM_MINUS1_1()*5);
+	xSpeed = xInitialSpeed + xAccelVariance*CCRANDOM_MINUS1_1();
+	ySpeed = yInitialSpeed + yAccelVariance*CCRANDOM_MINUS1_1();
 	currentColor = startColor; 
 	lifeTime = 1.0;
 	isActive = YES;
