@@ -10,9 +10,6 @@
 #import "ConstantsAndMacros.h"
 #import "Texture2D.h"
 #import "EmitterFunctions.h"
-#import "ParticleSystem.h"
-#import "ParticleEmitter.h"
-#import "RenderingFunctions.h"
 #import "SingletonParticleSystemManager.h"
 
 @implementation ES1Renderer
