@@ -28,23 +28,25 @@
 	Particle	**array;			//this will be a reference to the system array.	
 	Texture2D	*particleTexture;
 	
+	BOOL continuousRendering;
+	BOOL systemDeactivation;
 	int renderingMode;
 	GLuint bufferID;
 	GLuint colorBufferID;
-	
-	BOOL continuousRendering;
-	
+
 	ParticleVertex	*_interleavedVertexs;
 	PointSprite		*_interleavedPointSprites;
-	
+	unsigned _particleNumber;
 	unsigned _vertexCount;
 	unsigned _pointSpriteCount;
+	unsigned resetCount;
 }
 
 @property (nonatomic, retain) id delegate;
 @property (nonatomic, retain) Texture2D *particleTexture;
 @property (readwrite) int renderingMode;
 @property (readwrite) BOOL continuousRendering;
+@property (readwrite) unsigned resetCount;
 
 - (void) update;
 - (void) draw;

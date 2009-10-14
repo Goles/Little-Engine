@@ -13,7 +13,6 @@ typedef struct _entity
 {
 	ParticleSystem	*system;
 	struct _entity	*nextSystem;
-	BOOL isActive;
 } SystemEntity;
 
 /*This is going to be the List containing all the Particle Systems declared here for performance reasons only.*/
@@ -26,7 +25,7 @@ static inline void drawSystems()
 	
 	while (currentElement != NULL) 
 	{
-		if(currentElement->isActive)
+		if([(ParticleSystem *)currentElement->system isActive])
 		{
 			[(ParticleSystem *)currentElement->system update];
 			[(ParticleSystem *)currentElement->system draw];

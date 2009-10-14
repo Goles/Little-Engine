@@ -71,28 +71,50 @@ static SingletonParticleSystemManager *sharedParticleSystemManager = nil;
 	{
 		/*Small Fire FX initializer*/
 		case kParticleSystemFX_smallFire:
-			newSystem	= [[ParticleSystem alloc] initWithParticles:10 continuous:YES renderingMode:kRenderingMode_PointSprites];
+			newSystem	= [[ParticleSystem alloc] initWithParticles:500 continuous:YES renderingMode:kRenderingMode_PointSprites];
 			
 			[[newSystem systemEmitter] setSystemXInitialSpeed:0
-												initialYSpeed:0
+												initialYSpeed:4
 													   xAccel:0
 													   yAccel:0.03
 											   xAccelVariance:0.1
 											   yAccelVariance:0.1
 													 xGravity:0
-													 yGravity:0
-													 lifeTime:0.0
+													 yGravity:-0.06
+													 lifeTime:2.0
+											 lifespanVariance:1.95
 													   source:inPosition 
 											   decreaseFactor:20	//Bigger means slower decrease. => Higher life time
-													 position:CGPointMake(160, 200)
-														 size:64
-												   startColor:Color3DMake(255, 127, 77, 0)
-													 endColor:Color3DMake(255, 127, 77, 0)];
+													 position:CGPointMake(160, 100)
+														 size:32
+												   startColor:Color3DMake(50, 30, 255, 0)
+													 endColor:Color3DMake(255, 70, 70, 0)];
 			
 			[[newSystem systemEmitter] setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
 			
 			break;
 		case kParticleSystemFX_mediumFire:
+			newSystem	= [[ParticleSystem alloc] initWithParticles:1500 continuous:NO renderingMode:kRenderingMode_PointSprites];
+			
+			[[newSystem systemEmitter] setSystemXInitialSpeed:0
+												initialYSpeed:0
+													   xAccel:0
+													   yAccel:0.0
+											   xAccelVariance:2
+											   yAccelVariance:2
+													 xGravity:0
+													 yGravity:0
+													 lifeTime:2.0
+											 lifespanVariance:1.95
+													   source:inPosition 
+											   decreaseFactor:60	//Bigger means slower decrease. => Higher life time
+													 position:CGPointMake(160, 100)
+														 size:8
+												   startColor:Color3DMake(255, 30, 50, 0)
+													 endColor:Color3DMake(90, 40, 255, 0)];
+			
+			[[newSystem systemEmitter] setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
+			
 			break;
 		case kParticleSystemFX_bigFire:
 			break;		
@@ -113,7 +135,6 @@ static SingletonParticleSystemManager *sharedParticleSystemManager = nil;
 	newElement = malloc(sizeof(SystemEntity));
 	
 	newElement->system		= inSystem;
-	newElement->isActive	= [inSystem isActive];
 	newElement->nextSystem	= NULL;
 	
 	currentElement = _systemsList;

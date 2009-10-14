@@ -19,6 +19,7 @@
 @synthesize particleTexture;
 @synthesize renderingMode;
 @synthesize continuousRendering;
+@synthesize resetCount;
 
 - (id) initWithDelegate:(id) inDelegate particles:(int)inParticleNumber type:(int) inRenderingMode
 {
@@ -32,8 +33,9 @@
 			//particleTexture = [[Texture2D alloc] initWithImagePath:@"Particle2.png"]; // For now this will be instanciated here, in the future must be a pointer to a texture stored somewhere.
 			particleTexture = [[Texture2D alloc] initWithPVRTCFile:[FileUtils fullPathFromRelativePath:@"Particle2.pvr"]];
 			
-			_vertexCount = 0;
-			_pointSpriteCount = 0;
+			_vertexCount		= 0;
+			_pointSpriteCount	= 0;
+			_particleNumber		= inParticleNumber;
 			
 			renderingMode	= inRenderingMode;
 			
@@ -139,24 +141,35 @@
 {	
 	for(int i = 0; i < [delegate particleNumber]; i++)
 	{
+		float cachedParticleLifeTime = array[i].lifeTime;
+		float cachedAlpha			 = cachedParticleLifeTime/(array[i].lastLifespan+array[i].startingLifeTime);
+		
 		/*
 		 * Update particle
-		 */
-		float cachedParticleLifeTime = array[i].lifeTime;
-		 
-		if(cachedParticleLifeTime > 0.0)
-		{	
+		 */		
+		if(cachedParticleLifeTime > 0.01)
 			[array[i] update];
+		else{
+			if(continuousRendering)
+				[array[i] reset];
+			else {
+				if([array[i] isActive])
+				{	
+					resetCount++;	
+					[array[i] setIsActive:NO];
+					
+					if(resetCount == _particleNumber) //check this only if we added a new particle to the inactive particles
+					{	
+						systemDeactivation = YES; //deactivate the whole system once all it's particles are inactive.
+						resetCount = 0;			  //we set to zero to be ready for another System Activation.
+					}
+				}
+			}
 		}
-		else if(continuousRendering) {
-			[array[i] reset];
-		}
-		
+
 		/*First we asign the Color to the particle.*/
 		unsigned char RGB[3];
-
-		unsigned char shortAlpha = cachedParticleLifeTime*150	;
-		
+		unsigned char shortAlpha = cachedAlpha*255.0f;
 
 		Color3D particleColor = [array[i] currentColor];	//The current particle color
 		
@@ -167,9 +180,13 @@
 		unsigned color = (shortAlpha << 24) | (RGB[0] << 16) | (RGB[1] << 8) | (RGB[2] << 0);
 		
 		/*We add the point sprite to the array.*/				
-		addPointSprite(array[i].position.x, array[i].position.y, color, array[i].size*cachedParticleLifeTime, _interleavedPointSprites, &_pointSpriteCount);
+		addPointSprite(array[i].position.x, 
+					   array[i].position.y, 
+					   color, 
+					   array[i].size*cachedAlpha, 
+					   _interleavedPointSprites, 
+					   &_pointSpriteCount);
 
-		
 		if (_pointSpriteCount >= MAX_POINT_SPRITE)
 		{
 			_pointSpriteCount = MAX_POINT_SPRITE;
@@ -189,10 +206,17 @@
 	switch (renderingMode) {
 		case kRenderingMode_PointSprites:
 			[self pushVertexsPointSprites];
+			if(systemDeactivation)
+			{
+				[delegate setIsActive:NO];
+				systemDeactivation = NO; // we reset the flag of the deactivation.
+			}
 			break;
+		
 		case kRenderingMode_2xTriangles:
 			[self pushVertexs2XTriangles];
 			break;
+		
 		default:
 			NSLog(@"Unrecognized Rendering mode when trying to update the interleaved arrays.");
 			break;

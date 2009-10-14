@@ -40,7 +40,8 @@
 				 yAccelVariance:(float) inYAccelVariance
 					   xGravity:(float) inXGravity
 					   yGravity:(float) inYGravity
-					   lifeTime:(float) inLifeTime 
+					   lifeTime:(float) inLifeTime
+			   lifespanVariance:(float) inLifespanVariance
 						 source:(CGPoint) inSource 
 				 decreaseFactor:(float) inDecreaseFactor
 					   position:(CGPoint) inPosition

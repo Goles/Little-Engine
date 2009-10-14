@@ -22,6 +22,9 @@
 	float		xGravity, yGravity;
 	float		xAccelVariance, yAccelVariance;
 	float		lifeTime;
+	float		startingLifeTime;
+	float		lifespanVariance;
+	float		lastLifespan;
 	float		rotation;
 	float		decreaseFactor;
 	float		size;
@@ -41,6 +44,9 @@
 @property (readwrite) float xAccelVariance;
 @property (readwrite) float yAccelVariance;
 @property (readwrite) float lifeTime;
+@property (readwrite) float startingLifeTime;
+@property (readwrite) float lifespanVariance;
+@property (readwrite) float lastLifespan;
 @property (readwrite) float rotation;
 @property (readwrite) float decreaseFactor;
 @property (readwrite) float size;
