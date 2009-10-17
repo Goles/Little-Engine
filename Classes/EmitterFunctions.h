@@ -13,17 +13,19 @@ typedef enum
 	kEmmiterFX_linear,
 } EmmiterFX;
 
+
 typedef enum
 {
-	kParticleSystemFX_smallFire = 0,
-	kParticleSystemFX_mediumFire,
-	kParticleSystemFX_bigFire,
-	kParticleSystemFX_smallFireExplosion,
-	kParticleSystemFX_mediumFireExplosion,
-	kParticleSystemFX_bigFireExplosion,
-	kParticleSystemFX_smallFireFountain,
-	kParticleSystemFX_mediumFireFountain,
-	kParticleSystemFX_bigFireFountain,
+	kParticleSystemFX_FireSmall = 0,
+	kParticleSystemFX_FireMedium,
+	kParticleSystemFX_FireBig,
+	kParticleSystemFX_ExplosionSmall,
+	kParticleSystemFX_ExplosionMedium,
+	kParticleSystemFX_ExplosionBig,
+	kParticleSystemFX_FountainSmall,
+	kParticleSystemFX_FountainMedium,
+	kParticleSystemFX_FountainBig,
+	kParticleSystemFX_Smoke,
 } ParticleSystemFX;
 
 /*

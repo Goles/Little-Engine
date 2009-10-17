@@ -29,6 +29,9 @@
 	// isn't available.
 	id displayLink;
     NSTimer *animationTimer;
+	
+	/*Other Stuff*/
+	CFTimeInterval lastTime;
 }
 
 @property (readonly, nonatomic, getter=isAnimating) BOOL animating;

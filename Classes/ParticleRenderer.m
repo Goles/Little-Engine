@@ -30,8 +30,8 @@
 		if(delegate)
 		{
 			[self setArrayReference];
-			//particleTexture = [[Texture2D alloc] initWithImagePath:@"Particle2.png"]; // For now this will be instanciated here, in the future must be a pointer to a texture stored somewhere.
-			particleTexture = [[Texture2D alloc] initWithPVRTCFile:[FileUtils fullPathFromRelativePath:@"Particle2.pvr"]];
+			particleTexture = [[Texture2D alloc] initWithImagePath:@"Particle2.png"]; // For now this will be instanciated here, in the future must be a pointer to a texture stored somewhere.
+			//particleTexture = [[Texture2D alloc] initWithPVRTCFile:[FileUtils fullPathFromRelativePath:@"smoke.pvr"]];
 			
 			_vertexCount		= 0;
 			_pointSpriteCount	= 0;
@@ -44,7 +44,7 @@
 					_interleavedPointSprites = malloc(sizeof(PointSprite)*inParticleNumber);
 					break;
 				case kRenderingMode_2xTriangles:
-					_interleavedVertexs = malloc(sizeof(ParticleVertex)*inParticleNumber*2); //The 2x is because two triangles per particle are needed
+					_interleavedVertexs = malloc(sizeof(ParticleVertex)*inParticleNumber*6); //The 2x is because two triangles per particle are needed
 					break;
 				default:
 					NSLog(@"Problem when allocating the vertex arrays");
@@ -76,6 +76,28 @@
 	
 	for(int i = 0; i < [delegate particleNumber]; i++)
 	{
+		float cachedParticleLifeTime = array[i].lifeTime;
+		float cachedAlpha			 = cachedParticleLifeTime/(array[i].lastLifespan+array[i].startingLifeTime);
+		
+		float w = 32.0;
+		
+		[array[i] setRotation:[array[i] rotation] + 0.009];
+		
+		// Instead of changing GL state (translate, rotate) we rotate the sprite's corners here.  This lets us batch sprites at any rotation.
+        // Fixme not very efficient way to rotate :P
+        /*float radians	= [array[i] rotation] + (M_PI / 4.0f);
+        float topRightX = [array[i] position].x + (cos(radians) * w);
+        float topRightY = [array[i] position].y + (sin(radians) * w);
+        radians = [array[i] rotation] + (M_PI * 3.0f / 4.0f);
+        float topLeftX = [array[i] position].x + (cos(radians) * w);
+        float topLeftY = [array[i] position].y + (sin(radians) * w);
+        radians = [array[i] rotation] + (M_PI * 5.0f / 4.0f);
+        float bottomLeftX = [array[i] position].x + (cos(radians) * w);
+        float bottomLeftY = [array[i] position].y + (sin(radians) * w);
+        radians = [array[i] rotation] + (M_PI * 7.0f / 4.0f);
+        float bottomRightX = [array[i] position].x + (cos(radians) * w);
+        float bottomRightY = [array[i] position].y + (sin(radians) * w);
+		*/
 		/*
 		 * Update particle
 		 */
@@ -90,11 +112,18 @@
 		/*First we asign the Color to the particle.*/
 		unsigned char RGB[3];
 		
-		float HSV[3] = {array[i].lifeTime *225.0f, 1.0f, 100.0f};
+		/*float HSV[3] = {array[i].lifeTime *225.0f, 1.0f, 100.0f};
 		//float HSV[3] = {255.0f, 1, 1};
 		_HSVToRGB(HSV, RGB);
+		*/
+		unsigned char shortAlpha = cachedAlpha*255.0f;
 		
-		unsigned char shortAlpha = (array[i].lifeTime)*150.0f;
+		Color3D particleColor = [array[i] currentColor];	//The current particle color
+		
+		RGB[0] = particleColor.blue;
+		RGB[1] = particleColor.green;
+		RGB[2] = particleColor.red;
+		
 		unsigned color = (shortAlpha << 24) | (RGB[0] << 16) | (RGB[1] << 8) | (RGB[2] << 0);
 		
 		/*Then we start calculating the coords of the particle texture square.*/
@@ -206,20 +235,20 @@
 	switch (renderingMode) {
 		case kRenderingMode_PointSprites:
 			[self pushVertexsPointSprites];
-			if(systemDeactivation)
-			{
-				[delegate setIsActive:NO];
-				systemDeactivation = NO; // we reset the flag of the deactivation.
-			}
 			break;
 		
 		case kRenderingMode_2xTriangles:
 			[self pushVertexs2XTriangles];
-			break;
-		
+			break;		
 		default:
 			NSLog(@"Unrecognized Rendering mode when trying to update the interleaved arrays.");
 			break;
+	}
+	
+	if(systemDeactivation)
+	{
+		[delegate setIsActive:NO];
+		systemDeactivation = NO; // we reset the flag of the deactivation.
 	}
 }
 
@@ -268,7 +297,8 @@
 			glEnable(GL_TEXTURE_2D);
 			glEnable(GL_BLEND);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE);
-			
+			//glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+
 			glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 			glEnableClientState(GL_COLOR_ARRAY);
 			glEnableClientState(GL_VERTEX_ARRAY);

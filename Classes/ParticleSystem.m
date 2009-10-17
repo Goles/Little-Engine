@@ -64,8 +64,7 @@
 - (void) draw
 {
 	if (isActive)
-		[systemRenderer draw];	
-
+		[systemRenderer draw];
 }
 
 - (void) update

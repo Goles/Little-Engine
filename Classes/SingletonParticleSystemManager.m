@@ -69,55 +69,252 @@ static SingletonParticleSystemManager *sharedParticleSystemManager = nil;
 	
 	switch (inParticleFX) 
 	{
-		/*Small Fire FX initializer*/
-		case kParticleSystemFX_smallFire:
-			newSystem	= [[ParticleSystem alloc] initWithParticles:500 continuous:YES renderingMode:kRenderingMode_PointSprites];
+		/********************************************************	
+		 *				FIRE FX		v1.0						*
+		 *				_Nicolas Goles Domic - October 16 2009	*
+		 ********************************************************/
+		case kParticleSystemFX_FireSmall:
+			newSystem	= [[ParticleSystem alloc] initWithParticles:50 continuous:YES renderingMode:kRenderingMode_PointSprites];
 			
 			[[newSystem systemEmitter] setSystemXInitialSpeed:0
-												initialYSpeed:4
+												initialYSpeed:0.5
 													   xAccel:0
-													   yAccel:0.03
-											   xAccelVariance:0.1
-											   yAccelVariance:0.1
+													   yAccel:0.0
+											   xAccelVariance:0.05
+											   yAccelVariance:0.01
 													 xGravity:0
-													 yGravity:-0.06
-													 lifeTime:2.0
-											 lifespanVariance:1.95
+													 yGravity:0
+													 lifeTime:1.0
+											 lifespanVariance:0.95
 													   source:inPosition 
 											   decreaseFactor:20	//Bigger means slower decrease. => Higher life time
 													 position:CGPointMake(160, 100)
-														 size:32
-												   startColor:Color3DMake(50, 30, 255, 0)
-													 endColor:Color3DMake(255, 70, 70, 0)];
+														 size:16
+												   startColor:Color3DMake(255, 127, 77, 0)
+													 endColor:Color3DMake(255, 127, 77, 0)];
 			
 			[[newSystem systemEmitter] setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
 			
 			break;
-		case kParticleSystemFX_mediumFire:
-			newSystem	= [[ParticleSystem alloc] initWithParticles:1500 continuous:NO renderingMode:kRenderingMode_PointSprites];
+		case kParticleSystemFX_FireMedium:
+			newSystem	= [[ParticleSystem alloc] initWithParticles:110 continuous:YES renderingMode:kRenderingMode_PointSprites];
+			
+			[[newSystem systemEmitter] setSystemXInitialSpeed:0
+												initialYSpeed:1
+													   xAccel:0
+													   yAccel:0.0
+											   xAccelVariance:0.05
+											   yAccelVariance:0.01
+													 xGravity:0
+													 yGravity:0
+													 lifeTime:1.0
+											 lifespanVariance:0.9
+													   source:inPosition 
+											   decreaseFactor:30	//Bigger means slower decrease. => Higher life time
+													 position:CGPointMake(160, 100)
+														 size:20
+												   startColor:Color3DMake(255, 127, 77, 0)
+													 endColor:Color3DMake(255, 127, 77, 0)];
+			
+			[[newSystem systemEmitter] setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
+			
+			break;
+		case kParticleSystemFX_FireBig:
+			newSystem	= [[ParticleSystem alloc] initWithParticles:100 continuous:YES renderingMode:kRenderingMode_PointSprites];
+			
+			[[newSystem systemEmitter] setSystemXInitialSpeed:0
+												initialYSpeed:1
+													   xAccel:0
+													   yAccel:0.0
+											   xAccelVariance:0.05
+											   yAccelVariance:0.05
+													 xGravity:0
+													 yGravity:0
+													 lifeTime:1.5
+											 lifespanVariance:1.3
+													   source:inPosition 
+											   decreaseFactor:35	//Bigger means slower decrease. => Higher life time
+													 position:CGPointMake(160, 100)
+														 size:32
+												   startColor:Color3DMake(255, 127, 77, 0)
+													 endColor:Color3DMake(255, 127, 77, 0)];
+			
+			[[newSystem systemEmitter] setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
+			break;
+			
+			/********************************************************	
+			 *				EXPLOSION FX		v1.0				*
+			 *				_Nicolas Goles Domic - October 16 2009	*
+			 ********************************************************/
+		case kParticleSystemFX_ExplosionSmall:
+			newSystem	= [[ParticleSystem alloc] initWithParticles:80 continuous:YES renderingMode:kRenderingMode_PointSprites];
 			
 			[[newSystem systemEmitter] setSystemXInitialSpeed:0
 												initialYSpeed:0
 													   xAccel:0
 													   yAccel:0.0
-											   xAccelVariance:2
-											   yAccelVariance:2
+											   xAccelVariance:0.2
+											   yAccelVariance:0.2
 													 xGravity:0
 													 yGravity:0
-													 lifeTime:2.0
-											 lifespanVariance:1.95
+													 lifeTime:1.5
+											 lifespanVariance:1.3
 													   source:inPosition 
-											   decreaseFactor:60	//Bigger means slower decrease. => Higher life time
+											   decreaseFactor:8	//Bigger means slower decrease. => Higher life time
 													 position:CGPointMake(160, 100)
 														 size:8
-												   startColor:Color3DMake(255, 30, 50, 0)
-													 endColor:Color3DMake(90, 40, 255, 0)];
+												   startColor:Color3DMake(255, 127, 77, 0)
+													 endColor:Color3DMake(255, 127, 77, 0)];
 			
 			[[newSystem systemEmitter] setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
-			
 			break;
-		case kParticleSystemFX_bigFire:
-			break;		
+			
+		case kParticleSystemFX_ExplosionMedium:
+			newSystem	= [[ParticleSystem alloc] initWithParticles:80 continuous:YES renderingMode:kRenderingMode_PointSprites];
+			
+			[[newSystem systemEmitter] setSystemXInitialSpeed:0
+												initialYSpeed:0
+													   xAccel:0
+													   yAccel:0.0
+											   xAccelVariance:0.5
+											   yAccelVariance:0.5
+													 xGravity:0
+													 yGravity:0
+													 lifeTime:1.5
+											 lifespanVariance:1.3
+													   source:inPosition 
+											   decreaseFactor:8	//Bigger means slower decrease. => Higher life time
+													 position:CGPointMake(160, 100)
+														 size:32
+												   startColor:Color3DMake(255, 127, 77, 0)
+													 endColor:Color3DMake(255, 127, 77, 0)];
+			
+			[[newSystem systemEmitter] setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
+			break;
+			
+		case kParticleSystemFX_ExplosionBig:
+			newSystem	= [[ParticleSystem alloc] initWithParticles:50 continuous:YES renderingMode:kRenderingMode_PointSprites];
+			
+			[[newSystem systemEmitter] setSystemXInitialSpeed:0
+												initialYSpeed:0
+													   xAccel:0
+													   yAccel:0.0
+											   xAccelVariance:1
+											   yAccelVariance:1
+													 xGravity:0
+													 yGravity:0
+													 lifeTime:1.5
+											 lifespanVariance:1.3
+													   source:inPosition 
+											   decreaseFactor:8	//Bigger means slower decrease. => Higher life time
+													 position:CGPointMake(160, 100)
+														 size:64
+												   startColor:Color3DMake(255, 127, 77, 0)
+													 endColor:Color3DMake(255, 127, 77, 0)];
+			
+			[[newSystem systemEmitter] setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
+			break;
+		
+		
+		/********************************************************	
+		*			FOUNTAIN FX		v1.0						*
+		*			_Nicolas Goles Domic - October 16 2009		*
+		********************************************************/
+		case kParticleSystemFX_FountainSmall:
+			
+			newSystem	= [[ParticleSystem alloc] initWithParticles:50 continuous:YES renderingMode:kRenderingMode_PointSprites];
+			
+			[[newSystem systemEmitter] setSystemXInitialSpeed:0
+												initialYSpeed:3
+													   xAccel:0
+													   yAccel:0.0
+											   xAccelVariance:.1
+											   yAccelVariance:0.05
+													 xGravity:0
+													 yGravity:-0.1
+													 lifeTime:5
+											 lifespanVariance:4.9
+													   source:inPosition 
+											   decreaseFactor:5	//Bigger means slower decrease. => Higher life time
+													 position:CGPointMake(160, 100)
+														 size:16
+												   startColor:Color3DMake(255, 127, 77, 0)
+													 endColor:Color3DMake(255, 127, 77, 0)];
+			
+			[[newSystem systemEmitter] setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
+			break;
+		
+		case kParticleSystemFX_FountainMedium:
+			
+			newSystem	= [[ParticleSystem alloc] initWithParticles:50 continuous:YES renderingMode:kRenderingMode_PointSprites];
+			
+			[[newSystem systemEmitter] setSystemXInitialSpeed:0
+												initialYSpeed:4
+													   xAccel:0
+													   yAccel:0.0
+											   xAccelVariance:.1
+											   yAccelVariance:0.05
+													 xGravity:0
+													 yGravity:-0.1
+													 lifeTime:5
+											 lifespanVariance:4.9
+													   source:inPosition 
+											   decreaseFactor:5	//Bigger means slower decrease. => Higher life time
+													 position:CGPointMake(160, 100)
+														 size:32
+												   startColor:Color3DMake(255, 127, 77, 0)
+													 endColor:Color3DMake(255, 127, 77, 0)];
+			
+			[[newSystem systemEmitter] setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
+			break;
+			
+		case kParticleSystemFX_FountainBig:
+			
+			newSystem	= [[ParticleSystem alloc] initWithParticles:50 continuous:YES renderingMode:kRenderingMode_PointSprites];
+			
+			[[newSystem systemEmitter] setSystemXInitialSpeed:0
+												initialYSpeed:6
+													   xAccel:0
+													   yAccel:0.0
+											   xAccelVariance:.2
+											   yAccelVariance:0.05
+													 xGravity:0
+													 yGravity:-0.15
+													 lifeTime:5
+											 lifespanVariance:4.9
+													   source:inPosition 
+											   decreaseFactor:5	//Bigger means slower decrease. => Higher life time
+													 position:CGPointMake(160, 100)
+														 size:64
+												   startColor:Color3DMake(255, 127, 77, 0)
+													 endColor:Color3DMake(255, 127, 77, 0)];
+			
+			[[newSystem systemEmitter] setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
+			break;
+			
+		case kParticleSystemFX_Smoke:
+			newSystem	= [[ParticleSystem alloc] initWithParticles:15 continuous:YES renderingMode:kRenderingMode_PointSprites];
+			
+			[[newSystem systemEmitter] setSystemXInitialSpeed:0
+												initialYSpeed:1
+													   xAccel:0
+													   yAccel:0
+											   xAccelVariance:0.04
+											   yAccelVariance:0.04
+													 xGravity:0
+													 yGravity:-0.000015
+													 lifeTime:1.0
+											 lifespanVariance:0.99
+													   source:inPosition 
+											   decreaseFactor:25	//Bigger means slower decrease. => Higher life time
+													 position:CGPointMake(160, 100)
+														 size:32
+												   startColor:Color3DMake(255, 127, 77, 0)
+													 endColor:Color3DMake(255, 127, 77, 0)];
+			
+			[[newSystem systemEmitter] setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
+			break;
+			
 		default:
 			break;
 	}

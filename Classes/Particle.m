@@ -48,7 +48,7 @@
 		xAccelVariance	= 0;
 		yAccelVariance	= 0;
 		lifeTime		= 1.0;
-		rotation		= 0;
+		rotation		= (random() % 360) * (M_PI / 180.0f);
 		size			= 16.0;
 		isActive		= YES;
 	}
@@ -83,7 +83,7 @@
 
 - (void) reset
 {	
-	position = CGPointMake(source.x + CCRANDOM_MINUS1_1()*5, source.y + CCRANDOM_MINUS1_1()*5);
+	position = CGPointMake(source.x /*+ CCRANDOM_MINUS1_1()*/, source.y /*+ CCRANDOM_MINUS1_1()*/);
 	xSpeed = xInitialSpeed + xAccelVariance*CCRANDOM_MINUS1_1();
 	ySpeed = yInitialSpeed + yAccelVariance*CCRANDOM_MINUS1_1();
 	currentColor = startColor;	

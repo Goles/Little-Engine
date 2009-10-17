@@ -32,10 +32,22 @@
 		/*
 		 *This is a benchmark.
 		 */
-		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_mediumFire atStartPosition:CGPointMake(40, 100)];
-		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_smallFire atStartPosition:CGPointMake(120, 100)];
-		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_smallFire atStartPosition:CGPointMake(200, 100)];
-		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_mediumFire atStartPosition:CGPointMake(280, 100)];
+		
+		/*[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FireSmall atStartPosition:CGPointMake(50, 100)];
+		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FireMedium atStartPosition:CGPointMake(100, 100)];
+		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FireBig atStartPosition:CGPointMake(150, 100)];
+		
+		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_ExplosionSmall atStartPosition:CGPointMake(250, 300)];
+		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_ExplosionMedium atStartPosition:CGPointMake(250, 200)];
+		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_ExplosionBig atStartPosition:CGPointMake(250, 100)];
+		
+		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FountainSmall atStartPosition:CGPointMake(50, 300)];
+		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FountainMedium atStartPosition:CGPointMake(100, 300)];		
+		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FountainBig atStartPosition:CGPointMake(150, 300)];		
+		*/
+		
+		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_Smoke atStartPosition:CGPointMake(150, 300)];		
+		
 		
 		// Create default framebuffer object. The backing will be allocated for the current layer in -resizeFromLayer
 		glGenFramebuffersOES(1, &defaultFramebuffer);

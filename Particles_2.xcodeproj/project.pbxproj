@@ -29,6 +29,8 @@
 		635C8EF21074761E002F9BB3 /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 635C8EF11074761E002F9BB3 /* FileUtils.m */; };
 		635C8F231074790B002F9BB3 /* Particle2.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 635C8F221074790B002F9BB3 /* Particle2.pvr */; };
 		638DD31C1064C1040032ACF1 /* Particle.png in Resources */ = {isa = PBXBuildFile; fileRef = 638DD31B1064C1040032ACF1 /* Particle.png */; };
+		63D097E01089439C007C727F /* smoke.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 63D097DF1089439C007C727F /* smoke.pvr */; };
+		63D099E41089663F007C727F /* smoke_p.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D099E31089663F007C727F /* smoke_p.png */; };
 		63E2718D1072B42F00807A91 /* Particle3.png in Resources */ = {isa = PBXBuildFile; fileRef = 63E2718C1072B42F00807A91 /* Particle3.png */; };
 		63E272031072E22A00807A91 /* Particle4.png in Resources */ = {isa = PBXBuildFile; fileRef = 63E272021072E22A00807A91 /* Particle4.png */; };
 		63E4F9FC107A2E8900FA74AE /* HardwareClock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63E4F9FB107A2E8900FA74AE /* HardwareClock.cpp */; };
@@ -80,6 +82,8 @@
 		638DD31B1064C1040032ACF1 /* Particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Particle.png; sourceTree = "<group>"; };
 		63C154FB106D4CC60053E452 /* RenderingFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderingFunctions.h; sourceTree = "<group>"; };
 		63C1574B106DB7080053E452 /* OpenGLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLCommon.h; sourceTree = "<group>"; };
+		63D097DF1089439C007C727F /* smoke.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = smoke.pvr; sourceTree = "<group>"; };
+		63D099E31089663F007C727F /* smoke_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smoke_p.png; sourceTree = "<group>"; };
 		63E2718C1072B42F00807A91 /* Particle3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Particle3.png; sourceTree = "<group>"; };
 		63E272021072E22A00807A91 /* Particle4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Particle4.png; sourceTree = "<group>"; };
 		63E4F9FA107A2E8900FA74AE /* HardwareClock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HardwareClock.h; sourceTree = "<group>"; };
@@ -165,8 +169,10 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				63D097DF1089439C007C727F /* smoke.pvr */,
 				638DD31B1064C1040032ACF1 /* Particle.png */,
 				63F8BBDD10727AEB00C34498 /* Particle2.png */,
+				63D099E31089663F007C727F /* smoke_p.png */,
 				635C8F221074790B002F9BB3 /* Particle2.pvr */,
 				63E2718C1072B42F00807A91 /* Particle3.png */,
 				63E272021072E22A00807A91 /* Particle4.png */,
@@ -325,6 +331,8 @@
 				63E272031072E22A00807A91 /* Particle4.png in Resources */,
 				635C8F231074790B002F9BB3 /* Particle2.pvr in Resources */,
 				634A46781078E1040071D13B /* Particle4.pvr in Resources */,
+				63D097E01089439C007C727F /* smoke.pvr in Resources */,
+				63D099E41089663F007C727F /* smoke_p.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
