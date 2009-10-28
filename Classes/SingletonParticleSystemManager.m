@@ -293,24 +293,24 @@ static SingletonParticleSystemManager *sharedParticleSystemManager = nil;
 			break;
 			
 		case kParticleSystemFX_Smoke:
-			newSystem	= [[ParticleSystem alloc] initWithParticles:15 continuous:YES renderingMode:kRenderingMode_PointSprites];
+			newSystem	= [[ParticleSystem alloc] initWithParticles:200 continuous:YES renderingMode:kRenderingMode_2xTriangles];
 			
 			[[newSystem systemEmitter] setSystemXInitialSpeed:0
-												initialYSpeed:1
+												initialYSpeed:0.5
 													   xAccel:0
 													   yAccel:0
-											   xAccelVariance:0.04
-											   yAccelVariance:0.04
+											   xAccelVariance:0.01
+											   yAccelVariance:0.01
 													 xGravity:0
-													 yGravity:-0.000015
-													 lifeTime:1.0
-											 lifespanVariance:0.99
+													 yGravity:0
+													 lifeTime:2.0
+											 lifespanVariance:1.99
 													   source:inPosition 
-											   decreaseFactor:25	//Bigger means slower decrease. => Higher life time
+											   decreaseFactor:55	//Bigger means slower decrease. => Higher life time
 													 position:CGPointMake(160, 100)
 														 size:32
-												   startColor:Color3DMake(255, 127, 77, 0)
-													 endColor:Color3DMake(255, 127, 77, 0)];
+												   startColor:Color3DMake(223, 223, 223, 0)
+													 endColor:Color3DMake(0, 0, 0, 0)];
 			
 			[[newSystem systemEmitter] setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
 			break;

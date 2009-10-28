@@ -104,7 +104,7 @@ Be aware that the content of the generated textures will be upside-down!
 	GLfloat						_maxS,
 								_maxT;
 }
-- (id) initWithData:(const void*)data pixelFormat:(Texture2DPixelFormat)pixelFormat pixelsWide:(NSUInteger)width pixelsHigh:(NSUInteger)height contentSize:(CGSize)size;
+- (id) initWithData:(const void*)data pixelFormat:(Texture2DPixelFormat)pixelFormat pixelsWide:(NSUInteger)width pixelsHigh:(NSUInteger)height contentSize:(CGSize)size filter:(GLenum) filter;
 
 @property(readonly) Texture2DPixelFormat pixelFormat;
 @property(readonly) NSUInteger pixelsWide;
@@ -137,11 +137,11 @@ Extensions to make it easy to create a Texture2D object from an image file.
 Note that RGBA type textures will have their alpha premultiplied - use the blending mode (GL_ONE, GL_ONE_MINUS_SRC_ALPHA).
 */
 @interface Texture2D (Image)
-- (id) initWithImagePath:(NSString*)path; //If the path is not absolute, it is assumed to be relative to the main bundle's resources
-- (id) initWithImagePath:(NSString*)path sizeToFit:(BOOL)sizeToFit; //For non-power-of-two images, if "sizeToFit" is YES, the image is scaled to power-of-two dimensions, otherwise extra margins are added
-- (id) initWithImagePath:(NSString*)path sizeToFit:(BOOL)sizeToFit pixelFormat:(Texture2DPixelFormat)pixelFormat;
-- (id) initWithImage:(UIImage *)uiImage;
-- (id) initWithCGImage:(CGImageRef)image orientation:(UIImageOrientation)orientation sizeToFit:(BOOL)sizeToFit pixelFormat:(Texture2DPixelFormat)pixelFormat; //Primitive
+- (id) initWithImagePath:(NSString*)path filter:(GLuint)filter; //If the path is not absolute, it is assumed to be relative to the main bundle's resources
+- (id) initWithImagePath:(NSString*)path sizeToFit:(BOOL)sizeToFit filter:(GLuint)filter; //For non-power-of-two images, if "sizeToFit" is YES, the image is scaled to power-of-two dimensions, otherwise extra margins are added
+- (id) initWithImagePath:(NSString*)path sizeToFit:(BOOL)sizeToFit pixelFormat:(Texture2DPixelFormat)pixelFormat filter:(GLuint)filter;
+- (id) initWithImage:(UIImage *)uiImage filter:(GLenum)filter;
+- (id) initWithCGImage:(CGImageRef)image orientation:(UIImageOrientation)orientation sizeToFit:(BOOL)sizeToFit pixelFormat:(Texture2DPixelFormat)pixelFormat filter:(GLenum)filter; //Primitive
 @end
 
 /*

@@ -10,6 +10,7 @@
 
 #import <OpenGLES/ES1/gl.h>
 #import <OpenGLES/ES1/glext.h>
+#import "Image.h"
 
 @class ParticleController;
 @class Texture2D;
@@ -39,6 +40,7 @@
 
 	Texture2D	*testTex;
 	Texture2D	*backgroundTex;
+	Image		*someImage;
 }
 
 @property (nonatomic, retain) ParticleSystem *aSystem;

@@ -30,9 +30,9 @@
 		if(delegate)
 		{
 			[self setArrayReference];
-			particleTexture = [[Texture2D alloc] initWithImagePath:@"Particle2.png"]; // For now this will be instanciated here, in the future must be a pointer to a texture stored somewhere.
+			//particleTexture = [[Texture2D alloc] initWithImagePath:[[NSBundle mainBundle] pathForResource:@"smokes_w.png" ofType:nil]]; // For now this will be instanciated here, in the future must be a pointer to a texture stored somewhere.
 			//particleTexture = [[Texture2D alloc] initWithPVRTCFile:[FileUtils fullPathFromRelativePath:@"smoke.pvr"]];
-			
+			particleTexture = [[Texture2D alloc] initWithImagePath:[[NSBundle mainBundle] pathForResource:@"Particle2.png" ofType:nil] filter:GL_LINEAR];
 			_vertexCount		= 0;
 			_pointSpriteCount	= 0;
 			_particleNumber		= inParticleNumber;
@@ -79,13 +79,13 @@
 		float cachedParticleLifeTime = array[i].lifeTime;
 		float cachedAlpha			 = cachedParticleLifeTime/(array[i].lastLifespan+array[i].startingLifeTime);
 		
-		float w = 32.0;
+		float w = 32.0f;
 		
 		[array[i] setRotation:[array[i] rotation] + 0.009];
 		
 		// Instead of changing GL state (translate, rotate) we rotate the sprite's corners here.  This lets us batch sprites at any rotation.
         // Fixme not very efficient way to rotate :P
-        /*float radians	= [array[i] rotation] + (M_PI / 4.0f);
+        float radians	= [array[i] rotation] + (M_PI / 4.0f);
         float topRightX = [array[i] position].x + (cos(radians) * w);
         float topRightY = [array[i] position].y + (sin(radians) * w);
         radians = [array[i] rotation] + (M_PI * 3.0f / 4.0f);
@@ -97,7 +97,7 @@
         radians = [array[i] rotation] + (M_PI * 7.0f / 4.0f);
         float bottomRightX = [array[i] position].x + (cos(radians) * w);
         float bottomRightY = [array[i] position].y + (sin(radians) * w);
-		*/
+		
 		/*
 		 * Update particle
 		 */
@@ -133,7 +133,7 @@
 		float particleTextureY = array[i].position.y;
 		
 		/*We cache the width/2 and the height/2*/
-		float cacheWidth = width / 2;
+		/*float cacheWidth = width / 2;
 		float cacheHeight = height / 2;
 		
         float topRightX		= cacheWidth + particleTextureX;
@@ -147,7 +147,7 @@
         
         float bottomRightX	= cacheWidth + particleTextureX;
         float bottomRightY	= -cacheHeight + particleTextureY;
-		
+		*/
 		//Then we pass both of our triangles that actually compose a particle position..
 		// Triangle #1
         addVertex(topLeftX, topLeftY, 0, 0, color, _interleavedVertexs, &_vertexCount);
@@ -254,6 +254,15 @@
 
 - (void) draw
 {
+	/*if(![del textureBound])
+	{
+		[[aSystem currentTexture] bind];
+		[aSystem setTextureBound:YES];
+	}*/
+	
+	[particleTexture bind];
+	glEnable(GL_TEXTURE_2D);
+	
 	switch (renderingMode) {
 		case kRenderingMode_PointSprites: //If We are drawing pointSprites.
 			if(!_pointSpriteCount)
@@ -293,11 +302,9 @@
 			if (!_vertexCount)
 				return;	
 			
-			
-			glEnable(GL_TEXTURE_2D);
 			glEnable(GL_BLEND);
-			glBlendFunc(GL_SRC_ALPHA, GL_ONE);
-			//glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+			//glBlendFunc(GL_SRC_ALPHA, GL_ONE);
+			glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 
 			glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 			glEnableClientState(GL_COLOR_ARRAY);
@@ -322,6 +329,9 @@
 			
 			break;
 	}
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glDisable(GL_BLEND);
+	glDisableClientState(GL_TEXTURE_2D);
 }
 
 @end

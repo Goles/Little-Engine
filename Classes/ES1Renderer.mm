@@ -33,11 +33,11 @@
 		 *This is a benchmark.
 		 */
 		
-		/*[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FireSmall atStartPosition:CGPointMake(50, 100)];
-		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FireMedium atStartPosition:CGPointMake(100, 100)];
+		//[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FireSmall atStartPosition:CGPointMake(50, 100)];
+		//[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FireMedium atStartPosition:CGPointMake(100, 100)];
 		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FireBig atStartPosition:CGPointMake(150, 100)];
 		
-		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_ExplosionSmall atStartPosition:CGPointMake(250, 300)];
+		/*[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_ExplosionSmall atStartPosition:CGPointMake(250, 300)];
 		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_ExplosionMedium atStartPosition:CGPointMake(250, 200)];
 		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_ExplosionBig atStartPosition:CGPointMake(250, 100)];
 		
@@ -45,9 +45,12 @@
 		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FountainMedium atStartPosition:CGPointMake(100, 300)];		
 		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FountainBig atStartPosition:CGPointMake(150, 300)];		
 		*/
+		//[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_Smoke atStartPosition:CGPointMake(150, 100)];		
 		
-		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_Smoke atStartPosition:CGPointMake(150, 300)];		
-		
+		someImage = new Image();
+		someImage->initWithUIImage([UIImage imageNamed:@"player.png"], 1.0f, GL_LINEAR);
+		someImage->setAlpha(3.0); 
+		someImage->setRotation(180);
 		
 		// Create default framebuffer object. The backing will be allocated for the current layer in -resizeFromLayer
 		glGenFramebuffersOES(1, &defaultFramebuffer);
@@ -66,9 +69,9 @@
 	glViewport(0, 0, backingWidth, backingHeight);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrthof(0, 320, 0, 480, 0, 1);
+	glOrthof(0, 320, 0, 480, -1, 1);
 	glMatrixMode(GL_MODELVIEW);
-	glDisable(GL_DEPTH_TEST);
+	glEnable(GL_DEPTH_TEST);
 }
 
 - (void) render
@@ -82,19 +85,12 @@
 		viewSetup = YES;
 	}
 	
-	// Clear background to black (don't need these if you draw a background image, since it will draw over whatever's there)
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
- 	
-	glEnable(GL_TEXTURE_2D);
 	
-	if(![aSystem textureBound])
-	{
-		[[aSystem currentTexture] bind];
-		[aSystem setTextureBound:YES];
-	}
+	drawSystems();	//draw the particle systems
 	
-	drawSystems();
+	someImage->renderAtPoint(CGPointMake(150, 100), YES);	//draw the ship image.
 	
     glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
     [context presentRenderbuffer:GL_RENDERBUFFER_OES];

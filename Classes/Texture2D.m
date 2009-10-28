@@ -73,9 +73,15 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 
 @implementation Texture2D
 
-@synthesize contentSize=_size, pixelFormat=_format, pixelsWide=_width, pixelsHigh=_height, name=_name, maxS=_maxS, maxT=_maxT;
+@synthesize contentSize=_size, 
+			pixelFormat=_format, 
+			pixelsWide=_width, 
+			pixelsHigh=_height, 
+			name=_name, 
+			maxS=_maxS, 
+			maxT=_maxT;
 
-- (id) initWithData:(const void*)data pixelFormat:(Texture2DPixelFormat)pixelFormat pixelsWide:(NSUInteger)width pixelsHigh:(NSUInteger)height contentSize:(CGSize)size
+- (id) initWithData:(const void*)data pixelFormat:(Texture2DPixelFormat)pixelFormat pixelsWide:(NSUInteger)width pixelsHigh:(NSUInteger)height contentSize:(CGSize)size filter:(GLenum) filter
 {
 	GLint					saveName;
 	
@@ -83,7 +89,8 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 		glGenTextures(1, &_name);
 		glGetIntegerv(GL_TEXTURE_BINDING_2D, &saveName);
 		glBindTexture(GL_TEXTURE_2D, _name);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, filter);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, filter);
 		switch(pixelFormat) {
 			
 			case kTexture2DPixelFormat_RGBA8888:
@@ -173,17 +180,17 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 
 @implementation Texture2D (Image)
 
-- (id) initWithImagePath:(NSString*)path
+- (id) initWithImagePath:(NSString*)path filter:(GLuint)inFilter
 {
-	return [self initWithImagePath:path sizeToFit:NO];
+	return [self initWithImagePath:path sizeToFit:NO filter:inFilter];
 }
 
-- (id) initWithImagePath:(NSString*)path sizeToFit:(BOOL)sizeToFit
+- (id) initWithImagePath:(NSString*)path sizeToFit:(BOOL)sizeToFit filter:(GLuint)inFilter
 {
-	return [self initWithImagePath:path sizeToFit:sizeToFit pixelFormat:kTexture2DPixelFormat_Automatic];
+	return [self initWithImagePath:path sizeToFit:sizeToFit pixelFormat:kTexture2DPixelFormat_Automatic filter:inFilter];
 }
 
-- (id) initWithImagePath:(NSString*)path sizeToFit:(BOOL)sizeToFit pixelFormat:(Texture2DPixelFormat)pixelFormat
+- (id) initWithImagePath:(NSString*)path sizeToFit:(BOOL)sizeToFit pixelFormat:(Texture2DPixelFormat)pixelFormat filter:(GLuint)inFilter
 {
 	UIImage*				uiImage;
 	
@@ -191,7 +198,7 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 		path = [[NSBundle mainBundle] pathForResource:path ofType:nil];
 	
 	uiImage = [[UIImage alloc] initWithContentsOfFile:path];
-	self = [self initWithCGImage:[uiImage CGImage] orientation:[uiImage imageOrientation] sizeToFit:sizeToFit pixelFormat:pixelFormat];
+	self = [self initWithCGImage:[uiImage CGImage] orientation:[uiImage imageOrientation] sizeToFit:sizeToFit pixelFormat:pixelFormat filter:inFilter];
 	[uiImage release];
 	
 	if(self == nil)
@@ -201,9 +208,9 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 }
 	
 /*Added by Nicolas Goles to make it able to init from images outside files ( created inApp )*/
-- (id) initWithImage:(UIImage *)uiImage
+- (id) initWithImage:(UIImage *)uiImage filter:(GLenum) filter
 {
-	self = [self initWithCGImage:[uiImage CGImage] orientation:[uiImage imageOrientation] sizeToFit:NO pixelFormat:kTexture2DPixelFormat_Automatic];
+	self = [self initWithCGImage:[uiImage CGImage] orientation:[uiImage imageOrientation] sizeToFit:NO pixelFormat:kTexture2DPixelFormat_Automatic filter:filter];
 	[uiImage release];
 	
 	if(!self)
@@ -212,7 +219,7 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 	return self;
 }
 
-- (id) initWithCGImage:(CGImageRef)image orientation:(UIImageOrientation)orientation sizeToFit:(BOOL)sizeToFit pixelFormat:(Texture2DPixelFormat)pixelFormat
+- (id) initWithCGImage:(CGImageRef)image orientation:(UIImageOrientation)orientation sizeToFit:(BOOL)sizeToFit pixelFormat:(Texture2DPixelFormat)pixelFormat filter:(GLenum) filter
 {
 	NSUInteger				width,
 							height,
@@ -489,7 +496,7 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 #endif
 	}
 	
-	self = [self initWithData:data pixelFormat:pixelFormat pixelsWide:width pixelsHigh:height contentSize:imageSize];
+	self = [self initWithData:data pixelFormat:pixelFormat pixelsWide:width pixelsHigh:height contentSize:imageSize filter:filter];
 	
 	CGContextRelease(context);
 	free(data);
@@ -554,7 +561,7 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 		[string drawInRect:CGRectMake(0, 0, dimensions.width, dimensions.height) withFont:font lineBreakMode:UILineBreakModeWordWrap alignment:alignment];
 	UIGraphicsPopContext();
 	
-	self = [self initWithData:data pixelFormat:kTexture2DPixelFormat_L8 pixelsWide:width pixelsHigh:height contentSize:dimensions];
+	self = [self initWithData:data pixelFormat:kTexture2DPixelFormat_L8 pixelsWide:width pixelsHigh:height contentSize:dimensions filter:GL_LINEAR];
 	
 	CGContextRelease(context);
 	free(data);

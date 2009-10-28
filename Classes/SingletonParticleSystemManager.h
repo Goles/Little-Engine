@@ -11,7 +11,7 @@
 
 /* This class contains a Singleton instance of a Global Particle System manager
  * the idea is to make this class to manage all the game particle systems. (allocs, releases, etc)
- * the manager should give a key to each particle system in order to deallocate them/deactivate them in the future.
+ * the manager should give a reference to each particle system in order to deallocate them/deactivate them in the future.
  *
  * For some specific inline functions, one should look at "ParticleSystemManagerFunctions.h".
  *
