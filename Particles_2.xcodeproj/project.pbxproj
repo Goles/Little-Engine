@@ -23,7 +23,7 @@
 		632A3E1B1073211200F8EADC /* PVRTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 632A3E1A1073211200F8EADC /* PVRTexture.m */; };
 		632A3EB61073260B00F8EADC /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 632A3EB51073260B00F8EADC /* Texture2D.m */; };
 		633C889410649219003911A0 /* Particle.m in Sources */ = {isa = PBXBuildFile; fileRef = 633C889110649219003911A0 /* Particle.m */; };
-		633C889510649219003911A0 /* ParticleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633C889310649219003911A0 /* ParticleController.m */; };
+		633C889510649219003911A0 /* ParticleController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 633C889310649219003911A0 /* ParticleController.mm */; };
 		633C88D51064942D003911A0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633C88D41064942D003911A0 /* CoreGraphics.framework */; };
 		634A46781078E1040071D13B /* Particle4.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 634A46771078E1040071D13B /* Particle4.pvr */; };
 		635C8EF21074761E002F9BB3 /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 635C8EF11074761E002F9BB3 /* FileUtils.m */; };
@@ -75,7 +75,7 @@
 		633C889010649219003911A0 /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particle.h; sourceTree = "<group>"; };
 		633C889110649219003911A0 /* Particle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Particle.m; sourceTree = "<group>"; };
 		633C889210649219003911A0 /* ParticleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleController.h; sourceTree = "<group>"; };
-		633C889310649219003911A0 /* ParticleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleController.m; sourceTree = "<group>"; };
+		633C889310649219003911A0 /* ParticleController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ParticleController.mm; sourceTree = "<group>"; };
 		633C88D41064942D003911A0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		634A46771078E1040071D13B /* Particle4.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = Particle4.pvr; sourceTree = "<group>"; };
 		635C8EF01074761E002F9BB3 /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
@@ -220,7 +220,7 @@
 				63F01865106AF218008FABF0 /* ParticleRenderer.h */,
 				63F01866106AF218008FABF0 /* ParticleRenderer.m */,
 				633C889210649219003911A0 /* ParticleController.h */,
-				633C889310649219003911A0 /* ParticleController.m */,
+				633C889310649219003911A0 /* ParticleController.mm */,
 			);
 			name = Particles;
 			sourceTree = "<group>";
@@ -374,7 +374,7 @@
 				2514C27210084DB100A42282 /* ES1Renderer.mm in Sources */,
 				2514C27310084DB100A42282 /* ES2Renderer.m in Sources */,
 				633C889410649219003911A0 /* Particle.m in Sources */,
-				633C889510649219003911A0 /* ParticleController.m in Sources */,
+				633C889510649219003911A0 /* ParticleController.mm in Sources */,
 				63F01864106AF201008FABF0 /* ParticleEmitter.m in Sources */,
 				63F01867106AF218008FABF0 /* ParticleRenderer.m in Sources */,
 				63EF8D24106B0FF2007C2E58 /* ParticleSystem.m in Sources */,

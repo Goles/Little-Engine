@@ -41,9 +41,9 @@ public:
 	Image *	getSubImage(CGPoint point,  GLuint subImageWidth, GLuint subImageHeight, float subImageScale);
 	void	renderAtPoint(CGPoint point, BOOL centerOfImage);
 	void	render(CGPoint point, Quad2* tc, Quad2* qv);
-	//void	renderAtPoint(CGPoint point, CGPoint offset, GLfloat subImageWidth, GLfloat subImageHeight, BOOL centerOfImage);
 	void	calculateVertices(CGPoint point, GLuint subImageWidth, GLuint subImageHeight, BOOL center);
 	void	calculateTexCoordsAtOffset(CGPoint offsetPoint, GLuint subImageWidth, GLuint subImageHeight);
+	void	bind();
 	
 	// Setters
 	void	setColorFilter(float Red, float Green, float Blue, float alpha);

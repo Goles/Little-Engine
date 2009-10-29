@@ -3,7 +3,7 @@
  *  Particles_2
  *
  *  Created by Nicolas Goles on 10/10/09.
- *  Copyright 2009 __MyCompanyName__. All rights reserved.
+ *  Copyright 2009 Gando-Games All rights reserved.
  *
  */
 
@@ -15,10 +15,10 @@ typedef struct _entity
 	struct _entity	*nextSystem;
 } SystemEntity;
 
-/*This is going to be the List containing all the Particle Systems declared here for performance reasons only.*/
+/*This is going to be the List containing all the Particle Systems declared here for performance reasons only.
 SystemEntity *_systemsList;
 
-/*Declared as static inline due to overhead of Obj-C messaging, this draws the particles system*/
+Declared as static inline due to overhead of Obj-C messaging, this draws the particles system
 static inline void drawSystems()
 {
 	SystemEntity *currentElement = _systemsList;
@@ -33,3 +33,4 @@ static inline void drawSystems()
 		currentElement = currentElement->nextSystem;
 	}
 }
+*/

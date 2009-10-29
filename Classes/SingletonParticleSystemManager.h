@@ -22,15 +22,21 @@
 
 @interface SingletonParticleSystemManager : NSObject 
 {
+	/*This is going to be the List containing all the Particle Systems declared here for performance reasons only.*/
+	SystemEntity *_systemsList;
 }
 
-- (SystemEntity *) createParticleFX:(int) inParticleFX atStartPosition:(CGPoint) inPosition;
+- (SystemEntity *) createParticleFX:(int) inParticleFX 
+					atStartPosition:(CGPoint) inPosition;
 - (SystemEntity *) insertEntity:(ParticleSystem *)inSystem;
 - (BOOL) deleteEntity:(int) inPosition;
 - (BOOL) removeEntityAtPosition:(int)inPosition;
 - (void) printListDebug;
+- (void) drawSystems;
 
-static inline void drawSystems();
 + (SingletonParticleSystemManager *) sharedParticleSystemManager;
+
+/*Declared as static inline due to overhead of Obj-C messaging, this draws the particles system*/
+
 
 @end

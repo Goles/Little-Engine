@@ -41,6 +41,7 @@
 	Texture2D	*testTex;
 	Texture2D	*backgroundTex;
 	Image		*someImage;
+	Image		*particleTextures;
 }
 
 @property (nonatomic, retain) ParticleSystem *aSystem;

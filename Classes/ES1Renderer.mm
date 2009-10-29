@@ -29,23 +29,39 @@
             return nil;
         }
 
-		/*
-		 *This is a benchmark.
-		 */
 		
-		//[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FireSmall atStartPosition:CGPointMake(50, 100)];
-		//[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FireMedium atStartPosition:CGPointMake(100, 100)];
+		/*
+		 * Image allocation
+		 */
+		particleTextures = new Image();
+		particleTextures->initWithUIImage([UIImage imageNamed:@"player.png"], 1.0f, GL_LINEAR);
+		particleTextures->setAlpha(1.0);
+		
+		/*
+		 *	Different Emitters Benchmark
+		 */
+				
+		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FireSmall atStartPosition:CGPointMake(50, 100)];
+		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FireMedium atStartPosition:CGPointMake(100, 100)];
 		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FireBig atStartPosition:CGPointMake(150, 100)];
 		
-		/*[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_ExplosionSmall atStartPosition:CGPointMake(250, 300)];
+		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_ExplosionSmall atStartPosition:CGPointMake(250, 300)];
 		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_ExplosionMedium atStartPosition:CGPointMake(250, 200)];
 		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_ExplosionBig atStartPosition:CGPointMake(250, 100)];
 		
 		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FountainSmall atStartPosition:CGPointMake(50, 300)];
 		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FountainMedium atStartPosition:CGPointMake(100, 300)];		
 		[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FountainBig atStartPosition:CGPointMake(150, 300)];		
-		*/
-		//[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_Smoke atStartPosition:CGPointMake(150, 100)];		
+		
+		
+		/*
+		 *	Smoke Benchmark
+		 */
+		//[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_Smoke atStartPosition:CGPointMake(150, 100) withImage:particleTextures];		
+		
+		/*
+		 *	Ship Benchmark
+		 */
 		
 		someImage = new Image();
 		someImage->initWithUIImage([UIImage imageNamed:@"player.png"], 1.0f, GL_LINEAR);
@@ -88,7 +104,8 @@
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
-	drawSystems();	//draw the particle systems
+	[[SingletonParticleSystemManager sharedParticleSystemManager] drawSystems];
+	
 	
 	someImage->renderAtPoint(CGPointMake(150, 100), YES);	//draw the ship image.
 	

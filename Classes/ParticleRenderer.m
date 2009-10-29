@@ -3,7 +3,7 @@
 //  Particles_2
 //
 //  Created by Nicolas Goles on 9/23/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 Gando-Games All rights reserved.
 //
 
 #import "ParticleRenderer.h"
@@ -41,10 +41,10 @@
 			
 			switch (inRenderingMode) {
 				case kRenderingMode_PointSprites:
-					_interleavedPointSprites = malloc(sizeof(PointSprite)*inParticleNumber);
+					_interleavedPointSprites = (PointSprite *)malloc(sizeof(PointSprite)*inParticleNumber);
 					break;
 				case kRenderingMode_2xTriangles:
-					_interleavedVertexs = malloc(sizeof(ParticleVertex)*inParticleNumber*6); //The 2x is because two triangles per particle are needed
+					_interleavedVertexs = (ParticleVertex *)malloc(sizeof(ParticleVertex)*inParticleNumber*6); //The 2x is because two triangles per particle are needed
 					break;
 				default:
 					NSLog(@"Problem when allocating the vertex arrays");
@@ -252,6 +252,8 @@
 	}
 }
 
+#pragma mark drawing
+
 - (void) draw
 {
 	/*if(![del textureBound])
@@ -325,7 +327,7 @@
 			break;
 		default:
 			
-			NSLog(@"Unrecognized rendering mode. This shouldn't happen.");
+			printf("Unrecognized rendering mode. This shouldn't happen.\n");
 			
 			break;
 	}

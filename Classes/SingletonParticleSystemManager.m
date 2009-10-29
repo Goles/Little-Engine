@@ -3,15 +3,17 @@
 //  Particles_2
 //
 //  Created by Nicolas Goles on 10/10/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 Gando-Games All rights reserved.
 //
 
+#import "ParticleSystemManagerFunctions.h"
 #import "SingletonParticleSystemManager.h"
 #import "OpenGLCommon.h"
 #import "EmitterFunctions.h"
 #import "RenderingFunctions.h"
 #import "ParticleSystem.h"
 #import "ParticleEmitter.h"
+#import "ParticleRenderer.h"
 
 
 /*
@@ -38,7 +40,6 @@ static SingletonParticleSystemManager *sharedParticleSystemManager = nil;
 /*Method to obtain the singleton instance*/
 + (SingletonParticleSystemManager *) sharedParticleSystemManager
 {
-
 	@synchronized(self)
 	{
 		if (!sharedParticleSystemManager)
@@ -46,7 +47,6 @@ static SingletonParticleSystemManager *sharedParticleSystemManager = nil;
 	}
 	
 	return sharedParticleSystemManager;
-	
 }
 
 /*Overload alloc to only let our Singleton Instance once.*/
@@ -294,6 +294,7 @@ static SingletonParticleSystemManager *sharedParticleSystemManager = nil;
 			
 		case kParticleSystemFX_Smoke:
 			newSystem	= [[ParticleSystem alloc] initWithParticles:200 continuous:YES renderingMode:kRenderingMode_2xTriangles];
+	
 			
 			[[newSystem systemEmitter] setSystemXInitialSpeed:0
 												initialYSpeed:0.5
@@ -319,6 +320,8 @@ static SingletonParticleSystemManager *sharedParticleSystemManager = nil;
 			break;
 	}
 	
+	/* We now set the ParticleRenderer Texture to the input Image */
+	 
 	return([self insertEntity:newSystem]);
 }
 
@@ -329,7 +332,7 @@ static SingletonParticleSystemManager *sharedParticleSystemManager = nil;
 	SystemEntity *newElement;
 	SystemEntity *currentElement;
 	
-	newElement = malloc(sizeof(SystemEntity));
+	newElement = (SystemEntity *)malloc(sizeof(SystemEntity));
 	
 	newElement->system		= inSystem;
 	newElement->nextSystem	= NULL;
@@ -394,6 +397,21 @@ static SingletonParticleSystemManager *sharedParticleSystemManager = nil;
 	{
 		printf("Number Of Particles: %d\n",[(ParticleSystem *)currentElement->system particleNumber]);
 		
+		currentElement = currentElement->nextSystem;
+	}
+}
+
+- (void) drawSystems
+{
+	SystemEntity *currentElement = _systemsList;
+	
+	while (currentElement != NULL) 
+	{
+		if([(ParticleSystem *)currentElement->system isActive])
+		{
+			[(ParticleSystem *)currentElement->system update];
+			[(ParticleSystem *)currentElement->system draw];
+		}
 		currentElement = currentElement->nextSystem;
 	}
 }

@@ -13,7 +13,6 @@ typedef enum
 	kEmmiterFX_linear,
 } EmmiterFX;
 
-
 typedef enum
 {
 	kParticleSystemFX_FireSmall = 0,

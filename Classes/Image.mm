@@ -3,7 +3,7 @@
 //  Particles_2
 //
 //  Created by Nicolas Goles on 10/19/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 Gando-Games All rights reserved.
 //
 
 #import "Image.h"
@@ -231,6 +231,12 @@ void Image::render(CGPoint point, Quad2* tc, Quad2* qv)
 	
 	// Restore the saved matrix from the stack
 	glPopMatrix();
+}
+
+void Image::bind()
+{
+	if(texture)
+		[texture bind];
 }
 
 #pragma mark calculations
