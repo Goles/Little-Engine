@@ -16,7 +16,6 @@
 @implementation ParticleRenderer
 
 @synthesize delegate;
-@synthesize particleTexture;
 @synthesize renderingMode;
 @synthesize continuousRendering;
 @synthesize resetCount;
@@ -30,9 +29,6 @@
 		if(delegate)
 		{
 			[self setArrayReference];
-			//particleTexture = [[Texture2D alloc] initWithImagePath:[[NSBundle mainBundle] pathForResource:@"smokes_w.png" ofType:nil]]; // For now this will be instanciated here, in the future must be a pointer to a texture stored somewhere.
-			//particleTexture = [[Texture2D alloc] initWithPVRTCFile:[FileUtils fullPathFromRelativePath:@"smoke.pvr"]];
-			particleTexture = [[Texture2D alloc] initWithImagePath:[[NSBundle mainBundle] pathForResource:@"Particle2.png" ofType:nil] filter:GL_LINEAR];
 			_vertexCount		= 0;
 			_pointSpriteCount	= 0;
 			_particleNumber		= inParticleNumber;
@@ -70,10 +66,11 @@
 {
 	/*
 	 * We asume the whole system will use the same texture, so this will not change.
-	 */
+	 *
+	
 	GLfloat	width  = (GLfloat)[particleTexture pixelsWide],
 	height = (GLfloat)[particleTexture pixelsHigh];
-	
+	*/
 	for(int i = 0; i < [delegate particleNumber]; i++)
 	{
 		float cachedParticleLifeTime = array[i].lifeTime;
@@ -128,10 +125,10 @@
 		
 		/*Then we start calculating the coords of the particle texture square.*/
 		
-		/*We just make two calls to get the positions*/
+		/*We just make two calls to get the positions
 		float particleTextureX = array[i].position.x;
 		float particleTextureY = array[i].position.y;
-		
+		*/
 		/*We cache the width/2 and the height/2*/
 		/*float cacheWidth = width / 2;
 		float cacheHeight = height / 2;
@@ -262,7 +259,10 @@
 		[aSystem setTextureBound:YES];
 	}*/
 	
-	[particleTexture bind];
+	//[particleTexture bind];
+	if(particleSubTexture)
+		particleSubTexture->bind();
+
 	glEnable(GL_TEXTURE_2D);
 	
 	switch (renderingMode) {
@@ -334,6 +334,12 @@
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glDisable(GL_BLEND);
 	glDisableClientState(GL_TEXTURE_2D);
+}
+
+#pragma mark setters
+- (void) setParticleSubTexture:(Image *) inImage
+{
+	particleSubTexture = inImage;
 }
 
 @end

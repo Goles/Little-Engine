@@ -19,29 +19,23 @@
 		28FD14FE0DC6FC130079059D /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 28FD14FD0DC6FC130079059D /* EAGLView.mm */; };
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
-		630256C2108053280041B9BA /* SingletonParticleSystemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 630256C1108053280041B9BA /* SingletonParticleSystemManager.m */; };
+		630256C2108053280041B9BA /* SingletonParticleSystemManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 630256C1108053280041B9BA /* SingletonParticleSystemManager.mm */; };
 		632A3E1B1073211200F8EADC /* PVRTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 632A3E1A1073211200F8EADC /* PVRTexture.m */; };
 		632A3EB61073260B00F8EADC /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 632A3EB51073260B00F8EADC /* Texture2D.m */; };
 		633C889410649219003911A0 /* Particle.m in Sources */ = {isa = PBXBuildFile; fileRef = 633C889110649219003911A0 /* Particle.m */; };
 		633C889510649219003911A0 /* ParticleController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 633C889310649219003911A0 /* ParticleController.mm */; };
 		633C88D51064942D003911A0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633C88D41064942D003911A0 /* CoreGraphics.framework */; };
-		634A46781078E1040071D13B /* Particle4.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 634A46771078E1040071D13B /* Particle4.pvr */; };
 		635C8EF21074761E002F9BB3 /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 635C8EF11074761E002F9BB3 /* FileUtils.m */; };
 		635C8F231074790B002F9BB3 /* Particle2.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 635C8F221074790B002F9BB3 /* Particle2.pvr */; };
 		6379709F108A17AC005B24FC /* smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 6379709E108A17AC005B24FC /* smoke.png */; };
-		637970E1108A19F4005B24FC /* level2.png in Resources */ = {isa = PBXBuildFile; fileRef = 637970E0108A19F4005B24FC /* level2.png */; };
-		637970FF108A1C34005B24FC /* smokes_w.png in Resources */ = {isa = PBXBuildFile; fileRef = 637970FE108A1C34005B24FC /* smokes_w.png */; };
-		638DD31C1064C1040032ACF1 /* Particle.png in Resources */ = {isa = PBXBuildFile; fileRef = 638DD31B1064C1040032ACF1 /* Particle.png */; };
+		63BCF538109A3A53002BCD2C /* SpriteSheet.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63BCF537109A3A53002BCD2C /* SpriteSheet.mm */; };
+		63BCF5E4109A4D41002BCD2C /* spritesheet16.gif in Resources */ = {isa = PBXBuildFile; fileRef = 63BCF5E3109A4D41002BCD2C /* spritesheet16.gif */; };
 		63C557AB108CFA0200E77DBC /* Image.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63C557AA108CFA0200E77DBC /* Image.mm */; };
-		63D097E01089439C007C727F /* smoke.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 63D097DF1089439C007C727F /* smoke.pvr */; };
-		63E2718D1072B42F00807A91 /* Particle3.png in Resources */ = {isa = PBXBuildFile; fileRef = 63E2718C1072B42F00807A91 /* Particle3.png */; };
-		63E272031072E22A00807A91 /* Particle4.png in Resources */ = {isa = PBXBuildFile; fileRef = 63E272021072E22A00807A91 /* Particle4.png */; };
 		63E4F9FC107A2E8900FA74AE /* HardwareClock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63E4F9FB107A2E8900FA74AE /* HardwareClock.cpp */; };
 		63E9950210978E12003D4798 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 63E9950110978E12003D4798 /* player.png */; };
-		63EF8D24106B0FF2007C2E58 /* ParticleSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EF8D23106B0FF2007C2E58 /* ParticleSystem.m */; };
+		63EF8D24106B0FF2007C2E58 /* ParticleSystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63EF8D23106B0FF2007C2E58 /* ParticleSystem.mm */; };
 		63F01864106AF201008FABF0 /* ParticleEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F01863106AF201008FABF0 /* ParticleEmitter.m */; };
-		63F01867106AF218008FABF0 /* ParticleRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F01866106AF218008FABF0 /* ParticleRenderer.m */; };
-		63F8BBDE10727AEB00C34498 /* Particle2.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F8BBDD10727AEB00C34498 /* Particle2.png */; };
+		63F01867106AF218008FABF0 /* ParticleRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63F01866106AF218008FABF0 /* ParticleRenderer.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,7 +59,7 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Particles_2_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particles_2_Prefix.pch; sourceTree = "<group>"; };
 		630256C0108053280041B9BA /* SingletonParticleSystemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonParticleSystemManager.h; sourceTree = "<group>"; };
-		630256C1108053280041B9BA /* SingletonParticleSystemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingletonParticleSystemManager.m; sourceTree = "<group>"; };
+		630256C1108053280041B9BA /* SingletonParticleSystemManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SingletonParticleSystemManager.mm; sourceTree = "<group>"; };
 		632A3E191073211200F8EADC /* PVRTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRTexture.h; sourceTree = "<group>"; };
 		632A3E1A1073211200F8EADC /* PVRTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVRTexture.m; sourceTree = "<group>"; };
 		632A3E1F107321E200F8EADC /* ConstantsAndMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantsAndMacros.h; sourceTree = "<group>"; };
@@ -77,33 +71,28 @@
 		633C889210649219003911A0 /* ParticleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleController.h; sourceTree = "<group>"; };
 		633C889310649219003911A0 /* ParticleController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ParticleController.mm; sourceTree = "<group>"; };
 		633C88D41064942D003911A0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		634A46771078E1040071D13B /* Particle4.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = Particle4.pvr; sourceTree = "<group>"; };
 		635C8EF01074761E002F9BB3 /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
 		635C8EF11074761E002F9BB3 /* FileUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUtils.m; sourceTree = "<group>"; };
 		635C8F221074790B002F9BB3 /* Particle2.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = Particle2.pvr; sourceTree = "<group>"; };
 		636543491080FCC300EC118E /* ParticleSystemManagerFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSystemManagerFunctions.h; sourceTree = "<group>"; };
 		63716F89106FC18E00B3C783 /* EmitterFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmitterFunctions.h; sourceTree = "<group>"; };
 		6379709E108A17AC005B24FC /* smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smoke.png; sourceTree = "<group>"; };
-		637970E0108A19F4005B24FC /* level2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level2.png; sourceTree = "<group>"; };
-		637970FE108A1C34005B24FC /* smokes_w.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smokes_w.png; sourceTree = "<group>"; };
-		638DD31B1064C1040032ACF1 /* Particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Particle.png; sourceTree = "<group>"; };
+		63BCF536109A3A53002BCD2C /* SpriteSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteSheet.h; sourceTree = "<group>"; };
+		63BCF537109A3A53002BCD2C /* SpriteSheet.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SpriteSheet.mm; sourceTree = "<group>"; };
+		63BCF5E3109A4D41002BCD2C /* spritesheet16.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = spritesheet16.gif; sourceTree = "<group>"; };
 		63C154FB106D4CC60053E452 /* RenderingFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderingFunctions.h; sourceTree = "<group>"; };
 		63C1574B106DB7080053E452 /* OpenGLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLCommon.h; sourceTree = "<group>"; };
 		63C557A9108CFA0200E77DBC /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		63C557AA108CFA0200E77DBC /* Image.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Image.mm; sourceTree = "<group>"; };
-		63D097DF1089439C007C727F /* smoke.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = smoke.pvr; sourceTree = "<group>"; };
-		63E2718C1072B42F00807A91 /* Particle3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Particle3.png; sourceTree = "<group>"; };
-		63E272021072E22A00807A91 /* Particle4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Particle4.png; sourceTree = "<group>"; };
 		63E4F9FA107A2E8900FA74AE /* HardwareClock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HardwareClock.h; sourceTree = "<group>"; };
 		63E4F9FB107A2E8900FA74AE /* HardwareClock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HardwareClock.cpp; sourceTree = "<group>"; };
 		63E9950110978E12003D4798 /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
 		63EF8D22106B0FF2007C2E58 /* ParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSystem.h; sourceTree = "<group>"; };
-		63EF8D23106B0FF2007C2E58 /* ParticleSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleSystem.m; sourceTree = "<group>"; };
+		63EF8D23106B0FF2007C2E58 /* ParticleSystem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ParticleSystem.mm; sourceTree = "<group>"; };
 		63F01862106AF201008FABF0 /* ParticleEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleEmitter.h; sourceTree = "<group>"; };
 		63F01863106AF201008FABF0 /* ParticleEmitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleEmitter.m; sourceTree = "<group>"; };
 		63F01865106AF218008FABF0 /* ParticleRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleRenderer.h; sourceTree = "<group>"; };
-		63F01866106AF218008FABF0 /* ParticleRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleRenderer.m; sourceTree = "<group>"; };
-		63F8BBDD10727AEB00C34498 /* Particle2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Particle2.png; sourceTree = "<group>"; };
+		63F01866106AF218008FABF0 /* ParticleRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ParticleRenderer.mm; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Particles_2-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Particles_2-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,17 +165,10 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				63BCF5E3109A4D41002BCD2C /* spritesheet16.gif */,
 				63E9950110978E12003D4798 /* player.png */,
-				637970FE108A1C34005B24FC /* smokes_w.png */,
-				637970E0108A19F4005B24FC /* level2.png */,
 				6379709E108A17AC005B24FC /* smoke.png */,
-				63D097DF1089439C007C727F /* smoke.pvr */,
-				638DD31B1064C1040032ACF1 /* Particle.png */,
-				63F8BBDD10727AEB00C34498 /* Particle2.png */,
 				635C8F221074790B002F9BB3 /* Particle2.pvr */,
-				63E2718C1072B42F00807A91 /* Particle3.png */,
-				63E272021072E22A00807A91 /* Particle4.png */,
-				634A46771078E1040071D13B /* Particle4.pvr */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Particles_2-Info.plist */,
 			);
@@ -210,15 +192,15 @@
 			children = (
 				63716FA1106FC34200B3C783 /* static */,
 				630256C0108053280041B9BA /* SingletonParticleSystemManager.h */,
-				630256C1108053280041B9BA /* SingletonParticleSystemManager.m */,
+				630256C1108053280041B9BA /* SingletonParticleSystemManager.mm */,
 				633C889010649219003911A0 /* Particle.h */,
 				633C889110649219003911A0 /* Particle.m */,
 				63EF8D22106B0FF2007C2E58 /* ParticleSystem.h */,
-				63EF8D23106B0FF2007C2E58 /* ParticleSystem.m */,
+				63EF8D23106B0FF2007C2E58 /* ParticleSystem.mm */,
 				63F01862106AF201008FABF0 /* ParticleEmitter.h */,
 				63F01863106AF201008FABF0 /* ParticleEmitter.m */,
 				63F01865106AF218008FABF0 /* ParticleRenderer.h */,
-				63F01866106AF218008FABF0 /* ParticleRenderer.m */,
+				63F01866106AF218008FABF0 /* ParticleRenderer.mm */,
 				633C889210649219003911A0 /* ParticleController.h */,
 				633C889310649219003911A0 /* ParticleController.mm */,
 			);
@@ -242,10 +224,10 @@
 		633C88DA10649445003911A0 /* OpenGL */ = {
 			isa = PBXGroup;
 			children = (
+				633C88DB1064944B003911A0 /* Textures */,
 				63C1574B106DB7080053E452 /* OpenGLCommon.h */,
 				632A3E1F107321E200F8EADC /* ConstantsAndMacros.h */,
 				632A3E201073222C00F8EADC /* ccConfig.h */,
-				633C88DB1064944B003911A0 /* Textures */,
 			);
 			name = OpenGL;
 			sourceTree = "<group>";
@@ -275,10 +257,8 @@
 		635E0632108CB92500AF1EDB /* Engine */ = {
 			isa = PBXGroup;
 			children = (
-				635E0637108CB95200AF1EDB /* Image */,
+				63BCF41B109A3077002BCD2C /* Graphics */,
 				635C8EEF10747614002F9BB3 /* Support */,
-				633C88DA10649445003911A0 /* OpenGL */,
-				633C888F10649219003911A0 /* Particles */,
 			);
 			name = Engine;
 			sourceTree = "<group>";
@@ -300,6 +280,26 @@
 				636543491080FCC300EC118E /* ParticleSystemManagerFunctions.h */,
 			);
 			name = static;
+			sourceTree = "<group>";
+		};
+		63BCF41B109A3077002BCD2C /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				635E0637108CB95200AF1EDB /* Image */,
+				63BCF41C109A309C002BCD2C /* SpriteSheet */,
+				633C88DA10649445003911A0 /* OpenGL */,
+				633C888F10649219003911A0 /* Particles */,
+			);
+			name = Graphics;
+			sourceTree = "<group>";
+		};
+		63BCF41C109A309C002BCD2C /* SpriteSheet */ = {
+			isa = PBXGroup;
+			children = (
+				63BCF536109A3A53002BCD2C /* SpriteSheet.h */,
+				63BCF537109A3A53002BCD2C /* SpriteSheet.mm */,
+			);
+			name = SpriteSheet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,17 +347,10 @@
 				2514C27B10084DCA00A42282 /* Shader.fsh in Resources */,
 				2514C27C10084DCA00A42282 /* Shader.vsh in Resources */,
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
-				638DD31C1064C1040032ACF1 /* Particle.png in Resources */,
-				63F8BBDE10727AEB00C34498 /* Particle2.png in Resources */,
-				63E2718D1072B42F00807A91 /* Particle3.png in Resources */,
-				63E272031072E22A00807A91 /* Particle4.png in Resources */,
 				635C8F231074790B002F9BB3 /* Particle2.pvr in Resources */,
-				634A46781078E1040071D13B /* Particle4.pvr in Resources */,
-				63D097E01089439C007C727F /* smoke.pvr in Resources */,
 				6379709F108A17AC005B24FC /* smoke.png in Resources */,
-				637970E1108A19F4005B24FC /* level2.png in Resources */,
-				637970FF108A1C34005B24FC /* smokes_w.png in Resources */,
 				63E9950210978E12003D4798 /* player.png in Resources */,
+				63BCF5E4109A4D41002BCD2C /* spritesheet16.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,14 +369,15 @@
 				633C889410649219003911A0 /* Particle.m in Sources */,
 				633C889510649219003911A0 /* ParticleController.mm in Sources */,
 				63F01864106AF201008FABF0 /* ParticleEmitter.m in Sources */,
-				63F01867106AF218008FABF0 /* ParticleRenderer.m in Sources */,
-				63EF8D24106B0FF2007C2E58 /* ParticleSystem.m in Sources */,
+				63F01867106AF218008FABF0 /* ParticleRenderer.mm in Sources */,
+				63EF8D24106B0FF2007C2E58 /* ParticleSystem.mm in Sources */,
 				632A3E1B1073211200F8EADC /* PVRTexture.m in Sources */,
 				632A3EB61073260B00F8EADC /* Texture2D.m in Sources */,
 				635C8EF21074761E002F9BB3 /* FileUtils.m in Sources */,
 				63E4F9FC107A2E8900FA74AE /* HardwareClock.cpp in Sources */,
-				630256C2108053280041B9BA /* SingletonParticleSystemManager.m in Sources */,
+				630256C2108053280041B9BA /* SingletonParticleSystemManager.mm in Sources */,
 				63C557AB108CFA0200E77DBC /* Image.mm in Sources */,
+				63BCF538109A3A53002BCD2C /* SpriteSheet.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

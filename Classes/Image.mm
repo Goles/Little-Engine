@@ -97,11 +97,9 @@ void Image::initWithUIImage(UIImage *image)
 	initImplementation();
 }
 
-void Image::initWithUIImage(UIImage *inImage, float inScale)
+void Image::initWithUIImage(UIImage *inImage, GLenum filter)
 {
-	texture = [[Texture2D alloc] initWithImage:inImage filter:GL_NEAREST];
-	scale	= inScale;
-	initImplementation();
+	texture	= [[Texture2D alloc] initWithImage:inImage filter:filter];
 }
 
 void Image::initWithUIImage(UIImage *inImage, float inScale, GLenum inFilter)
@@ -114,7 +112,7 @@ void Image::initWithUIImage(UIImage *inImage, float inScale, GLenum inFilter)
 /*
  *	Getters and Setters
  */
-#pragma mark getters_setters
+#pragma mark setters
 
 void Image::setTextureOffsetX(int inTextureOffset)
 {
@@ -154,6 +152,8 @@ void Image::setAlpha(float alpha)
 	colourFilter[3] = alpha;
 }
 
+#pragma mark getters
+
 Image* Image::getSubImage(CGPoint inPoint,  GLuint inSubImageWidth, GLuint inSubImageHeight, float inSubImageScale)
 {
 	//Create a new Image instance using the texture which has been assigned to the current instance
@@ -174,6 +174,31 @@ Image* Image::getSubImage(CGPoint inPoint,  GLuint inSubImageWidth, GLuint inSub
 	return subImage;
 }
 
+int Image::getImageWidth()
+{
+	return imageWidth;
+}
+
+int Image::getImageHeight()
+{
+	return imageWidth;
+}
+
+float Image::getScale()
+{
+	return scale;
+}
+
+Quad2* Image::getTexCoords()
+{
+	return texCoords;
+}
+
+Quad2* Image::getVertex()
+{
+	return vertices;
+}
+
 #pragma mark rendering
 
 void Image::renderAtPoint(CGPoint point, BOOL center)
@@ -186,6 +211,16 @@ void Image::renderAtPoint(CGPoint point, BOOL center)
 	render(point, texCoords, vertices);
 }
 
+void Image::renderSubImageAtPoint(CGPoint point, CGPoint offsetPoint, GLfloat subImageWidth, GLfloat subImageHeight, BOOL isCenterOfImage)
+{
+	// Calculate the vertex and texcoord values for this image
+	this->calculateVertices(point, subImageWidth, subImageHeight, isCenterOfImage);
+	this->calculateTexCoordsAtOffset(offsetPoint, subImageWidth, subImageHeight);
+	
+	// Now that we have defined the texture coordinates and the quad vertices we can render to the screen 
+	// using them
+	this->render(point, texCoords, vertices);
+}
 
 void Image::render(CGPoint point, Quad2* tc, Quad2* qv)
 {		   

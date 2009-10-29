@@ -34,20 +34,20 @@ public:
 	void	initWithTexture(Texture2D *inTexture, float inScale);
 	void	initWithUIImage(UIImage *inImage);
 	void	initWithUIImage(UIImage *inImage, GLenum filter);
-	void	initWithUIImage(UIImage *inImage, float inScale);
 	void	initWithUIImage(UIImage *inImage, float inScale, GLenum filter);	
 	
 	//Action Methods
 	Image *	getSubImage(CGPoint point,  GLuint subImageWidth, GLuint subImageHeight, float subImageScale);
 	void	renderAtPoint(CGPoint point, BOOL centerOfImage);
+	void	renderSubImageAtPoint(CGPoint point, CGPoint offsetPoint, GLfloat subImageWidth, GLfloat subImageHeight, BOOL isCenterOfImage);
 	void	render(CGPoint point, Quad2* tc, Quad2* qv);
 	void	calculateVertices(CGPoint point, GLuint subImageWidth, GLuint subImageHeight, BOOL center);
 	void	calculateTexCoordsAtOffset(CGPoint offsetPoint, GLuint subImageWidth, GLuint subImageHeight);
 	void	bind();
 	
 	// Setters
-	void	setColorFilter(float Red, float Green, float Blue, float alpha);
-	void	setAlpha(float alpha);
+	void setColorFilter(float Red, float Green, float Blue, float alpha);
+	void setAlpha(float alpha);
 	// More setters
 	void initImplementation();
 	void setTextureOffsetX(int inTextureOffset);
@@ -55,7 +55,13 @@ public:
 	void setImageWidth(GLuint inWidth);
 	void setImageHeight(GLuint inHeight);
 	void setRotation(float inRotation);
-									   				   
+	
+	//Getters
+	int		getImageWidth();
+	int		getImageHeight();
+	float	getScale();
+	Quad2*	getTexCoords();
+	Quad2*	getVertex();
 private:
 	// Game State
 	//SingletonGameState *sharedGameState;

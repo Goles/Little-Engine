@@ -18,6 +18,8 @@
 #import <Foundation/Foundation.h>
 #import "OpenGLCommon.h"
 #import "RenderingFunctions.h"
+#import "Image.h"
+
 
 @class Texture2D;
 @class Particle;
@@ -26,7 +28,7 @@
 {
 	id			delegate;
 	Particle	**array;			//this will be a reference to the system array.	
-	Texture2D	*particleTexture;
+	Image		*particleSubTexture;
 	
 	BOOL continuousRendering;
 	BOOL systemDeactivation;
@@ -43,7 +45,6 @@
 }
 
 @property (nonatomic, retain) id delegate;
-@property (nonatomic, retain) Texture2D *particleTexture;
 @property (readwrite) int renderingMode;
 @property (readwrite) BOOL continuousRendering;
 @property (readwrite) unsigned resetCount;
@@ -54,5 +55,6 @@
 - (void) pushVertexsPointSprites;
 - (void) setArrayReference;
 - (id) initWithDelegate:(id) inDelegate particles:(int)inParticleNumber type:(int) inRenderingMode;
+- (void) setParticleSubTexture:(Image *) inImage;
 
 @end

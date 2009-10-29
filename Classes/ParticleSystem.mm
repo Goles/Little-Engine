@@ -56,11 +56,6 @@
 	return self;
 }
 
-- (Texture2D *) currentTexture
-{
-	return ([systemRenderer particleTexture]);
-}
-
 - (void) draw
 {
 	if (isActive)

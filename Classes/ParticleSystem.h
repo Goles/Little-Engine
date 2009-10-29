@@ -46,5 +46,5 @@
 		   renderingMode:(int)kRenderingMode;
 - (void) update;
 - (void) draw;
-- (Texture2D *) currentTexture;
+
 @end

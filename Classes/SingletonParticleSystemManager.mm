@@ -63,7 +63,7 @@ static SingletonParticleSystemManager *sharedParticleSystemManager = nil;
 }
 
 #pragma mark particlesystem_allocation
-- (SystemEntity *) createParticleFX:(int) inParticleFX atStartPosition:(CGPoint) inPosition
+- (SystemEntity *) createParticleFX:(int) inParticleFX atStartPosition:(CGPoint) inPosition withImage:(Image *)inImage
 {
 	ParticleSystem *newSystem;
 	
@@ -321,7 +321,9 @@ static SingletonParticleSystemManager *sharedParticleSystemManager = nil;
 	}
 	
 	/* We now set the ParticleRenderer Texture to the input Image */
-	 
+	[[newSystem systemRenderer] setParticleSubTexture:inImage];
+	
+	
 	return([self insertEntity:newSystem]);
 }
 

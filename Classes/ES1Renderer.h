@@ -11,6 +11,7 @@
 #import <OpenGLES/ES1/gl.h>
 #import <OpenGLES/ES1/glext.h>
 #import "Image.h"
+#import "SpriteSheet.h"
 
 @class ParticleController;
 @class Texture2D;
@@ -42,6 +43,9 @@
 	Texture2D	*backgroundTex;
 	Image		*someImage;
 	Image		*particleTextures;
+
+	SpriteSheet *ss;
+	Image		*sprite;
 }
 
 @property (nonatomic, retain) ParticleSystem *aSystem;
@@ -49,5 +53,7 @@
 - (void) render;
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer;
 - (void) setupView;
+- (void) initGame;
+- (void) particlesBenchmark1;
 
 @end
