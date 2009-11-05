@@ -27,6 +27,7 @@
 }
 
 - (void) render;
+- (void) update:(float) delta;
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer;
 
 @end

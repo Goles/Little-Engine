@@ -55,6 +55,11 @@ enum {
 	return self;
 }
 
+- (void) update:(float)delta
+{
+	/*Update game here somehow.*/
+}
+
 - (void) render
 {
     // Replace the implementation of this method to do your own custom drawing

@@ -45,6 +45,54 @@
 
 - (void) initGame
 {
+	//[self animationTest2];
+	[self particlesBenchmark1];
+	[self animationTest];
+}
+
+- (void) animationTest
+{
+	ss = new SpriteSheet();
+	ss->initWithImageNamed(@"sprite_test.png", 98, 142, 0, 1.0);
+	//sprite = ss->getSpriteAt(4, 2);
+	
+	animatedSprite = new Animation();
+	
+	for (int i = 0; i < 10; i++)
+	{		
+		animatedSprite->addFrameWithImage(ss->getSpriteAt(i, 0), 0.08);
+	}
+	
+	for (int i = 0; i < 2; i++)
+	{
+		animatedSprite->addFrameWithImage(ss->getSpriteAt(i,1), 0.08);
+	}
+	
+	animatedSprite->addFrameWithImage(ss->getSpriteAt(2,1), 0.2);
+		
+	
+	animatedSprite->setIsRunning(true);
+	animatedSprite->setIsRepeating(true);
+}
+
+- (void) animationTest2
+{
+	ss = new SpriteSheet();
+	ss->initWithImageNamed(@"Sprite_Sheet_Test.png", 44.0, 64, 0, 1.0);
+	
+	animatedSprite = new Animation();
+	
+	for(int i = 0; i < 18; i++)
+		animatedSprite->addFrameWithImage(ss->getSpriteAt(i, 0), 0.08);
+	
+	animatedSprite->setIsRunning(true);
+	animatedSprite->setIsRepeating(true);
+}
+
+
+
+- (void) spriteSheetTest
+{
 	ss = new SpriteSheet();
 	ss->initWithImageNamed(@"spritesheet16.gif", 16, 16, 0, 2.0);
 	sprite = ss->getSpriteAt(4, 2);
@@ -66,40 +114,40 @@
 	 */
 	
 	 [[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FireSmall 
-	 atStartPosition:CGPointMake(50, 100) 
-	 withImage:particleTextures];
+																	atStartPosition:CGPointMake(50, 100) 
+																		  withImage:particleTextures];
 	 
 	 [[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FireMedium 
-	 atStartPosition:CGPointMake(100, 100) 
-	 withImage:particleTextures];
+																	atStartPosition:CGPointMake(100, 100) 
+																		  withImage:particleTextures];
 	 
 	 [[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FireBig 
-	 atStartPosition:CGPointMake(150, 100) 
-	 withImage:particleTextures];
+																	atStartPosition:CGPointMake(150, 100) 
+																		  withImage:particleTextures];
 	 
 	 [[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_ExplosionSmall
-	 atStartPosition:CGPointMake(250, 300) 
-	 withImage:particleTextures];
+																	atStartPosition:CGPointMake(250, 300) 
+																		  withImage:particleTextures];
 	 
 	 [[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_ExplosionMedium 
-	 atStartPosition:CGPointMake(250, 200) 
-	 withImage:particleTextures];
+																	atStartPosition:CGPointMake(250, 200) 
+																		  withImage:particleTextures];
 	 
 	 [[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_ExplosionBig 
-	 atStartPosition:CGPointMake(250, 100) 
-	 withImage:particleTextures];
+																	atStartPosition:CGPointMake(250, 100) 
+																		  withImage:particleTextures];
 	 
 	 [[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FountainSmall 
-	 atStartPosition:CGPointMake(50, 300) 
-	 withImage:particleTextures];
+																	atStartPosition:CGPointMake(50, 300) 
+																		  withImage:particleTextures];
 	 
 	 [[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FountainMedium 
-	 atStartPosition:CGPointMake(100, 300) 
-	 withImage:particleTextures];
+																	atStartPosition:CGPointMake(100, 300) 
+																		  withImage:particleTextures];
 	 
 	 [[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FountainBig 
-	 atStartPosition:CGPointMake(150, 300) 
-	 withImage:particleTextures];		
+																	atStartPosition:CGPointMake(150, 300) 
+																		  withImage:particleTextures];		
 	
 	/*
 	 *	Smoke Benchmark
@@ -109,11 +157,11 @@
 	/*
 	 *	Ship Benchmark
 	 */		
-	someImage = new Image();
+	/*someImage = new Image();
 	someImage->initWithUIImage([UIImage imageNamed:@"player.png"], 1.0f, GL_LINEAR);
 	someImage->setAlpha(3.0); 
 	someImage->setRotation(180);
-	 
+	 */
 	
 }
 
@@ -128,6 +176,15 @@
 	glEnable(GL_DEPTH_TEST);
 }
 
+
+#pragma mark update_game
+- (void) update:(float)delta
+{
+	if(animatedSprite)
+		animatedSprite->update(delta);
+}
+
+#pragma mark render_scene
 - (void) render
 {
 	[EAGLContext setCurrentContext:context];
@@ -150,20 +207,17 @@
 	if(someImage)
 		someImage->renderAtPoint(CGPointMake(150, 100), YES);	//draw the ship image.
 	
+	/*if(animatedSprite)
+	{
+		for(int i = 0; i < 320; i+=5)
+			for(int j = 50; j < 480; j+=50)
+				animatedSprite->renderAtPoint(CGPointMake(i, j));
+	}*/
+	if(animatedSprite)
+		animatedSprite->renderAtPoint(CGPointMake(160, 240));
+	
     glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
     [context presentRenderbuffer:GL_RENDERBUFFER_OES];
-}
-
-- (void) mainGameLoop
-{
-	CFTimeInterval		time;
-	float				delta;
-	time	= CFAbsoluteTimeGetCurrent();
-	delta	= time - lastTime;
-	
-	//[self render:delta];
-	
-	lastTime = time;
 }
 
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer

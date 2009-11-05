@@ -9,7 +9,6 @@
 #import "EAGLView.h"
 
 #import "ES1Renderer.h"
-#import "ES2Renderer.h"
 #import "ConstantsAndMacros.h"
 #import "EmitterFunctions.h"
 #import "ParticleSystem.h"
@@ -77,21 +76,18 @@
 	delta	= (time - lastTime);
 	
 	/* update */
+	[(ES1Renderer *)renderer update:delta];
+	
 	/* render */
 	[renderer render];
 	
 	lastTime = time;
 }
 
-- (void) drawView:(id)sender
-{
-    [renderer render];
-}
-
 - (void) layoutSubviews
 {
 	[renderer resizeFromLayer:(CAEAGLLayer*)self.layer];
-    [self drawView:nil];
+//    [self drawView:nil];
 }
 
 - (NSInteger) animationFrameInterval

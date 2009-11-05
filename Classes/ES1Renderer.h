@@ -12,6 +12,7 @@
 #import <OpenGLES/ES1/glext.h>
 #import "Image.h"
 #import "SpriteSheet.h"
+#import "Animation.h"
 
 @class ParticleController;
 @class Texture2D;
@@ -43,17 +44,23 @@
 	Texture2D	*backgroundTex;
 	Image		*someImage;
 	Image		*particleTextures;
-
+	
+	//Testing C++ stuff
 	SpriteSheet *ss;
 	Image		*sprite;
+	Animation	*animatedSprite;
 }
 
 @property (nonatomic, retain) ParticleSystem *aSystem;
 
+- (void) update:(float)delta;
 - (void) render;
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer;
 - (void) setupView;
 - (void) initGame;
+- (void) spriteSheetTest;
 - (void) particlesBenchmark1;
+- (void) animationTest;
+- (void) animationTest2;
 
 @end
