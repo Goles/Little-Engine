@@ -21,12 +21,14 @@
 #import "Image.h"
 
 
+
 @class Texture2D;
 @class Particle;
 
 @interface ParticleRenderer : NSObject 
 {
 	id			delegate;
+	void		*delegateReference;
 	Particle	**array;			//this will be a reference to the system array.	
 	Image		*particleSubTexture;
 	
@@ -55,6 +57,10 @@
 - (void) pushVertexsPointSprites;
 - (void) setArrayReference;
 - (id) initWithDelegate:(id) inDelegate particles:(int)inParticleNumber type:(int) inRenderingMode;
+- (id) initWithParticles:(int) inParticleNumber type:(int) inKRenderingMode;
 - (void) setParticleSubTexture:(Image *) inImage;
+- (void) setDelegateReference:(void *)inDelegateReference;
+- (void) testDelegateReference;
+
 
 @end

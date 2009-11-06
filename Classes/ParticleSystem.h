@@ -14,6 +14,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "GameElement.h"
 @class Texture2D;
 @class Particle;
 @class ParticleController;
@@ -21,7 +22,7 @@
 @class ParticleRenderer;
 
 
-@interface ParticleSystem : NSObject 
+@interface ParticleSystem : NSObject
 {
 	unsigned int		particleNumber;		//Total number of particles in the system
 	BOOL				textureBound;

@@ -12,6 +12,7 @@
 #import "Particle.h"
 #import "OpenGLCommon.h"
 #import "FileUtils.h"
+#import "ParticleSystems.h"
 
 @implementation ParticleRenderer
 
@@ -19,6 +20,8 @@
 @synthesize renderingMode;
 @synthesize continuousRendering;
 @synthesize resetCount;
+
+#pragma mark initializers
 
 - (id) initWithDelegate:(id) inDelegate particles:(int)inParticleNumber type:(int) inRenderingMode
 {
@@ -51,13 +54,55 @@
 			glGenBuffers(1, &bufferID);
 		}
 	}
-	
 	return self;
+}
+
+- (id) initWithParticles:(int) inParticleNumber type:(int) inKRenderingMode
+{
+	if ((self = [super init])) {
+		if(delegate)
+		{
+			[self setArrayReference];
+			_vertexCount		= 0;
+			_pointSpriteCount	= 0;
+			_particleNumber		= inParticleNumber;
+			
+			renderingMode	= inKRenderingMode;
+			
+			switch (inKRenderingMode) {
+				case kRenderingMode_PointSprites:
+					_interleavedPointSprites = (PointSprite *)malloc(sizeof(PointSprite)*inParticleNumber);
+					break;
+				case kRenderingMode_2xTriangles:
+					_interleavedVertexs = (ParticleVertex *)malloc(sizeof(ParticleVertex)*inParticleNumber*6); //The 2x is because two triangles per particle are needed
+					break;
+				default:
+					NSLog(@"Problem when allocating the vertex arrays");
+					break;
+			}
+			
+			/*we initialize the gl buffer*/
+			glGenBuffers(1, &bufferID);
+		}else {
+			printf("WARNING: The array delegate has not been set!\n");
+		}
+	}	
+	return self;
+}
+
+- (void) setDelegateReference:(void *)inDelegateReference
+{
+	delegateReference = (ParticleSystems *)inDelegateReference;
 }
 
 - (void) setArrayReference
 {	
 	array = [(ParticleSystem *)delegate array];
+}
+
+- (void) testDelegateReference
+{
+	((ParticleSystems *)delegateReference)->draw();
 }
 
 #pragma mark vertexPushingModes
@@ -109,10 +154,6 @@
 		/*First we asign the Color to the particle.*/
 		unsigned char RGB[3];
 		
-		/*float HSV[3] = {array[i].lifeTime *225.0f, 1.0f, 100.0f};
-		//float HSV[3] = {255.0f, 1, 1};
-		_HSVToRGB(HSV, RGB);
-		*/
 		unsigned char shortAlpha = cachedAlpha*255.0f;
 		
 		Color3D particleColor = [array[i] currentColor];	//The current particle color
@@ -124,27 +165,7 @@
 		unsigned color = (shortAlpha << 24) | (RGB[0] << 16) | (RGB[1] << 8) | (RGB[2] << 0);
 		
 		/*Then we start calculating the coords of the particle texture square.*/
-		
-		/*We just make two calls to get the positions
-		float particleTextureX = array[i].position.x;
-		float particleTextureY = array[i].position.y;
-		*/
-		/*We cache the width/2 and the height/2*/
-		/*float cacheWidth = width / 2;
-		float cacheHeight = height / 2;
-		
-        float topRightX		= cacheWidth + particleTextureX;
-        float topRightY		= cacheHeight + particleTextureY;
-        
-        float topLeftX		= -cacheWidth + particleTextureX;
-        float topLeftY		= cacheHeight + particleTextureY;
-        
-        float bottomLeftX	= -cacheWidth + particleTextureX;
-        float bottomLeftY	= -cacheHeight + particleTextureY;
-        
-        float bottomRightX	= cacheWidth + particleTextureX;
-        float bottomRightY	= -cacheHeight + particleTextureY;
-		*/
+
 		//Then we pass both of our triangles that actually compose a particle position..
 		// Triangle #1
         addVertex(topLeftX, topLeftY, 0, 0, color, _interleavedVertexs, &_vertexCount);

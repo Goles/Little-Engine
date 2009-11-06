@@ -11,7 +11,7 @@
 #import "Texture2D.h"
 #import "EmitterFunctions.h"
 #import "FileUtils.h"
-#import "SingletonParticleSystemManager.h"
+#import "ParticleSystems.h"
 
 @implementation ES1Renderer
 
@@ -32,6 +32,9 @@
 		
 		[self initGame];
 		
+		ParticleSystems *aSystem = new ParticleSystems(10, YES, kRenderingMode_PointSprites);
+		
+		
 		// Create default framebuffer object. The backing will be allocated for the current layer in -resizeFromLayer
 		glGenFramebuffersOES(1, &defaultFramebuffer);
 		glGenRenderbuffersOES(1, &colorRenderbuffer);
@@ -46,8 +49,10 @@
 - (void) initGame
 {
 	//[self animationTest2];
-	[self particlesBenchmark1];
+	//[self particlesBenchmark1];
+	[self particlesBenchmark_cpp1];
 	[self animationTest];
+
 }
 
 - (void) animationTest
@@ -89,8 +94,6 @@
 	animatedSprite->setIsRepeating(true);
 }
 
-
-
 - (void) spriteSheetTest
 {
 	ss = new SpriteSheet();
@@ -112,7 +115,7 @@
 	/*
 	 *	Different Emitters Benchmark
 	 */
-	
+	/*
 	 [[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FireSmall 
 																	atStartPosition:CGPointMake(50, 100) 
 																		  withImage:particleTextures];
@@ -148,11 +151,11 @@
 	 [[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FountainBig 
 																	atStartPosition:CGPointMake(150, 300) 
 																		  withImage:particleTextures];		
-	
+	*/
 	/*
 	 *	Smoke Benchmark
 	 */
-	[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_Smoke atStartPosition:CGPointMake(150, 100) withImage:particleTextures];		
+	//[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_Smoke atStartPosition:CGPointMake(150, 100) withImage:particleTextures];		
 	
 	/*
 	 *	Ship Benchmark
@@ -162,7 +165,24 @@
 	someImage->setAlpha(3.0); 
 	someImage->setRotation(180);
 	 */
+}
+
+- (void) particlesBenchmark_cpp1
+{
+	particleTextures = new Image();
+	//particleTextures->initWithTexture([[Texture2D alloc] initWithPVRTCFile:[FileUtils fullPathFromRelativePath:@"smoke.pvr"]], 1.0);
+	particleTextures->initWithTexture([[Texture2D alloc] initWithImagePath:[[NSBundle mainBundle] pathForResource:@"smoke.png" ofType:nil] filter:GL_LINEAR], 1.0);
 	
+	PARTICLE_MANAGER->createParticleFX(kParticleSystemFX_FireSmall, CGPointMake(50, 100) , particleTextures);
+	PARTICLE_MANAGER->createParticleFX(kParticleSystemFX_FireMedium, CGPointMake(100, 100), particleTextures);
+	PARTICLE_MANAGER->createParticleFX(kParticleSystemFX_FireBig, CGPointMake(150, 100), particleTextures);
+	PARTICLE_MANAGER->createParticleFX(kParticleSystemFX_ExplosionSmall, CGPointMake(250, 300), particleTextures);
+	PARTICLE_MANAGER->createParticleFX(kParticleSystemFX_ExplosionMedium, CGPointMake(250, 200), particleTextures);
+	PARTICLE_MANAGER->createParticleFX(kParticleSystemFX_ExplosionBig, CGPointMake(250, 100), particleTextures);
+	PARTICLE_MANAGER->createParticleFX(kParticleSystemFX_FountainSmall, CGPointMake(50, 300), particleTextures);
+	PARTICLE_MANAGER->createParticleFX(kParticleSystemFX_FountainMedium, CGPointMake(100, 300), particleTextures);
+	PARTICLE_MANAGER->createParticleFX(kParticleSystemFX_FountainBig, CGPointMake(150, 300), particleTextures);
+	PARTICLE_MANAGER->createParticleFX(kParticleSystemFX_Smoke, CGPointMake(150, 100), particleTextures);
 }
 
 - (void) setupView
@@ -197,9 +217,9 @@
 	}
 	
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT);
-	
-	[[SingletonParticleSystemManager sharedParticleSystemManager] drawSystems];
+	glClear(GL_COLOR_BUFFER_BIT);	
+
+	PARTICLE_MANAGER->drawSystems();
 	
 	if(sprite)
 		sprite->renderAtPoint(CGPointMake(150, 100), YES);

@@ -13,6 +13,7 @@
 #import "Image.h"
 #import "SpriteSheet.h"
 #import "Animation.h"
+#import "SharedParticleSystemManager.h"
 
 @class ParticleController;
 @class Texture2D;
@@ -24,7 +25,6 @@
 @public
 	ParticleSystem *aSystem;
 @private
-	
 	/* Time since the last frame was rendered */
 	CFTimeInterval lastTime;
 	
@@ -60,6 +60,7 @@
 - (void) initGame;
 - (void) spriteSheetTest;
 - (void) particlesBenchmark1;
+- (void) particlesBenchmark_cpp1;
 - (void) animationTest;
 - (void) animationTest2;
 
