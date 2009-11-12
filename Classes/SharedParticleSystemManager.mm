@@ -13,6 +13,8 @@
 #import "ParticleSystem.h"
 #import "ParticleEmitter.h"
 #import "ParticleRenderer.h"
+#import "Image.h"
+#import "FileUtils.h"
 
 SharedParticleSystemManager* SharedParticleSystemManager::instance = NULL;
 
@@ -26,10 +28,16 @@ SharedParticleSystemManager* SharedParticleSystemManager::getInstance()
 
 #pragma mark action_methods
 //Action Methods
-SystemEntity*	SharedParticleSystemManager::createParticleFX(int k_InParticleFX, CGPoint inPosition, Image *inImage)
+SystemEntity* SharedParticleSystemManager::createParticleSystem(int k_InParticleFX, CGPoint inPosition, const std::string &textureName)
 {
 	ParticleSystem *newSystem;
 	
+	Image *inImage = new Image();
+	
+	//NSString *aString = [NSString stringWithUTF8String:textureName.c_str()];
+	
+	//inImage->initWithTexture2D([[Texture2D alloc] initWithPVRTCFile:[FileUtils fullPathFromRelativePath:aString]], 1.0);;
+	inImage->initWithTextureFile(textureName);
 	switch (k_InParticleFX) 
 	{
 			/********************************************************	
@@ -37,32 +45,34 @@ SystemEntity*	SharedParticleSystemManager::createParticleFX(int k_InParticleFX, 
 			 *				_Nicolas Goles Domic - October 16 2009	*
 			 ********************************************************/
 		case kParticleSystemFX_FireSmall:
-			newSystem	= [[ParticleSystem alloc] initWithParticles:50 continuous:YES renderingMode:kRenderingMode_PointSprites];
+			//newSystem	= [[ParticleSystem alloc] initWithParticles:50 continuous:YES renderingMode:kRenderingMode_PointSprites];
 			
-			[[newSystem systemEmitter] setSystemXInitialSpeed:0
-												initialYSpeed:0.5
-													   xAccel:0
-													   yAccel:0.0
-											   xAccelVariance:0.05
-											   yAccelVariance:0.01
-													 xGravity:0
-													 yGravity:0
-													 lifeTime:1.0
-											 lifespanVariance:0.95
-													   source:inPosition 
-											   decreaseFactor:20	//Bigger means slower decrease. => Higher life time
-													 position:CGPointMake(160, 100)
-														 size:16
-												   startColor:Color3DMake(255, 127, 77, 0)
-													 endColor:Color3DMake(255, 127, 77, 0)];
+			newSystem	= new ParticleSystem(59, YES, kRenderingMode_PointSprites);
 			
-			[[newSystem systemEmitter] setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
+			[newSystem->getParticleEmitter() setSystemXInitialSpeed:0
+													  initialYSpeed:0.5
+															 xAccel:0
+															 yAccel:0.0
+													 xAccelVariance:0.05
+													 yAccelVariance:0.01
+														   xGravity:0
+														   yGravity:0
+														   lifeTime:1.0
+												   lifespanVariance:0.95
+															 source:inPosition 
+													 decreaseFactor:20	//Bigger means slower decrease. => Higher life time
+														   position:CGPointMake(160, 100)
+															   size:16
+														 startColor:Color3DMake(255, 127, 77, 0)
+														   endColor:Color3DMake(255, 127, 77, 0)];
+			
+			[newSystem->getParticleEmitter() setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
 			
 			break;
 		case kParticleSystemFX_FireMedium:
-			newSystem	= [[ParticleSystem alloc] initWithParticles:110 continuous:YES renderingMode:kRenderingMode_PointSprites];
+			newSystem	= new ParticleSystem(110, YES, kRenderingMode_PointSprites);
 			
-			[[newSystem systemEmitter] setSystemXInitialSpeed:0
+			[newSystem->getParticleEmitter() setSystemXInitialSpeed:0
 												initialYSpeed:1
 													   xAccel:0
 													   yAccel:0.0
@@ -79,13 +89,13 @@ SystemEntity*	SharedParticleSystemManager::createParticleFX(int k_InParticleFX, 
 												   startColor:Color3DMake(255, 127, 77, 0)
 													 endColor:Color3DMake(255, 127, 77, 0)];
 			
-			[[newSystem systemEmitter] setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
+			[newSystem->getParticleEmitter() setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
 			
 			break;
 		case kParticleSystemFX_FireBig:
-			newSystem	= [[ParticleSystem alloc] initWithParticles:100 continuous:YES renderingMode:kRenderingMode_PointSprites];
+			newSystem	= new ParticleSystem(100, YES, kRenderingMode_PointSprites);
 			
-			[[newSystem systemEmitter] setSystemXInitialSpeed:0
+			[newSystem->getParticleEmitter() setSystemXInitialSpeed:0
 												initialYSpeed:1
 													   xAccel:0
 													   yAccel:0.0
@@ -102,7 +112,7 @@ SystemEntity*	SharedParticleSystemManager::createParticleFX(int k_InParticleFX, 
 												   startColor:Color3DMake(255, 127, 77, 0)
 													 endColor:Color3DMake(255, 127, 77, 0)];
 			
-			[[newSystem systemEmitter] setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
+			[newSystem->getParticleEmitter() setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
 			break;
 			
 			/********************************************************	
@@ -110,9 +120,9 @@ SystemEntity*	SharedParticleSystemManager::createParticleFX(int k_InParticleFX, 
 			 *				_Nicolas Goles Domic - October 16 2009	*
 			 ********************************************************/
 		case kParticleSystemFX_ExplosionSmall:
-			newSystem	= [[ParticleSystem alloc] initWithParticles:80 continuous:YES renderingMode:kRenderingMode_PointSprites];
+			newSystem	= new ParticleSystem(80, YES, kRenderingMode_PointSprites);
 			
-			[[newSystem systemEmitter] setSystemXInitialSpeed:0
+			[newSystem->getParticleEmitter() setSystemXInitialSpeed:0
 												initialYSpeed:0
 													   xAccel:0
 													   yAccel:0.0
@@ -129,13 +139,13 @@ SystemEntity*	SharedParticleSystemManager::createParticleFX(int k_InParticleFX, 
 												   startColor:Color3DMake(255, 127, 77, 0)
 													 endColor:Color3DMake(255, 127, 77, 0)];
 			
-			[[newSystem systemEmitter] setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
+			[newSystem->getParticleEmitter() setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
 			break;
 			
 		case kParticleSystemFX_ExplosionMedium:
-			newSystem	= [[ParticleSystem alloc] initWithParticles:80 continuous:YES renderingMode:kRenderingMode_PointSprites];
+			newSystem	= new ParticleSystem(80, YES, kRenderingMode_PointSprites);
 			
-			[[newSystem systemEmitter] setSystemXInitialSpeed:0
+			[newSystem->getParticleEmitter() setSystemXInitialSpeed:0
 												initialYSpeed:0
 													   xAccel:0
 													   yAccel:0.0
@@ -152,13 +162,12 @@ SystemEntity*	SharedParticleSystemManager::createParticleFX(int k_InParticleFX, 
 												   startColor:Color3DMake(255, 127, 77, 0)
 													 endColor:Color3DMake(255, 127, 77, 0)];
 			
-			[[newSystem systemEmitter] setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
+			[newSystem->getParticleEmitter() setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
 			break;
 			
 		case kParticleSystemFX_ExplosionBig:
-			newSystem	= [[ParticleSystem alloc] initWithParticles:50 continuous:YES renderingMode:kRenderingMode_PointSprites];
-			
-			[[newSystem systemEmitter] setSystemXInitialSpeed:0
+			newSystem	= new ParticleSystem(50, YES, kRenderingMode_PointSprites);
+			[newSystem->getParticleEmitter() setSystemXInitialSpeed:0
 												initialYSpeed:0
 													   xAccel:0
 													   yAccel:0.0
@@ -175,7 +184,7 @@ SystemEntity*	SharedParticleSystemManager::createParticleFX(int k_InParticleFX, 
 												   startColor:Color3DMake(255, 127, 77, 0)
 													 endColor:Color3DMake(255, 127, 77, 0)];
 			
-			[[newSystem systemEmitter] setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
+			[newSystem->getParticleEmitter() setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
 			break;
 			
 			
@@ -184,10 +193,9 @@ SystemEntity*	SharedParticleSystemManager::createParticleFX(int k_InParticleFX, 
 			 *			_Nicolas Goles Domic - October 16 2009		*
 			 ********************************************************/
 		case kParticleSystemFX_FountainSmall:
-			
-			newSystem	= [[ParticleSystem alloc] initWithParticles:50 continuous:YES renderingMode:kRenderingMode_PointSprites];
-			
-			[[newSystem systemEmitter] setSystemXInitialSpeed:0
+			newSystem	= new ParticleSystem(50, YES, kRenderingMode_PointSprites);
+
+			[newSystem->getParticleEmitter() setSystemXInitialSpeed:0
 												initialYSpeed:3
 													   xAccel:0
 													   yAccel:0.0
@@ -204,14 +212,12 @@ SystemEntity*	SharedParticleSystemManager::createParticleFX(int k_InParticleFX, 
 												   startColor:Color3DMake(255, 127, 77, 0)
 													 endColor:Color3DMake(255, 127, 77, 0)];
 			
-			[[newSystem systemEmitter] setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
+			[newSystem->getParticleEmitter() setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
 			break;
 			
 		case kParticleSystemFX_FountainMedium:
-			
-			newSystem	= [[ParticleSystem alloc] initWithParticles:50 continuous:YES renderingMode:kRenderingMode_PointSprites];
-			
-			[[newSystem systemEmitter] setSystemXInitialSpeed:0
+			newSystem	= new ParticleSystem(50, YES, kRenderingMode_PointSprites);
+			[newSystem->getParticleEmitter() setSystemXInitialSpeed:0
 												initialYSpeed:4
 													   xAccel:0
 													   yAccel:0.0
@@ -228,14 +234,13 @@ SystemEntity*	SharedParticleSystemManager::createParticleFX(int k_InParticleFX, 
 												   startColor:Color3DMake(255, 127, 77, 0)
 													 endColor:Color3DMake(255, 127, 77, 0)];
 			
-			[[newSystem systemEmitter] setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
+			[newSystem->getParticleEmitter() setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
 			break;
 			
 		case kParticleSystemFX_FountainBig:
+			newSystem	= new ParticleSystem(50, YES, kRenderingMode_PointSprites);
 			
-			newSystem	= [[ParticleSystem alloc] initWithParticles:50 continuous:YES renderingMode:kRenderingMode_PointSprites];
-			
-			[[newSystem systemEmitter] setSystemXInitialSpeed:0
+			[newSystem->getParticleEmitter() setSystemXInitialSpeed:0
 												initialYSpeed:6
 													   xAccel:0
 													   yAccel:0.0
@@ -252,14 +257,13 @@ SystemEntity*	SharedParticleSystemManager::createParticleFX(int k_InParticleFX, 
 												   startColor:Color3DMake(255, 127, 77, 0)
 													 endColor:Color3DMake(255, 127, 77, 0)];
 			
-			[[newSystem systemEmitter] setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
+			[newSystem->getParticleEmitter() setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
 			break;
 			
 		case kParticleSystemFX_Smoke:
-			newSystem	= [[ParticleSystem alloc] initWithParticles:200 continuous:YES renderingMode:kRenderingMode_2xTriangles];
+			newSystem	= new ParticleSystem(200, YES, kRenderingMode_2xTriangles);
 			
-			
-			[[newSystem systemEmitter] setSystemXInitialSpeed:0
+			[newSystem->getParticleEmitter() setSystemXInitialSpeed:0
 												initialYSpeed:0.5
 													   xAccel:0
 													   yAccel:0
@@ -276,7 +280,7 @@ SystemEntity*	SharedParticleSystemManager::createParticleFX(int k_InParticleFX, 
 												   startColor:Color3DMake(223, 223, 223, 0)
 													 endColor:Color3DMake(0, 0, 0, 0)];
 			
-			[[newSystem systemEmitter] setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
+			[newSystem->getParticleEmitter() setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
 			break;
 			
 		default:
@@ -284,8 +288,7 @@ SystemEntity*	SharedParticleSystemManager::createParticleFX(int k_InParticleFX, 
 	}
 	
 	/* We now set the ParticleRenderer Texture to the input Image */
-	[[newSystem systemRenderer] setParticleSubTexture:inImage];
-	
+	[newSystem->getParticleRenderer() setParticleSubTexture:inImage];
 	
 	return(this->insertEntity(newSystem));
 }
@@ -336,7 +339,8 @@ BOOL SharedParticleSystemManager::removeEntityAtPosition(int inPosition)
 			}
 			
 			/*Now free the current element*/
-			[(ParticleSystem *)currentElement->system release];
+			delete currentElement->system;
+			
 			free(currentElement);
 			
 			return(YES);
@@ -356,10 +360,10 @@ void SharedParticleSystemManager::drawSystems()
 	
 	while (currentElement != NULL) 
 	{
-		if([(ParticleSystem *)currentElement->system isActive])
+		if(currentElement->system->getIsActive())
 		{
-			[(ParticleSystem *)currentElement->system update];
-			[(ParticleSystem *)currentElement->system draw];
+			(currentElement->system->update());
+			(currentElement->system->draw());
 		}
 		currentElement = currentElement->nextSystem;
 	}
@@ -371,7 +375,7 @@ void SharedParticleSystemManager::printListDebug()
 	
 	while (currentElement != NULL) 
 	{
-		printf("Number Of Particles: %d\n",[(ParticleSystem *)currentElement->system particleNumber]);
+		printf("Number Of Particles: %d\n",currentElement->system->getParticleNumber());
 		
 		currentElement = currentElement->nextSystem;
 	}

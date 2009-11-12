@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ParticleSystemManagerFunctions.h"
-#import "Image.h"
+#include <string>
 
 /* This class contains a Singleton instance of a Global Particle System manager
  * the idea is to make this class to manage all the game particle systems. (allocs, releases, etc)
@@ -39,7 +39,7 @@ public:
 	~SharedParticleSystemManager();
 	
 	//Action Methods
-	SystemEntity*	createParticleFX(int k_inParticleFX, CGPoint inStartPosition, Image *inImage);
+	SystemEntity*	createParticleSystem(int k_inParticleFX, CGPoint inStartPosition, const std::string &textureName);
 	SystemEntity*	insertEntity(ParticleSystem *inSystem); //Creates and inserts a new SystemEntity in the _systemsList
 	BOOL			removeEntityAtPosition(int inPosition);
 	void			drawSystems();

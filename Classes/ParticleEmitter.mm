@@ -13,35 +13,28 @@
 
 @implementation ParticleEmitter
 
-@synthesize delegate;
 @synthesize emitionSource;
 
-- (id) initWithDelegate:(id)inDelegate
+- (id) initWithParticleNumber:(int) inNumberOfParticles particlesArray:(Particle **)inParticleArray
 {
 	if((self = [super init]))
 	{
-		delegate = inDelegate;
+		/*Set the array reference*/
+		array = inParticleArray;
 		
-		if(delegate)
-		{
-			if(!array)
-				[self setArrayReference];
-			
-			emitionSource = CGPointZero;
-			emitionEnd	  = CGPointZero;
-			slopeM		  = 0.0;
-			interceptN	  = 0.0;
-			currentFX	  = -1;
-		}
+		/*Set the number of particles*/
+		numberOfParticles = inNumberOfParticles;
+		
+		emitionSource = CGPointZero;
+		emitionEnd	  = CGPointZero;
+		slopeM		  = 0.0;
+		interceptN	  = 0.0;
+		currentFX	  = -1;
 	}
 	
 	return self;
 }
 
-- (void) setArrayReference
-{	
-	array = [(ParticleSystem *)delegate array];
-}
 
 - (void) setSystemXInitialSpeed:(float) inXSpeed 
 				  initialYSpeed:(float) inYSpeed 
@@ -62,7 +55,7 @@
 {
 	if(array)
 	{
-		for(int i = 0; i < [(ParticleSystem *)delegate particleNumber]; i++)
+		for(int i = 0; i < numberOfParticles; i++)
 		{
 			[array[i] setXInitialSpeed:inXSpeed];
 			[array[i] setYInitialSpeed:inYSpeed];
@@ -141,14 +134,9 @@
 
 - (void) updateEmitionSource
 {
-	//emitionSource = source;
-	
-	if(!array)
-		[self setArrayReference];
-	
-	for(int i = 0; i < [(ParticleSystem *)delegate particleNumber]; i++)
+	//emitionSource = source;	
+	for(int i = 0; i < numberOfParticles; i++)
 	{
-		
 		switch (currentFX) 
 		{
 			case kEmmiterFX_none:
@@ -156,10 +144,10 @@
 				break;
 			case kEmmiterFX_linear:
 				if (!calculatedInterpolation) {
-					linearInterpolation = sqrt((emitionEnd.x - emitionSource.x)*(emitionEnd.x - emitionSource.x) + (emitionEnd.y - emitionSource.y)*(emitionEnd.y - emitionSource.y))/[(ParticleSystem *)delegate particleNumber];
+					linearInterpolation = sqrt((emitionEnd.x - emitionSource.x)*(emitionEnd.x - emitionSource.x) + (emitionEnd.y - emitionSource.y)*(emitionEnd.y - emitionSource.y))/numberOfParticles;
 					calculatedInterpolation = YES;
 					NSLog(@"Linear Interpolation: %f",linearInterpolation);
-					NSLog(@"Distance: %f", linearInterpolation * [(ParticleSystem *)delegate particleNumber]);
+					NSLog(@"Distance: %f", linearInterpolation * numberOfParticles);
 				}
 				[array[i] setSource:CGPointMake(emitionSource.x += linearInterpolation/2, giveLinearPositionY(emitionSource.x += linearInterpolation/2, slopeM, interceptN))];
 				break;

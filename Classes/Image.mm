@@ -7,6 +7,7 @@
 //
 
 #import "Image.h"
+#import "FileUtils.h"
 
 Image::Image()
 {
@@ -64,32 +65,82 @@ void Image::initImplementation()
 	}
 }
 
-void Image::initWithTexture(Texture2D *inTexture)
+/*Init an image with pre-allocated Texture2D*/
+void Image::initWithTexture2D(Texture2D *inTexture)
 {
 	if(inTexture)
 	{
 		texture = inTexture;
 		scale = 1.0f;
 		initImplementation();
-	}
-	else {
-		printf("Could not load texture when creating Image");
+	}else{
+		printf("Could not load texture when creating Image from Texture2D\n");
 	}
 }
 
-void Image::initWithTexture(Texture2D *inTexture, float imageScale)
+/*Init an image with pre-allocated Texture2D and a input scaling*/
+void Image::initWithTexture2D(Texture2D *inTexture, float inScale)
 {
 	if(inTexture)
 	{
 		texture = inTexture;
-		scale = imageScale;
+		scale = inScale;
 		initImplementation();
+	}else {
+		printf("Could not load texture when creating Image from Texture2D with scale: %f\n", inScale);
 	}
-	else {
-		printf("Could not load texture when creating Image");
+
+}
+
+/*Does try to initialize an Image with a texture file*/
+void Image::initWithTextureFile(const std::string &inTextureName)
+{
+	NSString *textureName = [NSString stringWithUTF8String:inTextureName.c_str()];
+	
+	Texture2D *imTexture;
+	
+	if([textureName hasSuffix:@".pvr"])
+	{
+		imTexture = [[Texture2D alloc] initWithPVRTCFile:[FileUtils fullPathFromRelativePath:textureName]];
+	}else{
+		imTexture = [[Texture2D alloc] initWithImagePath:[[NSBundle mainBundle] pathForResource:textureName ofType:nil] filter:GL_LINEAR];
+	}
+	
+	if(imTexture)
+	{
+		texture = imTexture;
+		scale = 1.0f;
+		initImplementation();
+	}else {
+		printf("Could not load texture when creating Image from file %s\n",inTextureName.c_str());
 	}
 }
 
+/*Does try to initialize an Image with a texture file and an input Scaling*/
+void Image::initWithTextureFile(const std::string &inTextureName, float imageScale)
+{
+	NSString *textureName = [NSString stringWithUTF8String:inTextureName.c_str()];	
+	
+	Texture2D *imTexture;
+	
+	if([textureName hasSuffix:@".pvr"])
+	{
+		imTexture = [[Texture2D alloc] initWithPVRTCFile:[FileUtils fullPathFromRelativePath:textureName]];
+	}else{
+		imTexture = [[Texture2D alloc] initWithImagePath:[[NSBundle mainBundle] pathForResource:textureName ofType:nil] filter:GL_LINEAR];
+	}
+	
+	if(imTexture)
+	{
+		texture = imTexture;
+		scale = imageScale;
+		initImplementation();
+	}else {
+		printf("Could not load texture when creating Image from File :%s\n",inTextureName.c_str());
+	}
+}
+
+/*Does initialize an Image with a UIImage*/
 void Image::initWithUIImage(UIImage *image)
 {
 	texture = [[Texture2D alloc] initWithImage:image filter:GL_NEAREST];
@@ -97,11 +148,13 @@ void Image::initWithUIImage(UIImage *image)
 	initImplementation();
 }
 
+/*Does initialize an Image with a UIImage and a GL_FILTER*/
 void Image::initWithUIImage(UIImage *inImage, GLenum filter)
 {
 	texture	= [[Texture2D alloc] initWithImage:inImage filter:filter];
 }
 
+/*Does initialize an Image with a UIImage a Scale and a GL_FILTER*/
 void Image::initWithUIImage(UIImage *inImage, float inScale, GLenum inFilter)
 {
 	texture = [[Texture2D alloc] initWithImage:inImage filter:inFilter];
@@ -153,12 +206,11 @@ void Image::setAlpha(float alpha)
 }
 
 #pragma mark getters
-
 Image* Image::getSubImage(CGPoint inPoint,  GLuint inSubImageWidth, GLuint inSubImageHeight, float inSubImageScale)
 {
 	//Create a new Image instance using the texture which has been assigned to the current instance
 	Image *subImage = new Image();
-	subImage->initWithTexture(texture, inSubImageScale);
+	subImage->initWithTexture2D(texture, inSubImageScale);
 	
 	// Define the offset of the subimage we want using the point provided
 	subImage->setTextureOffsetX(inPoint.x);

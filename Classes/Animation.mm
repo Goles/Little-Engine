@@ -12,6 +12,18 @@
 
 Animation::Animation()
 {
+	currentPoint	= CGPointZero;
+	currentFrame	= 0;
+	frameTimer		= 0;
+	isRunning		= false;
+	isRepeating		= false;
+	isPingPong		= false;
+	direction		= kDirection_Forward;
+}
+
+Animation::Animation(CGPoint inCurrentPoint)
+{
+	currentPoint	= inCurrentPoint;
 	currentFrame	= 0;
 	frameTimer		= 0;
 	isRunning		= false;
@@ -27,7 +39,7 @@ void	Animation::addFrameWithImage(Image *inImage, float delay)
 	spriteFrames.push_back(aFrame);
 }
 
-void	Animation::update(float delta)
+void Animation::update(float delta)
 {
 	if(isRunning)
 	{
@@ -57,11 +69,21 @@ void	Animation::update(float delta)
 		
 }
 
-void	Animation::renderAtPoint(CGPoint inPoint)
+void Animation::renderAtPoint(CGPoint inPoint)
 {
 	Frame *aFrame = spriteFrames.at(currentFrame);
-	
 	aFrame->getFrameImage()->renderAtPoint(inPoint, true);
+}
+
+void Animation::draw()
+{
+	Frame *aFrame = spriteFrames.at(currentFrame);
+	aFrame->getFrameImage()->renderAtPoint(currentPoint, true);
+}
+
+void Animation::update()
+{
+	//here I should update the animation.
 }
 
 #pragma mark getters

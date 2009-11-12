@@ -14,16 +14,14 @@
 #import "SpriteSheet.h"
 #import "Animation.h"
 #import "SharedParticleSystemManager.h"
+#import "ParticleSystem.h"
 
 @class ParticleController;
 @class Texture2D;
-@class ParticleSystem;
 @class SingletonParticleSystemManager;
 
 @interface ES1Renderer : NSObject <ESRenderer>
 {
-@public
-	ParticleSystem *aSystem;
 @private
 	/* Time since the last frame was rendered */
 	CFTimeInterval lastTime;
@@ -50,8 +48,6 @@
 	Image		*sprite;
 	Animation	*animatedSprite;
 }
-
-@property (nonatomic, retain) ParticleSystem *aSystem;
 
 - (void) update:(float)delta;
 - (void) render;

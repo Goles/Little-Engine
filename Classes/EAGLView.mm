@@ -160,7 +160,7 @@
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
 {	
 	/*
-	*/
+	
 	UITouch *touch1,
 			*touch2;
 	
@@ -205,18 +205,19 @@
 			break;
 	}
 	
-	
+	*/
 	//[[[renderer aSystem] systemEmitter] setEmitionSource:loc];
 }
 
 - (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	UITouch * touch = [touches anyObject];
+	/*UITouch * touch = [touches anyObject];
 	CGPoint loc = [touch locationInView:self];
 	loc.y = SCREEN_HEIGHT - loc.y + 20;
 	loc.x += 20;
 	
 	[[[renderer aSystem] systemEmitter] setCurrentFX:kEmmiterFX_none withSource:loc andEnd:loc];
+	 */
 }
 
 @end

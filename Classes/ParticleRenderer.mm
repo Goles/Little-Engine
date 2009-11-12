@@ -12,26 +12,24 @@
 #import "Particle.h"
 #import "OpenGLCommon.h"
 #import "FileUtils.h"
-#import "ParticleSystems.h"
 
 @implementation ParticleRenderer
 
-@synthesize delegate;
 @synthesize renderingMode;
 @synthesize continuousRendering;
 @synthesize resetCount;
 
 #pragma mark initializers
 
-- (id) initWithDelegate:(id) inDelegate particles:(int)inParticleNumber type:(int) inRenderingMode
+- (id) initWithSystemReference:(void *) inReference particlesArray:(Particle **)inParticlesArray particles:(int)inParticleNumber type:(int) inRenderingMode
 {
 	if((self = [super init]))
 	{
-		delegate = inDelegate;
+		particleSystemReference = (ParticleSystem *)inReference;
 		
-		if(delegate)
+		if(particleSystemReference != NULL && inParticlesArray != NULL)
 		{
-			[self setArrayReference];
+			array = inParticlesArray;
 			_vertexCount		= 0;
 			_pointSpriteCount	= 0;
 			_particleNumber		= inParticleNumber;
@@ -57,52 +55,9 @@
 	return self;
 }
 
-- (id) initWithParticles:(int) inParticleNumber type:(int) inKRenderingMode
-{
-	if ((self = [super init])) {
-		if(delegate)
-		{
-			[self setArrayReference];
-			_vertexCount		= 0;
-			_pointSpriteCount	= 0;
-			_particleNumber		= inParticleNumber;
-			
-			renderingMode	= inKRenderingMode;
-			
-			switch (inKRenderingMode) {
-				case kRenderingMode_PointSprites:
-					_interleavedPointSprites = (PointSprite *)malloc(sizeof(PointSprite)*inParticleNumber);
-					break;
-				case kRenderingMode_2xTriangles:
-					_interleavedVertexs = (ParticleVertex *)malloc(sizeof(ParticleVertex)*inParticleNumber*6); //The 2x is because two triangles per particle are needed
-					break;
-				default:
-					NSLog(@"Problem when allocating the vertex arrays");
-					break;
-			}
-			
-			/*we initialize the gl buffer*/
-			glGenBuffers(1, &bufferID);
-		}else {
-			printf("WARNING: The array delegate has not been set!\n");
-		}
-	}	
-	return self;
-}
-
-- (void) setDelegateReference:(void *)inDelegateReference
-{
-	delegateReference = (ParticleSystems *)inDelegateReference;
-}
-
-- (void) setArrayReference
-{	
-	array = [(ParticleSystem *)delegate array];
-}
-
 - (void) testDelegateReference
 {
-	((ParticleSystems *)delegateReference)->draw();
+	((ParticleSystem *)particleSystemReference)->draw();
 }
 
 #pragma mark vertexPushingModes
@@ -116,7 +71,7 @@
 	GLfloat	width  = (GLfloat)[particleTexture pixelsWide],
 	height = (GLfloat)[particleTexture pixelsHigh];
 	*/
-	for(int i = 0; i < [delegate particleNumber]; i++)
+	for(int i = 0; i < _particleNumber; i++)
 	{
 		float cachedParticleLifeTime = array[i].lifeTime;
 		float cachedAlpha			 = cachedParticleLifeTime/(array[i].lastLifespan+array[i].startingLifeTime);
@@ -186,7 +141,7 @@
 
 - (void) pushVertexsPointSprites
 {	
-	for(int i = 0; i < [delegate particleNumber]; i++)
+	for(int i = 0; i < _particleNumber; i++)
 	{
 		float cachedParticleLifeTime = array[i].lifeTime;
 		float cachedAlpha			 = cachedParticleLifeTime/(array[i].lastLifespan+array[i].startingLifeTime);
@@ -265,7 +220,7 @@
 	
 	if(systemDeactivation)
 	{
-		[delegate setIsActive:NO];
+		((ParticleSystem *)particleSystemReference)->setIsActive(NO);
 		systemDeactivation = NO; // we reset the flag of the deactivation.
 	}
 }

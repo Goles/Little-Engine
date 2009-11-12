@@ -11,11 +11,8 @@
 #import "Texture2D.h"
 #import "EmitterFunctions.h"
 #import "FileUtils.h"
-#import "ParticleSystems.h"
 
 @implementation ES1Renderer
-
-@synthesize aSystem;
 
 // Create an ES 1.1 context
 - (id) init
@@ -31,9 +28,6 @@
         }
 		
 		[self initGame];
-		
-		ParticleSystems *aSystem = new ParticleSystems(10, YES, kRenderingMode_PointSprites);
-		
 		
 		// Create default framebuffer object. The backing will be allocated for the current layer in -resizeFromLayer
 		glGenFramebuffersOES(1, &defaultFramebuffer);
@@ -109,7 +103,7 @@
 	
 	 particleTextures = new Image();
 	 //particleTextures->initWithTexture([[Texture2D alloc] initWithPVRTCFile:[FileUtils fullPathFromRelativePath:@"smoke.pvr"]], 1.0);
-	 particleTextures->initWithTexture([[Texture2D alloc] initWithImagePath:[[NSBundle mainBundle] pathForResource:@"smoke.png" ofType:nil] filter:GL_LINEAR], 1.0);
+	// particleTextures->initWithTexture([[Texture2D alloc] initWithImagePath:[[NSBundle mainBundle] pathForResource:@"smoke.png" ofType:nil] filter:GL_LINEAR], 1.0);
 	 
 	
 	/*
@@ -168,21 +162,17 @@
 }
 
 - (void) particlesBenchmark_cpp1
-{
-	particleTextures = new Image();
-	//particleTextures->initWithTexture([[Texture2D alloc] initWithPVRTCFile:[FileUtils fullPathFromRelativePath:@"smoke.pvr"]], 1.0);
-	particleTextures->initWithTexture([[Texture2D alloc] initWithImagePath:[[NSBundle mainBundle] pathForResource:@"smoke.png" ofType:nil] filter:GL_LINEAR], 1.0);
-	
-	PARTICLE_MANAGER->createParticleFX(kParticleSystemFX_FireSmall, CGPointMake(50, 100) , particleTextures);
-	PARTICLE_MANAGER->createParticleFX(kParticleSystemFX_FireMedium, CGPointMake(100, 100), particleTextures);
-	PARTICLE_MANAGER->createParticleFX(kParticleSystemFX_FireBig, CGPointMake(150, 100), particleTextures);
-	PARTICLE_MANAGER->createParticleFX(kParticleSystemFX_ExplosionSmall, CGPointMake(250, 300), particleTextures);
-	PARTICLE_MANAGER->createParticleFX(kParticleSystemFX_ExplosionMedium, CGPointMake(250, 200), particleTextures);
-	PARTICLE_MANAGER->createParticleFX(kParticleSystemFX_ExplosionBig, CGPointMake(250, 100), particleTextures);
-	PARTICLE_MANAGER->createParticleFX(kParticleSystemFX_FountainSmall, CGPointMake(50, 300), particleTextures);
-	PARTICLE_MANAGER->createParticleFX(kParticleSystemFX_FountainMedium, CGPointMake(100, 300), particleTextures);
-	PARTICLE_MANAGER->createParticleFX(kParticleSystemFX_FountainBig, CGPointMake(150, 300), particleTextures);
-	PARTICLE_MANAGER->createParticleFX(kParticleSystemFX_Smoke, CGPointMake(150, 100), particleTextures);
+{	
+	PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(50, 100) , "Particle2.pvr");
+	PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireMedium, CGPointMake(100, 100), "Particle2.pvr");
+	PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireBig, CGPointMake(150, 100), "Particle2.pvr");
+	PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_ExplosionSmall, CGPointMake(250, 300), "Particle2.pvr");
+	PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_ExplosionMedium, CGPointMake(250, 200), "Particle2.pvr");
+	PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_ExplosionBig, CGPointMake(250, 100), "Particle2.pvr");
+	PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainSmall, CGPointMake(50, 300), "Particle2.pvr");
+	PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainMedium, CGPointMake(100, 300), "Particle2.pvr");
+	PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainBig, CGPointMake(150, 300), "Particle2.pvr");
+	PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_Smoke, CGPointMake(150, 100), "smoke.png");
 }
 
 - (void) setupView
@@ -221,18 +211,13 @@
 
 	PARTICLE_MANAGER->drawSystems();
 	
+	
 	if(sprite)
 		sprite->renderAtPoint(CGPointMake(150, 100), YES);
 	
 	if(someImage)
 		someImage->renderAtPoint(CGPointMake(150, 100), YES);	//draw the ship image.
 	
-	/*if(animatedSprite)
-	{
-		for(int i = 0; i < 320; i+=5)
-			for(int j = 50; j < 480; j+=50)
-				animatedSprite->renderAtPoint(CGPointMake(i, j));
-	}*/
 	if(animatedSprite)
 		animatedSprite->renderAtPoint(CGPointMake(160, 240));
 	

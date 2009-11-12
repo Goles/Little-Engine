@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GameElement.h"
 #import "Frame.h"
 #import "vector"
 
@@ -17,11 +18,12 @@ enum {
 
 typedef std::vector<Frame *> FRAMES_VECTOR;
 
-class Animation
+class Animation : public GameElement
 {
 public:
 	//constructor
 	Animation();
+	Animation(CGPoint startPoint);
 	
 	//Action methods
 	void	addFrameWithImage(Image *inImage, float delay);
@@ -36,9 +38,14 @@ public:
 	
 	//Setters
 	void	setIsRunning(BOOL inIsRunning);
-	void	setIsRepeating(BOOL inIsRepeating);	
+	void	setIsRepeating(BOOL inIsRepeating);
+	
+	//inherited stuff.
+	void draw();
+	void update();
 	
 private:
+	CGPoint			currentPoint;
 	FRAMES_VECTOR	spriteFrames;
 	float			frameTimer;
 	BOOL			isRunning;

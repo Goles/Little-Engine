@@ -15,6 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Texture2D.h"
+#include <string>
 
 typedef struct {
 	float tl_x, tl_y;
@@ -30,8 +31,10 @@ public:
 	Image();
 	
 	//Initializers
-	void	initWithTexture(Texture2D *inTexture);
-	void	initWithTexture(Texture2D *inTexture, float inScale);
+	void	initWithTexture2D(Texture2D *inTexture);
+	void	initWithTexture2D(Texture2D *inTexture, float scale);
+	void	initWithTextureFile(const std::string &inTextureName);
+	void	initWithTextureFile(const std::string &textureName, float inScale);
 	void	initWithUIImage(UIImage *inImage);
 	void	initWithUIImage(UIImage *inImage, GLenum filter);
 	void	initWithUIImage(UIImage *inImage, float inScale, GLenum filter);	
@@ -49,7 +52,6 @@ public:
 	void setColorFilter(float Red, float Green, float Blue, float alpha);
 	void setAlpha(float alpha);
 	// More setters
-	void initImplementation();
 	void setTextureOffsetX(int inTextureOffset);
 	void setTextureOffsetY(int inTextureOffset);
 	void setImageWidth(GLuint inWidth);
@@ -62,6 +64,8 @@ public:
 	float	getScale();
 	Quad2*	getTexCoords();
 	Quad2*	getVertex();
+protected:	
+	void initImplementation();
 private:
 	// Game State
 	//SingletonGameState *sharedGameState;
@@ -87,4 +91,5 @@ private:
 	Quad2		*vertices;
 	Quad2		*texCoords;
 	GLushort	*indices;
+
 };

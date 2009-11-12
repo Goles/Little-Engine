@@ -34,7 +34,7 @@ void SpriteSheet::initWithImage(Image *inSpriteSheet, GLuint spriteWidth, GLuint
 void SpriteSheet::initWithImageNamed(NSString *spriteSheetName, GLuint spriteWidth, GLuint spriteHeight, GLuint spriteSpacing, float imageScale)
 {
 	sheetImage = new Image();
-	sheetImage->initWithTexture([[Texture2D alloc] initWithImagePath:[[NSBundle mainBundle] pathForResource:spriteSheetName ofType:nil] filter:GL_LINEAR], imageScale);
+	sheetImage->initWithTexture2D([[Texture2D alloc] initWithImagePath:[[NSBundle mainBundle] pathForResource:spriteSheetName ofType:nil] filter:GL_LINEAR], imageScale);
 	this->initImplementation(spriteWidth, spriteHeight, spriteSpacing, imageScale);
 }
 

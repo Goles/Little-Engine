@@ -27,9 +27,8 @@
 
 @interface ParticleRenderer : NSObject 
 {
-	id			delegate;
-	void		*delegateReference;
-	Particle	**array;			//this will be a reference to the system array.	
+	void		*particleSystemReference;	//This is a weak reference to the ParticleSystem that contains this object instance.
+	Particle	**array;					//this will be a reference to the system array.	
 	Image		*particleSubTexture;
 	
 	BOOL continuousRendering;
@@ -46,7 +45,6 @@
 	unsigned resetCount;
 }
 
-@property (nonatomic, retain) id delegate;
 @property (readwrite) int renderingMode;
 @property (readwrite) BOOL continuousRendering;
 @property (readwrite) unsigned resetCount;
@@ -55,11 +53,9 @@
 - (void) draw;
 - (void) pushVertexs2XTriangles;
 - (void) pushVertexsPointSprites;
-- (void) setArrayReference;
-- (id) initWithDelegate:(id) inDelegate particles:(int)inParticleNumber type:(int) inRenderingMode;
-- (id) initWithParticles:(int) inParticleNumber type:(int) inKRenderingMode;
+//- (id) initWithDelegate:(id) inDelegate particles:(int)inParticleNumber type:(int) inRenderingMode;
+- (id) initWithSystemReference:(void *) inReference particlesArray:(Particle **)inParticlesArray particles:(int)inParticleNumber type:(int) inRenderingMode;
 - (void) setParticleSubTexture:(Image *) inImage;
-- (void) setDelegateReference:(void *)inDelegateReference;
 - (void) testDelegateReference;
 
 

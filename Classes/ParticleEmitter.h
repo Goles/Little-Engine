@@ -13,7 +13,8 @@
 
 @interface ParticleEmitter : NSObject 
 {
-	id delegate;
+	int numberOfParticles;
+	
 	CGPoint emitionSource;
 	CGPoint emitionEnd;
 	
@@ -28,7 +29,6 @@
 	float linearInterpolation;		//Distance between particles to cover certain distance.
 }
 
-@property (nonatomic, retain) id delegate;
 @property (readwrite) CGPoint emitionSource;
 
 - (void) update;
@@ -49,11 +49,9 @@
 					 startColor:(Color3D) inStartColor
 					   endColor:(Color3D)inEndColor;
 
-- (id) initWithDelegate:(id)inDelegate;
+- (id) initWithParticleNumber:(int) inNumberOfParticles particlesArray:(Particle **)inParticleArray;
 - (void) setCurrentFX:(int)fx withSource:(CGPoint)inSource andEnd:(CGPoint)inEnd;
 - (void) updateEmitionSource;
-- (void) setArrayReference;
-
 - (void) calculateLinearEmission;
 
 @end
