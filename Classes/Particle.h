@@ -28,6 +28,8 @@
 	float		rotation;
 	float		decreaseFactor;
 	float		size;
+	float		preCalcX;	//pre-calculated xAccel + xGravity + xAccelVariance to avoid float *
+	float		preCalcY;	//pre-calculated yAccel + yGravity + yAccelVariance to avoid float *
 	BOOL		isActive;	
 }
 
@@ -51,8 +53,8 @@
 @property (readwrite) float decreaseFactor;
 @property (readwrite) float size;
 @property (readwrite) BOOL	isActive;
-
-
+@property (readwrite) float preCalcX;
+@property (readwrite) float preCalcY;
 
 - (id) init;
 - (void) update;

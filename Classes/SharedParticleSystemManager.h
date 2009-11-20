@@ -3,12 +3,8 @@
 //  Particles_2
 //
 //  Created by Nicolas Goles on 11/5/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 Gando-Games All rights reserved.
 //
-
-#import <Foundation/Foundation.h>
-#import "ParticleSystemManagerFunctions.h"
-#include <string>
 
 /* This class contains a Singleton instance of a Global Particle System manager
  * the idea is to make this class to manage all the game particle systems. (allocs, releases, etc)
@@ -29,6 +25,11 @@
  *	_NG October 29 - 2009
  */
 
+#import <Foundation/Foundation.h>
+#import "ParticleSystemManagerFunctions.h"
+#include <iostream>
+#include <string>
+
 #define PARTICLE_MANAGER SharedParticleSystemManager::getInstance()
 
 class SharedParticleSystemManager
@@ -39,11 +40,11 @@ public:
 	~SharedParticleSystemManager();
 	
 	//Action Methods
-	SystemEntity*	createParticleSystem(int k_inParticleFX, CGPoint inStartPosition, const std::string &textureName);
+	ParticleSystem*	createParticleSystem(int k_inParticleFX, CGPoint inStartPosition, const std::string &textureName);
 	SystemEntity*	insertEntity(ParticleSystem *inSystem); //Creates and inserts a new SystemEntity in the _systemsList
 	BOOL			removeEntityAtPosition(int inPosition);
 	void			drawSystems();
-	void			printListDebug();
+	void			debugPrintList();
 	
 protected:
 	SharedParticleSystemManager();	//Constructor

@@ -31,6 +31,8 @@
 @synthesize decreaseFactor;
 @synthesize size;
 @synthesize isActive;
+@synthesize preCalcX;
+@synthesize preCalcY;
 
 - (id) init
 {
@@ -60,12 +62,20 @@
 - (void) update
 {	
 	float kRandom = CCRANDOM_0_1()/decreaseFactor;
-	float cachedDiv = kRandom/(lastLifespan+startingLifeTime);
 	
+	if(lifeTime < kRandom)
+	{
+		lifeTime = 0.0;
+		isActive = NO;
+		return;
+	}
 	if(lifeTime >= kRandom){
+	
+		float cachedDiv = kRandom/(lastLifespan+startingLifeTime);
 		
-		xSpeed		= xSpeed + xAccel + xGravity + xAccelVariance*CCRANDOM_MINUS1_1();
-		ySpeed		= ySpeed + yAccel + yGravity + yAccelVariance*CCRANDOM_MINUS1_1();
+		xSpeed += preCalcX + xAccelVariance*CCRANDOM_MINUS1_1();
+		ySpeed += preCalcY + yAccelVariance*CCRANDOM_MINUS1_1();
+		
 		position.x	+= xSpeed;
 		position.y	+= ySpeed;
 
@@ -73,11 +83,7 @@
 		currentColor.green		+= deltaColor.green*cachedDiv;
 		currentColor.blue		+= deltaColor.blue*cachedDiv;
 		
-		lifeTime -= kRandom;
-		
-	}else {
-		lifeTime = 0.0;
-		isActive = NO;
+		lifeTime -= kRandom;		
 	}
 }
 

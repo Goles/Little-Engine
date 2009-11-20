@@ -33,11 +33,13 @@
 		637EEA3B109B8D0600F2E463 /* sprite_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 637EEA3A109B8D0600F2E463 /* sprite_test.png */; };
 		6386CFCA10A4BC2200699925 /* SharedParticleSystemManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6386CFC910A4BC2200699925 /* SharedParticleSystemManager.mm */; };
 		6393910910A4B2F9006FDBCF /* ParticleSystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6393910810A4B2F9006FDBCF /* ParticleSystem.mm */; };
-		6393911E10A4B6F9006FDBCF /* GameElement.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6393911D10A4B6F9006FDBCF /* GameElement.mm */; };
+		6393911E10A4B6F9006FDBCF /* GameEntity.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6393911D10A4B6F9006FDBCF /* GameEntity.mm */; };
+		63B2664A10B1E730004D1853 /* SceneManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63B2664910B1E730004D1853 /* SceneManager.mm */; };
 		63BCF538109A3A53002BCD2C /* SpriteSheet.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63BCF537109A3A53002BCD2C /* SpriteSheet.mm */; };
 		63BCF5E4109A4D41002BCD2C /* spritesheet16.gif in Resources */ = {isa = PBXBuildFile; fileRef = 63BCF5E3109A4D41002BCD2C /* spritesheet16.gif */; };
 		63C557AB108CFA0200E77DBC /* Image.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63C557AA108CFA0200E77DBC /* Image.mm */; };
 		63E4F9FC107A2E8900FA74AE /* HardwareClock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63E4F9FB107A2E8900FA74AE /* HardwareClock.cpp */; };
+		63E70D8A10AC756D008ED32B /* SharedTextureManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63E70D8910AC756D008ED32B /* SharedTextureManager.mm */; };
 		63E9950210978E12003D4798 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 63E9950110978E12003D4798 /* player.png */; };
 		63F01864106AF201008FABF0 /* ParticleEmitter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63F01863106AF201008FABF0 /* ParticleEmitter.mm */; };
 		63F01867106AF218008FABF0 /* ParticleRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63F01866106AF218008FABF0 /* ParticleRenderer.mm */; };
@@ -90,8 +92,10 @@
 		6386CFC910A4BC2200699925 /* SharedParticleSystemManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SharedParticleSystemManager.mm; sourceTree = "<group>"; };
 		6393910710A4B2F9006FDBCF /* ParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSystem.h; sourceTree = "<group>"; };
 		6393910810A4B2F9006FDBCF /* ParticleSystem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ParticleSystem.mm; sourceTree = "<group>"; };
-		6393911C10A4B6F9006FDBCF /* GameElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameElement.h; sourceTree = "<group>"; };
-		6393911D10A4B6F9006FDBCF /* GameElement.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameElement.mm; sourceTree = "<group>"; };
+		6393911C10A4B6F9006FDBCF /* GameEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEntity.h; sourceTree = "<group>"; };
+		6393911D10A4B6F9006FDBCF /* GameEntity.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameEntity.mm; sourceTree = "<group>"; };
+		63B2664810B1E730004D1853 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
+		63B2664910B1E730004D1853 /* SceneManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SceneManager.mm; sourceTree = "<group>"; };
 		63BCF536109A3A53002BCD2C /* SpriteSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteSheet.h; sourceTree = "<group>"; };
 		63BCF537109A3A53002BCD2C /* SpriteSheet.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SpriteSheet.mm; sourceTree = "<group>"; };
 		63BCF5E3109A4D41002BCD2C /* spritesheet16.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = spritesheet16.gif; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 		63C557AA108CFA0200E77DBC /* Image.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Image.mm; sourceTree = "<group>"; };
 		63E4F9FA107A2E8900FA74AE /* HardwareClock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HardwareClock.h; sourceTree = "<group>"; };
 		63E4F9FB107A2E8900FA74AE /* HardwareClock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HardwareClock.cpp; sourceTree = "<group>"; };
+		63E70D8810AC756D008ED32B /* SharedTextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedTextureManager.h; sourceTree = "<group>"; };
+		63E70D8910AC756D008ED32B /* SharedTextureManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SharedTextureManager.mm; sourceTree = "<group>"; };
 		63E9950110978E12003D4798 /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
 		63F01862106AF201008FABF0 /* ParticleEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleEmitter.h; sourceTree = "<group>"; };
 		63F01863106AF201008FABF0 /* ParticleEmitter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ParticleEmitter.mm; sourceTree = "<group>"; };
@@ -226,8 +232,6 @@
 		633C888F10649219003911A0 /* Particles */ = {
 			isa = PBXGroup;
 			children = (
-				6386CFC810A4BC2200699925 /* SharedParticleSystemManager.h */,
-				6386CFC910A4BC2200699925 /* SharedParticleSystemManager.mm */,
 				638F2D5810A5488300DFF742 /* ParticleSystem */,
 				63716FA1106FC34200B3C783 /* static */,
 			);
@@ -284,7 +288,9 @@
 		635E0632108CB92500AF1EDB /* Engine */ = {
 			isa = PBXGroup;
 			children = (
-				63C0D42A10A321F60011483E /* GameElement */,
+				63C0D42A10A321F60011483E /* GameEntity */,
+				63B2664710B1E716004D1853 /* Scene */,
+				63E70D8710AC7557008ED32B /* SharedManagers */,
 				633C64A4109B2758001D1851 /* Sprites */,
 				633C888F10649219003911A0 /* Particles */,
 				633C88DA10649445003911A0 /* OpenGL */,
@@ -329,6 +335,15 @@
 			name = ParticleSystem;
 			sourceTree = "<group>";
 		};
+		63B2664710B1E716004D1853 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				63B2664810B1E730004D1853 /* SceneManager.h */,
+				63B2664910B1E730004D1853 /* SceneManager.mm */,
+			);
+			name = Scene;
+			sourceTree = "<group>";
+		};
 		63BCF41C109A309C002BCD2C /* SpriteSheet */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,13 +353,24 @@
 			name = SpriteSheet;
 			sourceTree = "<group>";
 		};
-		63C0D42A10A321F60011483E /* GameElement */ = {
+		63C0D42A10A321F60011483E /* GameEntity */ = {
 			isa = PBXGroup;
 			children = (
-				6393911C10A4B6F9006FDBCF /* GameElement.h */,
-				6393911D10A4B6F9006FDBCF /* GameElement.mm */,
+				6393911C10A4B6F9006FDBCF /* GameEntity.h */,
+				6393911D10A4B6F9006FDBCF /* GameEntity.mm */,
 			);
-			name = GameElement;
+			name = GameEntity;
+			sourceTree = "<group>";
+		};
+		63E70D8710AC7557008ED32B /* SharedManagers */ = {
+			isa = PBXGroup;
+			children = (
+				6386CFC810A4BC2200699925 /* SharedParticleSystemManager.h */,
+				6386CFC910A4BC2200699925 /* SharedParticleSystemManager.mm */,
+				63E70D8810AC756D008ED32B /* SharedTextureManager.h */,
+				63E70D8910AC756D008ED32B /* SharedTextureManager.mm */,
+			);
+			name = SharedManagers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,8 +452,10 @@
 				633C64B2109B2791001D1851 /* Frame.mm in Sources */,
 				633C64C1109B2919001D1851 /* Animation.mm in Sources */,
 				6393910910A4B2F9006FDBCF /* ParticleSystem.mm in Sources */,
-				6393911E10A4B6F9006FDBCF /* GameElement.mm in Sources */,
+				6393911E10A4B6F9006FDBCF /* GameEntity.mm in Sources */,
 				6386CFCA10A4BC2200699925 /* SharedParticleSystemManager.mm in Sources */,
+				63E70D8A10AC756D008ED32B /* SharedTextureManager.mm in Sources */,
+				63B2664A10B1E730004D1853 /* SceneManager.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

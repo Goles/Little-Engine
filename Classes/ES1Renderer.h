@@ -14,7 +14,11 @@
 #import "SpriteSheet.h"
 #import "Animation.h"
 #import "SharedParticleSystemManager.h"
+#import "SharedTextureManager.h"
 #import "ParticleSystem.h"
+#import "SceneManager.h"
+
+#include <iostream>
 
 @class ParticleController;
 @class Texture2D;
@@ -44,9 +48,11 @@
 	Image		*particleTextures;
 	
 	//Testing C++ stuff
-	SpriteSheet *ss;
-	Image		*sprite;
-	Animation	*animatedSprite;
+	SpriteSheet		*ss;
+	Image			*sprite;
+	Animation		*animatedSprite;
+	ParticleSystem	*testSystem;
+	SceneManager	*aSceneManager;
 }
 
 - (void) update:(float)delta;
@@ -54,10 +60,14 @@
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer;
 - (void) setupView;
 - (void) initGame;
+
+/*Tests*/
+- (void) sceneManagerTest1;
+- (void) sceneManagerTest2Sort;
 - (void) spriteSheetTest;
-- (void) particlesBenchmark1;
-- (void) particlesBenchmark_cpp1;
+- (void) particlesTest;
 - (void) animationTest;
 - (void) animationTest2;
-
+- (void) textureManagerTest:(NSString *) inTextureName;
+ 
 @end

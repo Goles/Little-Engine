@@ -82,18 +82,26 @@
 		
 		// Instead of changing GL state (translate, rotate) we rotate the sprite's corners here.  This lets us batch sprites at any rotation.
         // Fixme not very efficient way to rotate :P
-        float radians	= [array[i] rotation] + (M_PI / 4.0f);
-        float topRightX = [array[i] position].x + (cos(radians) * w);
-        float topRightY = [array[i] position].y + (sin(radians) * w);
-        radians = [array[i] rotation] + (M_PI * 3.0f / 4.0f);
-        float topLeftX = [array[i] position].x + (cos(radians) * w);
-        float topLeftY = [array[i] position].y + (sin(radians) * w);
-        radians = [array[i] rotation] + (M_PI * 5.0f / 4.0f);
-        float bottomLeftX = [array[i] position].x + (cos(radians) * w);
-        float bottomLeftY = [array[i] position].y + (sin(radians) * w);
-        radians = [array[i] rotation] + (M_PI * 7.0f / 4.0f);
-        float bottomRightX = [array[i] position].x + (cos(radians) * w);
-        float bottomRightY = [array[i] position].y + (sin(radians) * w);
+		
+		float cachedRotation	= [array[i] rotation];
+		float cachedPositionX	= [array[i] position].x;
+		float cachedPositionY	= [array[i] position].y;
+		
+        float radians	= cachedRotation + (M_PI * 0.25f);
+        float topRightX = cachedPositionX+ (cosf(radians) * w);
+        float topRightY = cachedPositionY + (sinf(radians) * w);
+        
+		radians = cachedRotation + (M_PI * 3.0f * 0.25f);
+        float topLeftX = cachedPositionX + (cosf(radians) * w);
+        float topLeftY = cachedPositionY + (sinf(radians) * w);
+        
+		radians = cachedRotation + (M_PI * 5.0f * 0.25f);
+        float bottomLeftX = cachedPositionX + (cosf(radians) * w);
+        float bottomLeftY = cachedPositionY + (sinf(radians) * w);
+        
+		radians = cachedRotation + (M_PI * 7.0f * 0.25f);
+        float bottomRightX = cachedPositionX + (cosf(radians) * w);
+        float bottomRightY = cachedPositionY + (sinf(radians) * w);
 		
 		/*
 		 * Update particle

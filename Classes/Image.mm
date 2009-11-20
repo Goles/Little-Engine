@@ -8,6 +8,7 @@
 
 #import "Image.h"
 #import "FileUtils.h"
+#import "SharedTextureManager.h"
 
 Image::Image()
 {
@@ -94,17 +95,8 @@ void Image::initWithTexture2D(Texture2D *inTexture, float inScale)
 
 /*Does try to initialize an Image with a texture file*/
 void Image::initWithTextureFile(const std::string &inTextureName)
-{
-	NSString *textureName = [NSString stringWithUTF8String:inTextureName.c_str()];
-	
-	Texture2D *imTexture;
-	
-	if([textureName hasSuffix:@".pvr"])
-	{
-		imTexture = [[Texture2D alloc] initWithPVRTCFile:[FileUtils fullPathFromRelativePath:textureName]];
-	}else{
-		imTexture = [[Texture2D alloc] initWithImagePath:[[NSBundle mainBundle] pathForResource:textureName ofType:nil] filter:GL_LINEAR];
-	}
+{	
+	Texture2D *imTexture = TEXTURE_MANAGER->createTexture(inTextureName);
 	
 	if(imTexture)
 	{
@@ -118,18 +110,9 @@ void Image::initWithTextureFile(const std::string &inTextureName)
 
 /*Does try to initialize an Image with a texture file and an input Scaling*/
 void Image::initWithTextureFile(const std::string &inTextureName, float imageScale)
-{
-	NSString *textureName = [NSString stringWithUTF8String:inTextureName.c_str()];	
-	
-	Texture2D *imTexture;
-	
-	if([textureName hasSuffix:@".pvr"])
-	{
-		imTexture = [[Texture2D alloc] initWithPVRTCFile:[FileUtils fullPathFromRelativePath:textureName]];
-	}else{
-		imTexture = [[Texture2D alloc] initWithImagePath:[[NSBundle mainBundle] pathForResource:textureName ofType:nil] filter:GL_LINEAR];
-	}
-	
+{	
+	Texture2D *imTexture = TEXTURE_MANAGER->createTexture(inTextureName);
+
 	if(imTexture)
 	{
 		texture = imTexture;

@@ -26,9 +26,21 @@ SharedParticleSystemManager* SharedParticleSystemManager::getInstance()
 	return instance;
 }
 
+#pragma mark constructor_destructor
+SharedParticleSystemManager::SharedParticleSystemManager()
+{
+	//constructor
+	_systemsList = NULL;
+}
+
+SharedParticleSystemManager::~SharedParticleSystemManager()
+{
+	delete instance;
+}
+
 #pragma mark action_methods
 //Action Methods
-SystemEntity* SharedParticleSystemManager::createParticleSystem(int k_InParticleFX, CGPoint inPosition, const std::string &textureName)
+ParticleSystem* SharedParticleSystemManager::createParticleSystem(int k_InParticleFX, CGPoint inPosition, const std::string &textureName)
 {
 	ParticleSystem *newSystem;
 	
@@ -287,10 +299,14 @@ SystemEntity* SharedParticleSystemManager::createParticleSystem(int k_InParticle
 			break;
 	}
 	
+	/*Set the particle System X and Y position, which will serve to sort it with other GameEntities*/
+	newSystem->setX(inPosition.x);
+	newSystem->setY(inPosition.y);
+	
 	/* We now set the ParticleRenderer Texture to the input Image */
 	[newSystem->getParticleRenderer() setParticleSubTexture:inImage];
 	
-	return(this->insertEntity(newSystem));
+	return this->insertEntity(newSystem)->system;
 }
 
 SystemEntity* SharedParticleSystemManager::insertEntity(ParticleSystem *inSystem) //Creates and inserts a new SystemEntity in the _systemsList
@@ -369,26 +385,15 @@ void SharedParticleSystemManager::drawSystems()
 	}
 }
 
-void SharedParticleSystemManager::printListDebug()
+void SharedParticleSystemManager::debugPrintList()
 {
 	SystemEntity *currentElement = _systemsList;
 	
 	while (currentElement != NULL) 
 	{
-		printf("Number Of Particles: %d\n",currentElement->system->getParticleNumber());
+		std::cout << currentElement->system << " # of particles " << currentElement->system->getParticleNumber() << std::endl;
+		//printf(" # of particles %d\n",currentElement->system->getParticleNumber());
 		
 		currentElement = currentElement->nextSystem;
 	}
-}
-
-#pragma mark constructor_destructor
-SharedParticleSystemManager::SharedParticleSystemManager()
-{
-	//constructor
-	_systemsList = NULL;
-}
-
-SharedParticleSystemManager::~SharedParticleSystemManager()
-{
-	delete instance;
 }

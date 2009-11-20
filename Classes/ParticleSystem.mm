@@ -12,7 +12,7 @@
 ParticleSystem::ParticleSystem(int inParticleNumber, BOOL isContinuous, int kRenderingMode)
 {
 	particleNumber	= inParticleNumber;
-	isActive		= YES;
+	isActive		= true;
 	
 	/* 1) Allocate the  system's particles array*/
 	array = (Particle **)malloc(particleNumber * sizeof(Particle *));
@@ -33,6 +33,7 @@ ParticleSystem::ParticleSystem(int inParticleNumber, BOOL isContinuous, int kRen
 	
 	/* 5) We set the if the emitter will be continuous or not */
 	[systemRenderer setContinuousRendering:isContinuous];
+	
 }
 
 #pragma mark action_methods
@@ -48,22 +49,28 @@ void ParticleSystem::update()
 		[systemRenderer update];
 }
 
-
 #pragma mark setters
-void ParticleSystem::setIsActive(BOOL inIsActive)
+void ParticleSystem::setIsActive(bool inIsActive)
 {
 	isActive = inIsActive;
+}
+
+void ParticleSystem::setX(float inX)
+{
+	//x is inherited from GameEntity
+	x = inX;
+}
+
+void ParticleSystem::setY(float inY)
+{
+	//y is inherited from GameEntity
+	y = inY;
 }
 
 #pragma mark getters
 unsigned int ParticleSystem::getParticleNumber()
 {
 	return particleNumber;
-}
-
-BOOL ParticleSystem::getIsActive()
-{
-	return isActive;
 }
 
 Particle** ParticleSystem::getParticlesArray()
@@ -84,6 +91,16 @@ ParticleController* ParticleSystem::getParticleController()
 ParticleRenderer* ParticleSystem::getParticleRenderer()
 {
 	return systemRenderer;
+}
+
+float ParticleSystem::getX()
+{
+	return x;
+}
+
+float ParticleSystem::getY()
+{
+	return y;
 }
 
 #pragma mark destructor

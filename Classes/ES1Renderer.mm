@@ -11,6 +11,7 @@
 #import "Texture2D.h"
 #import "EmitterFunctions.h"
 #import "FileUtils.h"
+#import "SceneManager.h"
 
 @implementation ES1Renderer
 
@@ -42,11 +43,48 @@
 
 - (void) initGame
 {
-	//[self animationTest2];
-	//[self particlesBenchmark1];
-	[self particlesBenchmark_cpp1];
-	[self animationTest];
+	[self particlesTest];
+}
 
+/*
+ *
+ *	TESTS
+ *
+ */
+#pragma mark TESTS
+
+- (void) sceneManagerTest1
+{
+	//GameEntity *anEntity = new ParticleSystem(10, true , 0);
+	
+	SceneManager *aTestManager = new SceneManager();
+	
+	//std::cout << aSceneManager->addEntity((GameEntity *)(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(50, 100) , "Particle2.pvr"))) << std::endl;
+	
+	testSystem = aTestManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(50, 100) , "Particle2.pvr"));
+	
+	aTestManager->debugPrintEntityList();
+	
+	PARTICLE_MANAGER->debugPrintList();
+}
+
+-(void) sceneManagerTest2Sort
+{
+	aSceneManager = new SceneManager();
+	
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(30, 30) , "Particle2.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(10, 10) , "Particle2.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(70, 70) , "Particle2.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(20, 20) , "Particle2.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(50, 50) , "Particle2.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(60, 60) , "Particle2.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(40, 40) , "Particle2.pvr"));
+	
+	aSceneManager->debugPrintEntityList();
+	
+	aSceneManager->sortEntitiesY();
+	
+	aSceneManager->debugPrintEntityList();
 }
 
 - (void) animationTest
@@ -95,86 +133,42 @@
 	sprite = ss->getSpriteAt(4, 2);
 }
 
-- (void) particlesBenchmark1
-{
-	/*
-	 * Image allocation
-	 */
-	
-	 particleTextures = new Image();
-	 //particleTextures->initWithTexture([[Texture2D alloc] initWithPVRTCFile:[FileUtils fullPathFromRelativePath:@"smoke.pvr"]], 1.0);
-	// particleTextures->initWithTexture([[Texture2D alloc] initWithImagePath:[[NSBundle mainBundle] pathForResource:@"smoke.png" ofType:nil] filter:GL_LINEAR], 1.0);
-	 
-	
-	/*
-	 *	Different Emitters Benchmark
-	 */
-	/*
-	 [[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FireSmall 
-																	atStartPosition:CGPointMake(50, 100) 
-																		  withImage:particleTextures];
-	 
-	 [[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FireMedium 
-																	atStartPosition:CGPointMake(100, 100) 
-																		  withImage:particleTextures];
-	 
-	 [[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FireBig 
-																	atStartPosition:CGPointMake(150, 100) 
-																		  withImage:particleTextures];
-	 
-	 [[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_ExplosionSmall
-																	atStartPosition:CGPointMake(250, 300) 
-																		  withImage:particleTextures];
-	 
-	 [[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_ExplosionMedium 
-																	atStartPosition:CGPointMake(250, 200) 
-																		  withImage:particleTextures];
-	 
-	 [[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_ExplosionBig 
-																	atStartPosition:CGPointMake(250, 100) 
-																		  withImage:particleTextures];
-	 
-	 [[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FountainSmall 
-																	atStartPosition:CGPointMake(50, 300) 
-																		  withImage:particleTextures];
-	 
-	 [[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FountainMedium 
-																	atStartPosition:CGPointMake(100, 300) 
-																		  withImage:particleTextures];
-	 
-	 [[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_FountainBig 
-																	atStartPosition:CGPointMake(150, 300) 
-																		  withImage:particleTextures];		
-	*/
-	/*
-	 *	Smoke Benchmark
-	 */
-	//[[SingletonParticleSystemManager sharedParticleSystemManager] createParticleFX:kParticleSystemFX_Smoke atStartPosition:CGPointMake(150, 100) withImage:particleTextures];		
-	
-	/*
-	 *	Ship Benchmark
-	 */		
-	/*someImage = new Image();
-	someImage->initWithUIImage([UIImage imageNamed:@"player.png"], 1.0f, GL_LINEAR);
-	someImage->setAlpha(3.0); 
-	someImage->setRotation(180);
-	 */
-}
-
-- (void) particlesBenchmark_cpp1
+- (void) particlesTest
 {	
-	PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(50, 100) , "Particle2.pvr");
-	PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireMedium, CGPointMake(100, 100), "Particle2.pvr");
-	PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireBig, CGPointMake(150, 100), "Particle2.pvr");
-	PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_ExplosionSmall, CGPointMake(250, 300), "Particle2.pvr");
-	PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_ExplosionMedium, CGPointMake(250, 200), "Particle2.pvr");
-	PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_ExplosionBig, CGPointMake(250, 100), "Particle2.pvr");
-	PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainSmall, CGPointMake(50, 300), "Particle2.pvr");
-	PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainMedium, CGPointMake(100, 300), "Particle2.pvr");
-	PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainBig, CGPointMake(150, 300), "Particle2.pvr");
-	PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_Smoke, CGPointMake(150, 100), "smoke.png");
+	aSceneManager = new SceneManager();
+	
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(50, 100) , "Particle2.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireMedium, CGPointMake(100, 100), "Particle2.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireBig, CGPointMake(150, 101), "Particle2.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_ExplosionSmall, CGPointMake(250, 300), "Particle2.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_ExplosionMedium, CGPointMake(250, 200), "Particle2.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_ExplosionBig, CGPointMake(250, 100), "Particle2.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainSmall, CGPointMake(50, 300), "Particle2.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainMedium, CGPointMake(100, 300), "Particle2.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainBig, CGPointMake(150, 300), "Particle2.pvr"));
+	testSystem	= aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_Smoke, CGPointMake(150, 100), "smoke.png"));	
 }
 
+- (void) textureManagerTest:(NSString *) inTextureName
+{
+	/*First we ask the texture manager to create the texture for us*/
+	Texture2D *aTexture = TEXTURE_MANAGER->createTexture([inTextureName UTF8String]);
+	//NSLog(@"Smoke.png: %d",[aTexture name]);
+	
+	/*then we ask for the texture again to check if the texture is just created once*/
+	Texture2D *aTexture2 = TEXTURE_MANAGER->createTexture([inTextureName UTF8String]);
+	//NSLog(@"Smoke.png: %d",[aTexture2 name]);
+	
+	if([aTexture name] != [aTexture2 name])
+	{
+		printf("TextureManagerTest 1 FAIL, different OpenGL ES textureNames (%d != %d)\n",[aTexture name],[aTexture2 name]);
+		assert(aTexture);
+	}else {
+		printf("TextureManagerTest 1 PASS, equal OpenGL ES textureNames (%d == %d)\n",[aTexture name],[aTexture2 name]);
+	}
+}
+
+#pragma mark action_methods
 - (void) setupView
 {	
 	// setup viewport and projection
@@ -209,17 +203,19 @@
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);	
 
-	PARTICLE_MANAGER->drawSystems();
+	/*static int i = 0;
 	
+	if(i == 500)
+		aSceneManager->removeEntity(testSystem);
 	
-	if(sprite)
-		sprite->renderAtPoint(CGPointMake(150, 100), YES);
-	
-	if(someImage)
-		someImage->renderAtPoint(CGPointMake(150, 100), YES);	//draw the ship image.
-	
-	if(animatedSprite)
-		animatedSprite->renderAtPoint(CGPointMake(160, 240));
+	i++;
+	*/
+	if(aSceneManager != NULL)
+	{
+		aSceneManager->sortEntitiesY();
+		aSceneManager->updateScene();
+		aSceneManager->renderScene();
+	}
 	
     glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
     [context presentRenderbuffer:GL_RENDERBUFFER_OES];
@@ -263,6 +259,8 @@
 	
 	[context release];
 	context = nil;
+	
+	delete TEXTURE_MANAGER;
 	
 	[super dealloc];
 }

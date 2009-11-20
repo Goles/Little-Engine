@@ -7,6 +7,7 @@
 //
 
 #import "ParticleEmitter.h"
+#import "ConstantsAndMacros.h"
 #import "EmitterFunctions.h"
 #import "ParticleSystem.h"
 #import "Particle.h"
@@ -73,7 +74,11 @@
 			[array[i] setPosition:inPosition];
 			[array[i] setSize:inSize];
 			[array[i] setStartColor:inStartColor];
-
+			
+			/*Introduce pre-calculated values for gravity+accel+accelVariance*/
+			[array[i] setPreCalcX:(inXAccel + inXGravity)];
+			[array[i] setPreCalcY:(inYAccel + inYGravity)];
+			
 			/*We must calculate the delta from which the startColor will transform in End Color.*/
 			[array[i] setDeltaColor:Color3DMake((inEndColor.red - inStartColor.red), 
 												(inEndColor.green - inStartColor.green), 
@@ -88,10 +93,6 @@
 
 - (void) update
 {
-	/*for(int i = 0; i < [(ParticleSystem *)delegate particleNumber]; i++)
-	{
-
-	}*/
 }
 
 #pragma mark SpecialFX

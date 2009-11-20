@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GameElement.h"
+#import "GameEntity.h"
 #import "Frame.h"
 #import "vector"
 
@@ -18,7 +18,7 @@ enum {
 
 typedef std::vector<Frame *> FRAMES_VECTOR;
 
-class Animation : public GameElement
+class Animation
 {
 public:
 	//constructor
