@@ -29,7 +29,6 @@ class Image
 public:
 	//Constructor
 	Image();
-	
 	//Initializers
 	void	initWithTexture2D(Texture2D *inTexture);
 	void	initWithTexture2D(Texture2D *inTexture, float scale);
@@ -51,12 +50,12 @@ public:
 	// Setters
 	void setColorFilter(float Red, float Green, float Blue, float alpha);
 	void setAlpha(float alpha);
-	// More setters
 	void setTextureOffsetX(int inTextureOffset);
 	void setTextureOffsetY(int inTextureOffset);
 	void setImageWidth(GLuint inWidth);
 	void setImageHeight(GLuint inHeight);
 	void setRotation(float inRotation);
+	void setTextureName(const std::string &inTextureName);
 	
 	//Getters
 	int		getImageWidth();
@@ -64,13 +63,16 @@ public:
 	float	getScale();
 	Quad2*	getTexCoords();
 	Quad2*	getVertex();
+	std::string getTextureName();
+	
 protected:	
 	void initImplementation();
 private:
 	// Game State
 	//SingletonGameState *sharedGameState;
 	// The OpenGL texture to be used for this image
-	Texture2D	*texture;	
+	Texture2D	*texture;
+	std::string	textureName;
 	int			imageWidth;
 	int			imageHeight;
 	int			textureWidth;

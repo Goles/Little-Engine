@@ -7,6 +7,7 @@
 //
 
 #import "SceneManager.h"
+#include "SharedParticleSystemManager.h"
 
 //Constructor
 #pragma mark contructor
@@ -65,8 +66,7 @@ void SceneManager::removeEntity(GameEntity *inGameEntity)
 	{
 		if (*it == inGameEntity) {
 			entityList.erase(it);
-		}
-		
+		}		
 		it++;
 	}
 
@@ -74,12 +74,15 @@ void SceneManager::removeEntity(GameEntity *inGameEntity)
 
 void SceneManager::removeEntity(ParticleSystem *inParticleSystem)
 {
+	PARTICLE_MANAGER->removeSystem(inParticleSystem);
+	
 	ENTITY_VECTOR_ITERATOR it = entityList.begin();
 	
 	while (it != entityList.end())
 	{
 		if (*it == inParticleSystem) {
 			entityList.erase(it);
+			return;
 		}
 		
 		it++;

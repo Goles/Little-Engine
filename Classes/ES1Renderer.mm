@@ -43,6 +43,7 @@
 
 - (void) initGame
 {
+	[self animationTest3];
 	[self particlesTest];
 }
 
@@ -52,6 +53,15 @@
  *
  */
 #pragma mark TESTS
+
+- (void) deleteTest1
+{
+	GameEntity *a = new ParticleSystem(40, true,  0);
+	
+	delete a;
+	
+	
+}
 
 - (void) sceneManagerTest1
 {
@@ -90,7 +100,7 @@
 - (void) animationTest
 {
 	ss = new SpriteSheet();
-	ss->initWithImageNamed(@"sprite_test.png", 98, 142, 0, 1.0);
+	ss->initWithImageNamed("sprite_test.png", 98, 142, 0, 1.0);
 	//sprite = ss->getSpriteAt(4, 2);
 	
 	animatedSprite = new Animation();
@@ -109,13 +119,13 @@
 		
 	
 	animatedSprite->setIsRunning(true);
-	animatedSprite->setIsRepeating(true);
+	animatedSprite->setIsRepeating(true);	
 }
 
 - (void) animationTest2
 {
 	ss = new SpriteSheet();
-	ss->initWithImageNamed(@"Sprite_Sheet_Test.png", 44.0, 64, 0, 1.0);
+	ss->initWithImageNamed("Sprite_Sheet_Test.png", 44.0, 64, 0, 1.0);
 	
 	animatedSprite = new Animation();
 	
@@ -126,10 +136,24 @@
 	animatedSprite->setIsRepeating(true);
 }
 
+- (void) animationTest3
+{
+	ss = new SpriteSheet();
+	ss->initWithImageNamed("prototypePlayerSheet.png", 100, 100, 0.0, 1.0);
+	
+	animatedSprite = new Animation();
+	
+	for(int i = 1; i <= 4; i++)
+		animatedSprite->addFrameWithImage(ss->getSpriteAt(i, 0), 0.18);
+	
+	animatedSprite->setIsRunning(true);
+	animatedSprite->setIsRepeating(true);
+}
+
 - (void) spriteSheetTest
 {
 	ss = new SpriteSheet();
-	ss->initWithImageNamed(@"spritesheet16.gif", 16, 16, 0, 2.0);
+	ss->initWithImageNamed("spritesheet16.gif", 16, 16, 0, 2.0);
 	sprite = ss->getSpriteAt(4, 2);
 }
 
@@ -137,7 +161,7 @@
 {	
 	aSceneManager = new SceneManager();
 	
-	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(50, 100) , "Particle2.pvr"));
+	testSystem	=   aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(50, 100) , "Particle2.pvr"));
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireMedium, CGPointMake(100, 100), "Particle2.pvr"));
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireBig, CGPointMake(150, 101), "Particle2.pvr"));
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_ExplosionSmall, CGPointMake(250, 300), "Particle2.pvr"));
@@ -146,7 +170,7 @@
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainSmall, CGPointMake(50, 300), "Particle2.pvr"));
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainMedium, CGPointMake(100, 300), "Particle2.pvr"));
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainBig, CGPointMake(150, 300), "Particle2.pvr"));
-	testSystem	= aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_Smoke, CGPointMake(150, 100), "smoke.png"));	
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_Smoke, CGPointMake(150, 100), "smoke.png"));	
 }
 
 - (void) textureManagerTest:(NSString *) inTextureName
@@ -201,21 +225,17 @@
 	}
 	
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT);	
-
-	/*static int i = 0;
+	glClear(GL_COLOR_BUFFER_BIT);
 	
-	if(i == 500)
-		aSceneManager->removeEntity(testSystem);
-	
-	i++;
-	*/
 	if(aSceneManager != NULL)
 	{
 		aSceneManager->sortEntitiesY();
 		aSceneManager->updateScene();
 		aSceneManager->renderScene();
-	}
+	}	
+	
+	if(animatedSprite)
+		animatedSprite->renderAtPoint(CGPointMake(160, 240));
 	
     glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
     [context presentRenderbuffer:GL_RENDERBUFFER_OES];
@@ -256,6 +276,9 @@
 	// Tear down context
 	if ([EAGLContext currentContext] == context)
         [EAGLContext setCurrentContext:nil];
+	
+	delete PARTICLE_MANAGER;
+	delete TEXTURE_MANAGER;
 	
 	[context release];
 	context = nil;

@@ -14,6 +14,8 @@
  *	_NG
  */
 
+#include <iostream>
+
 class GameEntity
 {	
 public:
@@ -23,7 +25,7 @@ public:
 	//Virtual Methods.
 	virtual void draw()=0;
 	virtual void update()=0;
-	virtual void setIsActive(bool isActive)=0;
+	virtual ~GameEntity(){/*Destructor Virtual*/}
 
 	//Getters & Setters
 	Boolean getIsActive();

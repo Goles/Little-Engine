@@ -8,6 +8,7 @@
  */
 
 #include "ParticleSystem.h"
+#include <iostream>
 
 ParticleSystem::ParticleSystem(int inParticleNumber, BOOL isContinuous, int kRenderingMode)
 {
@@ -107,9 +108,11 @@ float ParticleSystem::getY()
 ParticleSystem::~ParticleSystem()
 {
 	[systemEmitter release];
-	[systemController release];
-	[systemRenderer release];
+
+	//[systemController release];
 	
+	[systemRenderer release];
+
 	for(int i = 0; i < particleNumber; i++)
 	{
 		[array[i] release];

@@ -33,7 +33,7 @@ Animation::Animation(CGPoint inCurrentPoint)
 }
 
 #pragma mark action_methods
-void	Animation::addFrameWithImage(Image *inImage, float delay)
+void Animation::addFrameWithImage(Image *inImage, float delay)
 {
 	Frame *aFrame = new Frame(inImage, delay);
 	spriteFrames.push_back(aFrame);

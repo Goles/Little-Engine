@@ -34,6 +34,7 @@ Image::Image()
 	vertices			= NULL;
 	texCoords			= NULL;
 	indices				= NULL;
+	textureName			= std::string("No Texture Name set");
 }
 
 #pragma mark initializers
@@ -102,6 +103,7 @@ void Image::initWithTextureFile(const std::string &inTextureName)
 	{
 		texture = imTexture;
 		scale = 1.0f;
+		textureName = std::string(inTextureName);
 		initImplementation();
 	}else {
 		printf("Could not load texture when creating Image from file %s\n",inTextureName.c_str());
@@ -117,6 +119,7 @@ void Image::initWithTextureFile(const std::string &inTextureName, float imageSca
 	{
 		texture = imTexture;
 		scale = imageScale;
+		textureName = inTextureName;
 		initImplementation();
 	}else {
 		printf("Could not load texture when creating Image from File :%s\n",inTextureName.c_str());
@@ -149,6 +152,10 @@ void Image::initWithUIImage(UIImage *inImage, float inScale, GLenum inFilter)
  *	Getters and Setters
  */
 #pragma mark setters
+void Image::setTextureName(const std::string &inTextureName)
+{
+	textureName = std::string(inTextureName);
+}
 
 void Image::setTextureOffsetX(int inTextureOffset)
 {
@@ -195,6 +202,9 @@ Image* Image::getSubImage(CGPoint inPoint,  GLuint inSubImageWidth, GLuint inSub
 	Image *subImage = new Image();
 	subImage->initWithTexture2D(texture, inSubImageScale);
 	
+	//We need set the subImage texture name equal to it's parent textureName. (since it will be a scrap of the bigger texture)
+	subImage->setTextureName(textureName);
+	
 	// Define the offset of the subimage we want using the point provided
 	subImage->setTextureOffsetX(inPoint.x);
 	subImage->setTextureOffsetY(inPoint.y);
@@ -205,8 +215,13 @@ Image* Image::getSubImage(CGPoint inPoint,  GLuint inSubImageWidth, GLuint inSub
 	
 	// Set the rotatoin of the subImage to match the current images rotation
 	subImage->setRotation(rotation);
-	
+
 	return subImage;
+}
+
+std::string Image::getTextureName()
+{
+	return textureName;
 }
 
 int Image::getImageWidth()
@@ -277,7 +292,8 @@ void Image::render(CGPoint point, Quad2* tc, Quad2* qv)
 	// Enable Texture_2D
 	glEnable(GL_TEXTURE_2D);
 	
-	glBindTexture(GL_TEXTURE_2D, [texture name]);
+	//We ask the texture manager to bind for us, to not over-bind a texture.
+	TEXTURE_MANAGER->bindTexture(textureName);
 	
 	// Set up the VertexPointer to point to the vertices we have defined
 	glVertexPointer(2, GL_FLOAT, 0, qv);

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "Image.h"
+#include <string>
+#include <iostream>
 
 class SpriteSheet
 {
@@ -15,7 +17,7 @@ public:
 	
 	//Action Methods
 	void	initWithImage(Image *spriteSheet, GLuint spriteWidth, GLuint spriteHeight, GLuint spriteSpacing);
-	void	initWithImageNamed(NSString *spriteName, GLuint spriteWidth, GLuint spriteHeight, GLuint spacing, float imageScale);
+	void	initWithImageNamed(const std::string &inTextureName, GLuint spriteWidth, GLuint spriteHeight, GLuint spacing, float imageScale);
 	Image*	getSpriteAt(GLuint x, GLuint y);
 	void	renderSpriteAt(GLuint x, GLuint y, CGPoint point, BOOL isCenterOfImage);
 	CGPoint	getOffsetForSpriteAt(int x, int y);

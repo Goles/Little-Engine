@@ -43,6 +43,7 @@ public:
 	ParticleSystem*	createParticleSystem(int k_inParticleFX, CGPoint inStartPosition, const std::string &textureName);
 	SystemEntity*	insertEntity(ParticleSystem *inSystem); //Creates and inserts a new SystemEntity in the _systemsList
 	BOOL			removeEntityAtPosition(int inPosition);
+	void			removeSystem(ParticleSystem *inSystem);
 	void			drawSystems();
 	void			debugPrintList();
 	

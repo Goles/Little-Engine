@@ -30,19 +30,18 @@ void SpriteSheet::initWithImage(Image *inSpriteSheet, GLuint spriteWidth, GLuint
 	this->initImplementation(spriteWidth, spriteHeight, spriteSpacing, 1.0f);
 }
 
-//TODO: Double check this in the texture2D init, and also must check if we are initializing from .pvr or .png ... etc.
-void SpriteSheet::initWithImageNamed(NSString *spriteSheetName, GLuint spriteWidth, GLuint spriteHeight, GLuint spriteSpacing, float imageScale)
+//This inits the sprite Sheet from a textureFile, it initializes an Image() and the image will validate .png or .pvr, and ask the manager to init.
+void SpriteSheet::initWithImageNamed(const std::string &inTextureName, GLuint spriteWidth, GLuint spriteHeight, GLuint spriteSpacing, float imageScale)
 {
 	sheetImage = new Image();
-	sheetImage->initWithTexture2D([[Texture2D alloc] initWithImagePath:[[NSBundle mainBundle] pathForResource:spriteSheetName ofType:nil] filter:GL_LINEAR], imageScale);
+	sheetImage->initWithTextureFile(inTextureName);
 	this->initImplementation(spriteWidth, spriteHeight, spriteSpacing, imageScale);
 }
 
 //This will return a certain sprite at X,Y position inside this SpriteSheets sheetImage.
 Image* SpriteSheet::getSpriteAt(GLuint x, GLuint y)
 {
-	CGPoint spritePoint = CGPointMake(x * (spriteWidth + spacing), y * (spriteHeight + spacing));
-	
+	CGPoint spritePoint = CGPointMake(x * (spriteWidth + spacing), y * (spriteHeight + spacing));	
 	return sheetImage->getSubImage(spritePoint, spriteWidth, spriteHeight, sheetImage->getScale());
 }
 

@@ -62,12 +62,14 @@
 - (void) initGame;
 
 /*Tests*/
+- (void) deleteTest1;
 - (void) sceneManagerTest1;
 - (void) sceneManagerTest2Sort;
 - (void) spriteSheetTest;
 - (void) particlesTest;
 - (void) animationTest;
 - (void) animationTest2;
+- (void) animationTest3;
 - (void) textureManagerTest:(NSString *) inTextureName;
  
 @end

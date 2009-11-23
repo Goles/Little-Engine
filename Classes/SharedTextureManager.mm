@@ -6,6 +6,8 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
+#import <OpenGLES/ES1/gl.h>
+#import <OpenGLES/ES1/glext.h>
 #import "SharedTextureManager.h"
 #import "FileUtils.h"
 
@@ -25,6 +27,7 @@ SharedTextureManager* SharedTextureManager::getInstance()
 	return instance;
 }
 
+//TODO: check this if(it != texturesMap.end()) with STL MAP
 #pragma mark action_methods
 Texture2D* SharedTextureManager::createTexture(const std::string &textureName)
 {
@@ -49,12 +52,24 @@ Texture2D* SharedTextureManager::createTexture(const std::string &textureName)
 	return((texturesMap.insert(TextureMapPair(textureName, imTexture))).first->second);
 }
 
-#pragma mark getters_setters
-GLuint SharedTextureManager::getBoundTexture()
-{
-	return boundTexture;
+void SharedTextureManager::bindTexture(const std::string &textureName)
+{	
+	if(boundTextureName.compare(textureName) != 0)
+	{
+		TextureMap::iterator it = texturesMap.find(textureName);
+		
+		if (it != texturesMap.end()) 
+		{
+			glBindTexture(GL_TEXTURE_2D, [it->second name]);
+			boundTextureName = textureName;
+		}
+		else {
+			std::cout << "The texture " << textureName << " is not in the texturesMap!" << std::endl;
+		}
+	}
 }
 
+#pragma mark getters_setters
 void setBoundTexture(GLuint glTextureName)
 {
 	

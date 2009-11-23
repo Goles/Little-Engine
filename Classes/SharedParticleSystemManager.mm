@@ -178,7 +178,7 @@ ParticleSystem* SharedParticleSystemManager::createParticleSystem(int k_InPartic
 			break;
 			
 		case kParticleSystemFX_ExplosionBig:
-			newSystem	= new ParticleSystem(50, YES, kRenderingMode_PointSprites);
+			newSystem	= new ParticleSystem(53, YES, kRenderingMode_PointSprites);
 			[newSystem->getParticleEmitter() setSystemXInitialSpeed:0
 												initialYSpeed:0
 													   xAccel:0
@@ -368,6 +368,36 @@ BOOL SharedParticleSystemManager::removeEntityAtPosition(int inPosition)
 	}
 	
 	return NO;
+}
+
+void SharedParticleSystemManager::removeSystem(ParticleSystem *inSystem)
+{
+	SystemEntity *currentElement = _systemsList;
+	SystemEntity *previousElement = _systemsList;
+	
+	/*If we have to delete the head*/
+	if(currentElement->system == inSystem)
+	{
+		_systemsList = currentElement->nextSystem;
+		delete currentElement->system;
+		free(currentElement);
+		return;
+	}
+		
+	/*If we have to go through the list*/
+	while (currentElement != NULL) 
+	{
+		if(currentElement->system == inSystem)
+		{
+			previousElement->nextSystem = currentElement->nextSystem;
+			delete currentElement->system;
+			free(currentElement);
+			return; //return after we deleted.
+		}
+		
+		previousElement = currentElement;
+		currentElement = currentElement->nextSystem;
+	}
 }
 
 void SharedParticleSystemManager::drawSystems()

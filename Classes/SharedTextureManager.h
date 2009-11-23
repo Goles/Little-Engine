@@ -35,7 +35,7 @@ public:
 	//Action Methods
 	static		SharedTextureManager* getInstance();
 	Texture2D*	createTexture(const std::string &textureName);
-//	void		bindTexture
+	void		bindTexture(const std::string &textureName);
 	
 	//Destructor
 	~SharedTextureManager();
@@ -52,6 +52,6 @@ protected:
 	
 private:
 	static SharedTextureManager *instance;
-	TextureMap					texturesMap;
-	GLuint	boundTexture;
+	TextureMap texturesMap;
+	std::string boundTextureName;
 };
