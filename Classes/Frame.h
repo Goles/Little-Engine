@@ -13,8 +13,9 @@
 class Frame
 {
 public:
-	//Constructor
+	//Constructor & Destructor
 	Frame(Image* inFrameImage, float inFrameDelay);
+	~Frame();
 	
 	//getters
 	Image*	getFrameImage();

@@ -27,8 +27,9 @@ typedef struct {
 class Image
 {
 public:
-	//Constructor
+	//Constructor & destructor
 	Image();
+	
 	//Initializers
 	void	initWithTexture2D(Texture2D *inTexture);
 	void	initWithTexture2D(Texture2D *inTexture, float scale);
@@ -93,5 +94,4 @@ private:
 	Quad2		*vertices;
 	Quad2		*texCoords;
 	GLushort	*indices;
-
 };

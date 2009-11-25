@@ -21,9 +21,10 @@ typedef std::vector<Frame *> FRAMES_VECTOR;
 class Animation
 {
 public:
-	//constructor
+	//constructors & destructor
 	Animation();
 	Animation(CGPoint startPoint);
+	~Animation();
 	
 	//Action methods
 	void	addFrameWithImage(Image *inImage, float delay);

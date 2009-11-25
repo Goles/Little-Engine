@@ -59,17 +59,11 @@
 	GameEntity *a = new ParticleSystem(40, true,  0);
 	
 	delete a;
-	
-	
 }
 
 - (void) sceneManagerTest1
-{
-	//GameEntity *anEntity = new ParticleSystem(10, true , 0);
-	
+{	
 	SceneManager *aTestManager = new SceneManager();
-	
-	//std::cout << aSceneManager->addEntity((GameEntity *)(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(50, 100) , "Particle2.pvr"))) << std::endl;
 	
 	testSystem = aTestManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(50, 100) , "Particle2.pvr"));
 	

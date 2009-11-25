@@ -25,11 +25,11 @@ public:
 	//Virtual Methods.
 	virtual void draw()=0;
 	virtual void update()=0;
-	virtual ~GameEntity(){/*Destructor Virtual*/}
+	virtual ~GameEntity(){}
 
 	//Getters & Setters
-	Boolean getIsActive();
-	void setIsActive(Boolean inActive);
+	const Boolean getIsActive() const { return isActive; }
+	const void setIsActive(Boolean inActive) { isActive = inActive; }
 	
 	//Functors
 	

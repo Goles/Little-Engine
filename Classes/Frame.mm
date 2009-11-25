@@ -8,12 +8,18 @@
 
 #import "Frame.h"
 
-#pragma mark constructor
+#pragma mark constructor_destructor
 Frame::Frame(Image* inFrameImage, float inFrameDelay)
 {
 	this->frameImage = inFrameImage;
 	this->frameDelay = inFrameDelay;
 }
+
+Frame::~Frame()
+{
+	//Destroy something.
+}
+
 
 #pragma mark getters
 Image* Frame::getFrameImage()

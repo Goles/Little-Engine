@@ -7,13 +7,3 @@
 //
 
 #import "GameEntity.h"
-
-Boolean GameEntity::getIsActive()
-{
-	return isActive;
-}
-
-void GameEntity::setIsActive(Boolean inActive)
-{
-	isActive = inActive;
-}

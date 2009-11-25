@@ -124,3 +124,9 @@ void	Animation::setIsRepeating(BOOL inIsRepeating)
 {
 	isRepeating = inIsRepeating;
 }
+
+#pragma mark destructor
+Animation::~Animation()
+{
+	//Destroy something.
+}
