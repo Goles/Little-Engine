@@ -26,6 +26,7 @@
 		633C889410649219003911A0 /* Particle.m in Sources */ = {isa = PBXBuildFile; fileRef = 633C889110649219003911A0 /* Particle.m */; };
 		633C889510649219003911A0 /* ParticleController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 633C889310649219003911A0 /* ParticleController.mm */; };
 		633C88D51064942D003911A0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633C88D41064942D003911A0 /* CoreGraphics.framework */; };
+		6352AA5110BDD18200EA312F /* GEComponent.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6352AA5010BDD18200EA312F /* GEComponent.mm */; };
 		635C8EF21074761E002F9BB3 /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 635C8EF11074761E002F9BB3 /* FileUtils.m */; };
 		635C8F231074790B002F9BB3 /* Particle2.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 635C8F221074790B002F9BB3 /* Particle2.pvr */; };
 		6379709F108A17AC005B24FC /* smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 6379709E108A17AC005B24FC /* smoke.png */; };
@@ -79,6 +80,8 @@
 		633C889210649219003911A0 /* ParticleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleController.h; sourceTree = "<group>"; };
 		633C889310649219003911A0 /* ParticleController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ParticleController.mm; sourceTree = "<group>"; };
 		633C88D41064942D003911A0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6352AA4F10BDD18200EA312F /* GEComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEComponent.h; sourceTree = "<group>"; };
+		6352AA5010BDD18200EA312F /* GEComponent.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GEComponent.mm; sourceTree = "<group>"; };
 		635C8EF01074761E002F9BB3 /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
 		635C8EF11074761E002F9BB3 /* FileUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUtils.m; sourceTree = "<group>"; };
 		635C8F221074790B002F9BB3 /* Particle2.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = Particle2.pvr; sourceTree = "<group>"; };
@@ -287,6 +290,15 @@
 			name = Textures;
 			sourceTree = "<group>";
 		};
+		6352AA4610BDD00100EA312F /* GameEntityComponent */ = {
+			isa = PBXGroup;
+			children = (
+				6352AA4F10BDD18200EA312F /* GEComponent.h */,
+				6352AA5010BDD18200EA312F /* GEComponent.mm */,
+			);
+			name = GameEntityComponent;
+			sourceTree = "<group>";
+		};
 		635C8EEF10747614002F9BB3 /* Support */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,6 +381,7 @@
 		63C0D42A10A321F60011483E /* GameEntity */ = {
 			isa = PBXGroup;
 			children = (
+				6352AA4610BDD00100EA312F /* GameEntityComponent */,
 				6393911C10A4B6F9006FDBCF /* GameEntity.h */,
 				6393911D10A4B6F9006FDBCF /* GameEntity.mm */,
 			);
@@ -468,6 +481,7 @@
 				6386CFCA10A4BC2200699925 /* SharedParticleSystemManager.mm in Sources */,
 				63E70D8A10AC756D008ED32B /* SharedTextureManager.mm in Sources */,
 				63B2664A10B1E730004D1853 /* SceneManager.mm in Sources */,
+				6352AA5110BDD18200EA312F /* GEComponent.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
