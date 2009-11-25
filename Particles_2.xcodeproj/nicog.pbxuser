@@ -522,13 +522,13 @@
 	6352AA4F10BDD18200EA312F /* GEComponent.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1466, 925}}";
-			sepNavSelRange = "{356, 0}";
-			sepNavVisRange = "{0, 649}";
+			sepNavSelRange = "{535, 0}";
+			sepNavVisRange = "{0, 673}";
 		};
 	};
 	6352AA5010BDD18200EA312F /* GEComponent.mm */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1466, 925}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1804, 637}}";
 			sepNavSelRange = "{170, 0}";
 			sepNavVisRange = "{0, 170}";
 		};
