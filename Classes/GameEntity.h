@@ -15,24 +15,31 @@
  */
 
 #include <iostream>
+#include <map>
+#include <vector>
+
+class GEComponent;
 
 class GameEntity
-{	
+{
 public:
 	float x,y;
 	Boolean	isActive;
 	
 	//Virtual Methods.
-	virtual void draw()=0;
-	virtual void update()=0;
+	GameEntity(){}
+	virtual void draw(){}
+	virtual void update(){}
 	virtual ~GameEntity(){}
-
+	
 	//Getters & Setters
 	const Boolean getIsActive() const { return isActive; }
 	const void setIsActive(Boolean inActive) { isActive = inActive; }
+	GEComponent *getGEC( const std::string &familyID );
+	void setGEC( GEComponent *newGEC );
+	void clearGECs();
 	
-	//Functors
-	
+	//Functors	
 	/*Functor to compare by X*/
 	friend class compareByX;
     class compareByX 
@@ -53,4 +60,12 @@ public:
             return (a->y < b->y);
         }
     };
+	
+private:	
+	typedef std::map<const std::string, GEComponent *> ComponentMap;
+	typedef std::pair<const std::string, GEComponent *> ComponentMapPair;
+	typedef std::vector<GEComponent *> ComponentVector;
+	
+	ComponentMap components;
+	ComponentVector rendereableComponents;
 };

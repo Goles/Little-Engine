@@ -70,6 +70,7 @@
 - (void) animationTest;
 - (void) animationTest2;
 - (void) animationTest3;
+- (void) componentTest1;
 - (void) textureManagerTest:(NSString *) inTextureName;
  
 @end

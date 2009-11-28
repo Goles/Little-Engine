@@ -7,3 +7,16 @@
 //
 
 #import "GameEntity.h"
+#import "GEComponent.h"
+
+void GameEntity::setGEC( GEComponent *newGEC )
+{
+	std::string familyID = newGEC->familyID();
+	components[familyID] = newGEC;
+}
+
+GEComponent* GameEntity::getGEC(const std::string &familyID)
+{
+	return components[familyID];
+}
+

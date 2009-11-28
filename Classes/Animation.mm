@@ -32,6 +32,22 @@ Animation::Animation(CGPoint inCurrentPoint)
 	direction		= kDirection_Forward;
 }
 
+Animation::Animation(const std::vector<int>& positions, SpriteSheet *inSheet)
+{
+	currentPoint = CGPointZero;
+	currentFrame = 0;
+	frameTimer	 = 0;
+	isRunning	 = false;
+	isRepeating  = false;
+	isPingPong	 = false;
+	direction	 = kDirection_Forward;
+	
+	for (int i = 0; i < positions.size(); i+= 2)
+	{
+		this->addFrameWithImage(inSheet->getSpriteAt(positions[i],positions[i+1]), 0.08);
+	}
+}
+
 #pragma mark action_methods
 void Animation::addFrameWithImage(Image *inImage, float delay)
 {

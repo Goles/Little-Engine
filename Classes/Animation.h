@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SpriteSheet.h"
 #import "GameEntity.h"
 #import "Frame.h"
-#import "vector"
+#include <vector>
 
 enum {
 	kDirection_Forward = 1,
@@ -24,6 +25,7 @@ public:
 	//constructors & destructor
 	Animation();
 	Animation(CGPoint startPoint);
+	Animation(const std::vector<int>& positions, SpriteSheet *inSheet);
 	~Animation();
 	
 	//Action methods

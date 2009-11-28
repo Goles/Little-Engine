@@ -12,6 +12,9 @@
 #import "EmitterFunctions.h"
 #import "FileUtils.h"
 #import "SceneManager.h"
+#import "GEComponent.h"
+#import "gecAnimatedSprite.h"
+
 
 @implementation ES1Renderer
 
@@ -43,8 +46,7 @@
 
 - (void) initGame
 {
-	[self animationTest3];
-	[self particlesTest];
+	[self componentTest1];
 }
 
 /*
@@ -111,7 +113,6 @@
 	
 	animatedSprite->addFrameWithImage(ss->getSpriteAt(2,1), 0.2);
 		
-	
 	animatedSprite->setIsRunning(true);
 	animatedSprite->setIsRepeating(true);	
 }
@@ -149,6 +150,34 @@
 	ss = new SpriteSheet();
 	ss->initWithImageNamed("spritesheet16.gif", 16, 16, 0, 2.0);
 	sprite = ss->getSpriteAt(4, 2);
+}
+
+- (void) componentTest1
+{
+	GameEntity *anEntity = new GameEntity();
+	
+	std::vector<int> aVector;
+	
+	aVector.push_back(1);
+	aVector.push_back(0);
+	aVector.push_back(2);
+	aVector.push_back(0);
+	aVector.push_back(3);
+	aVector.push_back(0);
+	aVector.push_back(4);
+	aVector.push_back(0);
+	
+	ss = new SpriteSheet();
+	ss->initWithImageNamed("prototypePlayerSheet.png", 100, 100, 0.0, 1.0);
+	
+	gecAnimatedSprite *spriteComp;
+	
+	spriteComp = new gecAnimatedSprite();
+	spriteComp->addAnimation("walking", aVector, ss);
+	spriteComp->setCurrentAnimation("walking");
+	spriteComp->setCurrentRunning(true);
+						
+	anEntity->setGEC(spriteComp);
 }
 
 - (void) particlesTest
