@@ -43,6 +43,9 @@ public:
 	void	setIsRunning(BOOL inIsRunning);
 	void	setIsRepeating(BOOL inIsRepeating);
 	
+	//Debug
+	void debugPrintFrames();
+	
 	//inherited stuff.
 	void draw();
 	void update();

@@ -23,7 +23,7 @@ public:
 	virtual const gec_id_type &componentID() const = 0;
 	virtual const gec_id_type &familyID() const = 0;
 	
-	virtual void update() {}
+	virtual void update(float delta) const = 0;
 	
 	//Getters and setters.
 	void setOwnerGE(GameEntity *gE){ ownerGE = gE; }

@@ -21,12 +21,14 @@ public:
 	//gecVisual interface
 public:
 	virtual void render() const;
+	virtual void update(float delta) const;
 	
 	//gecAnimatedSprite interface
 public:
 	void addAnimation(const std::string &animationName, const std::vector<int> &positions, SpriteSheet *inSheet);
 	void setCurrentAnimation(const std::string &animationName);
 	void setCurrentRunning(Boolean isRunning){ currentAnimation->setIsRunning(isRunning); }
+	void setCurrentRepeating(Boolean isRepeating){ currentAnimation->setIsRepeating(isRepeating); } 
 	
 private:
 	typedef std::map<const std::string, Animation*> AnimationMap;

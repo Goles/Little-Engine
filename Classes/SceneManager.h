@@ -15,6 +15,8 @@
 typedef std::vector<GameEntity *> ENTITY_VECTOR;
 typedef std::vector<GameEntity *>::iterator ENTITY_VECTOR_ITERATOR;
 
+class GEComponent;
+
 class SceneManager
 {
 public:
@@ -22,7 +24,7 @@ public:
 	SceneManager();
 		
 	//Drawing & updating
-	void updateScene();
+	void updateScene(float delta);
 	void renderScene();
 	void sortEntitiesY();
 	void sortEntitiesX();

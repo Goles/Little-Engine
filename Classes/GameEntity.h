@@ -29,12 +29,13 @@ public:
 	//Virtual Methods.
 	GameEntity(){}
 	virtual void draw(){}
-	virtual void update(){}
+	virtual void update(float delta);
 	virtual ~GameEntity(){}
 	
 	//Getters & Setters
 	const Boolean getIsActive() const { return isActive; }
 	const void setIsActive(Boolean inActive) { isActive = inActive; }
+	
 	GEComponent *getGEC( const std::string &familyID );
 	void setGEC( GEComponent *newGEC );
 	void clearGECs();

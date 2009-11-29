@@ -44,8 +44,10 @@ Animation::Animation(const std::vector<int>& positions, SpriteSheet *inSheet)
 	
 	for (int i = 0; i < positions.size(); i+= 2)
 	{
-		this->addFrameWithImage(inSheet->getSpriteAt(positions[i],positions[i+1]), 0.08);
+		this->addFrameWithImage(inSheet->getSpriteAt(positions[i],positions[i+1]), 0.1f);
 	}
+	
+	this->debugPrintFrames();
 }
 
 #pragma mark action_methods
@@ -139,6 +141,22 @@ void	Animation::setIsRunning(BOOL inIsRunning)
 void	Animation::setIsRepeating(BOOL inIsRepeating)
 {
 	isRepeating = inIsRepeating;
+}
+
+#pragma mark debug
+void Animation::debugPrintFrames()
+{
+	FRAMES_VECTOR::iterator it;
+		
+	it = spriteFrames.begin();
+	
+	while ( it != spriteFrames.end() )
+	{
+		std::cout << (*it) << std::endl;
+		
+		it++;
+	}
+	
 }
 
 #pragma mark destructor

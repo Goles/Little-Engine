@@ -11,6 +11,7 @@
 
 void GameEntity::setGEC( GEComponent *newGEC )
 {
+	newGEC->setOwnerGE(this);
 	std::string familyID = newGEC->familyID();
 	components[familyID] = newGEC;
 }
@@ -18,5 +19,15 @@ void GameEntity::setGEC( GEComponent *newGEC )
 GEComponent* GameEntity::getGEC(const std::string &familyID)
 {
 	return components[familyID];
+}
+
+void GameEntity::update(float delta)
+{
+	ComponentMap::iterator it;
+	
+	for(it = components.begin(); it != components.end(); it++)
+	{
+		(*it).second->update(delta);
+	}
 }
 

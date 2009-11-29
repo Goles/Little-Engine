@@ -6,8 +6,9 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#import "SceneManager.h"
+#include "SceneManager.h"
 #include "SharedParticleSystemManager.h"
+#include "gecVisual.h"
 
 //Constructor
 #pragma mark contructor
@@ -17,13 +18,13 @@ SceneManager::SceneManager()
 }
 
 #pragma mark drawing_updating
-void SceneManager::updateScene()
+void SceneManager::updateScene(float delta)
 {
 	ENTITY_VECTOR_ITERATOR it ;
 	
 	for(it = entityList.begin(); it < entityList.end(); it++)
 	{
-		(*it)->update();
+		(*it)->update(delta);
 	}
 }
 
@@ -31,11 +32,21 @@ void SceneManager::renderScene()
 {
 	ENTITY_VECTOR_ITERATOR it ;
 	
-	for(it = entityList.begin(); it < entityList.end(); it++)
+	/*for(it = entityList.begin(); it < entityList.end(); it++)
 	{
 		if((*it)->getIsActive())
 		{
 			(*it)->draw();
+		}
+	}*/
+	
+	for (it = entityList.begin(); it < entityList.end(); it++)
+	{
+		GEComponent *gec = (*it)->getGEC(std::string("CompVisual"));
+		gecVisual *gvis	 = static_cast<gecVisual*> (gec);
+		if( gvis )
+		{
+			gvis->render();
 		}
 	}
 }

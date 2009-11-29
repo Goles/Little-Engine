@@ -30,5 +30,11 @@ void gecAnimatedSprite::setCurrentAnimation(const std::string &animationName)
 
 void gecAnimatedSprite::render() const
 {
-	/*Do some rendering :-)*/	
+	GameEntity *ge = this->getOwnerGE();
+	currentAnimation->renderAtPoint(CGPointMake(ge->x,ge->y));
+}
+
+void gecAnimatedSprite::update(float delta) const
+{
+	currentAnimation->update(delta);
 }

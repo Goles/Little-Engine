@@ -14,6 +14,7 @@
 #import "SceneManager.h"
 #import "GEComponent.h"
 #import "gecAnimatedSprite.h"
+#import "gecVisualContainer.h"
 
 
 @implementation ES1Renderer
@@ -157,7 +158,7 @@
 	GameEntity *anEntity = new GameEntity();
 	
 	std::vector<int> aVector;
-	
+
 	aVector.push_back(1);
 	aVector.push_back(0);
 	aVector.push_back(2);
@@ -172,12 +173,22 @@
 	
 	gecAnimatedSprite *spriteComp;
 	
-	spriteComp = new gecAnimatedSprite();
-	spriteComp->addAnimation("walking", aVector, ss);
-	spriteComp->setCurrentAnimation("walking");
-	spriteComp->setCurrentRunning(true);
+	spriteComp = new gecAnimatedSprite();				//new gecAnimatedSpriteComponent
+	spriteComp->addAnimation("walking", aVector, ss);	//add a full animation to the gec
+	spriteComp->setCurrentAnimation("walking");			//we set it to walk ( just now )
+	spriteComp->setCurrentRunning(true);				//we set it to be ON ( just now )
+	spriteComp->setCurrentRepeating(true);				//we set it to repeat ( Just now )
+	spriteComp->setOwnerGE(anEntity);					//we must set the owner of this.
 						
-	anEntity->setGEC(spriteComp);
+	gecVisualContainer *aContainer = new gecVisualContainer; //new visual components container
+	aContainer->addGecVisual(spriteComp);					 //we add the animation component
+	
+	anEntity->setGEC(spriteComp);							
+	anEntity->x = 160.0;
+	anEntity->y = 240.0;
+		
+	aSceneManager = new SceneManager();
+	aSceneManager->addEntity(anEntity);
 }
 
 - (void) particlesTest
@@ -231,8 +242,8 @@
 #pragma mark update_game
 - (void) update:(float)delta
 {
-	if(animatedSprite)
-		animatedSprite->update(delta);
+	if(aSceneManager)
+		aSceneManager->updateScene(delta);
 }
 
 #pragma mark render_scene
@@ -253,7 +264,6 @@
 	if(aSceneManager != NULL)
 	{
 		aSceneManager->sortEntitiesY();
-		aSceneManager->updateScene();
 		aSceneManager->renderScene();
 	}	
 	
