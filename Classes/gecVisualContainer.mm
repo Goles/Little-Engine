@@ -29,7 +29,6 @@ gecVisual* gecVisualContainer::getComponent(const gec_id_type &componentName)
 		if(componentName == visualComponents[i]->componentID())
 		{
 			return (visualComponents[i]);
-			i = visualComponents.size();
 		}
 	}	
 	return NULL;

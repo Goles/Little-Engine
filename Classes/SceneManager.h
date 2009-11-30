@@ -8,12 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "GameEntity.h"
-#include "ParticleSystem.h"
+#include "gecParticleSystem.h"
 #include <vector>
 #include <iostream>
-
-typedef std::vector<GameEntity *> ENTITY_VECTOR;
-typedef std::vector<GameEntity *>::iterator ENTITY_VECTOR_ITERATOR;
 
 class GEComponent;
 
@@ -31,9 +28,9 @@ public:
 	
 	//Overloaded methods.
 	void			removeEntity(GameEntity *gameEntity);
-	void			removeEntity(ParticleSystem *particleSystem);	
+	//void			removeEntity(ParticleSystem *particleSystem);	
 	GameEntity*		addEntity(GameEntity *gameEntity);
-	ParticleSystem* addEntity(ParticleSystem *particleSystem);
+	//ParticleSystem* addEntity(ParticleSystem *particleSystem);
 		
 	//debug methods
 	void debugPrintEntityList();
@@ -41,7 +38,9 @@ public:
 	//Destructor
 	~SceneManager();
 private:
-
+	typedef std::vector<GameEntity *> ENTITY_VECTOR;
+	typedef std::vector<GameEntity *>::iterator ENTITY_VECTOR_ITERATOR;
+	
 	ENTITY_VECTOR entityList;
 };
 

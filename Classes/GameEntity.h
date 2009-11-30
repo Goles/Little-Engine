@@ -41,6 +41,7 @@ public:
 	void clearGECs();
 	
 	//Functors	
+public:
 	/*Functor to compare by X*/
 	friend class compareByX;
     class compareByX 
@@ -61,6 +62,10 @@ public:
             return (a->y < b->y);
         }
     };
+
+	//Debug Interface
+public:
+	void debugPrintComponents();
 	
 private:	
 	typedef std::map<const std::string, GEComponent *> ComponentMap;

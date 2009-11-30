@@ -11,7 +11,7 @@
 #import "ES1Renderer.h"
 #import "ConstantsAndMacros.h"
 #import "EmitterFunctions.h"
-#import "ParticleSystem.h"
+#import "gecParticleSystem.h"
 #import "ParticleEmitter.h"
 
 @implementation EAGLView

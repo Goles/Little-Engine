@@ -27,8 +27,12 @@
 
 #import <Foundation/Foundation.h>
 #import "ParticleSystemManagerFunctions.h"
+#import "GameEntity.h"
 #include <iostream>
 #include <string>
+#include <list>
+
+class gecParticleSystem;
 
 #define PARTICLE_MANAGER SharedParticleSystemManager::getInstance()
 
@@ -40,17 +44,19 @@ public:
 	~SharedParticleSystemManager();
 	
 	//Action Methods
-	ParticleSystem*	createParticleSystem(int k_inParticleFX, CGPoint inStartPosition, const std::string &textureName);
-	SystemEntity*	insertEntity(ParticleSystem *inSystem); //Creates and inserts a new SystemEntity in the _systemsList
-	BOOL			removeEntityAtPosition(int inPosition);
-	void			removeSystem(ParticleSystem *inSystem);
-	void			drawSystems();
+	GameEntity*		createParticleSystem(int k_InParticleFX, CGPoint inPosition, const std::string &textureName);
+	GameEntity*		insertSystem(GameEntity *inSystem); //Creates and inserts a new SystemEntity in the _systemsList
+	void			removeSystem(GameEntity *inSystem);
 	void			debugPrintList();
 	
 protected:
 	SharedParticleSystemManager();	//Constructor
 	
 private:
+	//typedef std::list<gecParticleSystem *> ParticleSystemList;
+	
+	typedef std::list<GameEntity *> ParticleSystemList;
 	static SharedParticleSystemManager *instance; //Singleton instance
-	SystemEntity *_systemsList;	//List containing all the particle systems.
+	//SystemEntity *_systemsList;	//List containing all the particle systems.
+	ParticleSystemList _systemsList;
 };

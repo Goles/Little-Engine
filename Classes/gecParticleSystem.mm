@@ -7,13 +7,15 @@
  *
  */
 
-#include "ParticleSystem.h"
+#include "gecParticleSystem.h"
 #include <iostream>
 
-ParticleSystem::ParticleSystem(int inParticleNumber, BOOL isContinuous, int kRenderingMode)
+std::string gecParticleSystem::mGECTypeID = "ParticleSystem";
+
+gecParticleSystem::gecParticleSystem(int inParticleNumber, BOOL isContinuous, int kRenderingMode)
 {
 	particleNumber	= inParticleNumber;
-	isActive		= true;
+	//isActive		= true;
 	
 	/* 1) Allocate the  system's particles array*/
 	array = (Particle **)malloc(particleNumber * sizeof(Particle *));
@@ -38,74 +40,52 @@ ParticleSystem::ParticleSystem(int inParticleNumber, BOOL isContinuous, int kRen
 }
 
 #pragma mark action_methods
-void ParticleSystem::draw()
+void gecParticleSystem::render() const
 {
-	if(isActive)
+	//if(isActive)
 		[systemRenderer draw];	
 }
 
-void ParticleSystem::update()
+void gecParticleSystem::update(float delta) const
 {
-	if (isActive) 
+	//if (isActive) 
 		[systemRenderer update];
 }
 
 #pragma mark setters
-void ParticleSystem::setIsActive(bool inIsActive)
+void gecParticleSystem::setIsActive(bool inIsActive)
 {
-	isActive = inIsActive;
-}
-
-void ParticleSystem::setX(float inX)
-{
-	//x is inherited from GameEntity
-	x = inX;
-}
-
-void ParticleSystem::setY(float inY)
-{
-	//y is inherited from GameEntity
-	y = inY;
+	//isActive = inIsActive;
 }
 
 #pragma mark getters
-unsigned int ParticleSystem::getParticleNumber()
+unsigned int gecParticleSystem::getParticleNumber()
 {
 	return particleNumber;
 }
 
-Particle** ParticleSystem::getParticlesArray()
+Particle** gecParticleSystem::getParticlesArray()
 {
 	return(array);
 }
 
-ParticleEmitter* ParticleSystem::getParticleEmitter()
+ParticleEmitter* gecParticleSystem::getParticleEmitter()
 {
 	return systemEmitter;
 }
 
-ParticleController* ParticleSystem::getParticleController()
+ParticleController* gecParticleSystem::getParticleController()
 {
 	return systemController;
 }
 
-ParticleRenderer* ParticleSystem::getParticleRenderer()
+ParticleRenderer* gecParticleSystem::getParticleRenderer()
 {
 	return systemRenderer;
 }
 
-float ParticleSystem::getX()
-{
-	return x;
-}
-
-float ParticleSystem::getY()
-{
-	return y;
-}
-
 #pragma mark destructor
-ParticleSystem::~ParticleSystem()
+gecParticleSystem::~gecParticleSystem()
 {
 	[systemEmitter release];
 

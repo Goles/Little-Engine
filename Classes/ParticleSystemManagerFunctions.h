@@ -6,11 +6,3 @@
  *  Copyright 2009 Gando-Games All rights reserved.
  *
  */
-
-#import "ParticleSystem.h"
-
-typedef struct _entity
-{
-	ParticleSystem	*system;
-	struct _entity	*nextSystem;
-} SystemEntity;

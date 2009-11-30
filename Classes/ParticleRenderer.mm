@@ -8,7 +8,7 @@
 
 #import "SharedTextureManager.h"
 #import "ParticleRenderer.h"
-#import "ParticleSystem.h"
+#import "gecParticleSystem.h"
 #import "Texture2D.h"
 #import "Particle.h"
 #import "OpenGLCommon.h"
@@ -27,7 +27,7 @@
 {
 	if((self = [super init]))
 	{
-		particleSystemReference = (ParticleSystem *)inReference;
+		particleSystemReference = (gecParticleSystem *)inReference;
 		
 		if(particleSystemReference != NULL && inParticlesArray != NULL)
 		{
@@ -59,7 +59,7 @@
 
 - (void) testDelegateReference
 {
-	((ParticleSystem *)particleSystemReference)->draw();
+	((gecParticleSystem *)particleSystemReference)->render();
 }
 
 #pragma mark vertexPushingModes
@@ -230,7 +230,7 @@
 	
 	if(systemDeactivation)
 	{
-		((ParticleSystem *)particleSystemReference)->setIsActive(NO);
+		((gecParticleSystem *)particleSystemReference)->setIsActive(NO);
 		systemDeactivation = NO; // we reset the flag of the deactivation.
 	}
 }

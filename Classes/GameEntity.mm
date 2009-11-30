@@ -31,3 +31,12 @@ void GameEntity::update(float delta)
 	}
 }
 
+void GameEntity::debugPrintComponents()
+{
+	ComponentMap::iterator it;
+	
+	for(it = components.begin(); it != components.end(); it++)
+	{
+		std::cout << (*it).second << "&" << "x " << x << " y " << y << std::endl;
+	}
+}

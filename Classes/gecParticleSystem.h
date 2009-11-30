@@ -13,20 +13,21 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "GameEntity.h"
+#import "gecVisual.h"
 #import "Particle.h"
 #import "ParticleEmitter.h"
 #import "ParticleController.h"
 #import "ParticleRenderer.h"
 
-class ParticleSystem: public GameEntity
-{
+class gecParticleSystem: public gecVisual
+{	
+	/*Particle System Interface*/
 public:
 	//Constructor
-	ParticleSystem(int number, BOOL isContinuous, int kRenderingMode);
+	gecParticleSystem(int number, BOOL isContinuous, int kRenderingMode);
 	
 	//Destructor
-	~ParticleSystem();
+	~gecParticleSystem();
 	
 	//Getters
 	unsigned int 		getParticleNumber();
@@ -37,19 +38,22 @@ public:
 	
 	//Setters
 	void	setIsActive(bool isActive);	
-	void	setX(float X);
-	void	setY(float Y);
-	float	getX();
-	float	getY();
+
+	/*Component interface*/
+public:
+	virtual const gec_id_type &componentID() const { return mGECTypeID; }
+	virtual void render() const;
+	virtual void update(float delta) const;
 	
-	//Inherited overloaded
-	void draw();
-	void update();
-	
+	/*Particle System Atributes*/
 private:
 	unsigned int		particleNumber;		//Total number of particles in the system
 	Particle			**array;
 	ParticleEmitter		*systemEmitter;
 	ParticleController	*systemController;
 	ParticleRenderer	*systemRenderer;
+	
+	/*Component Atributes*/
+private:
+	static gec_id_type	mGECTypeID;
 };

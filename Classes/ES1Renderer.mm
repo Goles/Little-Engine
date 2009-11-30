@@ -47,7 +47,8 @@
 
 - (void) initGame
 {
-	[self componentTest1];
+	//[self componentTest1];
+	[self particlesTest];
 }
 
 /*
@@ -59,20 +60,20 @@
 
 - (void) deleteTest1
 {
-	GameEntity *a = new ParticleSystem(40, true,  0);
+	/*GameEntity *a = new ParticleSystem(40, true,  0);
 	
-	delete a;
+	delete a;*/
 }
 
 - (void) sceneManagerTest1
 {	
-	SceneManager *aTestManager = new SceneManager();
+	/*SceneManager *aTestManager = new SceneManager();
 	
 	testSystem = aTestManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(50, 100) , "Particle2.pvr"));
 	
 	aTestManager->debugPrintEntityList();
 	
-	PARTICLE_MANAGER->debugPrintList();
+	PARTICLE_MANAGER->debugPrintList();*/
 }
 
 -(void) sceneManagerTest2Sort
@@ -179,9 +180,10 @@
 	spriteComp->setCurrentRunning(true);				//we set it to be ON ( just now )
 	spriteComp->setCurrentRepeating(true);				//we set it to repeat ( Just now )
 	spriteComp->setOwnerGE(anEntity);					//we must set the owner of this.
-						
-	gecVisualContainer *aContainer = new gecVisualContainer; //new visual components container
-	aContainer->addGecVisual(spriteComp);					 //we add the animation component
+
+	
+	gecVisualContainer *aContainer = new gecVisualContainer();	//new visual components container
+	aContainer->addGecVisual(spriteComp);						//we add the animation component
 	
 	anEntity->setGEC(spriteComp);							
 	anEntity->x = 160.0;
@@ -195,7 +197,7 @@
 {	
 	aSceneManager = new SceneManager();
 	
-	testSystem	=   aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(50, 100) , "Particle2.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(50, 100) , "Particle2.pvr"));
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireMedium, CGPointMake(100, 100), "Particle2.pvr"));
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireBig, CGPointMake(150, 101), "Particle2.pvr"));
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_ExplosionSmall, CGPointMake(250, 300), "Particle2.pvr"));

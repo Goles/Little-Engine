@@ -34,7 +34,7 @@
 		6379709F108A17AC005B24FC /* smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 6379709E108A17AC005B24FC /* smoke.png */; };
 		637EEA3B109B8D0600F2E463 /* sprite_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 637EEA3A109B8D0600F2E463 /* sprite_test.png */; };
 		6386CFCA10A4BC2200699925 /* SharedParticleSystemManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6386CFC910A4BC2200699925 /* SharedParticleSystemManager.mm */; };
-		6393910910A4B2F9006FDBCF /* ParticleSystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6393910810A4B2F9006FDBCF /* ParticleSystem.mm */; };
+		6393910910A4B2F9006FDBCF /* gecParticleSystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6393910810A4B2F9006FDBCF /* gecParticleSystem.mm */; };
 		6393911E10A4B6F9006FDBCF /* GameEntity.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6393911D10A4B6F9006FDBCF /* GameEntity.mm */; };
 		63A57DDC10BAD08400969196 /* prototypePlayerSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 63A57DDB10BAD08400969196 /* prototypePlayerSheet.png */; };
 		63B0AA1D10BDFCF400E2C3E1 /* gecVisual.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63B0AA1C10BDFCF400E2C3E1 /* gecVisual.mm */; };
@@ -99,8 +99,8 @@
 		637EEA3A109B8D0600F2E463 /* sprite_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite_test.png; sourceTree = "<group>"; };
 		6386CFC810A4BC2200699925 /* SharedParticleSystemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedParticleSystemManager.h; sourceTree = "<group>"; };
 		6386CFC910A4BC2200699925 /* SharedParticleSystemManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SharedParticleSystemManager.mm; sourceTree = "<group>"; };
-		6393910710A4B2F9006FDBCF /* ParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSystem.h; sourceTree = "<group>"; };
-		6393910810A4B2F9006FDBCF /* ParticleSystem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ParticleSystem.mm; sourceTree = "<group>"; };
+		6393910710A4B2F9006FDBCF /* gecParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecParticleSystem.h; sourceTree = "<group>"; };
+		6393910810A4B2F9006FDBCF /* gecParticleSystem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecParticleSystem.mm; sourceTree = "<group>"; };
 		6393911C10A4B6F9006FDBCF /* GameEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEntity.h; sourceTree = "<group>"; };
 		6393911D10A4B6F9006FDBCF /* GameEntity.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameEntity.mm; sourceTree = "<group>"; };
 		63A57DDB10BAD08400969196 /* prototypePlayerSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prototypePlayerSheet.png; sourceTree = "<group>"; };
@@ -362,8 +362,8 @@
 		638F2D5810A5488300DFF742 /* ParticleSystem */ = {
 			isa = PBXGroup;
 			children = (
-				6393910710A4B2F9006FDBCF /* ParticleSystem.h */,
-				6393910810A4B2F9006FDBCF /* ParticleSystem.mm */,
+				6393910710A4B2F9006FDBCF /* gecParticleSystem.h */,
+				6393910810A4B2F9006FDBCF /* gecParticleSystem.mm */,
 				633C889010649219003911A0 /* Particle.h */,
 				633C889110649219003911A0 /* Particle.m */,
 				63F01862106AF201008FABF0 /* ParticleEmitter.h */,
@@ -504,7 +504,7 @@
 				63BCF538109A3A53002BCD2C /* SpriteSheet.mm in Sources */,
 				633C64B2109B2791001D1851 /* Frame.mm in Sources */,
 				633C64C1109B2919001D1851 /* Animation.mm in Sources */,
-				6393910910A4B2F9006FDBCF /* ParticleSystem.mm in Sources */,
+				6393910910A4B2F9006FDBCF /* gecParticleSystem.mm in Sources */,
 				6393911E10A4B6F9006FDBCF /* GameEntity.mm in Sources */,
 				6386CFCA10A4BC2200699925 /* SharedParticleSystemManager.mm in Sources */,
 				63E70D8A10AC756D008ED32B /* SharedTextureManager.mm in Sources */,

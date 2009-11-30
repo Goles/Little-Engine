@@ -15,7 +15,7 @@
 #import "Animation.h"
 #import "SharedParticleSystemManager.h"
 #import "SharedTextureManager.h"
-#import "ParticleSystem.h"
+#import "gecParticleSystem.h"
 #import "SceneManager.h"
 
 #include <iostream>
@@ -51,7 +51,6 @@
 	SpriteSheet		*ss;
 	Image			*sprite;
 	Animation		*animatedSprite;
-	ParticleSystem	*testSystem;
 	SceneManager	*aSceneManager;
 }
 

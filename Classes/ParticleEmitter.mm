@@ -9,7 +9,7 @@
 #import "ParticleEmitter.h"
 #import "ConstantsAndMacros.h"
 #import "EmitterFunctions.h"
-#import "ParticleSystem.h"
+#import "gecParticleSystem.h"
 #import "Particle.h"
 
 @implementation ParticleEmitter

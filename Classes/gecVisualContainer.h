@@ -32,3 +32,11 @@ private:
 	
 	static gec_id_type mGECTypeID;
 };
+
+/*
+Entidad->dameFamilia("state")->setState("walking");
+Entidad->dameFamilia("weapon")->attack();
+if (Entidad->dameFamilia("weapon")->attack())
+PlayerEntity->dameFamilia("visual")->dameFalimia("particles")->dameFamilia(
+*/
+//PlayerEntity->getFamilyID("gocVisual")->getComponent("gocParticles")->emmitFX("fire",point2D);

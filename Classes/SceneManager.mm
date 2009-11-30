@@ -32,14 +32,6 @@ void SceneManager::renderScene()
 {
 	ENTITY_VECTOR_ITERATOR it ;
 	
-	/*for(it = entityList.begin(); it < entityList.end(); it++)
-	{
-		if((*it)->getIsActive())
-		{
-			(*it)->draw();
-		}
-	}*/
-	
 	for (it = entityList.begin(); it < entityList.end(); it++)
 	{
 		GEComponent *gec = (*it)->getGEC(std::string("CompVisual"));
@@ -62,12 +54,12 @@ GameEntity *SceneManager::addEntity(GameEntity *inGameEntity)
 	return entityList.back();
 }
 
-ParticleSystem* SceneManager::addEntity(ParticleSystem *particleSystem)
+/*ParticleSystem* SceneManager::addEntity(ParticleSystem *particleSystem)
 {
 	entityList.push_back((GameEntity *) particleSystem);
 	
 	return (ParticleSystem *)(entityList.back());
-}
+}*/
 
 void SceneManager::removeEntity(GameEntity *inGameEntity)
 {
@@ -81,23 +73,6 @@ void SceneManager::removeEntity(GameEntity *inGameEntity)
 		it++;
 	}
 
-}
-
-void SceneManager::removeEntity(ParticleSystem *inParticleSystem)
-{
-	PARTICLE_MANAGER->removeSystem(inParticleSystem);
-	
-	ENTITY_VECTOR_ITERATOR it = entityList.begin();
-	
-	while (it != entityList.end())
-	{
-		if (*it == inParticleSystem) {
-			entityList.erase(it);
-			return;
-		}
-		
-		it++;
-	}
 }
 
 void SceneManager::sortEntitiesX()
@@ -119,7 +94,9 @@ void SceneManager::debugPrintEntityList()
 	
 	while(it != entityList.end())
 	{
-		std::cout << (*it) << " x:" << (*it)->x << " y:" << (*it)->x << std::endl;
+		if(*it)
+			(*it)->debugPrintComponents();
+		
 		it++;
 	}
 }
