@@ -49,6 +49,7 @@
 {
 	//[self componentTest1];
 	[self particlesTest];
+	[self componentTest1];
 }
 
 /*
@@ -188,8 +189,8 @@
 	anEntity->setGEC(spriteComp);							
 	anEntity->x = 160.0;
 	anEntity->y = 240.0;
-		
-	aSceneManager = new SceneManager();
+	anEntity->isActive = true;	
+	
 	aSceneManager->addEntity(anEntity);
 }
 
@@ -199,14 +200,14 @@
 	
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(50, 100) , "Particle2.pvr"));
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireMedium, CGPointMake(100, 100), "Particle2.pvr"));
-	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireBig, CGPointMake(150, 101), "Particle2.pvr"));
-	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_ExplosionSmall, CGPointMake(250, 300), "Particle2.pvr"));
-	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_ExplosionMedium, CGPointMake(250, 200), "Particle2.pvr"));
-	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_ExplosionBig, CGPointMake(250, 100), "Particle2.pvr"));
-	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainSmall, CGPointMake(50, 300), "Particle2.pvr"));
-	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainMedium, CGPointMake(100, 300), "Particle2.pvr"));
-	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainBig, CGPointMake(150, 300), "Particle2.pvr"));
-	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_Smoke, CGPointMake(150, 100), "smoke.png"));	
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireBig, CGPointMake(150, 100), "Particle2.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_ExplosionSmall, CGPointMake(200, 100), "Particle2.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_ExplosionMedium, CGPointMake(250, 100), "Particle2.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_ExplosionBig, CGPointMake(300, 100), "Particle2.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainSmall, CGPointMake(350, 100), "Particle2.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainMedium, CGPointMake(400, 100), "Particle2.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainBig, CGPointMake(450, 100), "Particle2.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_Smoke, CGPointMake(150, 101), "smoke.pvr"));
 }
 
 - (void) textureManagerTest:(NSString *) inTextureName
@@ -235,7 +236,8 @@
 	glViewport(0, 0, backingWidth, backingHeight);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrthof(0, 320, 0, 480, -1, 1);
+	glRotatef(-90.0, 0.0, 0.0, 1.0);
+	glOrthof(0, 480, 0, 320, -1, 1);
 	glMatrixMode(GL_MODELVIEW);
 	glEnable(GL_DEPTH_TEST);
 }

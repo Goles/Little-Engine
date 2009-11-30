@@ -26,7 +26,6 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "ParticleSystemManagerFunctions.h"
 #import "GameEntity.h"
 #include <iostream>
 #include <string>
@@ -53,10 +52,7 @@ protected:
 	SharedParticleSystemManager();	//Constructor
 	
 private:
-	//typedef std::list<gecParticleSystem *> ParticleSystemList;
-	
 	typedef std::list<GameEntity *> ParticleSystemList;
 	static SharedParticleSystemManager *instance; //Singleton instance
-	//SystemEntity *_systemsList;	//List containing all the particle systems.
 	ParticleSystemList _systemsList;
 };

@@ -42,14 +42,12 @@ gecParticleSystem::gecParticleSystem(int inParticleNumber, BOOL isContinuous, in
 #pragma mark action_methods
 void gecParticleSystem::render() const
 {
-	//if(isActive)
-		[systemRenderer draw];	
+	[systemRenderer draw];	
 }
 
 void gecParticleSystem::update(float delta) const
 {
-	//if (isActive) 
-		[systemRenderer update];
+	[systemRenderer update];
 }
 
 #pragma mark setters

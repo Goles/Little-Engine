@@ -46,8 +46,6 @@ Animation::Animation(const std::vector<int>& positions, SpriteSheet *inSheet)
 	{
 		this->addFrameWithImage(inSheet->getSpriteAt(positions[i],positions[i+1]), 0.1f);
 	}
-	
-	this->debugPrintFrames();
 }
 
 #pragma mark action_methods

@@ -24,7 +24,8 @@ void SceneManager::updateScene(float delta)
 	
 	for(it = entityList.begin(); it < entityList.end(); it++)
 	{
-		(*it)->update(delta);
+		if((*it)->isActive)
+			(*it)->update(delta);
 	}
 }
 
@@ -34,11 +35,13 @@ void SceneManager::renderScene()
 	
 	for (it = entityList.begin(); it < entityList.end(); it++)
 	{
-		GEComponent *gec = (*it)->getGEC(std::string("CompVisual"));
-		gecVisual *gvis	 = static_cast<gecVisual*> (gec);
-		if( gvis )
-		{
-			gvis->render();
+		if((*it)->isActive)
+		{	GEComponent *gec = (*it)->getGEC(std::string("CompVisual"));
+			gecVisual *gvis	 = static_cast<gecVisual*> (gec);
+			if( gvis )
+			{
+				gvis->render();
+			}
 		}
 	}
 }
@@ -53,13 +56,6 @@ GameEntity *SceneManager::addEntity(GameEntity *inGameEntity)
 	
 	return entityList.back();
 }
-
-/*ParticleSystem* SceneManager::addEntity(ParticleSystem *particleSystem)
-{
-	entityList.push_back((GameEntity *) particleSystem);
-	
-	return (ParticleSystem *)(entityList.back());
-}*/
 
 void SceneManager::removeEntity(GameEntity *inGameEntity)
 {
@@ -95,8 +91,10 @@ void SceneManager::debugPrintEntityList()
 	while(it != entityList.end())
 	{
 		if(*it)
+		{
+			std::cout << "comp:" << std::endl;
 			(*it)->debugPrintComponents();
-		
+		}
 		it++;
 	}
 }

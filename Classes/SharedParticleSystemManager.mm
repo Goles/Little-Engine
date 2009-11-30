@@ -130,7 +130,7 @@ GameEntity* SharedParticleSystemManager::createParticleSystem(int k_InParticleFX
 			 *				_Nicolas Goles Domic - October 16 2009	*
 			 ********************************************************/
 		case kParticleSystemFX_ExplosionSmall:
-			pSystemComponent	= new gecParticleSystem(80, YES, kRenderingMode_PointSprites);
+			pSystemComponent	= new gecParticleSystem(80, NO, kRenderingMode_PointSprites);
 			
 			[pSystemComponent->getParticleEmitter() setSystemXInitialSpeed:0
 															 initialYSpeed:0
@@ -153,7 +153,7 @@ GameEntity* SharedParticleSystemManager::createParticleSystem(int k_InParticleFX
 			break;
 			
 		case kParticleSystemFX_ExplosionMedium:
-			pSystemComponent	= new gecParticleSystem(80, YES, kRenderingMode_PointSprites);
+			pSystemComponent	= new gecParticleSystem(80, NO, kRenderingMode_PointSprites);
 			
 			[pSystemComponent->getParticleEmitter() setSystemXInitialSpeed:0
 															 initialYSpeed:0
@@ -176,7 +176,7 @@ GameEntity* SharedParticleSystemManager::createParticleSystem(int k_InParticleFX
 			break;
 			
 		case kParticleSystemFX_ExplosionBig:
-			pSystemComponent	= new gecParticleSystem(53, YES, kRenderingMode_PointSprites);
+			pSystemComponent	= new gecParticleSystem(53, NO, kRenderingMode_PointSprites);
 			[pSystemComponent->getParticleEmitter() setSystemXInitialSpeed:0
 															 initialYSpeed:0
 																	xAccel:0
@@ -271,7 +271,7 @@ GameEntity* SharedParticleSystemManager::createParticleSystem(int k_InParticleFX
 			break;
 			
 		case kParticleSystemFX_Smoke:
-			pSystemComponent	= new gecParticleSystem(200, YES, kRenderingMode_2xTriangles);
+			pSystemComponent	= new gecParticleSystem(100, YES, kRenderingMode_2xTriangles);
 			
 			[pSystemComponent->getParticleEmitter() setSystemXInitialSpeed:0
 															 initialYSpeed:0.5
@@ -307,6 +307,7 @@ GameEntity* SharedParticleSystemManager::createParticleSystem(int k_InParticleFX
 	newEntity->setGEC(pSystemComponent);
 	newEntity->x = inPosition.x;
 	newEntity->y = inPosition.y;
+	newEntity->isActive = true;
 	
 	return this->insertSystem(newEntity);
 }

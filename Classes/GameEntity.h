@@ -59,7 +59,7 @@ public:
 	public:
         bool operator()(GameEntity const *a, GameEntity const *b) 
 		{ 
-            return (a->y < b->y);
+            return (a->y > b->y);
         }
     };
 

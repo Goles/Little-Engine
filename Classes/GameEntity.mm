@@ -37,6 +37,6 @@ void GameEntity::debugPrintComponents()
 	
 	for(it = components.begin(); it != components.end(); it++)
 	{
-		std::cout << (*it).second << "&" << "x " << x << " y " << y << std::endl;
+		std::cout << (*it).second << "& " << (*it).second->componentID() << "x " << x << " y " << y << std::endl;
 	}
 }

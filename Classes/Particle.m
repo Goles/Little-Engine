@@ -89,7 +89,7 @@
 
 - (void) reset
 {	
-	position = CGPointMake(source.x /*+ CCRANDOM_MINUS1_1()*/, source.y /*+ CCRANDOM_MINUS1_1()*/);
+	position = CGPointMake(source.x + CCRANDOM_MINUS1_1()*2, source.y + CCRANDOM_MINUS1_1()*2.0f);
 	xSpeed = xInitialSpeed + xAccelVariance*CCRANDOM_MINUS1_1();
 	ySpeed = yInitialSpeed + yAccelVariance*CCRANDOM_MINUS1_1();
 	currentColor = startColor;	
