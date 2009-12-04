@@ -159,6 +159,21 @@
 
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
 {	
+	UITouch *touch1;
+	CGPoint loc1;
+	NSSet *allTouches = [event allTouches];
+	
+	switch ([allTouches count]) {
+		case 1:
+			touch1 = [touches anyObject];
+			loc1   = [touch1 locationInView:self];
+			break;
+		default:
+			break;
+	}
+	
+	
+	
 	/*
 	
 	UITouch *touch1,

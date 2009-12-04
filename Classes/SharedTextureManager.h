@@ -26,9 +26,6 @@
 
 #define TEXTURE_MANAGER SharedTextureManager::getInstance()
 
-typedef std::map<std::string, Texture2D*> TextureMap;
-typedef std::pair<std::string, Texture2D*> TextureMapPair;
-
 class SharedTextureManager
 {
 public:
@@ -51,6 +48,8 @@ protected:
 	SharedTextureManager();
 	
 private:
+	typedef std::map<std::string, Texture2D*> TextureMap;
+	typedef std::pair<std::string, Texture2D*> TextureMapPair;
 	static SharedTextureManager *instance;
 	TextureMap texturesMap;
 	std::string boundTextureName;

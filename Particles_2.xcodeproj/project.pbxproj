@@ -19,6 +19,10 @@
 		28FD14FE0DC6FC130079059D /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 28FD14FD0DC6FC130079059D /* EAGLView.mm */; };
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
+		6317D8E310C8485800C7EEE2 /* libboost_thread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6317D8E210C8485800C7EEE2 /* libboost_thread.a */; };
+		6317D9AB10C85CB000C7EEE2 /* SharedInputManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6317D9AA10C85CB000C7EEE2 /* SharedInputManager.mm */; };
+		6317DA3C10C8957900C7EEE2 /* gecInput.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6317DA3B10C8957900C7EEE2 /* gecInput.mm */; };
+		6317DBB410C8A69900C7EEE2 /* gecInputButton.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6317DBB310C8A69900C7EEE2 /* gecInputButton.mm */; };
 		631EBAEB10BED2B90060FBD3 /* gecAnimatedSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 631EBAEA10BED2B90060FBD3 /* gecAnimatedSprite.mm */; };
 		632A3E1B1073211200F8EADC /* PVRTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 632A3E1A1073211200F8EADC /* PVRTexture.m */; };
 		632A3EB61073260B00F8EADC /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 632A3EB51073260B00F8EADC /* Texture2D.m */; };
@@ -70,6 +74,13 @@
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Particles_2_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particles_2_Prefix.pch; sourceTree = "<group>"; };
+		6317D8E210C8485800C7EEE2 /* libboost_thread.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_thread.a; path = /Users/nicog/Programming/iPhone/Utility/Boost/libboost_thread.a; sourceTree = "<absolute>"; };
+		6317D9A910C85CB000C7EEE2 /* SharedInputManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedInputManager.h; sourceTree = "<group>"; };
+		6317D9AA10C85CB000C7EEE2 /* SharedInputManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SharedInputManager.mm; sourceTree = "<group>"; };
+		6317DA3A10C8957900C7EEE2 /* gecInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecInput.h; sourceTree = "<group>"; };
+		6317DA3B10C8957900C7EEE2 /* gecInput.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecInput.mm; sourceTree = "<group>"; };
+		6317DBB210C8A69900C7EEE2 /* gecInputButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecInputButton.h; sourceTree = "<group>"; };
+		6317DBB310C8A69900C7EEE2 /* gecInputButton.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecInputButton.mm; sourceTree = "<group>"; };
 		631EBAE910BED2B90060FBD3 /* gecAnimatedSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecAnimatedSprite.h; sourceTree = "<group>"; };
 		631EBAEA10BED2B90060FBD3 /* gecAnimatedSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecAnimatedSprite.mm; sourceTree = "<group>"; };
 		632A3E191073211200F8EADC /* PVRTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRTexture.h; sourceTree = "<group>"; };
@@ -139,6 +150,7 @@
 				28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */,
 				28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */,
 				633C88D51064942D003911A0 /* CoreGraphics.framework in Frameworks */,
+				6317D8E310C8485800C7EEE2 /* libboost_thread.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,13 +230,45 @@
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				633C88D41064942D003911A0 /* CoreGraphics.framework */,
+				6317D8E210C8485800C7EEE2 /* libboost_thread.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6317DA3910C8956400C7EEE2 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				6317DA3A10C8957900C7EEE2 /* gecInput.h */,
+				6317DA3B10C8957900C7EEE2 /* gecInput.mm */,
+				6317DA4E10C898E500C7EEE2 /* components */,
+			);
+			name = Input;
+			sourceTree = "<group>";
+		};
+		6317DA4D10C898DB00C7EEE2 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				63F6126710C1EF81001FF5E7 /* gecVisualContainer.h */,
+				63F6126810C1EF81001FF5E7 /* gecVisualContainer.mm */,
+				631EBAE910BED2B90060FBD3 /* gecAnimatedSprite.h */,
+				631EBAEA10BED2B90060FBD3 /* gecAnimatedSprite.mm */,
+			);
+			name = components;
+			sourceTree = "<group>";
+		};
+		6317DA4E10C898E500C7EEE2 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				6317DBB210C8A69900C7EEE2 /* gecInputButton.h */,
+				6317DBB310C8A69900C7EEE2 /* gecInputButton.mm */,
+			);
+			name = components;
 			sourceTree = "<group>";
 		};
 		631EBAD910BED1EC0060FBD3 /* Families */ = {
 			isa = PBXGroup;
 			children = (
+				6317DA3910C8956400C7EEE2 /* Input */,
 				631EBADA10BED1F90060FBD3 /* Visual */,
 			);
 			name = Families;
@@ -235,10 +279,7 @@
 			children = (
 				63B0AA1B10BDFCF400E2C3E1 /* gecVisual.h */,
 				63B0AA1C10BDFCF400E2C3E1 /* gecVisual.mm */,
-				63F6126710C1EF81001FF5E7 /* gecVisualContainer.h */,
-				63F6126810C1EF81001FF5E7 /* gecVisualContainer.mm */,
-				631EBAE910BED2B90060FBD3 /* gecAnimatedSprite.h */,
-				631EBAEA10BED2B90060FBD3 /* gecAnimatedSprite.mm */,
+				6317DA4D10C898DB00C7EEE2 /* components */,
 			);
 			name = Visual;
 			sourceTree = "<group>";
@@ -424,6 +465,8 @@
 				6386CFC910A4BC2200699925 /* SharedParticleSystemManager.mm */,
 				63E70D8810AC756D008ED32B /* SharedTextureManager.h */,
 				63E70D8910AC756D008ED32B /* SharedTextureManager.mm */,
+				6317D9A910C85CB000C7EEE2 /* SharedInputManager.h */,
+				6317D9AA10C85CB000C7EEE2 /* SharedInputManager.mm */,
 			);
 			name = SharedManagers;
 			sourceTree = "<group>";
@@ -516,6 +559,9 @@
 				631EBAEB10BED2B90060FBD3 /* gecAnimatedSprite.mm in Sources */,
 				6370E20210C18EE600EC2818 /* GECTemplateManager.mm in Sources */,
 				63F6126910C1EF81001FF5E7 /* gecVisualContainer.mm in Sources */,
+				6317D9AB10C85CB000C7EEE2 /* SharedInputManager.mm in Sources */,
+				6317DA3C10C8957900C7EEE2 /* gecInput.mm in Sources */,
+				6317DBB410C8A69900C7EEE2 /* gecInputButton.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,6 +579,10 @@
 				GCC_PREFIX_HEADER = Particles_2_Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "Particles_2-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Utility/Boost\"",
+				);
 				PRODUCT_NAME = Particles_2;
 			};
 			name = Debug;
@@ -549,6 +599,10 @@
 				GCC_THUMB_SUPPORT = NO;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "Particles_2-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Utility/Boost\"",
+				);
 				PRODUCT_NAME = Particles_2;
 			};
 			name = Release;
@@ -562,9 +616,11 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/local/include/;
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "24DDBB28-0762-4DBE-A783-D7DC29AA3F99";
 				SDKROOT = iphoneos3.1;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = "Release - Shark";
 		};
@@ -580,6 +636,10 @@
 				GCC_THUMB_SUPPORT = NO;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "Particles_2-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Utility/Boost\"",
+				);
 				PRODUCT_NAME = Particles_2;
 			};
 			name = "Release - Shark";
@@ -593,9 +653,11 @@
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/local/include/;
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "24DDBB28-0762-4DBE-A783-D7DC29AA3F99";
 				SDKROOT = iphoneos3.1;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -612,11 +674,13 @@
 				GCC_UNROLL_LOOPS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/local/include/;
 				OTHER_CFLAGS = "-falign-loops=16";
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "24DDBB28-0762-4DBE-A783-D7DC29AA3F99";
 				SDKROOT = iphoneos3.1;
 				STRIP_INSTALLED_PRODUCT = NO;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
