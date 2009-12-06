@@ -11,9 +11,11 @@
 
 class gecVisualContainer : public gecVisual
 {
+	//GEComponent Interface
 public:
 	gecVisualContainer(){}
 	virtual const gec_id_type &componentID() const { return mGECTypeID; }
+	virtual void update(float delta) const;
 	
 	//gecVisual interface
 public:
@@ -23,7 +25,6 @@ public:
 public:
 	void addGecVisual(gecVisual *inGecVisual);
 	gecVisual* getComponent(const gec_id_type &componentName);
-	virtual void update(float delta) const;
 	
 private:
 	typedef std::vector<gecVisual *> GecVisualVector;
@@ -32,11 +33,3 @@ private:
 	
 	static gec_id_type mGECTypeID;
 };
-
-/*
-Entidad->dameFamilia("state")->setState("walking");
-Entidad->dameFamilia("weapon")->attack();
-if (Entidad->dameFamilia("weapon")->attack())
-PlayerEntity->dameFamilia("visual")->dameFalimia("particles")->dameFamilia(
-*/
-//PlayerEntity->getFamilyID("gocVisual")->getComponent("gocParticles")->emmitFX("fire",point2D);

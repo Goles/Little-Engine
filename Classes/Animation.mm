@@ -7,6 +7,7 @@
 //
 
 #import "Animation.h"
+#import "GameEntity.h"
 
 #pragma mark constructor
 
@@ -131,12 +132,12 @@ GLuint	Animation::getAnimationFrameCount()
 }
 
 #pragma mark setters
-void	Animation::setIsRunning(BOOL inIsRunning)
+void	Animation::setIsRunning(Boolean inIsRunning)
 {
 	isRunning = inIsRunning;
 }
 
-void	Animation::setIsRepeating(BOOL inIsRepeating)
+void	Animation::setIsRepeating(Boolean inIsRepeating)
 {
 	isRepeating = inIsRepeating;
 }

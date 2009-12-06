@@ -21,8 +21,6 @@
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
 		6317D8E310C8485800C7EEE2 /* libboost_thread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6317D8E210C8485800C7EEE2 /* libboost_thread.a */; };
 		6317D9AB10C85CB000C7EEE2 /* SharedInputManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6317D9AA10C85CB000C7EEE2 /* SharedInputManager.mm */; };
-		6317DA3C10C8957900C7EEE2 /* gecInput.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6317DA3B10C8957900C7EEE2 /* gecInput.mm */; };
-		6317DBB410C8A69900C7EEE2 /* gecInputButton.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6317DBB310C8A69900C7EEE2 /* gecInputButton.mm */; };
 		631EBAEB10BED2B90060FBD3 /* gecAnimatedSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 631EBAEA10BED2B90060FBD3 /* gecAnimatedSprite.mm */; };
 		632A3E1B1073211200F8EADC /* PVRTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 632A3E1A1073211200F8EADC /* PVRTexture.m */; };
 		632A3EB61073260B00F8EADC /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 632A3EB51073260B00F8EADC /* Texture2D.m */; };
@@ -47,8 +45,13 @@
 		63BCF538109A3A53002BCD2C /* SpriteSheet.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63BCF537109A3A53002BCD2C /* SpriteSheet.mm */; };
 		63BCF5E4109A4D41002BCD2C /* spritesheet16.gif in Resources */ = {isa = PBXBuildFile; fileRef = 63BCF5E3109A4D41002BCD2C /* spritesheet16.gif */; };
 		63C557AB108CFA0200E77DBC /* Image.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63C557AA108CFA0200E77DBC /* Image.mm */; };
+		63D45E8610CB73FB00CB32F5 /* joystick_tes.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D45E8510CB73FB00CB32F5 /* joystick_tes.png */; };
 		63E4F9FC107A2E8900FA74AE /* HardwareClock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63E4F9FB107A2E8900FA74AE /* HardwareClock.cpp */; };
 		63E70D8A10AC756D008ED32B /* SharedTextureManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63E70D8910AC756D008ED32B /* SharedTextureManager.mm */; };
+		63EECF8110C8BFF20098C3D0 /* gecGUI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63EECF8010C8BFF20098C3D0 /* gecGUI.mm */; };
+		63EECF9210C8C2A80098C3D0 /* gecButton.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63EECF9110C8C2A80098C3D0 /* gecButton.mm */; };
+		63EED41C10C9CCCD0098C3D0 /* buttons_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 63EED41B10C9CCCD0098C3D0 /* buttons_test.png */; };
+		63EED4ED10CAE7510098C3D0 /* gecJoystick.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63EED4EC10CAE7510098C3D0 /* gecJoystick.mm */; };
 		63F01864106AF201008FABF0 /* ParticleEmitter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63F01863106AF201008FABF0 /* ParticleEmitter.mm */; };
 		63F01867106AF218008FABF0 /* ParticleRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63F01866106AF218008FABF0 /* ParticleRenderer.mm */; };
 		63F6126910C1EF81001FF5E7 /* gecVisualContainer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63F6126810C1EF81001FF5E7 /* gecVisualContainer.mm */; };
@@ -77,10 +80,6 @@
 		6317D8E210C8485800C7EEE2 /* libboost_thread.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_thread.a; path = /Users/nicog/Programming/iPhone/Utility/Boost/libboost_thread.a; sourceTree = "<absolute>"; };
 		6317D9A910C85CB000C7EEE2 /* SharedInputManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedInputManager.h; sourceTree = "<group>"; };
 		6317D9AA10C85CB000C7EEE2 /* SharedInputManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SharedInputManager.mm; sourceTree = "<group>"; };
-		6317DA3A10C8957900C7EEE2 /* gecInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecInput.h; sourceTree = "<group>"; };
-		6317DA3B10C8957900C7EEE2 /* gecInput.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecInput.mm; sourceTree = "<group>"; };
-		6317DBB210C8A69900C7EEE2 /* gecInputButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecInputButton.h; sourceTree = "<group>"; };
-		6317DBB310C8A69900C7EEE2 /* gecInputButton.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecInputButton.mm; sourceTree = "<group>"; };
 		631EBAE910BED2B90060FBD3 /* gecAnimatedSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecAnimatedSprite.h; sourceTree = "<group>"; };
 		631EBAEA10BED2B90060FBD3 /* gecAnimatedSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecAnimatedSprite.mm; sourceTree = "<group>"; };
 		632A3E191073211200F8EADC /* PVRTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRTexture.h; sourceTree = "<group>"; };
@@ -127,10 +126,18 @@
 		63C1574B106DB7080053E452 /* OpenGLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLCommon.h; sourceTree = "<group>"; };
 		63C557A9108CFA0200E77DBC /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		63C557AA108CFA0200E77DBC /* Image.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Image.mm; sourceTree = "<group>"; };
+		63D45E8510CB73FB00CB32F5 /* joystick_tes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = joystick_tes.png; sourceTree = "<group>"; };
 		63E4F9FA107A2E8900FA74AE /* HardwareClock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HardwareClock.h; sourceTree = "<group>"; };
 		63E4F9FB107A2E8900FA74AE /* HardwareClock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HardwareClock.cpp; sourceTree = "<group>"; };
 		63E70D8810AC756D008ED32B /* SharedTextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedTextureManager.h; sourceTree = "<group>"; };
 		63E70D8910AC756D008ED32B /* SharedTextureManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SharedTextureManager.mm; sourceTree = "<group>"; };
+		63EECF7F10C8BFF20098C3D0 /* gecGUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecGUI.h; sourceTree = "<group>"; };
+		63EECF8010C8BFF20098C3D0 /* gecGUI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecGUI.mm; sourceTree = "<group>"; };
+		63EECF9010C8C2A80098C3D0 /* gecButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecButton.h; sourceTree = "<group>"; };
+		63EECF9110C8C2A80098C3D0 /* gecButton.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecButton.mm; sourceTree = "<group>"; };
+		63EED41B10C9CCCD0098C3D0 /* buttons_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttons_test.png; sourceTree = "<group>"; };
+		63EED4EB10CAE7510098C3D0 /* gecJoystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecJoystick.h; sourceTree = "<group>"; };
+		63EED4EC10CAE7510098C3D0 /* gecJoystick.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecJoystick.mm; sourceTree = "<group>"; };
 		63F01862106AF201008FABF0 /* ParticleEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleEmitter.h; sourceTree = "<group>"; };
 		63F01863106AF201008FABF0 /* ParticleEmitter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ParticleEmitter.mm; sourceTree = "<group>"; };
 		63F01865106AF218008FABF0 /* ParticleRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleRenderer.h; sourceTree = "<group>"; };
@@ -210,6 +217,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				63D45E8510CB73FB00CB32F5 /* joystick_tes.png */,
+				63EED41B10C9CCCD0098C3D0 /* buttons_test.png */,
 				63A57DDB10BAD08400969196 /* prototypePlayerSheet.png */,
 				637EEA3A109B8D0600F2E463 /* sprite_test.png */,
 				63BCF5E3109A4D41002BCD2C /* spritesheet16.gif */,
@@ -235,16 +244,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6317DA3910C8956400C7EEE2 /* Input */ = {
-			isa = PBXGroup;
-			children = (
-				6317DA3A10C8957900C7EEE2 /* gecInput.h */,
-				6317DA3B10C8957900C7EEE2 /* gecInput.mm */,
-				6317DA4E10C898E500C7EEE2 /* components */,
-			);
-			name = Input;
-			sourceTree = "<group>";
-		};
 		6317DA4D10C898DB00C7EEE2 /* components */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,19 +255,10 @@
 			name = components;
 			sourceTree = "<group>";
 		};
-		6317DA4E10C898E500C7EEE2 /* components */ = {
-			isa = PBXGroup;
-			children = (
-				6317DBB210C8A69900C7EEE2 /* gecInputButton.h */,
-				6317DBB310C8A69900C7EEE2 /* gecInputButton.mm */,
-			);
-			name = components;
-			sourceTree = "<group>";
-		};
 		631EBAD910BED1EC0060FBD3 /* Families */ = {
 			isa = PBXGroup;
 			children = (
-				6317DA3910C8956400C7EEE2 /* Input */,
+				63EECF7D10C8BFD70098C3D0 /* GUI */,
 				631EBADA10BED1F90060FBD3 /* Visual */,
 			);
 			name = Families;
@@ -372,6 +362,7 @@
 		635E0632108CB92500AF1EDB /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				63EECF4210C8BA010098C3D0 /* IMMGUI */,
 				63C0D42A10A321F60011483E /* GameEntity */,
 				63B2664710B1E716004D1853 /* Scene */,
 				63E70D8710AC7557008ED32B /* SharedManagers */,
@@ -471,6 +462,26 @@
 			name = SharedManagers;
 			sourceTree = "<group>";
 		};
+		63EECF4210C8BA010098C3D0 /* IMMGUI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = IMMGUI;
+			sourceTree = "<group>";
+		};
+		63EECF7D10C8BFD70098C3D0 /* GUI */ = {
+			isa = PBXGroup;
+			children = (
+				63EECF7F10C8BFF20098C3D0 /* gecGUI.h */,
+				63EECF8010C8BFF20098C3D0 /* gecGUI.mm */,
+				63EECF9010C8C2A80098C3D0 /* gecButton.h */,
+				63EECF9110C8C2A80098C3D0 /* gecButton.mm */,
+				63EED4EB10CAE7510098C3D0 /* gecJoystick.h */,
+				63EED4EC10CAE7510098C3D0 /* gecJoystick.mm */,
+			);
+			name = GUI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -522,6 +533,8 @@
 				637EEA3B109B8D0600F2E463 /* sprite_test.png in Resources */,
 				63A57DDC10BAD08400969196 /* prototypePlayerSheet.png in Resources */,
 				63AFC58110C41BC500C473A8 /* smoke.pvr in Resources */,
+				63EED41C10C9CCCD0098C3D0 /* buttons_test.png in Resources */,
+				63D45E8610CB73FB00CB32F5 /* joystick_tes.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,8 +573,9 @@
 				6370E20210C18EE600EC2818 /* GECTemplateManager.mm in Sources */,
 				63F6126910C1EF81001FF5E7 /* gecVisualContainer.mm in Sources */,
 				6317D9AB10C85CB000C7EEE2 /* SharedInputManager.mm in Sources */,
-				6317DA3C10C8957900C7EEE2 /* gecInput.mm in Sources */,
-				6317DBB410C8A69900C7EEE2 /* gecInputButton.mm in Sources */,
+				63EECF8110C8BFF20098C3D0 /* gecGUI.mm in Sources */,
+				63EECF9210C8C2A80098C3D0 /* gecButton.mm in Sources */,
+				63EED4ED10CAE7510098C3D0 /* gecJoystick.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

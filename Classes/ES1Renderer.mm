@@ -15,6 +15,8 @@
 #import "GEComponent.h"
 #import "gecAnimatedSprite.h"
 #import "gecVisualContainer.h"
+#import "gecButton.h"
+#import "gecJoystick.h"
 
 
 @implementation ES1Renderer
@@ -47,9 +49,11 @@
 
 - (void) initGame
 {
+	//[self particlesTest];
 	//[self componentTest1];
-	[self particlesTest];
-	[self componentTest1];
+	
+	//[self componentTest2Button];
+	[self componentTest3Joystick];
 }
 
 /*
@@ -182,7 +186,6 @@
 	spriteComp->setCurrentRepeating(true);				//we set it to repeat ( Just now )
 	spriteComp->setOwnerGE(anEntity);					//we must set the owner of this.
 
-	
 	gecVisualContainer *aContainer = new gecVisualContainer();	//new visual components container
 	aContainer->addGecVisual(spriteComp);						//we add the animation component
 	
@@ -191,6 +194,85 @@
 	anEntity->y = 240.0;
 	anEntity->isActive = true;	
 	
+	aSceneManager->addEntity(anEntity);
+}
+
+- (void) componentTest2Button
+{
+	GameEntity *anEntity = new GameEntity();
+	
+	std::vector<int> aVector, aVector2, aVector3;
+	
+	aVector.push_back(0);
+	aVector.push_back(0);
+	aVector2.push_back(1);
+	aVector2.push_back(0);
+	aVector3.push_back(2);
+	aVector3.push_back(0);
+	
+	ss = new SpriteSheet();
+	ss->initWithImageNamed("buttons_test.png", 200, 50, 0.0, 1.0);
+	
+	gecAnimatedSprite *spriteComp;
+	
+	spriteComp = new gecAnimatedSprite();
+	spriteComp->addAnimation("normal", aVector, ss);
+	spriteComp->addAnimation("hot", aVector2, ss);
+	spriteComp->addAnimation("active", aVector3, ss);
+	spriteComp->setCurrentAnimation("normal");
+	spriteComp->setCurrentRunning(true);
+	spriteComp->setOwnerGE(anEntity);
+	
+	gecButton *buttonComp;	
+	buttonComp = new gecButton();
+	buttonComp->setOwnerGE(anEntity);
+	buttonComp->setShape(CGRectMake(240.0, 160.0, 200, 50));
+	
+	anEntity->setGEC(spriteComp);
+	anEntity->setGEC(buttonComp);
+	anEntity->x = 240.0;
+	anEntity->y = 160.0;
+	anEntity->isActive  = true;
+	
+	aSceneManager = new SceneManager();
+	aSceneManager->addEntity(anEntity);
+}
+
+- (void) componentTest3Joystick
+{
+	GameEntity *anEntity = new GameEntity();
+	
+	std::vector<int> aVector;
+	
+	aVector.push_back(0);
+	aVector.push_back(0);
+	
+	ss = new SpriteSheet();
+	ss->initWithImageNamed("joystick_tes.png", 60, 60, 0.0, 1.0);
+	
+	gecAnimatedSprite *spriteComp;
+	
+	spriteComp = new gecAnimatedSprite();
+	spriteComp->addAnimation("normal", aVector, ss);
+	spriteComp->addAnimation("hot", aVector, ss);
+	spriteComp->addAnimation("active", aVector, ss);
+	spriteComp->setCurrentAnimation("normal");
+	spriteComp->setCurrentRunning(true);
+	spriteComp->setOwnerGE(anEntity);
+	
+	gecJoystick *buttonComp;	
+	buttonComp = new gecJoystick();
+	buttonComp->setOwnerGE(anEntity);
+	buttonComp->setShape(CGRectMake(240.0, 160.0, 60, 60));
+	buttonComp->setCenter(240.0, 160.0);
+	
+	anEntity->setGEC(spriteComp);
+	anEntity->setGEC(buttonComp);
+	anEntity->x = 240.0;
+	anEntity->y = 160.0;
+	anEntity->isActive  = true;
+	
+	aSceneManager = new SceneManager();
 	aSceneManager->addEntity(anEntity);
 }
 

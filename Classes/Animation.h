@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "SpriteSheet.h"
-#import "GameEntity.h"
 #import "Frame.h"
 #include <vector>
+
+class GameEntity;
 
 enum {
 	kDirection_Forward = 1,
@@ -40,8 +41,8 @@ public:
 	GLuint	getAnimationFrameCount();
 	
 	//Setters
-	void	setIsRunning(BOOL inIsRunning);
-	void	setIsRepeating(BOOL inIsRepeating);
+	void	setIsRunning(Boolean inIsRunning);
+	void	setIsRepeating(Boolean inIsRepeating);
 	
 	//Debug
 	void debugPrintFrames();

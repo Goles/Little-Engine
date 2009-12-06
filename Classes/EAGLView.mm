@@ -7,12 +7,9 @@
 //
 
 #import "EAGLView.h"
-
 #import "ES1Renderer.h"
-#import "ConstantsAndMacros.h"
-#import "EmitterFunctions.h"
-#import "gecParticleSystem.h"
-#import "ParticleEmitter.h"
+#import "SharedInputManager.h"
+
 
 @implementation EAGLView
 
@@ -167,6 +164,7 @@
 		case 1:
 			touch1 = [touches anyObject];
 			loc1   = [touch1 locationInView:self];
+			INPUT_MANAGER->touchesBegan(loc1.x, loc1.y);
 			break;
 		default:
 			break;
@@ -226,6 +224,19 @@
 
 - (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
+	UITouch *touch1;
+	CGPoint loc1;
+	NSSet *allTouches = [event allTouches];
+	
+	switch ([allTouches count]) {
+		case 1:
+			touch1 = [touches anyObject];
+			loc1   = [touch1 locationInView:self];
+			INPUT_MANAGER->touchesMoved(loc1.x, loc1.y);
+			break;
+		default:
+			break;
+	}
 	/*UITouch * touch = [touches anyObject];
 	CGPoint loc = [touch locationInView:self];
 	loc.y = SCREEN_HEIGHT - loc.y + 20;
@@ -233,6 +244,23 @@
 	
 	[[[renderer aSystem] systemEmitter] setCurrentFX:kEmmiterFX_none withSource:loc andEnd:loc];
 	 */
+}
+
+- (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	UITouch *touch1;
+	CGPoint loc1;
+	NSSet *allTouches = [event allTouches];
+	
+	switch ([allTouches count]) {
+		case 1:
+			touch1 = [touches anyObject];
+			loc1   = [touch1 locationInView:self];
+			INPUT_MANAGER->touchesEnded(loc1.x, loc1.y);
+			break;
+		default:
+			break;
+	}
 }
 
 @end

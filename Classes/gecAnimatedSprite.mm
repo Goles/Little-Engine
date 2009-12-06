@@ -24,7 +24,7 @@ void gecAnimatedSprite::addAnimation(const std::string &animationName, const std
 }
 
 void gecAnimatedSprite::setCurrentAnimation(const std::string &animationName)
-{
+{	
 	currentAnimation = componentAnimations[animationName];
 }
 
@@ -37,4 +37,17 @@ void gecAnimatedSprite::render() const
 void gecAnimatedSprite::update(float delta) const
 {
 	currentAnimation->update(delta);
+}
+
+void gecAnimatedSprite::debugPrintAnimationMap()
+{
+	AnimationMap::iterator it;
+	
+	std::cout << "**DEBUG ANIMATION MAP ** "<< std::endl;
+	
+	for(it = componentAnimations.begin(); it != componentAnimations.end(); it++)
+	{
+		std::cout << (*it).first <<" " <<  (*it).second << std::endl;
+	}
+	
 }

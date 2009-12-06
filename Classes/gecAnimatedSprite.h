@@ -27,8 +27,10 @@ public:
 public:
 	void addAnimation(const std::string &animationName, const std::vector<int> &positions, SpriteSheet *inSheet);
 	void setCurrentAnimation(const std::string &animationName);
+	void switchToAnimation(const std::string &animationName);
 	void setCurrentRunning(Boolean isRunning){ currentAnimation->setIsRunning(isRunning); }
 	void setCurrentRepeating(Boolean isRepeating){ currentAnimation->setIsRepeating(isRepeating); } 
+	void debugPrintAnimationMap();
 	
 private:
 	typedef std::map<const std::string, Animation*> AnimationMap;
