@@ -19,14 +19,20 @@ public:
 public:
 	virtual Boolean regionHit(float x, float y);
 	virtual Boolean immGUI(float x, float y, int guiID);
+	Boolean	outerRegionHit();
+	void	updateVelocity(float x, float y);
+	
 	void setShape(CGRect aShape);
-	CGRect getShape() const { return shape; } 
-	void setOuterShape(CGRect aShape);
+	CGRect getShape() const { return shape; }
 	void setCenter (float a, float b){ center.x = a; center.y = b; }
+	void setInRadius (float r ) { inRadius = r; }
+	void setOutRadius (float r ) { outRadius = r; }	
+	
 	
 private:	
 	static gec_id_type mComponentID;
+	float	inRadius;
+	float	outRadius;
 	CGRect	shape;
-	CGRect  outerShape;
 	CGPoint	center;
 };

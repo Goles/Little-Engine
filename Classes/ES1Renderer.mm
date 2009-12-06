@@ -260,16 +260,18 @@
 	spriteComp->setCurrentRunning(true);
 	spriteComp->setOwnerGE(anEntity);
 	
-	gecJoystick *buttonComp;	
-	buttonComp = new gecJoystick();
-	buttonComp->setOwnerGE(anEntity);
-	buttonComp->setShape(CGRectMake(240.0, 160.0, 60, 60));
-	buttonComp->setCenter(240.0, 160.0);
+	gecJoystick *jComp;	
+	jComp = new gecJoystick();
+	jComp->setOwnerGE(anEntity);
+	jComp->setShape(CGRectMake(100.0, 100.0, 100.0, 100.0));
+
+	jComp->setCenter(100.0, 100.0);
+
 	
 	anEntity->setGEC(spriteComp);
-	anEntity->setGEC(buttonComp);
-	anEntity->x = 240.0;
-	anEntity->y = 160.0;
+	anEntity->setGEC(jComp);
+	anEntity->x = 100.0;
+	anEntity->y = 100.0;
 	anEntity->isActive  = true;
 	
 	aSceneManager = new SceneManager();
