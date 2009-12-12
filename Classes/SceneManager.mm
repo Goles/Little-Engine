@@ -79,6 +79,7 @@ void SceneManager::sortEntitiesX()
 void SceneManager::sortEntitiesY()
 {
 	std::sort(entityList.begin(), entityList.end(), GameEntity::compareByY());
+	this->debugPrintEntityList();
 }
 
 #pragma mark debug

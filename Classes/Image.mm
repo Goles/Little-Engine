@@ -277,10 +277,13 @@ void Image::render(CGPoint point, Quad2* tc, Quad2* qv)
 	// Save the current matrix to the stack
 	glPushMatrix();
 	
+	
+	
 	// Rotate around the Z axis by the angle defined for this image
 	glTranslatef(point.x, point.y, 0);
 	glRotatef(-rotation, 0.0f, 0.0f, 1.0f);
 	glTranslatef(-point.x, -point.y, 0);
+	glScalef(0.8, 0.8, 0.8);
 	
 	// Set the glColor to apply alpha to the image
 	glColor4f(colourFilter[0], colourFilter[1], colourFilter[2], colourFilter[3]);
@@ -303,6 +306,7 @@ void Image::render(CGPoint point, Quad2* tc, Quad2* qv)
 	
 	// Enable blending as we want the transparent parts of the image to be transparent
 	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 	
 	// Draw the vertices to the screen
 	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);

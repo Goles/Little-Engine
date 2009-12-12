@@ -49,11 +49,11 @@
 
 - (void) initGame
 {
-	//[self particlesTest];
-	//[self componentTest1];
+	[self particlesTest];
+	[self componentTest1];
 	
 	//[self componentTest2Button];
-	[self componentTest3Joystick];
+	//[self componentTest3Joystick];
 }
 
 /*
@@ -161,7 +161,11 @@
 
 - (void) componentTest1
 {
-	GameEntity *anEntity = new GameEntity();
+	GameEntity *anEntity		= new GameEntity();
+	GameEntity *anEntity2		= new GameEntity();
+	GameEntity *anEntity3		= new GameEntity();
+	GameEntity *anEntity4		= new GameEntity();
+	GameEntity *anEntity5		= new GameEntity();
 	
 	std::vector<int> aVector;
 
@@ -175,9 +179,14 @@
 	aVector.push_back(0);
 	
 	ss = new SpriteSheet();
-	ss->initWithImageNamed("prototypePlayerSheet.png", 100, 100, 0.0, 1.0);
+	ss->initWithImageNamed("prototypePlayerSheet.png", 100, 100, 0.0, 1.0);	
 	
 	gecAnimatedSprite *spriteComp;
+	gecAnimatedSprite *spriteComp2,
+					  *spriteComp3,
+					  *spriteComp4,
+					  *spriteComp5;
+						
 	
 	spriteComp = new gecAnimatedSprite();				//new gecAnimatedSpriteComponent
 	spriteComp->addAnimation("walking", aVector, ss);	//add a full animation to the gec
@@ -185,16 +194,81 @@
 	spriteComp->setCurrentRunning(true);				//we set it to be ON ( just now )
 	spriteComp->setCurrentRepeating(true);				//we set it to repeat ( Just now )
 	spriteComp->setOwnerGE(anEntity);					//we must set the owner of this.
-
+	
+	spriteComp2 = new gecAnimatedSprite();			
+	spriteComp2->addAnimation("walking", aVector, ss);
+	spriteComp2->setCurrentAnimation("walking");		
+	spriteComp2->setCurrentRunning(true);			
+	spriteComp2->setCurrentRepeating(true);			
+	spriteComp2->setOwnerGE(anEntity2);	
+	
+	
+	spriteComp3 = new gecAnimatedSprite();			
+	spriteComp3->addAnimation("walking", aVector, ss);
+	spriteComp3->setCurrentAnimation("walking");		
+	spriteComp3->setCurrentRunning(true);			
+	spriteComp3->setCurrentRepeating(true);			
+	spriteComp3->setOwnerGE(anEntity3);	
+	
+	spriteComp4 = new gecAnimatedSprite();			
+	spriteComp4->addAnimation("walking", aVector, ss);
+	spriteComp4->setCurrentAnimation("walking");		
+	spriteComp4->setCurrentRunning(true);			
+	spriteComp4->setCurrentRepeating(true);			
+	spriteComp4->setOwnerGE(anEntity4);	
+	
+	spriteComp5 = new gecAnimatedSprite();			
+	spriteComp5->addAnimation("walking", aVector, ss);
+	spriteComp5->setCurrentAnimation("walking");		
+	spriteComp5->setCurrentRunning(true);			
+	spriteComp5->setCurrentRepeating(true);			
+	spriteComp5->setOwnerGE(anEntity5);	
+	
 	gecVisualContainer *aContainer = new gecVisualContainer();	//new visual components container
 	aContainer->addGecVisual(spriteComp);						//we add the animation component
 	
-	anEntity->setGEC(spriteComp);							
+	gecVisualContainer *aContainer2 = new gecVisualContainer();	//new visual components container
+	aContainer2->addGecVisual(spriteComp2);						//we add the animation component
+	
+	gecVisualContainer *aContainer3 = new gecVisualContainer();	//new visual components container
+	aContainer3->addGecVisual(spriteComp3);						//we add the animation component
+	
+	gecVisualContainer *aContainer4 = new gecVisualContainer();	//new visual components container
+	aContainer4->addGecVisual(spriteComp4);						//we add the animation component
+	
+	gecVisualContainer *aContainer5 = new gecVisualContainer();	//new visual components container
+	aContainer5->addGecVisual(spriteComp5);						//we add the animation component
+	
+	anEntity->setGEC(aContainer);							
 	anEntity->x = 160.0;
 	anEntity->y = 240.0;
 	anEntity->isActive = true;	
 	
+	anEntity2->setGEC(aContainer2);
+	anEntity2->x = 100.0;
+	anEntity2->y = 100.0;
+	anEntity2->isActive = true;
+	
+	anEntity3->setGEC(aContainer3);
+	anEntity3->x = 200.0;
+	anEntity3->y = 200.0;
+	anEntity3->isActive = true;
+	
+	anEntity4->setGEC(aContainer4);
+	anEntity4->x = 250.0;
+	anEntity4->y = 250.0;
+	anEntity4->isActive = true;
+	
+	anEntity5->setGEC(aContainer5);
+	anEntity5->x = 40.0;
+	anEntity5->y = 40.0;
+	anEntity5->isActive = true;
+	
 	aSceneManager->addEntity(anEntity);
+	aSceneManager->addEntity(anEntity2);
+	aSceneManager->addEntity(anEntity3);
+	aSceneManager->addEntity(anEntity4);
+	aSceneManager->addEntity(anEntity5);
 }
 
 - (void) componentTest2Button
@@ -291,7 +365,9 @@
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainSmall, CGPointMake(350, 100), "Particle2.pvr"));
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainMedium, CGPointMake(400, 100), "Particle2.pvr"));
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainBig, CGPointMake(450, 100), "Particle2.pvr"));
-	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_Smoke, CGPointMake(150, 101), "smoke.pvr"));
+	//aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_Smoke, CGPointMake(150, 101), "smoke.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_Smoke, CGPointMake(140, 265), "smoke.pvr"));
+	
 }
 
 - (void) textureManagerTest:(NSString *) inTextureName
