@@ -32,7 +32,7 @@
 		6352AA5110BDD18200EA312F /* GEComponent.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6352AA5010BDD18200EA312F /* GEComponent.mm */; };
 		635C8EF21074761E002F9BB3 /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 635C8EF11074761E002F9BB3 /* FileUtils.m */; };
 		635C8F231074790B002F9BB3 /* Particle2.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 635C8F221074790B002F9BB3 /* Particle2.pvr */; };
-		6370E20210C18EE600EC2818 /* GECTemplateManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6370E20110C18EE600EC2818 /* GECTemplateManager.mm */; };
+		6370E20210C18EE600EC2818 /* GETemplateManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6370E20110C18EE600EC2818 /* GETemplateManager.mm */; };
 		6379709F108A17AC005B24FC /* smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 6379709E108A17AC005B24FC /* smoke.png */; };
 		637EEA3B109B8D0600F2E463 /* sprite_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 637EEA3A109B8D0600F2E463 /* sprite_test.png */; };
 		6386CFCA10A4BC2200699925 /* SharedParticleSystemManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6386CFC910A4BC2200699925 /* SharedParticleSystemManager.mm */; };
@@ -102,8 +102,8 @@
 		635C8EF01074761E002F9BB3 /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
 		635C8EF11074761E002F9BB3 /* FileUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUtils.m; sourceTree = "<group>"; };
 		635C8F221074790B002F9BB3 /* Particle2.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = Particle2.pvr; sourceTree = "<group>"; };
-		6370E20010C18EE600EC2818 /* GECTemplateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GECTemplateManager.h; sourceTree = "<group>"; };
-		6370E20110C18EE600EC2818 /* GECTemplateManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GECTemplateManager.mm; sourceTree = "<group>"; };
+		6370E20010C18EE600EC2818 /* GETemplateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GETemplateManager.h; sourceTree = "<group>"; };
+		6370E20110C18EE600EC2818 /* GETemplateManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GETemplateManager.mm; sourceTree = "<group>"; };
 		63716F89106FC18E00B3C783 /* EmitterFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmitterFunctions.h; sourceTree = "<group>"; };
 		6379709E108A17AC005B24FC /* smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smoke.png; sourceTree = "<group>"; };
 		637EEA3A109B8D0600F2E463 /* sprite_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite_test.png; sourceTree = "<group>"; };
@@ -450,8 +450,8 @@
 		63E70D8710AC7557008ED32B /* SharedManagers */ = {
 			isa = PBXGroup;
 			children = (
-				6370E20010C18EE600EC2818 /* GECTemplateManager.h */,
-				6370E20110C18EE600EC2818 /* GECTemplateManager.mm */,
+				6370E20010C18EE600EC2818 /* GETemplateManager.h */,
+				6370E20110C18EE600EC2818 /* GETemplateManager.mm */,
 				6386CFC810A4BC2200699925 /* SharedParticleSystemManager.h */,
 				6386CFC910A4BC2200699925 /* SharedParticleSystemManager.mm */,
 				63E70D8810AC756D008ED32B /* SharedTextureManager.h */,
@@ -570,7 +570,7 @@
 				6352AA5110BDD18200EA312F /* GEComponent.mm in Sources */,
 				63B0AA1D10BDFCF400E2C3E1 /* gecVisual.mm in Sources */,
 				631EBAEB10BED2B90060FBD3 /* gecAnimatedSprite.mm in Sources */,
-				6370E20210C18EE600EC2818 /* GECTemplateManager.mm in Sources */,
+				6370E20210C18EE600EC2818 /* GETemplateManager.mm in Sources */,
 				63F6126910C1EF81001FF5E7 /* gecVisualContainer.mm in Sources */,
 				6317D9AB10C85CB000C7EEE2 /* SharedInputManager.mm in Sources */,
 				63EECF8110C8BFF20098C3D0 /* gecGUI.mm in Sources */,

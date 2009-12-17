@@ -17,6 +17,7 @@
 #import "SharedTextureManager.h"
 #import "gecParticleSystem.h"
 #import "SceneManager.h"
+#include "GETemplateManager.h"
 
 #include <iostream>
 
@@ -74,5 +75,6 @@
 - (void) componentTest2Button;
 - (void) componentTest3Joystick;
 - (void) textureManagerTest:(NSString *) inTextureName;
+- (void) geTemplateManagerTest1;
  
 @end

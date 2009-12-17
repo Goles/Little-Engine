@@ -53,7 +53,8 @@
 	//[self componentTest1];
 	
 	//[self componentTest2Button];
-	[self componentTest3Joystick];
+	//[self componentTest3Joystick];
+	[self geTemplateManagerTest1];
 }
 
 /*
@@ -389,6 +390,11 @@
 	aSceneManager = new SceneManager();
 	aSceneManager->addEntity(anEntity);
 	aSceneManager->addEntity(anotherEntity);
+}
+
+- (void) geTemplateManagerTest1
+{
+	GEFACTORY->createGE(std::string("testFunction1"));
 }
 
 - (void) particlesTest
