@@ -79,13 +79,12 @@ void SceneManager::sortEntitiesX()
 void SceneManager::sortEntitiesY()
 {
 	std::sort(entityList.begin(), entityList.end(), GameEntity::compareByY());
-	this->debugPrintEntityList();
 }
 
 #pragma mark debug
 void SceneManager::debugPrintEntityList()
 {
-	std::cout << "*DEBUG*" << std::endl;
+	std::cout << "*DEBUG Print Entity List ( Scene Manager ) *" << std::endl;
 	
 	ENTITY_VECTOR_ITERATOR it = entityList.begin();
 	

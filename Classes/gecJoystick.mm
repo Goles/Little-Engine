@@ -13,6 +13,24 @@
 
 std::string gecJoystick::mComponentID = "gecJoystick";
 
+#pragma mark Contrstructor
+gecJoystick::gecJoystick()
+{
+	subscribedGE = NULL;
+}
+
+#pragma mark gec_gui_interface
+void gecJoystick::update(float delta) const
+{
+	/*Updating the component or other components dependant of it happens here*/
+	if(subscribedGE != NULL)
+	{
+		subscribedGE->x += delta*latestVelocity.x*100;
+		subscribedGE->y += delta*latestVelocity.y*100;		
+	}
+}
+
+#pragma mark gec_joystick_interface
 Boolean gecJoystick::regionHit(float x, float y)
 {
 	if(CGRectContainsPoint(shape, CGPointMake(x, y)))
@@ -20,13 +38,6 @@ Boolean gecJoystick::regionHit(float x, float y)
 	
 	return false;
 }
-
-/*Boolean gecJoystick::regionHit(float x, float y) 
-{	
-	float dx = (x - center.x);
-	float dy = (y - center.y);
-	return (outRadius >= sqrt( (dx * dx) + (dy * dy) ));
-}*/
 
 Boolean	gecJoystick::outerRegionHit()
 {
@@ -76,12 +87,15 @@ void gecJoystick::updateVelocity(float x, float y)
 		y = center.y + sin(angle) * outRadius;
 	}
 	
-	std::cout << velocity.x << " " << velocity.y << std::endl;
-	
 	// Update the thumb's position
 	this->getOwnerGE()->x = x;
 	this->getOwnerGE()->y = y;
 	this->setShape(CGRectMake(x, y, shape.size.width, shape.size.height));
+	
+	//std::cout << velocity.x << " " << velocity.y << std::endl;
+	
+	//We update the "latest" velocity ( that's what we will use as a cached reference.
+	latestVelocity = velocity;	
 }
 
 Boolean gecJoystick::immGUI(float x, float y, int guiID)
@@ -113,6 +127,7 @@ Boolean gecJoystick::immGUI(float x, float y, int guiID)
 			this->getOwnerGE()->y = center.y;
 			this->setShape(CGRectMake(center.x, center.y, shape.size.width, shape.size.height));
 			
+			latestVelocity = CGPointZero;
 			/*Trigger the activation methods of this particular button.*/
 			
 			return true;

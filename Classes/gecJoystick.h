@@ -8,19 +8,26 @@
 
 #import "gecGUI.h"
 
+class GameEntity;
+
 class gecJoystick: public gecGUI
 {	
 	//GEComponent Interface
 public:
 	virtual const gec_id_type &componentID() const { return mComponentID; }
-	virtual void update(float delta) const{}
+	virtual void update(float delta) const;
 	
-	//gecJoystick Interface
+	//gecGUI Interface
 public:
 	virtual Boolean regionHit(float x, float y);
 	virtual Boolean immGUI(float x, float y, int guiID);
+	
+	//gecJoystick Interface
+public:
+	gecJoystick();
 	Boolean	outerRegionHit();
 	void	updateVelocity(float x, float y);
+	void	subscribeGameEntity(GameEntity *gE) { subscribedGE = gE; }
 	
 	void setShape(CGRect aShape);
 	CGRect getShape() const { return shape; }
@@ -35,4 +42,6 @@ private:
 	float	outRadius;
 	CGRect	shape;
 	CGPoint	center;
+	CGPoint latestVelocity;
+	GameEntity *subscribedGE;
 };

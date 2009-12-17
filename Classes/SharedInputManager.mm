@@ -76,8 +76,8 @@ void SharedInputManager::touchesBegan(float x, float y)
 	GUIState.y = y;
 	GUIState.fingerDown = true;
 	
-	std::cout << "Touches Began " << std::endl;
-	std::cout << " X " << x << " Y " << y << std::endl;
+	//std::cout << "Touches Began " << std::endl;
+	//std::cout << " X " << x << " Y " << y << std::endl;
 	
 	this->broadcastInteraction(x, y);
 }
@@ -94,7 +94,7 @@ void SharedInputManager::touchesMoved(float x, float y)
 	GUIState.y = y;
 	GUIState.fingerDown = true;
 	
-	std::cout << "Touches Moved " << std::endl;
+	//std::cout << "Touches Moved " << std::endl;
 	
 	this->broadcastInteraction(x, y);
 }
@@ -111,7 +111,7 @@ void SharedInputManager::touchesEnded(float x, float y)
 	GUIState.y = y;
 	GUIState.fingerDown = false;
 	
-	std::cout << "Touches Ended " << std::endl;
+	//std::cout << "Touches Ended " << std::endl;
 	
 	this->broadcastInteraction(x, y);
 }

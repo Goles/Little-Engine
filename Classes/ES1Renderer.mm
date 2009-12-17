@@ -49,11 +49,11 @@
 
 - (void) initGame
 {
-	[self particlesTest];
-	[self componentTest1];
+	//[self particlesTest];
+	//[self componentTest1];
 	
 	//[self componentTest2Button];
-	//[self componentTest3Joystick];
+	[self componentTest3Joystick];
 }
 
 /*
@@ -316,6 +316,8 @@
 {
 	GameEntity *anEntity = new GameEntity();
 	
+	/*Build the joystick*/
+	
 	std::vector<int> aVector;
 	
 	aVector.push_back(0);
@@ -341,15 +343,52 @@
 
 	jComp->setCenter(100.0, 100.0);
 
-	
 	anEntity->setGEC(spriteComp);
 	anEntity->setGEC(jComp);
 	anEntity->x = 100.0;
 	anEntity->y = 100.0;
 	anEntity->isActive  = true;
 	
+	/*Build a game Entity*/
+	GameEntity *anotherEntity = new GameEntity();
+	
+	ss2 = new SpriteSheet();
+	ss2->initWithImageNamed("prototypePlayerSheet.png", 100, 100, 0.0, 1.0);
+	
+	std::vector<int> aVector2;
+	
+	aVector2.push_back(1);
+	aVector2.push_back(0);
+	aVector2.push_back(2);
+	aVector2.push_back(0);
+	aVector2.push_back(3);
+	aVector2.push_back(0);
+	aVector2.push_back(4);
+	aVector2.push_back(0);
+	
+	gecAnimatedSprite *animation;
+	
+	animation = new gecAnimatedSprite();				//new gecAnimatedSpriteComponent
+	animation->addAnimation("walking", aVector2, ss2);	//add a full animation to the gec
+	animation->setCurrentAnimation("walking");			//we set it to walk ( just now )
+	animation->setCurrentRunning(true);				//we set it to be ON ( just now )
+	animation->setCurrentRepeating(true);				//we set it to repeat ( Just now )
+	animation->setOwnerGE(anotherEntity);					//we must set the owner of this.
+	
+	gecVisualContainer *aContainer = new gecVisualContainer();	//new visual components container
+	aContainer->addGecVisual(animation);						//we add the animation component
+	
+	anotherEntity->setGEC(aContainer);
+	anotherEntity->x = 240;
+	anotherEntity->y = 160;
+	anotherEntity->isActive = true;
+	
+	/*Bind Joystick to entity*/
+	jComp->subscribeGameEntity(anotherEntity);
+	
 	aSceneManager = new SceneManager();
 	aSceneManager->addEntity(anEntity);
+	aSceneManager->addEntity(anotherEntity);
 }
 
 - (void) particlesTest

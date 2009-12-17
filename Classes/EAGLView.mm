@@ -74,6 +74,7 @@
 	
 	/* update */
 	[(ES1Renderer *)renderer update:delta];
+
 	
 	/* render */
 	[renderer render];

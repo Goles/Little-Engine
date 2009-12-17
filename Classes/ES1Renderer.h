@@ -49,6 +49,7 @@
 	
 	//Testing C++ stuff
 	SpriteSheet		*ss;
+	SpriteSheet		*ss2;
 	Image			*sprite;
 	Animation		*animatedSprite;
 	SceneManager	*aSceneManager;
