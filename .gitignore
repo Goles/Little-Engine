@@ -1,2 +1,8 @@
-*.xcodeproj/*
-!*.xcodeproj/project.pbproj
+# xcode noise
+*.mode1v3
+*.pbxuser
+*.perspective 
+*.perspectivev3
+*.pyc 
+*~.nib/
+build/*
