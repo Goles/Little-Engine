@@ -47,9 +47,15 @@
 	return self;
 }
 
-- (void) initGame
+- (void) initScenes
 {
 	aSceneManager = new SceneManager();
+}
+
+- (void) initGame
+{
+	[self initScenes];
+	
 	//[self particlesTest];
 	//[self componentTest1];
 	
@@ -64,29 +70,8 @@
  *
  */
 #pragma mark TESTS
-
-- (void) deleteTest1
-{
-	/*GameEntity *a = new ParticleSystem(40, true,  0);
-	
-	delete a;*/
-}
-
-- (void) sceneManagerTest1
-{	
-	/*SceneManager *aTestManager = new SceneManager();
-	
-	testSystem = aTestManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(50, 100) , "Particle2.pvr"));
-	
-	aTestManager->debugPrintEntityList();
-	
-	PARTICLE_MANAGER->debugPrintList();*/
-}
-
 -(void) sceneManagerTest2Sort
-{
-	//aSceneManager = new SceneManager();
-	
+{	
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(30, 30) , "Particle2.pvr"));
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(10, 10) , "Particle2.pvr"));
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(70, 70) , "Particle2.pvr"));
@@ -106,7 +91,6 @@
 {
 	ss = new SpriteSheet();
 	ss->initWithImageNamed("sprite_test.png", 98, 142, 0, 1.0);
-	//sprite = ss->getSpriteAt(4, 2);
 	
 	animatedSprite = new Animation();
 	
@@ -319,7 +303,6 @@
 	GameEntity *anEntity = new GameEntity();
 	
 	/*Build the joystick*/
-	
 	std::vector<int> aVector;
 	
 	aVector.push_back(0);
@@ -388,21 +371,18 @@
 	/*Bind Joystick to entity*/
 	jComp->subscribeGameEntity(anotherEntity);
 	
-	//aSceneManager = new SceneManager();
 	aSceneManager->addEntity(anEntity);
 	aSceneManager->addEntity(anotherEntity);
 }
 
 - (void) geTemplateManagerTest1
 {
-	//GEFACTORY->createGE(std::string("testFunction1"));
-	aSceneManager->addEntity(GEFACTORY->createGE("testDummy"));   
+	aSceneManager->addEntity(GE_FACTORY->createGE("testDummy", 100.0f, 100.0f));
+	aSceneManager->addEntity(GE_FACTORY->createGE("testDummy", 150.0f, 150.0f));
 }
 
 - (void) particlesTest
-{	
-	//aSceneManager = new SceneManager();
-	
+{		
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(50, 100) , "Particle2.pvr"));
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireMedium, CGPointMake(100, 100), "Particle2.pvr"));
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireBig, CGPointMake(150, 100), "Particle2.pvr"));
@@ -412,7 +392,6 @@
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainSmall, CGPointMake(350, 100), "Particle2.pvr"));
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainMedium, CGPointMake(400, 100), "Particle2.pvr"));
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainBig, CGPointMake(450, 100), "Particle2.pvr"));
-	//aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_Smoke, CGPointMake(150, 101), "smoke.pvr"));
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_Smoke, CGPointMake(140, 265), "smoke.pvr"));
 	
 }
@@ -421,11 +400,9 @@
 {
 	/*First we ask the texture manager to create the texture for us*/
 	Texture2D *aTexture = TEXTURE_MANAGER->createTexture([inTextureName UTF8String]);
-	//NSLog(@"Smoke.png: %d",[aTexture name]);
 	
 	/*then we ask for the texture again to check if the texture is just created once*/
 	Texture2D *aTexture2 = TEXTURE_MANAGER->createTexture([inTextureName UTF8String]);
-	//NSLog(@"Smoke.png: %d",[aTexture2 name]);
 	
 	if([aTexture name] != [aTexture2 name])
 	{

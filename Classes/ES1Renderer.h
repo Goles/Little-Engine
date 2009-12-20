@@ -61,10 +61,9 @@
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer;
 - (void) setupView;
 - (void) initGame;
+- (void) initScenes;
 
 /*Tests*/
-- (void) deleteTest1;
-- (void) sceneManagerTest1;
 - (void) sceneManagerTest2Sort;
 - (void) spriteSheetTest;
 - (void) particlesTest;

@@ -43,48 +43,21 @@ GETemplateManager* GETemplateManager::getInstance()
 GETemplateManager::GETemplateManager()
 {
 	/*We must insert all our member functions into our map*/
-	fmap.insert( std::make_pair( "testFunction1", &GETemplateManager::testFunction1));
-	fmap.insert( std::make_pair( "testFunction2", &GETemplateManager::testFunction2));
-	fmap.insert( std::make_pair( "testFunction3", &GETemplateManager::testFunction3));
+//	fmap.insert( std::make_pair( "testFunction1", &GETemplateManager::testFunction1));
+//	fmap.insert( std::make_pair( "testFunction2", &GETemplateManager::testFunction2));
+//	fmap.insert( std::make_pair( "testFunction3", &GETemplateManager::testFunction3));
 	fmap.insert( std::make_pair( "testDummy",	  &GETemplateManager::testDummy));
 }
 
 #pragma mark action_methods
-GameEntity* GETemplateManager::createGE(const std::string &geName)
+GameEntity* GETemplateManager::createGE(const std::string &geName, float x, float y)
 {
 	MFP fp = fmap[geName];
-	return(this->*fp)();
+	return(this->*fp)(x, y);
 }
 
 #pragma mark factory_methods
-GameEntity* GETemplateManager::testFunction1()
-{
-	std::cout << "1!" << std::endl;
-	
-	GameEntity *a = new GameEntity();
-	
-	return a;
-}
-
-GameEntity* GETemplateManager::testFunction2()
-{
-	std::cout << "2!" << std::endl;
-	
-	GameEntity *a = new GameEntity();
-	
-	return a;
-}
-
-GameEntity* GETemplateManager::testFunction3()
-{
-	std::cout << "3!" << std::endl;
-	
-	GameEntity *a = new GameEntity();
-	
-	return a;
-}
-
-GameEntity* GETemplateManager::testDummy()
+GameEntity* GETemplateManager::testDummy(float x, float y)
 {
 	std::cout << "Test Dummy!" << std::endl;
 	GameEntity *gE = new GameEntity();
@@ -143,8 +116,8 @@ GameEntity* GETemplateManager::testDummy()
 	
 	gE->setGEC(spriteAnimations);
 	gE->isActive = true;
-	gE->x = 240;
-	gE->y = 160;
+	gE->x = x;
+	gE->y = y;
 
 	return gE;	
 }

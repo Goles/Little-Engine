@@ -9,7 +9,7 @@
 #include <map>
 #include <string> 
 
-#define GEFACTORY GETemplateManager::getInstance()
+#define GE_FACTORY GETemplateManager::getInstance()
 
 class GameEntity;
 
@@ -17,20 +17,17 @@ class GETemplateManager
 {
 public:
 	static GETemplateManager* getInstance();
-	GameEntity *createGE(const std::string &geName);
+	GameEntity *createGE(const std::string &geName, float x, float y);
 	~GETemplateManager();
 
 protected:
 	GETemplateManager();
-	GameEntity* testFunction1();
-	GameEntity* testFunction2();
-	GameEntity* testFunction3();
-	GameEntity* testDummy();
+	GameEntity* testDummy(float x, float y);
 	
 	
 	
 private:
-	typedef GameEntity* (GETemplateManager::*MFP)();
+	typedef GameEntity* (GETemplateManager::*MFP)(float x, float y);
     std::map <std::string, MFP> fmap;	//Declaration of a map with member function pointers.
 	
 	
