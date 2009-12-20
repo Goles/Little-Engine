@@ -277,8 +277,6 @@ void Image::render(CGPoint point, Quad2* tc, Quad2* qv)
 	// Save the current matrix to the stack
 	glPushMatrix();
 	
-	
-	
 	// Rotate around the Z axis by the angle defined for this image
 	glTranslatef(point.x, point.y, 0);
 	glRotatef(-rotation, 0.0f, 0.0f, 1.0f);

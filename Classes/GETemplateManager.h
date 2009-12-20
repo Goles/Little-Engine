@@ -25,6 +25,7 @@ protected:
 	GameEntity* testFunction1();
 	GameEntity* testFunction2();
 	GameEntity* testFunction3();
+	GameEntity* testDummy();
 	
 	
 	

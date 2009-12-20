@@ -49,6 +49,7 @@
 
 - (void) initGame
 {
+	aSceneManager = new SceneManager();
 	//[self particlesTest];
 	//[self componentTest1];
 	
@@ -84,7 +85,7 @@
 
 -(void) sceneManagerTest2Sort
 {
-	aSceneManager = new SceneManager();
+	//aSceneManager = new SceneManager();
 	
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(30, 30) , "Particle2.pvr"));
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(10, 10) , "Particle2.pvr"));
@@ -309,7 +310,7 @@
 	anEntity->y = 160.0;
 	anEntity->isActive  = true;
 	
-	aSceneManager = new SceneManager();
+	//aSceneManager = new SceneManager();
 	aSceneManager->addEntity(anEntity);
 }
 
@@ -387,19 +388,20 @@
 	/*Bind Joystick to entity*/
 	jComp->subscribeGameEntity(anotherEntity);
 	
-	aSceneManager = new SceneManager();
+	//aSceneManager = new SceneManager();
 	aSceneManager->addEntity(anEntity);
 	aSceneManager->addEntity(anotherEntity);
 }
 
 - (void) geTemplateManagerTest1
 {
-	GEFACTORY->createGE(std::string("testFunction1"));
+	//GEFACTORY->createGE(std::string("testFunction1"));
+	aSceneManager->addEntity(GEFACTORY->createGE("testDummy"));   
 }
 
 - (void) particlesTest
 {	
-	aSceneManager = new SceneManager();
+	//aSceneManager = new SceneManager();
 	
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(50, 100) , "Particle2.pvr"));
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireMedium, CGPointMake(100, 100), "Particle2.pvr"));
