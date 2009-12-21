@@ -52,7 +52,7 @@ Boolean gecButton::immGUI(float x, float y, int guiID)
 			//INPUT_MANAGER->GUIState.activeItem = guiID;
 			gAni->setCurrentAnimation("normal");
 			/*Trigger the activation methods of this particular button.*/
-			std::cout << "Active!!!!!!" << std::endl;
+			//std::cout << "Active!!!!!!" << std::endl;
 			return true;
 		}
 	}

@@ -6,20 +6,6 @@
 //  Copyright 2009 GandoGames. All rights reserved.
 //
 
-
-/* The way to use the component is by static_cast ( not dynamic_cast! (slow!)
- *
- *	 GEComponent *gec = ((GameEntity *)(*it))->getGEC(std::string("CompVisual"));
- *	 gecVisual *gvis	 = static_cast<gecVisual*> (gec);
- *	 if( gvis )
- *	 {
- *		gvis->render();
- *	 }
- *	
- *	_NG Sat - Dec - 19
- */
-
-
 #import "GETemplateManager.h"
 #import "GameEntity.h"
 
@@ -43,9 +29,6 @@ GETemplateManager* GETemplateManager::getInstance()
 GETemplateManager::GETemplateManager()
 {
 	/*We must insert all our member functions into our map*/
-//	fmap.insert( std::make_pair( "testFunction1", &GETemplateManager::testFunction1));
-//	fmap.insert( std::make_pair( "testFunction2", &GETemplateManager::testFunction2));
-//	fmap.insert( std::make_pair( "testFunction3", &GETemplateManager::testFunction3));
 	fmap.insert( std::make_pair( "testDummy",	  &GETemplateManager::testDummy));
 }
 
@@ -59,7 +42,6 @@ GameEntity* GETemplateManager::createGE(const std::string &geName, float x, floa
 #pragma mark factory_methods
 GameEntity* GETemplateManager::testDummy(float x, float y)
 {
-	std::cout << "Test Dummy!" << std::endl;
 	GameEntity *gE = new GameEntity();
 	
 	SpriteSheet *ss = new SpriteSheet();

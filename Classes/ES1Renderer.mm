@@ -324,14 +324,14 @@
 	gecJoystick *jComp;	
 	jComp = new gecJoystick();
 	jComp->setOwnerGE(anEntity);
-	jComp->setShape(CGRectMake(100.0, 100.0, 100.0, 100.0));
+	jComp->setShape(CGRectMake(70.0, 70.0, 80.0, 80.0));
 
-	jComp->setCenter(100.0, 100.0);
+	jComp->setCenter(70, 70);
 
 	anEntity->setGEC(spriteComp);
 	anEntity->setGEC(jComp);
-	anEntity->x = 100.0;
-	anEntity->y = 100.0;
+	anEntity->x = 70.0;
+	anEntity->y = 70.0;
 	anEntity->isActive  = true;
 	
 	/*Build a game Entity*/

@@ -25,8 +25,8 @@ void gecJoystick::update(float delta) const
 	/*Updating the component or other components dependant of it happens here*/
 	if(subscribedGE != NULL)
 	{
-		subscribedGE->x += delta*latestVelocity.x*100;
-		subscribedGE->y += delta*latestVelocity.y*100;		
+		subscribedGE->x += delta*latestVelocity.x*150;
+		subscribedGE->y += delta*latestVelocity.y*150;		
 	}
 }
 
@@ -49,10 +49,9 @@ Boolean	gecJoystick::outerRegionHit()
 	float d = sqrtf((_x - cX)*(_x - cX) -
 					(_y - cY)*(_y - cY));
 	
-	std::cout << d << std::endl;	
 	if(d == (outRadius - inRadius))
 	{
-		std::cout << "YES!! " << std::endl;
+		//std::cout << "YES!! " << std::endl;
 		return true;
 	}
 
@@ -89,7 +88,7 @@ void gecJoystick::updateVelocity(float x, float y)
 	
 	// Update the thumb's position
 	this->getOwnerGE()->x = x;
-	this->getOwnerGE()->y = y;
+	this->getOwnerGE()->y = y+20;
 	this->setShape(CGRectMake(x, y, shape.size.width, shape.size.height));
 	
 	//std::cout << velocity.x << " " << velocity.y << std::endl;
@@ -109,19 +108,15 @@ Boolean gecJoystick::immGUI(float x, float y, int guiID)
 		if(INPUT_MANAGER->GUIState.fingerDown == true)
 		{
 			gAni->setCurrentAnimation("hot");
-			std::cout << "Active!!!!!!" << std::endl;
-			/*if(!outerRegionHit())
-			{
-
-			}*/
+			//std::cout << "Active!!!!!!" << std::endl;
+			
+			
 			this->updateVelocity(x, y);
-			
-			
 		}
 		else if(INPUT_MANAGER->GUIState.fingerDown == false && INPUT_MANAGER->GUIState.hotItem == guiID) //they are releasing over me
 		{
-			//INPUT_MANAGER->GUIState.activeItem = guiID;
 			gAni->setCurrentAnimation("normal");
+			
 			/*Return to center*/
 			this->getOwnerGE()->x = center.x;
 			this->getOwnerGE()->y = center.y;
@@ -138,7 +133,7 @@ Boolean gecJoystick::immGUI(float x, float y, int guiID)
 		this->getOwnerGE()->y = center.y;
 		this->setShape(CGRectMake(center.x, center.y, shape.size.width, shape.size.height));
 		gAni->setCurrentAnimation("normal");
-		std::cout << "RESET" << std::endl;
+		//std::cout << "RESET" << std::endl;
 	}
 	
 	return false; //button not activated.

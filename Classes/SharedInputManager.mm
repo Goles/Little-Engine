@@ -33,17 +33,6 @@ SharedInputManager::SharedInputManager()
 #pragma mark action_methods
 void SharedInputManager::registerGameEntity(GameEntity *anEntity)
 {
-/*	guiIDMax++;  //auto increment key
-	
-	//std::cout << anEntity->getGEC("gecGUI")->componentID() << std::endl;
-	
-	GEComponent *gec = anEntity->getGEC("gecGUI");
-	if(gec)
-	{
-		gecGUI *gGui = static_cast<gecGUI*> (gec);
-		gGui->setGuiID(guiIDMax);
-	}
-*/
 	receiversMap.insert(gameEntityMapPair(guiIDMax, anEntity));
 }
 
@@ -76,9 +65,6 @@ void SharedInputManager::touchesBegan(float x, float y)
 	GUIState.y = y;
 	GUIState.fingerDown = true;
 	
-	//std::cout << "Touches Began " << std::endl;
-	//std::cout << " X " << x << " Y " << y << std::endl;
-	
 	this->broadcastInteraction(x, y);
 }
 
@@ -94,8 +80,6 @@ void SharedInputManager::touchesMoved(float x, float y)
 	GUIState.y = y;
 	GUIState.fingerDown = true;
 	
-	//std::cout << "Touches Moved " << std::endl;
-	
 	this->broadcastInteraction(x, y);
 }
 
@@ -110,8 +94,6 @@ void SharedInputManager::touchesEnded(float x, float y)
 	GUIState.x = x;
 	GUIState.y = y;
 	GUIState.fingerDown = false;
-	
-	//std::cout << "Touches Ended " << std::endl;
 	
 	this->broadcastInteraction(x, y);
 }

@@ -30,7 +30,7 @@ public:
 	GameEntity(){}
 	virtual void draw(){}
 	virtual void update(float delta);
-	virtual ~GameEntity(){}
+	virtual ~GameEntity(){ components.clear(); }
 	
 	//Getters & Setters
 	const Boolean getIsActive() const { return isActive; }

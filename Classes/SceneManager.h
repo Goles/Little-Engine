@@ -28,9 +28,7 @@ public:
 	
 	//Overloaded methods.
 	void			removeEntity(GameEntity *gameEntity);
-	//void			removeEntity(ParticleSystem *particleSystem);	
 	GameEntity*		addEntity(GameEntity *gameEntity);
-	//ParticleSystem* addEntity(ParticleSystem *particleSystem);
 		
 	//debug methods
 	void debugPrintEntityList();

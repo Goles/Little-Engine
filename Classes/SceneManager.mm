@@ -109,4 +109,6 @@ SceneManager::~SceneManager()
 	{
 		entityList.erase(it);
 	}
+	
+	entityList.clear();
 }
