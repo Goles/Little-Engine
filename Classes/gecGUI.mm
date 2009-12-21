@@ -9,7 +9,7 @@
 #import "gecGUI.h"
 #import "SharedInputManager.h"
 
-std::string gecGUI::mFamilyID = "gecGUI";
+std::string gecGUI::mFamilyID = "CompGUI";
 
 void gecGUI::setOwnerGE(GameEntity* gE)
 {

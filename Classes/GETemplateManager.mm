@@ -12,6 +12,7 @@
 #import "SpriteSheet.h"
 #import "gecAnimatedSprite.h"
 #import "gecVisualContainer.h"
+#import "gecJoystick.h"
 
 
 GETemplateManager* GETemplateManager::singletonInstance = NULL;
@@ -30,6 +31,7 @@ GETemplateManager::GETemplateManager()
 {
 	/*We must insert all our member functions into our map*/
 	fmap.insert( std::make_pair( "testDummy",	  &GETemplateManager::testDummy));
+	fmap.insert( std::make_pair( "joypad",	  &GETemplateManager::joypad));	
 }
 
 #pragma mark action_methods
@@ -102,4 +104,43 @@ GameEntity* GETemplateManager::testDummy(float x, float y)
 	gE->y = y;
 
 	return gE;	
+}
+
+GameEntity* GETemplateManager::joypad(float x, float y)
+{
+	GameEntity *anEntity = new GameEntity();
+	
+	/*Build the joystick*/
+	std::vector<int> aVector;
+	
+	aVector.push_back(0);
+	aVector.push_back(0);
+	
+	SpriteSheet *ss = new SpriteSheet();
+	ss->initWithImageNamed("joystick_tes.png", 60, 60, 0.0, 1.0);
+	
+	gecAnimatedSprite *spriteComp;
+	
+	spriteComp = new gecAnimatedSprite();
+	spriteComp->addAnimation("normal", aVector, ss);
+	spriteComp->addAnimation("hot", aVector, ss);
+	spriteComp->addAnimation("active", aVector, ss);
+	spriteComp->setCurrentAnimation("normal");
+	spriteComp->setCurrentRunning(true);
+	spriteComp->setOwnerGE(anEntity);
+	
+	gecJoystick *jComp;	
+	jComp = new gecJoystick();
+	jComp->setOwnerGE(anEntity);
+	jComp->setShape(CGRectMake(70.0, 70.0, 80.0, 80.0));
+	
+	jComp->setCenter(x, y);
+	
+	anEntity->setGEC(spriteComp);
+	anEntity->setGEC(jComp);
+	anEntity->x = 70.0;
+	anEntity->y = 70.0;
+	anEntity->isActive  = true;
+	
+	return anEntity;
 }

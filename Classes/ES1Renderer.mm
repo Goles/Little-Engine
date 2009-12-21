@@ -377,8 +377,12 @@
 
 - (void) geTemplateManagerTest1
 {
-	aSceneManager->addEntity(GE_FACTORY->createGE("testDummy", 100.0f, 100.0f));
-	aSceneManager->addEntity(GE_FACTORY->createGE("testDummy", 150.0f, 150.0f));
+	
+	GameEntity *gE		= aSceneManager->addEntity(GE_FACTORY->createGE("testDummy", 100.0f, 100.0f));
+	GameEntity *joypadE = aSceneManager->addEntity(GE_FACTORY->createGE("joypad", 70.0f, 70.0f));
+	
+	((gecJoystick *)joypadE->getGEC("CompGUI"))->subscribeGameEntity(gE);
+	
 }
 
 - (void) particlesTest

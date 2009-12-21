@@ -7,11 +7,13 @@
 //
 
 /*
+ *
  *	This is the GameEntity Abstract Class, should be used to create new kinds of GameEntities
  *	If a game element is declared a "GameEntity", the engine will asume it implements all the "GameEntity"
  *	methods in a correct/suitable way.
  *	
  *	_NG
+ *
  */
 
 #include <iostream>

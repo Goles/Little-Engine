@@ -106,7 +106,7 @@ void SharedInputManager::broadcastInteraction(float x, float y)
 	for (it = receiversMap.begin(); it != receiversMap.end(); it++)
 	{
 		if(((*it).second)->isActive)
-		{	GEComponent *gec = ((*it).second)->getGEC(std::string("gecGUI"));
+		{	GEComponent *gec = ((*it).second)->getGEC(std::string("CompGUI"));
 			gecGUI *gGUI	 = static_cast<gecGUI *> (gec);
 			if( gGUI )
 			{

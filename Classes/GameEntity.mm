@@ -7,7 +7,11 @@
 //
 
 #import "GameEntity.h"
-#import "GEComponent.h"
+
+#ifndef _INCL_GECOMPONENT
+#define _INCL_GECOMPONENT
+	#import "GEComponent.h"
+#endif
 
 void GameEntity::setGEC( GEComponent *newGEC )
 {
@@ -37,6 +41,7 @@ void GameEntity::debugPrintComponents()
 	
 	for(it = components.begin(); it != components.end(); it++)
 	{
-		std::cout << (*it).second << "& " << (*it).second->componentID() << " x " << x << " y " << y << std::endl;
+		std::cout << "Parent Entity: " << (*it).second->getOwnerGE() << std::endl;
+		std::cout << (*it).second << " & " << (*it).second->componentID() << " x " << x << " y " << y << std::endl;
 	}
 }

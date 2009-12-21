@@ -17,8 +17,6 @@
  *	
  *	_NG Sat - Dec - 19
  */
-
-
 #include <map>
 #include <string> 
 
@@ -36,6 +34,7 @@ public:
 protected:
 	GETemplateManager();
 	GameEntity* testDummy(float x, float y);
+	GameEntity* joypad(float x, float y);
 	
 	
 private:

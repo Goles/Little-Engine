@@ -24,6 +24,10 @@ void SceneManager::updateScene(float delta)
 	
 	for(it = entityList.begin(); it < entityList.end(); it++)
 	{
+		if((*it) == NULL)
+			std::cout << "Helo!!" << std::endl;
+			
+		
 		if((*it)->isActive)
 			(*it)->update(delta);
 	}
@@ -54,7 +58,9 @@ GameEntity *SceneManager::addEntity(GameEntity *inGameEntity)
 {
 	entityList.push_back(inGameEntity);
 	
-	return entityList.back();
+	//return entityList.back();
+	
+	return inGameEntity;
 }
 
 void SceneManager::removeEntity(GameEntity *inGameEntity)

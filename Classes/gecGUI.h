@@ -6,7 +6,7 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#include "GEComponent.h"
+#import "GEComponent.h"
 
 class gecGUI: public GEComponent
 {
