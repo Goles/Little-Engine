@@ -55,6 +55,8 @@
 		63F01864106AF201008FABF0 /* ParticleEmitter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63F01863106AF201008FABF0 /* ParticleEmitter.mm */; };
 		63F01867106AF218008FABF0 /* ParticleRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63F01866106AF218008FABF0 /* ParticleRenderer.mm */; };
 		63F6126910C1EF81001FF5E7 /* gecVisualContainer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63F6126810C1EF81001FF5E7 /* gecVisualContainer.mm */; };
+		63F8302010E16E6E00B27131 /* libboost_signals.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F8301F10E16E6E00B27131 /* libboost_signals.a */; };
+		63F830A510E176A600B27131 /* pixel.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F830A410E176A600B27131 /* pixel.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -144,6 +146,8 @@
 		63F01866106AF218008FABF0 /* ParticleRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ParticleRenderer.mm; sourceTree = "<group>"; };
 		63F6126710C1EF81001FF5E7 /* gecVisualContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecVisualContainer.h; sourceTree = "<group>"; };
 		63F6126810C1EF81001FF5E7 /* gecVisualContainer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecVisualContainer.mm; sourceTree = "<group>"; };
+		63F8301F10E16E6E00B27131 /* libboost_signals.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libboost_signals.a; sourceTree = "<group>"; };
+		63F830A410E176A600B27131 /* pixel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pixel.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Particles_2-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Particles_2-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +162,7 @@
 				28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */,
 				633C88D51064942D003911A0 /* CoreGraphics.framework in Frameworks */,
 				6317D8E310C8485800C7EEE2 /* libboost_thread.a in Frameworks */,
+				63F8302010E16E6E00B27131 /* libboost_signals.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +222,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				63F830A410E176A600B27131 /* pixel.png */,
 				63D45E8510CB73FB00CB32F5 /* joystick_tes.png */,
 				63EED41B10C9CCCD0098C3D0 /* buttons_test.png */,
 				63A57DDB10BAD08400969196 /* prototypePlayerSheet.png */,
@@ -240,6 +246,7 @@
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				633C88D41064942D003911A0 /* CoreGraphics.framework */,
 				6317D8E210C8485800C7EEE2 /* libboost_thread.a */,
+				63F8301F10E16E6E00B27131 /* libboost_signals.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -535,6 +542,7 @@
 				63AFC58110C41BC500C473A8 /* smoke.pvr in Resources */,
 				63EED41C10C9CCCD0098C3D0 /* buttons_test.png in Resources */,
 				63D45E8610CB73FB00CB32F5 /* joystick_tes.png in Resources */,
+				63F830A510E176A600B27131 /* pixel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,6 +604,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Utility/Boost\"",
+					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = Particles_2;
 			};
@@ -616,6 +625,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Utility/Boost\"",
+					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = Particles_2;
 			};
@@ -653,6 +663,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Utility/Boost\"",
+					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = Particles_2;
 			};

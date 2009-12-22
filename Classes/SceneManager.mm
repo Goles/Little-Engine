@@ -58,8 +58,7 @@ GameEntity *SceneManager::addEntity(GameEntity *inGameEntity)
 {
 	entityList.push_back(inGameEntity);
 	
-	//return entityList.back();
-	
+	//return entityList.back();	
 	return inGameEntity;
 }
 

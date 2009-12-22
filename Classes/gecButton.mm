@@ -65,6 +65,8 @@ Boolean gecButton::immGUI(float x, float y, int guiID)
 
 void gecButton::setShape(CGRect aRect)
 {
+	std::cout << "Origin X: " << aRect.origin.x << " Origin Y: " << aRect.origin.y << std::endl;
+	
 	//We need to center our CGRect
 	shape = CGRectMake(aRect.origin.x - aRect.size.width*0.5, 
 			   aRect.origin.y - aRect.size.height*0.5, 

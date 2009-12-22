@@ -6,7 +6,7 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-
+#include <boost/signal.hpp>
 #include "gecGUI.h"
 
 class gecButton : public gecGUI
@@ -24,8 +24,10 @@ public:
 	~gecButton();
 	void setShape(CGRect aShape);
 	CGRect getShape() const { return shape; }
+	boost::signal<void ()> sig;
 
 private:	
 	static gec_id_type mComponentID;
 	CGRect shape;
+	
 };

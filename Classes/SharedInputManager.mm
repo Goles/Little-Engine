@@ -102,6 +102,8 @@ void SharedInputManager::broadcastInteraction(float x, float y)
 {	
 	gameEntityMap::iterator it;
 	
+	std::cout << "X :" << x << " Y: " << y << std::endl;
+	
 	/*We tell every component the is subscribed that we have touched it.*/
 	for (it = receiversMap.begin(); it != receiversMap.end(); it++)
 	{

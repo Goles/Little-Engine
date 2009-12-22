@@ -13,6 +13,7 @@
 #import "gecAnimatedSprite.h"
 #import "gecVisualContainer.h"
 #import "gecJoystick.h"
+#import "gecButton.h"
 
 
 GETemplateManager* GETemplateManager::singletonInstance = NULL;
@@ -30,8 +31,10 @@ GETemplateManager* GETemplateManager::getInstance()
 GETemplateManager::GETemplateManager()
 {
 	/*We must insert all our member functions into our map*/
-	fmap.insert( std::make_pair( "testDummy",	  &GETemplateManager::testDummy));
-	fmap.insert( std::make_pair( "joypad",	  &GETemplateManager::joypad));	
+	fmap.insert( std::make_pair( "testDummy",		&GETemplateManager::testDummy ));
+	fmap.insert( std::make_pair( "joypad",			&GETemplateManager::joypad ));
+	fmap.insert( std::make_pair( "buttonDummy",		&GETemplateManager::buttonDummy ));
+	fmap.insert( std::make_pair( "pixelDummy",		&GETemplateManager::pixelDummy ));
 }
 
 #pragma mark action_methods
@@ -143,4 +146,73 @@ GameEntity* GETemplateManager::joypad(float x, float y)
 	anEntity->isActive  = true;
 	
 	return anEntity;
+}
+
+GameEntity* GETemplateManager::buttonDummy(float x, float y)
+{
+	GameEntity *anEntity = new GameEntity();
+	
+	std::vector<int> aVector, aVector2, aVector3;
+	
+	aVector.push_back(0);
+	aVector.push_back(0);
+	aVector2.push_back(1);
+	aVector2.push_back(0);
+	aVector3.push_back(2);
+	aVector3.push_back(0);
+	
+	SpriteSheet *ss = new SpriteSheet();
+	ss->initWithImageNamed("buttons_test.png", 200, 50, 0.0, 1.0);
+	
+	gecAnimatedSprite *spriteComp;
+	
+	spriteComp = new gecAnimatedSprite();
+	spriteComp->addAnimation("normal", aVector, ss);
+	spriteComp->addAnimation("hot", aVector2, ss);
+	spriteComp->addAnimation("active", aVector3, ss);
+	spriteComp->setCurrentAnimation("normal");
+	spriteComp->setCurrentRunning(true);
+	spriteComp->setOwnerGE(anEntity);
+	
+	gecButton *buttonComp;	
+	buttonComp = new gecButton();
+	buttonComp->setOwnerGE(anEntity);
+	buttonComp->setShape(CGRectMake(x, y, 200, 50));
+	
+	anEntity->setGEC(spriteComp);
+	anEntity->setGEC(buttonComp);
+	anEntity->x = x;
+	anEntity->y = y;
+	anEntity->isActive  = true;
+	
+	return anEntity;
+}
+
+GameEntity* GETemplateManager::pixelDummy(float x, float y)
+{
+	GameEntity *anEntity = new GameEntity();
+	
+	/*Build the pixel*/
+	std::vector<int> aVector;
+	
+	aVector.push_back(0);
+	aVector.push_back(0);
+	
+	SpriteSheet *ss = new SpriteSheet();
+	ss->initWithImageNamed("pixel.png", 4, 4, 0.0, 1.0);
+	
+	gecAnimatedSprite *spriteComp;
+	
+	spriteComp = new gecAnimatedSprite();
+	spriteComp->addAnimation("normal", aVector, ss);
+	spriteComp->setCurrentAnimation("normal");
+	spriteComp->setCurrentRunning(true);
+	spriteComp->setOwnerGE(anEntity);	
+	anEntity->setGEC(spriteComp);
+	
+	anEntity->x = x;
+	anEntity->y = y;
+	anEntity->isActive  = true;
+	
+	return anEntity;	
 }

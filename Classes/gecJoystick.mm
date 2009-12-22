@@ -108,14 +108,13 @@ Boolean gecJoystick::immGUI(float x, float y, int guiID)
 		if(INPUT_MANAGER->GUIState.fingerDown == true)
 		{
 			gAni->setCurrentAnimation("hot");
-			//std::cout << "Active!!!!!!" << std::endl;
-			
-			
+			this->updateSubscriberAnimation("walk");		
 			this->updateVelocity(x, y);
 		}
 		else if(INPUT_MANAGER->GUIState.fingerDown == false && INPUT_MANAGER->GUIState.hotItem == guiID) //they are releasing over me
 		{
 			gAni->setCurrentAnimation("normal");
+			this->updateSubscriberAnimation("stand");
 			
 			/*Return to center*/
 			this->getOwnerGE()->x = center.x;
@@ -123,8 +122,7 @@ Boolean gecJoystick::immGUI(float x, float y, int guiID)
 			this->setShape(CGRectMake(center.x, center.y, shape.size.width, shape.size.height));
 			
 			latestVelocity = CGPointZero;
-			/*Trigger the activation methods of this particular button.*/
-			
+			/*Trigger the activation methods of this particular button.*/			
 			return true;
 		}
 	}
@@ -133,10 +131,25 @@ Boolean gecJoystick::immGUI(float x, float y, int guiID)
 		this->getOwnerGE()->y = center.y;
 		this->setShape(CGRectMake(center.x, center.y, shape.size.width, shape.size.height));
 		gAni->setCurrentAnimation("normal");
-		//std::cout << "RESET" << std::endl;
 	}
 	
 	return false; //button not activated.
+}
+
+void gecJoystick::updateSubscriberAnimation(const std::string &state)
+{
+	if(subscribedGE != NULL)
+	{
+		GEComponent *ge = subscribedGE->getGEC("CompVisual");
+		gecAnimatedSprite *sprite = static_cast<gecAnimatedSprite*> (ge);
+		
+		if(sprite)
+		{
+			sprite->setCurrentAnimation(state);
+			sprite->setCurrentRunning(true);
+			sprite->setCurrentRepeating(true);
+		}
+	}
 }
 
 void gecJoystick::setShape(CGRect aRect)

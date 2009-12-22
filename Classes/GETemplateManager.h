@@ -35,6 +35,8 @@ protected:
 	GETemplateManager();
 	GameEntity* testDummy(float x, float y);
 	GameEntity* joypad(float x, float y);
+	GameEntity* buttonDummy(float x, float y);
+	GameEntity* pixelDummy(float x, float y);
 	
 	
 private:

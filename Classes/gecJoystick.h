@@ -35,6 +35,8 @@ public:
 	void setInRadius (float r ) { inRadius = r; }
 	void setOutRadius (float r ) { outRadius = r; }	
 	
+protected:
+	void updateSubscriberAnimation(const std::string &state);
 	
 private:	
 	static gec_id_type mComponentID;
