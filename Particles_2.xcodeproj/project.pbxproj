@@ -369,7 +369,6 @@
 		635E0632108CB92500AF1EDB /* Engine */ = {
 			isa = PBXGroup;
 			children = (
-				63EECF4210C8BA010098C3D0 /* IMMGUI */,
 				63C0D42A10A321F60011483E /* GameEntity */,
 				63B2664710B1E716004D1853 /* Scene */,
 				63E70D8710AC7557008ED32B /* SharedManagers */,
@@ -467,13 +466,6 @@
 				6317D9AA10C85CB000C7EEE2 /* SharedInputManager.mm */,
 			);
 			name = SharedManagers;
-			sourceTree = "<group>";
-		};
-		63EECF4210C8BA010098C3D0 /* IMMGUI */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = IMMGUI;
 			sourceTree = "<group>";
 		};
 		63EECF7D10C8BFD70098C3D0 /* GUI */ = {

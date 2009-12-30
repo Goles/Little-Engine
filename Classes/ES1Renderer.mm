@@ -60,8 +60,8 @@
 	//[self componentTest1];
 	
 	//[self componentTest2Button];
-	//[self componentTest3Joystick];
-	[self geTemplateManagerTest1];
+	[self componentTest3Joystick];
+	//[self geTemplateManagerTest1];
 }
 
 /*
@@ -354,16 +354,16 @@
 	gecAnimatedSprite *animation;
 	
 	animation = new gecAnimatedSprite();				//new gecAnimatedSpriteComponent
-	animation->addAnimation("walking", aVector2, ss2);	//add a full animation to the gec
-	animation->setCurrentAnimation("walking");			//we set it to walk ( just now )
+	animation->addAnimation("walk", aVector2, ss2);	//add a full animation to the gec
+	animation->setCurrentAnimation("walk");			//we set it to walk ( just now )
 	animation->setCurrentRunning(true);				//we set it to be ON ( just now )
 	animation->setCurrentRepeating(true);				//we set it to repeat ( Just now )
 	animation->setOwnerGE(anotherEntity);					//we must set the owner of this.
 	
-	gecVisualContainer *aContainer = new gecVisualContainer();	//new visual components container
+	/*gecVisualContainer *aContainer = new gecVisualContainer();	//new visual components container
 	aContainer->addGecVisual(animation);						//we add the animation component
-	
-	anotherEntity->setGEC(aContainer);
+	*/
+	anotherEntity->setGEC(animation);
 	anotherEntity->x = 240;
 	anotherEntity->y = 160;
 	anotherEntity->isActive = true;
@@ -377,14 +377,16 @@
 
 - (void) geTemplateManagerTest1
 {
-	GameEntity *gE		= aSceneManager->addEntity(GE_FACTORY->createGE("testDummy", 100.0f, 100.0f));
+	/*GameEntity *gE		= aSceneManager->addEntity(GE_FACTORY->createGE("testDummy", 240.0, 160.0));
 	GameEntity *joypadE = aSceneManager->addEntity(GE_FACTORY->createGE("joypad", 70.0f, 70.0f));
 	((gecJoystick *)joypadE->getGEC("CompGUI"))->subscribeGameEntity(gE);
 	
 	aSceneManager->addEntity(GE_FACTORY->createGE("buttonDummy", 240.0f, 160.0f));
+	*/
+	GameEntity *gE		= aSceneManager->addEntity(GE_FACTORY->createGE("testDummy",240.0f, 160.0f));
+	GameEntity *joypadE = aSceneManager->addEntity(GE_FACTORY->createGE("joypad", 70.0f, 70.0f));
 	
-	//aSceneManager->addEntity(GE_FACTORY->createGE("testDummy",240.0f, 160.0f));
-	
+	//((gecJoystick *)joypadE->getGEC("CompGUI"))->subscribeGameEntity(gE);
 }
 
 - (void) particlesTest

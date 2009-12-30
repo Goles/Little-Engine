@@ -108,7 +108,8 @@ Boolean gecJoystick::immGUI(float x, float y, int guiID)
 		if(INPUT_MANAGER->GUIState.fingerDown == true)
 		{
 			gAni->setCurrentAnimation("hot");
-			this->updateSubscriberAnimation("walk");		
+			
+			this->updateSubscriberAnimation("walk");	
 			this->updateVelocity(x, y);
 		}
 		else if(INPUT_MANAGER->GUIState.fingerDown == false && INPUT_MANAGER->GUIState.hotItem == guiID) //they are releasing over me
