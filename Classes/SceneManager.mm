@@ -19,17 +19,14 @@ SceneManager::SceneManager()
 
 #pragma mark drawing_updating
 void SceneManager::updateScene(float delta)
-{
+{	
 	ENTITY_VECTOR_ITERATOR it ;
 	
 	for(it = entityList.begin(); it < entityList.end(); it++)
 	{
-		if((*it) == NULL)
-			std::cout << "Helo!!" << std::endl;
-			
-		
-		if((*it)->isActive)
-			(*it)->update(delta);
+		if((*it) != NULL)
+			if((*it)->isActive)
+				(*it)->update(delta);
 	}
 }
 

@@ -27,7 +27,7 @@ public:
 	gecJoystick();
 	Boolean	outerRegionHit();
 	void	updateVelocity(float x, float y);
-	void	subscribeGameEntity(GameEntity *gE) { subscribedGE = gE; }
+	void	subscribeGameEntity(GameEntity *gE);
 	
 	void setShape(CGRect aShape);
 	CGRect getShape() const { return shape; }

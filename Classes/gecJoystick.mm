@@ -16,7 +16,15 @@ std::string gecJoystick::mComponentID = "gecJoystick";
 #pragma mark Contrstructor
 gecJoystick::gecJoystick()
 {
-	subscribedGE = NULL;
+	subscribedGE		= NULL;
+	shape.origin.x		= 0.0f;
+	shape.origin.y		= 0.0f;
+	shape.size.width	= 0.0f;
+	shape.size.height	= 0.0f;	
+	center.x			= 0.0f;
+	center.y			= 0.0f;
+	latestVelocity.x	= 0.0f;
+	latestVelocity.y	= 0.0f;	
 }
 
 #pragma mark gec_gui_interface
@@ -26,7 +34,7 @@ void gecJoystick::update(float delta) const
 	if(subscribedGE != NULL)
 	{
 		subscribedGE->x += delta*latestVelocity.x*150;
-		subscribedGE->y += delta*latestVelocity.y*150;		
+		subscribedGE->y += delta*latestVelocity.y*150;
 	}
 }
 
@@ -135,6 +143,13 @@ Boolean gecJoystick::immGUI(float x, float y, int guiID)
 	}
 	
 	return false; //button not activated.
+}
+
+void gecJoystick::subscribeGameEntity(GameEntity *gE)
+{
+	std::cout << " Macaroni " << std::endl;
+	
+	subscribedGE = gE;
 }
 
 void gecJoystick::updateSubscriberAnimation(const std::string &state)

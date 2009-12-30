@@ -60,8 +60,8 @@
 	//[self componentTest1];
 	
 	//[self componentTest2Button];
-	[self componentTest3Joystick];
-	//[self geTemplateManagerTest1];
+	//[self componentTest3Joystick];
+	[self geTemplateManagerTest1];
 }
 
 /*
@@ -369,7 +369,7 @@
 	anotherEntity->isActive = true;
 	
 	/*Bind Joystick to entity*/
-	jComp->subscribeGameEntity(anotherEntity);
+	//jComp->subscribeGameEntity(anotherEntity);
 	
 	aSceneManager->addEntity(anEntity);
 	aSceneManager->addEntity(anotherEntity);
@@ -377,16 +377,9 @@
 
 - (void) geTemplateManagerTest1
 {
-	/*GameEntity *gE		= aSceneManager->addEntity(GE_FACTORY->createGE("testDummy", 240.0, 160.0));
-	GameEntity *joypadE = aSceneManager->addEntity(GE_FACTORY->createGE("joypad", 70.0f, 70.0f));
-	((gecJoystick *)joypadE->getGEC("CompGUI"))->subscribeGameEntity(gE);
-	
-	aSceneManager->addEntity(GE_FACTORY->createGE("buttonDummy", 240.0f, 160.0f));
-	*/
 	GameEntity *gE		= aSceneManager->addEntity(GE_FACTORY->createGE("testDummy",240.0f, 160.0f));
 	GameEntity *joypadE = aSceneManager->addEntity(GE_FACTORY->createGE("joypad", 70.0f, 70.0f));
-	
-	//((gecJoystick *)joypadE->getGEC("CompGUI"))->subscribeGameEntity(gE);
+	((gecJoystick *)joypadE->getGEC("CompGUI"))->subscribeGameEntity(gE);
 }
 
 - (void) particlesTest
