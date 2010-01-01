@@ -19,13 +19,27 @@
 GETemplateManager* GETemplateManager::singletonInstance = NULL;
 
 #pragma mark constructor_init
-
 GETemplateManager* GETemplateManager::getInstance()
 {
 	if (singletonInstance == NULL)
 		singletonInstance = new GETemplateManager();
 	
 	return singletonInstance;
+}
+
+#pragma mark destructor
+
+GETemplateManager::~GETemplateManager()
+{
+	
+	std::map <std::string, MFP>::iterator it;
+	
+	for(it = fmap.begin(); it != fmap.end(); it++)
+	{
+		fmap.erase(it);
+	}
+	
+	delete singletonInstance;
 }
 
 GETemplateManager::GETemplateManager()

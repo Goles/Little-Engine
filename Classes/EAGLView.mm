@@ -46,7 +46,7 @@
 				return nil;
 			}
 		}
-        
+        [self setMultipleTouchEnabled:YES];
 		animating = FALSE;
 		displayLinkSupported = FALSE;
 		animationFrameInterval = 1;
@@ -157,8 +157,15 @@
 
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
 {	
-	UITouch *touch1;
-	CGPoint loc1;
+	UITouch *touch1,
+			*touch2;
+	
+	CGPoint loc1,
+			loc2;
+	
+	NSLog(@"Began!");
+	
+	
 	NSSet *allTouches = [event allTouches];
 	
 	switch ([allTouches count]) {
@@ -167,6 +174,14 @@
 			loc1   = [touch1 locationInView:self];
 			INPUT_MANAGER->touchesBegan(loc1.x, loc1.y);
 			break;
+		case 2:
+			touch1	= [[allTouches allObjects] objectAtIndex:0];
+			touch2	= [[allTouches allObjects] objectAtIndex:1];
+			loc1	= [touch1 locationInView:self];
+			loc2	= [touch2 locationInView:self];
+			
+			INPUT_MANAGER->touchesBegan(loc1.x, loc1.y);
+			INPUT_MANAGER->touchesBegan(loc2.x, loc2.y);
 		default:
 			break;
 	}
@@ -225,8 +240,14 @@
 
 - (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	UITouch *touch1;
-	CGPoint loc1;
+	UITouch *touch1,
+			*touch2;
+
+	CGPoint loc1,
+			loc2;
+	
+	NSLog(@"Moved!");
+	
 	NSSet *allTouches = [event allTouches];
 	
 	switch ([allTouches count]) {
@@ -235,6 +256,16 @@
 			loc1   = [touch1 locationInView:self];
 			INPUT_MANAGER->touchesMoved(loc1.x, loc1.y);
 			break;
+			
+		case 2:
+			touch1	= [[allTouches allObjects] objectAtIndex:0];
+			touch2	= [[allTouches allObjects] objectAtIndex:1];
+			loc1	= [touch1 locationInView:self];
+			loc2	= [touch2 locationInView:self];
+			
+			INPUT_MANAGER->touchesBegan(loc1.x, loc1.y);
+			INPUT_MANAGER->touchesBegan(loc2.x, loc2.y);
+			
 		default:
 			break;
 	}
@@ -249,8 +280,14 @@
 
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	UITouch *touch1;
-	CGPoint loc1;
+	UITouch *touch1,
+			*touch2;
+	
+	CGPoint loc1,
+			loc2;
+	
+		NSLog(@"Ended!");
+	
 	NSSet *allTouches = [event allTouches];
 	
 	switch ([allTouches count]) {
@@ -259,6 +296,16 @@
 			loc1   = [touch1 locationInView:self];
 			INPUT_MANAGER->touchesEnded(loc1.x, loc1.y);
 			break;
+			
+		case 2:
+			touch1	= [[allTouches allObjects] objectAtIndex:0];
+			touch2	= [[allTouches allObjects] objectAtIndex:1];
+			loc1	= [touch1 locationInView:self];
+			loc2	= [touch2 locationInView:self];
+			
+			INPUT_MANAGER->touchesBegan(loc1.x, loc1.y);
+			INPUT_MANAGER->touchesBegan(loc2.x, loc2.y);
+			
 		default:
 			break;
 	}

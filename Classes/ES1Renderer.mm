@@ -56,7 +56,7 @@
 {
 	[self initScenes];
 	
-	//[self particlesTest];
+	[self particlesTest];
 	//[self componentTest1];
 	
 	//[self componentTest2Button];
@@ -369,7 +369,7 @@
 	anotherEntity->isActive = true;
 	
 	/*Bind Joystick to entity*/
-	//jComp->subscribeGameEntity(anotherEntity);
+	jComp->subscribeGameEntity(anotherEntity);
 	
 	aSceneManager->addEntity(anEntity);
 	aSceneManager->addEntity(anotherEntity);
@@ -501,11 +501,11 @@
 	
 	delete PARTICLE_MANAGER;
 	delete TEXTURE_MANAGER;
+	delete GE_FACTORY;
 	
 	[context release];
 	context = nil;
-	
-	delete TEXTURE_MANAGER;
+
 	
 	[super dealloc];
 }
