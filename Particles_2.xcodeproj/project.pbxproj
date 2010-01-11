@@ -634,8 +634,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = /usr/local/include/;
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "24DDBB28-0762-4DBE-A783-D7DC29AA3F99";
-				SDKROOT = iphoneos3.1;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E28415BA-F430-44D5-9D8D-F3DF58855441";
+				SDKROOT = iphoneos3.1.2;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = "Release - Shark";
@@ -672,8 +672,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = /usr/local/include/;
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "24DDBB28-0762-4DBE-A783-D7DC29AA3F99";
-				SDKROOT = iphoneos3.1;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E28415BA-F430-44D5-9D8D-F3DF58855441";
+				SDKROOT = iphoneos3.1.2;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
@@ -694,8 +694,8 @@
 				HEADER_SEARCH_PATHS = /usr/local/include/;
 				OTHER_CFLAGS = "-falign-loops=16";
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "24DDBB28-0762-4DBE-A783-D7DC29AA3F99";
-				SDKROOT = iphoneos3.1;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E28415BA-F430-44D5-9D8D-F3DF58855441";
+				SDKROOT = iphoneos3.1.2;
 				STRIP_INSTALLED_PRODUCT = NO;
 				USER_HEADER_SEARCH_PATHS = "";
 			};

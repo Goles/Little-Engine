@@ -28,7 +28,8 @@ typedef struct
 	float x;
 	float y;
 	Boolean fingerDown;
-	int hotItem;	
+	int hotItem;	//ID of the hot GUI item.
+	void *touchPtr;	//Represents the pointer to the "Touch" event.
 } UIState;
 
 class GameEntity;
@@ -46,7 +47,7 @@ public:
 	void						touchesEnded(float x, float y);
 	int							giveID(){ return (++guiIDMax); }
 	
-	UIState GUIState; //public for easier accesibility
+	UIState GUIState[2]; //public for easier accesibility
 	
 	~SharedInputManager();
 		

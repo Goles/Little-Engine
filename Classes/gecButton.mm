@@ -40,7 +40,7 @@ Boolean gecButton::immGUI(float x, float y, int guiID)
 	GEComponent *gec = this->getOwnerGE()->getGEC(std::string("CompVisual")); //we obtain a gecAnimatedSprite
 	gecAnimatedSprite *gAni = static_cast<gecAnimatedSprite *> (gec);
 	
-	if(this->regionHit(x, y))
+	/*if(this->regionHit(x, y))
 	{
 		INPUT_MANAGER->GUIState.hotItem = guiID;
 		if(INPUT_MANAGER->GUIState.fingerDown == true)
@@ -51,7 +51,7 @@ Boolean gecButton::immGUI(float x, float y, int guiID)
 		{
 			//INPUT_MANAGER->GUIState.activeItem = guiID;
 			gAni->setCurrentAnimation("normal");
-			/*Trigger the activation methods of this particular button.*/
+			//Trigger the activation methods of this particular button.
 			//std::cout << "Active!!!!!!" << std::endl;
 			return true;
 		}
@@ -59,8 +59,9 @@ Boolean gecButton::immGUI(float x, float y, int guiID)
 	else {
 		gAni->setCurrentAnimation("normal");
 	}
-	
+	*/
 	return false; //button not activated.
+	
 }
 
 void gecButton::setShape(CGRect aRect)

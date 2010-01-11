@@ -23,11 +23,15 @@ SharedInputManager* SharedInputManager::getInstance()
 
 SharedInputManager::SharedInputManager()
 {
-	GUIState.x			= 0;
-	GUIState.y			= 0;
-	GUIState.fingerDown	= false;
-	GUIState.hotItem	= 0;
-	guiIDMax			= 0;
+	for(int i = 0; i < 2; i++)
+	{
+		GUIState[i].x			= 0;
+		GUIState[i].y			= 0;
+		GUIState[i].hotItem		= 0;
+		GUIState[i].fingerDown	= false;
+	}
+
+	guiIDMax = 0;
 }
 
 #pragma mark action_methods
@@ -61,9 +65,19 @@ void SharedInputManager::touchesBegan(float x, float y)
 	y = auxX;
 	
 	//We need to set the GUIState
-	GUIState.x = x;
-	GUIState.y = y;
-	GUIState.fingerDown = true;
+	
+	if(!GUIState[0].fingerDown)
+	{
+		GUIState[0].x = x;
+		GUIState[0].y = y;
+		GUIState[0].fingerDown = true;
+	}
+	else if(!GUIState[1].fingerDown)
+	{
+		GUIState[1].x = x;
+		GUIState[1].y = y;
+		GUIState[1].fingerDown = true;	
+	}
 	
 	this->broadcastInteraction(x, y);
 }
@@ -76,9 +90,9 @@ void SharedInputManager::touchesMoved(float x, float y)
 	y = auxX;
 	
 	//We need to set the GUIState
-	GUIState.x = x;
+	/*GUIState.x = x;
 	GUIState.y = y;
-	GUIState.fingerDown = true;
+	GUIState.fingerDown = true;*/
 	
 	this->broadcastInteraction(x, y);
 }
@@ -91,9 +105,9 @@ void SharedInputManager::touchesEnded(float x, float y)
 	y = auxX;
 	
 	//We need to set the GUIState
-	GUIState.x = x;
+	/*GUIState.x = x;
 	GUIState.y = y;
-	GUIState.fingerDown = false;
+	GUIState.fingerDown = false;*/
 	
 	this->broadcastInteraction(x, y);
 }
