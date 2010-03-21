@@ -56,12 +56,13 @@
 {
 	[self initScenes];
 	
-	[self particlesTest];
+	//[self particlesTest];
 	//[self componentTest1];
 	
 	//[self componentTest2Button];
 	//[self componentTest3Joystick];
 	[self geTemplateManagerTest1];
+	//[self particlesShowOff];
 }
 
 /*
@@ -256,6 +257,15 @@
 	aSceneManager->addEntity(anEntity4);
 	aSceneManager->addEntity(anEntity5);
 }
+
+- (void) particlesShowOff
+{
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainGiant, CGPointMake(160, 60) , "Particle2.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_Smoke, CGPointMake(240, 120) , "smoke.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainBig, CGPointMake(240, 100), "Particle2.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainGiant, CGPointMake(320, 60) , "Particle2.pvr"));
+}
+
 
 - (void) componentTest2Button
 {

@@ -20,14 +20,13 @@ public:
 	virtual ~GEComponent(){}
 	
 	//Action Methods
-	virtual const gec_id_type &familyID() const = 0;
-	virtual const gec_id_type &componentID() const = 0;
-	
-	virtual void update(float delta) const = 0;
+	virtual const gec_id_type&	familyID() const = 0;
+	virtual const gec_id_type&	componentID() const = 0;	
+	virtual void				update(float delta) const = 0;
 	
 	//Getters and setters.
-	void setOwnerGE(GameEntity *gE){ ownerGE = gE; }
-	GameEntity *getOwnerGE() const { return ownerGE; }
+	void		setOwnerGE(GameEntity *gE){ ownerGE = gE; }
+	GameEntity*	getOwnerGE() const { return ownerGE; }
 	
 protected:
 	GameEntity *ownerGE;

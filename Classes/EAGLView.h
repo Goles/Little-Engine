@@ -32,6 +32,9 @@
 	
 	/*Other Stuff*/
 	CFTimeInterval lastTime;
+	
+	void *touch1ID;
+	void *touch2ID;
 }
 
 @property (readonly, nonatomic, getter=isAnimating) BOOL animating;

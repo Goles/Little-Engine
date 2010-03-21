@@ -16,15 +16,22 @@ public:
 	virtual const gec_id_type &componentID() const { return mComponentID; }
 	virtual void update(float delta) const {}
 	
+	
 	//gecButton Interface
 public:
-	virtual Boolean regionHit(float x, float y);
-	virtual Boolean immGUI(float x, float y, int guiID);
+	//Constructor & Destructor
 	gecButton();
 	~gecButton();
-	void setShape(CGRect aShape);
-	CGRect getShape() const { return shape; }
-	boost::signal<void ()> sig;
+	
+	//Action Methods.
+	virtual Boolean regionHit(float x, float y);
+	virtual Boolean immGUI(float x, float y, int guiID);
+	
+	//Getter & Setter
+	void			setShape(CGRect aShape);
+	CGRect			getShape() const { return shape; }
+	
+	boost::signal<void ()> sig; // <= This should point to a method in the future.
 
 private:	
 	static gec_id_type mComponentID;

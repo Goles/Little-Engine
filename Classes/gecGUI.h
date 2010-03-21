@@ -13,15 +13,15 @@ class gecGUI: public GEComponent
 	//GEComponent interface
 public:
 	virtual const gec_id_type &familyID() const { return mFamilyID; }
-	void setOwnerGE(GameEntity *gE);
-	virtual void update(float delta) const {}
+	void			setOwnerGE(GameEntity *gE);
+	virtual void	update(float delta) const {}
 	
 	//gecGUI interface
-public:
 	virtual Boolean regionHit(float x, float y) = 0;
 	virtual Boolean immGUI(float x, float y, int guiID) = 0;
-	int getGuiID() const { return guiID; }
-	void setGuiID(int gid) { guiID = gid; } 
+	int				getGuiID() const { return guiID; }
+	void			setGuiID(int gid) { guiID = gid; } 
+
 protected:
 	int guiID;
 

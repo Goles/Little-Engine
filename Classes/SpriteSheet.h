@@ -36,14 +36,14 @@ public:
 	
 private:
 	// Class Atributes
-	Image	*sheetImage;		//This wil be the main spriteSheet image.
+	Image*	sheetImage;			//This wil be the main spriteSheet image.
 	GLuint	spriteWidth;		//One sprite width
 	GLuint	spriteHeight;		//One sprite height.
 	GLuint	spacing;			//This represents the separation between sprites.
 	int		horizontalNumber;	//Number of sprites un horizontal row.
 	int		verticalNumber;		//Number of sprites in vertical row.
-	Quad2	*vertices;			//Vertex array
-	Quad2	*texCoords;			//Texture Coordinates array
+	Quad2*	vertices;			//Vertex array
+	Quad2*	texCoords;			//Texture Coordinates array
 	
 	//Action Methods
 	void initImplementation(GLuint inSpriteWidth, GLuint inSpriteHeight, GLuint inSpacing, float inImageScale);

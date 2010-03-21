@@ -162,10 +162,7 @@
 	
 	CGPoint loc1,
 			loc2;
-	
-	NSLog(@"Began!");
-	
-	
+
 	NSSet *allTouches = [event allTouches];
 	
 	switch ([allTouches count]) {
@@ -177,6 +174,13 @@
 		case 2:
 			touch1	= [[allTouches allObjects] objectAtIndex:0];
 			touch2	= [[allTouches allObjects] objectAtIndex:1];
+			
+			//Get the touches ID's
+			touch1ID = &touch1;
+			touch2ID = &touch2;
+			
+			NSLog(@"ID1: %p\n ID2: %p\n",touch1ID, touch2ID);
+			
 			loc1	= [touch1 locationInView:self];
 			loc2	= [touch2 locationInView:self];
 			
@@ -185,57 +189,7 @@
 		default:
 			break;
 	}
-	
-	
-	
-	/*
-	
-	UITouch *touch1,
-			*touch2;
-	
-	CGPoint loc1,
-			loc2,
-			locAux;
-	
-	
-	NSSet *allTouches = [event allTouches];
-	
-	switch ([allTouches count]) 
-	{
-		case 1:
-			touch1	= [touches anyObject];
-			loc1	= [touch1 locationInView:self];
-			loc1.y	= SCREEN_HEIGHT - loc1.y + 20;
-			loc1.x	+= 20;
-			[[[renderer aSystem] systemEmitter] setCurrentFX:kEmmiterFX_none withSource:loc1 andEnd:loc1];
-			[[[renderer aSystem] systemRenderer] setContinuousRendering:YES];
-			//NSLog(@"(loc1X:%f | loc1Y:%f)",loc1.x,loc1.y);
-//			[[[renderer aSystem] systemEmitter] setEmitionSource:loc1];
-			break;
-		case 2:
-			touch1	= [[allTouches allObjects] objectAtIndex:0];
-			touch2	= [[allTouches allObjects] objectAtIndex:1];
-			loc1	= [touch1 locationInView:self];
-			loc2	= [touch2 locationInView:self];
-			
-			loc1.y	= SCREEN_HEIGHT - loc1.y;
-			loc2.y	= SCREEN_HEIGHT - loc2.y;
-			
-			if(loc1.y > loc2.y)
-			{
-				locAux	= loc2;
-				loc2	= loc1;
-				loc1	= locAux;
-			}
-			
-			[[[renderer aSystem] systemEmitter] setCurrentFX:kEmmiterFX_linear withSource:loc1 andEnd:loc2];
-			break;
-		default:
-			break;
-	}
-	
-	*/
-	//[[[renderer aSystem] systemEmitter] setEmitionSource:loc];
+
 }
 
 - (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
@@ -245,8 +199,6 @@
 
 	CGPoint loc1,
 			loc2;
-	
-	NSLog(@"Moved!");
 	
 	NSSet *allTouches = [event allTouches];
 	
@@ -269,13 +221,6 @@
 		default:
 			break;
 	}
-	/*UITouch * touch = [touches anyObject];
-	CGPoint loc = [touch locationInView:self];
-	loc.y = SCREEN_HEIGHT - loc.y + 20;
-	loc.x += 20;
-	
-	[[[renderer aSystem] systemEmitter] setCurrentFX:kEmmiterFX_none withSource:loc andEnd:loc];
-	 */
 }
 
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -285,8 +230,6 @@
 	
 	CGPoint loc1,
 			loc2;
-	
-		NSLog(@"Ended!");
 	
 	NSSet *allTouches = [event allTouches];
 	

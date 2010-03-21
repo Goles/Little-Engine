@@ -109,7 +109,7 @@ void SharedInputManager::broadcastInteraction(float x, float y)
 	{
 		if(((*it).second)->isActive)
 		{	GEComponent *gec = ((*it).second)->getGEC(std::string("CompGUI"));
-			gecGUI *gGUI	 = static_cast<gecGUI *> (gec);
+			gecGUI	*gGUI	 = static_cast<gecGUI *> (gec);
 			if( gGUI )
 			{
 				gGUI->immGUI(x, y, gGUI->getGuiID());

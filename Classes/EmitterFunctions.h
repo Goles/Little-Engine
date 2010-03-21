@@ -24,6 +24,7 @@ typedef enum
 	kParticleSystemFX_FountainSmall,
 	kParticleSystemFX_FountainMedium,
 	kParticleSystemFX_FountainBig,
+	kParticleSystemFX_FountainGiant,	
 	kParticleSystemFX_Smoke,
 } ParticleSystemFX;
 

@@ -29,11 +29,12 @@ public:
 	void	updateVelocity(float x, float y);
 	void	subscribeGameEntity(GameEntity *gE);
 	
-	void setShape(CGRect aShape);
-	CGRect getShape() const { return shape; }
-	void setCenter (float a, float b){ center.x = a; center.y = b; }
-	void setInRadius (float r ) { inRadius = r; }
-	void setOutRadius (float r ) { outRadius = r; }	
+	//Getters & Setters
+	void	setShape(CGRect aShape);
+	CGRect	getShape() const { return shape; }
+	void	setCenter (float a, float b){ center.x = a; center.y = b; }
+	void	setInRadius (float r ) { inRadius = r; }
+	void	setOutRadius (float r ) { outRadius = r; }	
 	
 protected:
 	void updateSubscriberAnimation(const std::string &state);

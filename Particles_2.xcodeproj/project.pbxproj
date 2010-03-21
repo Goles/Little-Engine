@@ -113,7 +113,7 @@
 		6386CFC910A4BC2200699925 /* SharedParticleSystemManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SharedParticleSystemManager.mm; sourceTree = "<group>"; };
 		6393910710A4B2F9006FDBCF /* gecParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecParticleSystem.h; sourceTree = "<group>"; };
 		6393910810A4B2F9006FDBCF /* gecParticleSystem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecParticleSystem.mm; sourceTree = "<group>"; };
-		6393911C10A4B6F9006FDBCF /* GameEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEntity.h; sourceTree = "<group>"; };
+		6393911C10A4B6F9006FDBCF /* GameEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = GameEntity.h; sourceTree = "<group>"; tabWidth = 4; usesTabs = 1; wrapsLines = 0; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		6393911D10A4B6F9006FDBCF /* GameEntity.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameEntity.mm; sourceTree = "<group>"; };
 		63A57DDB10BAD08400969196 /* prototypePlayerSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prototypePlayerSheet.png; sourceTree = "<group>"; };
 		63AFC58010C41BC500C473A8 /* smoke.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = smoke.pvr; sourceTree = "<group>"; };
@@ -453,6 +453,17 @@
 			name = GameEntity;
 			sourceTree = "<group>";
 		};
+		63CDD7C9114BE72000085062 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				63EECF9010C8C2A80098C3D0 /* gecButton.h */,
+				63EECF9110C8C2A80098C3D0 /* gecButton.mm */,
+				63EED4EB10CAE7510098C3D0 /* gecJoystick.h */,
+				63EED4EC10CAE7510098C3D0 /* gecJoystick.mm */,
+			);
+			name = components;
+			sourceTree = "<group>";
+		};
 		63E70D8710AC7557008ED32B /* SharedManagers */ = {
 			isa = PBXGroup;
 			children = (
@@ -473,10 +484,7 @@
 			children = (
 				63EECF7F10C8BFF20098C3D0 /* gecGUI.h */,
 				63EECF8010C8BFF20098C3D0 /* gecGUI.mm */,
-				63EECF9010C8C2A80098C3D0 /* gecButton.h */,
-				63EECF9110C8C2A80098C3D0 /* gecButton.mm */,
-				63EED4EB10CAE7510098C3D0 /* gecJoystick.h */,
-				63EED4EC10CAE7510098C3D0 /* gecJoystick.mm */,
+				63CDD7C9114BE72000085062 /* components */,
 			);
 			name = GUI;
 			sourceTree = "<group>";
@@ -634,7 +642,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = /usr/local/include/;
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "24DDBB28-0762-4DBE-A783-D7DC29AA3F99";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "745A7C0C-3FDC-42E0-9F4B-03158059E0B6";
 				SDKROOT = iphoneos3.1;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
@@ -672,7 +680,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = /usr/local/include/;
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "24DDBB28-0762-4DBE-A783-D7DC29AA3F99";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "745A7C0C-3FDC-42E0-9F4B-03158059E0B6";
 				SDKROOT = iphoneos3.1;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
@@ -694,7 +702,7 @@
 				HEADER_SEARCH_PATHS = /usr/local/include/;
 				OTHER_CFLAGS = "-falign-loops=16";
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "24DDBB28-0762-4DBE-A783-D7DC29AA3F99";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "745A7C0C-3FDC-42E0-9F4B-03158059E0B6";
 				SDKROOT = iphoneos3.1;
 				STRIP_INSTALLED_PRODUCT = NO;
 				USER_HEADER_SEARCH_PATHS = "";

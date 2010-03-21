@@ -41,12 +41,12 @@
 	BOOL viewSetup;
 	
 	// The OpenGL names for the framebuffer and renderbuffer used to render to this view
-	GLuint defaultFramebuffer, colorRenderbuffer;
+	GLuint		defaultFramebuffer, colorRenderbuffer;
 
-	Texture2D	*testTex;
-	Texture2D	*backgroundTex;
-	Image		*someImage;
-	Image		*particleTextures;
+	Texture2D*	testTex;
+	Texture2D*	backgroundTex;
+	Image*		someImage;
+	Image*		particleTextures;
 	
 	//Testing C++ stuff
 	SpriteSheet		*ss;
@@ -73,6 +73,7 @@
 - (void) componentTest1;
 - (void) componentTest2Button;
 - (void) componentTest3Joystick;
+- (void) particlesShowOff;
 - (void) textureManagerTest:(NSString *) inTextureName;
 - (void) geTemplateManagerTest1;
  

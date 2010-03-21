@@ -248,10 +248,10 @@ GameEntity* SharedParticleSystemManager::createParticleSystem(int k_InParticleFX
 			break;
 			
 		case kParticleSystemFX_FountainBig:
-			pSystemComponent	= new gecParticleSystem(50, YES, kRenderingMode_PointSprites);
+			pSystemComponent	= new gecParticleSystem(70, YES, kRenderingMode_PointSprites);
 			
 			[pSystemComponent->getParticleEmitter() setSystemXInitialSpeed:0
-															 initialYSpeed:6
+															 initialYSpeed:5
 																	xAccel:0
 																	yAccel:0.0
 															xAccelVariance:.2
@@ -266,6 +266,29 @@ GameEntity* SharedParticleSystemManager::createParticleSystem(int k_InParticleFX
 																	  size:64
 																startColor:Color3DMake(255, 127, 77, 0)
 																  endColor:Color3DMake(255, 127, 77, 0)];
+			
+			[pSystemComponent->getParticleEmitter() setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
+			break;
+			
+		case kParticleSystemFX_FountainGiant:
+			pSystemComponent	= new gecParticleSystem(1500, YES, kRenderingMode_PointSprites);
+			
+			[pSystemComponent->getParticleEmitter() setSystemXInitialSpeed:0
+															 initialYSpeed:8
+																	xAccel:0
+																	yAccel:0.0
+															xAccelVariance:.2
+															yAccelVariance:0.05
+																  xGravity:0
+																  yGravity:-0.15
+																  lifeTime:5
+														  lifespanVariance:4.9
+																	source:inPosition 
+															decreaseFactor:5	//Bigger means slower decrease. => Higher life time
+																  position:CGPointMake(160, 100)
+																	  size:32
+																startColor:Color3DMake(51, 51, 153, 0)
+																  endColor:Color3DMake(255, 10, 61, 0)];
 			
 			[pSystemComponent->getParticleEmitter() setCurrentFX:kEmmiterFX_none withSource:inPosition andEnd:CGPointZero];
 			break;

@@ -35,12 +35,12 @@ public:
 	virtual ~GameEntity(){ components.clear(); }
 	
 	//Getters & Setters
-	const Boolean getIsActive() const { return isActive; }
-	const void setIsActive(Boolean inActive) { isActive = inActive; }
+	const Boolean	getIsActive() const { return isActive; }
+	const void		setIsActive(Boolean inActive) { isActive = inActive; }
+	void			setGEC( GEComponent *newGEC );
+	GEComponent*	getGEC( const std::string &familyID );
 	
-	GEComponent *getGEC( const std::string &familyID );
-	void setGEC( GEComponent *newGEC );
-	void clearGECs();
+	void			clearGECs();
 	
 	//Functors	
 public:
@@ -49,7 +49,7 @@ public:
     class compareByX 
 	{
 	public:
-        bool operator()(GameEntity const *a, GameEntity const *b) { 
+	bool operator()(GameEntity const *a, GameEntity const *b) { 
             return (a->x < b->x);
         }
     };
@@ -74,6 +74,6 @@ private:
 	typedef std::pair<const std::string, GEComponent *> ComponentMapPair;
 	typedef std::vector<GEComponent *> ComponentVector;
 	
-	ComponentMap components;
+	ComponentMap	components;
 	ComponentVector rendereableComponents;
 };
