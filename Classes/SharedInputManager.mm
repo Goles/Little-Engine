@@ -57,7 +57,7 @@ void SharedInputManager::removeGameEntity(int guiID)
 }
 
 #pragma mark touch_management
-void SharedInputManager::touchesBegan(float x, float y)
+void SharedInputManager::touchesBegan(float x, float y, void *touchID)
 {
 	//Flip Parameters due to landscape mode
 	float auxX = x;
@@ -71,18 +71,20 @@ void SharedInputManager::touchesBegan(float x, float y)
 		GUIState[0].x = x;
 		GUIState[0].y = y;
 		GUIState[0].fingerDown = true;
+		GUIState[0].touchID	= touchID;
 	}
 	else if(!GUIState[1].fingerDown)
 	{
 		GUIState[1].x = x;
 		GUIState[1].y = y;
-		GUIState[1].fingerDown = true;	
+		GUIState[1].fingerDown = true;
+		GUIState[1].touchID = touchID;
 	}
 	
-	this->broadcastInteraction(x, y);
+	this->broadcastInteraction(x, y, touchID);
 }
 
-void SharedInputManager::touchesMoved(float x, float y)
+void SharedInputManager::touchesMoved(float x, float y, void *touchID)
 {
 	//Flip Parameters due to landscape mode
 	float auxX = x;
@@ -94,39 +96,36 @@ void SharedInputManager::touchesMoved(float x, float y)
 	GUIState.y = y;
 	GUIState.fingerDown = true;*/
 	
-	this->broadcastInteraction(x, y);
+	this->broadcastInteraction(x, y, touchID);
 }
 
-void SharedInputManager::touchesEnded(float x, float y)
+void SharedInputManager::touchesEnded(float x, float y, void *touchID)
 {
 	//Flip Parameters due to landscape mode
 	float auxX = x;
 	x = y;
 	y = auxX;
 	
-	//We need to set the GUIState
-	/*GUIState.x = x;
-	GUIState.y = y;
-	GUIState.fingerDown = false;*/
+//	for(
 	
-	this->broadcastInteraction(x, y);
+	this->broadcastInteraction(x, y, touchID);
 }
 
-void SharedInputManager::broadcastInteraction(float x, float y)
+void SharedInputManager::broadcastInteraction(float x, float y, void *touchID)
 {	
 	gameEntityMap::iterator it;
 	
 	//std::cout << "X :" << x << " Y: " << y << std::endl;
 	
 	/*We tell every component the is subscribed that we have touched it.*/
-	for (it = receiversMap.begin(); it != receiversMap.end(); it++)
+	for (it = receiversMap.begin(); it != receiversMap.end(); ++it)
 	{
 		if(((*it).second)->isActive)
 		{	GEComponent *gec = ((*it).second)->getGEC(std::string("CompGUI"));
-			gecGUI *gGUI	 = static_cast<gecGUI *> (gec);
+			gecGUI *gGUI = static_cast<gecGUI *> (gec);
 			if( gGUI )
 			{
-				gGUI->immGUI(x, y, gGUI->getGuiID());
+				gGUI->immGUI(x, y, gGUI->getGuiID(), touchID); //Trigger the immGUI handler.
 			}
 		}
 	}

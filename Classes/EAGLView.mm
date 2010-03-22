@@ -153,14 +153,21 @@
 	}
 }
 
+#pragma mark -
 #pragma mark touches
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	//CGPoint Location;
-	for ( UITouch* Touch in touches )
+	CGPoint loc;
+	
+	for ( UITouch* aTouch in touches )
 	{
-		printf( "Touch began %08X, tapcount %d\n", (void *) Touch, [Touch tapCount] );
-		fflush( stdout );
+		if([aTouch tapCount] <= MAX_TOUCHES)
+		{
+			loc = [aTouch locationInView:self];
+			INPUT_MANAGER->touchesBegan(loc.x, loc.y, aTouch);
+			printf( "Touch began %p, tapcount %d\n", (void *) aTouch, [aTouch tapCount] );
+			fflush( stdout );			
+		}
 	}
 }
 
@@ -168,8 +175,11 @@
 {  
 	for ( UITouch* Touch in touches )
 	{
-		printf( "Touch moved %08X, tapcount %d\n", (void*)Touch, [Touch tapCount] );
-		fflush( stdout );
+		if([Touch tapCount] <= MAX_TOUCHES)
+		{
+			printf( "Touch moved %p, tapcount %d\n", (void*)Touch, [Touch tapCount] );
+			fflush( stdout );			
+		}
 	}
 }
 
@@ -177,8 +187,11 @@
 {
 	for ( UITouch* Touch in touches )
 	{
-		printf( "Touch ended %08X, tapcount %d\n", (void*)Touch, [Touch tapCount] );
-		fflush( stdout );
+		if([Touch tapCount] <= MAX_TOUCHES)
+		{
+			printf( "Touch ended %p, tapcount %d\n", (void*)Touch, [Touch tapCount] );
+			fflush( stdout );			
+		}
 	}
 }
 //- (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event

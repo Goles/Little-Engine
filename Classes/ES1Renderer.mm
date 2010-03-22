@@ -56,12 +56,7 @@
 {
 	[self initScenes];
 	
-	[self particlesTest];
-	//[self componentTest1];
-	
-	//[self componentTest2Button];
-	//[self componentTest3Joystick];
-	[self geTemplateManagerTest1];
+	[self componentTest2Button];
 }
 
 /*
