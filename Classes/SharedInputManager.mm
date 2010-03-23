@@ -65,23 +65,18 @@ void SharedInputManager::touchesBegan(float x, float y, void *touchID)
 	y = auxX;
 	
 	//We need to set the GUIState
-	
-	if(!GUIState[0].fingerDown)
+	for(int i = 0; i < MAX_TOUCHES; i++)
 	{
-		GUIState[0].x = x;
-		GUIState[0].y = y;
-		GUIState[0].fingerDown = true;
-		GUIState[0].touchID	= touchID;
+		if(!GUIState[i].fingerDown)
+		{
+			GUIState[i].x = x;
+			GUIState[i].y = y;
+			GUIState[i].fingerDown = true;
+			GUIState[i].touchID	= touchID;
+			this->broadcastInteraction(x, y, touchID);
+			break; //
+		}
 	}
-	else if(!GUIState[1].fingerDown)
-	{
-		GUIState[1].x = x;
-		GUIState[1].y = y;
-		GUIState[1].fingerDown = true;
-		GUIState[1].touchID = touchID;
-	}
-	
-	this->broadcastInteraction(x, y, touchID);
 }
 
 void SharedInputManager::touchesMoved(float x, float y, void *touchID)
@@ -106,7 +101,19 @@ void SharedInputManager::touchesEnded(float x, float y, void *touchID)
 	x = y;
 	y = auxX;
 	
-//	for(
+	//We need to set the GUIState
+	for(int i = 0; i < MAX_TOUCHES; i++)
+	{
+		if(GUIState[i].fingerDown && (GUIState[i].touchID == touchID))
+		{
+			GUIState[i].x = x;
+			GUIState[i].y = y;
+			GUIState[i].fingerDown = false;
+			GUIState[i].touchID	= touchID;
+			this->broadcastInteraction(x, y, touchID);
+			break;
+		}
+	}
 	
 	this->broadcastInteraction(x, y, touchID);
 }

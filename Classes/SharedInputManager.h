@@ -21,7 +21,7 @@
 #include <map>
 
 #define INPUT_MANAGER SharedInputManager::getInstance()
-#define MAX_TOUCHES 2
+#define MAX_TOUCHES 10
 
 //The input manager will track the UIstate
 typedef struct

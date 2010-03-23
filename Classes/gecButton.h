@@ -7,6 +7,7 @@
 //
 
 #include <boost/signal.hpp>
+#include <iostream>
 #include "gecGUI.h"
 
 class gecButton : public gecGUI

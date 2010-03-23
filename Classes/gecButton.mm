@@ -44,32 +44,41 @@ Boolean gecButton::immGUI(float x, float y, int guiID, void *touchID)
 	
 	if(this->regionHit(x, y))
 	{
-
 		for(int i = 0; i < MAX_TOUCHES; i++)
 		{
-			if(INPUT_MANAGER->GUIState[i].fingerDown && INPUT_MANAGER->GUIState.touchID)
+			if(INPUT_MANAGER->GUIState[i].touchID == touchID) //
 			{
-				gAni
+				if(INPUT_MANAGER->GUIState[i].fingerDown)
+				{
+					gAni->setCurrentAnimation("hot");
+					std::cout << "Hot" << std::endl;
+					return true;
+				}
+				else if(!INPUT_MANAGER->GUIState[i].fingerDown)
+				{
+					//INPUT_MANAGER->GUIState.activeItem = guiID;
+					gAni->setCurrentAnimation("normal");
+					//Trigger the activation methods of this particular button.
+					//std::cout << "Active!!!!!!" << std::endl;
+					return true;
+				}
 			}
 		}
-	/*	INPUT_MANAGER->GUIState.hotItem = guiID;
-		if(INPUT_MANAGER->GUIState.fingerDown == true)
+	}
+	else
+	{
+		for(int i = 0; i < MAX_TOUCHES; i++)
 		{
-			gAni->setCurrentAnimation("hot");
+			if(touchID == INPUT_MANAGER->GUIState[i].touchID)
+			{
+				gAni->setCurrentAnimation("normal");
+				std::cout << "Normal" << std::endl;
+				return true;
+			}
 		}
-		else if(INPUT_MANAGER->GUIState.fingerDown == false && INPUT_MANAGER->GUIState.hotItem == guiID) //they are releasing over me
-		{
-			//INPUT_MANAGER->GUIState.activeItem = guiID;
-			gAni->setCurrentAnimation("normal");
-			//Trigger the activation methods of this particular button.
-			//std::cout << "Active!!!!!!" << std::endl;
-			return true;
-		}*/
 		
 	}
-	else {
-		gAni->setCurrentAnimation("normal");
-	}
+
 	
 	return false; //button not activated.
 	

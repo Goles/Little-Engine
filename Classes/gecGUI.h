@@ -20,11 +20,16 @@ public:
 public:
 	virtual Boolean regionHit(float x, float y) = 0;
 	virtual Boolean immGUI(float x, float y, int guiID, void *touchID) = 0;
-	int getGuiID() const { return guiID; }
-	void setGuiID(int gid) { guiID = gid; } 
+	int		getGuiID() const { return guiID; }
+	void	setGuiID(int gid) { guiID = gid; } 
+	bool	getLocked() { return locked; }
+	void	setLocked(bool l) { locked = l; }
+	
+	//	
 protected:
 	int guiID;
 
 private:
-	static gec_id_type mFamilyID;
+	static	gec_id_type mFamilyID;
+	bool	locked;
 };
