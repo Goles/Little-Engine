@@ -45,10 +45,13 @@ GETemplateManager::~GETemplateManager()
 GETemplateManager::GETemplateManager()
 {
 	/*We must insert all our member functions into our map*/
+	fmap.insert( std::make_pair( "broly",			&GETemplateManager::broly ));
+	fmap.insert( std::make_pair( "hitter1",			&GETemplateManager::hitter1 ));
 	fmap.insert( std::make_pair( "testDummy",		&GETemplateManager::testDummy ));
 	fmap.insert( std::make_pair( "joypad",			&GETemplateManager::joypad ));
 	fmap.insert( std::make_pair( "buttonDummy",		&GETemplateManager::buttonDummy ));
 	fmap.insert( std::make_pair( "pixelDummy",		&GETemplateManager::pixelDummy ));
+	fmap.insert( std::make_pair( "backgroundDummy",	&GETemplateManager::backgroundDummy ));
 }
 
 #pragma mark action_methods
@@ -59,6 +62,96 @@ GameEntity* GETemplateManager::createGE(const std::string &geName, float x, floa
 }
 
 #pragma mark factory_methods
+//Creates a broly entity
+GameEntity* GETemplateManager::broly(float x, float y)
+{
+	GameEntity *gE = new GameEntity();
+	
+	SpriteSheet *ss = new SpriteSheet();
+	ss->initWithImageNamed("brolyLightUltima.png", 80, 80, 0.0, 1.0);
+	
+	gecAnimatedSprite *spriteAnimations = new gecAnimatedSprite();
+	spriteAnimations->setOwnerGE(gE);
+	
+	std::vector<int>	coordStand,
+						coordWalk;
+	
+	coordStand.push_back(0);
+	coordStand.push_back(0);
+	
+	coordWalk.push_back(1);
+	coordWalk.push_back(0);
+	coordWalk.push_back(2);
+	coordWalk.push_back(0);
+	coordWalk.push_back(3);
+	coordWalk.push_back(0);	
+	coordWalk.push_back(4);
+	coordWalk.push_back(0);	
+	coordWalk.push_back(5);
+	coordWalk.push_back(0);	
+	coordWalk.push_back(6);
+	coordWalk.push_back(0);
+	
+	/*Add the animations to the sprite*/	
+	spriteAnimations->addAnimation("walk", coordWalk, ss);
+	spriteAnimations->addAnimation("stand", coordStand, ss);
+	
+	/*The Default animation is stand and it's running*/
+	spriteAnimations->setCurrentAnimation(std::string("stand"));
+	spriteAnimations->setCurrentRunning(true);
+	
+	//add the sprite animations to our game entity, make it active and set it's position
+	gE->setGEC(spriteAnimations);
+	gE->isActive = true;
+	gE->x = x;
+	gE->y = y;
+	
+	return gE;		
+}
+
+//Creates a hitter1 Entity
+GameEntity* GETemplateManager::hitter1(float x, float y)
+{
+	GameEntity *gE = new GameEntity();
+	
+	SpriteSheet *ss = new SpriteSheet();
+	ss->initWithImageNamed("slowHitter1.png", 80, 80, 0.0, 1.0);
+	
+	gecAnimatedSprite *spriteAnimations = new gecAnimatedSprite();
+	spriteAnimations->setOwnerGE(gE);
+	
+	std::vector<int>	coordStand,
+						coordWalk;
+	
+	coordStand.push_back(0);
+	coordStand.push_back(0);
+	coordWalk.push_back(1);
+	coordWalk.push_back(0);
+	coordWalk.push_back(2);
+	coordWalk.push_back(0);
+	coordWalk.push_back(3);
+	coordWalk.push_back(0);	
+	coordWalk.push_back(4);
+	coordWalk.push_back(0);
+	
+	/*Add the animations to the sprite*/	
+	spriteAnimations->addAnimation("walk", coordWalk, ss);
+	spriteAnimations->addAnimation("stand", coordStand, ss);
+	
+	/*The Default animation is stand and it's running*/
+	spriteAnimations->setCurrentAnimation(std::string("stand"));
+	spriteAnimations->setCurrentRunning(true);	
+	
+	//add the sprite animations to our game entity, make it active and set it's position
+	gE->setGEC(spriteAnimations);
+	gE->isActive = true;
+	gE->x = x;
+	gE->y = y;
+	
+	return gE;
+}
+
+//Creates a testDummy Entity
 GameEntity* GETemplateManager::testDummy(float x, float y)
 {
 	GameEntity *gE = new GameEntity();
@@ -123,6 +216,7 @@ GameEntity* GETemplateManager::testDummy(float x, float y)
 	return gE;	
 }
 
+//Creates a joystick Entity
 GameEntity* GETemplateManager::joypad(float x, float y)
 {
 	GameEntity *anEntity = new GameEntity();
@@ -162,6 +256,7 @@ GameEntity* GETemplateManager::joypad(float x, float y)
 	return anEntity;
 }
 
+//Creates a Button Entity
 GameEntity* GETemplateManager::buttonDummy(float x, float y)
 {
 	GameEntity *anEntity = new GameEntity();
@@ -202,6 +297,37 @@ GameEntity* GETemplateManager::buttonDummy(float x, float y)
 	return anEntity;
 }
 
+//Creates a background 480x320 entity
+GameEntity* GETemplateManager::backgroundDummy(float x, float y)
+{
+	GameEntity *gE = new GameEntity();
+	
+	SpriteSheet *ss = new SpriteSheet();
+	ss->initWithImageNamed("scenario1a.png", 480, 320, 0.0, 1.0);
+	
+	gecAnimatedSprite *spriteAnimations = new gecAnimatedSprite();
+	spriteAnimations->setOwnerGE(gE);
+	
+	std::vector<int>	coordBack;
+	coordBack.push_back(0);
+	coordBack.push_back(0);
+	
+	/*Add the animations to the sprite*/
+	spriteAnimations->addAnimation("display",coordBack, ss);
+	
+	/*The Default animation is stand and it's running*/
+	spriteAnimations->setCurrentAnimation(std::string("display"));
+	spriteAnimations->setCurrentRunning(true);
+	
+	gE->setGEC(spriteAnimations);
+	gE->isActive = true;
+	gE->x = x;
+	gE->y = y;
+	
+	return gE;
+}
+
+//Creates a 4x4 Pixel Entity
 GameEntity* GETemplateManager::pixelDummy(float x, float y)
 {
 	GameEntity *anEntity = new GameEntity();

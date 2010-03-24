@@ -33,8 +33,8 @@ void gecJoystick::update(float delta) const
 	/*Updating the component or other components dependant of it happens here*/
 	if(subscribedGE != NULL)
 	{
-		subscribedGE->x += delta*latestVelocity.x*150;
-		subscribedGE->y += delta*latestVelocity.y*150;
+		subscribedGE->x += floor(delta*latestVelocity.x*150);
+		subscribedGE->y += floor(delta*latestVelocity.y*150);
 	}
 }
 

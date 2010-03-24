@@ -61,7 +61,8 @@
 	
 	//[self componentTest2Button];
 	//[self componentTest3Joystick];
-	[self geTemplateManagerTest1];
+	//[self geTemplateManagerTest1];
+	[self geBrolyTest2];
 	//[self particlesShowOff];
 }
 
@@ -392,6 +393,14 @@
 	((gecJoystick *)joypadE->getGEC("CompGUI"))->subscribeGameEntity(gE);
 }
 
+- (void) geBrolyTest2
+{
+	aSceneManager->addEntity(GE_FACTORY->createGE("backgroundDummy", 240.0f, 160.0f ));
+	GameEntity *broly	= aSceneManager->addEntity(GE_FACTORY->createGE("broly", 240.0f, 160.0f));
+	GameEntity *joypadE	= aSceneManager->addEntity(GE_FACTORY->createGE("joypad", 70.0f, 70.0f));
+	((gecJoystick *)joypadE->getGEC("CompGUI"))->subscribeGameEntity(broly);
+}
+
 - (void) particlesTest
 {		
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(50, 100) , "Particle2.pvr"));
@@ -456,6 +465,7 @@
 		[self setupView];
 		viewSetup = YES;
 	}
+	
 	
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);

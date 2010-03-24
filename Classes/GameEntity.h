@@ -25,7 +25,7 @@ class GEComponent;
 class GameEntity
 {
 public:
-	float x,y;
+	float	x,y;
 	Boolean	isActive;
 	
 	//Virtual Methods.

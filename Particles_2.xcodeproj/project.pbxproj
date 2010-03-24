@@ -47,6 +47,12 @@
 		63C557AB108CFA0200E77DBC /* Image.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63C557AA108CFA0200E77DBC /* Image.mm */; };
 		63D45E8610CB73FB00CB32F5 /* joystick_tes.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D45E8510CB73FB00CB32F5 /* joystick_tes.png */; };
 		63E4F9FC107A2E8900FA74AE /* HardwareClock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63E4F9FB107A2E8900FA74AE /* HardwareClock.cpp */; };
+		63E68E791159511D00F2BC31 /* scenario1a.png in Resources */ = {isa = PBXBuildFile; fileRef = 63E68E781159511D00F2BC31 /* scenario1a.png */; };
+		63E68EB91159584800F2BC31 /* brolySheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 63E68EB81159584800F2BC31 /* brolySheet.png */; };
+		63E68EDB11595EC100F2BC31 /* brolySheetComic.png in Resources */ = {isa = PBXBuildFile; fileRef = 63E68EDA11595EC100F2BC31 /* brolySheetComic.png */; };
+		63E68F0D11596BE100F2BC31 /* brolySheetSF.png in Resources */ = {isa = PBXBuildFile; fileRef = 63E68F0C11596BE100F2BC31 /* brolySheetSF.png */; };
+		63E68F3411596FD500F2BC31 /* slowHitter1.png in Resources */ = {isa = PBXBuildFile; fileRef = 63E68F3311596FD500F2BC31 /* slowHitter1.png */; };
+		63E68F471159774300F2BC31 /* brolyLightUltima.png in Resources */ = {isa = PBXBuildFile; fileRef = 63E68F461159774300F2BC31 /* brolyLightUltima.png */; };
 		63E70D8A10AC756D008ED32B /* SharedTextureManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63E70D8910AC756D008ED32B /* SharedTextureManager.mm */; };
 		63EECF8110C8BFF20098C3D0 /* gecGUI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63EECF8010C8BFF20098C3D0 /* gecGUI.mm */; };
 		63EECF9210C8C2A80098C3D0 /* gecButton.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63EECF9110C8C2A80098C3D0 /* gecButton.mm */; };
@@ -131,6 +137,12 @@
 		63D45E8510CB73FB00CB32F5 /* joystick_tes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = joystick_tes.png; sourceTree = "<group>"; };
 		63E4F9FA107A2E8900FA74AE /* HardwareClock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HardwareClock.h; sourceTree = "<group>"; };
 		63E4F9FB107A2E8900FA74AE /* HardwareClock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HardwareClock.cpp; sourceTree = "<group>"; };
+		63E68E781159511D00F2BC31 /* scenario1a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scenario1a.png; sourceTree = "<group>"; };
+		63E68EB81159584800F2BC31 /* brolySheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brolySheet.png; sourceTree = "<group>"; };
+		63E68EDA11595EC100F2BC31 /* brolySheetComic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brolySheetComic.png; sourceTree = "<group>"; };
+		63E68F0C11596BE100F2BC31 /* brolySheetSF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brolySheetSF.png; sourceTree = "<group>"; };
+		63E68F3311596FD500F2BC31 /* slowHitter1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slowHitter1.png; sourceTree = "<group>"; };
+		63E68F461159774300F2BC31 /* brolyLightUltima.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brolyLightUltima.png; sourceTree = "<group>"; };
 		63E70D8810AC756D008ED32B /* SharedTextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedTextureManager.h; sourceTree = "<group>"; };
 		63E70D8910AC756D008ED32B /* SharedTextureManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SharedTextureManager.mm; sourceTree = "<group>"; };
 		63EECF7F10C8BFF20098C3D0 /* gecGUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecGUI.h; sourceTree = "<group>"; };
@@ -222,6 +234,12 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				63E68EB81159584800F2BC31 /* brolySheet.png */,
+				63E68EDA11595EC100F2BC31 /* brolySheetComic.png */,
+				63E68F0C11596BE100F2BC31 /* brolySheetSF.png */,
+				63E68F461159774300F2BC31 /* brolyLightUltima.png */,
+				63E68F3311596FD500F2BC31 /* slowHitter1.png */,
+				63E68E781159511D00F2BC31 /* scenario1a.png */,
 				63F830A410E176A600B27131 /* pixel.png */,
 				63D45E8510CB73FB00CB32F5 /* joystick_tes.png */,
 				63EED41B10C9CCCD0098C3D0 /* buttons_test.png */,
@@ -543,6 +561,12 @@
 				63EED41C10C9CCCD0098C3D0 /* buttons_test.png in Resources */,
 				63D45E8610CB73FB00CB32F5 /* joystick_tes.png in Resources */,
 				63F830A510E176A600B27131 /* pixel.png in Resources */,
+				63E68E791159511D00F2BC31 /* scenario1a.png in Resources */,
+				63E68EB91159584800F2BC31 /* brolySheet.png in Resources */,
+				63E68EDB11595EC100F2BC31 /* brolySheetComic.png in Resources */,
+				63E68F0D11596BE100F2BC31 /* brolySheetSF.png in Resources */,
+				63E68F3411596FD500F2BC31 /* slowHitter1.png in Resources */,
+				63E68F471159774300F2BC31 /* brolyLightUltima.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
