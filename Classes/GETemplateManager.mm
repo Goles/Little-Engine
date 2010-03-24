@@ -65,10 +65,15 @@ GameEntity* GETemplateManager::createGE(const std::string &geName, float x, floa
 //Creates a broly entity
 GameEntity* GETemplateManager::broly(float x, float y)
 {
-	GameEntity *gE = new GameEntity();
+	//This is usually the width/height of the sprite.
+	float	width	= 80,
+			height	= 80;
 	
+	GameEntity *gE = new GameEntity(x, y, width, height);
+	
+	//Load the spriteSheet.
 	SpriteSheet *ss = new SpriteSheet();
-	ss->initWithImageNamed("brolyLightUltima.png", 80, 80, 0.0, 1.0);
+	ss->initWithImageNamed("brolySheetComic.png", gE->width, gE->height, 0.0, 1.0);
 	
 	gecAnimatedSprite *spriteAnimations = new gecAnimatedSprite();
 	spriteAnimations->setOwnerGE(gE);
@@ -103,19 +108,21 @@ GameEntity* GETemplateManager::broly(float x, float y)
 	//add the sprite animations to our game entity, make it active and set it's position
 	gE->setGEC(spriteAnimations);
 	gE->isActive = true;
-	gE->x = x;
-	gE->y = y;
-	
+
 	return gE;		
 }
 
 //Creates a hitter1 Entity
 GameEntity* GETemplateManager::hitter1(float x, float y)
 {
-	GameEntity *gE = new GameEntity();
+	//This is usually the width/height of the sprite.
+	float	width	= 80,
+			height	= 80;
+	
+	GameEntity *gE = new GameEntity(x, y, width, height);
 	
 	SpriteSheet *ss = new SpriteSheet();
-	ss->initWithImageNamed("slowHitter1.png", 80, 80, 0.0, 1.0);
+	ss->initWithImageNamed("slowHitter1.png", gE->height, gE->width, 0.0, 1.0);
 	
 	gecAnimatedSprite *spriteAnimations = new gecAnimatedSprite();
 	spriteAnimations->setOwnerGE(gE);
@@ -300,10 +307,14 @@ GameEntity* GETemplateManager::buttonDummy(float x, float y)
 //Creates a background 480x320 entity
 GameEntity* GETemplateManager::backgroundDummy(float x, float y)
 {
-	GameEntity *gE = new GameEntity();
+	//This is usually the width/height of the sprite.
+	float	width	= 480,
+			height	= 320;
+	
+	GameEntity *gE = new GameEntity(x, y, width, height);
 	
 	SpriteSheet *ss = new SpriteSheet();
-	ss->initWithImageNamed("scenario1a.png", 480, 320, 0.0, 1.0);
+	ss->initWithImageNamed("scenario1a.png", gE->width, gE->height, 0.0, 1.0);
 	
 	gecAnimatedSprite *spriteAnimations = new gecAnimatedSprite();
 	spriteAnimations->setOwnerGE(gE);

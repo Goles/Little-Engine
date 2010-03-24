@@ -36,7 +36,7 @@ private:
 	typedef std::map<const std::string, Animation*> AnimationMap;
 	typedef std::pair<const std::string, Animation*> AnimationMapPair;
 	
-	static gec_id_type mGECTypeID;
-	Animation *currentAnimation;
-	AnimationMap componentAnimations;
+	static gec_id_type	mGECTypeID;
+	Animation*			currentAnimation;
+	AnimationMap		componentAnimations;
 };

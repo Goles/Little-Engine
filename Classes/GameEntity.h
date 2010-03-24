@@ -7,13 +7,10 @@
 //
 
 /*
- *
  *	This is the GameEntity Abstract Class, should be used to create new kinds of GameEntities
  *	If a game element is declared a "GameEntity", the engine will asume it implements all the "GameEntity"
- *	methods in a correct/suitable way.
- *	
+ *	methods in a correct/suitable way.	
  *	_NG
- *
  */
 
 #include <iostream>
@@ -25,11 +22,18 @@ class GEComponent;
 class GameEntity
 {
 public:
-	float	x,y;
+	float	x,
+			y,
+			height,	//Limits (height and width) of our Entity.
+			width;
 	Boolean	isActive;
 	
+	//Constructors
+	GameEntity();
+	GameEntity(float x, float y);
+	GameEntity(float inX, float inY, int inWidth, int inHeight);
+	
 	//Virtual Methods.
-	GameEntity(){}
 	virtual void draw(){}
 	virtual void update(float delta);
 	virtual ~GameEntity(){ components.clear(); }
@@ -39,7 +43,6 @@ public:
 	const void		setIsActive(Boolean inActive) { isActive = inActive; }
 	void			setGEC( GEComponent *newGEC );
 	GEComponent*	getGEC( const std::string &familyID );
-	
 	void			clearGECs();
 	
 	//Functors	
@@ -61,7 +64,7 @@ public:
 	public:
         bool operator()(GameEntity const *a, GameEntity const *b) 
 		{ 
-            return (a->y > b->y);
+            return ((a->y + (a->height/2)) > (b->y + (b->height/2)) );
         }
     };
 

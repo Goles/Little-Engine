@@ -7,11 +7,31 @@
 //
 
 #import "GameEntity.h"
+#import "GEComponent.h"
 
-#ifndef _INCL_GECOMPONENT
-#define _INCL_GECOMPONENT
-	#import "GEComponent.h"
-#endif
+GameEntity::GameEntity()
+{
+	height = 0.0f;
+	width = 0.0f;	
+	x = 0.0f;
+	y = 0.0f;
+}
+
+GameEntity::GameEntity(float inX, float inY)
+{
+	height = 0.0f;
+	width = 0.0f;
+	x = inX;
+	y = inY;
+}
+
+GameEntity::GameEntity(float inX, float inY, int inWidth, int inHeight)
+{
+	height = inHeight;
+	width = inWidth;
+	x = inX;
+	y = inY;
+}
 
 void GameEntity::setGEC( GEComponent *newGEC )
 {
@@ -29,7 +49,7 @@ void GameEntity::update(float delta)
 {
 	ComponentMap::iterator it;
 	
-	for(it = components.begin(); it != components.end(); it++)
+	for(it = components.begin(); it != components.end(); ++it)
 	{
 		(*it).second->update(delta);
 	}

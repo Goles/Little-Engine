@@ -395,6 +395,8 @@
 
 - (void) geBrolyTest2
 {
+	aSceneManager->addEntity(GE_FACTORY->createGE("hitter1", 130.0f, 150.0f));
+	aSceneManager->addEntity(GE_FACTORY->createGE("hitter1", 180.0f, 170.0f));	
 	aSceneManager->addEntity(GE_FACTORY->createGE("backgroundDummy", 240.0f, 160.0f ));
 	GameEntity *broly	= aSceneManager->addEntity(GE_FACTORY->createGE("broly", 240.0f, 160.0f));
 	GameEntity *joypadE	= aSceneManager->addEntity(GE_FACTORY->createGE("joypad", 70.0f, 70.0f));
