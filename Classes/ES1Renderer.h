@@ -64,15 +64,8 @@
 - (void) initScenes;
 
 /*Tests*/
-- (void) sceneManagerTest2Sort;
-- (void) spriteSheetTest;
+- (void) multiTouchTest;
 - (void) particlesTest;
-- (void) animationTest;
-- (void) animationTest2;
-- (void) animationTest3;
-- (void) componentTest1;
-- (void) componentTest2Button;
-- (void) componentTest3Joystick;
 - (void) particlesShowOff;
 - (void) textureManagerTest:(NSString *) inTextureName;
 - (void) geTemplateManagerTest1;
