@@ -21,7 +21,7 @@
 #include <map>
 
 #define INPUT_MANAGER SharedInputManager::getInstance()
-#define MAX_TOUCHES 10
+#define MAX_TOUCHES 2
 
 //The input manager will track the UIstate
 typedef struct
@@ -29,8 +29,7 @@ typedef struct
 	float x;
 	float y;
 	Boolean fingerDown;
-	int hotItem;	//ID of the hot GUI item.
-	void *touchID;	//Represents the pointer to the "Touch" event, which will be his ID.
+	void*	touchID;	//Represents the pointer to the "Touch" event, which will be his ID.
 } UIState;
 
 class GameEntity;
@@ -70,7 +69,7 @@ private:
 
 	//private Methods
 private:
-	void broadcastInteraction(float x, float y, void *touchID);
+	void broadcastInteraction(float x, float y, int touchIndex, void *touchID);
 		
 	//Debug interface
 public:

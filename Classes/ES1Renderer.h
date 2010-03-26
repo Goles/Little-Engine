@@ -75,5 +75,6 @@
 - (void) componentTest3Joystick;
 - (void) textureManagerTest:(NSString *) inTextureName;
 - (void) geTemplateManagerTest1;
- 
+- (void) geTemplateManagerTest2;
+
 @end

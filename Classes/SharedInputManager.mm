@@ -23,12 +23,12 @@ SharedInputManager* SharedInputManager::getInstance()
 
 SharedInputManager::SharedInputManager()
 {
-	for(int i = 0; i < 2; i++)
+	for(int i = 0; i < MAX_TOUCHES; i++)
 	{
 		GUIState[i].x			= 0;
 		GUIState[i].y			= 0;
-		GUIState[i].hotItem		= 0;
 		GUIState[i].fingerDown	= false;
+		GUIState[i].touchID		= NULL;
 	}
 
 	guiIDMax = 0;
@@ -73,7 +73,7 @@ void SharedInputManager::touchesBegan(float x, float y, void *touchID)
 			GUIState[i].y = y;
 			GUIState[i].fingerDown = true;
 			GUIState[i].touchID	= touchID;
-			this->broadcastInteraction(x, y, touchID);
+			this->broadcastInteraction(x, y, i, touchID);
 			break; //
 		}
 	}
@@ -87,11 +87,18 @@ void SharedInputManager::touchesMoved(float x, float y, void *touchID)
 	y = auxX;
 	
 	//We need to set the GUIState
-	/*GUIState.x = x;
-	GUIState.y = y;
-	GUIState.fingerDown = true;*/
-	
-	this->broadcastInteraction(x, y, touchID);
+	for(int i = 0; i < MAX_TOUCHES; i++)
+	{
+		if(!GUIState[i].fingerDown)
+		{
+			GUIState[i].x = x;
+			GUIState[i].y = y;
+			GUIState[i].fingerDown = true;
+			GUIState[i].touchID	= touchID;
+			this->broadcastInteraction(x, y, i, touchID);
+			break; //
+		}
+	}
 }
 
 void SharedInputManager::touchesEnded(float x, float y, void *touchID)
@@ -110,15 +117,15 @@ void SharedInputManager::touchesEnded(float x, float y, void *touchID)
 			GUIState[i].y = y;
 			GUIState[i].fingerDown = false;
 			GUIState[i].touchID	= touchID;
-			this->broadcastInteraction(x, y, touchID);
+			this->broadcastInteraction(x, y, i, touchID);
 			break;
 		}
 	}
 	
-	this->broadcastInteraction(x, y, touchID);
+//	this->broadcastInteraction(x, y, ,touchID);
 }
 
-void SharedInputManager::broadcastInteraction(float x, float y, void *touchID)
+void SharedInputManager::broadcastInteraction(float x, float y, int touchIndex, void *touchID)
 {	
 	gameEntityMap::iterator it;
 	
@@ -132,7 +139,7 @@ void SharedInputManager::broadcastInteraction(float x, float y, void *touchID)
 			gecGUI *gGUI = static_cast<gecGUI *> (gec);
 			if( gGUI )
 			{
-				gGUI->immGUI(x, y, gGUI->getGuiID(), touchID); //Trigger the immGUI handler.
+				gGUI->immGUI(x, y, touchIndex, touchID); //Trigger the immGUI handler.
 			}
 		}
 	}

@@ -56,7 +56,7 @@
 {
 	[self initScenes];
 	
-	[self componentTest2Button];
+	[self geTemplateManagerTest2];
 }
 
 /*
@@ -375,6 +375,12 @@
 	GameEntity *gE		= aSceneManager->addEntity(GE_FACTORY->createGE("testDummy",240.0f, 160.0f));
 	GameEntity *joypadE = aSceneManager->addEntity(GE_FACTORY->createGE("joypad", 70.0f, 70.0f));
 	((gecJoystick *)joypadE->getGEC("CompGUI"))->subscribeGameEntity(gE);
+}
+
+- (void) geTemplateManagerTest2
+{
+	aSceneManager->addEntity(GE_FACTORY->createGE("buttonDummy", 240.0f, 160.0f));
+	aSceneManager->addEntity(GE_FACTORY->createGE("buttonDummy", 100.0f, 100.0f));
 }
 
 - (void) particlesTest

@@ -20,7 +20,7 @@ public:
 	//gecButton Interface
 public:
 	virtual Boolean regionHit(float x, float y);
-	virtual Boolean immGUI(float x, float y, int guiID, void *touchID);
+	virtual Boolean immGUI(float x, float y, int touchIndex, void *touchID);
 	gecButton();
 	~gecButton();
 	void setShape(CGRect aShape);

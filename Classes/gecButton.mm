@@ -17,8 +17,9 @@ std::string gecButton::mComponentID = "gecButton";
 gecButton::gecButton()
 {
 	//TODO: INPUT_MANAGER GIVE ME A NEW ID
+	this->setGuiID(INPUT_MANAGER->giveID());
 	
-	guiID = INPUT_MANAGER->giveID();
+	std::cout << this->getGuiID() << std::endl;
 }
 
 gecButton::~gecButton()
@@ -35,13 +36,11 @@ Boolean gecButton::regionHit(float x, float y)
 	return false;
 }
 
-Boolean gecButton::immGUI(float x, float y, int guiID, void *touchID)
+Boolean gecButton::immGUI(float x, float y, int touchIndex, void *touchID)
 {
 	GEComponent *gec = this->getOwnerGE()->getGEC(std::string("CompVisual")); //we obtain a gecAnimatedSprite
 	gecAnimatedSprite *gAni = static_cast<gecAnimatedSprite *> (gec);
-	
-	UIState *tempState;
-	
+
 	if(this->regionHit(x, y))
 	{
 		for(int i = 0; i < MAX_TOUCHES; i++)
@@ -56,33 +55,28 @@ Boolean gecButton::immGUI(float x, float y, int guiID, void *touchID)
 				}
 				else if(!INPUT_MANAGER->GUIState[i].fingerDown)
 				{
-					//INPUT_MANAGER->GUIState.activeItem = guiID;
 					gAni->setCurrentAnimation("normal");
-					//Trigger the activation methods of this particular button.
-					//std::cout << "Active!!!!!!" << std::endl;
-					return true;
+					std::cout << "Vuelve a normal 1: " << gAni << std::endl;
+					return false;
 				}
 			}
 		}
-	}
-	else
-	{
+	}else {
 		for(int i = 0; i < MAX_TOUCHES; i++)
 		{
-			if(touchID == INPUT_MANAGER->GUIState[i].touchID)
+			if(INPUT_MANAGER->GUIState[i].fingerDown == false && i != touchIndex)
 			{
 				gAni->setCurrentAnimation("normal");
-				std::cout << "Normal" << std::endl;
-				return true;
+				std::cout << "Vuelve a normal 1: " << gAni << std::endl;
+				return false;
 			}
 		}
-		
 	}
 
-	
-	return false; //button not activated.
-	
+	return false; //button not activated.	
 }
+
+
 
 void gecButton::setShape(CGRect aRect)
 {

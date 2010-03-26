@@ -105,7 +105,7 @@ void gecJoystick::updateVelocity(float x, float y)
 	latestVelocity = velocity;	
 }
 
-Boolean gecJoystick::immGUI(float x, float y, int guiID, void *touchID)
+Boolean gecJoystick::immGUI(float x, float y, int touchIndex, void *touchID)
 {
 	GEComponent *gec = this->getOwnerGE()->getGEC(std::string("CompVisual")); //we obtain a gecAnimatedSprite
 	gecAnimatedSprite *gAni = static_cast<gecAnimatedSprite *> (gec);
