@@ -19,7 +19,7 @@ public:
 	//gecGUI interface
 public:
 	virtual Boolean regionHit(float x, float y) = 0;
-	virtual Boolean immGUI(float x, float y, int guiID) = 0;
+	virtual Boolean immGUI(float x, float y, int touchIndex, void *guiID) = 0;
 	int getGuiID() const { return guiID; }
 	void setGuiID(int gid) { guiID = gid; } 
 protected:
