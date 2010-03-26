@@ -21,6 +21,7 @@
 #include <map>
 
 #define INPUT_MANAGER SharedInputManager::getInstance()
+#define MAX_TOUCHES 2
 
 //The input manager will track the UIstate
 typedef struct
@@ -28,7 +29,7 @@ typedef struct
 	float x;
 	float y;
 	Boolean fingerDown;
-	int hotItem;	
+	void*	touchID;	//Represents the pointer to the "Touch" event, which will be his ID.
 } UIState;
 
 class GameEntity;
@@ -40,13 +41,15 @@ public:
 	static SharedInputManager*	getInstance();	
 	void						registerGameEntity(GameEntity *anEntity);
 	GameEntity*					getGameEntity(int guiID);
+	void						setTouchCount(int t) { touchCount = t; }
+	int							getTouchCount() { return touchCount; }
 	void						removeGameEntity(int guiID);
-	void						touchesBegan(float x, float y);
-	void						touchesMoved(float x, float y);
-	void						touchesEnded(float x, float y);
+	void						touchesBegan(float x, float y, void *touchID);
+	void						touchesMoved(float x, float y, void *touchID);
+	void						touchesEnded(float x, float y, void *touchID);
 	int							giveID(){ return (++guiIDMax); }
 	
-	UIState GUIState; //public for easier accesibility
+	UIState GUIState[MAX_TOUCHES]; //public for easier accesibility
 	
 	~SharedInputManager();
 		
@@ -62,10 +65,11 @@ private:
 	boost::mutex				io_mutex;
 	static SharedInputManager*	singletonInstance;
 	int							guiIDMax;
+	int							touchCount;
 
 	//private Methods
 private:
-	void broadcastInteraction(float x, float y);
+	void broadcastInteraction(float x, float y, int touchIndex, void *touchID);
 		
 	//Debug interface
 public:

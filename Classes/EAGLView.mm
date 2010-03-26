@@ -153,104 +153,52 @@
 	}
 }
 
+#pragma mark -
 #pragma mark touches
-
-- (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
-{	
-	UITouch *touch1,
-			*touch2;
-	
-	CGPoint loc1,
-			loc2;
-
-	NSSet *allTouches = [event allTouches];
-	
-	switch ([allTouches count]) {
-		case 1:
-			touch1 = [touches anyObject];
-			loc1   = [touch1 locationInView:self];
-			INPUT_MANAGER->touchesBegan(loc1.x, loc1.y);
-			break;
-		case 2:
-			touch1	= [[allTouches allObjects] objectAtIndex:0];
-			touch2	= [[allTouches allObjects] objectAtIndex:1];
-			
-			//Get the touches ID's
-			touch1ID = &touch1;
-			touch2ID = &touch2;
-			
-			NSLog(@"ID1: %p\n ID2: %p\n",touch1ID, touch2ID);
-			
-			loc1	= [touch1 locationInView:self];
-			loc2	= [touch2 locationInView:self];
-			
-			INPUT_MANAGER->touchesBegan(loc1.x, loc1.y);
-			INPUT_MANAGER->touchesBegan(loc2.x, loc2.y);
-		default:
-			break;
-	}
-
-}
-
-- (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	UITouch *touch1,
-			*touch2;
-
-	CGPoint loc1,
-			loc2;
+	CGPoint loc;
 	
-	NSSet *allTouches = [event allTouches];
-	
-	switch ([allTouches count]) {
-		case 1:
-			touch1 = [touches anyObject];
-			loc1   = [touch1 locationInView:self];
-			INPUT_MANAGER->touchesMoved(loc1.x, loc1.y);
-			break;
-			
-		case 2:
-			touch1	= [[allTouches allObjects] objectAtIndex:0];
-			touch2	= [[allTouches allObjects] objectAtIndex:1];
-			loc1	= [touch1 locationInView:self];
-			loc2	= [touch2 locationInView:self];
-			
-			INPUT_MANAGER->touchesBegan(loc1.x, loc1.y);
-			INPUT_MANAGER->touchesBegan(loc2.x, loc2.y);
-			
-		default:
-			break;
+	for ( UITouch* aTouch in touches )
+	{
+		if([aTouch tapCount] <= MAX_TOUCHES)
+		{
+			loc = [aTouch locationInView:self];
+			INPUT_MANAGER->touchesBegan(loc.x, loc.y, aTouch);
+			printf( "Touch began %p, tapcount %d\n", (void *) aTouch, [aTouch tapCount] );
+			fflush( stdout );			
+		}
 	}
 }
 
-- (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{  
+//		CGPoint loc;
+//	for ( UITouch* aTouch in touches )
+//	{
+//		if([aTouch tapCount] <= MAX_TOUCHES)
+//		{
+//			loc = [aTouch locationInView:self];
+//			INPUT_MANAGER->touchesBegan(loc.x, loc.y, aTouch);
+//			printf( "Touch moved %p, tapcount %d\n", (void*)aTouch, [aTouch tapCount] );
+//			fflush( stdout );			
+//		}
+//	}
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	UITouch *touch1,
-			*touch2;
+	CGPoint loc;
 	
-	CGPoint loc1,
-			loc2;
-	
-	NSSet *allTouches = [event allTouches];
-	
-	switch ([allTouches count]) {
-		case 1:
-			touch1 = [touches anyObject];
-			loc1   = [touch1 locationInView:self];
-			INPUT_MANAGER->touchesEnded(loc1.x, loc1.y);
-			break;
-			
-		case 2:
-			touch1	= [[allTouches allObjects] objectAtIndex:0];
-			touch2	= [[allTouches allObjects] objectAtIndex:1];
-			loc1	= [touch1 locationInView:self];
-			loc2	= [touch2 locationInView:self];
-			
-			INPUT_MANAGER->touchesBegan(loc1.x, loc1.y);
-			INPUT_MANAGER->touchesBegan(loc2.x, loc2.y);
-			
-		default:
-			break;
+	for ( UITouch* aTouch in touches )
+	{
+		if([aTouch tapCount] <= MAX_TOUCHES)
+		{
+			loc = [aTouch locationInView:self];
+			INPUT_MANAGER->touchesEnded(loc.x, loc.y, aTouch);
+			printf( "Touch ended %p, tapcount %d\n", (void*)aTouch, [aTouch tapCount] );
+			fflush( stdout );			
+		}
 	}
 }
 

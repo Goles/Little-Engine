@@ -20,7 +20,7 @@ public:
 	//gecGUI Interface
 public:
 	virtual Boolean regionHit(float x, float y);
-	virtual Boolean immGUI(float x, float y, int guiID);
+	virtual Boolean immGUI(float x, float y, int touchIndex,void *touchID);
 	
 	//gecJoystick Interface
 public:

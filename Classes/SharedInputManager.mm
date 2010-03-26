@@ -23,11 +23,15 @@ SharedInputManager* SharedInputManager::getInstance()
 
 SharedInputManager::SharedInputManager()
 {
-	GUIState.x			= 0;
-	GUIState.y			= 0;
-	GUIState.fingerDown	= false;
-	GUIState.hotItem	= 0;
-	guiIDMax			= 0;
+	for(int i = 0; i < MAX_TOUCHES; i++)
+	{
+		GUIState[i].x			= 0;
+		GUIState[i].y			= 0;
+		GUIState[i].fingerDown	= false;
+		GUIState[i].touchID		= NULL;
+	}
+
+	guiIDMax = 0;
 }
 
 #pragma mark action_methods
@@ -53,7 +57,7 @@ void SharedInputManager::removeGameEntity(int guiID)
 }
 
 #pragma mark touch_management
-void SharedInputManager::touchesBegan(float x, float y)
+void SharedInputManager::touchesBegan(float x, float y, void *touchID)
 {
 	//Flip Parameters due to landscape mode
 	float auxX = x;
@@ -61,14 +65,21 @@ void SharedInputManager::touchesBegan(float x, float y)
 	y = auxX;
 	
 	//We need to set the GUIState
-	GUIState.x = x;
-	GUIState.y = y;
-	GUIState.fingerDown = true;
-	
-	this->broadcastInteraction(x, y);
+	for(int i = 0; i < MAX_TOUCHES; i++)
+	{
+		if(!GUIState[i].fingerDown)
+		{
+			GUIState[i].x = x;
+			GUIState[i].y = y;
+			GUIState[i].fingerDown = true;
+			GUIState[i].touchID	= touchID;
+			this->broadcastInteraction(x, y, i, touchID);
+			break; //
+		}
+	}
 }
 
-void SharedInputManager::touchesMoved(float x, float y)
+void SharedInputManager::touchesMoved(float x, float y, void *touchID)
 {
 	//Flip Parameters due to landscape mode
 	float auxX = x;
@@ -76,14 +87,21 @@ void SharedInputManager::touchesMoved(float x, float y)
 	y = auxX;
 	
 	//We need to set the GUIState
-	GUIState.x = x;
-	GUIState.y = y;
-	GUIState.fingerDown = true;
-	
-	this->broadcastInteraction(x, y);
+	for(int i = 0; i < MAX_TOUCHES; i++)
+	{
+		if(!GUIState[i].fingerDown)
+		{
+			GUIState[i].x = x;
+			GUIState[i].y = y;
+			GUIState[i].fingerDown = true;
+			GUIState[i].touchID	= touchID;
+			this->broadcastInteraction(x, y, i, touchID);
+			break; //
+		}
+	}
 }
 
-void SharedInputManager::touchesEnded(float x, float y)
+void SharedInputManager::touchesEnded(float x, float y, void *touchID)
 {
 	//Flip Parameters due to landscape mode
 	float auxX = x;
@@ -91,28 +109,37 @@ void SharedInputManager::touchesEnded(float x, float y)
 	y = auxX;
 	
 	//We need to set the GUIState
-	GUIState.x = x;
-	GUIState.y = y;
-	GUIState.fingerDown = false;
+	for(int i = 0; i < MAX_TOUCHES; i++)
+	{
+		if(GUIState[i].fingerDown && (GUIState[i].touchID == touchID))
+		{
+			GUIState[i].x = x;
+			GUIState[i].y = y;
+			GUIState[i].fingerDown = false;
+			GUIState[i].touchID	= touchID;
+			this->broadcastInteraction(x, y, i, touchID);
+			break;
+		}
+	}
 	
-	this->broadcastInteraction(x, y);
+//	this->broadcastInteraction(x, y, ,touchID);
 }
 
-void SharedInputManager::broadcastInteraction(float x, float y)
+void SharedInputManager::broadcastInteraction(float x, float y, int touchIndex, void *touchID)
 {	
 	gameEntityMap::iterator it;
 	
 	//std::cout << "X :" << x << " Y: " << y << std::endl;
 	
 	/*We tell every component the is subscribed that we have touched it.*/
-	for (it = receiversMap.begin(); it != receiversMap.end(); it++)
+	for (it = receiversMap.begin(); it != receiversMap.end(); ++it)
 	{
 		if(((*it).second)->isActive)
 		{	GEComponent *gec = ((*it).second)->getGEC(std::string("CompGUI"));
-			gecGUI	*gGUI	 = static_cast<gecGUI *> (gec);
+			gecGUI *gGUI = static_cast<gecGUI *> (gec);
 			if( gGUI )
 			{
-				gGUI->immGUI(x, y, gGUI->getGuiID());
+				gGUI->immGUI(x, y, touchIndex, touchID); //Trigger the immGUI handler.
 			}
 		}
 	}

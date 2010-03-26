@@ -7,6 +7,7 @@
 //
 
 #include <boost/signal.hpp>
+#include <iostream>
 #include "gecGUI.h"
 
 class gecButton : public gecGUI
@@ -16,22 +17,15 @@ public:
 	virtual const gec_id_type &componentID() const { return mComponentID; }
 	virtual void update(float delta) const {}
 	
-	
 	//gecButton Interface
 public:
-	//Constructor & Destructor
+	virtual Boolean regionHit(float x, float y);
+	virtual Boolean immGUI(float x, float y, int touchIndex, void *touchID);
 	gecButton();
 	~gecButton();
-	
-	//Action Methods.
-	virtual Boolean regionHit(float x, float y);
-	virtual Boolean immGUI(float x, float y, int guiID);
-	
-	//Getter & Setter
-	void			setShape(CGRect aShape);
-	CGRect			getShape() const { return shape; }
-	
-	boost::signal<void ()> sig; // <= This should point to a method in the future.
+	void setShape(CGRect aShape);
+	CGRect getShape() const { return shape; }
+	boost::signal<void ()> sig;
 
 private:	
 	static gec_id_type mComponentID;

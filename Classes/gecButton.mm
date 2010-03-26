@@ -17,8 +17,9 @@ std::string gecButton::mComponentID = "gecButton";
 gecButton::gecButton()
 {
 	//TODO: INPUT_MANAGER GIVE ME A NEW ID
+	this->setGuiID(INPUT_MANAGER->giveID());
 	
-	guiID = INPUT_MANAGER->giveID();
+	std::cout << this->getGuiID() << std::endl;
 }
 
 gecButton::~gecButton()
@@ -35,33 +36,47 @@ Boolean gecButton::regionHit(float x, float y)
 	return false;
 }
 
-Boolean gecButton::immGUI(float x, float y, int guiID)
+Boolean gecButton::immGUI(float x, float y, int touchIndex, void *touchID)
 {
 	GEComponent *gec = this->getOwnerGE()->getGEC(std::string("CompVisual")); //we obtain a gecAnimatedSprite
 	gecAnimatedSprite *gAni = static_cast<gecAnimatedSprite *> (gec);
-	
+
 	if(this->regionHit(x, y))
 	{
-		INPUT_MANAGER->GUIState.hotItem = guiID;
-		if(INPUT_MANAGER->GUIState.fingerDown == true)
+		for(int i = 0; i < MAX_TOUCHES; i++)
 		{
-			gAni->setCurrentAnimation("hot");
+			if(INPUT_MANAGER->GUIState[i].touchID == touchID) //
+			{
+				if(INPUT_MANAGER->GUIState[i].fingerDown)
+				{
+					gAni->setCurrentAnimation("hot");
+					std::cout << "Hot" << std::endl;
+					return true;
+				}
+				else if(!INPUT_MANAGER->GUIState[i].fingerDown)
+				{
+					gAni->setCurrentAnimation("normal");
+					std::cout << "Vuelve a normal 1: " << gAni << std::endl;
+					return false;
+				}
+			}
 		}
-		else if(INPUT_MANAGER->GUIState.fingerDown == false && INPUT_MANAGER->GUIState.hotItem == guiID) //they are releasing over me
+	}else {
+		for(int i = 0; i < MAX_TOUCHES; i++)
 		{
-			//INPUT_MANAGER->GUIState.activeItem = guiID;
-			gAni->setCurrentAnimation("normal");
-			/*Trigger the activation methods of this particular button.*/
-			//std::cout << "Active!!!!!!" << std::endl;
-			return true;
+			if(INPUT_MANAGER->GUIState[i].fingerDown == false && i != touchIndex)
+			{
+				gAni->setCurrentAnimation("normal");
+				std::cout << "Vuelve a normal 1: " << gAni << std::endl;
+				return false;
+			}
 		}
 	}
-	else {
-		gAni->setCurrentAnimation("normal");
-	}
-	
-	return false; //button not activated.
+
+	return false; //button not activated.	
 }
+
+
 
 void gecButton::setShape(CGRect aRect)
 {
