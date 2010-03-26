@@ -55,7 +55,7 @@
 - (void) initGame
 {
 	[self initScenes];
-	[self multiTouchTest];
+	[self geTemplateManagerTest1];
 }
 
 /*
@@ -68,7 +68,7 @@
 - (void) multiTouchTest
 {
 	aSceneManager->addEntity(GE_FACTORY->createGE("buttonDummy", 240.0f, 160.0f));
-	aSceneManager->addEntity(GE_FACTORY->createGE("buttonDummy", 100.0f, 100.0f));	
+	aSceneManager->addEntity(GE_FACTORY->createGE("buttonDummy", 100.0f, 100.0f));
 }
 
 - (void) particlesShowOff
@@ -83,6 +83,7 @@
 {
 	GameEntity *gE		= aSceneManager->addEntity(GE_FACTORY->createGE("testDummy",240.0f, 160.0f));
 	GameEntity *joypadE = aSceneManager->addEntity(GE_FACTORY->createGE("joypad", 70.0f, 70.0f));
+	aSceneManager->addEntity(GE_FACTORY->createGE("buttonDummy", 350.0f, 50.0f));	
 	((gecJoystick *)joypadE->getGEC("CompGUI"))->subscribeGameEntity(gE);
 }
 

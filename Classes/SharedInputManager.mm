@@ -28,6 +28,7 @@ SharedInputManager::SharedInputManager()
 		GUIState[i].x			= 0;
 		GUIState[i].y			= 0;
 		GUIState[i].fingerDown	= false;
+		GUIState[i].hitFirst	= false;
 		GUIState[i].touchID		= NULL;
 	}
 
@@ -71,9 +72,9 @@ void SharedInputManager::touchesBegan(float x, float y, void *touchID)
 		{
 			GUIState[i].x = x;
 			GUIState[i].y = y;
-			GUIState[i].fingerDown = true;
-			GUIState[i].touchID	= touchID;
-			this->broadcastInteraction(x, y, i, touchID);
+			GUIState[i].fingerDown	= true;
+			GUIState[i].touchID		= touchID;
+			this->broadcastInteraction(x, y, i, touchID, kTouchType_began);
 			break; //
 		}
 	}
@@ -89,13 +90,14 @@ void SharedInputManager::touchesMoved(float x, float y, void *touchID)
 	//We need to set the GUIState
 	for(int i = 0; i < MAX_TOUCHES; i++)
 	{
-		if(!GUIState[i].fingerDown)
+		if(GUIState[i].fingerDown)
 		{
 			GUIState[i].x = x;
 			GUIState[i].y = y;
-			GUIState[i].fingerDown = true;
-			GUIState[i].touchID	= touchID;
-			this->broadcastInteraction(x, y, i, touchID);
+			GUIState[i].fingerDown	= true;
+//			GUIState[i].touchID	= touchID;
+//			printf("ME MOVI\n");
+			this->broadcastInteraction(x, y, i, touchID, kTouchType_moved);
 			break; //
 		}
 	}
@@ -115,23 +117,22 @@ void SharedInputManager::touchesEnded(float x, float y, void *touchID)
 		{
 			GUIState[i].x = x;
 			GUIState[i].y = y;
-			GUIState[i].fingerDown = false;
+			GUIState[i].fingerDown	= false;
 			GUIState[i].touchID	= touchID;
-			this->broadcastInteraction(x, y, i, touchID);
+			GUIState[i].hitFirst = false;
+			this->broadcastInteraction(x, y, i, touchID, kTouchType_ended);
 			break;
 		}
 	}
-	
-//	this->broadcastInteraction(x, y, ,touchID);
 }
 
-void SharedInputManager::broadcastInteraction(float x, float y, int touchIndex, void *touchID)
+void SharedInputManager::broadcastInteraction(float x, float y, int touchIndex, void *touchID, int touchType)
 {	
 	gameEntityMap::iterator it;
 	
 	//std::cout << "X :" << x << " Y: " << y << std::endl;
 	
-	/*We tell every component the is subscribed that we have touched it.*/
+	/*We tell every component the is subscribed that touches happened*/
 	for (it = receiversMap.begin(); it != receiversMap.end(); ++it)
 	{
 		if(((*it).second)->isActive)
@@ -139,7 +140,12 @@ void SharedInputManager::broadcastInteraction(float x, float y, int touchIndex, 
 			gecGUI *gGUI = static_cast<gecGUI *> (gec);
 			if( gGUI )
 			{
-				gGUI->immGUI(x, y, touchIndex, touchID); //Trigger the immGUI handler.
+				if(touchType == kTouchType_began && gGUI->regionHit(x, y))
+				{
+					GUIState[touchIndex].hitFirst = true;
+				}
+				gGUI->immGUI(x, y, touchIndex, touchID, touchType); //Trigger the immGUI handler.
+				
 			}
 		}
 	}

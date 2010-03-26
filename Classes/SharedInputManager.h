@@ -23,12 +23,21 @@
 #define INPUT_MANAGER SharedInputManager::getInstance()
 #define MAX_TOUCHES 2
 
+//Input enumeration for the touch types.
+typedef enum
+{
+	kTouchType_began = 0,
+	kTouchType_moved,
+	kTouchType_ended
+} kTouchType;
+
 //The input manager will track the UIstate
 typedef struct
 {
-	float x;
-	float y;
-	Boolean fingerDown;
+	float	x;
+	float	y;
+	bool	fingerDown;	//True if the user has his finger down.
+	bool	hitFirst;	//True if the user "hit" an interface element on touches begin.
 	void*	touchID;	//Represents the pointer to the "Touch" event, which will be his ID.
 } UIState;
 
@@ -69,7 +78,7 @@ private:
 
 	//private Methods
 private:
-	void broadcastInteraction(float x, float y, int touchIndex, void *touchID);
+	void broadcastInteraction(float x, float y, int touchIndex, void *touchID, int touchType);
 		
 	//Debug interface
 public:

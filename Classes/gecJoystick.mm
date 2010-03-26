@@ -105,34 +105,36 @@ void gecJoystick::updateVelocity(float x, float y)
 	latestVelocity = velocity;	
 }
 
-Boolean gecJoystick::immGUI(float x, float y, int touchIndex, void *touchID)
+Boolean gecJoystick::immGUI(float x, float y, int touchIndex, void *touchID, int touchType)
 {
 	GEComponent *gec = this->getOwnerGE()->getGEC(std::string("CompVisual")); //we obtain a gecAnimatedSprite
 	gecAnimatedSprite *gAni = static_cast<gecAnimatedSprite *> (gec);
 	
-	/*if(this->regionHit(x, y))
+	if(this->regionHit(x, y))
 	{
-		INPUT_MANAGER->GUIState.hotItem = guiID;
-		if(INPUT_MANAGER->GUIState.fingerDown == true)
+		for(int i = 0; i < MAX_TOUCHES; i++)
 		{
-			gAni->setCurrentAnimation("hot");
-			
-			this->updateSubscriberAnimation("walk");	
-			this->updateVelocity(x, y);
-		}
-		else if(INPUT_MANAGER->GUIState.fingerDown == false && INPUT_MANAGER->GUIState.hotItem == guiID) //they are releasing over me
-		{
-			gAni->setCurrentAnimation("normal");
-			this->updateSubscriberAnimation("stand");
-			
-			//Return to center.
-			this->getOwnerGE()->x = center.x;
-			this->getOwnerGE()->y = center.y;
-			this->setShape(CGRectMake(center.x, center.y, shape.size.width, shape.size.height));
-			
-			latestVelocity = CGPointZero;
-			//Trigger the activation methods of this particular button.
-			return true;
+			if(INPUT_MANAGER->GUIState[i].fingerDown && INPUT_MANAGER->GUIState[i].touchID == touchID)
+			{
+				gAni->setCurrentAnimation("hot");
+				
+				this->updateSubscriberAnimation("walk");	
+				this->updateVelocity(x, y);
+			}
+			else if(INPUT_MANAGER->GUIState[i].fingerDown == false && INPUT_MANAGER->GUIState[i].touchID == touchID) //they are releasing over me
+			{
+				gAni->setCurrentAnimation("normal");
+				this->updateSubscriberAnimation("stand");
+				
+				//Return to center.
+				this->getOwnerGE()->x = center.x;
+				this->getOwnerGE()->y = center.y;
+				this->setShape(CGRectMake(center.x, center.y, shape.size.width, shape.size.height));
+				
+				latestVelocity = CGPointZero;
+				//Trigger the activation methods of this particular button.
+				return true;
+			}
 		}
 	}
 	else {
@@ -140,7 +142,7 @@ Boolean gecJoystick::immGUI(float x, float y, int touchIndex, void *touchID)
 		this->getOwnerGE()->y = center.y;
 		this->setShape(CGRectMake(center.x, center.y, shape.size.width, shape.size.height));
 		gAni->setCurrentAnimation("normal");
-	}*/
+	}
 	
 	return false; //button not activated.
 }

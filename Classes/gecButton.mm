@@ -36,18 +36,20 @@ Boolean gecButton::regionHit(float x, float y)
 	return false;
 }
 
-Boolean gecButton::immGUI(float x, float y, int touchIndex, void *touchID)
+Boolean gecButton::immGUI(float x, float y, int touchIndex, void *touchID, int touchType)
 {
 	GEComponent *gec = this->getOwnerGE()->getGEC(std::string("CompVisual")); //we obtain a gecAnimatedSprite
 	gecAnimatedSprite *gAni = static_cast<gecAnimatedSprite *> (gec);
 
+	//std::cout << "HIT FIRST: " << INPUT_MANAGER->GUIState[touchIndex].hitFirst << std::endl;
+	
 	if(this->regionHit(x, y))
 	{
 		for(int i = 0; i < MAX_TOUCHES; i++)
 		{
 			if(INPUT_MANAGER->GUIState[i].touchID == touchID) //
 			{
-				if(INPUT_MANAGER->GUIState[i].fingerDown)
+				if(INPUT_MANAGER->GUIState[i].fingerDown && INPUT_MANAGER->GUIState[i].hitFirst)
 				{
 					gAni->setCurrentAnimation("hot");
 					std::cout << "Hot" << std::endl;
@@ -56,7 +58,7 @@ Boolean gecButton::immGUI(float x, float y, int touchIndex, void *touchID)
 				else if(!INPUT_MANAGER->GUIState[i].fingerDown)
 				{
 					gAni->setCurrentAnimation("normal");
-					std::cout << "Vuelve a normal 1: " << gAni << std::endl;
+					//std::cout << "Vuelve a normal 1: " << gAni << std::endl;
 					return false;
 				}
 			}
@@ -67,8 +69,7 @@ Boolean gecButton::immGUI(float x, float y, int touchIndex, void *touchID)
 			if(INPUT_MANAGER->GUIState[i].fingerDown == false && i != touchIndex)
 			{
 				gAni->setCurrentAnimation("normal");
-				std::cout << "Vuelve a normal 1: " << gAni << std::endl;
-				return false;
+				//std::cout << "Vuelve a normal 1: " << gAni << std::endl;
 			}
 		}
 	}
