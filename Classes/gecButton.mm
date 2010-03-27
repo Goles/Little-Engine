@@ -83,7 +83,7 @@ Boolean gecButton::immGUI(float x, float y, int touchIndex, void *touchID, int t
 			{
 				gAni->setCurrentAnimation("normal");
 				//std::cout << "Vuelve a normal 1: " << gAni << std::endl;
-			}
+			} 
 		}
 	}
 

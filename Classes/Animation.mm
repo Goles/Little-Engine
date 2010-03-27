@@ -131,17 +131,6 @@ GLuint	Animation::getAnimationFrameCount()
 	return (spriteFrames.size());
 }
 
-#pragma mark setters
-void	Animation::setIsRunning(Boolean inIsRunning)
-{
-	isRunning = inIsRunning;
-}
-
-void	Animation::setIsRepeating(Boolean inIsRepeating)
-{
-	isRepeating = inIsRepeating;
-}
-
 #pragma mark debug
 void Animation::debugPrintFrames()
 {

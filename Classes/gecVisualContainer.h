@@ -28,8 +28,6 @@ public:
 	
 private:
 	typedef std::vector<gecVisual *> GecVisualVector;
-
 	GecVisualVector visualComponents;
-	
 	static gec_id_type mGECTypeID;
 };

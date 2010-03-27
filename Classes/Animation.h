@@ -41,8 +41,9 @@ public:
 	GLuint	getAnimationFrameCount();
 	
 	//Setters
-	void	setIsRunning(Boolean inIsRunning);
-	void	setIsRepeating(Boolean inIsRepeating);
+	void	setIsRunning(Boolean inIsRunning) { isRunning = inIsRunning; }
+	void	setIsRepeating(Boolean inIsRepeating) { isRepeating = inIsRepeating; }
+	void	setIsPingPong(Boolean inIsPingPong) { isPingPong = inIsPingPong; }
 	
 	//Debug
 	void debugPrintFrames();
@@ -55,9 +56,9 @@ private:
 	CGPoint			currentPoint;
 	FRAMES_VECTOR	spriteFrames;
 	float			frameTimer;
-	BOOL			isRunning;
-	BOOL			isRepeating;
-	BOOL			isPingPong;
+	bool			isRunning;
+	bool			isRepeating;
+	bool			isPingPong;
 	int				direction;
 	int				currentFrame;
 };

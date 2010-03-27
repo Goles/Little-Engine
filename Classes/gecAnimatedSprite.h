@@ -30,6 +30,7 @@ public:
 	void switchToAnimation(const std::string &animationName);
 	void setCurrentRunning(Boolean isRunning){ currentAnimation->setIsRunning(isRunning); }
 	void setCurrentRepeating(Boolean isRepeating){ currentAnimation->setIsRepeating(isRepeating); } 
+	void setCurrentPingPong(Boolean isPingPong){ currentAnimation->setIsPingPong(isPingPong); }  
 	void debugPrintAnimationMap();
 	
 private:

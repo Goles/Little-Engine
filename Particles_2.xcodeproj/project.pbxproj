@@ -22,6 +22,7 @@
 		6317D8E310C8485800C7EEE2 /* libboost_thread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6317D8E210C8485800C7EEE2 /* libboost_thread.a */; };
 		6317D9AB10C85CB000C7EEE2 /* SharedInputManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6317D9AA10C85CB000C7EEE2 /* SharedInputManager.mm */; };
 		631EBAEB10BED2B90060FBD3 /* gecAnimatedSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 631EBAEA10BED2B90060FBD3 /* gecAnimatedSprite.mm */; };
+		63223F3D115EC0660094FB69 /* hitter1_sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 63223F3C115EC0660094FB69 /* hitter1_sheet.png */; };
 		632A3E1B1073211200F8EADC /* PVRTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 632A3E1A1073211200F8EADC /* PVRTexture.m */; };
 		632A3EB61073260B00F8EADC /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 632A3EB51073260B00F8EADC /* Texture2D.m */; };
 		633C64B2109B2791001D1851 /* Frame.mm in Sources */ = {isa = PBXBuildFile; fileRef = 633C64B1109B2791001D1851 /* Frame.mm */; };
@@ -84,6 +85,7 @@
 		6317D9AA10C85CB000C7EEE2 /* SharedInputManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SharedInputManager.mm; sourceTree = "<group>"; };
 		631EBAE910BED2B90060FBD3 /* gecAnimatedSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecAnimatedSprite.h; sourceTree = "<group>"; };
 		631EBAEA10BED2B90060FBD3 /* gecAnimatedSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecAnimatedSprite.mm; sourceTree = "<group>"; };
+		63223F3C115EC0660094FB69 /* hitter1_sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hitter1_sheet.png; sourceTree = "<group>"; };
 		632A3E191073211200F8EADC /* PVRTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRTexture.h; sourceTree = "<group>"; };
 		632A3E1A1073211200F8EADC /* PVRTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVRTexture.m; sourceTree = "<group>"; };
 		632A3E1F107321E200F8EADC /* ConstantsAndMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantsAndMacros.h; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				63223F3C115EC0660094FB69 /* hitter1_sheet.png */,
 				63F830A410E176A600B27131 /* pixel.png */,
 				63D45E8510CB73FB00CB32F5 /* joystick_tes.png */,
 				63EED41B10C9CCCD0098C3D0 /* buttons_test.png */,
@@ -265,6 +268,7 @@
 		631EBAD910BED1EC0060FBD3 /* Families */ = {
 			isa = PBXGroup;
 			children = (
+				63223F79115ECCF40094FB69 /* Behaviour */,
 				63EECF7D10C8BFD70098C3D0 /* GUI */,
 				631EBADA10BED1F90060FBD3 /* Visual */,
 			);
@@ -279,6 +283,13 @@
 				6317DA4D10C898DB00C7EEE2 /* components */,
 			);
 			name = Visual;
+			sourceTree = "<group>";
+		};
+		63223F79115ECCF40094FB69 /* Behaviour */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Behaviour;
 			sourceTree = "<group>";
 		};
 		6338F34210B6E3FE00F4B968 /* Core */ = {
@@ -535,6 +546,7 @@
 				63EED41C10C9CCCD0098C3D0 /* buttons_test.png in Resources */,
 				63D45E8610CB73FB00CB32F5 /* joystick_tes.png in Resources */,
 				63F830A510E176A600B27131 /* pixel.png in Resources */,
+				63223F3D115EC0660094FB69 /* hitter1_sheet.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

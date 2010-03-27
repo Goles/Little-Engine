@@ -122,32 +122,46 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	GameEntity *gE = new GameEntity(x, y, width, height);
 	
 	SpriteSheet *ss = new SpriteSheet();
-	ss->initWithImageNamed("slowHitter1.png", gE->height, gE->width, 0.0, 1.0);
+	ss->initWithImageNamed("hitter1_sheet.png", gE->height, gE->width, 0.0, 1.0);
 	
 	gecAnimatedSprite *spriteAnimations = new gecAnimatedSprite();
 	spriteAnimations->setOwnerGE(gE);
 	
 	std::vector<int>	coordStand,
-						coordWalk;
+						coordWalk,
+						coordAttack;
 	
 	coordStand.push_back(0);
 	coordStand.push_back(0);
-	coordWalk.push_back(1);
-	coordWalk.push_back(0);
-	coordWalk.push_back(2);
-	coordWalk.push_back(0);
-	coordWalk.push_back(3);
+	coordStand.push_back(1);
+	coordStand.push_back(0);
+	coordStand.push_back(2);
+	coordStand.push_back(0);
+	coordAttack.push_back(3);
+	coordAttack.push_back(0);	
+	coordAttack.push_back(4);
+	coordAttack.push_back(0);
+	coordAttack.push_back(5);
+	coordAttack.push_back(0);
+	coordAttack.push_back(6);
+	coordAttack.push_back(0);
+	coordWalk.push_back(7);
 	coordWalk.push_back(0);	
-	coordWalk.push_back(4);
+	coordWalk.push_back(8);
+	coordWalk.push_back(0);	
+	coordWalk.push_back(9);
 	coordWalk.push_back(0);
 	
 	/*Add the animations to the sprite*/	
-	spriteAnimations->addAnimation("walk", coordWalk, ss);
 	spriteAnimations->addAnimation("stand", coordStand, ss);
+	spriteAnimations->addAnimation("attack", coordAttack, ss);
+	spriteAnimations->addAnimation("walk", coordWalk, ss);	
 	
 	/*The Default animation is stand and it's running*/
 	spriteAnimations->setCurrentAnimation(std::string("stand"));
-	spriteAnimations->setCurrentRunning(true);	
+	spriteAnimations->setCurrentRunning(true);
+	spriteAnimations->setCurrentPingPong(true);
+	spriteAnimations->setCurrentRepeating(true);
 	
 	//add the sprite animations to our game entity, make it active and set it's position
 	gE->setGEC(spriteAnimations);
