@@ -27,6 +27,19 @@ gecButton::~gecButton()
 	INPUT_MANAGER->removeGameEntity(this->getGuiID()); //we ask the input manager to remove us.
 }
 
+#pragma mark -
+#pragma mark signal binding
+void gecButton::addSignal(const ContactSignal::slot_type& slot)
+{
+	triggerSignal.connect(slot);
+}
+
+void gecButton::call()
+{
+	triggerSignal();
+}
+
+#pragma mark -
 #pragma mark gecButton_interface
 Boolean gecButton::regionHit(float x, float y)
 {
@@ -52,7 +65,7 @@ Boolean gecButton::immGUI(float x, float y, int touchIndex, void *touchID, int t
 				if(INPUT_MANAGER->GUIState[i].fingerDown && INPUT_MANAGER->GUIState[i].hitFirst)
 				{
 					gAni->setCurrentAnimation("hot");
-					std::cout << "Hot" << std::endl;
+					this->call();
 					return true;
 				}
 				else if(!INPUT_MANAGER->GUIState[i].fingerDown)
@@ -76,8 +89,6 @@ Boolean gecButton::immGUI(float x, float y, int touchIndex, void *touchID, int t
 
 	return false; //button not activated.	
 }
-
-
 
 void gecButton::setShape(CGRect aRect)
 {

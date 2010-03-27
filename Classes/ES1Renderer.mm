@@ -17,6 +17,7 @@
 #import "gecVisualContainer.h"
 #import "gecButton.h"
 #import "gecJoystick.h"
+#include <boost/bind.hpp>
 
 
 @implementation ES1Renderer
@@ -55,7 +56,7 @@
 - (void) initGame
 {
 	[self initScenes];
-	[self geTemplateManagerTest1];
+	[self geBrolyTest2];
 }
 
 /*
@@ -95,8 +96,15 @@
 	GameEntity *broly	= aSceneManager->addEntity(GE_FACTORY->createGE("broly", 240.0f, 160.0f));
 	GameEntity *joypadE	= aSceneManager->addEntity(GE_FACTORY->createGE("joypad", 70.0f, 70.0f));
 	((gecJoystick *)joypadE->getGEC("CompGUI"))->subscribeGameEntity(broly);
+	GameEntity *button	= GE_FACTORY->createGE("buttonDummy", 350.0f, 50.0f);
+	GEComponent *gec = button->getGEC("CompGUI");
+	gecButton	*gbut = static_cast<gecButton *> (gec);
+	if(gec != NULL)
+	{
+		gbut->addSignal(boost::bind(&GameEntity::debugPrintComponents, broly));
+	}
+	aSceneManager->addEntity(button);
 }
-
 - (void) particlesTest
 {		
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(50, 100) , "Particle2.pvr"));
