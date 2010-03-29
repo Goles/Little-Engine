@@ -3,10 +3,10 @@
 //  Particles_2
 //
 //  Created by Nicolas Goles on 11/28/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 GandoGames. All rights reserved.
 //
 
-#import "gecVisualContainer.h"
+#include "gecVisualContainer.h"
 
 std::string gecVisualContainer::mGECTypeID = "gecVisualContainer";
 

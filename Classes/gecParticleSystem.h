@@ -12,21 +12,21 @@
  *	_NG
  */
 
-#import <Foundation/Foundation.h>
-#import "gecVisual.h"
-#import "Particle.h"
+#ifndef _GEC_PARTICLE_SYSTEM_H
+#define _GEC_PARTICLE_SYSTEM_H
+
+#include "gecVisual.h"
+#include "Particle.h"
 #import "ParticleEmitter.h"
 #import "ParticleController.h"
 #import "ParticleRenderer.h"
 
 class gecParticleSystem: public gecVisual
 {	
-	/*Particle System Interface*/
+	//Particle System Interface
 public:
-	//Constructor
+	//Constructor & Destructor
 	gecParticleSystem(int number, BOOL isContinuous, int kRenderingMode);
-	
-	//Destructor
 	~gecParticleSystem();
 	
 	//Getters
@@ -39,13 +39,13 @@ public:
 	//Setters
 	void	setIsActive(bool isActive);	
 
-	/*Component interface*/
+	//Component interface
 public:
 	virtual const gec_id_type &componentID() const { return mGECTypeID; }
 	virtual void render() const;
 	virtual void update(float delta) const;
 	
-	/*Particle System Atributes*/
+	//Particle System Atributes
 private:
 	unsigned int		particleNumber;		//Total number of particles in the system
 	Particle			**array;
@@ -53,7 +53,9 @@ private:
 	ParticleController	*systemController;
 	ParticleRenderer	*systemRenderer;
 	
-	/*Component Atributes*/
+	//Component Atributes
 private:
 	static gec_id_type	mGECTypeID;
 };
+
+#endif

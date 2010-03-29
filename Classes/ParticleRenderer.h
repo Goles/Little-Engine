@@ -15,12 +15,11 @@
  *  _NG
  */
 
-#import <Foundation/Foundation.h>
-#import "OpenGLCommon.h"
+#ifndef _PARTICLE_RENDERER_H_
+#define _PARTICLE_RENDERER_H_
+
 #import "RenderingFunctions.h"
 #import "Image.h"
-
-
 
 @class Texture2D;
 @class Particle;
@@ -58,5 +57,6 @@
 - (void) setParticleSubTexture:(Image *) inImage;
 - (void) testDelegateReference;
 
-
 @end
+
+#endif

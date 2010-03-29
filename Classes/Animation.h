@@ -3,12 +3,14 @@
 //  Particles_2
 //
 //  Created by Nicolas Goles on 10/30/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 GandoGames. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "SpriteSheet.h"
-#import "Frame.h"
+#ifndef _ANIMATION_H_
+#define _ANIMATION_H_
+
+#include "SpriteSheet.h"
+#include "Frame.h"
 #include <vector>
 
 class GameEntity;
@@ -62,3 +64,5 @@ private:
 	int				direction;
 	int				currentFrame;
 };
+
+#endif

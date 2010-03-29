@@ -3,11 +3,13 @@
 //  Particles_2
 //
 //  Created by Nicolas Goles on 11/16/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 GandoGames. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "GameEntity.h"
+#ifndef _SCENEMANAGER_H_
+#define _SCENEMANAGER_H_
+
+#include "GameEntity.h"
 #include "gecParticleSystem.h"
 #include <vector>
 #include <iostream>
@@ -42,3 +44,4 @@ private:
 	ENTITY_VECTOR entityList;
 };
 
+#endif

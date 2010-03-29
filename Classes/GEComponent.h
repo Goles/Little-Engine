@@ -3,8 +3,11 @@
 //  Particles_2
 //
 //  Created by Nicolas Goles on 11/25/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 GandoGames. All rights reserved.
 //
+
+#ifndef _GECOMPONENT_H_
+#define _GECOMPONENT_H_
 
 #include "GameEntity.h"
 #include <string>
@@ -31,3 +34,5 @@ public:
 protected:
 	GameEntity *ownerGE;
 };
+
+#endif

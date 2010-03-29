@@ -6,14 +6,13 @@
 //  Copyright 2009 Gando-Games All rights reserved.
 //
 
-#import "SharedTextureManager.h"
-#import "ParticleRenderer.h"
-#import "gecParticleSystem.h"
-#import "Texture2D.h"
-#import "Particle.h"
-#import "OpenGLCommon.h"
-#import "FileUtils.h"
-
+#include "SharedTextureManager.h"
+#include "ParticleRenderer.h"
+#include "gecParticleSystem.h"
+#include "Texture2D.h"
+#include "Particle.h"
+#include "OpenGLCommon.h"
+#include "FileUtils.h"
 
 @implementation ParticleRenderer
 
@@ -239,13 +238,6 @@
 
 - (void) draw
 {
-	/*if(![del textureBound])
-	{
-		[[aSystem currentTexture] bind];
-		[aSystem setTextureBound:YES];
-	}*/
-	
-	//[particleTexture bind];
 	TEXTURE_MANAGER->bindTexture(particleSubTexture->getTextureName());
 
 	glEnable(GL_TEXTURE_2D);

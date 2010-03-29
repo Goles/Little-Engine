@@ -7,6 +7,9 @@
  *
  */
 
+#ifndef _EMITTER_FUNCTIONS_H_
+#define _EMITTER_FUNCTIONS_H_
+
 typedef enum
 {
 	kEmmiterFX_none = 0,
@@ -35,3 +38,5 @@ static inline float giveLinearPositionY(float x, float slopeM, float interceptN)
 {
 	return(x*slopeM + interceptN);
 }
+
+#endif

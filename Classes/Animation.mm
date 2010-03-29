@@ -3,11 +3,11 @@
 //  Particles_2
 //
 //  Created by Nicolas Goles on 10/30/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 GandoGames. All rights reserved.
 //
 
-#import "Animation.h"
-#import "GameEntity.h"
+#include "Animation.h"
+#include "GameEntity.h"
 
 #pragma mark constructor
 
@@ -140,11 +140,9 @@ void Animation::debugPrintFrames()
 	
 	while ( it != spriteFrames.end() )
 	{
-		std::cout << (*it) << std::endl;
-		
-		it++;
-	}
-	
+		std::cout << (*it) << std::endl;		
+		++it;
+	}	
 }
 
 #pragma mark destructor

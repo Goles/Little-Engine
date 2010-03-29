@@ -6,19 +6,17 @@
 //  Copyright 2009 GandoGames. All rights reserved.
 //
 
-#import "GETemplateManager.h"
-#import "GameEntity.h"
-
-#import "SpriteSheet.h"
-#import "gecAnimatedSprite.h"
-#import "gecVisualContainer.h"
-#import "gecJoystick.h"
-#import "gecButton.h"
-
+#include "GETemplateManager.h"
+#include "GameEntity.h"
+#include "SpriteSheet.h"
+#include "gecAnimatedSprite.h"
+#include "gecVisualContainer.h"
+#include "gecJoystick.h"
+#include "gecButton.h"
 
 GETemplateManager* GETemplateManager::singletonInstance = NULL;
 
-#pragma mark constructor_init
+#pragma mark constructor and destructor
 GETemplateManager* GETemplateManager::getInstance()
 {
 	if (singletonInstance == NULL)
@@ -27,14 +25,11 @@ GETemplateManager* GETemplateManager::getInstance()
 	return singletonInstance;
 }
 
-#pragma mark destructor
-
 GETemplateManager::~GETemplateManager()
-{
-	
+{	
 	std::map <std::string, MFP>::iterator it;
 	
-	for(it = fmap.begin(); it != fmap.end(); it++)
+	for(it = fmap.begin(); it != fmap.end(); ++it)
 	{
 		fmap.erase(it);
 	}

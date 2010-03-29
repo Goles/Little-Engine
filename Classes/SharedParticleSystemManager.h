@@ -25,8 +25,11 @@
  *	_NG October 29 - 2009
  */
 
-#import <Foundation/Foundation.h>
-#import "GameEntity.h"
+//#import <Foundation/Foundation.h>
+#ifndef _SHARED_PARTICLE_SYSTEM_MANAGER_H_
+#define _SHARED_PARTICLE_SYSTEM_MANAGER_H_
+
+#include "GameEntity.h"
 #include <iostream>
 #include <string>
 #include <list>
@@ -56,3 +59,5 @@ private:
 	static SharedParticleSystemManager *instance; //Singleton instance
 	ParticleSystemList _systemsList;
 };
+
+#endif

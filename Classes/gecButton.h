@@ -3,8 +3,11 @@
 //  Particles_2
 //
 //  Created by Nicolas Goles on 12/4/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 GandoGames. All rights reserved.
 //
+
+#ifndef _GECBUTTON_H_
+#define _GECBUTTON_H_
 
 #include <boost/signal.hpp>
 #include <boost/bind.hpp>
@@ -37,3 +40,5 @@ private:
 	static gec_id_type mComponentID;
 	CGRect shape;
 };
+
+#endif

@@ -13,7 +13,9 @@
  *	_NG
  */
 
-#import <Foundation/Foundation.h>
+#ifndef _IMAGE_H_
+#define _IMAGE_H_
+
 #import "Texture2D.h"
 #include <string>
 
@@ -95,3 +97,5 @@ private:
 	Quad2		*texCoords;
 	GLushort	*indices;
 };
+
+#endif

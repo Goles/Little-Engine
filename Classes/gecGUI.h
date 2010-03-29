@@ -3,14 +3,13 @@
 //  Particles_2
 //
 //  Created by Nicolas Goles on 12/4/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 GandoGames. All rights reserved.
 //
-
-#import "GEComponent.h"
 
 #ifndef GECGUI_H
 #define GECGUI_H
 
+#include "GEComponent.h"
 #include <boost/signal.hpp>
 
 class gecGUI: public GEComponent

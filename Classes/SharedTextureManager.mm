@@ -3,13 +3,11 @@
 //  Particles_2
 //
 //  Created by Nicolas Goles on 11/12/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 GandoGames. All rights reserved.
 //
 
-#import <OpenGLES/ES1/gl.h>
-#import <OpenGLES/ES1/glext.h>
-#import "SharedTextureManager.h"
-#import "FileUtils.h"
+#include "SharedTextureManager.h"
+#include "FileUtils.h"
 
 SharedTextureManager* SharedTextureManager::instance = NULL;
 
@@ -80,7 +78,7 @@ void SharedTextureManager::printTextureMap()
 {
 	TextureMap::iterator it;
 	
-	for (it = texturesMap.begin(); it != texturesMap.end(); it++)
+	for (it = texturesMap.begin(); it != texturesMap.end(); ++it)
 		std::cout << (*it).first << " => " << (*it).second << std::endl;
 }
 
@@ -89,7 +87,7 @@ SharedTextureManager::~SharedTextureManager()
 {
 	TextureMap::iterator it;
 	
-	for (it = texturesMap.begin(); it != texturesMap.end(); it++)
+	for (it = texturesMap.begin(); it != texturesMap.end(); ++it)
 		[(*it).second release]; //Release the Texture2D asociated with it.
 	
 	delete instance;

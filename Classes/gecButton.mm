@@ -3,13 +3,13 @@
 //  Particles_2
 //
 //  Created by Nicolas Goles on 12/4/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 GandoGames. All rights reserved.
 //
 
-#import "gecButton.h"
-#import "GEComponent.h"
-#import "gecAnimatedSprite.h"
-#import "SharedInputManager.h"
+#include "gecButton.h"
+#include "GEComponent.h"
+#include "gecAnimatedSprite.h"
+#include "SharedInputManager.h"
 
 std::string gecButton::mComponentID = "gecButton";
 
@@ -53,8 +53,6 @@ Boolean gecButton::immGUI(float x, float y, int touchIndex, void *touchID, int t
 {
 	GEComponent *gec = this->getOwnerGE()->getGEC(std::string("CompVisual")); //we obtain a gecAnimatedSprite
 	gecAnimatedSprite *gAni = static_cast<gecAnimatedSprite *> (gec);
-
-	//std::cout << "HIT FIRST: " << INPUT_MANAGER->GUIState[touchIndex].hitFirst << std::endl;
 	
 	if(this->regionHit(x, y))
 	{
@@ -71,7 +69,6 @@ Boolean gecButton::immGUI(float x, float y, int touchIndex, void *touchID, int t
 				else if(!INPUT_MANAGER->GUIState[i].fingerDown)
 				{
 					gAni->setCurrentAnimation("normal");
-					//std::cout << "Vuelve a normal 1: " << gAni << std::endl;
 					return false;
 				}
 			}
@@ -82,7 +79,6 @@ Boolean gecButton::immGUI(float x, float y, int touchIndex, void *touchID, int t
 			if(INPUT_MANAGER->GUIState[i].fingerDown == false && i != touchIndex)
 			{
 				gAni->setCurrentAnimation("normal");
-				//std::cout << "Vuelve a normal 1: " << gAni << std::endl;
 			} 
 		}
 	}
@@ -91,9 +87,7 @@ Boolean gecButton::immGUI(float x, float y, int touchIndex, void *touchID, int t
 }
 
 void gecButton::setShape(CGRect aRect)
-{
-	std::cout << "Origin X: " << aRect.origin.x << " Origin Y: " << aRect.origin.y << std::endl;
-	
+{	
 	//We need to center our CGRect
 	shape = CGRectMake(aRect.origin.x - aRect.size.width*0.5, 
 			   aRect.origin.y - aRect.size.height*0.5, 

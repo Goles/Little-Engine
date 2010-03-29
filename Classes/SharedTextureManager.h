@@ -18,7 +18,9 @@
  * _NG November 12 - 2009
  */
 
-#import <Foundation/Foundation.h>
+#ifndef _SHARED_TEXTURE_MANAGER_H_
+#define _SHARED_TEXTURE_MANAGER_H_
+
 #import "Texture2D.h"
 #include <map>
 #include <string>
@@ -54,3 +56,5 @@ private:
 	TextureMap texturesMap;
 	std::string boundTextureName;
 };
+
+#endif

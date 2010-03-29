@@ -7,8 +7,8 @@
 //
 
 #import "Image.h"
-#import "FileUtils.h"
-#import "SharedTextureManager.h"
+#include "FileUtils.h"
+#include "SharedTextureManager.h"
 
 Image::Image()
 {

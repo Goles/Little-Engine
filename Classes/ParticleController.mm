@@ -41,14 +41,12 @@
 			/*Do important stuff here*/
 		}
 	}
-	
 	return self;
 }
 
 - (void) dealloc
 {	
-	free(array);
-	
+	free(array);	
 	[super dealloc];
 }
 

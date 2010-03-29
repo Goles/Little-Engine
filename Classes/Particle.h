@@ -6,7 +6,9 @@
 //  Copyright 2009 Gando-Games All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#ifndef _PARTICLE_H_
+#define _PARTICLE_H_
+
 #import "OpenGLCommon.h"
 
 @interface Particle : NSObject 
@@ -67,3 +69,5 @@
 
 
 @end
+
+#endif

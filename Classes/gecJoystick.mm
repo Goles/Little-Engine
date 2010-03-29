@@ -3,13 +3,13 @@
 //  Particles_2
 //
 //  Created by Nicolas Goles on 12/5/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 GandoGames. All rights reserved.
 //
 
-#import "gecJoystick.h"
-#import "GEComponent.h"
-#import "gecAnimatedSprite.h"
-#import "SharedInputManager.h"
+#include "gecJoystick.h"
+#include "GEComponent.h"
+#include "gecAnimatedSprite.h"
+#include "SharedInputManager.h"
 
 std::string gecJoystick::mComponentID = "gecJoystick";
 

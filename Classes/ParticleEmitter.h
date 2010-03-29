@@ -6,8 +6,10 @@
 //  Copyright 2009 Gando-Games All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "OpenGLCommon.h"
+#ifndef _PARTICLE_EMITTER_H_
+#define _PARTICLE_EMITTER_H_
+
+#include "OpenGLCommon.h"
 
 @class Particle;
 
@@ -55,3 +57,5 @@
 - (void) calculateLinearEmission;
 
 @end
+
+#endif

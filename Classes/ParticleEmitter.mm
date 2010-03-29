@@ -6,11 +6,11 @@
 //  Copyright 2009 Gando-Games All rights reserved.
 //
 
-#import "ParticleEmitter.h"
-#import "ConstantsAndMacros.h"
-#import "EmitterFunctions.h"
-#import "gecParticleSystem.h"
-#import "Particle.h"
+#include "ParticleEmitter.h"
+#include "ConstantsAndMacros.h"
+#include "EmitterFunctions.h"
+#include "gecParticleSystem.h"
+#include "Particle.h"
 
 @implementation ParticleEmitter
 
@@ -85,8 +85,7 @@
 												(inEndColor.blue - inStartColor.blue), 
 												0)];
 			/*Finally we must reset the particle for it to take initial positions.*/
-			[array[i] reset];
-			
+			[array[i] reset];			
 		}
 	}
 }
@@ -114,7 +113,6 @@
 		default:
 			break;
 	}
-	
 	[self updateEmitionSource];
 }
 

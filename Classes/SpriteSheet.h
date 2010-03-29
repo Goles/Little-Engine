@@ -3,10 +3,12 @@
 //  Particles_2
 //
 //  Created by Nicolas Goles on 10/29/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 GandoGames. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#ifndef _SPRITE_SHEET_H_
+#define _SPRITE_SHEET_H_
+
 #import "Image.h"
 #include <string>
 #include <iostream>
@@ -48,3 +50,5 @@ private:
 	//Action Methods
 	void initImplementation(GLuint inSpriteWidth, GLuint inSpriteHeight, GLuint inSpacing, float inImageScale);
 };
+
+#endif

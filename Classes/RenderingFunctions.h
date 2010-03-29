@@ -7,6 +7,9 @@
  *
  */
 
+#ifndef _RENDERING_FUNCTIONS_H_
+#define _RENDERING_FUNCTIONS_H_
+
 #import "OpenGLCommon.h"
 
 typedef enum
@@ -122,3 +125,5 @@ static inline void addPointSprite(float x, float y, unsigned color, float size, 
 
 	(*_pointSpriteCount)++;
 }
+
+#endif

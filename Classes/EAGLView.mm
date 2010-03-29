@@ -3,13 +3,12 @@
 //  Particles_2
 //
 //  Created by Nicolas Goles on 9/19/09.
-//  Copyright __MyCompanyName__ 2009. All rights reserved.
+//  Copyright GandoGames 2009. All rights reserved.
 //
 
 #import "EAGLView.h"
 #import "ES1Renderer.h"
 #import "SharedInputManager.h"
-
 
 @implementation EAGLView
 
@@ -60,7 +59,6 @@
 		if ([currSysVer compare:reqSysVer options:NSNumericSearch] != NSOrderedAscending)
 			displayLinkSupported = TRUE;
     }
-	
     return self;
 }
 
@@ -74,7 +72,6 @@
 	
 	/* update */
 	[(ES1Renderer *)renderer update:delta];
-
 	
 	/* render */
 	[renderer render];
@@ -163,8 +160,8 @@
 	{
 		loc = [aTouch locationInView:self];
 		INPUT_MANAGER->touchesBegan(loc.x, loc.y, aTouch);
-		printf( "Touch began %p, tapcount %d\n", (void *) aTouch, [aTouch tapCount] );
-		fflush( stdout );			
+		//printf( "Touch began %p, tapcount %d\n", (void *) aTouch, [aTouch tapCount] );
+		//fflush( stdout );			
 	}
 }
 
@@ -176,8 +173,8 @@
 	{
 		loc = [aTouch locationInView:self];
 		INPUT_MANAGER->touchesMoved(loc.x, loc.y, aTouch);
-		printf( "Touch moved %p, tapcount %d\n", (void*)aTouch, [aTouch tapCount] );
-		fflush( stdout );			
+		//printf( "Touch moved %p, tapcount %d\n", (void*)aTouch, [aTouch tapCount] );
+		//fflush( stdout );			
 	}
 }
 
@@ -189,8 +186,8 @@
 	{
 		loc = [aTouch locationInView:self];
 		INPUT_MANAGER->touchesEnded(loc.x, loc.y, aTouch);
-		printf( "Touch ended %p, tapcount %d\n", (void*)aTouch, [aTouch tapCount] );
-		fflush( stdout );			
+		//printf( "Touch ended %p, tapcount %d\n", (void*)aTouch, [aTouch tapCount] );
+		//fflush( stdout );			
 	}
 }
 

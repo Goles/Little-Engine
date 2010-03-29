@@ -7,7 +7,7 @@
 //
 
 #import "Particle.h"
-#import "ConstantsAndMacros.h"
+#include "ConstantsAndMacros.h"
 
 @implementation Particle
 

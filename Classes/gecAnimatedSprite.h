@@ -3,12 +3,15 @@
 //  Particles_2
 //
 //  Created by Nicolas Goles on 11/26/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 GandoGames. All rights reserved.
 //
 
-#import "gecVisual.h"
-#import "SpriteSheet.h"
-#import "Animation.h"
+#ifndef _GECANIMATEDSPRITE_H_
+#define _GECANIMATEDSPRITE_H_
+
+#include "gecVisual.h"
+#include "SpriteSheet.h"
+#include "Animation.h"
 #include <map>
 
 class gecAnimatedSprite : public gecVisual
@@ -41,3 +44,5 @@ private:
 	Animation*			currentAnimation;
 	AnimationMap		componentAnimations;
 };
+
+#endif

@@ -3,10 +3,10 @@
 //  Particles_2
 //
 //  Created by Nicolas Goles on 10/29/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 GandoGames. All rights reserved.
 //
 
-#import "SpriteSheet.h"
+#include "SpriteSheet.h"
 #import "Texture2D.h"
 
 #pragma mark private_action_methods
@@ -22,7 +22,7 @@ void SpriteSheet::initImplementation(GLuint inSpriteWidth, GLuint inSpriteHeight
 		verticalNumber++;
 }
 
-
+#pragma mark -
 #pragma mark public_action_methods
 void SpriteSheet::initWithImage(Image *inSpriteSheet, GLuint spriteWidth, GLuint spriteHeight, GLuint spriteSpacing)
 {
@@ -72,44 +72,44 @@ void	SpriteSheet::renderSpriteAt(GLuint x, GLuint y, CGPoint point, BOOL isCente
 	sheetImage->renderSubImageAtPoint(point, spritePoint, spriteWidth, spriteHeight, isCenterOfImage);
 }
 
+#pragma mark -
 #pragma mark getters
-Image*	SpriteSheet::getSheetImage()
+Image* SpriteSheet::getSheetImage()
 {
 	return sheetImage;
 }
 
-GLuint	SpriteSheet::getSpriteWidth()
+GLuint SpriteSheet::getSpriteWidth()
 {
 	return spriteWidth;
 }
 
-GLuint	SpriteSheet::getSpriteHeight()
+GLuint SpriteSheet::getSpriteHeight()
 {
 	return spriteHeight;
 }
 
-GLuint	SpriteSheet::getSpacing()
+GLuint SpriteSheet::getSpacing()
 {
 	return spacing;
 }
 
-int		SpriteSheet::getHorizontalNumber()
+int SpriteSheet::getHorizontalNumber()
 {
 	return horizontalNumber;
 }
 
-int		SpriteSheet::getVerticalNumber()
+int SpriteSheet::getVerticalNumber()
 {
 	return verticalNumber;
 }
 
-Quad2*	SpriteSheet::getVertices()
+Quad2* SpriteSheet::getVertices()
 {
 	return vertices;
 }
 
-Quad2*	SpriteSheet::getTexCoords()
+Quad2* SpriteSheet::getTexCoords()
 {
 	return texCoords;
 }
-

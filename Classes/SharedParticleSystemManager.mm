@@ -3,19 +3,18 @@
 //  Particles_2
 //
 //  Created by Nicolas Goles on 11/5/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 GandoGames. All rights reserved.
 //
 
-#import "SharedParticleSystemManager.h"
-#import "OpenGLCommon.h"
-#import "EmitterFunctions.h"
-#import "RenderingFunctions.h"
-#import "gecParticleSystem.h"
-#import "ParticleEmitter.h"
-#import "ParticleRenderer.h"
-#import "Image.h"
-#import "FileUtils.h"
-
+#include "SharedParticleSystemManager.h"
+#include "OpenGLCommon.h"
+#include "EmitterFunctions.h"
+#include "RenderingFunctions.h"
+#include "gecParticleSystem.h"
+#include "ParticleEmitter.h"
+#include "ParticleRenderer.h"
+#include "Image.h"
+#include "FileUtils.h"
 
 SharedParticleSystemManager* SharedParticleSystemManager::instance = NULL;
 

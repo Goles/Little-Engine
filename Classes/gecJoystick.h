@@ -3,10 +3,13 @@
 //  Particles_2
 //
 //  Created by Nicolas Goles on 12/5/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 GandoGames. All rights reserved.
 //
 
-#import "gecGUI.h"
+#ifndef _GECGUI_H_
+#define _GECGUI_H_
+
+#include "gecGUI.h"
 
 class GameEntity;
 
@@ -48,3 +51,5 @@ private:
 	CGPoint latestVelocity;
 	GameEntity *subscribedGE;
 };
+
+#endif

@@ -3,7 +3,7 @@
 //  Particles_2
 //
 //  Created by Nicolas Goles on 11/5/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 GandoGames. All rights reserved.
 //
 
 /*
@@ -12,6 +12,9 @@
  *	methods in a correct/suitable way.	
  *	_NG
  */
+
+#ifndef _GAMEENTITY_H_
+#define _GAMEENTITY_H_
 
 #include <iostream>
 #include <map>
@@ -80,3 +83,5 @@ private:
 	ComponentMap	components;
 	ComponentVector rendereableComponents;
 };
+
+#endif

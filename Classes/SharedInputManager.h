@@ -14,7 +14,8 @@
  * _NG Thu 3 Dec 2009
  */
  
-
+#ifndef _SHARED_INPUT_MANAGER_H
+#define _SHARED_INPUT_MANAGER_H
 
 #include <boost/thread/mutex.hpp>
 #include <string>
@@ -84,3 +85,5 @@ private:
 public:
 	void debugPrintMap();
 };
+
+#endif

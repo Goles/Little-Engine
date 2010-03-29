@@ -6,7 +6,8 @@
 //  Copyright 2009 Gando-Games All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#ifndef _PARTICLE_CONTROLLER_H_
+#define _PARTICLE_CONTROLLER_H_
 
 @class Particle;
 @class Texture2D;
@@ -22,3 +23,5 @@
 - (id) initWithDelegate:(id)inDelegate;
 
 @end
+
+#endif

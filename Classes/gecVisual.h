@@ -3,8 +3,11 @@
 //  Particles_2
 //
 //  Created by Nicolas Goles on 11/25/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 GandoGames. All rights reserved.
 //
+
+#ifndef _GECVISUAL_H_
+#define _GECVISUAL_H_
 
 #include "GEComponent.h"
 
@@ -21,3 +24,5 @@ public:
 private:
 	static gec_id_type mFamilyID;
 };
+
+#endif

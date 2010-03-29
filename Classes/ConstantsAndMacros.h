@@ -2,8 +2,10 @@
  * Constants and Macros
  */
  
+#ifndef _CONSTANT_MACROS_H_
+#define _CONSTANT_MACROS_H_
 
-#import <math.h>
+#include <math.h>
 
 //Screen definitions
 #define SCREEN_HEIGHT 480
@@ -33,3 +35,4 @@
 /// default gl blend dst function
 #define CC_BLEND_DST GL_ONE_MINUS_SRC_ALPHA
 
+#endif

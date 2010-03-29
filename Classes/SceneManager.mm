@@ -3,7 +3,7 @@
 //  Particles_2
 //
 //  Created by Nicolas Goles on 11/16/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 GandoGames. All rights reserved.
 //
 
 #include "SceneManager.h"
@@ -68,7 +68,7 @@ void SceneManager::removeEntity(GameEntity *inGameEntity)
 		if (*it == inGameEntity) {
 			entityList.erase(it);
 		}		
-		it++;
+		++it;
 	}
 
 }
@@ -97,7 +97,7 @@ void SceneManager::debugPrintEntityList()
 			std::cout << "comp:" << std::endl;
 			(*it)->debugPrintComponents();
 		}
-		it++;
+		++it;
 	}
 }
 

@@ -14,7 +14,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 /** Helper class to handle file operations */
 @interface FileUtils : NSObject
 {
