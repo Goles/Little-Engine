@@ -68,7 +68,7 @@ GameEntity* GETemplateManager::broly(float x, float y)
 	
 	//Load the spriteSheet.
 	SpriteSheet *ss = new SpriteSheet();
-	ss->initWithImageNamed("brolySheetComic.png", gE->width, gE->height, 0.0, 1.0);
+	ss->initWithImageNamed("hitter1_sheet.png", gE->width, gE->height, 0.0, 1.0);
 	
 	gecAnimatedSprite *spriteAnimations = new gecAnimatedSprite();
 	spriteAnimations->setOwnerGE(gE);
@@ -323,7 +323,7 @@ GameEntity* GETemplateManager::backgroundDummy(float x, float y)
 	GameEntity *gE = new GameEntity(x, y, width, height);
 	
 	SpriteSheet *ss = new SpriteSheet();
-	ss->initWithImageNamed("scenario1a.png", gE->width, gE->height, 0.0, 1.0);
+	ss->initWithImageNamed("backgroundDummy.png", gE->width, gE->height, 0.0, 1.0);
 	
 	gecAnimatedSprite *spriteAnimations = new gecAnimatedSprite();
 	spriteAnimations->setOwnerGE(gE);
