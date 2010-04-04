@@ -19,7 +19,6 @@
 		28FD14FE0DC6FC130079059D /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 28FD14FD0DC6FC130079059D /* EAGLView.mm */; };
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
-		6317D8E310C8485800C7EEE2 /* libboost_thread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6317D8E210C8485800C7EEE2 /* libboost_thread.a */; };
 		6317D9AB10C85CB000C7EEE2 /* SharedInputManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6317D9AA10C85CB000C7EEE2 /* SharedInputManager.mm */; };
 		631EBAEB10BED2B90060FBD3 /* gecAnimatedSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 631EBAEA10BED2B90060FBD3 /* gecAnimatedSprite.mm */; };
 		63223F3D115EC0660094FB69 /* hitter1_sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 63223F3C115EC0660094FB69 /* hitter1_sheet.png */; };
@@ -80,7 +79,6 @@
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Particles_2_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particles_2_Prefix.pch; sourceTree = "<group>"; };
-		6317D8E210C8485800C7EEE2 /* libboost_thread.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_thread.a; path = /Users/nicog/Programming/iPhone/Utility/Boost/libboost_thread.a; sourceTree = "<absolute>"; };
 		6317D9A910C85CB000C7EEE2 /* SharedInputManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedInputManager.h; sourceTree = "<group>"; };
 		6317D9AA10C85CB000C7EEE2 /* SharedInputManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SharedInputManager.mm; sourceTree = "<group>"; };
 		631EBAE910BED2B90060FBD3 /* gecAnimatedSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecAnimatedSprite.h; sourceTree = "<group>"; };
@@ -163,7 +161,6 @@
 				28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */,
 				28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */,
 				633C88D51064942D003911A0 /* CoreGraphics.framework in Frameworks */,
-				6317D8E310C8485800C7EEE2 /* libboost_thread.a in Frameworks */,
 				63F8302010E16E6E00B27131 /* libboost_signals.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,7 +245,6 @@
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				633C88D41064942D003911A0 /* CoreGraphics.framework */,
-				6317D8E210C8485800C7EEE2 /* libboost_thread.a */,
 				63F8301F10E16E6E00B27131 /* libboost_signals.a */,
 			);
 			name = Frameworks;
@@ -644,7 +640,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = /usr/local/include/;
+				HEADER_SEARCH_PATHS = /usr/include/my_boost;
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "745A7C0C-3FDC-42E0-9F4B-03158059E0B6";
 				SDKROOT = iphoneos3.1.2;
@@ -682,7 +678,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = /usr/local/include/;
+				HEADER_SEARCH_PATHS = /usr/include/my_boost;
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "745A7C0C-3FDC-42E0-9F4B-03158059E0B6";
 				SDKROOT = iphoneos3.1.2;
@@ -703,7 +699,7 @@
 				GCC_UNROLL_LOOPS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = /usr/local/include/;
+				HEADER_SEARCH_PATHS = /usr/include/my_boost;
 				OTHER_CFLAGS = "-falign-loops=16";
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "745A7C0C-3FDC-42E0-9F4B-03158059E0B6";
