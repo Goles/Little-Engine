@@ -19,6 +19,8 @@
 		28FD14FE0DC6FC130079059D /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 28FD14FD0DC6FC130079059D /* EAGLView.mm */; };
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
+		63040AD3116E8A0E0066F4CF /* gecFSM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63040AD1116E8A0E0066F4CF /* gecFSM.cpp */; };
+		63040AE1116E8A2C0066F4CF /* gecBehaviour.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63040ADF116E8A2C0066F4CF /* gecBehaviour.cpp */; };
 		6317D9AB10C85CB000C7EEE2 /* SharedInputManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6317D9AA10C85CB000C7EEE2 /* SharedInputManager.mm */; };
 		631EBAEB10BED2B90060FBD3 /* gecAnimatedSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 631EBAEA10BED2B90060FBD3 /* gecAnimatedSprite.mm */; };
 		63223F3D115EC0660094FB69 /* hitter1_sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 63223F3C115EC0660094FB69 /* hitter1_sheet.png */; };
@@ -80,6 +82,11 @@
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Particles_2_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particles_2_Prefix.pch; sourceTree = "<group>"; };
+		63040AD1116E8A0E0066F4CF /* gecFSM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gecFSM.cpp; sourceTree = "<group>"; };
+		63040AD2116E8A0E0066F4CF /* gecFSM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecFSM.h; sourceTree = "<group>"; };
+		63040ADF116E8A2C0066F4CF /* gecBehaviour.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gecBehaviour.cpp; sourceTree = "<group>"; };
+		63040AE0116E8A2C0066F4CF /* gecBehaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecBehaviour.h; sourceTree = "<group>"; };
+		63040AFA116E8BC70066F4CF /* EntityStates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityStates.h; sourceTree = "<group>"; };
 		6317D9A910C85CB000C7EEE2 /* SharedInputManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedInputManager.h; sourceTree = "<group>"; };
 		6317D9AA10C85CB000C7EEE2 /* SharedInputManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SharedInputManager.mm; sourceTree = "<group>"; };
 		631EBAE910BED2B90060FBD3 /* gecAnimatedSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecAnimatedSprite.h; sourceTree = "<group>"; };
@@ -253,6 +260,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		63040AE8116E8A710066F4CF /* family */ = {
+			isa = PBXGroup;
+			children = (
+				63040AFA116E8BC70066F4CF /* EntityStates.h */,
+				63040AE0116E8A2C0066F4CF /* gecBehaviour.h */,
+				63040ADF116E8A2C0066F4CF /* gecBehaviour.cpp */,
+			);
+			name = family;
+			sourceTree = "<group>";
+		};
 		6317DA4D10C898DB00C7EEE2 /* components */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +304,9 @@
 		63223F79115ECCF40094FB69 /* Behaviour */ = {
 			isa = PBXGroup;
 			children = (
+				63040AE8116E8A710066F4CF /* family */,
+				63040AD2116E8A0E0066F4CF /* gecFSM.h */,
+				63040AD1116E8A0E0066F4CF /* gecFSM.cpp */,
 			);
 			name = Behaviour;
 			sourceTree = "<group>";
@@ -588,6 +608,8 @@
 				63EECF8110C8BFF20098C3D0 /* gecGUI.mm in Sources */,
 				63EECF9210C8C2A80098C3D0 /* gecButton.mm in Sources */,
 				63EED4ED10CAE7510098C3D0 /* gecJoystick.mm in Sources */,
+				63040AD3116E8A0E0066F4CF /* gecFSM.cpp in Sources */,
+				63040AE1116E8A2C0066F4CF /* gecBehaviour.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

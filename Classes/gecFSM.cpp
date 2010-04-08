@@ -8,5 +8,18 @@
  */
 
 #include "gecFSM.h"
+#include "GameEntity.h"
 
-/*Constructors*/
+std::string gecFSM::mComponentID = "gecFSM";
+
+/*Interface*/
+void gecFSM::setRule(kEntityState initialState, int inputAction, kEntityState resultingState)
+{
+	fsmTable[initialState][inputAction] = resultingState;
+}
+
+void gecFSM::performAction(int action)
+{
+	GameEntity *ge = gecBehaviour::GEComponent::getOwnerGE();
+	ge->debugPrintComponents();
+}

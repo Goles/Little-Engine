@@ -49,11 +49,11 @@
 	Image*		particleTextures;
 	
 	//Testing C++ stuff
-	SpriteSheet		*ss;
-	SpriteSheet		*ss2;
-	Image			*sprite;
-	Animation		*animatedSprite;
-	SceneManager	*aSceneManager;
+	SpriteSheet*	ss;
+	SpriteSheet*	ss2;
+	Image*			sprite;
+	Animation*		animatedSprite;
+	SceneManager*	aSceneManager;
 }
 
 - (void) update:(float)delta;
@@ -64,6 +64,7 @@
 - (void) initScenes;
 
 /*Tests*/
+- (void) fsmTest;
 - (void) multiTouchTest;
 - (void) particlesTest;
 - (void) particlesShowOff;

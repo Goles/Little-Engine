@@ -17,14 +17,23 @@
 
 class gecFSM : public gecBehaviour 
 {
-
+	//GEComponent Interface
+public:
+	virtual const gec_id_type&	componentID() const { return mComponentID; }
+	virtual void update(float delta) const {}
+	
 public:
 	//Constructors
 	gecFSM() { state = kEntityState_walk; }
 	gecFSM(kEntityState s) { state = s; }
 	
+	//Interface
+	void setRule(kEntityState initialState, int inputAction, kEntityState resultingState);
+	void performAction(int action);
+	
 private:
-	kEntityState fsmTabe[MAX_STATES][MAX_ACTION];
+	kEntityState fsmTable[MAX_STATES][MAX_ACTION];
+	static gec_id_type mComponentID;
 	
 };
 

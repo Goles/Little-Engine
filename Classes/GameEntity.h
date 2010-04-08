@@ -29,7 +29,7 @@ public:
 			y,
 			height,	//Limits (height and width) of our Entity.
 			width;
-	Boolean	isActive;
+	bool	isActive;
 	
 	//Constructors
 	GameEntity();
@@ -42,8 +42,8 @@ public:
 	virtual ~GameEntity(){ components.clear(); }
 	
 	//Getters & Setters
-	const Boolean	getIsActive() const { return isActive; }
-	const void		setIsActive(Boolean inActive) { isActive = inActive; }
+	const bool		getIsActive() const { return isActive; }
+	const void		setIsActive(bool inActive) { isActive = inActive; }
 	void			setGEC( GEComponent *newGEC );
 	GEComponent*	getGEC( const std::string &familyID );
 	void			clearGECs();

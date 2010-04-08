@@ -17,6 +17,7 @@
 #import "gecVisualContainer.h"
 #import "gecButton.h"
 #import "gecJoystick.h"
+#include "gecFSM.h"
 #include <boost/bind.hpp>
 
 
@@ -56,7 +57,7 @@
 - (void) initGame
 {
 	[self initScenes];
-	[self geBrolyTest2];
+	[self fsmTest];
 }
 
 /*
@@ -66,6 +67,21 @@
  */
 #pragma mark -
 #pragma mark TESTS
+- (void) fsmTest
+{
+	GameEntity *ge = GE_FACTORY->createGE("hitter1", 130.0f, 150.0f);	
+	gecFSM *fsm = new gecFSM();
+	ge->setGEC(fsm);
+	
+	GEComponent *gec = ge->getGEC("CompBehaviour");
+	if(gec != NULL)
+	{
+		gecFSM *tempFSM = static_cast<gecFSM *> (gec);
+		tempFSM->performAction(0);
+	}
+	
+}
+
 - (void) multiTouchTest
 {
 	aSceneManager->addEntity(GE_FACTORY->createGE("buttonDummy", 240.0f, 160.0f));
