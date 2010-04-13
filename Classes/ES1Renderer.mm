@@ -57,7 +57,7 @@
 - (void) initGame
 {
 	[self initScenes];
-	[self fsmTest];
+	[self geBrolyTest2];
 }
 
 /*
@@ -78,8 +78,7 @@
 	{
 		gecFSM *tempFSM = static_cast<gecFSM *> (gec);
 		tempFSM->performAction(0);
-	}
-	
+	}	
 }
 
 - (void) multiTouchTest

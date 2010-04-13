@@ -6,7 +6,7 @@
 //  Copyright 2009 GandoGames. All rights reserved.
 //
 
-#import "gecAnimatedSprite.h"
+#include "gecAnimatedSprite.h"
 
 std::string gecAnimatedSprite::mGECTypeID = "gecAnimatedSprite";
 
