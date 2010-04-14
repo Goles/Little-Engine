@@ -11,7 +11,8 @@
 #define _GEC_BEHAVIOUR_H_
 
 #include "GEComponent.h"
-#include "EntityStates.h"
+#include "BehaviourStates.h"
+#include "BehaviourActions.h"
 
 class gecBehaviour: public GEComponent
 {
@@ -20,7 +21,7 @@ public:
 	virtual const gec_id_type &familyID() const { return mFamilyID; }
 	
 protected:
-	kEntityState state;
+	int state;
 	
 private:
 	static gec_id_type mFamilyID;

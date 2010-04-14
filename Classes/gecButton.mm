@@ -18,8 +18,10 @@ gecButton::gecButton()
 {
 	//TODO: INPUT_MANAGER GIVE ME A NEW ID
 	this->setGuiID(INPUT_MANAGER->giveID());
-	
-	std::cout << this->getGuiID() << std::endl;
+
+	 //We don't assign button actions by default.
+	buttonActions[0] = kBehaviourAction_none;
+	buttonActions[1] = kBehaviourAction_none;
 }
 
 gecButton::~gecButton()
@@ -29,14 +31,14 @@ gecButton::~gecButton()
 
 #pragma mark -
 #pragma mark signal binding
-void gecButton::addSignal(const ContactSignal::slot_type& slot)
+void gecButton::addSignal(const TriggerSignal::slot_type& slot)
 {
 	triggerSignal.connect(slot);
 }
 
-void gecButton::call()
+void gecButton::call(kBehaviourAction action)
 {
-	triggerSignal();
+	triggerSignal(action);
 }
 
 #pragma mark -
@@ -63,12 +65,19 @@ Boolean gecButton::immGUI(float x, float y, int touchIndex, void *touchID, int t
 				if(INPUT_MANAGER->GUIState[i].fingerDown && INPUT_MANAGER->GUIState[i].hitFirst)
 				{
 					gAni->setCurrentAnimation("hot");
-					this->call();
+					
+					if(buttonActions[0] > kBehaviourAction_none)
+						this->call(buttonActions[0]);
+					
 					return true;
 				}
 				else if(!INPUT_MANAGER->GUIState[i].fingerDown)
 				{
 					gAni->setCurrentAnimation("normal");
+					
+					if(buttonActions[1] > kBehaviourAction_none)
+						this->call(buttonActions[1]);
+					
 					return false;
 				}
 			}
@@ -79,6 +88,9 @@ Boolean gecButton::immGUI(float x, float y, int touchIndex, void *touchID, int t
 			if(INPUT_MANAGER->GUIState[i].fingerDown == false && i != touchIndex)
 			{
 				gAni->setCurrentAnimation("normal");
+				
+				if(buttonActions[1] > kBehaviourAction_none)
+					this->call(buttonActions[1]);
 			} 
 		}
 	}

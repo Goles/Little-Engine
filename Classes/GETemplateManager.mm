@@ -13,6 +13,7 @@
 #include "gecVisualContainer.h"
 #include "gecJoystick.h"
 #include "gecButton.h"
+#include "gecFSM.h"
 
 GETemplateManager* GETemplateManager::singletonInstance = NULL;
 
@@ -163,6 +164,19 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	gE->isActive = true;
 	gE->x = x;
 	gE->y = y;
+	
+	//Add an FSM to our Game Entity
+	gecFSM *fsm = new gecFSM();
+	
+	//Build the rules for this entity FSM.
+	fsm->setRule(kBehaviourState_stand, kBehaviourAction_doAttack, kBehaviourState_attack, "attack");
+	fsm->setRule(kBehaviourState_attack, kBehaviourAction_stopAttack, kBehaviourState_stand, "stand");
+	fsm->setRule(kBehaviourState_stand, kBehaviourAction_dragGamepad, kBehaviourState_walk, "walk");
+	fsm->setRule(kBehaviourState_walk, kBehaviourAction_stopGamepad, kBehaviourState_stand, "stand");
+	fsm->setRule(kBehaviourState_walk, kBehaviourAction_doAttack, kBehaviourState_attack, "attack");
+	
+	//Attach the FSM to the hitter.
+	gE->setGEC(fsm);
 	
 	return gE;
 }

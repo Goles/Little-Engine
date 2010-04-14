@@ -13,6 +13,10 @@
 #include <boost/bind.hpp>
 #include <iostream>
 #include "gecGUI.h"
+#include "BehaviourActions.h"
+
+//To pass signals to FSM for example.
+typedef boost::signal<void (kBehaviourAction)> TriggerSignal;
 
 class gecButton : public gecGUI
 {
@@ -30,15 +34,20 @@ public:
 public:
 	gecButton();
 	~gecButton();
-	void setShape(CGRect aShape);
-	CGRect getShape() const { return shape; }
-	void addSignal(const ContactSignal::slot_type& slot);
-	void call();
+	void				setShape(CGRect aShape);
+	CGRect				getShape() const { return shape; }
+	void				setActionPressed(kBehaviourAction a) { buttonActions[0] = a; }
+	void				setActionReleased(kBehaviourAction a) { buttonActions[1] = a; }
+	kBehaviourAction	getActionPressed(){ return buttonActions[0]; }
+	kBehaviourAction	getActionReleased(){ return buttonActions[1]; }
+	void				addSignal(const TriggerSignal::slot_type& slot);
+	void				call(kBehaviourAction action);
 	
 private:	
-	ContactSignal triggerSignal;	
+	TriggerSignal triggerSignal;	
 	static gec_id_type mComponentID;
-	CGRect shape;
+	CGRect shape;	
+	kBehaviourAction buttonActions[2];
 };
 
 #endif

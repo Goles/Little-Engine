@@ -20,7 +20,6 @@
 #include "gecFSM.h"
 #include <boost/bind.hpp>
 
-
 @implementation ES1Renderer
 
 // Create an ES 1.1 context
@@ -57,7 +56,7 @@
 - (void) initGame
 {
 	[self initScenes];
-	[self geBrolyTest2];
+	[self fsmTest];
 }
 
 /*
@@ -69,16 +68,17 @@
 #pragma mark TESTS
 - (void) fsmTest
 {
-	GameEntity *ge = GE_FACTORY->createGE("hitter1", 130.0f, 150.0f);	
-	gecFSM *fsm = new gecFSM();
-	ge->setGEC(fsm);
+	GameEntity *hitter = GE_FACTORY->createGE("hitter1", 240.0f, 160.0f);	
+	GameEntity *button = GE_FACTORY->createGE("buttonDummy", 350.0f, 50.0f);
+
+	//Configure our button
+	((gecButton *)button->getGEC("CompGUI"))->setActionPressed(kBehaviourAction_doAttack);
+	((gecButton *)button->getGEC("CompGUI"))->setActionReleased(kBehaviourAction_stopAttack);
+	((gecButton	*)button->getGEC("CompGUI"))->addSignal(boost::bind(&gecFSM::performAction, (gecFSM*)hitter->getGEC("CompBehaviour"), _1));
 	
-	GEComponent *gec = ge->getGEC("CompBehaviour");
-	if(gec != NULL)
-	{
-		gecFSM *tempFSM = static_cast<gecFSM *> (gec);
-		tempFSM->performAction(0);
-	}	
+	//Add everything to the Scene.
+	aSceneManager->addEntity(hitter);
+	aSceneManager->addEntity(button);
 }
 
 - (void) multiTouchTest
@@ -105,20 +105,24 @@
 
 - (void) geBrolyTest2
 {
-	aSceneManager->addEntity(GE_FACTORY->createGE("hitter1", 130.0f, 150.0f));
-	aSceneManager->addEntity(GE_FACTORY->createGE("hitter1", 180.0f, 170.0f));	
-	aSceneManager->addEntity(GE_FACTORY->createGE("backgroundDummy", 240.0f, 160.0f ));
-	GameEntity *broly	= aSceneManager->addEntity(GE_FACTORY->createGE("broly", 240.0f, 160.0f));
-	GameEntity *joypadE	= aSceneManager->addEntity(GE_FACTORY->createGE("joypad", 70.0f, 70.0f));
-	((gecJoystick *)joypadE->getGEC("CompGUI"))->subscribeGameEntity(broly);
-	GameEntity *button	= GE_FACTORY->createGE("buttonDummy", 350.0f, 50.0f);
-	GEComponent *gec = button->getGEC("CompGUI");
-	gecButton	*gbut = static_cast<gecButton *> (gec);
-	if(gec != NULL)
-	{
-		gbut->addSignal(boost::bind(&GameEntity::debugPrintComponents, broly));
-	}
-	aSceneManager->addEntity(button);
+	//Create static guys ( 2 hitters + the scene background )
+//	aSceneManager->addEntity(GE_FACTORY->createGE("hitter1", 130.0f, 150.0f));
+//	aSceneManager->addEntity(GE_FACTORY->createGE("hitter1", 180.0f, 170.0f));	
+//	aSceneManager->addEntity(GE_FACTORY->createGE("backgroundDummy", 240.0f, 160.0f ));
+//	
+//	//Create a moving sprite + joypad + button
+//	GameEntity *broly	= GE_FACTORY->createGE("broly", 240.0f, 160.0f);
+//	GameEntity *joypad	= GE_FACTORY->createGE("joypad", 70.0f, 70.0f);
+//	GameEntity *button	= GE_FACTORY->createGE("buttonDummy", 350.0f, 50.0f);
+//	
+//	//Give the joypad the control of broly.
+//	((gecJoystick *)joypad->getGEC("CompGUI"))->subscribeGameEntity(broly);
+//	((gecButton	*)button->getGEC("CompGUI"))->addSignal(boost::bind(&GameEntity::debugPrintComponents, broly));
+//	
+//	//Add entities to the scene.
+//	aSceneManager->addEntity(broly);
+//	aSceneManager->addEntity(joypad);
+//	aSceneManager->addEntity(button);
 }
 - (void) particlesTest
 {		

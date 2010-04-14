@@ -25,20 +25,20 @@ public:
 	
 public:
 	//Constructors
-	gecFSM() { state = kEntityState_walk; }
-	gecFSM(kEntityState s) { state = s; }
+	gecFSM() { state = kBehaviourState_walk; }
+	gecFSM(kBehaviourState s) { state = s; }
 	
 	//Interface
-	void setRule(kEntityState initialState, int inputAction, kEntityState resultingState, const std::string &resultingStateName);
-	void performAction(int action);
+	void setRule(kBehaviourState initialState, int inputAction, kBehaviourState resultingState, const std::string &resultingStateName);
+	void performAction(kBehaviourAction action);
 
 protected:
-	const std::string &getNameForAction(kEntityState action);
+	const std::string getNameForAction(kBehaviourState action);
 	
 private:
 	typedef std::map<int, const std::string> actionMap;
 	typedef std::pair<int, const std::string> actionMapPair;
-	kEntityState fsmTable[MAX_STATES][MAX_ACTION];
+	kBehaviourState fsmTable[MAX_STATES][MAX_ACTION];
 	static gec_id_type mComponentID;
 	actionMap actionNameMap;
 };
