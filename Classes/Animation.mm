@@ -9,8 +9,8 @@
 #include "Animation.h"
 #include "GameEntity.h"
 
+#pragma mark -
 #pragma mark constructor
-
 Animation::Animation()
 {
 	currentPoint	= CGPointZero;
@@ -19,6 +19,8 @@ Animation::Animation()
 	isRunning		= false;
 	isRepeating		= false;
 	isPingPong		= false;
+	notify			= false;
+	delegation		= false;
 	direction		= kDirection_Forward;
 }
 
@@ -30,6 +32,8 @@ Animation::Animation(CGPoint inCurrentPoint)
 	isRunning		= false;
 	isRepeating		= false;
 	isPingPong		= false;
+	notify			= false;
+	delegation		= false;	
 	direction		= kDirection_Forward;
 }
 
@@ -41,6 +45,8 @@ Animation::Animation(const std::vector<int>& positions, SpriteSheet *inSheet)
 	isRunning	 = false;
 	isRepeating  = false;
 	isPingPong	 = false;
+	notify		 = false;
+	delegation	 = false;	
 	direction	 = kDirection_Forward;
 	
 	for (int i = 0; i < positions.size(); i+= 2)
@@ -49,6 +55,7 @@ Animation::Animation(const std::vector<int>& positions, SpriteSheet *inSheet)
 	}
 }
 
+#pragma mark -
 #pragma mark action_methods
 void Animation::addFrameWithImage(Image *inImage, float delay)
 {
@@ -80,10 +87,15 @@ void Animation::update(float delta)
 					isRunning		= false;
 					currentFrame	= 0;
 				}
+				
+				/*
+				 * Enable the notification flag.
+				 * Basically this means that we have arrived the end of this Sprite sequence.
+				 */
+				notify = true;
 			}
 		}
 	}
-		
 }
 
 void Animation::renderAtPoint(CGPoint inPoint)
@@ -96,6 +108,16 @@ void Animation::draw()
 {
 	Frame *aFrame = spriteFrames.at(currentFrame);
 	aFrame->getFrameImage()->renderAtPoint(currentPoint, true);
+	
+	/*
+	 *	If we have enabled delegation, this Animation will let a subscriber
+	 *	know, when is the sprite sequence finished.
+	 */
+	if(delegation)
+	{
+		if(notify)
+			this->notifyDelegate();	
+	}
 }
 
 void Animation::update()
@@ -103,8 +125,8 @@ void Animation::update()
 	//here I should update the animation.
 }
 
+#pragma mark -
 #pragma mark getters
-
 Image*	Animation::getCurrentFrameImage()
 {
 	return (spriteFrames.at(currentFrame)->getFrameImage());
@@ -131,6 +153,20 @@ GLuint	Animation::getAnimationFrameCount()
 	return (spriteFrames.size());
 }
 
+#pragma mark -
+#pragma mark delegate
+void Animation::setDelegate(const AnimationTrigger::slot_type& slot)
+{
+	delegate.connect(slot);
+	delegation = true; //Activate delegation for this Animation.
+}
+
+void Animation::notifyDelegate()
+{
+	delegate();
+}
+
+#pragma mark -
 #pragma mark debug
 void Animation::debugPrintFrames()
 {
@@ -145,6 +181,7 @@ void Animation::debugPrintFrames()
 	}	
 }
 
+#pragma mark -
 #pragma mark destructor
 Animation::~Animation()
 {

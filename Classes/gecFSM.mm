@@ -15,19 +15,9 @@ std::string gecFSM::mComponentID = "gecFSM";
 
 /*Interface*/
 #pragma mark -
-#pragma mark public interface
-void gecFSM::setRule(kBehaviourState initialState, 
-					 int inputAction, 
-					 kBehaviourState resultingState, 
-					 const std::string &resultingStateName)
+#pragma mark GEComponent Interface
+void gecFSM::update(float delta) const
 {
-	fsmTable[initialState][inputAction] = resultingState;
-	actionNameMap.insert(actionMapPair(resultingState, resultingStateName));
-}
-
-void gecFSM::performAction(kBehaviourAction action)
-{
-	kBehaviourState resultingState = fsmTable[state][action];	
 	GameEntity *ge = gecBehaviour::GEComponent::getOwnerGE();
 	
 	/*Switch the entity sprite*/
@@ -39,17 +29,38 @@ void gecFSM::performAction(kBehaviourAction action)
 		//This could be even better, instead of "getNameForAction" it could be like
 		//get "State" for action, where state is a structure defining all the properties
 		//of the animation for a state, like PingPong, etc etc etc.
-		std::cout << "Accion Hecha!" << std::endl;
-		animatedSprite->setCurrentAnimation(this->getNameForAction(resultingState));
+		animatedSprite->setCurrentAnimation(this->getNameForAction(state));
 		animatedSprite->setCurrentRunning(true);
-	}		
+	}	
+}
+
+#pragma mark -
+#pragma mark public interface
+gecFSM::gecFSM()
+{
+	state	= kBehaviourState_stand;	
+}
+
+void gecFSM::setRule(kBehaviourState initialState, 
+					 int inputAction, 
+					 kBehaviourState resultingState, 
+					 const std::string &resultingStateName)
+{
+	fsmTable[initialState][inputAction] = resultingState;
+	actionNameMap.insert(actionMapPair(resultingState, resultingStateName));
+}
+
+void gecFSM::performAction(kBehaviourAction action)
+{
+	kBehaviourState resultingState = fsmTable[state][action];
+	state = resultingState;
 }
 
 #pragma mark -
 #pragma mark protected interface
-const std::string gecFSM::getNameForAction(kBehaviourState action)
+const std::string gecFSM::getNameForAction(kBehaviourState action) const
 {	
-	actionMap::iterator it;
+	actionMap::const_iterator it;
 	it = actionNameMap.find(action);
 	
 	if(it != actionNameMap.end())
@@ -57,4 +68,3 @@ const std::string gecFSM::getNameForAction(kBehaviourState action)
 	
 	return "";
 }
-

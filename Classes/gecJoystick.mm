@@ -58,10 +58,7 @@ Boolean	gecJoystick::outerRegionHit()
 					(_y - cY)*(_y - cY));
 	
 	if(d == (outRadius - inRadius))
-	{
-		//std::cout << "YES!! " << std::endl;
 		return true;
-	}
 
 	return false;
 }
@@ -99,8 +96,6 @@ void gecJoystick::updateVelocity(float x, float y)
 	this->getOwnerGE()->y = y+20;
 	this->setShape(CGRectMake(x, y, shape.size.width, shape.size.height));
 	
-	//std::cout << velocity.x << " " << velocity.y << std::endl;
-	
 	//We update the "latest" velocity ( that's what we will use as a cached reference.
 	latestVelocity = velocity;	
 }
@@ -117,7 +112,6 @@ Boolean gecJoystick::immGUI(float x, float y, int touchIndex, void *touchID, int
 			if(INPUT_MANAGER->GUIState[i].fingerDown && INPUT_MANAGER->GUIState[i].touchID == touchID)
 			{
 				gAni->setCurrentAnimation("hot");
-				
 				this->updateSubscriberAnimation("walk");	
 				this->updateVelocity(x, y);
 			}

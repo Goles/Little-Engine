@@ -55,5 +55,4 @@ void gecAnimatedSprite::debugPrintAnimationMap()
 	{
 		std::cout << (*it).first <<" " <<  (*it).second << std::endl;
 	}
-	
 }

@@ -60,7 +60,7 @@ Boolean gecButton::immGUI(float x, float y, int touchIndex, void *touchID, int t
 	{
 		for(int i = 0; i < MAX_TOUCHES; i++)
 		{
-			if(INPUT_MANAGER->GUIState[i].touchID == touchID) //
+			if(INPUT_MANAGER->GUIState[i].touchID == touchID)
 			{
 				if(INPUT_MANAGER->GUIState[i].fingerDown && INPUT_MANAGER->GUIState[i].hitFirst)
 				{

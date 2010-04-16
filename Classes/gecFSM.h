@@ -21,11 +21,11 @@ class gecFSM : public gecBehaviour
 	//GEComponent Interface
 public:
 	virtual const gec_id_type&	componentID() const { return mComponentID; }
-	virtual void update(float delta) const {}
+	virtual void update(float delta) const;
 	
 public:
 	//Constructors
-	gecFSM() { state = kBehaviourState_walk; }
+	gecFSM();
 	gecFSM(kBehaviourState s) { state = s; }
 	
 	//Interface
@@ -33,7 +33,7 @@ public:
 	void performAction(kBehaviourAction action);
 
 protected:
-	const std::string getNameForAction(kBehaviourState action);
+	const std::string getNameForAction(kBehaviourState action) const;
 	
 private:
 	typedef std::map<int, const std::string> actionMap;

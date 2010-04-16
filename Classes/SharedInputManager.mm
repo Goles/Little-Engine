@@ -75,7 +75,7 @@ void SharedInputManager::touchesBegan(float x, float y, void *touchID)
 			GUIState[i].fingerDown	= true;
 			GUIState[i].touchID		= touchID;
 			this->broadcastInteraction(x, y, i, touchID, kTouchType_began);
-			break; //
+			break;
 		}
 	}
 }
@@ -95,8 +95,6 @@ void SharedInputManager::touchesMoved(float x, float y, void *touchID)
 			GUIState[i].x = x;
 			GUIState[i].y = y;
 			GUIState[i].fingerDown	= true;
-//			GUIState[i].touchID	= touchID;
-//			printf("ME MOVI\n");
 			this->broadcastInteraction(x, y, i, touchID, kTouchType_moved);
 			break; //
 		}
@@ -136,7 +134,8 @@ void SharedInputManager::broadcastInteraction(float x, float y, int touchIndex, 
 	for (it = receiversMap.begin(); it != receiversMap.end(); ++it)
 	{
 		if(((*it).second)->isActive)
-		{	GEComponent *gec = ((*it).second)->getGEC(std::string("CompGUI"));
+		{	
+			GEComponent *gec = ((*it).second)->getGEC(std::string("CompGUI"));
 			gecGUI *gGUI = static_cast<gecGUI *> (gec);
 			if( gGUI )
 			{
@@ -145,7 +144,6 @@ void SharedInputManager::broadcastInteraction(float x, float y, int touchIndex, 
 					GUIState[touchIndex].hitFirst = true;
 				}
 				gGUI->immGUI(x, y, touchIndex, touchID, touchType); //Trigger the immGUI handler.
-				
 			}
 		}
 	}

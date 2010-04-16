@@ -12,6 +12,8 @@
 #include "SpriteSheet.h"
 #include "Frame.h"
 #include <vector>
+#include <boost/signal.hpp>
+#include <boost/bind.hpp>
 
 class GameEntity;
 
@@ -21,6 +23,7 @@ enum {
 };
 
 typedef std::vector<Frame *> FRAMES_VECTOR;
+typedef boost::signal<void ()> AnimationTrigger; //gets notified when an animation ends ( displays last frame )
 
 class Animation
 {
@@ -47,22 +50,29 @@ public:
 	void	setIsRepeating(Boolean inIsRepeating) { isRepeating = inIsRepeating; }
 	void	setIsPingPong(Boolean inIsPingPong) { isPingPong = inIsPingPong; }
 	
+	//Delegate
+	void	setDelegate(const AnimationTrigger::slot_type& slot);
+	void	notifyDelegate();
+	
 	//Debug
-	void debugPrintFrames();
+	void	debugPrintFrames();
 	
 	//inherited stuff.
 	void draw();
 	void update();
 	
 private:
-	CGPoint			currentPoint;
-	FRAMES_VECTOR	spriteFrames;
-	float			frameTimer;
-	bool			isRunning;
-	bool			isRepeating;
-	bool			isPingPong;
-	int				direction;
-	int				currentFrame;
+	CGPoint				currentPoint;
+	FRAMES_VECTOR		spriteFrames;
+	float				frameTimer;
+	bool				isRunning;
+	bool				isRepeating;
+	bool				isPingPong;
+	bool				delegation;
+	bool				notify;
+	int					direction;
+	int					currentFrame;
+	AnimationTrigger	delegate;		//This is used to let a subscriber know when certain animation finishes displaying. (not used all the time)
 };
 
 #endif

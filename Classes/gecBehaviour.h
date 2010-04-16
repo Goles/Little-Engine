@@ -19,9 +19,10 @@ class gecBehaviour: public GEComponent
 	//GecComponent interface
 public:
 	virtual const gec_id_type &familyID() const { return mFamilyID; }
+//	virtual void update(float delta) const {}
 	
 protected:
-	int state;
+	kBehaviourState state;
 	
 private:
 	static gec_id_type mFamilyID;

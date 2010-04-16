@@ -339,7 +339,6 @@ GameEntity* SharedParticleSystemManager::insertSystem(GameEntity *inSystem) //Cr
 	_systemsList.push_back(inSystem);	
 
 	return inSystem;
-
 }
 
 void SharedParticleSystemManager::removeSystem(GameEntity *inSystem)
@@ -354,7 +353,6 @@ void SharedParticleSystemManager::removeSystem(GameEntity *inSystem)
 			return;
 		}
 	}
-	
 }
 
 void SharedParticleSystemManager::debugPrintList()
@@ -365,5 +363,4 @@ void SharedParticleSystemManager::debugPrintList()
 	{
 		std::cout << "Particle System& " << *it << std::endl; 
 	}
-	
 }
