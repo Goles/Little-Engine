@@ -46,6 +46,7 @@ public:
 	GLuint	getAnimationFrameCount();
 	
 	//Setters
+	void	setCurrentFrame(int frame) { if(frame <= spriteFrames.size()) currentFrame = frame; }
 	void	setIsRunning(Boolean inIsRunning) { isRunning = inIsRunning; }
 	void	setIsRepeating(Boolean inIsRepeating) { isRepeating = inIsRepeating; }
 	void	setIsPingPong(Boolean inIsPingPong) { isPingPong = inIsPingPong; }

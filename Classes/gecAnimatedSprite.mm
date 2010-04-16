@@ -23,15 +23,37 @@ void gecAnimatedSprite::addAnimation(const std::string &animationName, const std
 	componentAnimations.insert(AnimationMapPair(animationName, newAnimation));	
 }
 
+void gecAnimatedSprite::addAnimation(const std::string &animationName, Animation *animation)
+{
+	AnimationMap::iterator it = componentAnimations.find(animationName);
+	
+	if(it != componentAnimations.end())
+		return;
+	
+	componentAnimations.insert(AnimationMapPair(animationName, animation));
+}
+
 void gecAnimatedSprite::setCurrentAnimation(const std::string &animationName)
 {	
 	AnimationMap::iterator it = componentAnimations.find(animationName);
 	
 	if(it != componentAnimations.end()) //if the texture IS in the map, we switch the current texture.
+	{	
 		currentAnimation = componentAnimations[animationName];
+	}
 	else {
 		std::cout << "Warning, " << animationName << " is not present in the animation Map, animation NOT being changed. " << std::endl;
 	}	
+}
+
+Animation* gecAnimatedSprite::getAnimation(const std::string& animationName)
+{
+	AnimationMap::iterator it = componentAnimations.find(animationName);
+	
+	if(it != componentAnimations.end())
+		return it->second;
+	
+	return NULL;
 }
 
 void gecAnimatedSprite::render() const

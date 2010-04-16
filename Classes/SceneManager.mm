@@ -34,7 +34,7 @@ void SceneManager::renderScene()
 {
 	ENTITY_VECTOR_ITERATOR it ;
 	
-	for (it = entityList.begin(); it < entityList.end(); it++)
+	for (it = entityList.begin(); it < entityList.end(); ++it)
 	{
 		if((*it)->isActive)
 		{	GEComponent *gec = (*it)->getGEC(std::string("CompVisual"));

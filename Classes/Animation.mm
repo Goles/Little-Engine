@@ -102,22 +102,14 @@ void Animation::renderAtPoint(CGPoint inPoint)
 {
 	Frame *aFrame = spriteFrames.at(currentFrame);
 	aFrame->getFrameImage()->renderAtPoint(inPoint, true);
+	this->notifyDelegate();	
 }
 
 void Animation::draw()
 {
 	Frame *aFrame = spriteFrames.at(currentFrame);
 	aFrame->getFrameImage()->renderAtPoint(currentPoint, true);
-	
-	/*
-	 *	If we have enabled delegation, this Animation will let a subscriber
-	 *	know, when is the sprite sequence finished.
-	 */
-	if(delegation)
-	{
-		if(notify)
-			this->notifyDelegate();	
-	}
+	this->notifyDelegate();
 }
 
 void Animation::update()
@@ -163,7 +155,18 @@ void Animation::setDelegate(const AnimationTrigger::slot_type& slot)
 
 void Animation::notifyDelegate()
 {
-	delegate();
+	/*
+	 *	If we have enabled delegation, this Animation will let a subscriber
+	 *	know, when is the sprite sequence finished.
+	 */
+	if(delegation)
+	{
+		if(notify)
+		{
+			delegate();
+			notify = false;
+		}
+	}
 }
 
 #pragma mark -

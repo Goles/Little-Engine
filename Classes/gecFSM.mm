@@ -35,10 +35,20 @@ void gecFSM::update(float delta) const
 }
 
 #pragma mark -
+#pragma mark delegate
+void gecFSM::animationFinishedDelegate()
+{
+	//This could be even better, if we are delegating, the best is to
+	//notify the sprite to perform opossite action of what are we doing.
+	//So we could actually have a map like Action ^ -Action.
+	this->performAction(kBehaviourAction_stopAttack);
+}
+
+#pragma mark -
 #pragma mark public interface
 gecFSM::gecFSM()
 {
-	state	= kBehaviourState_stand;	
+	state = kBehaviourState_stand;	
 }
 
 void gecFSM::setRule(kBehaviourState initialState, 

@@ -73,11 +73,7 @@ Boolean gecButton::immGUI(float x, float y, int touchIndex, void *touchID, int t
 				}
 				else if(!INPUT_MANAGER->GUIState[i].fingerDown)
 				{
-					gAni->setCurrentAnimation("normal");
-					
-					if(buttonActions[1] > kBehaviourAction_none)
-						this->call(buttonActions[1]);
-					
+					gAni->setCurrentAnimation("normal");		
 					return false;
 				}
 			}
@@ -88,9 +84,6 @@ Boolean gecButton::immGUI(float x, float y, int touchIndex, void *touchID, int t
 			if(INPUT_MANAGER->GUIState[i].fingerDown == false && i != touchIndex)
 			{
 				gAni->setCurrentAnimation("normal");
-				
-				if(buttonActions[1] > kBehaviourAction_none)
-					this->call(buttonActions[1]);
 			} 
 		}
 	}

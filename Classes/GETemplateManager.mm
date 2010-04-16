@@ -120,6 +120,17 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	SpriteSheet *ss = new SpriteSheet();
 	ss->initWithImageNamed("hitter1_sheet.png", gE->height, gE->width, 0.0, 1.0);
 	
+	//Add an FSM to our Game Entity
+	gecFSM *fsm = new gecFSM();
+	
+	//Build the rules for this entity FSM.
+	fsm->setRule(kBehaviourState_stand, kBehaviourAction_doAttack, kBehaviourState_attack, "attack");
+	fsm->setRule(kBehaviourState_attack, kBehaviourAction_stopAttack, kBehaviourState_stand, "stand");
+	fsm->setRule(kBehaviourState_stand, kBehaviourAction_dragGamepad, kBehaviourState_walk, "walk");
+	fsm->setRule(kBehaviourState_walk, kBehaviourAction_stopGamepad, kBehaviourState_stand, "stand");
+	fsm->setRule(kBehaviourState_walk, kBehaviourAction_doAttack, kBehaviourState_attack, "attack");
+	
+	//Create the sprite animations component
 	gecAnimatedSprite *spriteAnimations = new gecAnimatedSprite();
 	spriteAnimations->setOwnerGE(gE);
 	
@@ -148,10 +159,17 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	coordWalk.push_back(9);
 	coordWalk.push_back(0);
 	
-	/*Add the animations to the sprite*/	
+	/*Add the animations to the sprite*/
 	spriteAnimations->addAnimation("stand", coordStand, ss);
 	spriteAnimations->addAnimation("attack", coordAttack, ss);
 	spriteAnimations->addAnimation("walk", coordWalk, ss);	
+	
+	/*Set a delegate for the attack animation*/
+	Animation *attack = spriteAnimations->getAnimation("attack");
+	if(attack != NULL)
+		attack->setDelegate(boost::bind(&gecFSM::animationFinishedDelegate, fsm));
+	
+	spriteAnimations->debugPrintAnimationMap();
 	
 	/*The Default animation is stand and it's running*/
 	spriteAnimations->setCurrentAnimation(std::string("stand"));
@@ -164,19 +182,10 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	gE->isActive = true;
 	gE->x = x;
 	gE->y = y;
-	
-	//Add an FSM to our Game Entity
-	gecFSM *fsm = new gecFSM();
-	
-	//Build the rules for this entity FSM.
-	fsm->setRule(kBehaviourState_stand, kBehaviourAction_doAttack, kBehaviourState_attack, "attack");
-	fsm->setRule(kBehaviourState_attack, kBehaviourAction_stopAttack, kBehaviourState_stand, "stand");
-	fsm->setRule(kBehaviourState_stand, kBehaviourAction_dragGamepad, kBehaviourState_walk, "walk");
-	fsm->setRule(kBehaviourState_walk, kBehaviourAction_stopGamepad, kBehaviourState_stand, "stand");
-	fsm->setRule(kBehaviourState_walk, kBehaviourAction_doAttack, kBehaviourState_attack, "attack");
-	
 	//Attach the FSM to the hitter.
 	gE->setGEC(fsm);
+	
+	
 	
 	return gE;
 }

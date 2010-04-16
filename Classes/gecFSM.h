@@ -31,7 +31,8 @@ public:
 	//Interface
 	void setRule(kBehaviourState initialState, int inputAction, kBehaviourState resultingState, const std::string &resultingStateName);
 	void performAction(kBehaviourAction action);
-
+	void animationFinishedDelegate();
+	
 protected:
 	const std::string getNameForAction(kBehaviourState action) const;
 	
