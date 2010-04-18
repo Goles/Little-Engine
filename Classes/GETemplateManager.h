@@ -44,6 +44,7 @@ protected:
 	GameEntity* buttonDummy(float x, float y);
 	GameEntity* pixelDummy(float x, float y);
 	GameEntity* backgroundDummy(float x, float y);
+	GameEntity* background1(float x, float y);
 	
 private:
 	typedef GameEntity* (GETemplateManager::*MFP)(float x, float y);

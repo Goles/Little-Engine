@@ -46,6 +46,7 @@
 		63B2664A10B1E730004D1853 /* SceneManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63B2664910B1E730004D1853 /* SceneManager.mm */; };
 		63BCF538109A3A53002BCD2C /* SpriteSheet.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63BCF537109A3A53002BCD2C /* SpriteSheet.mm */; };
 		63BCF5E4109A4D41002BCD2C /* spritesheet16.gif in Resources */ = {isa = PBXBuildFile; fileRef = 63BCF5E3109A4D41002BCD2C /* spritesheet16.gif */; };
+		63BF59F5117AA7BD00777E17 /* gecImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63BF59F4117AA7BD00777E17 /* gecImage.mm */; };
 		63C557AB108CFA0200E77DBC /* Image.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63C557AA108CFA0200E77DBC /* Image.mm */; };
 		63D45E8610CB73FB00CB32F5 /* joystick_tes.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D45E8510CB73FB00CB32F5 /* joystick_tes.png */; };
 		63E4F9FC107A2E8900FA74AE /* HardwareClock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63E4F9FB107A2E8900FA74AE /* HardwareClock.cpp */; };
@@ -133,6 +134,8 @@
 		63BCF536109A3A53002BCD2C /* SpriteSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteSheet.h; sourceTree = "<group>"; };
 		63BCF537109A3A53002BCD2C /* SpriteSheet.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SpriteSheet.mm; sourceTree = "<group>"; };
 		63BCF5E3109A4D41002BCD2C /* spritesheet16.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = spritesheet16.gif; sourceTree = "<group>"; };
+		63BF59F3117AA7BD00777E17 /* gecImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecImage.h; sourceTree = "<group>"; };
+		63BF59F4117AA7BD00777E17 /* gecImage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecImage.mm; sourceTree = "<group>"; };
 		63C154FB106D4CC60053E452 /* RenderingFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderingFunctions.h; sourceTree = "<group>"; };
 		63C1574B106DB7080053E452 /* OpenGLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLCommon.h; sourceTree = "<group>"; };
 		63C557A9108CFA0200E77DBC /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
@@ -275,10 +278,12 @@
 		6317DA4D10C898DB00C7EEE2 /* components */ = {
 			isa = PBXGroup;
 			children = (
-				63F6126710C1EF81001FF5E7 /* gecVisualContainer.h */,
-				63F6126810C1EF81001FF5E7 /* gecVisualContainer.mm */,
+				63BF59F3117AA7BD00777E17 /* gecImage.h */,
+				63BF59F4117AA7BD00777E17 /* gecImage.mm */,
 				631EBAE910BED2B90060FBD3 /* gecAnimatedSprite.h */,
 				631EBAEA10BED2B90060FBD3 /* gecAnimatedSprite.mm */,
+				63F6126710C1EF81001FF5E7 /* gecVisualContainer.h */,
+				63F6126810C1EF81001FF5E7 /* gecVisualContainer.mm */,
 			);
 			name = components;
 			sourceTree = "<group>";
@@ -612,6 +617,7 @@
 				63EED4ED10CAE7510098C3D0 /* gecJoystick.mm in Sources */,
 				63040AD3116E8A0E0066F4CF /* gecFSM.mm in Sources */,
 				63040AE1116E8A2C0066F4CF /* gecBehaviour.mm in Sources */,
+				63BF59F5117AA7BD00777E17 /* gecImage.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

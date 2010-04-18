@@ -18,6 +18,8 @@
 #import "gecButton.h"
 #import "gecJoystick.h"
 #include "gecFSM.h"
+#include "gecImage.h"
+#include "Image.h"
 #include <boost/bind.hpp>
 
 @implementation ES1Renderer
@@ -103,27 +105,6 @@
 	((gecJoystick *)joypadE->getGEC("CompGUI"))->subscribeGameEntity(gE);
 }
 
-- (void) geBrolyTest2
-{
-	//Create static guys ( 2 hitters + the scene background )
-//	aSceneManager->addEntity(GE_FACTORY->createGE("hitter1", 130.0f, 150.0f));
-//	aSceneManager->addEntity(GE_FACTORY->createGE("hitter1", 180.0f, 170.0f));	
-//	aSceneManager->addEntity(GE_FACTORY->createGE("backgroundDummy", 240.0f, 160.0f ));
-//	
-//	//Create a moving sprite + joypad + button
-//	GameEntity *broly	= GE_FACTORY->createGE("broly", 240.0f, 160.0f);
-//	GameEntity *joypad	= GE_FACTORY->createGE("joypad", 70.0f, 70.0f);
-//	GameEntity *button	= GE_FACTORY->createGE("buttonDummy", 350.0f, 50.0f);
-//	
-//	//Give the joypad the control of broly.
-//	((gecJoystick *)joypad->getGEC("CompGUI"))->subscribeGameEntity(broly);
-//	((gecButton	*)button->getGEC("CompGUI"))->addSignal(boost::bind(&GameEntity::debugPrintComponents, broly));
-//	
-//	//Add entities to the scene.
-//	aSceneManager->addEntity(broly);
-//	aSceneManager->addEntity(joypad);
-//	aSceneManager->addEntity(button);
-}
 - (void) particlesTest
 {		
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(50, 100) , "Particle2.pvr"));
@@ -168,7 +149,6 @@
 	glMatrixMode(GL_MODELVIEW);
 	glEnable(GL_DEPTH_TEST);
 }
-
 
 #pragma mark update_game
 - (void) update:(float)delta

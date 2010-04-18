@@ -70,6 +70,5 @@
 - (void) particlesShowOff;
 - (void) textureManagerTest:(NSString *) inTextureName;
 - (void) geTemplateManagerTest1;
-- (void) geBrolyTest2;
  
 @end

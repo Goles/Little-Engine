@@ -9,11 +9,13 @@
 #include "GETemplateManager.h"
 #include "GameEntity.h"
 #include "SpriteSheet.h"
+#include "SharedTextureManager.h"
 #include "gecAnimatedSprite.h"
 #include "gecVisualContainer.h"
 #include "gecJoystick.h"
 #include "gecButton.h"
 #include "gecFSM.h"
+#include "gecImage.h"
 
 GETemplateManager* GETemplateManager::singletonInstance = NULL;
 
@@ -26,18 +28,6 @@ GETemplateManager* GETemplateManager::getInstance()
 	return singletonInstance;
 }
 
-GETemplateManager::~GETemplateManager()
-{	
-	std::map <std::string, MFP>::iterator it;
-	
-	for(it = fmap.begin(); it != fmap.end(); ++it)
-	{
-		fmap.erase(it);
-	}
-	
-	delete singletonInstance;
-}
-
 GETemplateManager::GETemplateManager()
 {
 	/*We must insert all our member functions into our map*/
@@ -48,6 +38,19 @@ GETemplateManager::GETemplateManager()
 	fmap.insert( std::make_pair( "buttonDummy",		&GETemplateManager::buttonDummy ));
 	fmap.insert( std::make_pair( "pixelDummy",		&GETemplateManager::pixelDummy ));
 	fmap.insert( std::make_pair( "backgroundDummy",	&GETemplateManager::backgroundDummy ));
+	fmap.insert( std::make_pair( "background1",  &GETemplateManager::background1 ));
+}
+
+GETemplateManager::~GETemplateManager()
+{	
+	std::map <std::string, MFP>::iterator it;
+	
+	for(it = fmap.begin(); it != fmap.end(); ++it)
+	{
+		fmap.erase(it);
+	}
+	
+	delete singletonInstance;
 }
 
 #pragma mark action_methods
@@ -334,6 +337,30 @@ GameEntity* GETemplateManager::buttonDummy(float x, float y)
 	anEntity->isActive  = true;
 	
 	return anEntity;
+}
+
+//Creates a background 480x320 entity
+GameEntity* GETemplateManager::background1(float x, float y)
+{
+	//Dimensions
+	float	width	= 480,
+			height	= 320;
+	
+	//Creating GameEntity
+	GameEntity	*ge = new GameEntity(x, y, width, height);
+	
+	//Create a visualComponent
+	Image *i = new Image();
+	i->initWithTextureFile("backgroundDummy.png");
+	
+	//Create and set the gecImage
+	gecImage *gi = new gecImage(i);
+	ge->setGEC(gi);
+	
+	ge->isActive = true;
+	ge->x = x;
+	ge->y = y;
+	return ge;
 }
 
 //Creates a background 480x320 entity

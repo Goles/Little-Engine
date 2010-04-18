@@ -31,7 +31,6 @@ public:
 	void addAnimation(const std::string &animationName, const std::vector<int> &positions, SpriteSheet *inSheet);
 	void addAnimation(const std::string &animationName, Animation *animation);
 	void setCurrentAnimation(const std::string &animationName);
-	//	void switchToAnimation(const std::string &animationName);
 	Animation* getAnimation(const std::string&animationName);
 	void setCurrentRunning(Boolean isRunning){ currentAnimation->setIsRunning(isRunning); }
 	void setCurrentRepeating(Boolean isRepeating){ currentAnimation->setIsRepeating(isRepeating); } 
