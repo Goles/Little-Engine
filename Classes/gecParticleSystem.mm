@@ -45,7 +45,7 @@ void gecParticleSystem::render() const
 	[systemRenderer draw];	
 }
 
-void gecParticleSystem::update(float delta) const
+void gecParticleSystem::update(float delta)
 {
 	[systemRenderer update];
 }

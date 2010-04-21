@@ -43,7 +43,7 @@ public:
 public:
 	virtual const gec_id_type &componentID() const { return mGECTypeID; }
 	virtual void render() const;
-	virtual void update(float delta) const;
+	virtual void update(float delta);
 	
 	//Particle System Atributes
 private:

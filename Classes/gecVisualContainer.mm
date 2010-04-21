@@ -34,7 +34,7 @@ gecVisual* gecVisualContainer::getComponent(const gec_id_type &componentName)
 	return NULL;
 }
 
-void gecVisualContainer::update(float delta) const
+void gecVisualContainer::update(float delta)
 {
 	for(int i = 0; i < visualComponents.size(); i++)
 	{

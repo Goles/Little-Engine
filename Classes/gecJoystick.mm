@@ -28,7 +28,7 @@ gecJoystick::gecJoystick()
 }
 
 #pragma mark gec_gui_interface
-void gecJoystick::update(float delta) const
+void gecJoystick::update(float delta)
 {
 	/*Updating the component or other components dependant of it happens here*/
 	if(subscribedGE != NULL)

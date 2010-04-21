@@ -8,8 +8,17 @@
  */
 
 #include "gecImage.h"
+#include "SharedTextureManager.h"
 
 std::string gecImage::mGECTypeID = "gecImage";
+
+#pragma mark -
+#pragma mark specialized constructors
+gecImage::gecImage(const std::string& textureName)
+{
+	image = new Image();
+	image->initWithTextureFile(textureName);
+}
 
 #pragma mark -
 #pragma mark gecVisual
@@ -18,4 +27,6 @@ void gecImage::render() const
 	GameEntity *ge = this->getOwnerGE();
 	image->renderAtPoint(CGPointMake(ge->x, ge->y), true);
 }
+
+
 

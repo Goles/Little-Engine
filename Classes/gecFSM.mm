@@ -16,7 +16,7 @@ std::string gecFSM::mComponentID = "gecFSM";
 /*Interface*/
 #pragma mark -
 #pragma mark GEComponent Interface
-void gecFSM::update(float delta) const
+void gecFSM::update(float delta)
 {
 	GameEntity *ge = gecBehaviour::GEComponent::getOwnerGE();
 	

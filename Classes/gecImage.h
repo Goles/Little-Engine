@@ -18,6 +18,7 @@ class gecImage: public gecVisual
 	//gecImage Interface
 public:
 	gecImage(Image *i) { this->image = i; }
+	gecImage(const std::string& textureName);
 	
 private:
 	Image *image;
@@ -30,7 +31,7 @@ public:
 	//GEComponent Interface
 public:
 	virtual const gec_id_type &componentID() const { return mGECTypeID; }
-	virtual void update(float delta) const {}
+	virtual void update(float delta) {}
 };
 
 #endif

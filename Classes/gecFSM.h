@@ -21,7 +21,7 @@ class gecFSM : public gecBehaviour
 	//GEComponent Interface
 public:
 	virtual const gec_id_type&	componentID() const { return mComponentID; }
-	virtual void update(float delta) const;
+	virtual void update(float delta);
 	
 public:
 	//Constructors

@@ -58,7 +58,7 @@
 - (void) initGame
 {
 	[self initScenes];
-	[self fsmTest];
+	[self offsetTest];
 }
 
 /*
@@ -68,6 +68,11 @@
  */
 #pragma mark -
 #pragma mark TESTS
+- (void) offsetTest
+{
+	aSceneManager->addEntity(GE_FACTORY->createGE("scrollingBackground", 240.0f, 160.0f));
+}
+
 - (void) fsmTest
 {
 	GameEntity *hitter = GE_FACTORY->createGE("hitter1", 240.0f, 160.0f);	
@@ -117,7 +122,6 @@
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainMedium, CGPointMake(400, 100), "Particle2.pvr"));
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainBig, CGPointMake(450, 100), "Particle2.pvr"));
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_Smoke, CGPointMake(140, 265), "smoke.pvr"));
-	
 }
 
 - (void) textureManagerTest:(NSString *) inTextureName
@@ -176,10 +180,7 @@
 	{
 		aSceneManager->sortEntitiesY();
 		aSceneManager->renderScene();
-	}	
-	
-	if(animatedSprite)
-		animatedSprite->renderAtPoint(CGPointMake(160, 240));
+	}
 	
     glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
     [context presentRenderbuffer:GL_RENDERBUFFER_OES];

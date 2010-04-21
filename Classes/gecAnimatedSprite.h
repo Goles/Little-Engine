@@ -24,7 +24,7 @@ public:
 	//gecVisual interface
 public:
 	virtual void render() const;
-	virtual void update(float delta) const;
+	virtual void update(float delta);
 	
 	//gecAnimatedSprite interface
 public:

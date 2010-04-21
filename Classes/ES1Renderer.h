@@ -65,6 +65,7 @@
 
 /*Tests*/
 - (void) fsmTest;
+- (void) offsetTest;
 - (void) multiTouchTest;
 - (void) particlesTest;
 - (void) particlesShowOff;

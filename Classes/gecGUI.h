@@ -18,7 +18,7 @@ class gecGUI: public GEComponent
 public:
 	virtual const gec_id_type &familyID() const { return mFamilyID; }
 	void setOwnerGE(GameEntity *gE);
-	virtual void update(float delta) const {}
+	virtual void update(float delta) {}
 	
 	//gecGUI interface
 public:

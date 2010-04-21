@@ -62,7 +62,7 @@ void gecAnimatedSprite::render() const
 	currentAnimation->renderAtPoint(CGPointMake(ge->x,ge->y));
 }
 
-void gecAnimatedSprite::update(float delta) const
+void gecAnimatedSprite::update(float delta)
 {
 	currentAnimation->update(delta);
 }

@@ -16,6 +16,7 @@
 #include "gecButton.h"
 #include "gecFSM.h"
 #include "gecImage.h"
+#include "gecScrollingBackground.h"
 
 GETemplateManager* GETemplateManager::singletonInstance = NULL;
 
@@ -39,6 +40,7 @@ GETemplateManager::GETemplateManager()
 	fmap.insert( std::make_pair( "pixelDummy",		&GETemplateManager::pixelDummy ));
 	fmap.insert( std::make_pair( "backgroundDummy",	&GETemplateManager::backgroundDummy ));
 	fmap.insert( std::make_pair( "background1",  &GETemplateManager::background1 ));
+	fmap.insert( std::make_pair( "scrollingBackground", &GETemplateManager::scrollingBackground ));
 }
 
 GETemplateManager::~GETemplateManager()
@@ -361,6 +363,20 @@ GameEntity* GETemplateManager::background1(float x, float y)
 	ge->x = x;
 	ge->y = y;
 	return ge;
+}
+
+GameEntity* GETemplateManager::scrollingBackground(float x, float y)
+{
+	GameEntity *gE = new GameEntity();
+	
+	gecScrollingBackground *gsb = new gecScrollingBackground("backgroundDummy.png", "backgroundDummy.png");
+	
+	gE->setGEC(gsb);
+	gE->x = x;
+	gE->y = y;
+	gE->isActive = true;
+	
+	return gE;
 }
 
 //Creates a background 480x320 entity

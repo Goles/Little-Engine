@@ -32,9 +32,7 @@
         eaglLayer.opaque = TRUE;
         eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:
                                         [NSNumber numberWithBool:FALSE], kEAGLDrawablePropertyRetainedBacking, kEAGLColorFormatRGB565, kEAGLDrawablePropertyColorFormat, nil];
-		
-		//renderer = [[ES2Renderer alloc] init];
-		
+			
 		if (!renderer)
 		{
 			renderer = [[ES1Renderer alloc] init];
@@ -45,6 +43,7 @@
 				return nil;
 			}
 		}
+		
         [self setMultipleTouchEnabled:YES];
 		animating = FALSE;
 		displayLinkSupported = FALSE;
@@ -65,11 +64,11 @@
 - (void) mainGameLoop:(id)sender
 {
 	CFTimeInterval		time;
-	float				delta;
+	static float		delta = 0;
 	
 	time	= CFAbsoluteTimeGetCurrent();
 	delta	= (time - lastTime);
-	
+
 	/* update */
 	[(ES1Renderer *)renderer update:delta];
 	
@@ -114,6 +113,7 @@
 {
 	if (!animating)
 	{
+		lastTime = CFAbsoluteTimeGetCurrent();
 		if (displayLinkSupported)
 		{
 			// CADisplayLink is API new to iPhone SDK 3.1. Compiling against earlier versions will result in a warning, but can be dismissed

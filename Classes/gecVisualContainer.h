@@ -18,7 +18,7 @@ class gecVisualContainer : public gecVisual
 public:
 	gecVisualContainer(){}
 	virtual const gec_id_type &componentID() const { return mGECTypeID; }
-	virtual void update(float delta) const;
+	virtual void update(float delta);
 	
 	//gecVisual interface
 public:
