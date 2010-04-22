@@ -10,8 +10,10 @@
 #define _GECGUI_H_
 
 #include "gecGUI.h"
+#include "BehaviourActions.h"
 
 class GameEntity;
+class gecFSM;
 
 class gecJoystick: public gecGUI
 {	
@@ -29,27 +31,28 @@ public:
 public:
 	gecJoystick();
 	Boolean	outerRegionHit();
-	void	updateVelocity(float x, float y);
-	void	subscribeGameEntity(GameEntity *gE);
+	void		updateVelocity(float x, float y);
+	void		subscribeGameEntity(GameEntity *gE);
 	
 	//Getters & Setters
-	void	setShape(CGRect aShape);
+	void		setShape(CGRect aShape);
 	CGRect	getShape() const { return shape; }
-	void	setCenter (float a, float b){ center.x = a; center.y = b; }
-	void	setInRadius (float r ) { inRadius = r; }
-	void	setOutRadius (float r ) { outRadius = r; }	
+	void		setCenter (float a, float b){ center.x = a; center.y = b; }
+	void		setInRadius (float r ) { inRadius = r; }
+	void		setOutRadius (float r ) { outRadius = r; }	
 	
 protected:
-	void updateSubscriberAnimation(const std::string &state);
+	void		updateSubscriberState(kBehaviourAction s);
 	
 private:	
 	static gec_id_type mComponentID;
-	float	inRadius;
-	float	outRadius;
-	CGRect	shape;
-	CGPoint	center;
-	CGPoint latestVelocity;
-	GameEntity *subscribedGE;
+	float			inRadius;
+	float			outRadius;
+	CGRect		shape;
+	CGPoint		center;
+	CGPoint		latestVelocity;
+	GameEntity*	subscribedGE;
+	gecFSM*		fsm;
 };
 
 #endif

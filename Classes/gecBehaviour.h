@@ -20,6 +20,10 @@ class gecBehaviour: public GEComponent
 public:
 	virtual const gec_id_type &familyID() const { return mFamilyID; }
 	
+	//gecBehaviour Interface
+public:
+	kBehaviourState	getState() { return state; }
+	
 protected:
 	kBehaviourState state;
 	

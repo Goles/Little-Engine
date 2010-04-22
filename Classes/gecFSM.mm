@@ -63,7 +63,10 @@ void gecFSM::setRule(kBehaviourState initialState,
 void gecFSM::performAction(kBehaviourAction action)
 {
 	kBehaviourState resultingState = fsmTable[state][action];
-	state = resultingState;
+	
+	//We check if the resulting state is valid.
+	if(this->getNameForAction(resultingState).compare("NO_EXISTING_STATE") > 0)
+		state = resultingState;
 }
 
 #pragma mark -
@@ -76,5 +79,5 @@ const std::string gecFSM::getNameForAction(kBehaviourState action) const
 	if(it != actionNameMap.end())
 		return it->second;
 	
-	return "";
+	return "NO_EXISTING_STATE";
 }

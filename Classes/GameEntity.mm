@@ -49,8 +49,6 @@ void GameEntity::update(float delta)
 {
 	ComponentMap::iterator it;
 	
-	std::cout << "Game Entity: " << delta << std::endl;
-	
 	for(it = components.begin(); it != components.end(); ++it)
 	{
 		(*it).second->update(delta);

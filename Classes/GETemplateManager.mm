@@ -117,7 +117,7 @@ GameEntity* GETemplateManager::broly(float x, float y)
 GameEntity* GETemplateManager::hitter1(float x, float y)
 {
 	//This is usually the width/height of the sprite.
-	float	width	= 80,
+	float	width		= 80,
 			height	= 80;
 	
 	GameEntity *gE = new GameEntity(x, y, width, height);
@@ -133,6 +133,7 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	fsm->setRule(kBehaviourState_attack, kBehaviourAction_stopAttack, kBehaviourState_stand, "stand");
 	fsm->setRule(kBehaviourState_stand, kBehaviourAction_dragGamepad, kBehaviourState_walk, "walk");
 	fsm->setRule(kBehaviourState_walk, kBehaviourAction_stopGamepad, kBehaviourState_stand, "stand");
+	fsm->setRule(kBehaviourState_walk, kBehaviourAction_dragGamepad, kBehaviourState_walk, "walk");
 	fsm->setRule(kBehaviourState_walk, kBehaviourAction_doAttack, kBehaviourState_attack, "attack");
 	
 	//Create the sprite animations component
@@ -367,8 +368,7 @@ GameEntity* GETemplateManager::background1(float x, float y)
 
 GameEntity* GETemplateManager::scrollingBackground(float x, float y)
 {
-	GameEntity *gE = new GameEntity();
-	
+	GameEntity *gE = new GameEntity();	
 	gecScrollingBackground *gsb = new gecScrollingBackground("backgroundDummy.png", "backgroundDummy.png");
 	
 	gE->setGEC(gsb);

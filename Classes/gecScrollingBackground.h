@@ -12,6 +12,8 @@
 
 #include "gecVisual.h"
 #include "gecImage.h"
+#include "gecFSM.h"
+#include "BehaviourStates.h"
 
 class gecScrollingBackground : public gecVisual
 {
@@ -19,13 +21,18 @@ class gecScrollingBackground : public gecVisual
 public:
 	gecScrollingBackground();
 	gecScrollingBackground(const std::string &im1,const std::string &im2);
-
+	void setSubscribedGE(GameEntity *e);
+	GameEntity* getSubscribedGE(){ return subscribedGE; }
+	
 private:
 	Image	*im1, *im2;
 	static gec_id_type mGECTypeID;
 	float dispWidth1;
 	float dispWidth2;
 	float dispOffset;
+	float tolerance;
+	GameEntity* subscribedGE;
+	gecFSM* fsm;
 	
 	//gecVisual Interface
 public:

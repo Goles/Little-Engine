@@ -20,6 +20,7 @@
 #include "gecFSM.h"
 #include "gecImage.h"
 #include "Image.h"
+#include "gecScrollingBackground.h"
 #include <boost/bind.hpp>
 
 @implementation ES1Renderer
@@ -70,7 +71,20 @@
 #pragma mark TESTS
 - (void) offsetTest
 {
-	aSceneManager->addEntity(GE_FACTORY->createGE("scrollingBackground", 240.0f, 160.0f));
+	//Declare our game entities
+	GameEntity *b			= GE_FACTORY->createGE("scrollingBackground", 240.0f, 160.0f);
+	GameEntity *hitter	= GE_FACTORY->createGE("hitter1", 240.0f, 120.0f);
+	GameEntity *j			= GE_FACTORY->createGE("joypad",  70.0f, 70.0f);
+	
+	((gecJoystick *)j->getGEC("CompGUI"))->subscribeGameEntity(hitter);
+	
+	
+	//Subscribe entity
+	((gecScrollingBackground *)b->getGEC("CompVisual"))->setSubscribedGE(hitter);
+	
+	aSceneManager->addEntity(b);
+	aSceneManager->addEntity(hitter);
+	aSceneManager->addEntity(j);
 }
 
 - (void) fsmTest

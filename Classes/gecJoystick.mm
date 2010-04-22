@@ -6,25 +6,28 @@
 //  Copyright 2009 GandoGames. All rights reserved.
 //
 
-#include "gecJoystick.h"
 #include "GEComponent.h"
+#include "gecJoystick.h"
 #include "gecAnimatedSprite.h"
+#include "gecFSM.h"
 #include "SharedInputManager.h"
+#include "BehaviourActions.h"
 
 std::string gecJoystick::mComponentID = "gecJoystick";
 
 #pragma mark Contrstructor
 gecJoystick::gecJoystick()
 {
-	subscribedGE		= NULL;
 	shape.origin.x		= 0.0f;
 	shape.origin.y		= 0.0f;
 	shape.size.width	= 0.0f;
 	shape.size.height	= 0.0f;	
-	center.x			= 0.0f;
-	center.y			= 0.0f;
+	center.x				= 0.0f;
+	center.y				= 0.0f;
 	latestVelocity.x	= 0.0f;
-	latestVelocity.y	= 0.0f;	
+	latestVelocity.y	= 0.0f;
+	fsm					= NULL;
+	subscribedGE		= NULL;
 }
 
 #pragma mark gec_gui_interface
@@ -112,13 +115,13 @@ Boolean gecJoystick::immGUI(float x, float y, int touchIndex, void *touchID, int
 			if(INPUT_MANAGER->GUIState[i].fingerDown && INPUT_MANAGER->GUIState[i].touchID == touchID)
 			{
 				gAni->setCurrentAnimation("hot");
-				this->updateSubscriberAnimation("walk");	
+				this->updateSubscriberState(kBehaviourAction_dragGamepad);	
 				this->updateVelocity(x, y);
 			}
 			else if(INPUT_MANAGER->GUIState[i].fingerDown == false && INPUT_MANAGER->GUIState[i].touchID == touchID) //they are releasing over me
 			{
 				gAni->setCurrentAnimation("normal");
-				this->updateSubscriberAnimation("stand");
+				this->updateSubscriberState(kBehaviourAction_stopGamepad);
 				
 				//Return to center.
 				this->getOwnerGE()->x = center.x;
@@ -142,25 +145,34 @@ Boolean gecJoystick::immGUI(float x, float y, int touchIndex, void *touchID, int
 }
 
 void gecJoystick::subscribeGameEntity(GameEntity *gE)
-{
-	std::cout << " Macaroni " << std::endl;
-	
+{	
 	subscribedGE = gE;
+	fsm = ((gecFSM *)subscribedGE->getGEC("CompBehaviour"));
+	if(fsm == NULL)
+	{
+		std::cout << "WARNING: You shouldn't be using a gecJoystick with a GameEntity that doesn't have a gecBehaviour" << std::endl;
+		assert(fsm != NULL);
+	}
 }
 
-void gecJoystick::updateSubscriberAnimation(const std::string &state)
+void gecJoystick::updateSubscriberState(kBehaviourAction a)
 {
 	if(subscribedGE != NULL)
 	{
-		GEComponent *ge = subscribedGE->getGEC("CompVisual");
-		gecAnimatedSprite *sprite = static_cast<gecAnimatedSprite*> (ge);
-		
-		if(sprite)
-		{
-			sprite->setCurrentAnimation(state);
-			sprite->setCurrentRunning(true);
-			sprite->setCurrentRepeating(true);
-		}
+//		gecFSM *fsm = subscribedGE->getGEC("CompBehaviour");
+//		fsm->set
+		fsm->performAction(a);
+//		
+//		
+//		GEComponent *ge = subscribedGE->getGEC("CompVisual");
+//		gecAnimatedSprite *sprite = static_cast<gecAnimatedSprite*> (ge);
+//		
+//		if(sprite)
+//		{
+//			sprite->setCurrentAnimation(state);
+//			sprite->setCurrentRunning(true);
+//			sprite->setCurrentRepeating(true);
+//		}
 	}
 }
 
