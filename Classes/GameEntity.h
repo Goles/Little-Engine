@@ -29,24 +29,26 @@ public:
 			y,
 			height,	//Limits (height and width) of our Entity.
 			width;
+	float speed;
 	bool	isActive;
 	
 	//Constructors
 	GameEntity();
 	GameEntity(float x, float y);
 	GameEntity(float inX, float inY, int inWidth, int inHeight);
+	virtual ~GameEntity(){ components.clear(); }
 	
 	//Virtual Methods.
-	virtual void draw(){}
 	virtual void update(float delta);
-	virtual ~GameEntity(){ components.clear(); }
 	
 	//Getters & Setters
 	const bool		getIsActive() const { return isActive; }
 	const void		setIsActive(bool inActive) { isActive = inActive; }
-	void			setGEC( GEComponent *newGEC );
+	const float		getSpeed() const { return speed; }
+	const void		setSpeed(float s) { speed = s; }
+	void				setGEC( GEComponent *newGEC );
 	GEComponent*	getGEC( const std::string &familyID );
-	void			clearGECs();
+	void				clearGECs();
 	
 	//Functors	
 public:
@@ -76,12 +78,12 @@ public:
 	void debugPrintComponents();
 	
 private:	
-	typedef std::map<const std::string, GEComponent *> ComponentMap;
-	typedef std::pair<const std::string, GEComponent *> ComponentMapPair;
-	typedef std::vector<GEComponent *> ComponentVector;
+	typedef std::map<const std::string, GEComponent *>		ComponentMap;
+	typedef std::pair<const std::string, GEComponent *>	ComponentMapPair;
+	typedef std::vector<GEComponent *>							ComponentVector;	
 	
-	ComponentMap	components;
-	ComponentVector rendereableComponents;
+	ComponentMap			components;
+	ComponentVector		rendereableComponents;
 };
 
 #endif

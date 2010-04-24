@@ -11,26 +11,29 @@
 
 GameEntity::GameEntity()
 {
-	height = 0.0f;
-	width = 0.0f;	
-	x = 0.0f;
-	y = 0.0f;
+	height	= 0.0f;
+	width		= 0.0f;	
+	speed		= 0.0f;	
+	x			= 0.0f;
+	y			= 0.0f;
 }
 
 GameEntity::GameEntity(float inX, float inY)
 {
-	height = 0.0f;
-	width = 0.0f;
-	x = inX;
-	y = inY;
+	height	= 0.0f;
+	width		= 0.0f;
+	speed		= 0.0f;
+	x			= inX;
+	y			= inY;
 }
 
 GameEntity::GameEntity(float inX, float inY, int inWidth, int inHeight)
 {
-	height = inHeight;
-	width = inWidth;
-	x = inX;
-	y = inY;
+	speed		= 0.0f;
+	height	= inHeight;
+	width		= inWidth;
+	x			= inX;
+	y			= inY;
 }
 
 void GameEntity::setGEC( GEComponent *newGEC )

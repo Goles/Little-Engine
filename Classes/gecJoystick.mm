@@ -26,6 +26,7 @@ gecJoystick::gecJoystick()
 	center.y				= 0.0f;
 	latestVelocity.x	= 0.0f;
 	latestVelocity.y	= 0.0f;
+	active				= false;
 	fsm					= NULL;
 	subscribedGE		= NULL;
 }
@@ -33,11 +34,13 @@ gecJoystick::gecJoystick()
 #pragma mark gec_gui_interface
 void gecJoystick::update(float delta)
 {
+	float delta_velocity	= delta*subscribedGE->getSpeed();
+	
 	/*Updating the component or other components dependant of it happens here*/
 	if(subscribedGE != NULL)
 	{
-		subscribedGE->x += floor(delta*latestVelocity.x*150);
-		subscribedGE->y += floor(delta*latestVelocity.y*150);
+		subscribedGE->x += floor(latestVelocity.x * delta_velocity);
+		subscribedGE->y += floor(latestVelocity.y * delta_velocity);
 	}
 }
 
@@ -73,15 +76,15 @@ void gecJoystick::updateVelocity(float x, float y)
 	float dy = y - center.y;
 	CGPoint velocity;
 	
-	float distance = sqrt(dx * dx + dy * dy);
-	float angle = atan2(dy, dx); // in radians
+	float distance = sqrtf(dx * dx + dy * dy);
+	float angle = atan2f(dy, dx); // in radians
 	
 	// NOTE: Velocity goes from -1.0 to 1.0.
 	// BE CAREFUL: don't just cap each direction at 1.0 since that
 	// doesn't preserve the proportions.
 	if (distance > inRadius) {
-		dx = cos(angle) * inRadius;
-		dy = sin(angle) *  inRadius;
+		dx = cosf(angle) * inRadius;
+		dy = sinf(angle) *  inRadius;
 	}
 	
 	velocity = CGPointMake(dx/inRadius, dy/inRadius);
@@ -90,13 +93,13 @@ void gecJoystick::updateVelocity(float x, float y)
 	// boundaries.  This is smaller than the joystick radius in
 	// order to account for the size of the thumb.
 	if (distance > outRadius) {
-		x = center.x + cos(angle) * outRadius;
-		y = center.y + sin(angle) * outRadius;
+		x = center.x + cosf(angle) * outRadius;
+		y = center.y + sinf(angle) * outRadius;
 	}
 	
 	// Update the thumb's position
 	this->getOwnerGE()->x = x;
-	this->getOwnerGE()->y = y+20;
+	this->getOwnerGE()->y = y;
 	this->setShape(CGRectMake(x, y, shape.size.width, shape.size.height));
 	
 	//We update the "latest" velocity ( that's what we will use as a cached reference.
@@ -105,21 +108,25 @@ void gecJoystick::updateVelocity(float x, float y)
 
 Boolean gecJoystick::immGUI(float x, float y, int touchIndex, void *touchID, int touchType)
 {
-	GEComponent *gec = this->getOwnerGE()->getGEC(std::string("CompVisual")); //we obtain a gecAnimatedSprite
+	GEComponent *gec = this->getOwnerGE()->getGEC(std::string("CompVisual")); //we obtain a gecAnimatedSprite for the Joystick
 	gecAnimatedSprite *gAni = static_cast<gecAnimatedSprite *> (gec);
 	
 	if(this->regionHit(x, y))
-	{
+	{		
 		for(int i = 0; i < MAX_TOUCHES; i++)
 		{
+			//Holding inside the joystick bounds
 			if(INPUT_MANAGER->GUIState[i].fingerDown && INPUT_MANAGER->GUIState[i].touchID == touchID)
 			{
+				active = true;
 				gAni->setCurrentAnimation("hot");
 				this->updateSubscriberState(kBehaviourAction_dragGamepad);	
 				this->updateVelocity(x, y);
 			}
+			//Releasing inside th ejoystick bounds.
 			else if(INPUT_MANAGER->GUIState[i].fingerDown == false && INPUT_MANAGER->GUIState[i].touchID == touchID) //they are releasing over me
 			{
+				active = false;
 				gAni->setCurrentAnimation("normal");
 				this->updateSubscriberState(kBehaviourAction_stopGamepad);
 				
@@ -134,11 +141,34 @@ Boolean gecJoystick::immGUI(float x, float y, int touchIndex, void *touchID, int
 			}
 		}
 	}
-	else {
-		this->getOwnerGE()->x = center.x;
-		this->getOwnerGE()->y = center.y;
-		this->setShape(CGRectMake(center.x, center.y, shape.size.width, shape.size.height));
-		gAni->setCurrentAnimation("normal");
+	
+	else
+	{
+		for(int i = 0; i < MAX_TOUCHES; i++)
+		{
+			//releasing outside joystick bounds
+			if(INPUT_MANAGER->GUIState[i].fingerDown == false && INPUT_MANAGER->GUIState[i].touchID == touchID)
+			{
+				active = false;
+				gAni->setCurrentAnimation("normal");
+				this->updateSubscriberState(kBehaviourAction_stopGamepad);
+				
+				//Return to the center
+				this->updateVelocity(x, y);
+				this->getOwnerGE()->x = center.x;
+				this->getOwnerGE()->y = center.y;
+				this->setShape(CGRectMake(center.x, center.y, shape.size.width, shape.size.height));
+				latestVelocity = CGPointZero;
+			}
+			//Holding outside joystick bounds
+			else if(INPUT_MANAGER->GUIState[i].fingerDown && INPUT_MANAGER->GUIState[i].touchID == touchID && active)
+			{	
+				active = true;
+				gAni->setCurrentAnimation("hot");
+				this->updateSubscriberState(kBehaviourAction_dragGamepad);	
+				this->updateVelocity(x, y);
+			}
+		}
 	}
 	
 	return false; //button not activated.
@@ -150,40 +180,29 @@ void gecJoystick::subscribeGameEntity(GameEntity *gE)
 	fsm = ((gecFSM *)subscribedGE->getGEC("CompBehaviour"));
 	if(fsm == NULL)
 	{
-		std::cout << "WARNING: You shouldn't be using a gecJoystick with a GameEntity that doesn't have a gecBehaviour" << std::endl;
+		std::cout << "WARNING: You shouldn't be using a gecJoystick with a GameEntity that doesn't have a gecFSM" << std::endl;
 		assert(fsm != NULL);
 	}
 }
 
 void gecJoystick::updateSubscriberState(kBehaviourAction a)
 {
-	if(subscribedGE != NULL)
-	{
-//		gecFSM *fsm = subscribedGE->getGEC("CompBehaviour");
-//		fsm->set
+	if(fsm != NULL)
 		fsm->performAction(a);
-//		
-//		
-//		GEComponent *ge = subscribedGE->getGEC("CompVisual");
-//		gecAnimatedSprite *sprite = static_cast<gecAnimatedSprite*> (ge);
-//		
-//		if(sprite)
-//		{
-//			sprite->setCurrentAnimation(state);
-//			sprite->setCurrentRunning(true);
-//			sprite->setCurrentRepeating(true);
-//		}
+	else {
+		std::cout << "WARNING: You shouldn't be using a gecJoystick with a GameEntity that doesn't have a gecFSM" << std::endl;
+		assert(fsm != NULL);
 	}
 }
 
 void gecJoystick::setShape(CGRect aRect)
 {
 	//We need to center our CGRect
-	shape = CGRectMake(aRect.origin.x - aRect.size.width*0.5, 
-					   aRect.origin.y - aRect.size.height*0.5, 
+	shape = CGRectMake(aRect.origin.x - aRect.size.width * 0.5, 
+					   aRect.origin.y - aRect.size.height * 0.5, 
 					   aRect.size.width, 
 					   aRect.size.height);
 	
 	this->setInRadius(aRect.size.width * 0.5);	//We set the joystick paddle radius
-	this->setOutRadius(aRect.size.width* 0.5 + aRect.size.width*0.25);	//We set the outer circle radius ( usually 2x inner paddle )
+	this->setOutRadius(aRect.size.width * 0.5 + aRect.size.width*0.25);	//We set the outer circle radius ( usually 2x inner paddle )
 }

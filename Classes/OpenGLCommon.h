@@ -20,12 +20,12 @@ typedef struct {
 
 static inline Color3D Color3DMake(CGFloat inRed, CGFloat inGreen, CGFloat inBlue, CGFloat inAlpha)
 {
-    Color3D ret;
+	Color3D ret;
 	ret.red = inRed;
 	ret.green = inGreen;
 	ret.blue = inBlue;
 	ret.alpha = inAlpha;
-    return ret;
+	return ret;
 }
 static inline void Color3DSet(Color3D *color, CGFloat inRed, CGFloat inGreen, CGFloat inBlue, CGFloat inAlpha)
 {

@@ -31,6 +31,7 @@ private:
 	float dispWidth2;
 	float dispOffset;
 	float tolerance;
+	float moveSpeed;
 	GameEntity* subscribedGE;
 	gecFSM* fsm;
 	

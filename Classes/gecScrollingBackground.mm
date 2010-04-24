@@ -39,8 +39,6 @@ void gecScrollingBackground::setSubscribedGE(GameEntity *e)
 		std::cout << "Entity doesn't contain an FSM" << std::endl;
 		assert(f != NULL);
 	}
-
-		
 }
 
 #pragma mark -
@@ -49,11 +47,12 @@ gecScrollingBackground::gecScrollingBackground()
 {
 	im1 = NULL;
 	im2 = NULL;
+	subscribedGE = NULL;	
 	dispWidth1	= 0.0f;
 	dispWidth2	= 0.0f;
 	dispOffset	= 0.0f;
 	tolerance	= 0.0f;
-	subscribedGE = NULL;
+	moveSpeed	= 0.0f;
 }
 
 gecScrollingBackground::gecScrollingBackground(const std::string &im1, const std::string &im2)
@@ -65,6 +64,7 @@ gecScrollingBackground::gecScrollingBackground(const std::string &im1, const std
 	dispWidth1	= this->im1->getImageWidth();
 	dispWidth2	= this->im2->getImageWidth();
 	dispOffset	= 0.0f;
+	moveSpeed	= 0.0f;	
 	tolerance	= 320.0f;
 	subscribedGE = NULL;
 }

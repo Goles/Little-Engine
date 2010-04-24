@@ -74,7 +74,7 @@
 	//Declare our game entities
 	GameEntity *b			= GE_FACTORY->createGE("scrollingBackground", 240.0f, 160.0f);
 	GameEntity *hitter	= GE_FACTORY->createGE("hitter1", 240.0f, 120.0f);
-	GameEntity *j			= GE_FACTORY->createGE("joypad",  70.0f, 70.0f);
+	GameEntity *j			= GE_FACTORY->createGE("joypad",  75.0f, 65.0f);
 	
 	((gecJoystick *)j->getGEC("CompGUI"))->subscribeGameEntity(hitter);
 	

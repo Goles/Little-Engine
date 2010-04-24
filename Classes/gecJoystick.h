@@ -48,6 +48,7 @@ private:
 	static gec_id_type mComponentID;
 	float			inRadius;
 	float			outRadius;
+	bool			active;
 	CGRect		shape;
 	CGPoint		center;
 	CGPoint		latestVelocity;

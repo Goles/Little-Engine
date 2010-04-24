@@ -121,6 +121,7 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 			height	= 80;
 	
 	GameEntity *gE = new GameEntity(x, y, width, height);
+	gE->setSpeed(75.0);
 	
 	SpriteSheet *ss = new SpriteSheet();
 	ss->initWithImageNamed("hitter1_sheet.png", gE->height, gE->width, 0.0, 1.0);
@@ -288,14 +289,14 @@ GameEntity* GETemplateManager::joypad(float x, float y)
 	gecJoystick *jComp;	
 	jComp = new gecJoystick();
 	jComp->setOwnerGE(anEntity);
-	jComp->setShape(CGRectMake(70.0, 70.0, 80.0, 80.0));
+	jComp->setShape(CGRectMake(x, y, 60.0, 60.0));
 	
 	jComp->setCenter(x, y);
 	
 	anEntity->setGEC(spriteComp);
 	anEntity->setGEC(jComp);
-	anEntity->x = 70.0;
-	anEntity->y = 70.0;
+	anEntity->x = x;
+	anEntity->y = y;
 	anEntity->isActive  = true;
 	
 	return anEntity;
