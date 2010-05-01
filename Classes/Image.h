@@ -18,6 +18,7 @@
 
 #import "Texture2D.h"
 #include <string>
+#include <iostream>
 
 typedef struct {
 	float tl_x, tl_y;
@@ -42,7 +43,7 @@ public:
 	void	initWithUIImage(UIImage *inImage, float inScale, GLenum filter);	
 	
 	//Action Methods
-	Image *	getSubImage(CGPoint point,  GLuint subImageWidth, GLuint subImageHeight, float subImageScale);
+	Image*getSubImage(CGPoint point,  GLuint subImageWidth, GLuint subImageHeight, float subImageScale);
 	void	renderAtPoint(CGPoint point, BOOL centerOfImage);
 	void	renderSubImageAtPoint(CGPoint point, CGPoint offsetPoint, GLfloat subImageWidth, GLfloat subImageHeight, BOOL isCenterOfImage);
 	void	render(CGPoint point, Quad2* tc, Quad2* qv);
@@ -59,11 +60,13 @@ public:
 	void setImageHeight(GLuint inHeight);
 	void setRotation(float inRotation);
 	void setTextureName(const std::string &inTextureName);
+	void setFlipHorizontally(bool f) { flipHorizontally = f; }
+	void setFlipVertically(bool f) { flipVertically = f; }
 	
 	//Getters
 	int		getImageWidth();
 	int		getImageHeight();
-	float	getScale();
+	float		getScale();
 	Quad2*	getTexCoords();
 	Quad2*	getVertex();
 	std::string getTextureName();
@@ -80,17 +83,17 @@ private:
 	int			imageHeight;
 	int			textureWidth;
 	int			textureHeight;
-	float		maxTexWidth;
-	float		maxTexHeight;
-	float		texWidthRatio;
-	float		texHeightRatio;
+	float			maxTexWidth;
+	float			maxTexHeight;
+	float			texWidthRatio;
+	float			texHeightRatio;
 	int			textureOffsetX;
 	int			textureOffsetY;
-	float		rotation;
-	float		scale;
-	BOOL		flipHorizontally;
-	BOOL		flipVertically;
-	float		colourFilter[4];
+	float			rotation;
+	float			scale;
+	bool			flipHorizontally;
+	bool			flipVertically;
+	float			colourFilter[4];
 	
 	// Vertex arrays
 	Quad2		*vertices;

@@ -142,8 +142,8 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	spriteAnimations->setOwnerGE(gE);
 	
 	std::vector<int>	coordStand,
-						coordWalk,
-						coordAttack;
+							coordWalk,
+							coordAttack;
 	
 	coordStand.push_back(0);
 	coordStand.push_back(0);
@@ -177,6 +177,7 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 		attack->setDelegate(boost::bind(&gecFSM::animationFinishedDelegate, fsm));
 	
 	spriteAnimations->debugPrintAnimationMap();
+
 	
 	/*The Default animation is stand and it's running*/
 	spriteAnimations->setCurrentAnimation(std::string("stand"));

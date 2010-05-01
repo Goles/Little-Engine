@@ -35,9 +35,9 @@ public:
 	~Animation();
 	
 	//Action methods
-	void	addFrameWithImage(Image *inImage, float delay);
-	void	update(float delta);
-	void	renderAtPoint(CGPoint inPoint);
+	void		addFrameWithImage(Image *inImage, float delay);
+	void		update(float delta);
+	void		renderAtPoint(CGPoint inPoint);
 	
 	//Getters
 	Image*	getCurrentFrameImage();
@@ -50,6 +50,8 @@ public:
 	void	setIsRunning(Boolean inIsRunning) { isRunning = inIsRunning; }
 	void	setIsRepeating(Boolean inIsRepeating) { isRepeating = inIsRepeating; }
 	void	setIsPingPong(Boolean inIsPingPong) { isPingPong = inIsPingPong; }
+	void	setFlipHorizontally(bool f);
+	void	setFlipVertically(bool f);
 	
 	//Delegate
 	void	setDelegate(const AnimationTrigger::slot_type& slot);
@@ -65,12 +67,13 @@ public:
 private:
 	CGPoint				currentPoint;
 	FRAMES_VECTOR		spriteFrames;
-	float				frameTimer;
-	bool				isRunning;
-	bool				isRepeating;
-	bool				isPingPong;
-	bool				delegation;
-	bool				notify;
+	float					frameTimer;
+	bool					isRunning;
+	bool					isRepeating;
+	bool					isPingPong;
+	bool					isFlipped;
+	bool					delegation;
+	bool					notify;
 	int					direction;
 	int					currentFrame;
 	AnimationTrigger	delegate;		//This is used to let a subscriber know when certain animation finishes displaying. (not used all the time)

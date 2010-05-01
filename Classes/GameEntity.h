@@ -31,7 +31,7 @@ public:
 			width;
 	float speed;
 	bool	isActive;
-	
+
 	//Constructors
 	GameEntity();
 	GameEntity(float x, float y);
@@ -41,14 +41,18 @@ public:
 	//Virtual Methods.
 	virtual void update(float delta);
 	
+	//GECInterface
+	void				setGEC( GEComponent *newGEC );
+	GEComponent*	getGEC( const std::string &familyID );
+	void				clearGECs();
+	
 	//Getters & Setters
 	const bool		getIsActive() const { return isActive; }
 	const void		setIsActive(bool inActive) { isActive = inActive; }
 	const float		getSpeed() const { return speed; }
 	const void		setSpeed(float s) { speed = s; }
-	void				setGEC( GEComponent *newGEC );
-	GEComponent*	getGEC( const std::string &familyID );
-	void				clearGECs();
+	void				setFlipHorizontally(bool f){ flipHorizontally = f; }
+	bool				getFlipHorizontally() { return flipHorizontally; }
 	
 	//Functors	
 public:
@@ -84,6 +88,7 @@ private:
 	
 	ComponentMap			components;
 	ComponentVector		rendereableComponents;
+	bool	flipHorizontally;
 };
 
 #endif

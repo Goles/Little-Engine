@@ -16,6 +16,7 @@ GameEntity::GameEntity()
 	speed		= 0.0f;	
 	x			= 0.0f;
 	y			= 0.0f;
+	flipHorizontally = false;
 }
 
 GameEntity::GameEntity(float inX, float inY)
@@ -25,6 +26,7 @@ GameEntity::GameEntity(float inX, float inY)
 	speed		= 0.0f;
 	x			= inX;
 	y			= inY;
+	flipHorizontally = false;
 }
 
 GameEntity::GameEntity(float inX, float inY, int inWidth, int inHeight)
@@ -34,6 +36,7 @@ GameEntity::GameEntity(float inX, float inY, int inWidth, int inHeight)
 	width		= inWidth;
 	x			= inX;
 	y			= inY;
+	flipHorizontally = false;
 }
 
 void GameEntity::setGEC( GEComponent *newGEC )

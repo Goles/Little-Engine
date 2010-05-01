@@ -195,6 +195,9 @@
 		aSceneManager->renderScene();
 	}
 	
+	if(sprite)
+		sprite->renderAtPoint(CGPointMake(240.0, 160.0), true);
+	
     glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
     [context presentRenderbuffer:GL_RENDERBUFFER_OES];
 }

@@ -84,7 +84,7 @@ void gecJoystick::updateVelocity(float x, float y)
 	// doesn't preserve the proportions.
 	if (distance > inRadius) {
 		dx = cosf(angle) * inRadius;
-		dy = sinf(angle) *  inRadius;
+		dy = sinf(angle) * inRadius;
 	}
 	
 	velocity = CGPointMake(dx/inRadius, dy/inRadius);
@@ -103,7 +103,19 @@ void gecJoystick::updateVelocity(float x, float y)
 	this->setShape(CGRectMake(x, y, shape.size.width, shape.size.height));
 	
 	//We update the "latest" velocity ( that's what we will use as a cached reference.
-	latestVelocity = velocity;	
+	latestVelocity = velocity;
+	
+	//Flip our entity if we face right or left.
+	
+	if(dx < 0)
+	{
+		std::cout << "Flip Horizontal" << std::endl;
+		subscribedGE->setFlipHorizontally(true);
+	}else {
+		std::cout << "Flip Back" << std::endl;
+		subscribedGE->setFlipHorizontally(false);
+	}
+
 }
 
 Boolean gecJoystick::immGUI(float x, float y, int touchIndex, void *touchID, int touchType)

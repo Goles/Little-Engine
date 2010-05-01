@@ -19,7 +19,6 @@
 #import "SceneManager.h"
 #include "GETemplateManager.h"
 
-#include <iostream>
 
 @class ParticleController;
 @class Texture2D;

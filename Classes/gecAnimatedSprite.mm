@@ -10,6 +10,14 @@
 
 std::string gecAnimatedSprite::mGECTypeID = "gecAnimatedSprite";
 
+#pragma mark -
+#pragma mark gecAnimatedSprite Interface.
+gecAnimatedSprite::gecAnimatedSprite()
+{
+	flipHorizontally	= false;
+	flipVertically		= false;	
+}
+
 void gecAnimatedSprite::addAnimation(const std::string &animationName, const std::vector<int> &positions, SpriteSheet *inSheet)
 {
 	AnimationMap::iterator it = componentAnimations.find(animationName);
@@ -56,6 +64,27 @@ Animation* gecAnimatedSprite::getAnimation(const std::string& animationName)
 	return NULL;
 }
 
+void gecAnimatedSprite::setFlipHorizontally(bool f)
+{
+	AnimationMap::iterator it;
+	for(it = componentAnimations.begin(); it != componentAnimations.end(); ++it)
+	{
+		((Animation*)(*it).second)->setFlipHorizontally(f);
+	}
+}
+
+void gecAnimatedSprite::setFlipVertically(bool f)
+{
+	AnimationMap::iterator it;
+	
+	for(it = componentAnimations.begin(); it != componentAnimations.end(); ++it)
+	{
+		(it->second)->setFlipVertically(f);
+	}
+}
+
+#pragma mark -
+#pragma mark gecVisual Interface
 void gecAnimatedSprite::render() const
 {
 	GameEntity *ge = this->getOwnerGE();
@@ -64,6 +93,8 @@ void gecAnimatedSprite::render() const
 
 void gecAnimatedSprite::update(float delta)
 {
+	GameEntity *ge = this->getOwnerGE();
+	currentAnimation->setFlipHorizontally(ge->getFlipHorizontally());
 	currentAnimation->update(delta);
 }
 
@@ -75,6 +106,10 @@ void gecAnimatedSprite::debugPrintAnimationMap()
 	
 	for(it = componentAnimations.begin(); it != componentAnimations.end(); it++)
 	{
-		std::cout << (*it).first <<" " <<  (*it).second << std::endl;
+		//Print Animation Name & Address
+		std::cout << (*it).first <<" " <<  (*it).second;
+		Animation *a = (*it).second;
+		//Print the animation Frames.
+		a->debugPrintFrames();
 	}
 }

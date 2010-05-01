@@ -18,7 +18,7 @@ class gecAnimatedSprite : public gecVisual
 {
 	//GEComponent interface
 public:
-	gecAnimatedSprite(){}
+	gecAnimatedSprite();
 	virtual const gec_id_type &componentID() const { return mGECTypeID; }
 	
 	//gecVisual interface
@@ -31,10 +31,13 @@ public:
 	void addAnimation(const std::string &animationName, const std::vector<int> &positions, SpriteSheet *inSheet);
 	void addAnimation(const std::string &animationName, Animation *animation);
 	void setCurrentAnimation(const std::string &animationName);
+	Animation* getCurrentAnimation() { return currentAnimation; }
 	Animation* getAnimation(const std::string&animationName);
 	void setCurrentRunning(Boolean isRunning){ currentAnimation->setIsRunning(isRunning); }
 	void setCurrentRepeating(Boolean isRepeating){ currentAnimation->setIsRepeating(isRepeating); } 
-	void setCurrentPingPong(Boolean isPingPong){ currentAnimation->setIsPingPong(isPingPong); }  
+	void setCurrentPingPong(Boolean isPingPong){ currentAnimation->setIsPingPong(isPingPong); }
+	void setFlipHorizontally(bool f);
+	void setFlipVertically(bool f);
 	void debugPrintAnimationMap();
 	
 private:
@@ -42,8 +45,10 @@ private:
 	typedef std::pair<const std::string, Animation*> AnimationMapPair;
 	
 	static gec_id_type	mGECTypeID;
-	Animation*			currentAnimation;
-	AnimationMap		componentAnimations;
+	Animation*				currentAnimation;
+	AnimationMap			componentAnimations;
+	bool						flipHorizontally;
+	bool						flipVertically;
 };
 
 #endif

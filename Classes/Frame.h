@@ -22,7 +22,7 @@ public:
 	
 	//getters
 	Image*	getFrameImage();
-	float	getFrameDelay();
+	float		getFrameDelay();
 	
 private:
 	Image *frameImage;

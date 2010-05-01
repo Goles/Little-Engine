@@ -21,6 +21,7 @@ Animation::Animation()
 	isPingPong		= false;
 	notify			= false;
 	delegation		= false;
+	isFlipped		= false;
 	direction		= kDirection_Forward;
 }
 
@@ -33,7 +34,8 @@ Animation::Animation(CGPoint inCurrentPoint)
 	isRepeating		= false;
 	isPingPong		= false;
 	notify			= false;
-	delegation		= false;	
+	delegation		= false;
+	isFlipped		= false;	
 	direction		= kDirection_Forward;
 }
 
@@ -46,7 +48,8 @@ Animation::Animation(const std::vector<int>& positions, SpriteSheet *inSheet)
 	isRepeating  = false;
 	isPingPong	 = false;
 	notify		 = false;
-	delegation	 = false;	
+	delegation	 = false;
+	isFlipped		= false;	
 	direction	 = kDirection_Forward;
 	
 	for (int i = 0; i < positions.size(); i+= 2)
@@ -119,12 +122,12 @@ void Animation::update()
 
 #pragma mark -
 #pragma mark getters
-Image*	Animation::getCurrentFrameImage()
+Image* Animation::getCurrentFrameImage()
 {
 	return (spriteFrames.at(currentFrame)->getFrameImage());
 }
 
-Frame*	Animation::getFrame(GLuint frameNumber)
+Frame* Animation::getFrame(GLuint frameNumber)
 {
 	if(frameNumber > spriteFrames.size())
 	{
@@ -135,14 +138,39 @@ Frame*	Animation::getFrame(GLuint frameNumber)
 	return (spriteFrames.at(frameNumber));
 }
 
-GLuint	Animation::getCurrentFrameNumber()
+GLuint Animation::getCurrentFrameNumber()
 {
 	return currentFrame;
 }
 
-GLuint	Animation::getAnimationFrameCount()
+GLuint Animation::getAnimationFrameCount()
 {
 	return (spriteFrames.size());
+}
+
+void Animation::setFlipHorizontally(bool f)
+{	
+
+	FRAMES_VECTOR::iterator it;	
+	if(isFlipped != f)
+	{
+		for(it = spriteFrames.begin(); it < spriteFrames.end(); ++it)
+		{
+			Image *im = (*it)->getFrameImage();
+			im->setFlipHorizontally(f);
+		}
+		
+		isFlipped = f;
+	}
+}
+
+void Animation::setFlipVertically(bool f)
+{
+	FRAMES_VECTOR::iterator it;
+	for(it = spriteFrames.begin(); it < spriteFrames.end(); ++it)
+	{
+		((*it)->getFrameImage())->setFlipVertically(f);
+	}
 }
 
 #pragma mark -
@@ -173,6 +201,8 @@ void Animation::notifyDelegate()
 #pragma mark debug
 void Animation::debugPrintFrames()
 {
+	std::cout << "** DEBUG PRINT FRAMES **" << std::endl;
+	std::cout << "Number of Frames: " << spriteFrames.size() << std::endl;
 	FRAMES_VECTOR::iterator it;
 		
 	it = spriteFrames.begin();
