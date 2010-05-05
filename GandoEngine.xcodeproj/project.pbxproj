@@ -11,7 +11,6 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		2514C27210084DB100A42282 /* ES1Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2514C26E10084DB100A42282 /* ES1Renderer.mm */; };
 		2514C27310084DB100A42282 /* ES2Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2514C27010084DB100A42282 /* ES2Renderer.mm */; };
 		2514C27B10084DCA00A42282 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 2514C27910084DCA00A42282 /* Shader.fsh */; };
 		2514C27C10084DCA00A42282 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 2514C27A10084DCA00A42282 /* Shader.vsh */; };
@@ -69,6 +68,9 @@
 		6352AA5110BDD18200EA312F /* GEComponent.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6352AA5010BDD18200EA312F /* GEComponent.mm */; };
 		635C8EF21074761E002F9BB3 /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 635C8EF11074761E002F9BB3 /* FileUtils.m */; };
 		635C8F231074790B002F9BB3 /* Particle2.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 635C8F221074790B002F9BB3 /* Particle2.pvr */; };
+		636D7135119131D4001E14F1 /* GandoBox2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 636D7131119131D4001E14F1 /* GandoBox2D.mm */; };
+		636D7136119131D4001E14F1 /* GLES-Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 636D7133119131D4001E14F1 /* GLES-Render.cpp */; };
+		636D713C11913258001E14F1 /* ES1Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 636D713B11913258001E14F1 /* ES1Renderer.mm */; };
 		6370E20210C18EE600EC2818 /* GETemplateManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6370E20110C18EE600EC2818 /* GETemplateManager.mm */; };
 		6379709F108A17AC005B24FC /* smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 6379709E108A17AC005B24FC /* smoke.png */; };
 		637EEA3B109B8D0600F2E463 /* sprite_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 637EEA3A109B8D0600F2E463 /* sprite_test.png */; };
@@ -107,8 +109,6 @@
 		1D3623250D0F684500981E51 /* Particles_2AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Particles_2AppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* GandoEngine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GandoEngine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		2514C26D10084DB100A42282 /* ES1Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ES1Renderer.h; sourceTree = "<group>"; };
-		2514C26E10084DB100A42282 /* ES1Renderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ES1Renderer.mm; sourceTree = "<group>"; };
 		2514C26F10084DB100A42282 /* ES2Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ES2Renderer.h; sourceTree = "<group>"; };
 		2514C27010084DB100A42282 /* ES2Renderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ES2Renderer.mm; sourceTree = "<group>"; };
 		2514C27110084DB100A42282 /* ESRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESRenderer.h; sourceTree = "<group>"; };
@@ -223,6 +223,13 @@
 		635C8EF01074761E002F9BB3 /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
 		635C8EF11074761E002F9BB3 /* FileUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUtils.m; sourceTree = "<group>"; };
 		635C8F221074790B002F9BB3 /* Particle2.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = Particle2.pvr; sourceTree = "<group>"; };
+		636D7130119131D4001E14F1 /* GandoBox2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GandoBox2D.h; sourceTree = "<group>"; };
+		636D7131119131D4001E14F1 /* GandoBox2D.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GandoBox2D.mm; sourceTree = "<group>"; };
+		636D7132119131D4001E14F1 /* GandoBox2DDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GandoBox2DDebug.h; sourceTree = "<group>"; };
+		636D7133119131D4001E14F1 /* GLES-Render.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "GLES-Render.cpp"; sourceTree = "<group>"; };
+		636D7134119131D4001E14F1 /* GLES-Render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GLES-Render.h"; sourceTree = "<group>"; };
+		636D713A11913258001E14F1 /* ES1Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ES1Renderer.h; sourceTree = "<group>"; };
+		636D713B11913258001E14F1 /* ES1Renderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ES1Renderer.mm; sourceTree = "<group>"; };
 		6370E20010C18EE600EC2818 /* GETemplateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GETemplateManager.h; sourceTree = "<group>"; };
 		6370E20110C18EE600EC2818 /* GETemplateManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GETemplateManager.mm; sourceTree = "<group>"; };
 		63716F89106FC18E00B3C783 /* EmitterFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmitterFunctions.h; sourceTree = "<group>"; };
@@ -393,7 +400,8 @@
 		631783C1118F31630062FCDB /* external */ = {
 			isa = PBXGroup;
 			children = (
-				63270692118F21CF005D6DCB /* Physics */,
+				636D711A119131B6001E14F1 /* Plugs */,
+				63270C7E118F27B8005D6DCB /* Box2D */,
 			);
 			name = external;
 			sourceTree = "<group>";
@@ -441,14 +449,6 @@
 				63040AD1116E8A0E0066F4CF /* gecFSM.mm */,
 			);
 			name = Behaviour;
-			sourceTree = "<group>";
-		};
-		63270692118F21CF005D6DCB /* Physics */ = {
-			isa = PBXGroup;
-			children = (
-				63270C7E118F27B8005D6DCB /* Box2D */,
-			);
-			name = Physics;
 			sourceTree = "<group>";
 		};
 		63270C7E118F27B8005D6DCB /* Box2D */ = {
@@ -618,8 +618,8 @@
 		633C889910649221003911A0 /* Renderer */ = {
 			isa = PBXGroup;
 			children = (
-				2514C26D10084DB100A42282 /* ES1Renderer.h */,
-				2514C26E10084DB100A42282 /* ES1Renderer.mm */,
+				636D713A11913258001E14F1 /* ES1Renderer.h */,
+				636D713B11913258001E14F1 /* ES1Renderer.mm */,
 				2514C26F10084DB100A42282 /* ES2Renderer.h */,
 				2514C27010084DB100A42282 /* ES2Renderer.mm */,
 				2514C27110084DB100A42282 /* ESRenderer.h */,
@@ -684,6 +684,34 @@
 				63C557AA108CFA0200E77DBC /* Image.mm */,
 			);
 			name = Image;
+			sourceTree = "<group>";
+		};
+		636D711A119131B6001E14F1 /* Plugs */ = {
+			isa = PBXGroup;
+			children = (
+				636D711B119131BC001E14F1 /* Box2D */,
+			);
+			name = Plugs;
+			sourceTree = "<group>";
+		};
+		636D711B119131BC001E14F1 /* Box2D */ = {
+			isa = PBXGroup;
+			children = (
+				636D713D1191325D001E14F1 /* debug */,
+				636D7130119131D4001E14F1 /* GandoBox2D.h */,
+				636D7131119131D4001E14F1 /* GandoBox2D.mm */,
+			);
+			name = Box2D;
+			sourceTree = "<group>";
+		};
+		636D713D1191325D001E14F1 /* debug */ = {
+			isa = PBXGroup;
+			children = (
+				636D7132119131D4001E14F1 /* GandoBox2DDebug.h */,
+				636D7133119131D4001E14F1 /* GLES-Render.cpp */,
+				636D7134119131D4001E14F1 /* GLES-Render.h */,
+			);
+			name = debug;
 			sourceTree = "<group>";
 		};
 		63716FA1106FC34200B3C783 /* static */ = {
@@ -849,7 +877,6 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* Particles_2AppDelegate.m in Sources */,
 				28FD14FE0DC6FC130079059D /* EAGLView.mm in Sources */,
-				2514C27210084DB100A42282 /* ES1Renderer.mm in Sources */,
 				2514C27310084DB100A42282 /* ES2Renderer.mm in Sources */,
 				633C889410649219003911A0 /* Particle.m in Sources */,
 				633C889510649219003911A0 /* ParticleController.mm in Sources */,
@@ -916,6 +943,9 @@
 				63270CEC118F27B8005D6DCB /* b2PulleyJoint.cpp in Sources */,
 				63270CED118F27B8005D6DCB /* b2RevoluteJoint.cpp in Sources */,
 				63270CEE118F27B8005D6DCB /* b2WeldJoint.cpp in Sources */,
+				636D7135119131D4001E14F1 /* GandoBox2D.mm in Sources */,
+				636D7136119131D4001E14F1 /* GLES-Render.cpp in Sources */,
+				636D713C11913258001E14F1 /* ES1Renderer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

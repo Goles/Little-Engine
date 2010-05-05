@@ -18,7 +18,7 @@
 #import "gecParticleSystem.h"
 #import "SceneManager.h"
 #include "GETemplateManager.h"
-
+#include "GandoBox2D.h"
 
 @class ParticleController;
 @class Texture2D;
@@ -53,6 +53,7 @@
 	Image*			sprite;
 	Animation*		animatedSprite;
 	SceneManager*	aSceneManager;
+	GandoBox2D*		GBox2d;
 }
 
 - (void) update:(float)delta;
@@ -63,6 +64,7 @@
 - (void) initScenes;
 
 /*Tests*/
+- (void) box2d;
 - (void) fsmTest;
 - (void) offsetTest;
 - (void) multiTouchTest;

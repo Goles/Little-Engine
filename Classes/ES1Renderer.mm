@@ -23,6 +23,7 @@
 #include "gecScrollingBackground.h"
 #include <boost/bind.hpp>
 
+
 @implementation ES1Renderer
 
 // Create an ES 1.1 context
@@ -59,7 +60,7 @@
 - (void) initGame
 {
 	[self initScenes];
-	[self offsetTest];
+	[self box2d];
 }
 
 /*
@@ -69,6 +70,39 @@
  */
 #pragma mark -
 #pragma mark TESTS
+- (void) box2d
+{
+	//init our world using the GBOX_2D integration singleton for Box2D.
+	b2Vec2 gravity;
+	gravity.Set(0.0f, -10.0f);
+	GBOX_2D->initWorld(gravity, true);
+	
+	//Define the ground body.
+	b2BodyDef groundBodyDef;
+	groundBodyDef.position.Set(0.0f,0.0f);
+	b2Body *groundBody = GBOX_2D_WORLD->CreateBody(&groundBodyDef);
+	
+	//Define the shape for the ground.
+	b2PolygonShape groundBox;
+	
+	// bottom
+	groundBox.SetAsEdge(b2Vec2(0,0), b2Vec2(480/PTM_RATIO,0));
+	groundBody->CreateFixture(&groundBox,0);
+	
+	// top
+	groundBox.SetAsEdge(b2Vec2(0,320/PTM_RATIO), b2Vec2(480/PTM_RATIO,320/PTM_RATIO));
+	groundBody->CreateFixture(&groundBox,0);
+	
+	// left
+	groundBox.SetAsEdge(b2Vec2(0,320/PTM_RATIO), b2Vec2(0,0));
+	groundBody->CreateFixture(&groundBox,0);
+	
+	// right
+	groundBox.SetAsEdge(b2Vec2(480/PTM_RATIO,320/PTM_RATIO), b2Vec2(480/PTM_RATIO,0));
+	groundBody->CreateFixture(&groundBox,0);
+
+}
+
 - (void) offsetTest
 {
 	//Declare our game entities
