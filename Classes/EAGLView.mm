@@ -9,6 +9,7 @@
 #import "EAGLView.h"
 #import "ES1Renderer.h"
 #import "SharedInputManager.h"
+#include "GandoBox2D.h"
 
 @implementation EAGLView
 

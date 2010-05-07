@@ -45,10 +45,10 @@ private:
 	typedef std::pair<const std::string, Animation*> AnimationMapPair;
 	
 	static gec_id_type	mGECTypeID;
-	Animation*				currentAnimation;
-	AnimationMap			componentAnimations;
-	bool						flipHorizontally;
-	bool						flipVertically;
+	Animation*			currentAnimation;
+	AnimationMap		componentAnimations;
+	bool				flipHorizontally;
+	bool				flipVertically;
 };
 
 #endif

@@ -8,6 +8,7 @@
 
 #include "SharedInputManager.h"
 #include "gecGUI.h"
+#include "GandoBox2D.h"
 
 SharedInputManager* SharedInputManager::singletonInstance = NULL;
 
@@ -74,6 +75,7 @@ void SharedInputManager::touchesBegan(float x, float y, void *touchID)
 			GUIState[i].y = y;
 			GUIState[i].fingerDown	= true;
 			GUIState[i].touchID		= touchID;
+			GBOX_2D->addDebugSpriteWithCoords(x,y); //TODO:DELETE THIS
 			this->broadcastInteraction(x, y, i, touchID, kTouchType_began);
 			break;
 		}

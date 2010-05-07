@@ -29,21 +29,28 @@ class GLESDebugDraw;
 
 class	GandoBox2D
 {
+	//Action interface.
 public:
 	~GandoBox2D();
 	static GandoBox2D*	getInstance();
-	b2World*					getWorld() const { return world; }	
-	void						initWorld(const b2Vec2 &gravity, bool doSleep);
-	void						initDebugDraw();
-	void						addDebugSpriteWithCoords(float x, float y);
+	void				update(float delta);
+	b2World*			getWorld() const;
+	void				initBaseWorld();	
+	void				initWorld(const b2Vec2 &gravity, bool doSleep);
+	
+	//Debug interface.
+public:	
+	void				initDebugDraw();
+	void				debugRender();
+	void				addDebugSpriteWithCoords(float x, float y);
 	
 protected:
 	GandoBox2D();
 	
 private:
-	b2World*					world; //Box2d World.
+	b2World*			world; //Box2d World.
 	static GandoBox2D*	instance;
-	GLESDebugDraw*			debugDraw;
+	GLESDebugDraw*		debugDraw;
 	
 	//Just for debug, list of Animations
 	std::vector<Gbox *> boxes;

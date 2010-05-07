@@ -53,7 +53,6 @@
 	Image*			sprite;
 	Animation*		animatedSprite;
 	SceneManager*	aSceneManager;
-	GandoBox2D*		GBox2d;
 }
 
 - (void) update:(float)delta;

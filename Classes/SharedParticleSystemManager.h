@@ -48,8 +48,8 @@ public:
 	//Action Methods
 	GameEntity*		createParticleSystem(int k_InParticleFX, CGPoint inPosition, const std::string &textureName);
 	GameEntity*		insertSystem(GameEntity *inSystem); //Creates and inserts a new SystemEntity in the _systemsList
-	void			removeSystem(GameEntity *inSystem);
-	void			debugPrintList();
+	void				removeSystem(GameEntity *inSystem);
+	void				debugPrintList();
 	
 protected:
 	SharedParticleSystemManager();	//Constructor

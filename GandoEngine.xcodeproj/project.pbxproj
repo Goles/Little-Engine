@@ -71,10 +71,12 @@
 		636D7135119131D4001E14F1 /* GandoBox2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 636D7131119131D4001E14F1 /* GandoBox2D.mm */; };
 		636D7136119131D4001E14F1 /* GLES-Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 636D7133119131D4001E14F1 /* GLES-Render.cpp */; };
 		636D713C11913258001E14F1 /* ES1Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 636D713B11913258001E14F1 /* ES1Renderer.mm */; };
+		636D71E411913DC6001E14F1 /* gando_box.png in Resources */ = {isa = PBXBuildFile; fileRef = 636D71E311913DC6001E14F1 /* gando_box.png */; };
 		6370E20210C18EE600EC2818 /* GETemplateManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6370E20110C18EE600EC2818 /* GETemplateManager.mm */; };
 		6379709F108A17AC005B24FC /* smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 6379709E108A17AC005B24FC /* smoke.png */; };
 		637EEA3B109B8D0600F2E463 /* sprite_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 637EEA3A109B8D0600F2E463 /* sprite_test.png */; };
 		6386CFCA10A4BC2200699925 /* SharedParticleSystemManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6386CFC910A4BC2200699925 /* SharedParticleSystemManager.mm */; };
+		6391A3AD1193D5A40084E9E9 /* gecBoxCollision.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6391A3AC1193D5A40084E9E9 /* gecBoxCollision.mm */; };
 		6393910910A4B2F9006FDBCF /* gecParticleSystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6393910810A4B2F9006FDBCF /* gecParticleSystem.mm */; };
 		6393911E10A4B6F9006FDBCF /* GameEntity.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6393911D10A4B6F9006FDBCF /* GameEntity.mm */; };
 		63943AAE117CDA2A000971FF /* gecScrollingBackground.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63943AAD117CDA2A000971FF /* gecScrollingBackground.mm */; };
@@ -87,6 +89,7 @@
 		63BF59F5117AA7BD00777E17 /* gecImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63BF59F4117AA7BD00777E17 /* gecImage.mm */; };
 		63C557AB108CFA0200E77DBC /* Image.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63C557AA108CFA0200E77DBC /* Image.mm */; };
 		63D45E8610CB73FB00CB32F5 /* joystick_tes.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D45E8510CB73FB00CB32F5 /* joystick_tes.png */; };
+		63E0FFBB1193D44400992FCA /* CompCollision.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63E0FFBA1193D44400992FCA /* CompCollision.cpp */; };
 		63E4F9FC107A2E8900FA74AE /* HardwareClock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63E4F9FB107A2E8900FA74AE /* HardwareClock.cpp */; };
 		63E70D8A10AC756D008ED32B /* SharedTextureManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63E70D8910AC756D008ED32B /* SharedTextureManager.mm */; };
 		63EECF8110C8BFF20098C3D0 /* gecGUI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63EECF8010C8BFF20098C3D0 /* gecGUI.mm */; };
@@ -122,7 +125,7 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* GandoEngine_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GandoEngine_Prefix.pch; sourceTree = "<group>"; };
 		63040AD1116E8A0E0066F4CF /* gecFSM.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecFSM.mm; sourceTree = "<group>"; };
-		63040AD2116E8A0E0066F4CF /* gecFSM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecFSM.h; sourceTree = "<group>"; };
+		63040AD2116E8A0E0066F4CF /* gecFSM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecFSM.h; sourceTree = "<group>"; wrapsLines = 1; };
 		63040ADF116E8A2C0066F4CF /* gecBehaviour.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecBehaviour.mm; sourceTree = "<group>"; };
 		63040AE0116E8A2C0066F4CF /* gecBehaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecBehaviour.h; sourceTree = "<group>"; };
 		63040AFA116E8BC70066F4CF /* BehaviourStates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BehaviourStates.h; sourceTree = "<group>"; };
@@ -230,6 +233,7 @@
 		636D7134119131D4001E14F1 /* GLES-Render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GLES-Render.h"; sourceTree = "<group>"; };
 		636D713A11913258001E14F1 /* ES1Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ES1Renderer.h; sourceTree = "<group>"; };
 		636D713B11913258001E14F1 /* ES1Renderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ES1Renderer.mm; sourceTree = "<group>"; };
+		636D71E311913DC6001E14F1 /* gando_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gando_box.png; sourceTree = "<group>"; };
 		6370E20010C18EE600EC2818 /* GETemplateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GETemplateManager.h; sourceTree = "<group>"; };
 		6370E20110C18EE600EC2818 /* GETemplateManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GETemplateManager.mm; sourceTree = "<group>"; };
 		63716F89106FC18E00B3C783 /* EmitterFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmitterFunctions.h; sourceTree = "<group>"; };
@@ -237,6 +241,8 @@
 		637EEA3A109B8D0600F2E463 /* sprite_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite_test.png; sourceTree = "<group>"; };
 		6386CFC810A4BC2200699925 /* SharedParticleSystemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedParticleSystemManager.h; sourceTree = "<group>"; };
 		6386CFC910A4BC2200699925 /* SharedParticleSystemManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SharedParticleSystemManager.mm; sourceTree = "<group>"; };
+		6391A3AB1193D5A40084E9E9 /* gecBoxCollision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecBoxCollision.h; sourceTree = "<group>"; };
+		6391A3AC1193D5A40084E9E9 /* gecBoxCollision.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecBoxCollision.mm; sourceTree = "<group>"; };
 		6393910710A4B2F9006FDBCF /* gecParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecParticleSystem.h; sourceTree = "<group>"; };
 		6393910810A4B2F9006FDBCF /* gecParticleSystem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecParticleSystem.mm; sourceTree = "<group>"; };
 		6393911C10A4B6F9006FDBCF /* GameEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEntity.h; sourceTree = "<group>"; };
@@ -259,6 +265,8 @@
 		63C557A9108CFA0200E77DBC /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		63C557AA108CFA0200E77DBC /* Image.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Image.mm; sourceTree = "<group>"; };
 		63D45E8510CB73FB00CB32F5 /* joystick_tes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = joystick_tes.png; sourceTree = "<group>"; };
+		63E0FFB91193D44400992FCA /* CompCollision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompCollision.h; sourceTree = "<group>"; };
+		63E0FFBA1193D44400992FCA /* CompCollision.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CompCollision.cpp; sourceTree = "<group>"; };
 		63E4F9FA107A2E8900FA74AE /* HardwareClock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HardwareClock.h; sourceTree = "<group>"; };
 		63E4F9FB107A2E8900FA74AE /* HardwareClock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HardwareClock.cpp; sourceTree = "<group>"; };
 		63E70D8810AC756D008ED32B /* SharedTextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedTextureManager.h; sourceTree = "<group>"; };
@@ -355,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				63EF6CC31184CD5700AE36E1 /* Icon.png */,
+				636D71E311913DC6001E14F1 /* gando_box.png */,
 				63EF6CB11184CB0B00AE36E1 /* gandogames.png */,
 				63EFA05E1169377600195F2C /* backgroundDummy.png */,
 				63223F3C115EC0660094FB69 /* hitter1_sheet.png */,
@@ -397,6 +406,17 @@
 			name = family;
 			sourceTree = "<group>";
 		};
+		630598541193C9DB007C59B6 /* Collision */ = {
+			isa = PBXGroup;
+			children = (
+				63E0FFB91193D44400992FCA /* CompCollision.h */,
+				63E0FFBA1193D44400992FCA /* CompCollision.cpp */,
+				6391A3AB1193D5A40084E9E9 /* gecBoxCollision.h */,
+				6391A3AC1193D5A40084E9E9 /* gecBoxCollision.mm */,
+			);
+			name = Collision;
+			sourceTree = "<group>";
+		};
 		631783C1118F31630062FCDB /* external */ = {
 			isa = PBXGroup;
 			children = (
@@ -424,6 +444,7 @@
 		631EBAD910BED1EC0060FBD3 /* Families */ = {
 			isa = PBXGroup;
 			children = (
+				630598541193C9DB007C59B6 /* Collision */,
 				63223F79115ECCF40094FB69 /* Behaviour */,
 				63EECF7D10C8BFD70098C3D0 /* GUI */,
 				631EBADA10BED1F90060FBD3 /* Visual */,
@@ -864,6 +885,7 @@
 				63EFA05F1169377600195F2C /* backgroundDummy.png in Resources */,
 				63EF6CB21184CB0B00AE36E1 /* gandogames.png in Resources */,
 				63EF6CC41184CD5700AE36E1 /* Icon.png in Resources */,
+				636D71E411913DC6001E14F1 /* gando_box.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -946,6 +968,8 @@
 				636D7135119131D4001E14F1 /* GandoBox2D.mm in Sources */,
 				636D7136119131D4001E14F1 /* GLES-Render.cpp in Sources */,
 				636D713C11913258001E14F1 /* ES1Renderer.mm in Sources */,
+				63E0FFBB1193D44400992FCA /* CompCollision.cpp in Sources */,
+				6391A3AD1193D5A40084E9E9 /* gecBoxCollision.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -996,7 +1020,7 @@
 		63AF7A7B106EA5BC0086AF07 /* Release - Shark */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nicolas Goles (K29F552GKG)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 3;
@@ -1008,7 +1032,7 @@
 				OTHER_CFLAGS = "-DTARGET_OS_IPHONE";
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "745A7C0C-3FDC-42E0-9F4B-03158059E0B6";
-				SDKROOT = iphoneos3.1.3;
+				SDKROOT = iphoneos4.0;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 			};
 			name = "Release - Shark";
@@ -1037,13 +1061,13 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nicolas Goles (K29F552GKG)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_THUMB_SUPPORT = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
@@ -1054,7 +1078,7 @@
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "745A7C0C-3FDC-42E0-9F4B-03158059E0B6";
-				SDKROOT = iphoneos3.1.3;
+				SDKROOT = iphoneos4.0;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 			};
 			name = Debug;
@@ -1062,7 +1086,7 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nicolas Goles (K29F552GKG)";
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
@@ -1087,7 +1111,7 @@
 				);
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "745A7C0C-3FDC-42E0-9F4B-03158059E0B6";
-				SDKROOT = iphoneos3.1.3;
+				SDKROOT = iphoneos4.0;
 				STRIP_INSTALLED_PRODUCT = YES;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 			};

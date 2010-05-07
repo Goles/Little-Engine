@@ -22,7 +22,7 @@
 #include "Image.h"
 #include "gecScrollingBackground.h"
 #include <boost/bind.hpp>
-
+#include "gecBoxCollision.h"
 
 @implementation ES1Renderer
 
@@ -100,7 +100,9 @@
 	// right
 	groundBox.SetAsEdge(b2Vec2(480/PTM_RATIO,320/PTM_RATIO), b2Vec2(480/PTM_RATIO,0));
 	groundBody->CreateFixture(&groundBox,0);
-
+	
+	GBOX_2D->addDebugSpriteWithCoords(240.0, 160.0);
+	GBOX_2D->initDebugDraw();
 }
 
 - (void) offsetTest
@@ -206,6 +208,8 @@
 {
 	if(aSceneManager)
 		aSceneManager->updateScene(delta);
+
+	GBOX_2D->update(delta);
 }
 
 #pragma mark render_scene
@@ -222,18 +226,20 @@
 	
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
+//	
+//	if(aSceneManager != NULL)
+//	{
+//		aSceneManager->sortEntitiesY();
+//		aSceneManager->renderScene();
+//	}
+//	
+//	if(sprite)
+//		sprite->renderAtPoint(CGPointMake(240.0, 160.0), true);
 	
-	if(aSceneManager != NULL)
-	{
-		aSceneManager->sortEntitiesY();
-		aSceneManager->renderScene();
-	}
-	
-	if(sprite)
-		sprite->renderAtPoint(CGPointMake(240.0, 160.0), true);
-	
-    glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
-    [context presentRenderbuffer:GL_RENDERBUFFER_OES];
+	GBOX_2D->debugRender();
+		
+	glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
+	[context presentRenderbuffer:GL_RENDERBUFFER_OES];
 }
 
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer
