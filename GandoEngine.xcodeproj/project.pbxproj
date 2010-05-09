@@ -84,12 +84,13 @@
 		63AFC58110C41BC500C473A8 /* smoke.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 63AFC58010C41BC500C473A8 /* smoke.pvr */; };
 		63B0AA1D10BDFCF400E2C3E1 /* gecVisual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63B0AA1C10BDFCF400E2C3E1 /* gecVisual.cpp */; };
 		63B2664A10B1E730004D1853 /* SceneManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63B2664910B1E730004D1853 /* SceneManager.mm */; };
+		63BBCE7211961057007E2400 /* GContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63BBCE7111961057007E2400 /* GContactListener.mm */; };
 		63BCF538109A3A53002BCD2C /* SpriteSheet.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63BCF537109A3A53002BCD2C /* SpriteSheet.mm */; };
 		63BCF5E4109A4D41002BCD2C /* spritesheet16.gif in Resources */ = {isa = PBXBuildFile; fileRef = 63BCF5E3109A4D41002BCD2C /* spritesheet16.gif */; };
 		63BF59F5117AA7BD00777E17 /* gecImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63BF59F4117AA7BD00777E17 /* gecImage.mm */; };
 		63C557AB108CFA0200E77DBC /* Image.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63C557AA108CFA0200E77DBC /* Image.mm */; };
 		63D45E8610CB73FB00CB32F5 /* joystick_tes.png in Resources */ = {isa = PBXBuildFile; fileRef = 63D45E8510CB73FB00CB32F5 /* joystick_tes.png */; };
-		63E0FFBB1193D44400992FCA /* CompCollision.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63E0FFBA1193D44400992FCA /* CompCollision.cpp */; };
+		63E0FFBB1193D44400992FCA /* CompCollision.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63E0FFBA1193D44400992FCA /* CompCollision.mm */; };
 		63E4F9FC107A2E8900FA74AE /* HardwareClock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63E4F9FB107A2E8900FA74AE /* HardwareClock.cpp */; };
 		63E70D8A10AC756D008ED32B /* SharedTextureManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63E70D8910AC756D008ED32B /* SharedTextureManager.mm */; };
 		63EECF8110C8BFF20098C3D0 /* gecGUI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63EECF8010C8BFF20098C3D0 /* gecGUI.mm */; };
@@ -255,6 +256,8 @@
 		63B0AA1C10BDFCF400E2C3E1 /* gecVisual.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gecVisual.cpp; sourceTree = "<group>"; };
 		63B2664810B1E730004D1853 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
 		63B2664910B1E730004D1853 /* SceneManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SceneManager.mm; sourceTree = "<group>"; };
+		63BBCE7011961057007E2400 /* GContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GContactListener.h; sourceTree = "<group>"; };
+		63BBCE7111961057007E2400 /* GContactListener.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GContactListener.mm; sourceTree = "<group>"; };
 		63BCF536109A3A53002BCD2C /* SpriteSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteSheet.h; sourceTree = "<group>"; };
 		63BCF537109A3A53002BCD2C /* SpriteSheet.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SpriteSheet.mm; sourceTree = "<group>"; };
 		63BCF5E3109A4D41002BCD2C /* spritesheet16.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = spritesheet16.gif; sourceTree = "<group>"; };
@@ -266,7 +269,7 @@
 		63C557AA108CFA0200E77DBC /* Image.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Image.mm; sourceTree = "<group>"; };
 		63D45E8510CB73FB00CB32F5 /* joystick_tes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = joystick_tes.png; sourceTree = "<group>"; };
 		63E0FFB91193D44400992FCA /* CompCollision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompCollision.h; sourceTree = "<group>"; };
-		63E0FFBA1193D44400992FCA /* CompCollision.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CompCollision.cpp; sourceTree = "<group>"; };
+		63E0FFBA1193D44400992FCA /* CompCollision.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CompCollision.mm; sourceTree = "<group>"; };
 		63E4F9FA107A2E8900FA74AE /* HardwareClock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HardwareClock.h; sourceTree = "<group>"; };
 		63E4F9FB107A2E8900FA74AE /* HardwareClock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HardwareClock.cpp; sourceTree = "<group>"; };
 		63E70D8810AC756D008ED32B /* SharedTextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedTextureManager.h; sourceTree = "<group>"; };
@@ -410,7 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				63E0FFB91193D44400992FCA /* CompCollision.h */,
-				63E0FFBA1193D44400992FCA /* CompCollision.cpp */,
+				63E0FFBA1193D44400992FCA /* CompCollision.mm */,
 				6391A3AB1193D5A40084E9E9 /* gecBoxCollision.h */,
 				6391A3AC1193D5A40084E9E9 /* gecBoxCollision.mm */,
 			);
@@ -721,6 +724,8 @@
 				636D713D1191325D001E14F1 /* debug */,
 				636D7130119131D4001E14F1 /* GandoBox2D.h */,
 				636D7131119131D4001E14F1 /* GandoBox2D.mm */,
+				63BBCE7011961057007E2400 /* GContactListener.h */,
+				63BBCE7111961057007E2400 /* GContactListener.mm */,
 			);
 			name = Box2D;
 			sourceTree = "<group>";
@@ -968,8 +973,9 @@
 				636D7135119131D4001E14F1 /* GandoBox2D.mm in Sources */,
 				636D7136119131D4001E14F1 /* GLES-Render.cpp in Sources */,
 				636D713C11913258001E14F1 /* ES1Renderer.mm in Sources */,
-				63E0FFBB1193D44400992FCA /* CompCollision.cpp in Sources */,
+				63E0FFBB1193D44400992FCA /* CompCollision.mm in Sources */,
 				6391A3AD1193D5A40084E9E9 /* gecBoxCollision.mm in Sources */,
+				63BBCE7211961057007E2400 /* GContactListener.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1063,6 +1069,8 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nicolas Goles (K29F552GKG)";
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
@@ -1079,6 +1087,7 @@
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "745A7C0C-3FDC-42E0-9F4B-03158059E0B6";
 				SDKROOT = iphoneos4.0;
+				STRIP_INSTALLED_PRODUCT = NO;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 			};
 			name = Debug;

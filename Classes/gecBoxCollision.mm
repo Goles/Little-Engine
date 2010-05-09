@@ -29,17 +29,20 @@ void gecBoxCollision::setOwnerGE(GameEntity *ge)
 		assert(ge != NULL);
 	}
 	
+	//Assign our ownerGE
+	ownerGE = ge;
+	
 	//Define our Box2d body
 	b2BodyDef spriteBodyDef;
     spriteBodyDef.type = b2_dynamicBody;
-    spriteBodyDef.position.Set(ge->x/PTM_RATIO, ge->y/PTM_RATIO);
-    spriteBodyDef.userData = ge;
+    spriteBodyDef.position.Set(ownerGE->x/PTM_RATIO, ownerGE->y/PTM_RATIO);
+    spriteBodyDef.userData = ownerGE;
    
 	entityBody = GBOX_2D_WORLD->CreateBody(&spriteBodyDef);
 	
 	//Define our Box2d Shape
     b2PolygonShape entityShape;
-    entityShape.SetAsBox((ge->width/PTM_RATIO)*0.5f, (ge->height/PTM_RATIO)*0.5f);
+    entityShape.SetAsBox((ownerGE->width/PTM_RATIO)*0.33f, (ownerGE->height/PTM_RATIO)*0.33f);
     
 	//Make our fixture definition.
 	b2FixtureDef entityShapeDef;

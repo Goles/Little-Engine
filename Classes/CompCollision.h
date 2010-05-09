@@ -18,6 +18,7 @@ class CompCollision: public GEComponent
 	//CompCollision interface
 public:
 	CompCollision();
+	~CompCollision();
 	
 	//GEComponent Interface
 public:

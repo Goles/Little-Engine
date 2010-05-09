@@ -24,6 +24,7 @@
 
 #include "Box2D.h"
 #include "GandoBox2DDebug.h"
+#include "GContactListener.h"
 
 class GLESDebugDraw;
 
@@ -43,12 +44,15 @@ public:
 	void				initDebugDraw();
 	void				debugRender();
 	void				addDebugSpriteWithCoords(float x, float y);
+	void				debugUpdate(float delta); 
 	
 protected:
 	GandoBox2D();
 	
 private:
 	b2World*			world; //Box2d World.
+	GContactListener*	contactListener;
+	
 	static GandoBox2D*	instance;
 	GLESDebugDraw*		debugDraw;
 	

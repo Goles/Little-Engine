@@ -8,6 +8,7 @@
  */
 
 #include "CompCollision.h"
+#include "GandoBox2D.h"
 
 std::string CompCollision::mFamilyID = "CompCollision";
 
@@ -16,4 +17,11 @@ std::string CompCollision::mFamilyID = "CompCollision";
 CompCollision::CompCollision()
 {
 	entityBody = NULL;
+}
+
+#pragma mark -
+#pragma mark destroy
+CompCollision::~CompCollision()
+{
+	GBOX_2D_WORLD->DestroyBody(entityBody);
 }

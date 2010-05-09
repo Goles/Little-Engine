@@ -60,7 +60,9 @@
 - (void) initGame
 {
 	[self initScenes];
-	[self box2d];
+	GBOX_2D->initBaseWorld();
+	GBOX_2D->initDebugDraw();
+	[self offsetTest];
 }
 
 /*
@@ -108,10 +110,10 @@
 - (void) offsetTest
 {
 	//Declare our game entities
-	GameEntity *b			= GE_FACTORY->createGE("scrollingBackground", 0, 320.0);
+	GameEntity *b		= GE_FACTORY->createGE("scrollingBackground", 0, 320.0);
 	GameEntity *hitter	= GE_FACTORY->createGE("hitter1", 240.0f, 120.0f);
-	GameEntity *j			= GE_FACTORY->createGE("joypad",  75.0f, 65.0f);
-	
+	GameEntity *j		= GE_FACTORY->createGE("joypad",  75.0f, 65.0f);
+
 	((gecJoystick *)j->getGEC("CompGUI"))->subscribeGameEntity(hitter);
 	
 	//Subscribe entity
@@ -120,6 +122,7 @@
 	aSceneManager->addEntity(b);
 	aSceneManager->addEntity(hitter);
 	aSceneManager->addEntity(j);
+	aSceneManager->addEntity(GE_FACTORY->createGE("hitter1", 200.0, 200.0f));
 }
 
 - (void) fsmTest
@@ -226,18 +229,18 @@
 	
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
-//	
-//	if(aSceneManager != NULL)
-//	{
-//		aSceneManager->sortEntitiesY();
-//		aSceneManager->renderScene();
-//	}
-//	
-//	if(sprite)
-//		sprite->renderAtPoint(CGPointMake(240.0, 160.0), true);
+		
+	if(aSceneManager != NULL)
+	{
+		aSceneManager->sortEntitiesY();
+		aSceneManager->renderScene();
+	}
+	
+	if(sprite)
+		sprite->renderAtPoint(CGPointMake(240.0, 160.0), true);
 	
 	GBOX_2D->debugRender();
-		
+	
 	glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
 	[context presentRenderbuffer:GL_RENDERBUFFER_OES];
 }
@@ -278,14 +281,14 @@
 	if ([EAGLContext currentContext] == context)
         [EAGLContext setCurrentContext:nil];
 	
+	//Tear down singletons.
 	delete PARTICLE_MANAGER;
 	delete TEXTURE_MANAGER;
 	delete GE_FACTORY;
+	delete GBOX_2D;
 	
 	[context release];
-	context = nil;
-
-	
+	context = nil;	
 	[super dealloc];
 }
 

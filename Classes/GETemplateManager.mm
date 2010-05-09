@@ -17,6 +17,7 @@
 #include "gecFSM.h"
 #include "gecImage.h"
 #include "gecScrollingBackground.h"
+#include "gecBoxCollision.h"
 
 GETemplateManager* GETemplateManager::singletonInstance = NULL;
 
@@ -117,7 +118,7 @@ GameEntity* GETemplateManager::broly(float x, float y)
 GameEntity* GETemplateManager::hitter1(float x, float y)
 {
 	//This is usually the width/height of the sprite.
-	float	width		= 80,
+	float	width	= 80,
 			height	= 80;
 	
 	GameEntity *gE = new GameEntity(x, y, width, height);
@@ -142,8 +143,8 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	spriteAnimations->setOwnerGE(gE);
 	
 	std::vector<int>	coordStand,
-							coordWalk,
-							coordAttack;
+						coordWalk,
+						coordAttack;
 	
 	coordStand.push_back(0);
 	coordStand.push_back(0);
@@ -193,7 +194,10 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	//Attach the FSM to the hitter.
 	gE->setGEC(fsm);
 	
-	
+	//Attach collisioning to the entity:
+	gecBoxCollision *gbc = new gecBoxCollision();
+	gbc->setOwnerGE(gE);
+	gE->setGEC(gbc);
 	
 	return gE;
 }

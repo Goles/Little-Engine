@@ -11,6 +11,7 @@
 #include "GLES-Render.h"
 #include "GandoBox2DDebug.h"
 #include "ConstantsAndMacros.h"
+#include "GameEntity.h"
 
 GandoBox2D* GandoBox2D::instance = NULL;
 
@@ -19,6 +20,7 @@ GandoBox2D* GandoBox2D::instance = NULL;
 GandoBox2D::GandoBox2D()
 {
 	world = NULL;
+	contactListener = NULL;
 }
 
 void GandoBox2D::initBaseWorld()
@@ -31,6 +33,10 @@ void GandoBox2D::initBaseWorld()
 		b2Vec2 gravity = b2Vec2(0.0f, 0.0f);
 		bool doSleep = false;
 		world = new b2World(gravity, doSleep);
+		
+		//Initialize the contact listener for this world.
+		contactListener = new GContactListener();
+		world->SetContactListener(contactListener);
 	}
 }
 
@@ -73,7 +79,7 @@ GandoBox2D* GandoBox2D::getInstance()
 
 b2World* GandoBox2D::getWorld() const
 {
-	if( world == NULL)
+	if(world == NULL)
 	{
 		std::cout << "ERROR: World should be non null!" << std::endl;
 		assert(world != NULL);
@@ -96,16 +102,43 @@ void GandoBox2D::update(float delta)
 	// generally best to keep the time step and iterations fixed.
 	world->Step(delta, velocityIterations, positionIterations);
 	
-	//Iterate over the bodies in the physics world
+	//Iterate over the bodies in the physics world and apply transformations
+	//To keep in Sync with our Entity World
 	for (b2Body* b = world->GetBodyList(); b; b = b->GetNext())
 	{
 		if (b->GetUserData() != NULL) {
 			//Synchronize the Sprites position and rotation with the corresponding body
-			Gbox* box = (Gbox*)b->GetUserData();
-			box->x = b->GetPosition().x * PTM_RATIO;
-			box->y = b->GetPosition().y * PTM_RATIO;
-			box->img->setRotation( -1 * CC_RADIANS_TO_DEGREES(b->GetAngle()));
+			GameEntity* ge = static_cast<GameEntity*>(b->GetUserData());
+			
+			b2Vec2 b2Position = b2Vec2(ge->x/PTM_RATIO, ge->y/PTM_RATIO);
+			float32 b2Angle = 0.0f;
+			//TODO: Enable rotation.			
+			//box->img->setRotation( -1 * CC_RADIANS_TO_DEGREES(b->GetAngle()));
+			
+			b->SetTransform(b2Position, b2Angle);
 		}	
+	}
+	
+	//Get our constant contacts vector reference and declare an appropiate const
+	//iterator.
+	const vector<GContact> *contacts = contactListener->getContacts();
+	vector<GContact>::const_iterator it;
+	
+	for(it = contacts->begin(); it != contacts->end(); ++it)
+	{
+		GContact contact = *it;
+		
+		//Check contact between two bodies.
+		b2Body *bodyA = contact.fixtureA->GetBody();
+		b2Body *bodyB = contact.fixtureB->GetBody();
+		
+		//If we have an entity in each of the bodies
+		if(bodyA->GetUserData() != NULL && bodyB->GetUserData() != NULL)
+		{
+			GameEntity *geA = (GameEntity *)(bodyA->GetUserData());
+			GameEntity *geB = (GameEntity *)(bodyB->GetUserData());
+			//Handle the collision between Entity A and B here.			
+		}
 	}
 }
 
@@ -116,10 +149,12 @@ void GandoBox2D::debugRender()
 	// Default GL states: GL_TEXTURE_2D, GL_VERTEX_ARRAY, GL_COLOR_ARRAY, GL_TEXTURE_COORD_ARRAY
 	// Needed states:  GL_VERTEX_ARRAY, 
 	// Unneeded states: GL_TEXTURE_2D, GL_COLOR_ARRAY, GL_TEXTURE_COORD_ARRAY
-	glDisable(GL_TEXTURE_2D);
-	glDisableClientState(GL_COLOR_ARRAY);
-	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+	glPushMatrix();
+	
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 	glEnableClientState(GL_VERTEX_ARRAY);
+	
 	if(world != NULL)
 		this->world->DrawDebugData();
 	else {
@@ -128,10 +163,10 @@ void GandoBox2D::debugRender()
 	}
 
 	// restore default GL states
-	glDisableClientState(GL_VERTEX_ARRAY);
-	glEnable(GL_TEXTURE_2D);
-	glEnableClientState(GL_COLOR_ARRAY);
-	glEnableClientState(GL_TEXTURE_COORD_ARRAY);	
+	glDisableClientState(GL_VERTEX_ARRAY);	
+	glDisable(GL_BLEND);
+	
+	glPopMatrix();
 }
 
 void GandoBox2D::addDebugSpriteWithCoords(float x, float y)
@@ -164,6 +199,34 @@ void GandoBox2D::addDebugSpriteWithCoords(float x, float y)
 	body->CreateFixture(&fixtureDef);
 }
 
+//This is a debug update method designed to update Gbox
+void GandoBox2D::debugUpdate(float delta)
+{
+	//It is recommended that a fixed time step is used with Box2D for stability
+	//of the simulation, however, we are using a variable time step here.
+	//You need to make an informed choice, the following URL is useful
+	//http://gafferongames.com/game-physics/fix-your-timestep/
+	
+	int32 velocityIterations = 8;
+	int32 positionIterations = 1;
+	
+	// Instruct the world to perform a single step of simulation. It is
+	// generally best to keep the time step and iterations fixed.
+	world->Step(delta, velocityIterations, positionIterations);
+	
+	//Iterate over the bodies in the physics world
+	for (b2Body* b = world->GetBodyList(); b; b = b->GetNext())
+	{
+		if (b->GetUserData() != NULL) {
+			//Synchronize the Sprites position and rotation with the corresponding body
+			Gbox* box = (Gbox*)b->GetUserData();
+			box->x = b->GetPosition().x * PTM_RATIO;
+			box->y = b->GetPosition().y * PTM_RATIO;
+			box->img->setRotation( -1 * CC_RADIANS_TO_DEGREES(b->GetAngle()));
+		}	
+	}
+}
+
 #pragma mark -
 #pragma mark cleanup
 GandoBox2D::~GandoBox2D()
@@ -171,5 +234,9 @@ GandoBox2D::~GandoBox2D()
 	if(debugDraw != NULL)
 		delete debugDraw;
 	
-	delete world;
+	if(world != NULL)
+		delete world;
+	
+	if(contactListener != NULL)
+		delete contactListener;
 }

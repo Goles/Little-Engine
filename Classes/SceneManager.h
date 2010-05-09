@@ -19,8 +19,9 @@ class GEComponent;
 class SceneManager
 {
 public:
-	//Constructor
+	//Constructor & Destructor
 	SceneManager();
+	~SceneManager();
 		
 	//Drawing & updating
 	void updateScene(float delta);
@@ -35,8 +36,6 @@ public:
 	//debug methods
 	void debugPrintEntityList();
 	
-	//Destructor
-	~SceneManager();
 private:
 	typedef std::vector<GameEntity *> ENTITY_VECTOR;
 	typedef std::vector<GameEntity *>::iterator ENTITY_VECTOR_ITERATOR;

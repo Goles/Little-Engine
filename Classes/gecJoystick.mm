@@ -109,10 +109,8 @@ void gecJoystick::updateVelocity(float x, float y)
 	
 	if(dx < 0)
 	{
-		std::cout << "Flip Horizontal" << std::endl;
 		subscribedGE->setFlipHorizontally(true);
 	}else {
-		std::cout << "Flip Back" << std::endl;
 		subscribedGE->setFlipHorizontally(false);
 	}
 
