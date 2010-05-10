@@ -36,10 +36,11 @@ void gecBoxCollision::setOwnerGE(GameEntity *ge)
 	b2BodyDef spriteBodyDef;
     spriteBodyDef.type = b2_dynamicBody;
     spriteBodyDef.position.Set(ownerGE->x/PTM_RATIO, ownerGE->y/PTM_RATIO);
+	spriteBodyDef.bullet = true;
     spriteBodyDef.userData = ownerGE;
    
 	entityBody = GBOX_2D_WORLD->CreateBody(&spriteBodyDef);
-	
+	entityBody->SetLinearVelocity(b2Vec2(0.0f, 0.0f));
 	//Define our Box2d Shape
     b2PolygonShape entityShape;
     entityShape.SetAsBox((ownerGE->width/PTM_RATIO)*0.33f, (ownerGE->height/PTM_RATIO)*0.33f);
@@ -47,9 +48,9 @@ void gecBoxCollision::setOwnerGE(GameEntity *ge)
 	//Make our fixture definition.
 	b2FixtureDef entityShapeDef;
     entityShapeDef.shape = &entityShape;
-    entityShapeDef.density = 10.0;
+    entityShapeDef.density = 10.0f;
     entityShapeDef.isSensor = true;
-    
+
 	//Finally asociate the spriteShapeDef to our entityBody.
 	entityBody->CreateFixture(&entityShapeDef);
 }

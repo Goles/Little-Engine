@@ -95,8 +95,8 @@ void GandoBox2D::update(float delta)
 	//You need to make an informed choice, the following URL is useful
 	//http://gafferongames.com/game-physics/fix-your-timestep/
 	
-	int32 velocityIterations = 8;
-	int32 positionIterations = 1;
+	int32 velocityIterations = 10;
+	int32 positionIterations = 10;
 	
 	// Instruct the world to perform a single step of simulation. It is
 	// generally best to keep the time step and iterations fixed.
@@ -108,17 +108,15 @@ void GandoBox2D::update(float delta)
 	{
 		if (b->GetUserData() != NULL) {
 			//Synchronize the Sprites position and rotation with the corresponding body
-			GameEntity* ge = static_cast<GameEntity*>(b->GetUserData());
+			GameEntity* ge = (GameEntity *)b->GetUserData();
 			
 			b2Vec2 b2Position = b2Vec2(ge->x/PTM_RATIO, ge->y/PTM_RATIO);
 			float32 b2Angle = 0.0f;
-			//TODO: Enable rotation.			
-			//box->img->setRotation( -1 * CC_RADIANS_TO_DEGREES(b->GetAngle()));
 			
 			b->SetTransform(b2Position, b2Angle);
 		}	
 	}
-	
+
 	//Get our constant contacts vector reference and declare an appropiate const
 	//iterator.
 	const vector<GContact> *contacts = contactListener->getContacts();
@@ -137,9 +135,16 @@ void GandoBox2D::update(float delta)
 		{
 			GameEntity *geA = (GameEntity *)(bodyA->GetUserData());
 			GameEntity *geB = (GameEntity *)(bodyB->GetUserData());
-			//Handle the collision between Entity A and B here.			
+			
+			geA->x += bodyA->GetPosition().x - bodyB->GetPosition().x;
+			geA->y += bodyA->GetPosition().y - bodyB->GetPosition().y;
+			geB->x += bodyB->GetPosition().x - bodyA->GetPosition().x;
+			geB->y += bodyB->GetPosition().y - bodyA->GetPosition().y;
+			
+			//Handle the collision between Entity A and B here.		
+			std::cout << geA << " and " << geB << " collided" << std::endl;	
 		}
-	}
+	}	
 }
 
 #pragma mark -
@@ -162,6 +167,13 @@ void GandoBox2D::debugRender()
 		assert(world != NULL);
 	}
 
+	std::vector<Gbox*>::iterator it;
+	
+	for(it = boxes.begin(); it < boxes.end(); ++it)
+	{
+		(*it)->img->renderAtPoint(CGPointMake((*it)->x, (*it)->y), true);
+	}
+	
 	// restore default GL states
 	glDisableClientState(GL_VERTEX_ARRAY);	
 	glDisable(GL_BLEND);

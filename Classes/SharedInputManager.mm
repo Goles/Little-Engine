@@ -75,6 +75,7 @@ void SharedInputManager::touchesBegan(float x, float y, void *touchID)
 			GUIState[i].y = y;
 			GUIState[i].fingerDown	= true;
 			GUIState[i].touchID		= touchID;
+			//GBOX_2D->addDebugSpriteWithCoords(x,y);
 			this->broadcastInteraction(x, y, i, touchID, kTouchType_began);
 			break;
 		}

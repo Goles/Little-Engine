@@ -62,6 +62,7 @@
 	[self initScenes];
 	GBOX_2D->initBaseWorld();
 	GBOX_2D->initDebugDraw();
+	
 	[self offsetTest];
 }
 
@@ -213,6 +214,7 @@
 		aSceneManager->updateScene(delta);
 
 	GBOX_2D->update(delta);
+//	GBOX_2D->debugUpdate(delta);
 }
 
 #pragma mark render_scene

@@ -177,9 +177,6 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	if(attack != NULL)
 		attack->setDelegate(boost::bind(&gecFSM::animationFinishedDelegate, fsm));
 	
-	spriteAnimations->debugPrintAnimationMap();
-
-	
 	/*The Default animation is stand and it's running*/
 	spriteAnimations->setCurrentAnimation(std::string("stand"));
 	spriteAnimations->setCurrentRunning(true);
@@ -198,6 +195,9 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	gecBoxCollision *gbc = new gecBoxCollision();
 	gbc->setOwnerGE(gE);
 	gE->setGEC(gbc);
+	
+	
+	gE->debugPrintComponents();
 	
 	return gE;
 }
