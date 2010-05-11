@@ -30,13 +30,13 @@ public:
 	//gecJoystick Interface
 public:
 	gecJoystick();
-	Boolean	outerRegionHit();
+	Boolean		outerRegionHit();
 	void		updateVelocity(float x, float y);
 	void		subscribeGameEntity(GameEntity *gE);
 	
 	//Getters & Setters
 	void		setShape(CGRect aShape);
-	CGRect	getShape() const { return shape; }
+	CGRect		getShape() const { return shape; }
 	void		setCenter (float a, float b){ center.x = a; center.y = b; }
 	void		setInRadius (float r ) { inRadius = r; }
 	void		setOutRadius (float r ) { outRadius = r; }	
@@ -45,15 +45,17 @@ protected:
 	void		updateSubscriberState(kBehaviourAction s);
 	
 private:	
-	static gec_id_type mComponentID;
-	float			inRadius;
-	float			outRadius;
-	bool			active;
-	CGRect		shape;
-	CGPoint		center;
-	CGPoint		latestVelocity;
-	GameEntity*	subscribedGE;
-	gecFSM*		fsm;
+	static gec_id_type	mComponentID;
+	float				inRadius;
+	float				outRadius;
+	bool				active;
+	bool				firstTouch;
+	CGRect				shape;
+	CGPoint				center;
+	CGPoint				latestVelocity;
+	void*				currentTouchID;
+	GameEntity*			subscribedGE;
+	gecFSM*				fsm;
 };
 
 #endif

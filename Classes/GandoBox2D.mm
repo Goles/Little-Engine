@@ -136,10 +136,10 @@ void GandoBox2D::update(float delta)
 			GameEntity *geA = (GameEntity *)(bodyA->GetUserData());
 			GameEntity *geB = (GameEntity *)(bodyB->GetUserData());
 			
-			geA->x += bodyA->GetPosition().x - bodyB->GetPosition().x;
-			geA->y += bodyA->GetPosition().y - bodyB->GetPosition().y;
-			geB->x += bodyB->GetPosition().x - bodyA->GetPosition().x;
-			geB->y += bodyB->GetPosition().y - bodyA->GetPosition().y;
+			geA->x += 2*(bodyA->GetPosition().x - bodyB->GetPosition().x);
+			geA->y += 2*(bodyA->GetPosition().y - bodyB->GetPosition().y);
+			//geB->x += bodyB->GetPosition().x - bodyA->GetPosition().x;
+			//geB->y += bodyB->GetPosition().y - bodyA->GetPosition().y;
 			
 			//Handle the collision between Entity A and B here.		
 			std::cout << geA << " and " << geB << " collided" << std::endl;	

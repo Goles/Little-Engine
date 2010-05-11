@@ -84,6 +84,7 @@ private:
 	//Debug interface
 public:
 	void debugPrintMap();
+	void debugPrintGUIState();
 };
 
 #endif

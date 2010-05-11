@@ -43,7 +43,7 @@ void gecBoxCollision::setOwnerGE(GameEntity *ge)
 	entityBody->SetLinearVelocity(b2Vec2(0.0f, 0.0f));
 	//Define our Box2d Shape
     b2PolygonShape entityShape;
-    entityShape.SetAsBox((ownerGE->width/PTM_RATIO)*0.33f, (ownerGE->height/PTM_RATIO)*0.33f);
+    entityShape.SetAsBox((ownerGE->width/PTM_RATIO)*0.18f, (ownerGE->height/PTM_RATIO)*0.20f);
     
 	//Make our fixture definition.
 	b2FixtureDef entityShapeDef;

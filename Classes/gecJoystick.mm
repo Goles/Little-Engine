@@ -22,13 +22,15 @@ gecJoystick::gecJoystick()
 	shape.origin.y		= 0.0f;
 	shape.size.width	= 0.0f;
 	shape.size.height	= 0.0f;	
-	center.x				= 0.0f;
-	center.y				= 0.0f;
+	center.x			= 0.0f;
+	center.y			= 0.0f;
 	latestVelocity.x	= 0.0f;
 	latestVelocity.y	= 0.0f;
 	active				= false;
+	firstTouch			= true;
 	fsm					= NULL;
 	subscribedGE		= NULL;
+	currentTouchID		= NULL;
 }
 
 #pragma mark gec_gui_interface
@@ -118,24 +120,35 @@ void gecJoystick::updateVelocity(float x, float y)
 
 Boolean gecJoystick::immGUI(float x, float y, int touchIndex, void *touchID, int touchType)
 {
-	GEComponent *gec = this->getOwnerGE()->getGEC(std::string("CompVisual")); //we obtain a gecAnimatedSprite for the Joystick
+	//we obtain a gecAnimatedSprite for the Joystick
+	GEComponent *gec = this->getOwnerGE()->getGEC(std::string("CompVisual"));
 	gecAnimatedSprite *gAni = static_cast<gecAnimatedSprite *> (gec);
 	
+	//If we are touching inside the Joystick bounds.
 	if(this->regionHit(x, y))
-	{		
+	{	
+		//If this is the first time that we hit the joystick, we save the touch.
+		if(firstTouch)
+		{
+			currentTouchID = touchID;
+			firstTouch = false;
+		}
+		
 		for(int i = 0; i < MAX_TOUCHES; i++)
 		{
 			//Holding inside the joystick bounds
 			if(INPUT_MANAGER->GUIState[i].fingerDown && INPUT_MANAGER->GUIState[i].touchID == touchID)
 			{
+				//Activate joystick and update our entity state.
 				active = true;
 				gAni->setCurrentAnimation("hot");
 				this->updateSubscriberState(kBehaviourAction_dragGamepad);	
 				this->updateVelocity(x, y);
 			}
-			//Releasing inside th ejoystick bounds.
-			else if(INPUT_MANAGER->GUIState[i].fingerDown == false && INPUT_MANAGER->GUIState[i].touchID == touchID) //they are releasing over me
+			//Releasing inside the Joystick bounds.
+			else if(INPUT_MANAGER->GUIState[i].fingerDown == false && INPUT_MANAGER->GUIState[i].touchID == touchID)
 			{
+				//De-activate Joystick
 				active = false;
 				gAni->setCurrentAnimation("normal");
 				this->updateSubscriberState(kBehaviourAction_stopGamepad);
@@ -144,21 +157,22 @@ Boolean gecJoystick::immGUI(float x, float y, int touchIndex, void *touchID, int
 				this->getOwnerGE()->x = center.x;
 				this->getOwnerGE()->y = center.y;
 				this->setShape(CGRectMake(center.x, center.y, shape.size.width, shape.size.height));
-				
 				latestVelocity = CGPointZero;
-				//Trigger the activation methods of this particular button.
 				return true;
 			}
 		}
 	}
 	
+	//If we didin't hit the Joystick bounds.
 	else
 	{
 		for(int i = 0; i < MAX_TOUCHES; i++)
 		{
-			//releasing outside joystick bounds
-			if(INPUT_MANAGER->GUIState[i].fingerDown == false && INPUT_MANAGER->GUIState[i].touchID == touchID)
+			//releasing outside joystick bounds with
+			if(INPUT_MANAGER->GUIState[i].fingerDown == false && INPUT_MANAGER->GUIState[i].touchID == currentTouchID)
 			{
+				//We de-activate our joystick and set it's "normal" animation
+				//if there's a normal animation.
 				active = false;
 				gAni->setCurrentAnimation("normal");
 				this->updateSubscriberState(kBehaviourAction_stopGamepad);
@@ -169,10 +183,18 @@ Boolean gecJoystick::immGUI(float x, float y, int touchIndex, void *touchID, int
 				this->getOwnerGE()->y = center.y;
 				this->setShape(CGRectMake(center.x, center.y, shape.size.width, shape.size.height));
 				latestVelocity = CGPointZero;
+				
+				// We reset the joystick first touch. This means that we will 
+				// touch it for the "first time" now.				
+				firstTouch = true;
+				currentTouchID = NULL;
 			}
 			//Holding outside joystick bounds
-			else if(INPUT_MANAGER->GUIState[i].fingerDown && INPUT_MANAGER->GUIState[i].touchID == touchID && active)
+			//This is useful when we drag our finger OUTSIDE of the joystick
+			//bounds, and still want the joystick to keep responding.
+			 if((INPUT_MANAGER->GUIState[i].fingerDown == true) && (touchID == currentTouchID) && active)
 			{	
+				std::cout << "Bug here!" << std::endl;
 				active = true;
 				gAni->setCurrentAnimation("hot");
 				this->updateSubscriberState(kBehaviourAction_dragGamepad);	
@@ -180,7 +202,6 @@ Boolean gecJoystick::immGUI(float x, float y, int touchIndex, void *touchID, int
 			}
 		}
 	}
-	
 	return false; //button not activated.
 }
 
