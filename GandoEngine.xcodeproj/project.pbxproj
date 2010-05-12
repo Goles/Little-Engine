@@ -218,6 +218,7 @@
 		632A3E201073222C00F8EADC /* ccConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccConfig.h; sourceTree = "<group>"; };
 		632A3EB41073260B00F8EADC /* Texture2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture2D.h; sourceTree = "<group>"; };
 		632A3EB51073260B00F8EADC /* Texture2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Texture2D.m; sourceTree = "<group>"; };
+		633697BD119B003B004DBFED /* VectorList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VectorList.h; sourceTree = "<group>"; };
 		633C64B0109B2791001D1851 /* Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Frame.h; sourceTree = "<group>"; };
 		633C64B1109B2791001D1851 /* Frame.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Frame.mm; sourceTree = "<group>"; };
 		633C64BF109B2919001D1851 /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animation.h; sourceTree = "<group>"; };
@@ -700,6 +701,7 @@
 				635C8EF11074761E002F9BB3 /* FileUtils.m */,
 				63E4F9FA107A2E8900FA74AE /* HardwareClock.h */,
 				63E4F9FB107A2E8900FA74AE /* HardwareClock.cpp */,
+				633697BD119B003B004DBFED /* VectorList.h */,
 			);
 			name = Support;
 			sourceTree = "<group>";

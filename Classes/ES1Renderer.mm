@@ -114,15 +114,24 @@
 	GameEntity *b		= GE_FACTORY->createGE("scrollingBackground", 0, 320.0);
 	GameEntity *hitter	= GE_FACTORY->createGE("hitter1", 240.0f, 120.0f);
 	GameEntity *j		= GE_FACTORY->createGE("joypad",  75.0f, 65.0f);
+	GameEntity *button	= GE_FACTORY->createGE("buttonDummy", 350.0f, 50.0f);
 
+	//Configure our button
+	((gecButton *)button->getGEC("CompGUI"))->setActionPressed(kBehaviourAction_doAttack);
+	((gecButton *)button->getGEC("CompGUI"))->setActionReleased(kBehaviourAction_stopAttack);
+	((gecButton	*)button->getGEC("CompGUI"))->addSignal(boost::bind(&gecFSM::performAction, 
+																	(gecFSM*)hitter->getGEC("CompBehaviour"), _1));
+	
 	((gecJoystick *)j->getGEC("CompGUI"))->subscribeGameEntity(hitter);
 	
 	//Subscribe entity
 	((gecScrollingBackground *)b->getGEC("CompVisual"))->setSubscribedGE(hitter);
 	
+	//Add everything to the Scene.
 	aSceneManager->addEntity(b);
 	aSceneManager->addEntity(hitter);
 	aSceneManager->addEntity(j);
+	aSceneManager->addEntity(button);
 }
 
 - (void) fsmTest

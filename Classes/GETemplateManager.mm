@@ -6,7 +6,11 @@
 //  Copyright 2009 GandoGames. All rights reserved.
 //
 
+
+
 #include "GETemplateManager.h"
+#include "VectorList.h"
+
 #include "GameEntity.h"
 #include "SpriteSheet.h"
 #include "SharedTextureManager.h"
@@ -41,7 +45,7 @@ GETemplateManager::GETemplateManager()
 	fmap.insert( std::make_pair( "buttonDummy",		&GETemplateManager::buttonDummy ));
 	fmap.insert( std::make_pair( "pixelDummy",		&GETemplateManager::pixelDummy ));
 	fmap.insert( std::make_pair( "backgroundDummy",	&GETemplateManager::backgroundDummy ));
-	fmap.insert( std::make_pair( "background1",  &GETemplateManager::background1 ));
+	fmap.insert( std::make_pair( "background1",		&GETemplateManager::background1 ));
 	fmap.insert( std::make_pair( "scrollingBackground", &GETemplateManager::scrollingBackground ));
 }
 
@@ -143,42 +147,33 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	gecAnimatedSprite *spriteAnimations = new gecAnimatedSprite();
 	spriteAnimations->setOwnerGE(gE);
 	
-	std::vector<int>	coordStand,
-						coordWalk,
-						coordAttack;
+	//Create the 
+	std::vector<int> coordStand,
+					 coordAttack,
+					 coordWalk;
 	
-	coordStand.push_back(0);
-	coordStand.push_back(0);
-	coordStand.push_back(1);
-	coordStand.push_back(0);
-	coordStand.push_back(2);
-	coordStand.push_back(0);
-	coordAttack.push_back(3);
-	coordAttack.push_back(0);	
-	coordAttack.push_back(4);
-	coordAttack.push_back(0);
-	coordAttack.push_back(5);
-	coordAttack.push_back(0);
-	coordAttack.push_back(6);
-	coordAttack.push_back(0);
-	coordWalk.push_back(7);
-	coordWalk.push_back(0);	
-	coordWalk.push_back(8);
-	coordWalk.push_back(0);	
-	coordWalk.push_back(9);
-	coordWalk.push_back(0);
+	std::vector<float> timeStand,
+					   timeAttack,
+					   timeWalk;
 	
-	/*Add the animations to the sprite*/
-	spriteAnimations->addAnimation("stand", coordStand, ss);
-	spriteAnimations->addAnimation("attack", coordAttack, ss);
-	spriteAnimations->addAnimation("walk", coordWalk, ss);	
+	coordStand	= vlist_of<int>(0)(0)(1)(0)(2)(0);
+	coordAttack	= vlist_of<int>(3)(0)(4)(0)(5)(0)(6)(0);
+	coordWalk	= vlist_of<int>(7)(0)(8)(0)(9)(0);
+	timeStand.push_back(0.10f);
+	timeAttack.push_back(0.05);
+	timeWalk.push_back(0.10f);
 	
-	/*Set a delegate for the attack animation*/
+	//Add the animations to the sprite
+	spriteAnimations->addAnimation("stand", coordStand, timeStand, ss);
+	spriteAnimations->addAnimation("attack", coordAttack, timeAttack, ss);
+	spriteAnimations->addAnimation("walk", coordWalk, timeWalk, ss);	
+	
+	//Set a delegate for the attack animation
 	Animation *attack = spriteAnimations->getAnimation("attack");
 	if(attack != NULL)
 		attack->setDelegate(boost::bind(&gecFSM::animationFinishedDelegate, fsm));
 	
-	/*The Default animation is stand and it's running*/
+	//The Default animation is stand and it's running
 	spriteAnimations->setCurrentAnimation(std::string("stand"));
 	spriteAnimations->setCurrentRunning(true);
 	spriteAnimations->setCurrentPingPong(true);

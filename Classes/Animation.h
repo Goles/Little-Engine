@@ -28,16 +28,17 @@ typedef boost::signal<void ()> AnimationTrigger; //gets notified when an animati
 class Animation
 {
 public:
-	//constructors & destructor
+	//Constructors & destructor
 	Animation();
 	Animation(CGPoint startPoint);
 	Animation(const std::vector<int>& positions, SpriteSheet *inSheet);
+	Animation(const std::vector<int>& positions, const std::vector<float>& durations, SpriteSheet *ss);
 	~Animation();
 	
 	//Action methods
-	void		addFrameWithImage(Image *inImage, float delay);
-	void		update(float delta);
-	void		renderAtPoint(CGPoint inPoint);
+	void	addFrameWithImage(Image *inImage, float delay);
+	void	update(float delta);
+	void	renderAtPoint(CGPoint inPoint);
 	
 	//Getters
 	Image*	getCurrentFrameImage();
@@ -67,13 +68,13 @@ public:
 private:
 	CGPoint				currentPoint;
 	FRAMES_VECTOR		spriteFrames;
-	float					frameTimer;
-	bool					isRunning;
-	bool					isRepeating;
-	bool					isPingPong;
-	bool					isFlipped;
-	bool					delegation;
-	bool					notify;
+	float				frameTimer;
+	bool				isRunning;
+	bool				isRepeating;
+	bool				isPingPong;
+	bool				isFlipped;
+	bool				delegation;
+	bool				notify;
 	int					direction;
 	int					currentFrame;
 	AnimationTrigger	delegate;		//This is used to let a subscriber know when certain animation finishes displaying. (not used all the time)

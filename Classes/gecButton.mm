@@ -66,7 +66,9 @@ Boolean gecButton::immGUI(float x, float y, int touchIndex, void *touchID, int t
 				{
 					gAni->setCurrentAnimation("hot");
 					
-					if(buttonActions[0] > kBehaviourAction_none)
+					// If we have some behavior to trigger && it's not touch
+					// moved over button.
+					if(buttonActions[0] > kBehaviourAction_none && touchType != kTouchType_moved)
 						this->call(buttonActions[0]);
 					
 					return true;

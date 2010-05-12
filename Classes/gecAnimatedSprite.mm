@@ -18,19 +18,7 @@ gecAnimatedSprite::gecAnimatedSprite()
 	flipVertically		= false;	
 }
 
-void gecAnimatedSprite::addAnimation(const std::string &animationName, const std::vector<int> &positions, SpriteSheet *inSheet)
-{
-	AnimationMap::iterator it = componentAnimations.find(animationName);
-	
-	/*The animation is already in the map*/
-	if (it != componentAnimations.end()) 
-		return;
-	
-	/*If the key is not in the map*/	
-	Animation *newAnimation = new Animation(positions, inSheet);
-	componentAnimations.insert(AnimationMapPair(animationName, newAnimation));	
-}
-
+//Adds an Animation with default parameters.
 void gecAnimatedSprite::addAnimation(const std::string &animationName, Animation *animation)
 {
 	AnimationMap::iterator it = componentAnimations.find(animationName);
@@ -41,6 +29,39 @@ void gecAnimatedSprite::addAnimation(const std::string &animationName, Animation
 	componentAnimations.insert(AnimationMapPair(animationName, animation));
 }
 
+//Adds an Animation with the default time frame. (0.10f)
+void gecAnimatedSprite::addAnimation(const std::string &animationName, 
+									 const std::vector<int> &positions, 
+									 SpriteSheet *ss)
+{
+	AnimationMap::iterator it = componentAnimations.find(animationName);
+	
+	//The animation is already in the map
+	if (it != componentAnimations.end()) 
+		return;
+	
+	//If the key is not in the map	
+	Animation *newAnimation = new Animation(positions, ss);
+	componentAnimations.insert(AnimationMapPair(animationName, newAnimation));	
+}
+
+//Adds an Animation with a specific TimeFrame per Frame.
+void gecAnimatedSprite::addAnimation(const std::string &animationName,
+									 const std::vector<int> &positions,
+									 const std::vector<float> &durations,
+									 SpriteSheet *ss)
+{
+	AnimationMap::iterator it = componentAnimations.find(animationName);
+	
+	//The animation is already in the map
+	if (it != componentAnimations.end()) 
+		return;
+	
+	//Create a new animation if the "Animation Map Key" is not found in the map
+	Animation *newAnimation = new Animation(positions, durations, ss);
+	componentAnimations.insert(AnimationMapPair(animationName, newAnimation));
+}
+									 
 void gecAnimatedSprite::setCurrentAnimation(const std::string &animationName)
 {	
 	AnimationMap::iterator it = componentAnimations.find(animationName);

@@ -28,8 +28,15 @@ public:
 	
 	//gecAnimatedSprite interface
 public:
-	void addAnimation(const std::string &animationName, const std::vector<int> &positions, SpriteSheet *inSheet);
-	void addAnimation(const std::string &animationName, Animation *animation);
+	void addAnimation(const std::string &animationName, 
+					  Animation *animation);
+	void addAnimation(const std::string &animationName, 
+					  const std::vector<int> &positions, 
+					  SpriteSheet *ss);
+	void addAnimation(const std::string &animationName,
+					  const std::vector<int> &positions,
+					  const std::vector<float> &durations,
+					  SpriteSheet *ss);
 	void setCurrentAnimation(const std::string &animationName);
 	Animation* getCurrentAnimation() { return currentAnimation; }
 	Animation* getAnimation(const std::string&animationName);

@@ -29,7 +29,10 @@ public:
 	gecFSM(kBehaviourState s) { state = s; }
 	
 	//Interface
-	void setRule(kBehaviourState initialState, int inputAction, kBehaviourState resultingState, const std::string &resultingStateName);
+	void setRule(kBehaviourState initialState, 
+				 int inputAction, 
+				 kBehaviourState resultingState, const				
+				 std::string &resultingStateName);
 	void performAction(kBehaviourAction action);
 	void animationFinishedDelegate();
 	

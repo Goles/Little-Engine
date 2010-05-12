@@ -153,11 +153,6 @@ void GandoBox2D::update(float delta)
 				//Handle the collision between Entity A and B here.
 				std::cout << geA << " and " << geB << " collided" << std::endl;
 			}
-
-			//geB->x += bodyB->GetPosition().x - bodyA->GetPosition().x;
-			//geB->y += bodyB->GetPosition().y - bodyA->GetPosition().y;
-			
-
 		}
 	}	
 }

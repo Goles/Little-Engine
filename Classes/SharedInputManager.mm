@@ -78,7 +78,7 @@ void SharedInputManager::touchesBegan(float x, float y, void *touchID)
 			this->broadcastInteraction(x, y, i, touchID, kTouchType_began);
 			
 			//std::cout << "Touches Began "<< std::endl;
-			this->debugPrintGUIState();
+			//this->debugPrintGUIState();
 			//std::cout << std::endl;			
 			break;
 		}
@@ -103,7 +103,7 @@ void SharedInputManager::touchesMoved(float x, float y, void *touchID)
 			this->broadcastInteraction(x, y, i, touchID, kTouchType_moved);
 			
 			//std::cout << "Touches Moved "<< std::endl;
-			this->debugPrintGUIState();
+			//this->debugPrintGUIState();
 			//std::cout << std::endl;			
 			break;
 		}
@@ -132,7 +132,7 @@ void SharedInputManager::touchesEnded(float x, float y, void *touchID)
 			GUIState[i].touchID = NULL;
 			
 			//std::cout << "Touches Ended "<< std::endl;
-			this->debugPrintGUIState();
+			//this->debugPrintGUIState();
 			//std::cout << std::endl;
 			break;
 		}
@@ -168,18 +168,16 @@ void SharedInputManager::broadcastInteraction(float x, float y, int touchIndex, 
 
 void SharedInputManager::debugPrintGUIState()
 {
-//	std::cout << "**DEBUG PRINT GUISTATE[]**" << std::endl;
-//	
-//	for(int i = 0; i < MAX_TOUCHES; i++)
-//	{
-//		std::cout << "GUIState[" << i << "]***" << std::endl;
-////		std::cout << "x " << GUIState[i].x << std::endl;
-////		std::cout << "y " << GUIState[i].y << std::endl;
-//		std::cout << "fingerDown " << GUIState[i].fingerDown << std::endl;
-//		std::cout << "hitFirst " << GUIState[i].hitFirst << std::endl;
-//		std::cout << "touchID " << GUIState[i].touchID << std::endl;
-//		std::cout << std::endl;
-//	}
+	std::cout << "**DEBUG PRINT GUISTATE[]**" << std::endl;
+	
+	for(int i = 0; i < MAX_TOUCHES; i++)
+	{
+		std::cout << "GUIState[" << i << "]***" << std::endl;
+		std::cout << "fingerDown " << GUIState[i].fingerDown << std::endl;
+		std::cout << "hitFirst " << GUIState[i].hitFirst << std::endl;
+		std::cout << "touchID " << GUIState[i].touchID << std::endl;
+		std::cout << std::endl;
+	}
 }
 
 void SharedInputManager::debugPrintMap()

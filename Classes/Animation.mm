@@ -11,11 +11,11 @@
 
 #pragma mark -
 #pragma mark constructor
-Animation::Animation()
+Animation::Animation() : currentPoint(CGPointZero)
 {
-	currentPoint	= CGPointZero;
+	//currentPoint	= CGPointZero;
 	currentFrame	= 0;
-	frameTimer		= 0;
+	frameTimer		= 0.0f;
 	isRunning		= false;
 	isRepeating		= false;
 	isPingPong		= false;
@@ -29,7 +29,7 @@ Animation::Animation(CGPoint inCurrentPoint)
 {
 	currentPoint	= inCurrentPoint;
 	currentFrame	= 0;
-	frameTimer		= 0;
+	frameTimer		= 0.0f;
 	isRunning		= false;
 	isRepeating		= false;
 	isPingPong		= false;
@@ -43,18 +43,46 @@ Animation::Animation(const std::vector<int>& positions, SpriteSheet *inSheet)
 {
 	currentPoint = CGPointZero;
 	currentFrame = 0;
-	frameTimer	 = 0;
+	frameTimer	 = 0.0f;
 	isRunning	 = false;
 	isRepeating  = false;
 	isPingPong	 = false;
 	notify		 = false;
 	delegation	 = false;
-	isFlipped		= false;	
+	isFlipped	 = false;	
 	direction	 = kDirection_Forward;
 	
 	for (int i = 0; i < positions.size(); i+= 2)
 	{
 		this->addFrameWithImage(inSheet->getSpriteAt(positions[i],positions[i+1]), 0.1f);
+	}
+}
+
+Animation::Animation(const std::vector<int>& positions, 
+					 const std::vector<float>& durations, 
+					 SpriteSheet *ss)
+{
+	currentPoint = CGPointZero;
+	currentFrame = 0;
+	frameTimer	 = 0.0f;
+	isRunning	 = false;
+	isRepeating  = false;
+	isPingPong	 = false;
+	notify		 = false;
+	delegation	 = false;
+	isFlipped	 = false;	
+	direction	 = kDirection_Forward;
+	
+	for (int i = 0; i < positions.size(); i+= 2)
+	{
+		if(durations.size() == 1)
+			this->addFrameWithImage(ss->getSpriteAt(positions[i],positions[i+1]), durations[0]);
+		else if(durations.size() == (positions.size()/2))
+			this->addFrameWithImage(ss->getSpriteAt(positions[i],positions[i+1]), durations[i]);
+		else {
+			std::cout << "Duration, must be general or specify a value for EACH Animation Frame" << std::endl;
+			assert((durations.size() == (positions.size()/2)));
+		}
 	}
 }
 
