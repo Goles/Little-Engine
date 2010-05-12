@@ -12,6 +12,8 @@
 #include "GandoBox2DDebug.h"
 #include "ConstantsAndMacros.h"
 #include "GameEntity.h"
+#include "CompWeapon.h"
+#include "CompCollision.h"
 
 GandoBox2D* GandoBox2D::instance = NULL;
 
@@ -108,12 +110,20 @@ void GandoBox2D::update(float delta)
 	{
 		if (b->GetUserData() != NULL) {
 			//Synchronize the Sprites position and rotation with the corresponding body
-			GameEntity* ge = (GameEntity *)b->GetUserData();
+			GameEntity* ge = (GameEntity *)b->GetUserData();			
+			GEComponent	*gec = ge->getGEC("CompCollision");
+			CompCollision *c_coli = static_cast<CompCollision *> (gec);
+			gec = ge->getGEC("CompWeapon");
+			CompWeapon *c_weap = static_cast<CompWeapon *> (gec);
 			
-			b2Vec2 b2Position = b2Vec2(ge->x/PTM_RATIO, ge->y/PTM_RATIO);
-			float32 b2Angle = 0.0f;
-			
-			b->SetTransform(b2Position, b2Angle);
+			if(c_coli)
+			{
+				c_coli->setTransform(b);
+			}
+			if (c_weap) 
+			{
+				c_weap->setTransform(b);
+			}
 		}	
 	}
 
@@ -136,13 +146,18 @@ void GandoBox2D::update(float delta)
 			GameEntity *geA = (GameEntity *)(bodyA->GetUserData());
 			GameEntity *geB = (GameEntity *)(bodyB->GetUserData());
 			
-			geA->x += 2*(bodyA->GetPosition().x - bodyB->GetPosition().x);
-			geA->y += 2*(bodyA->GetPosition().y - bodyB->GetPosition().y);
+			if(geA != geB)
+			{
+				geA->x += 2*(bodyA->GetPosition().x - bodyB->GetPosition().x);
+				geA->y += 2*(bodyA->GetPosition().y - bodyB->GetPosition().y);
+				//Handle the collision between Entity A and B here.
+				std::cout << geA << " and " << geB << " collided" << std::endl;
+			}
+
 			//geB->x += bodyB->GetPosition().x - bodyA->GetPosition().x;
 			//geB->y += bodyB->GetPosition().y - bodyA->GetPosition().y;
 			
-			//Handle the collision between Entity A and B here.		
-			std::cout << geA << " and " << geB << " collided" << std::endl;	
+
 		}
 	}	
 }

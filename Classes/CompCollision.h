@@ -19,6 +19,7 @@ class CompCollision: public GEComponent
 public:
 	CompCollision();
 	~CompCollision();
+	virtual void setTransform(b2Body *b) = 0;
 	
 	//GEComponent Interface
 public:

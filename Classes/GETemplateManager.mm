@@ -18,6 +18,7 @@
 #include "gecImage.h"
 #include "gecScrollingBackground.h"
 #include "gecBoxCollision.h"
+#include "gecWeapon.h"
 
 GETemplateManager* GETemplateManager::singletonInstance = NULL;
 
@@ -196,6 +197,9 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	gbc->setOwnerGE(gE);
 	gE->setGEC(gbc);
 	
+	//Attach weapon
+	gecWeapon *gwc = new gecWeapon(gE, 10, 10, true);
+	gE->setGEC(gwc);
 	
 	gE->debugPrintComponents();
 	

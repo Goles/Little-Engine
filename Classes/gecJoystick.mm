@@ -193,8 +193,7 @@ Boolean gecJoystick::immGUI(float x, float y, int touchIndex, void *touchID, int
 			//This is useful when we drag our finger OUTSIDE of the joystick
 			//bounds, and still want the joystick to keep responding.
 			 if((INPUT_MANAGER->GUIState[i].fingerDown == true) && (touchID == currentTouchID) && active)
-			{	
-				std::cout << "Bug here!" << std::endl;
+			{
 				active = true;
 				gAni->setCurrentAnimation("hot");
 				this->updateSubscriberState(kBehaviourAction_dragGamepad);	

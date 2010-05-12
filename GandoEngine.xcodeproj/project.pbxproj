@@ -20,6 +20,8 @@
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
 		63040AD3116E8A0E0066F4CF /* gecFSM.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63040AD1116E8A0E0066F4CF /* gecFSM.mm */; };
 		63040AE1116E8A2C0066F4CF /* gecBehaviour.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63040ADF116E8A2C0066F4CF /* gecBehaviour.mm */; };
+		6306E034119A0076005F9950 /* CompWeapon.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6306E033119A0076005F9950 /* CompWeapon.mm */; };
+		6306E037119A14EC005F9950 /* gecWeapon.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6306E036119A14EC005F9950 /* gecWeapon.mm */; };
 		6317D9AB10C85CB000C7EEE2 /* SharedInputManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6317D9AA10C85CB000C7EEE2 /* SharedInputManager.mm */; };
 		631EBAEB10BED2B90060FBD3 /* gecAnimatedSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 631EBAEA10BED2B90060FBD3 /* gecAnimatedSprite.mm */; };
 		63223F3D115EC0660094FB69 /* hitter1_sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 63223F3C115EC0660094FB69 /* hitter1_sheet.png */; };
@@ -130,6 +132,10 @@
 		63040ADF116E8A2C0066F4CF /* gecBehaviour.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecBehaviour.mm; sourceTree = "<group>"; };
 		63040AE0116E8A2C0066F4CF /* gecBehaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecBehaviour.h; sourceTree = "<group>"; };
 		63040AFA116E8BC70066F4CF /* BehaviourStates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BehaviourStates.h; sourceTree = "<group>"; };
+		6306E032119A0076005F9950 /* CompWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompWeapon.h; sourceTree = "<group>"; };
+		6306E033119A0076005F9950 /* CompWeapon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CompWeapon.mm; sourceTree = "<group>"; };
+		6306E035119A14EC005F9950 /* gecWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecWeapon.h; sourceTree = "<group>"; };
+		6306E036119A14EC005F9950 /* gecWeapon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecWeapon.mm; sourceTree = "<group>"; };
 		6317D9A910C85CB000C7EEE2 /* SharedInputManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedInputManager.h; sourceTree = "<group>"; };
 		6317D9AA10C85CB000C7EEE2 /* SharedInputManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SharedInputManager.mm; sourceTree = "<group>"; };
 		631EBAE910BED2B90060FBD3 /* gecAnimatedSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecAnimatedSprite.h; sourceTree = "<group>"; };
@@ -420,6 +426,17 @@
 			name = Collision;
 			sourceTree = "<group>";
 		};
+		6306E031119A0063005F9950 /* Weapon */ = {
+			isa = PBXGroup;
+			children = (
+				6306E032119A0076005F9950 /* CompWeapon.h */,
+				6306E033119A0076005F9950 /* CompWeapon.mm */,
+				6306E035119A14EC005F9950 /* gecWeapon.h */,
+				6306E036119A14EC005F9950 /* gecWeapon.mm */,
+			);
+			name = Weapon;
+			sourceTree = "<group>";
+		};
 		631783C1118F31630062FCDB /* external */ = {
 			isa = PBXGroup;
 			children = (
@@ -447,6 +464,7 @@
 		631EBAD910BED1EC0060FBD3 /* Families */ = {
 			isa = PBXGroup;
 			children = (
+				6306E031119A0063005F9950 /* Weapon */,
 				630598541193C9DB007C59B6 /* Collision */,
 				63223F79115ECCF40094FB69 /* Behaviour */,
 				63EECF7D10C8BFD70098C3D0 /* GUI */,
@@ -976,6 +994,8 @@
 				63E0FFBB1193D44400992FCA /* CompCollision.mm in Sources */,
 				6391A3AD1193D5A40084E9E9 /* gecBoxCollision.mm in Sources */,
 				63BBCE7211961057007E2400 /* GContactListener.mm in Sources */,
+				6306E034119A0076005F9950 /* CompWeapon.mm in Sources */,
+				6306E037119A14EC005F9950 /* gecWeapon.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

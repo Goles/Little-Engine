@@ -23,6 +23,7 @@
 #include "gecScrollingBackground.h"
 #include <boost/bind.hpp>
 #include "gecBoxCollision.h"
+#include "gecWeapon.h"
 
 @implementation ES1Renderer
 
@@ -62,7 +63,6 @@
 	[self initScenes];
 	GBOX_2D->initBaseWorld();
 	GBOX_2D->initDebugDraw();
-//	[self box2d];
 	[self offsetTest];
 }
 
@@ -123,8 +123,6 @@
 	aSceneManager->addEntity(b);
 	aSceneManager->addEntity(hitter);
 	aSceneManager->addEntity(j);
-//	aSceneManager->addEntity(GE_FACTORY->createGE("hitter1", 200.0, 200.0f));
-//	aSceneManager->addEntity((GE_FACTORY->createGE("hitter1", 230.0, 100)));
 }
 
 - (void) fsmTest

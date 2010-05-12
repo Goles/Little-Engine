@@ -14,6 +14,10 @@
 
 class gecBoxCollision: public CompCollision
 {
+	//CompCollision interface
+public:
+	virtual void setTransform(b2Body *b);
+	
 	//gecBoxCollision interface
 public:
 	
@@ -25,8 +29,7 @@ public:
 	
 	//Private Atributes.
 private:
-	static gec_id_type mGECTypeID;
-	
+	static	gec_id_type mGECTypeID;
 };
 
 #endif

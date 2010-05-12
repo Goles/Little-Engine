@@ -29,7 +29,7 @@ public:
 			y,
 			height,	//Limits (height and width) of our Entity.
 			width;
-	float speed;
+	float	speed;
 	bool	isActive;
 
 	//Constructors
@@ -42,17 +42,17 @@ public:
 	virtual void update(float delta);
 	
 	//GECInterface
-	void				setGEC( GEComponent *newGEC );
+	void			setGEC( GEComponent *newGEC );
 	GEComponent*	getGEC( const std::string &familyID );
-	void				clearGECs();
+	void			clearGECs();
 	
 	//Getters & Setters
 	const bool		getIsActive() const { return isActive; }
 	const void		setIsActive(bool inActive) { isActive = inActive; }
 	const float		getSpeed() const { return speed; }
 	const void		setSpeed(float s) { speed = s; }
-	void				setFlipHorizontally(bool f){ flipHorizontally = f; }
-	bool				getFlipHorizontally() { return flipHorizontally; }
+	void			setFlipHorizontally(bool f){ flipHorizontally = f; }
+	bool			getFlipHorizontally() { return flipHorizontally; }
 	
 	//Functors	
 public:
@@ -82,13 +82,12 @@ public:
 	void debugPrintComponents();
 	
 private:	
-	typedef std::map<const std::string, GEComponent *>		ComponentMap;
+	typedef std::map<const std::string, GEComponent *> ComponentMap;
 	typedef std::pair<const std::string, GEComponent *>	ComponentMapPair;
-	typedef std::vector<GEComponent *>							ComponentVector;	
+	typedef std::vector<GEComponent *> ComponentVector;	
 	
-	ComponentMap			components;
-	ComponentVector		rendereableComponents;
-	bool	flipHorizontally;
+	ComponentMap components;
+	bool flipHorizontally;
 };
 
 #endif

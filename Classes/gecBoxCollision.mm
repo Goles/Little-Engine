@@ -13,14 +13,28 @@
 std::string gecBoxCollision::mGECTypeID = "gecBoxCollision";
 
 #pragma mark -
+#pragma mark CompCollision Interface
+void gecBoxCollision::setTransform(b2Body *b)
+{
+	//We only apply transformations over our own body.
+	if (b == entityBody)
+	{
+		GameEntity* ge = this->getOwnerGE();		
+		b2Vec2 b2Position = b2Vec2(ge->x/PTM_RATIO, ge->y/PTM_RATIO);
+		float32 b2Angle = 0.0f;		
+		b->SetTransform(b2Position, b2Angle);
+	}
+}
+
+#pragma mark -
 #pragma mark GEComponent Interface
 void gecBoxCollision::update(float delta)
 {
 	/* Perform the updates for this entity here. */
 }
 
-//Override setOwnerGE to automaically assign a boxCollisionShape to the GameEntity
-//in question.
+//Override setOwnerGE to automaically assign a boxCollisionShape to the 
+//GameEntity in question.
 void gecBoxCollision::setOwnerGE(GameEntity *ge)
 {
 	if(ge == NULL)
