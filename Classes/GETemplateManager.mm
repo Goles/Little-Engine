@@ -137,17 +137,20 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	
 	//Build the rules for this entity FSM.
 	fsm->setRule(kBehaviourState_stand, kBehaviourAction_doAttack, kBehaviourState_attack, "attack");
-	fsm->setRule(kBehaviourState_attack, kBehaviourAction_stopAttack, kBehaviourState_stand, "stand");
 	fsm->setRule(kBehaviourState_stand, kBehaviourAction_dragGamepad, kBehaviourState_walk, "walk");
 	fsm->setRule(kBehaviourState_walk, kBehaviourAction_stopGamepad, kBehaviourState_stand, "stand");
 	fsm->setRule(kBehaviourState_walk, kBehaviourAction_dragGamepad, kBehaviourState_walk, "walk");
 	fsm->setRule(kBehaviourState_walk, kBehaviourAction_doAttack, kBehaviourState_attack, "attack");
+	fsm->setRule(kBehaviourState_attack, kBehaviourAction_stopAttack, kBehaviourState_stand, "stand");
+	fsm->setRule(kBehaviourState_attack, kBehaviourAction_doAttack, kBehaviourState_attack, "attack");
+	fsm->setRule(kBehaviourState_attack, kBehaviourAction_stopGamepad, kBehaviourState_attack, "attack");
+	fsm->setRule(kBehaviourState_attack, kBehaviourAction_dragGamepad, kBehaviourState_attack, "attack");
 	
 	//Create the sprite animations component
 	gecAnimatedSprite *spriteAnimations = new gecAnimatedSprite();
 	spriteAnimations->setOwnerGE(gE);
 	
-	//Create the 
+	//Create the sprite Coordinates and sprite Frame per Time Vectors.
 	std::vector<int> coordStand,
 					 coordAttack,
 					 coordWalk;
@@ -160,7 +163,7 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	coordAttack	= vlist_of<int>(3)(0)(4)(0)(5)(0)(6)(0);
 	coordWalk	= vlist_of<int>(7)(0)(8)(0)(9)(0);
 	timeStand.push_back(0.10f);
-	timeAttack.push_back(0.05);
+	timeAttack.push_back(0.04);
 	timeWalk.push_back(0.10f);
 	
 	//Add the animations to the sprite

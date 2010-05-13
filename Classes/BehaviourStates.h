@@ -12,7 +12,8 @@
 
 typedef enum
 {
-	kBehaviourState_stand = 0,
+	kBehaviourState_null = -1,
+	kBehaviourState_stand,
 	kBehaviourState_walk,
 	kBehaviourState_attack,
 	kBehaviourState_hit,

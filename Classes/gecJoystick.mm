@@ -41,8 +41,16 @@ void gecJoystick::update(float delta)
 	/*Updating the component or other components dependant of it happens here*/
 	if(subscribedGE != NULL)
 	{
-		subscribedGE->x += floor(latestVelocity.x * delta_velocity);
-		subscribedGE->y += floor(latestVelocity.y * delta_velocity);
+		//For our current usage, we will not move the entity on attack. This should
+		//be done in a much cleaner way.
+		if(fsm->getState() != kBehaviourState_attack)
+		{
+			if(latestVelocity.x > 0.0 || latestVelocity.y > 0.0f)
+				fsm->performAction(kBehaviourAction_dragGamepad);
+			
+			subscribedGE->x += floor(latestVelocity.x * delta_velocity);
+			subscribedGE->y += floor(latestVelocity.y * delta_velocity);
+		}
 	}
 }
 
@@ -107,15 +115,17 @@ void gecJoystick::updateVelocity(float x, float y)
 	//We update the "latest" velocity ( that's what we will use as a cached reference.
 	latestVelocity = velocity;
 	
+	//TODO: DONT HARD-CODE THIS! DECOUPLE
 	//Flip our entity if we face right or left.
-	
-	if(dx < 0)
+	if(fsm->getState() != kBehaviourState_attack)
 	{
-		subscribedGE->setFlipHorizontally(true);
-	}else {
-		subscribedGE->setFlipHorizontally(false);
+		if(dx < 0)
+		{
+			subscribedGE->setFlipHorizontally(true);
+		}else {
+			subscribedGE->setFlipHorizontally(false);
+		}
 	}
-
 }
 
 Boolean gecJoystick::immGUI(float x, float y, int touchIndex, void *touchID, int touchType)
@@ -164,7 +174,7 @@ Boolean gecJoystick::immGUI(float x, float y, int touchIndex, void *touchID, int
 	}
 	
 	//If we didin't hit the Joystick bounds.
-	else
+	else if (active)
 	{
 		for(int i = 0; i < MAX_TOUCHES; i++)
 		{

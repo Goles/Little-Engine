@@ -25,9 +25,9 @@ public:
 	
 public:
 	//Constructors
-	gecFSM();
-	gecFSM(kBehaviourState s) { state = s; }
-	
+	gecFSM() : locked(false){ state = kBehaviourState_stand; }
+	gecFSM(kBehaviourState s) : locked(false) { state = s;}
+
 	//Interface
 	void setRule(kBehaviourState initialState, 
 				 int inputAction, 
@@ -38,6 +38,7 @@ public:
 	
 protected:
 	const std::string getNameForAction(kBehaviourState action) const;
+	void initFsmTable();
 	
 private:
 	typedef std::map<int, const std::string> actionMap;
@@ -45,6 +46,7 @@ private:
 	kBehaviourState fsmTable[MAX_STATES][MAX_ACTION];
 	static gec_id_type mComponentID;
 	actionMap actionNameMap;
+	bool locked; //This will lock the state machine in the case we need to.
 };
 
 #endif 

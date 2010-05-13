@@ -133,7 +133,9 @@ void Animation::renderAtPoint(CGPoint inPoint)
 {
 	Frame *aFrame = spriteFrames.at(currentFrame);
 	aFrame->getFrameImage()->renderAtPoint(inPoint, true);
-	this->notifyDelegate();	
+	
+	if(delegation)
+		this->notifyDelegate();
 }
 
 void Animation::draw()
@@ -215,14 +217,12 @@ void Animation::notifyDelegate()
 	 *	If we have enabled delegation, this Animation will let a subscriber
 	 *	know, when is the sprite sequence finished.
 	 */
-	if(delegation)
+	if(notify)
 	{
-		if(notify)
-		{
-			delegate();
-			notify = false;
-		}
+		delegate();
+		notify = false;
 	}
+
 }
 
 #pragma mark -

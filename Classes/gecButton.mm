@@ -26,7 +26,8 @@ gecButton::gecButton()
 
 gecButton::~gecButton()
 {
-	INPUT_MANAGER->removeGameEntity(this->getGuiID()); //we ask the input manager to remove us.
+	//we ask the input manager to remove us.
+	INPUT_MANAGER->removeGameEntity(this->getGuiID());
 }
 
 #pragma mark -
@@ -64,11 +65,12 @@ Boolean gecButton::immGUI(float x, float y, int touchIndex, void *touchID, int t
 			{
 				if(INPUT_MANAGER->GUIState[i].fingerDown && INPUT_MANAGER->GUIState[i].hitFirst)
 				{
-					gAni->setCurrentAnimation("hot");
+					gAni->setCurrentAnimation("hot");					
 					
-					// If we have some behavior to trigger && it's not touch
-					// moved over button.
-					if(buttonActions[0] > kBehaviourAction_none && touchType != kTouchType_moved)
+					//  We trigger behaviour only for kTouchType_began. 
+					//  This may be different for a menu item, which should trigger
+					//  envent for kTouchType_ended.
+					if(buttonActions[0] > kBehaviourAction_none && touchType == kTouchType_began)
 						this->call(buttonActions[0]);
 					
 					return true;
