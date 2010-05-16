@@ -128,6 +128,7 @@
 	((gecScrollingBackground *)b->getGEC("CompVisual"))->setSubscribedGE(hitter);
 	
 	//Add everything to the Scene.
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireBig, CGPointMake(240, 140), "Particle2.pvr"));	
 	aSceneManager->addEntity(b);
 	aSceneManager->addEntity(hitter);
 	aSceneManager->addEntity(j);
@@ -221,6 +222,7 @@
 	if(aSceneManager)
 		aSceneManager->updateScene(delta);
 
+	aSceneManager->sortEntitiesY();
 	GBOX_2D->update(delta);
 //	GBOX_2D->debugUpdate(delta);
 }
@@ -242,7 +244,6 @@
 		
 	if(aSceneManager != NULL)
 	{
-		aSceneManager->sortEntitiesY();
 		aSceneManager->renderScene();
 	}
 	

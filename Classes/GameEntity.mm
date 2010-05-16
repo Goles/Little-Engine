@@ -11,7 +11,7 @@
 
 GameEntity::GameEntity()
 {
-	height	= 0.0f;
+	height		= 0.0f;
 	width		= 0.0f;	
 	speed		= 0.0f;	
 	x			= 0.0f;
@@ -21,7 +21,7 @@ GameEntity::GameEntity()
 
 GameEntity::GameEntity(float inX, float inY)
 {
-	height	= 0.0f;
+	height		= 0.0f;
 	width		= 0.0f;
 	speed		= 0.0f;
 	x			= inX;
@@ -32,7 +32,7 @@ GameEntity::GameEntity(float inX, float inY)
 GameEntity::GameEntity(float inX, float inY, int inWidth, int inHeight)
 {
 	speed		= 0.0f;
-	height	= inHeight;
+	height		= inHeight;
 	width		= inWidth;
 	x			= inX;
 	y			= inY;
@@ -63,11 +63,14 @@ void GameEntity::update(float delta)
 
 void GameEntity::debugPrintComponents()
 {
-	ComponentMap::iterator it;
+	ComponentMap::iterator it = components.begin();
 	
-	for(it = components.begin(); it != components.end(); it++)
+	std::cout << "Parent Entity[" << (*it).second->getOwnerGE() << "] " << std::endl;
+	
+	for(it; it != components.end(); ++it)
 	{
-		std::cout << "Parent Entity: " << (*it).second->getOwnerGE() << std::endl;
-		std::cout << (*it).second << " & " << (*it).second->componentID() << " x " << x << " y " << y << std::endl;
+		std::cout << "[" << (*it).second << "] " << (*it).second->componentID() 
+		<< "[" << x << "]" << "[" << y << "]" << std::endl;
+		
 	}
 }

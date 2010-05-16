@@ -70,7 +70,6 @@ void SceneManager::removeEntity(GameEntity *inGameEntity)
 		}		
 		++it;
 	}
-
 }
 
 void SceneManager::sortEntitiesX()
@@ -90,14 +89,17 @@ void SceneManager::debugPrintEntityList()
 	
 	ENTITY_VECTOR_ITERATOR it = entityList.begin();
 	
+	int i = 0;
+	
 	while(it != entityList.end())
 	{
 		if(*it)
 		{
-			std::cout << "comp:" << std::endl;
+			std::cout << "\nEntity " << i <<"[" << (*it)->x << "][" <<(*it)->y <<  "]" << std::endl;
 			(*it)->debugPrintComponents();
 		}
 		++it;
+		++i;
 	}
 }
 

@@ -42,7 +42,9 @@ gecParticleSystem::gecParticleSystem(int inParticleNumber, BOOL isContinuous, in
 #pragma mark action_methods
 void gecParticleSystem::render() const
 {
-	[systemRenderer draw];	
+	glPushMatrix();
+	[systemRenderer draw];
+	glPopMatrix();
 }
 
 void gecParticleSystem::update(float delta)

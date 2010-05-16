@@ -199,8 +199,6 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	gecWeapon *gwc = new gecWeapon(gE, 10, 10, true);
 	gE->setGEC(gwc);
 	
-	gE->debugPrintComponents();
-	
 	return gE;
 }
 

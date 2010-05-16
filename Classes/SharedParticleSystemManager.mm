@@ -329,6 +329,8 @@ GameEntity* SharedParticleSystemManager::createParticleSystem(int k_InParticleFX
 	newEntity->setGEC(pSystemComponent);
 	newEntity->x = inPosition.x;
 	newEntity->y = inPosition.y;
+	newEntity->width = 32.0f;
+	newEntity->height = 32.0f;
 	newEntity->isActive = true;
 	
 	return this->insertSystem(newEntity);

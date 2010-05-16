@@ -73,7 +73,7 @@ public:
 	public:
         bool operator()(GameEntity const *a, GameEntity const *b) 
 		{ 
-            return ((a->y + (a->height/2)) > (b->y + (b->height/2)) );
+            return ((a->y - (a->height/2)) > (b->y - (b->height/2)) );
         }
     };
 
