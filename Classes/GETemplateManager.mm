@@ -337,7 +337,7 @@ GameEntity* GETemplateManager::buttonDummy(float x, float y)
 	gecButton *buttonComp;	
 	buttonComp = new gecButton();
 	buttonComp->setOwnerGE(anEntity);
-	buttonComp->setShape(CGRectMake(x, y, 200, 50));
+	buttonComp->setParentSharedShape(CGRectMake(x, y, 200, 50));
 	
 	anEntity->setGEC(spriteComp);
 	anEntity->setGEC(buttonComp);

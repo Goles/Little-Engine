@@ -32,6 +32,7 @@ For discussion please visit http://box2d.org/forum
 // These include files constitute the main Box2D API
 
 #include <Box2D/Common/b2Settings.h>
+#include <Box2D/Collision/Shapes/b2Shape.h>
 
 #include <Box2D/Collision/Shapes/b2CircleShape.h>
 #include <Box2D/Collision/Shapes/b2PolygonShape.h>

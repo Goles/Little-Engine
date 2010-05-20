@@ -115,7 +115,9 @@
 	GameEntity *hitter	= GE_FACTORY->createGE("hitter1", 240.0f, 120.0f);
 	GameEntity *j		= GE_FACTORY->createGE("joypad",  75.0f, 65.0f);
 	GameEntity *button	= GE_FACTORY->createGE("buttonDummy", 350.0f, 50.0f);
-
+	GameEntity *hitter2 = GE_FACTORY->createGE("hitter1", 200, 160.0f);
+	GameEntity *hitter3 = GE_FACTORY->createGE("hitter1", 320.0f, 160.0f);
+	
 	//Configure our button
 	((gecButton *)button->getGEC("CompGUI"))->setActionPressed(kBehaviourAction_doAttack);
 	((gecButton *)button->getGEC("CompGUI"))->setActionReleased(kBehaviourAction_stopAttack);
@@ -131,13 +133,15 @@
 	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireBig, CGPointMake(240, 140), "Particle2.pvr"));	
 	aSceneManager->addEntity(b);
 	aSceneManager->addEntity(hitter);
+	aSceneManager->addEntity(hitter2);
+	aSceneManager->addEntity(hitter3);	
 	aSceneManager->addEntity(j);
 	aSceneManager->addEntity(button);
 }
 
 - (void) fsmTest
 {
-	GameEntity *hitter = GE_FACTORY->createGE("hitter1", 240.0f, 160.0f);	
+	GameEntity *hitter = GE_FACTORY->createGE("hitter1", 240.0f, 160.0f);
 	GameEntity *button = GE_FACTORY->createGE("buttonDummy", 350.0f, 50.0f);
 
 	//Configure our button

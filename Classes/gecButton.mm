@@ -103,3 +103,14 @@ void gecButton::setShape(CGRect aRect)
 			   aRect.size.width, 
 			   aRect.size.height);
 }
+
+void gecButton::setParentSharedShape(CGRect aRect)
+{
+	//Set our shape and then set that same shape with our parent.
+	//This could eventually be different, let's say you want to build a menu.
+	//The menu could contain several buttons, but his shape could be different,
+	//this allows flexibility.
+	this->setShape(aRect);
+	this->getOwnerGE()->height = aRect.size.height;
+	this->getOwnerGE()->width  = aRect.size.width;
+}

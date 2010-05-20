@@ -15,7 +15,8 @@
 #include "gecGUI.h"
 #include "BehaviourActions.h"
 
-//To pass signals to FSM for example.
+//To pass signals to FSM for example. 
+//(signature: void Function(kBehaviourAction))
 typedef boost::signal<void (kBehaviourAction)> TriggerSignal;
 
 class gecButton : public gecGUI
@@ -35,9 +36,10 @@ public:
 	gecButton();
 	~gecButton();
 	void				setShape(CGRect aShape);
-	CGRect				getShape() const { return shape; }
+	void				setParentSharedShape(CGRect aRect);
 	void				setActionPressed(kBehaviourAction a) { buttonActions[0] = a; }
 	void				setActionReleased(kBehaviourAction a) { buttonActions[1] = a; }
+	CGRect				getShape() const { return shape; }
 	kBehaviourAction	getActionPressed(){ return buttonActions[0]; }
 	kBehaviourAction	getActionReleased(){ return buttonActions[1]; }
 	void				addSignal(const TriggerSignal::slot_type& slot);

@@ -12,7 +12,7 @@
 GameEntity::GameEntity()
 {
 	height		= 0.0f;
-	width		= 0.0f;	
+	width		= 0.0f;
 	speed		= 0.0f;	
 	x			= 0.0f;
 	y			= 0.0f;
@@ -71,6 +71,5 @@ void GameEntity::debugPrintComponents()
 	{
 		std::cout << "[" << (*it).second << "] " << (*it).second->componentID() 
 		<< "[" << x << "]" << "[" << y << "]" << std::endl;
-		
 	}
 }
