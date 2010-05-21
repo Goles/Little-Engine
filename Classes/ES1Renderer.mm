@@ -114,7 +114,7 @@
 	GameEntity *b		= GE_FACTORY->createGE("scrollingBackground", 0, 320.0);
 	GameEntity *hitter	= GE_FACTORY->createGE("hitter1", 240.0f, 120.0f);
 	GameEntity *j		= GE_FACTORY->createGE("joypad",  75.0f, 65.0f);
-	GameEntity *button	= GE_FACTORY->createGE("buttonDummy", 350.0f, 50.0f);
+	GameEntity *button	= GE_FACTORY->createGE("buttonAttack", 350.0f, 50.0f);
 	GameEntity *hitter2 = GE_FACTORY->createGE("hitter1", 200, 160.0f);
 //	GameEntity *hitter3 = GE_FACTORY->createGE("hitter1", 320.0f, 160.0f);
 	

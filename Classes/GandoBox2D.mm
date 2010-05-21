@@ -147,26 +147,26 @@ void GandoBox2D::update(float delta)
 			
 			if (geA->getOwnerGE() != geB->getOwnerGE())
 			{
-				gecBoxCollision *c_body_a = NULL;
-				gecWeapon *c_weapon_a = NULL;
-				gecBoxCollision *c_body_b = NULL;
-				gecWeapon *c_weapon_b = NULL;
+				gecBoxCollision *collisionBoxA = NULL;
+				gecWeapon *componentWeaponA = NULL;
+				gecBoxCollision *collisionBoxB = NULL;
+				gecWeapon *componentWeaponB = NULL;
 				
 				//Checks for componentA.
 				if (geA->componentID().compare("gecBoxCollision") == 0)
-					c_body_a = (gecBoxCollision *)geA;
+					collisionBoxA = (gecBoxCollision *)geA;
 				else if (geA->componentID().compare("gecWeapon") == 0)
-					c_weapon_a = (gecWeapon *)geA;
+					componentWeaponA = (gecWeapon *)geA;
 				
 				//Checks for componentB
 				if (geB->componentID().compare("gecBoxCollision") == 0)
-					c_body_b = (gecBoxCollision *)geB;
+					collisionBoxB = (gecBoxCollision *)geB;
 				else if (geB->componentID().compare("gecWeapon") == 0)
-					c_weapon_b = (gecWeapon *)geB;
+					componentWeaponB = (gecWeapon *)geB;
 
 				
 				//If we have two different bodies colliding
-				if (c_body_a != NULL && c_body_b != NULL)
+				if (collisionBoxA != NULL && collisionBoxB != NULL)
 				{
 					geA->getOwnerGE()->x += ceilf(2*(bodyA->GetPosition().x - bodyB->GetPosition().x));
 					geA->getOwnerGE()->y += ceilf(2*(bodyA->GetPosition().y - bodyB->GetPosition().y));

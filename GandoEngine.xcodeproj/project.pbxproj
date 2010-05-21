@@ -66,6 +66,9 @@
 		633C889410649219003911A0 /* Particle.m in Sources */ = {isa = PBXBuildFile; fileRef = 633C889110649219003911A0 /* Particle.m */; };
 		633C889510649219003911A0 /* ParticleController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 633C889310649219003911A0 /* ParticleController.mm */; };
 		633C88D51064942D003911A0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633C88D41064942D003911A0 /* CoreGraphics.framework */; };
+		634E604111A61D5600CB0902 /* button_attack.png in Resources */ = {isa = PBXBuildFile; fileRef = 634E603E11A61D5600CB0902 /* button_attack.png */; };
+		634E604211A61D5600CB0902 /* joystick-moving-path.png in Resources */ = {isa = PBXBuildFile; fileRef = 634E603F11A61D5600CB0902 /* joystick-moving-path.png */; };
+		634E604311A61D5600CB0902 /* joypad_move.png in Resources */ = {isa = PBXBuildFile; fileRef = 634E604011A61D5600CB0902 /* joypad_move.png */; };
 		6352AA5110BDD18200EA312F /* GEComponent.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6352AA5010BDD18200EA312F /* GEComponent.mm */; };
 		635C8EF21074761E002F9BB3 /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 635C8EF11074761E002F9BB3 /* FileUtils.m */; };
 		635C8F231074790B002F9BB3 /* Particle2.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 635C8F221074790B002F9BB3 /* Particle2.pvr */; };
@@ -228,6 +231,9 @@
 		633C889310649219003911A0 /* ParticleController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ParticleController.mm; sourceTree = "<group>"; };
 		633C88D41064942D003911A0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		63489AA411750754003DB418 /* BehaviourActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BehaviourActions.h; sourceTree = "<group>"; };
+		634E603E11A61D5600CB0902 /* button_attack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_attack.png; sourceTree = "<group>"; };
+		634E603F11A61D5600CB0902 /* joystick-moving-path.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joystick-moving-path.png"; sourceTree = "<group>"; };
+		634E604011A61D5600CB0902 /* joypad_move.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = joypad_move.png; sourceTree = "<group>"; };
 		6352AA4F10BDD18200EA312F /* GEComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEComponent.h; sourceTree = "<group>"; };
 		6352AA5010BDD18200EA312F /* GEComponent.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GEComponent.mm; sourceTree = "<group>"; };
 		635C8EF01074761E002F9BB3 /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
@@ -372,6 +378,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				634E603D11A61D5600CB0902 /* GUI */,
 				63EF6CC31184CD5700AE36E1 /* Icon.png */,
 				636D71E311913DC6001E14F1 /* gando_box.png */,
 				63EF6CB11184CB0B00AE36E1 /* gandogames.png */,
@@ -694,6 +701,16 @@
 			name = Textures;
 			sourceTree = "<group>";
 		};
+		634E603D11A61D5600CB0902 /* GUI */ = {
+			isa = PBXGroup;
+			children = (
+				634E603E11A61D5600CB0902 /* button_attack.png */,
+				634E603F11A61D5600CB0902 /* joystick-moving-path.png */,
+				634E604011A61D5600CB0902 /* joypad_move.png */,
+			);
+			path = GUI;
+			sourceTree = "<group>";
+		};
 		635C8EEF10747614002F9BB3 /* Support */ = {
 			isa = PBXGroup;
 			children = (
@@ -911,6 +928,9 @@
 				63EF6CC41184CD5700AE36E1 /* Icon.png in Resources */,
 				636D71E411913DC6001E14F1 /* gando_box.png in Resources */,
 				63FEFC7311A0BFFA00B66669 /* hitter1_1.png in Resources */,
+				634E604111A61D5600CB0902 /* button_attack.png in Resources */,
+				634E604211A61D5600CB0902 /* joystick-moving-path.png in Resources */,
+				634E604311A61D5600CB0902 /* joypad_move.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

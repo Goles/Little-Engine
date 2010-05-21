@@ -48,8 +48,8 @@ void gecJoystick::update(float delta)
 			if(latestVelocity.x > 0.0 || latestVelocity.y > 0.0f)
 				fsm->performAction(kBehaviourAction_dragGamepad);
 			
-			subscribedGE->x += floor(latestVelocity.x * delta_velocity);
-			subscribedGE->y += floor(latestVelocity.y * delta_velocity);
+			subscribedGE->x += ceilf(latestVelocity.x * delta_velocity);
+			subscribedGE->y += ceilf(latestVelocity.y * delta_velocity);
 		}
 	}
 }

@@ -42,6 +42,7 @@ protected:
 	GameEntity* testDummy(float x, float y);
 	GameEntity* joypad(float x, float y);
 	GameEntity* buttonDummy(float x, float y);
+	GameEntity*	buttonAttack(float x, float y);
 	GameEntity* pixelDummy(float x, float y);
 	GameEntity* backgroundDummy(float x, float y);
 	GameEntity* background1(float x, float y);

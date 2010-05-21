@@ -43,6 +43,7 @@ GETemplateManager::GETemplateManager()
 	fmap.insert( std::make_pair( "testDummy",		&GETemplateManager::testDummy ));
 	fmap.insert( std::make_pair( "joypad",			&GETemplateManager::joypad ));
 	fmap.insert( std::make_pair( "buttonDummy",		&GETemplateManager::buttonDummy ));
+	fmap.insert( std::make_pair( "buttonAttack",	&GETemplateManager::buttonAttack ));
 	fmap.insert( std::make_pair( "pixelDummy",		&GETemplateManager::pixelDummy ));
 	fmap.insert( std::make_pair( "backgroundDummy",	&GETemplateManager::backgroundDummy ));
 	fmap.insert( std::make_pair( "background1",		&GETemplateManager::background1 ));
@@ -163,7 +164,7 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	coordAttack	= vlist_of<int>(3)(0)(4)(0)(5)(0)(6)(0);
 	coordWalk	= vlist_of<int>(7)(0)(8)(0)(9)(0);
 	timeStand.push_back(0.10f);
-	timeAttack.push_back(0.04);
+	timeAttack.push_back(0.033);
 	timeWalk.push_back(0.10f);
 	
 	//Add the animations to the sprite
@@ -279,7 +280,7 @@ GameEntity* GETemplateManager::joypad(float x, float y)
 	aVector.push_back(0);
 	
 	SpriteSheet *ss = new SpriteSheet();
-	ss->initWithImageNamed("joystick_tes.png", 60, 60, 0.0, 1.0);
+	ss->initWithImageNamed("joypad_move.png", 42, 42, 0.0, 1.0);
 	
 	gecAnimatedSprite *spriteComp;
 	
@@ -294,7 +295,7 @@ GameEntity* GETemplateManager::joypad(float x, float y)
 	gecJoystick *jComp;	
 	jComp = new gecJoystick();
 	jComp->setOwnerGE(anEntity);
-	jComp->setShape(CGRectMake(x, y, 60.0, 60.0));
+	jComp->setShape(CGRectMake(x, y, 42.0, 42.0));
 	
 	jComp->setCenter(x, y);
 	
@@ -338,6 +339,43 @@ GameEntity* GETemplateManager::buttonDummy(float x, float y)
 	buttonComp = new gecButton();
 	buttonComp->setOwnerGE(anEntity);
 	buttonComp->setParentSharedShape(CGRectMake(x, y, 200, 50));
+	
+	anEntity->setGEC(spriteComp);
+	anEntity->setGEC(buttonComp);
+	anEntity->x = x;
+	anEntity->y = y;
+	anEntity->isActive  = true;
+	
+	return anEntity;
+}
+
+//Creates the new attackbutton
+GameEntity*	GETemplateManager::buttonAttack(float x, float y)
+{
+	GameEntity *anEntity = new GameEntity();
+	
+	std::vector<int> buttonNormal, buttonHot;
+	
+	buttonNormal = vlist_of<int>(0)(0);
+	buttonHot = vlist_of<int>(1)(0);
+	
+	SpriteSheet *ss = new SpriteSheet();
+	ss->initWithImageNamed("button_attack.png", 42, 42, 0.0, 1.0);
+	
+	gecAnimatedSprite *spriteComp;
+	
+	spriteComp = new gecAnimatedSprite();
+	spriteComp->addAnimation("normal", buttonNormal, ss);
+	spriteComp->addAnimation("hot", buttonHot, ss);
+//	spriteComp->addAnimation("active", buttonHot, ss);
+	spriteComp->setCurrentAnimation("normal");
+	spriteComp->setCurrentRunning(true);
+	spriteComp->setOwnerGE(anEntity);
+	
+	gecButton *buttonComp;	
+	buttonComp = new gecButton();
+	buttonComp->setOwnerGE(anEntity);
+	buttonComp->setParentSharedShape(CGRectMake(x, y, 64, 64));
 	
 	anEntity->setGEC(spriteComp);
 	anEntity->setGEC(buttonComp);
