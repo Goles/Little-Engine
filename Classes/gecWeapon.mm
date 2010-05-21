@@ -8,6 +8,7 @@
  */
 
 #include "gecWeapon.h"
+#include "gecFSM.h"
 
 std::string gecWeapon::mGECTypeID = "gecWeapon";
 
@@ -16,6 +17,20 @@ std::string gecWeapon::mGECTypeID = "gecWeapon";
 void gecWeapon::update(float delta)
 {
 	/* Perform the updates for this entity here. */
+	if(subscribedGE)
+	{
+		GEComponent* gec = subscribedGE->getGEC("CACA");
+		gecFSM *gec_fsm = static_cast<gecFSM *> (gec);
+		
+		if(gec_fsm)
+		{
+			if(gec_fsm->getState() == kBehaviourState_attack)
+				this->setActive(true);
+			else {
+				this->setActive(false);
+			}
+		}
+	}
 }
 
 #pragma mark -
@@ -27,7 +42,7 @@ void gecWeapon::intialize()
 	spriteBodyDef.type = b2_dynamicBody;
 	spriteBodyDef.position.Set(ownerGE->x/PTM_RATIO, ownerGE->y/PTM_RATIO);
 	spriteBodyDef.bullet = true;
-	spriteBodyDef.userData = ownerGE;
+	spriteBodyDef.userData = this;
 	
 	weaponBody = GBOX_2D_WORLD->CreateBody(&spriteBodyDef);
 	
@@ -53,11 +68,8 @@ void gecWeapon::attack()
 
 void gecWeapon::setTransform(b2Body *b)
 {
-	if(b == weaponBody)
-	{
-		GameEntity* ge = this->getOwnerGE();		
-		b2Vec2 b2Position = b2Vec2((ge->x + 30)/PTM_RATIO, ge->y/PTM_RATIO);
-		float32 b2Angle = 0.0f;		
-		b->SetTransform(b2Position, b2Angle);
-	}
+	GameEntity* ge = this->getOwnerGE();		
+	b2Vec2 b2Position = b2Vec2((ge->x + 30)/PTM_RATIO, ge->y/PTM_RATIO);
+	float32 b2Angle = 0.0f;		
+	b->SetTransform(b2Position, b2Angle);
 }

@@ -116,7 +116,7 @@
 	GameEntity *j		= GE_FACTORY->createGE("joypad",  75.0f, 65.0f);
 	GameEntity *button	= GE_FACTORY->createGE("buttonDummy", 350.0f, 50.0f);
 	GameEntity *hitter2 = GE_FACTORY->createGE("hitter1", 200, 160.0f);
-	GameEntity *hitter3 = GE_FACTORY->createGE("hitter1", 320.0f, 160.0f);
+//	GameEntity *hitter3 = GE_FACTORY->createGE("hitter1", 320.0f, 160.0f);
 	
 	//Configure our button
 	((gecButton *)button->getGEC("CompGUI"))->setActionPressed(kBehaviourAction_doAttack);
@@ -134,7 +134,7 @@
 	aSceneManager->addEntity(b);
 	aSceneManager->addEntity(hitter);
 	aSceneManager->addEntity(hitter2);
-	aSceneManager->addEntity(hitter3);	
+//	aSceneManager->addEntity(hitter3);	
 	aSceneManager->addEntity(j);
 	aSceneManager->addEntity(button);
 }

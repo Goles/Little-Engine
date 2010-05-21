@@ -84,7 +84,6 @@ public:
 private:	
 	typedef std::map<const std::string, GEComponent *> ComponentMap;
 	typedef std::pair<const std::string, GEComponent *>	ComponentMapPair;
-	typedef std::vector<GEComponent *> ComponentVector;	
 	
 	ComponentMap components;
 	bool flipHorizontally;

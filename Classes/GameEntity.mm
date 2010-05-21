@@ -41,23 +41,40 @@ GameEntity::GameEntity(float inX, float inY, int inWidth, int inHeight)
 
 void GameEntity::setGEC( GEComponent *newGEC )
 {
-	newGEC->setOwnerGE(this);
-	std::string familyID = newGEC->familyID();
-	components[familyID] = newGEC;
+	if(!newGEC)
+	{
+		std::cout << "ERROR: Can't pass NULL component!" << std::endl;
+		assert(newGEC != NULL);
+	}else {
+		newGEC->setOwnerGE(this);
+		std::string familyID = newGEC->familyID();
+		components[familyID] = newGEC;
+	}
 }
 
 GEComponent* GameEntity::getGEC(const std::string &familyID)
 {
-	return components[familyID];
+	ComponentMap::iterator component = components.find(familyID);
+	
+	//If component is not present in the map, return NULL
+	if(component == components.end())
+		return NULL;
+	
+	return component->second;
 }
 
 void GameEntity::update(float delta)
 {
 	ComponentMap::iterator it;
-	
+
 	for(it = components.begin(); it != components.end(); ++it)
 	{
-		(*it).second->update(delta);
+		if((*it).second)
+			(*it).second->update(delta);
+		else {
+			std::cout << "ERROR: NULL Component in GameEntity Components Map" << std::endl;
+			assert((*it).second != NULL);
+		}
 	}
 }
 

@@ -13,13 +13,6 @@
 std::string CompCollision::mFamilyID = "CompCollision";
 
 #pragma mark -
-#pragma mark init
-CompCollision::CompCollision()
-{
-	entityBody = NULL;
-}
-
-#pragma mark -
 #pragma mark destroy
 CompCollision::~CompCollision()
 {

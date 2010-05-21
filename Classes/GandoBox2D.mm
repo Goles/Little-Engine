@@ -12,8 +12,8 @@
 #include "GandoBox2DDebug.h"
 #include "ConstantsAndMacros.h"
 #include "GameEntity.h"
-#include "CompWeapon.h"
-#include "CompCollision.h"
+#include "gecBoxCollision.h"
+#include "gecWeapon.h"
 
 GandoBox2D* GandoBox2D::instance = NULL;
 
@@ -106,22 +106,21 @@ void GandoBox2D::update(float delta)
 	
 	//Iterate over the bodies in the physics world and apply transformations
 	//To keep in Sync with our Entity World
+	//TODO: This is just temporary, in the future EVERYTHING that colides is a 
+	//CompCollision object.
 	for (b2Body* b = world->GetBodyList(); b; b = b->GetNext())
 	{
 		if (b->GetUserData() != NULL) {
 			//Synchronize the Sprites position and rotation with the corresponding body
-			GameEntity* ge = (GameEntity *)b->GetUserData();			
-			GEComponent	*gec = ge->getGEC("CompCollision");
-			CompCollision *c_coli = static_cast<CompCollision *> (gec);
-			gec = ge->getGEC("CompWeapon");
-			CompWeapon *c_weap = static_cast<CompWeapon *> (gec);
+			GEComponent *gc = (GEComponent *)b->GetUserData();
 			
-			if(c_coli)
+			if(gc->componentID().compare("gecBoxCollision") == 0)
 			{
-				c_coli->setTransform(b);
-			}
-			if (c_weap) 
-			{
+				gecBoxCollision *c_col = (gecBoxCollision *)gc;
+				c_col->setTransform(b);
+				
+			}else if(gc->componentID().compare("gecWeapon") == 0){
+				gecWeapon *c_weap = static_cast<gecWeapon *> (gc);
 				c_weap->setTransform(b);
 			}
 		}	
@@ -143,15 +142,38 @@ void GandoBox2D::update(float delta)
 		//If we have an entity in each of the bodies
 		if(bodyA->GetUserData() != NULL && bodyB->GetUserData() != NULL)
 		{
-			GameEntity *geA = (GameEntity *)(bodyA->GetUserData());
-			GameEntity *geB = (GameEntity *)(bodyB->GetUserData());
+			GEComponent *geA = (GEComponent *)(bodyA->GetUserData());
+			GEComponent *geB = (GEComponent *)(bodyB->GetUserData());
 			
-			if(geA != geB)
+			if (geA->getOwnerGE() != geB->getOwnerGE())
 			{
-				geA->x += 2*(bodyA->GetPosition().x - bodyB->GetPosition().x);
-				geA->y += 2*(bodyA->GetPosition().y - bodyB->GetPosition().y);
+				gecBoxCollision *c_body_a = NULL;
+				gecWeapon *c_weapon_a = NULL;
+				gecBoxCollision *c_body_b = NULL;
+				gecWeapon *c_weapon_b = NULL;
+				
+				//Checks for componentA.
+				if (geA->componentID().compare("gecBoxCollision") == 0)
+					c_body_a = (gecBoxCollision *)geA;
+				else if (geA->componentID().compare("gecWeapon") == 0)
+					c_weapon_a = (gecWeapon *)geA;
+				
+				//Checks for componentB
+				if (geB->componentID().compare("gecBoxCollision") == 0)
+					c_body_b = (gecBoxCollision *)geB;
+				else if (geB->componentID().compare("gecWeapon") == 0)
+					c_weapon_b = (gecWeapon *)geB;
+
+				
+				//If we have two different bodies colliding
+				if (c_body_a != NULL && c_body_b != NULL)
+				{
+					geA->getOwnerGE()->x += ceilf(2*(bodyA->GetPosition().x - bodyB->GetPosition().x));
+					geA->getOwnerGE()->y += ceilf(2*(bodyA->GetPosition().y - bodyB->GetPosition().y));
+				}
+
 				//Handle the collision between Entity A and B here.
-				std::cout << geA << " and " << geB << " collided" << std::endl;
+				//std::cout << geA << " and " << geB << " collided" << std::endl;
 			}
 		}
 	}	

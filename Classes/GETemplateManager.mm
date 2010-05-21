@@ -196,7 +196,7 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	gE->setGEC(gbc);
 	
 	//Attach weapon
-	gecWeapon *gwc = new gecWeapon(gE, 10, 10, true);
+	gecWeapon *gwc = new gecWeapon(gE, 10, 10);
 	gE->setGEC(gwc);
 	
 	return gE;

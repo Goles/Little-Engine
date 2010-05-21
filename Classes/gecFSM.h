@@ -13,10 +13,10 @@
 #define MAX_STATES 8
 #define MAX_ACTION 8
 
-#include "gecBehaviour.h"
+#include "CompBehaviour.h"
 #include <map>
 
-class gecFSM : public gecBehaviour 
+class gecFSM : public CompBehaviour 
 {
 	//GEComponent Interface
 public:

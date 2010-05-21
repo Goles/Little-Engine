@@ -18,11 +18,16 @@ class gecWeapon: public CompWeapon
 {
 	//gecWeapon interface
 public:
-	gecWeapon(GameEntity *gE, float _width, float _height, bool _active) : 
+	gecWeapon(GameEntity *gE, float _width, float _height) : 
 				subscribedGE(gE), 
 				width(_width),
-				height(_height),
-				active(_active) { ownerGE = subscribedGE; this->intialize(); }
+				height(_height)
+				{	
+					tag = new std::string("weapon"); 
+					active = false; 
+					ownerGE = subscribedGE; 
+					this->intialize(); 
+				}
 	void attack();
 
 	//CompWeapon Interface
@@ -42,7 +47,6 @@ private:
 	b2Body* weaponBody;
 	GameEntity* subscribedGE;
 	float width, height;
-	bool active;
 };
 
 #endif

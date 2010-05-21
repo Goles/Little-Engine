@@ -1,5 +1,5 @@
 /*
- *  gecBehaviour.cpp
+ *  CompBehaviour.cpp
  *  Particles_2
  *
  *  Created by Nicolas Goles on 4/4/10.
@@ -7,7 +7,7 @@
  *
  */
 
-#include "gecBehaviour.h"
+#include "CompBehaviour.h"
 
-std::string gecBehaviour::mFamilyID = "CompBehaviour";
+std::string CompBehaviour::mFamilyID = "CompBehaviour";
 

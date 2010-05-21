@@ -18,7 +18,7 @@ std::string gecFSM::mComponentID = "gecFSM";
 #pragma mark GEComponent Interface
 void gecFSM::update(float delta)
 {
-	GameEntity *ge = gecBehaviour::GEComponent::getOwnerGE();
+	GameEntity *ge = CompBehaviour::GEComponent::getOwnerGE();
 	
 	/*Switch the entity sprite*/
 	gecVisual *visualComp = static_cast<gecVisual *>(ge->getGEC("CompVisual"));

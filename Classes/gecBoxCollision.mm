@@ -51,7 +51,7 @@ void gecBoxCollision::setOwnerGE(GameEntity *ge)
     spriteBodyDef.type = b2_dynamicBody;
     spriteBodyDef.position.Set(ownerGE->x/PTM_RATIO, ownerGE->y/PTM_RATIO);
 	spriteBodyDef.bullet = true;
-    spriteBodyDef.userData = ownerGE;
+    spriteBodyDef.userData = this;
    
 	entityBody = GBOX_2D_WORLD->CreateBody(&spriteBodyDef);
 	entityBody->SetLinearVelocity(b2Vec2(0.0f, 0.0f));
