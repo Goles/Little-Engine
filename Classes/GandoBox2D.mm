@@ -168,8 +168,8 @@ void GandoBox2D::update(float delta)
 				//If we have two different bodies colliding
 				if (collisionBoxA != NULL && collisionBoxB != NULL)
 				{
-					geA->getOwnerGE()->x += ceilf(2*(bodyA->GetPosition().x - bodyB->GetPosition().x));
-					geA->getOwnerGE()->y += ceilf(2*(bodyA->GetPosition().y - bodyB->GetPosition().y));
+					geA->getOwnerGE()->x += roundf(2*(bodyA->GetPosition().x - bodyB->GetPosition().x));
+					geA->getOwnerGE()->y += roundf(2*(bodyA->GetPosition().y - bodyB->GetPosition().y));
 				}
 
 				//Handle the collision between Entity A and B here.

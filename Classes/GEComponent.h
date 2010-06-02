@@ -29,7 +29,7 @@ public:
 	
 	//Getters and setters.
 	void		setOwnerGE(GameEntity *gE){ ownerGE = gE; }
-	GameEntity*	getOwnerGE() const { return ownerGE; }
+	GameEntity*	getOwnerGE() const;
 	
 protected:
 	GameEntity *ownerGE;

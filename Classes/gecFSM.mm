@@ -63,8 +63,8 @@ void gecFSM::performAction(kBehaviourAction action)
 	if(this->getNameForAction(resultingState).compare("NO_EXISTING_STATE") > 0)
 		state = resultingState;
 	else {
-		std::cout << "Warning non-existant state!" << std::endl;
-		assert(this->getNameForAction(resultingState).compare("NO_EXISTING_STATE") > 0);
+		//std::cout << "Warning non-existant state!" << std::endl;
+		//assert(this->getNameForAction(resultingState).compare("NO_EXISTING_STATE") > 0);
 	}
 }
 

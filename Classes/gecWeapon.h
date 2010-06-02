@@ -13,19 +13,19 @@
 #include "CompWeapon.h"
 #include "GandoBox2D.h"
 #include "GameEntity.h"
+#include "gecFSM.h"
 
 class gecWeapon: public CompWeapon
 {
 	//gecWeapon interface
 public:
-	gecWeapon(GameEntity *gE, float _width, float _height) : 
-				subscribedGE(gE), 
+	gecWeapon(GameEntity *ge, float _width, float _height) : 
 				width(_width),
 				height(_height)
 				{	
 					tag = new std::string("weapon"); 
 					active = false; 
-					ownerGE = subscribedGE; 
+					ownerGE = ge; 
 					this->intialize(); 
 				}
 	void attack();
@@ -42,10 +42,9 @@ public:
 	//Private Atributes.
 private:
 	void intialize();
-	
+	int checkOwnerState(kBehaviourState state) const;
 	static gec_id_type mGECTypeID;
 	b2Body* weaponBody;
-	GameEntity* subscribedGE;
 	float width, height;
 };
 

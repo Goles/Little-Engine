@@ -107,6 +107,7 @@ void Image::initWithTextureFile(const std::string &inTextureName)
 		initImplementation();
 	}else {
 		printf("Could not load texture when creating Image from file %s\n",inTextureName.c_str());
+		assert(false);
 	}
 }
 

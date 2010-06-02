@@ -7,3 +7,11 @@
 //
 
 #import "GEComponent.h"
+
+GameEntity* GEComponent::getOwnerGE() const
+{ 
+	if(ownerGE == NULL)
+		assert(ownerGE != NULL);
+	
+	return ownerGE;
+}

@@ -131,7 +131,7 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	gE->setSpeed(75.0);
 	
 	SpriteSheet *ss = new SpriteSheet();
-	ss->initWithImageNamed("hitter1_sheet.png", gE->height, gE->width, 0.0, 1.0);
+	ss->initWithImageNamed("hitter1_1.png", gE->height, gE->width, 0.0, 1.0);
 	
 	//Add an FSM to our Game Entity
 	gecFSM *fsm = new gecFSM();
@@ -148,29 +148,54 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	fsm->setRule(kBehaviourState_attack, kBehaviourAction_dragGamepad, kBehaviourState_attack, "attack");
 	
 	//Create the sprite animations component
+	
 	gecAnimatedSprite *spriteAnimations = new gecAnimatedSprite();
 	spriteAnimations->setOwnerGE(gE);
 	
-	//Create the sprite Coordinates and sprite Frame per Time Vectors.
-	std::vector<int> coordStand,
-					 coordAttack,
-					 coordWalk;
+	std::vector<int> coord_Standing,
+	coord_Moving,
+	coord_Hitting1Punch,
+	coord_Hitting2Conector,
+	coord_Hitting3Uppercut,
+	coord_BeenHit1,
+	coord_BeenHit2,
+	coord_Dying;
 	
-	std::vector<float> timeStand,
-					   timeAttack,
-					   timeWalk;
+	std::vector<float> time_Standing,
+	time_Moving,
+	time_Hitting1Punch,
+	time_Hitting2Conector,
+	time_Hitting3Uppercut,
+	time_BeenHit1,
+	time_BeenHit2,
+	time_Dying;
 	
-	coordStand	= vlist_of<int>(0)(0)(1)(0)(2)(0);
-	coordAttack	= vlist_of<int>(3)(0)(4)(0)(5)(0)(6)(0);
-	coordWalk	= vlist_of<int>(7)(0)(8)(0)(9)(0);
-	timeStand.push_back(0.10f);
-	timeAttack.push_back(0.033);
-	timeWalk.push_back(0.10f);
+	coord_Standing = vlist_of<int>(0)(0)(1)(0)(2)(0)(3)(0);
+	coord_Moving = vlist_of<int>(4)(0)(5)(0)(6)(0)(7)(0);
+	coord_Hitting1Punch = vlist_of<int>(8)(0)(9)(0)(10)(0);
+	coord_Hitting2Conector = vlist_of<int>(11)(0)(0)(1);
+	coord_Hitting3Uppercut = vlist_of<int>(1)(1)(2)(1)(3)(1);
+	coord_BeenHit1 = vlist_of<int>(4)(1);
+	coord_BeenHit2 = vlist_of<int>(5)(1);
+	coord_Dying = vlist_of<int>(6)(1)(7)(1)(8)(1)(9)(1)(10)(1)(11)(1)(0)(2)(1)(2);
+	time_Standing.push_back(0.10f);
+	time_Moving.push_back(0.10f);
+	time_Hitting1Punch.push_back(0.08f);
+	time_Hitting2Conector.push_back(0.16f);
+	time_Hitting3Uppercut.push_back(0.16f);
+	time_BeenHit1.push_back(0.3f);
+	time_BeenHit2.push_back(0.3f);
+	time_Dying.push_back(0.07f);
 	
 	//Add the animations to the sprite
-	spriteAnimations->addAnimation("stand", coordStand, timeStand, ss);
-	spriteAnimations->addAnimation("attack", coordAttack, timeAttack, ss);
-	spriteAnimations->addAnimation("walk", coordWalk, timeWalk, ss);	
+	spriteAnimations->addAnimation("stand", coord_Standing, time_Standing, ss);
+	spriteAnimations->addAnimation("walk", coord_Moving, time_Moving, ss);
+	spriteAnimations->addAnimation("attack", coord_Hitting1Punch, time_Hitting1Punch, ss);
+	spriteAnimations->addAnimation("attack2", coord_Hitting2Conector, time_Hitting2Conector, ss);
+	spriteAnimations->addAnimation("attack3", coord_Hitting3Uppercut, time_Hitting3Uppercut, ss);
+	spriteAnimations->addAnimation("hit1", coord_BeenHit1, time_BeenHit1, ss);
+	spriteAnimations->addAnimation("hit2", coord_BeenHit2, time_BeenHit2, ss);
+	spriteAnimations->addAnimation("dying", coord_Dying, time_Dying, ss);
 	
 	//Set a delegate for the attack animation
 	Animation *attack = spriteAnimations->getAnimation("attack");

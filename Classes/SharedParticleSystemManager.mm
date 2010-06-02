@@ -247,7 +247,7 @@ GameEntity* SharedParticleSystemManager::createParticleSystem(int k_InParticleFX
 			break;
 			
 		case kParticleSystemFX_FountainBig:
-			pSystemComponent	= new gecParticleSystem(70, YES, kRenderingMode_PointSprites);
+			pSystemComponent = new gecParticleSystem(70, YES, kRenderingMode_PointSprites);
 			
 			[pSystemComponent->getParticleEmitter() setSystemXInitialSpeed:0
 															 initialYSpeed:5
@@ -293,7 +293,7 @@ GameEntity* SharedParticleSystemManager::createParticleSystem(int k_InParticleFX
 			break;
 			
 		case kParticleSystemFX_Smoke:
-			pSystemComponent	= new gecParticleSystem(100, YES, kRenderingMode_2xTriangles);
+			pSystemComponent = new gecParticleSystem(50, YES, kRenderingMode_2xTriangles);
 			
 			[pSystemComponent->getParticleEmitter() setSystemXInitialSpeed:0
 															 initialYSpeed:0.5
@@ -308,7 +308,7 @@ GameEntity* SharedParticleSystemManager::createParticleSystem(int k_InParticleFX
 																	source:inPosition 
 															decreaseFactor:55	//Bigger means slower decrease. => Higher life time
 																  position:CGPointMake(160, 100)
-																	  size:32
+																	  size:8
 																startColor:Color3DMake(223, 223, 223, 0)
 																  endColor:Color3DMake(0, 0, 0, 0)];
 			

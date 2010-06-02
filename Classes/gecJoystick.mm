@@ -36,7 +36,7 @@ gecJoystick::gecJoystick()
 #pragma mark gec_gui_interface
 void gecJoystick::update(float delta)
 {
-	float delta_velocity	= delta*subscribedGE->getSpeed();
+	//float delta_velocity	= delta*subscribedGE->getSpeed();
 	
 	/*Updating the component or other components dependant of it happens here*/
 	if(subscribedGE != NULL)
@@ -45,11 +45,16 @@ void gecJoystick::update(float delta)
 		//be done in a much cleaner way.
 		if(fsm->getState() != kBehaviourState_attack)
 		{
-			if(latestVelocity.x > 0.0 || latestVelocity.y > 0.0f)
+			if(latestVelocity.x != 0.0 || latestVelocity.y != 0.0f)
+			{	
 				fsm->performAction(kBehaviourAction_dragGamepad);
-			
-			subscribedGE->x += ceilf(latestVelocity.x * delta_velocity);
-			subscribedGE->y += ceilf(latestVelocity.y * delta_velocity);
+				
+//				float oldX = subscribedGE->x;
+//				float oldY = subscribedGE->y;
+				
+				subscribedGE->x += roundf(latestVelocity.x);
+				subscribedGE->y += roundf(latestVelocity.y);
+			}
 		}
 	}
 }
@@ -167,7 +172,7 @@ Boolean gecJoystick::immGUI(float x, float y, int touchIndex, void *touchID, int
 				this->getOwnerGE()->x = center.x;
 				this->getOwnerGE()->y = center.y;
 				this->setShape(CGRectMake(center.x, center.y, shape.size.width, shape.size.height));
-				latestVelocity = CGPointZero;
+				latestVelocity = CGPointMake(0.0f, 0.0f);
 				return true;
 			}
 		}
@@ -192,7 +197,7 @@ Boolean gecJoystick::immGUI(float x, float y, int touchIndex, void *touchID, int
 				this->getOwnerGE()->x = center.x;
 				this->getOwnerGE()->y = center.y;
 				this->setShape(CGRectMake(center.x, center.y, shape.size.width, shape.size.height));
-				latestVelocity = CGPointZero;
+				latestVelocity = CGPointMake(0.0f, 0.0f);
 				
 				// We reset the joystick first touch. This means that we will 
 				// touch it for the "first time" now.				

@@ -8,7 +8,6 @@
  */
 
 #include "gecWeapon.h"
-#include "gecFSM.h"
 
 std::string gecWeapon::mGECTypeID = "gecWeapon";
 
@@ -16,20 +15,12 @@ std::string gecWeapon::mGECTypeID = "gecWeapon";
 #pragma mark GEComponent Interface
 void gecWeapon::update(float delta)
 {
-	/* Perform the updates for this entity here. */
-	if(subscribedGE)
-	{
-		GEComponent* gec = subscribedGE->getGEC("CACA");
-		gecFSM *gec_fsm = static_cast<gecFSM *> (gec);
-		
-		if(gec_fsm)
-		{
-			if(gec_fsm->getState() == kBehaviourState_attack)
-				this->setActive(true);
-			else {
-				this->setActive(false);
-			}
-		}
+	int state = this->checkOwnerState(kBehaviourState_attack);
+	
+	if(state)
+		this->setActive(true);
+	else if(state == 0){
+		this->setActive(false);
 	}
 }
 
@@ -67,9 +58,40 @@ void gecWeapon::attack()
 }
 
 void gecWeapon::setTransform(b2Body *b)
-{
+{	
+	int offset = 0;
+	(!ownerGE->getFlipHorizontally()) ? offset = 30 : offset = -30;
+
 	GameEntity* ge = this->getOwnerGE();		
-	b2Vec2 b2Position = b2Vec2((ge->x + 30)/PTM_RATIO, ge->y/PTM_RATIO);
-	float32 b2Angle = 0.0f;		
-	b->SetTransform(b2Position, b2Angle);
+	b2Vec2 b2Position = b2Vec2((ge->x + offset)/PTM_RATIO, ge->y/PTM_RATIO);
+	b->SetTransform(b2Position, 0.0f);
+}
+
+#pragma mark -
+#pragma mark gecWeapon private interface.
+int gecWeapon::checkOwnerState(kBehaviourState state) const
+{
+	GEComponent *gec = this->getOwnerGE()->getGEC("CompBehaviour");
+	if(gec)
+	{
+		//if the component is indeed an FSM
+		if(gec->componentID().compare("gecFSM") == 0)
+		{
+			gecFSM *gec_fsm = (gecFSM *)gec;
+			
+			if(gec_fsm->getState() == state)
+				//Code 1 means that the owner's gecFSM has owner.state == state
+				return 1;
+			else {
+				//Code 0 means that the owner's gecFSM has owner.state != state
+				return 0;
+			}
+		}else {
+			//Code -1 means that the owner's CompBehaviour is not gecFSM
+			return -1;
+		}
+	}
+	
+	//Code -2 means that the owner doesn't even have a CompBehaviour.
+	return -2;
 }

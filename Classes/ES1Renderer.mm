@@ -49,7 +49,7 @@
 		glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
 		glFramebufferRenderbufferOES(GL_FRAMEBUFFER_OES, GL_COLOR_ATTACHMENT0_OES, GL_RENDERBUFFER_OES, colorRenderbuffer);
 	}
-	
+
 	return self;
 }
 
@@ -114,7 +114,7 @@
 	GameEntity *b		= GE_FACTORY->createGE("scrollingBackground", 0, 320.0);
 	GameEntity *hitter	= GE_FACTORY->createGE("hitter1", 240.0f, 120.0f);
 	GameEntity *j		= GE_FACTORY->createGE("joypad",  75.0f, 65.0f);
-	GameEntity *button	= GE_FACTORY->createGE("buttonAttack", 350.0f, 50.0f);
+	GameEntity *button	= GE_FACTORY->createGE("buttonAttack", 400.0f, 50.0f);
 	GameEntity *hitter2 = GE_FACTORY->createGE("hitter1", 200, 160.0f);
 //	GameEntity *hitter3 = GE_FACTORY->createGE("hitter1", 320.0f, 160.0f);
 	
@@ -130,7 +130,8 @@
 	((gecScrollingBackground *)b->getGEC("CompVisual"))->setSubscribedGE(hitter);
 	
 	//Add everything to the Scene.
-	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireBig, CGPointMake(240, 140), "Particle2.pvr"));	
+//	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_Smoke, CGPointMake(240, 140), "smoke.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainGiant, CGPointMake(240, 50), "Particle2.pvr"));
 	aSceneManager->addEntity(b);
 	aSceneManager->addEntity(hitter);
 	aSceneManager->addEntity(hitter2);
