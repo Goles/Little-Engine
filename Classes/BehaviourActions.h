@@ -13,6 +13,8 @@
 typedef enum
 {
 	kBehaviourAction_none = 0,
+	kBehaviourAction_hit,
+	kBehaviourAction_stopHit,
 	kBehaviourAction_doAttack,
 	kBehaviourAction_stopAttack,	
 	kBehaviourAction_dragGamepad,

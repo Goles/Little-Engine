@@ -115,15 +115,22 @@
 	GameEntity *hitter	= GE_FACTORY->createGE("hitter1", 240.0f, 120.0f);
 	GameEntity *j		= GE_FACTORY->createGE("joypad",  75.0f, 65.0f);
 	GameEntity *button	= GE_FACTORY->createGE("buttonAttack", 400.0f, 50.0f);
-	GameEntity *hitter2 = GE_FACTORY->createGE("hitter1", 200, 160.0f);
-//	GameEntity *hitter3 = GE_FACTORY->createGE("hitter1", 320.0f, 160.0f);
+	//GameEntity *hitter2 = GE_FACTORY->createGE("hitter1", 200, 160.0f);
+	//GameEntity *hitter3 = GE_FACTORY->createGE("hitter1", 320.0f, 160.0f);
+	
+	srand(time(NULL));
+	
+	for(int i = 0; i < 10; i++)
+	{
+		GameEntity *h = GE_FACTORY->createGE("hitter1", rand()%400 + 20, rand()%80 + 80);
+		aSceneManager->addEntity(h);
+	}
 	
 	//Configure our button
 	((gecButton *)button->getGEC("CompGUI"))->setActionPressed(kBehaviourAction_doAttack);
 	((gecButton *)button->getGEC("CompGUI"))->setActionReleased(kBehaviourAction_stopAttack);
 	((gecButton	*)button->getGEC("CompGUI"))->addSignal(boost::bind(&gecFSM::performAction, 
 																	(gecFSM*)hitter->getGEC("CompBehaviour"), _1));
-	
 	((gecJoystick *)j->getGEC("CompGUI"))->subscribeGameEntity(hitter);
 	
 	//Subscribe entity
@@ -131,10 +138,10 @@
 	
 	//Add everything to the Scene.
 //	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_Smoke, CGPointMake(240, 140), "smoke.pvr"));
-	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainGiant, CGPointMake(240, 50), "Particle2.pvr"));
+	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainGiant, CGPointMake(320, 50), "Particle2.pvr"));
 	aSceneManager->addEntity(b);
 	aSceneManager->addEntity(hitter);
-	aSceneManager->addEntity(hitter2);
+//	aSceneManager->addEntity(hitter2);
 //	aSceneManager->addEntity(hitter3);	
 	aSceneManager->addEntity(j);
 	aSceneManager->addEntity(button);
@@ -255,7 +262,7 @@
 	if(sprite)
 		sprite->renderAtPoint(CGPointMake(240.0, 160.0), true);
 	
-	GBOX_2D->debugRender();
+	//GBOX_2D->debugRender();
 	
 	glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
 	[context presentRenderbuffer:GL_RENDERBUFFER_OES];

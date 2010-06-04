@@ -41,7 +41,14 @@ void gecFSM::animationFinishedDelegate()
 	//This could be even better, if we are delegating, the best is to
 	//notify the sprite to perform opossite action of what are we doing.
 	//So we could actually have a map like Action ^ -Action.
-	this->performAction(kBehaviourAction_stopAttack);
+	kBehaviourState state = this->getState();
+	
+	if(state == kBehaviourState_attack)
+		this->performAction(kBehaviourAction_stopAttack);
+	else if(state == kBehaviourState_hit){
+		this->performAction(kBehaviourAction_stopHit);
+		std::cout << "Stop Hit" << std::endl;
+	}		
 }
 
 #pragma mark -

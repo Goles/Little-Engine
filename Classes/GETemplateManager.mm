@@ -139,13 +139,17 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	//Build the rules for this entity FSM.
 	fsm->setRule(kBehaviourState_stand, kBehaviourAction_doAttack, kBehaviourState_attack, "attack");
 	fsm->setRule(kBehaviourState_stand, kBehaviourAction_dragGamepad, kBehaviourState_walk, "walk");
+	fsm->setRule(kBehaviourState_stand, kBehaviourAction_hit, kBehaviourState_hit, "hit");
 	fsm->setRule(kBehaviourState_walk, kBehaviourAction_stopGamepad, kBehaviourState_stand, "stand");
 	fsm->setRule(kBehaviourState_walk, kBehaviourAction_dragGamepad, kBehaviourState_walk, "walk");
 	fsm->setRule(kBehaviourState_walk, kBehaviourAction_doAttack, kBehaviourState_attack, "attack");
+	fsm->setRule(kBehaviourState_walk, kBehaviourAction_hit, kBehaviourState_hit, "hit");
 	fsm->setRule(kBehaviourState_attack, kBehaviourAction_stopAttack, kBehaviourState_stand, "stand");
 	fsm->setRule(kBehaviourState_attack, kBehaviourAction_doAttack, kBehaviourState_attack, "attack");
 	fsm->setRule(kBehaviourState_attack, kBehaviourAction_stopGamepad, kBehaviourState_attack, "attack");
 	fsm->setRule(kBehaviourState_attack, kBehaviourAction_dragGamepad, kBehaviourState_attack, "attack");
+	fsm->setRule(kBehaviourState_attack, kBehaviourAction_hit, kBehaviourState_hit, "hit");
+	fsm->setRule(kBehaviourState_hit, kBehaviourAction_stopHit, kBehaviourState_stand, "stand");
 	
 	//Create the sprite animations component
 	
@@ -183,8 +187,8 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	time_Hitting1Punch.push_back(0.08f);
 	time_Hitting2Conector.push_back(0.16f);
 	time_Hitting3Uppercut.push_back(0.16f);
-	time_BeenHit1.push_back(0.3f);
-	time_BeenHit2.push_back(0.3f);
+	time_BeenHit1.push_back(0.4f);
+	time_BeenHit2.push_back(0.4f);
 	time_Dying.push_back(0.07f);
 	
 	//Add the animations to the sprite
@@ -193,14 +197,24 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	spriteAnimations->addAnimation("attack", coord_Hitting1Punch, time_Hitting1Punch, ss);
 	spriteAnimations->addAnimation("attack2", coord_Hitting2Conector, time_Hitting2Conector, ss);
 	spriteAnimations->addAnimation("attack3", coord_Hitting3Uppercut, time_Hitting3Uppercut, ss);
-	spriteAnimations->addAnimation("hit1", coord_BeenHit1, time_BeenHit1, ss);
+	spriteAnimations->addAnimation("hit", coord_BeenHit1, time_BeenHit1, ss);
 	spriteAnimations->addAnimation("hit2", coord_BeenHit2, time_BeenHit2, ss);
 	spriteAnimations->addAnimation("dying", coord_Dying, time_Dying, ss);
 	
 	//Set a delegate for the attack animation
+	//This should be much better because EVERY animation should implement delegation by default.
 	Animation *attack = spriteAnimations->getAnimation("attack");
-	if(attack != NULL)
+	if(attack)
 		attack->setDelegate(boost::bind(&gecFSM::animationFinishedDelegate, fsm));
+	
+	Animation *hit = spriteAnimations->getAnimation("hit");
+	if(hit)
+	{
+		hit->setDelegate(boost::bind(&gecFSM::animationFinishedDelegate, fsm));
+		Animation *an = spriteAnimations->getAnimation("hit");
+		an->setIsRepeating(false);
+	}
+		
 	
 	//The Default animation is stand and it's running
 	spriteAnimations->setCurrentAnimation(std::string("stand"));

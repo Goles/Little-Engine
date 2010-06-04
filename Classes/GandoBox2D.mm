@@ -13,6 +13,7 @@
 #include "ConstantsAndMacros.h"
 #include "GameEntity.h"
 #include "gecBoxCollision.h"
+#include "gecFSM.h"
 #include "gecWeapon.h"
 
 GandoBox2D* GandoBox2D::instance = NULL;
@@ -163,17 +164,28 @@ void GandoBox2D::update(float delta)
 					collisionBoxB = (gecBoxCollision *)geB;
 				else if (geB->componentID().compare("gecWeapon") == 0)
 					componentWeaponB = (gecWeapon *)geB;
-
 				
+				if(componentWeaponA && collisionBoxB)
+				{
+					if(componentWeaponA->getActive())
+					{
+						GEComponent *gec = collisionBoxB->getOwnerGE()->getGEC("CompBehaviour");
+						if(gec->componentID().compare("gecFSM") == 0)
+						{
+							gecFSM *fsm = (gecFSM *)gec;
+							
+							if(fsm->getState() != kBehaviourState_hit)
+								fsm->performAction(kBehaviourAction_hit);
+						}
+					}
+				}
+					
 				//If we have two different bodies colliding
 				if (collisionBoxA != NULL && collisionBoxB != NULL)
 				{
 					geA->getOwnerGE()->x += roundf(2*(bodyA->GetPosition().x - bodyB->GetPosition().x));
 					geA->getOwnerGE()->y += roundf(2*(bodyA->GetPosition().y - bodyB->GetPosition().y));
 				}
-
-				//Handle the collision between Entity A and B here.
-				//std::cout << geA << " and " << geB << " collided" << std::endl;
 			}
 		}
 	}	
