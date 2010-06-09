@@ -36,7 +36,7 @@ gecJoystick::gecJoystick()
 #pragma mark gec_gui_interface
 void gecJoystick::update(float delta)
 {
-	//float delta_velocity	= delta*subscribedGE->getSpeed();
+	float delta_velocity	= delta*subscribedGE->getSpeed();
 	
 	/*Updating the component or other components dependant of it happens here*/
 	if(subscribedGE != NULL)
@@ -52,8 +52,8 @@ void gecJoystick::update(float delta)
 //				float oldX = subscribedGE->x;
 //				float oldY = subscribedGE->y;
 				
-				subscribedGE->x += roundf(latestVelocity.x);
-				subscribedGE->y += roundf(latestVelocity.y);
+				subscribedGE->x += roundf(latestVelocity.x * delta_velocity);
+				subscribedGE->y += roundf(latestVelocity.y * delta_velocity);
 			}
 		}
 	}
@@ -249,5 +249,5 @@ void gecJoystick::setShape(CGRect aRect)
 					   aRect.size.height);
 	
 	this->setInRadius(aRect.size.width * 0.5);	//We set the joystick paddle radius
-	this->setOutRadius(aRect.size.width * 0.5 + aRect.size.width*0.25);	//We set the outer circle radius ( usually 2x inner paddle )
+	this->setOutRadius(aRect.size.width * 0.5 + aRect.size.width * 0.25);	//We set the outer circle radius ( usually 2x inner paddle )
 }

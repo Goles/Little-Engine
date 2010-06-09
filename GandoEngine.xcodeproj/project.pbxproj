@@ -23,6 +23,8 @@
 		6306E034119A0076005F9950 /* CompWeapon.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6306E033119A0076005F9950 /* CompWeapon.mm */; };
 		6306E037119A14EC005F9950 /* gecWeapon.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6306E036119A14EC005F9950 /* gecWeapon.mm */; };
 		6317D9AB10C85CB000C7EEE2 /* SharedInputManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6317D9AA10C85CB000C7EEE2 /* SharedInputManager.mm */; };
+		631CF84E11BD52E10051C723 /* CompHealth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 631CF84D11BD52E10051C723 /* CompHealth.cpp */; };
+		631CF85411BD53140051C723 /* gecHealthHuman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 631CF85311BD53140051C723 /* gecHealthHuman.cpp */; };
 		631EBAEB10BED2B90060FBD3 /* gecAnimatedSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 631EBAEA10BED2B90060FBD3 /* gecAnimatedSprite.mm */; };
 		63270CCC118F27B8005D6DCB /* b2BroadPhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63270C81118F27B8005D6DCB /* b2BroadPhase.cpp */; };
 		63270CCD118F27B8005D6DCB /* b2CollideCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63270C83118F27B8005D6DCB /* b2CollideCircle.cpp */; };
@@ -97,6 +99,7 @@
 		63E0FFBB1193D44400992FCA /* CompCollision.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63E0FFBA1193D44400992FCA /* CompCollision.mm */; };
 		63E4F9FC107A2E8900FA74AE /* HardwareClock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63E4F9FB107A2E8900FA74AE /* HardwareClock.cpp */; };
 		63E70D8A10AC756D008ED32B /* SharedTextureManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63E70D8910AC756D008ED32B /* SharedTextureManager.mm */; };
+		63E74E5411B9DEB70097C6E2 /* scenario_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 63E74E5311B9DEB70097C6E2 /* scenario_3.png */; };
 		63EECF8110C8BFF20098C3D0 /* gecGUI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63EECF8010C8BFF20098C3D0 /* gecGUI.mm */; };
 		63EECF9210C8C2A80098C3D0 /* gecButton.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63EECF9110C8C2A80098C3D0 /* gecButton.mm */; };
 		63EED41C10C9CCCD0098C3D0 /* buttons_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 63EED41B10C9CCCD0098C3D0 /* buttons_test.png */; };
@@ -141,6 +144,10 @@
 		6306E036119A14EC005F9950 /* gecWeapon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecWeapon.mm; sourceTree = "<group>"; };
 		6317D9A910C85CB000C7EEE2 /* SharedInputManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedInputManager.h; sourceTree = "<group>"; };
 		6317D9AA10C85CB000C7EEE2 /* SharedInputManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SharedInputManager.mm; sourceTree = "<group>"; };
+		631CF84C11BD52E10051C723 /* CompHealth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompHealth.h; sourceTree = "<group>"; };
+		631CF84D11BD52E10051C723 /* CompHealth.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CompHealth.cpp; sourceTree = "<group>"; };
+		631CF85211BD53140051C723 /* gecHealthHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecHealthHuman.h; sourceTree = "<group>"; };
+		631CF85311BD53140051C723 /* gecHealthHuman.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gecHealthHuman.cpp; sourceTree = "<group>"; };
 		631EBAE910BED2B90060FBD3 /* gecAnimatedSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecAnimatedSprite.h; sourceTree = "<group>"; };
 		631EBAEA10BED2B90060FBD3 /* gecAnimatedSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecAnimatedSprite.mm; sourceTree = "<group>"; };
 		63270C7F118F27B8005D6DCB /* Box2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box2D.h; sourceTree = "<group>"; };
@@ -286,6 +293,7 @@
 		63E4F9FB107A2E8900FA74AE /* HardwareClock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HardwareClock.cpp; sourceTree = "<group>"; };
 		63E70D8810AC756D008ED32B /* SharedTextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedTextureManager.h; sourceTree = "<group>"; };
 		63E70D8910AC756D008ED32B /* SharedTextureManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SharedTextureManager.mm; sourceTree = "<group>"; };
+		63E74E5311B9DEB70097C6E2 /* scenario_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scenario_3.png; sourceTree = "<group>"; };
 		63EECF7F10C8BFF20098C3D0 /* gecGUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecGUI.h; sourceTree = "<group>"; };
 		63EECF8010C8BFF20098C3D0 /* gecGUI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecGUI.mm; sourceTree = "<group>"; };
 		63EECF9010C8C2A80098C3D0 /* gecButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecButton.h; sourceTree = "<group>"; };
@@ -378,6 +386,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				63E74E5311B9DEB70097C6E2 /* scenario_3.png */,
 				634F290F11B5A755006174AB /* joystick-moving-path.png */,
 				634F290D11B5A745006174AB /* button_attack.png */,
 				634F291111B5A75D006174AB /* joypad_move.png */,
@@ -471,9 +480,21 @@
 			name = components;
 			sourceTree = "<group>";
 		};
+		631CF84B11BD52CC0051C723 /* Health */ = {
+			isa = PBXGroup;
+			children = (
+				631CF84C11BD52E10051C723 /* CompHealth.h */,
+				631CF84D11BD52E10051C723 /* CompHealth.cpp */,
+				631CF85211BD53140051C723 /* gecHealthHuman.h */,
+				631CF85311BD53140051C723 /* gecHealthHuman.cpp */,
+			);
+			name = Health;
+			sourceTree = "<group>";
+		};
 		631EBAD910BED1EC0060FBD3 /* Families */ = {
 			isa = PBXGroup;
 			children = (
+				631CF84B11BD52CC0051C723 /* Health */,
 				6306E031119A0063005F9950 /* Weapon */,
 				630598541193C9DB007C59B6 /* Collision */,
 				63223F79115ECCF40094FB69 /* Behaviour */,
@@ -923,6 +944,7 @@
 				634F290E11B5A745006174AB /* button_attack.png in Resources */,
 				634F291011B5A755006174AB /* joystick-moving-path.png in Resources */,
 				634F291211B5A75D006174AB /* joypad_move.png in Resources */,
+				63E74E5411B9DEB70097C6E2 /* scenario_3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1010,6 +1032,8 @@
 				63BBCE7211961057007E2400 /* GContactListener.mm in Sources */,
 				6306E034119A0076005F9950 /* CompWeapon.mm in Sources */,
 				6306E037119A14EC005F9950 /* gecWeapon.mm in Sources */,
+				631CF84E11BD52E10051C723 /* CompHealth.cpp in Sources */,
+				631CF85411BD53140051C723 /* gecHealthHuman.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

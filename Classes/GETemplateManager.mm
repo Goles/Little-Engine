@@ -452,7 +452,7 @@ GameEntity* GETemplateManager::background1(float x, float y)
 GameEntity* GETemplateManager::scrollingBackground(float x, float y)
 {
 	GameEntity *gE = new GameEntity();	
-	gecScrollingBackground *gsb = new gecScrollingBackground("backgroundDummy.png", "backgroundDummy.png");
+	gecScrollingBackground *gsb = new gecScrollingBackground("scenario_3.png", "scenario_3.png");
 	
 	gE->setGEC(gsb);
 	gE->x = x;
