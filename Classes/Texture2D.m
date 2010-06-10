@@ -411,7 +411,7 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 		
 	}
 	if(context == NULL) {
-		NSLog(@"Failed creating CGBitmapContext", NULL);
+		NSLog(@"Failed creating CGBitmapContext");
 		free(data);
 		[self release];
 		return nil;
@@ -523,7 +523,7 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 	CGColorSpaceRef			colorSpace;
 	
 	if(font == nil) {
-		NSLog(@"Invalid font", NULL);
+		NSLog(@"Invalid font");
 		[self release];
 		return nil;
 	}
@@ -548,7 +548,7 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 	context = CGBitmapContextCreate(data, width, height, 8, width, colorSpace, kCGImageAlphaNone);
 	CGColorSpaceRelease(colorSpace);
 	if(context == NULL) {
-		NSLog(@"Failed creating CGBitmapContext", NULL);
+		NSLog(@"Failed creating CGBitmapContext");
 		free(data);
 		[self release];
 		return nil;

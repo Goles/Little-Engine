@@ -14,7 +14,6 @@ std::string gecHealthHuman::mGECTypeID = "gecHealthHuman";
 #pragma mark -
 #pragma mark initializer
 
-
 #pragma mark -
 #pragma mark GEComponent Interface
 void gecHealthHuman::update(float delta)

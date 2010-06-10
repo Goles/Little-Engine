@@ -80,11 +80,11 @@ void GameEntity::update(float delta)
 
 void GameEntity::debugPrintComponents()
 {
-	ComponentMap::iterator it = components.begin();
+	ComponentMap::iterator it;
 	
 	std::cout << "Parent Entity[" << (*it).second->getOwnerGE() << "] " << std::endl;
 	
-	for(it; it != components.end(); ++it)
+	for(it = components.begin(); it != components.end(); ++it)
 	{
 		std::cout << "[" << (*it).second << "] " << (*it).second->componentID() 
 		<< "[" << x << "]" << "[" << y << "]" << std::endl;
