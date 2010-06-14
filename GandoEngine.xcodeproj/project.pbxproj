@@ -294,6 +294,7 @@
 		63E70D8810AC756D008ED32B /* SharedTextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedTextureManager.h; sourceTree = "<group>"; };
 		63E70D8910AC756D008ED32B /* SharedTextureManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SharedTextureManager.mm; sourceTree = "<group>"; };
 		63E74E5311B9DEB70097C6E2 /* scenario_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scenario_3.png; sourceTree = "<group>"; };
+		63E8145611C0B2D200763DB5 /* Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tests.h; sourceTree = "<group>"; };
 		63EECF7F10C8BFF20098C3D0 /* gecGUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecGUI.h; sourceTree = "<group>"; };
 		63EECF8010C8BFF20098C3D0 /* gecGUI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecGUI.mm; sourceTree = "<group>"; };
 		63EECF9010C8C2A80098C3D0 /* gecButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecButton.h; sourceTree = "<group>"; };
@@ -739,6 +740,7 @@
 		635E0632108CB92500AF1EDB /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				63E8145511C0B2B500763DB5 /* Tests */,
 				631783C1118F31630062FCDB /* external */,
 				63C0D42A10A321F60011483E /* GameEntity */,
 				63B2664710B1E716004D1853 /* Scene */,
@@ -867,6 +869,14 @@
 				6317D9AA10C85CB000C7EEE2 /* SharedInputManager.mm */,
 			);
 			name = SharedManagers;
+			sourceTree = "<group>";
+		};
+		63E8145511C0B2B500763DB5 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				63E8145611C0B2D200763DB5 /* Tests.h */,
+			);
+			name = Tests;
 			sourceTree = "<group>";
 		};
 		63EECF7D10C8BFD70098C3D0 /* GUI */ = {

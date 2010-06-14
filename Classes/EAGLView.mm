@@ -7,7 +7,7 @@
 //
 
 #import "EAGLView.h"
-#import "ES1Renderer.h"
+#import "ES2Renderer.h"
 #import "SharedInputManager.h"
 #include "GandoBox2D.h"
 
@@ -36,7 +36,7 @@
 			
 		if (!renderer)
 		{
-			renderer = [[ES1Renderer alloc] init];
+			renderer = [[ES2Renderer alloc] init];
 			
 			if (!renderer)
 			{
@@ -50,7 +50,6 @@
 		displayLinkSupported = FALSE;
 		animationFrameInterval = 1;
 		displayLink = nil;
-		animationTimer = nil;
 		
 		// A system version of 3.1 or greater is required to use CADisplayLink. The NSTimer
 		// class is used as fallback when it isn't available.
@@ -71,7 +70,7 @@
 	delta	= (time - lastTime);
 
 	/* update */
-	[(ES1Renderer *)renderer update:delta];
+	[(ES2Renderer *)renderer update:delta];
 	
 	/* render */
 	[renderer render];
@@ -125,9 +124,6 @@
 			[displayLink setFrameInterval:animationFrameInterval];
 			[displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 		}
-		else
-			animationTimer = [NSTimer scheduledTimerWithTimeInterval:(NSTimeInterval)((1.0 / 60.0) * animationFrameInterval) target:self selector:@selector(mainGameLoop:) userInfo:nil repeats:TRUE];
-		
 		animating = TRUE;
 	}
 }
@@ -141,12 +137,6 @@
 			[displayLink invalidate];
 			displayLink = nil;
 		}
-		else
-		{
-			[animationTimer invalidate];
-			animationTimer = nil;
-		}
-		
 		animating = FALSE;
 	}
 }
@@ -160,9 +150,7 @@
 	for ( UITouch* aTouch in touches )
 	{
 		loc = [aTouch locationInView:self];
-		INPUT_MANAGER->touchesBegan(loc.x, loc.y, aTouch);
-		//printf( "Touch began %p, tapcount %d\n", (void *) aTouch, [aTouch tapCount] );
-		//fflush( stdout );			
+		INPUT_MANAGER->touchesBegan(loc.x, loc.y, aTouch);		
 	}
 }
 
@@ -173,9 +161,7 @@
 	for ( UITouch* aTouch in touches )
 	{
 		loc = [aTouch locationInView:self];
-		INPUT_MANAGER->touchesMoved(loc.x, loc.y, aTouch);
-		//printf( "Touch moved %p, tapcount %d\n", (void*)aTouch, [aTouch tapCount] );
-		//fflush( stdout );			
+		INPUT_MANAGER->touchesMoved(loc.x, loc.y, aTouch);		
 	}
 }
 
@@ -186,9 +172,7 @@
 	for ( UITouch* aTouch in touches )
 	{
 		loc = [aTouch locationInView:self];
-		INPUT_MANAGER->touchesEnded(loc.x, loc.y, aTouch);
-		//printf( "Touch ended %p, tapcount %d\n", (void*)aTouch, [aTouch tapCount] );
-		//fflush( stdout );			
+		INPUT_MANAGER->touchesEnded(loc.x, loc.y, aTouch);		
 	}
 }
 

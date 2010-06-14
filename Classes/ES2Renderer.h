@@ -11,6 +11,8 @@
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 
+#include "SceneManager.h"
+
 @interface ES2Renderer : NSObject <ESRenderer>
 {
 @private
@@ -22,8 +24,13 @@
 	
 	// The OpenGL names for the framebuffer and renderbuffer used to render to this view
 	GLuint defaultFramebuffer, colorRenderbuffer;
-	
 	GLuint program;
+    
+    BOOL viewSetup;
+    
+    //This shouldn't go here, but for now let's do it
+    SceneManager* gameSceneManager;
+    
 }
 
 - (void) render;

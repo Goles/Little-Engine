@@ -28,7 +28,6 @@
 	// The NSTimer class is used only as fallback when running on a pre 3.1 device where CADisplayLink
 	// isn't available.
 	id displayLink;
-    NSTimer *animationTimer;
 	
 	/*Other Stuff*/
 	CFTimeInterval lastTime;

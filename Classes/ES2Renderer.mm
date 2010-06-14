@@ -6,27 +6,22 @@
 //  Copyright GandoGames 2009. All rights reserved.
 //
 
-#import "ES2Renderer.h"
+#include "ES2Renderer.h"
+#include "ShaderVars.h"
+#include "Tests.h"
 
-// uniform index
-enum {
-    UNIFORM_TRANSLATE,
-    NUM_UNIFORMS
-};
-GLint uniforms[NUM_UNIFORMS];
-
-// attribute index
-enum {
-    ATTRIB_VERTEX,
-    ATTRIB_COLOR,
-    NUM_ATTRIBUTES
-};
 
 @interface ES2Renderer (PrivateMethods)
+- (void) setupView;
 - (BOOL) loadShaders;
 - (BOOL) compileShader:(GLuint *)shader type:(GLenum)type file:(NSString *)file;
 - (BOOL) linkProgram:(GLuint)prog;
 - (BOOL) validateProgram:(GLuint)prog;
+@end
+
+@interface ES2Renderer (GameInitMethods)
+- (void) initGame;
+- (void) runTests;
 @end
 
 @implementation ES2Renderer
@@ -43,7 +38,9 @@ enum {
             [self release];
             return nil;
         }
-
+        
+        [self initGame];
+        
 		// Create default framebuffer object. The backing will be allocated for the current layer in -resizeFromLayer
 		glGenFramebuffers(1, &defaultFramebuffer);
 		glGenRenderbuffers(1, &colorRenderbuffer);
@@ -55,55 +52,68 @@ enum {
 	return self;
 }
 
+- (void) initGame
+{
+    //Init the Game Scene Manager
+    gameSceneManager = new SceneManager();
+    
+    //Init Box2D world
+	GBOX_2D->initBaseWorld();
+	GBOX_2D->initDebugDraw();
+    
+    //Run a TestCase.
+	[self runTests];
+}
+
+- (void) runTests
+{
+    tenZombies(gameSceneManager);
+}
+
 - (void) update:(float)delta
 {
 	/*Update game here somehow.*/
 }
 
+- (void) setupView
+{	
+	// setup viewport and projection
+	glViewport(0, 0, backingWidth, backingHeight);
+	//glMatrixMode(GL_PROJECTION);
+	//glLoadIdentity();
+	//glRotatef(-90.0, 0.0, 0.0, 1.0);
+	//glOrthof(0, 480, 0, 320, -1, 1);
+	//glMatrixMode(GL_MODELVIEW);
+	//glEnable(GL_DEPTH_TEST);
+}
+
 - (void) render
 {
-    // Replace the implementation of this method to do your own custom drawing
-    
-    static const GLfloat squareVertices[] = {
-        -0.5f, -0.33f,
-         0.5f, -0.33f,
-        -0.5f,  0.33f,
-         0.5f,  0.33f,
-    };
-	
-    static const GLubyte squareColors[] = {
-        255, 255,   0, 255,
-        0,   255, 255, 255,
-        0,     0,   0,   0,
-        255,   0, 255, 255,
-    };
-    
-	static float transY = 0.0f;
-	
-	// This application only creates a single context which is already set current at this point.
+    // This application only creates a single context which is already set current at this point.
 	// This call is redundant, but needed if dealing with multiple contexts.
     [EAGLContext setCurrentContext:context];
     
 	// This application only creates a single default framebuffer which is already bound at this point.
 	// This call is redundant, but needed if dealing with multiple framebuffers.
     glBindFramebuffer(GL_FRAMEBUFFER, defaultFramebuffer);
-    glViewport(0, 0, backingWidth, backingHeight);
     
-    glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
+    // Replace the implementation of this method to do your own custom drawing
+	if(!viewSetup)
+	{
+		[self setupView];
+		viewSetup = YES;
+	}
+    
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
+    
+    if(gameSceneManager)
+        gameSceneManager->renderScene();
+    
     
 	// Use shader program
     glUseProgram(program);
-	
-	// Update uniform value
-	glUniform1f(uniforms[UNIFORM_TRANSLATE], (GLfloat)transY);
-	transY += 0.075f;	
-	
-	// Update attribute values
-    glVertexAttribPointer(ATTRIB_VERTEX, 2, GL_FLOAT, 0, 0, squareVertices);
-    glEnableVertexAttribArray(ATTRIB_VERTEX);
-    glVertexAttribPointer(ATTRIB_COLOR, 4, GL_UNSIGNED_BYTE, 1, 0, squareColors);
-    glEnableVertexAttribArray(ATTRIB_COLOR);
+
     
 	// Validate program before drawing. This is a good check, but only really necessary in a debug build.
 	// DEBUG macro must be defined in your debug configurations if that's not already the case.
@@ -114,9 +124,6 @@ enum {
 		return;
 	}
 #endif
-	
-    // Draw
-    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 	
 	// This application only creates a single color renderbuffer which is already bound at this point.
 	// This call is redundant, but needed if dealing with multiple renderbuffers.
