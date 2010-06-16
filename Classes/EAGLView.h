@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-
 #import "ESRenderer.h"
 
 // This class wraps the CAEAGLLayer from CoreAnimation into a convenient UIView subclass.

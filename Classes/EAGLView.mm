@@ -9,7 +9,7 @@
 #import "EAGLView.h"
 #import "ES2Renderer.h"
 #import "SharedInputManager.h"
-#include "GandoBox2D.h"
+#import "GandoBox2D.h"
 
 @implementation EAGLView
 
@@ -70,7 +70,7 @@
 	delta	= (time - lastTime);
 
 	/* update */
-	[(ES2Renderer *)renderer update:delta];
+	[renderer update:delta];
 	
 	/* render */
 	[renderer render];

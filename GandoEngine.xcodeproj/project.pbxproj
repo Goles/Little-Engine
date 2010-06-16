@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14ECD14F11C8B1B500069918 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 14ECD14E11C8B1B500069918 /* logo.png */; };
 		1D3623260D0F684500981E51 /* Particles_2AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* Particles_2AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -61,8 +62,8 @@
 		63270CEC118F27B8005D6DCB /* b2PulleyJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63270CC6118F27B8005D6DCB /* b2PulleyJoint.cpp */; };
 		63270CED118F27B8005D6DCB /* b2RevoluteJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63270CC8118F27B8005D6DCB /* b2RevoluteJoint.cpp */; };
 		63270CEE118F27B8005D6DCB /* b2WeldJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63270CCA118F27B8005D6DCB /* b2WeldJoint.cpp */; };
-		632A3E1B1073211200F8EADC /* PVRTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 632A3E1A1073211200F8EADC /* PVRTexture.m */; };
-		632A3EB61073260B00F8EADC /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 632A3EB51073260B00F8EADC /* Texture2D.m */; };
+		632A3E1B1073211200F8EADC /* PVRTexture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 632A3E1A1073211200F8EADC /* PVRTexture.mm */; };
+		632A3EB61073260B00F8EADC /* Texture2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 632A3EB51073260B00F8EADC /* Texture2D.mm */; };
 		633C64B2109B2791001D1851 /* Frame.mm in Sources */ = {isa = PBXBuildFile; fileRef = 633C64B1109B2791001D1851 /* Frame.mm */; };
 		633C64C1109B2919001D1851 /* Animation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 633C64C0109B2919001D1851 /* Animation.mm */; };
 		633C889410649219003911A0 /* Particle.m in Sources */ = {isa = PBXBuildFile; fileRef = 633C889110649219003911A0 /* Particle.m */; };
@@ -116,6 +117,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		14ECCE5511C89EBB00069918 /* ShaderVars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShaderVars.h; path = ../ShaderVars.h; sourceTree = "<group>"; };
+		14ECD14E11C8B1B500069918 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* Particles_2AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particles_2AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* Particles_2AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Particles_2AppDelegate.m; sourceTree = "<group>"; };
@@ -222,11 +225,11 @@
 		63270CCA118F27B8005D6DCB /* b2WeldJoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = b2WeldJoint.cpp; sourceTree = "<group>"; };
 		63270CCB118F27B8005D6DCB /* b2WeldJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2WeldJoint.h; sourceTree = "<group>"; };
 		632A3E191073211200F8EADC /* PVRTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRTexture.h; sourceTree = "<group>"; };
-		632A3E1A1073211200F8EADC /* PVRTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVRTexture.m; sourceTree = "<group>"; };
+		632A3E1A1073211200F8EADC /* PVRTexture.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PVRTexture.mm; sourceTree = "<group>"; };
 		632A3E1F107321E200F8EADC /* ConstantsAndMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantsAndMacros.h; sourceTree = "<group>"; };
 		632A3E201073222C00F8EADC /* ccConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccConfig.h; sourceTree = "<group>"; };
 		632A3EB41073260B00F8EADC /* Texture2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture2D.h; sourceTree = "<group>"; };
-		632A3EB51073260B00F8EADC /* Texture2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Texture2D.m; sourceTree = "<group>"; };
+		632A3EB51073260B00F8EADC /* Texture2D.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Texture2D.mm; sourceTree = "<group>"; };
 		633697BD119B003B004DBFED /* VectorList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VectorList.h; sourceTree = "<group>"; };
 		633C64B0109B2791001D1851 /* Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Frame.h; sourceTree = "<group>"; };
 		633C64B1109B2791001D1851 /* Frame.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Frame.mm; sourceTree = "<group>"; };
@@ -387,6 +390,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				14ECD14E11C8B1B500069918 /* logo.png */,
 				63E74E5311B9DEB70097C6E2 /* scenario_3.png */,
 				634F290F11B5A755006174AB /* joystick-moving-path.png */,
 				634F290D11B5A745006174AB /* button_attack.png */,
@@ -692,6 +696,7 @@
 		633C889910649221003911A0 /* Renderer */ = {
 			isa = PBXGroup;
 			children = (
+				14ECCE5511C89EBB00069918 /* ShaderVars.h */,
 				636D713A11913258001E14F1 /* ES1Renderer.h */,
 				636D713B11913258001E14F1 /* ES1Renderer.mm */,
 				2514C26F10084DB100A42282 /* ES2Renderer.h */,
@@ -718,9 +723,9 @@
 			isa = PBXGroup;
 			children = (
 				632A3EB41073260B00F8EADC /* Texture2D.h */,
-				632A3EB51073260B00F8EADC /* Texture2D.m */,
+				632A3EB51073260B00F8EADC /* Texture2D.mm */,
 				632A3E191073211200F8EADC /* PVRTexture.h */,
-				632A3E1A1073211200F8EADC /* PVRTexture.m */,
+				632A3E1A1073211200F8EADC /* PVRTexture.mm */,
 			);
 			name = Textures;
 			sourceTree = "<group>";
@@ -955,6 +960,7 @@
 				634F291011B5A755006174AB /* joystick-moving-path.png in Resources */,
 				634F291211B5A75D006174AB /* joypad_move.png in Resources */,
 				63E74E5411B9DEB70097C6E2 /* scenario_3.png in Resources */,
+				14ECD14F11C8B1B500069918 /* logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -973,8 +979,8 @@
 				633C889510649219003911A0 /* ParticleController.mm in Sources */,
 				63F01864106AF201008FABF0 /* ParticleEmitter.mm in Sources */,
 				63F01867106AF218008FABF0 /* ParticleRenderer.mm in Sources */,
-				632A3E1B1073211200F8EADC /* PVRTexture.m in Sources */,
-				632A3EB61073260B00F8EADC /* Texture2D.m in Sources */,
+				632A3E1B1073211200F8EADC /* PVRTexture.mm in Sources */,
+				632A3EB61073260B00F8EADC /* Texture2D.mm in Sources */,
 				635C8EF21074761E002F9BB3 /* FileUtils.m in Sources */,
 				63E4F9FC107A2E8900FA74AE /* HardwareClock.cpp in Sources */,
 				63C557AB108CFA0200E77DBC /* Image.mm in Sources */,
@@ -1082,7 +1088,7 @@
 				GCC_PREFIX_HEADER = GandoEngine_Prefix.pch;
 				GCC_THUMB_SUPPORT = NO;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "GandoEngine-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

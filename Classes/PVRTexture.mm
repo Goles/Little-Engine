@@ -49,7 +49,7 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 
 #define PVR_TEXTURE_FLAG_TYPE_MASK	0xff
 
-static char gPVRTexIdentifier[4] = "PVR!";
+static char gPVRTexIdentifier[4] = "PVR";
 
 enum
 {
