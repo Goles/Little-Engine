@@ -35,14 +35,6 @@
                                         [NSNumber numberWithBool:FALSE], kEAGLDrawablePropertyRetainedBacking, kEAGLColorFormatRGB565, kEAGLDrawablePropertyColorFormat, nil];
 			
 		
-		int size;
-		ObjectA *a = new ObjectA();
-		a->methodA(size);
-		
-		
-		ObjectA *a = [ObjectA alloc];
-		[a methodA];
-		
 		if (!renderer)
 		{
 			renderer = [[ES1Renderer alloc] init];
