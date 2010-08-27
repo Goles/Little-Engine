@@ -11,9 +11,11 @@
 
 #import "ESRenderer.h"
 
-// This class wraps the CAEAGLLayer from CoreAnimation into a convenient UIView subclass.
-// The view content is basically an EAGL surface you render your OpenGL scene into.
-// Note that setting the view non-opaque will only work if the EAGL surface has an alpha channel.
+/** Wrapper class, sets the context in which an OpenGL scene will be rendered.
+@remarks
+    Setting the view non-opaque will only work if the EAGL surface has an alpha channel.
+*/
+
 @interface EAGLView : UIView
 {    
 @private
@@ -40,6 +42,7 @@
 @property (readonly, nonatomic, getter=isAnimating) BOOL animating;
 @property (nonatomic) NSInteger animationFrameInterval;
 
+/**Animation state toggles*/
 - (void) startAnimation;
 - (void) stopAnimation;
 

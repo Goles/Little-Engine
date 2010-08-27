@@ -20,6 +20,13 @@
 #include <string>
 #include <iostream>
 
+/** Image base class.
+    @remarks
+        Allows several initialization modes, such as passing a texture name, file name, or UIImage
+        The object's properties can be set and modified once the object is defined, through its setter methods.
+*/
+     
+
 typedef struct {
 	float tl_x, tl_y;
 	float tr_x, tr_y;
@@ -30,20 +37,42 @@ typedef struct {
 class Image
 {
 public:
-	//Constructor & destructor
+	/** Image Constructor
+	    @remarks
+	        Sets all coordinates and offsets to 0.
+	        Additionally, the texture can be initialized in various ways, using pre-loaded textures or files. */
+	            
 	Image();
 	
-	//Initializers
+	/**Initializer for pre-loaded textures
+    	@param inTexture Pointer to a Texture2D object.*/
 	void	initWithTexture2D(Texture2D *inTexture);
+	/** @param scale Optional scaling amount. */
 	void	initWithTexture2D(Texture2D *inTexture, float scale);
+	
+	/**Uses a file name to load texture data
+	    @param inTextureName file name containing texture data. */
 	void	initWithTextureFile(const std::string &inTextureName);
+	/** 	    @param scale Optional scaling amount */
 	void	initWithTextureFile(const std::string &textureName, float inScale);
+	/**Uses pre-loaded texture data. */
 	void	initWithUIImage(UIImage *inImage);
+	/** @param filter Optional GLFilter to apply. */
 	void	initWithUIImage(UIImage *inImage, GLenum filter);
+	/** @param inScale Optional scaling amount */
 	void	initWithUIImage(UIImage *inImage, float inScale, GLenum filter);	
 	
-	//Action Methods
-	Image*getSubImage(CGPoint point,  GLuint subImageWidth, GLuint subImageHeight, float subImageScale);
+	/** Crops an existing Image object.
+	    @param point Upper left corner of selected area.
+	    @param subImageWidth Width of selected area.
+	    @param subImageHeight Height of selected area.
+	    @param subImageScale Scaling factor for the resulting Image.	        
+	*/
+	Image *getSubImage(CGPoint point,  GLuint subImageWidth, GLuint subImageHeight, float subImageScale);
+	/**Renders the Image
+	    @param point Coordinates of a point.
+	    @param centerOfImage If set, point is the center of the image, else it's bottom left corner.
+	    
 	void	renderAtPoint(CGPoint point, BOOL centerOfImage);
 	void	renderSubImageAtPoint(CGPoint point, CGPoint offsetPoint, GLfloat subImageWidth, GLfloat subImageHeight, BOOL isCenterOfImage);
 	void	render(CGPoint point, Quad2* tc, Quad2* qv);
