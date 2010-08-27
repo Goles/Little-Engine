@@ -91,7 +91,6 @@ void Image::initWithTexture2D(Texture2D *inTexture, float inScale)
 	}else {
 		printf("Could not load texture when creating Image from Texture2D with scale: %f\n", inScale);
 	}
-
 }
 
 /*Does try to initialize an Image with a texture file*/
