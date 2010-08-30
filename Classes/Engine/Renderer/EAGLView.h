@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-
 #import "ESRenderer.h"
 
 // This class wraps the CAEAGLLayer from CoreAnimation into a convenient UIView subclass.
@@ -28,7 +27,6 @@
 	// The NSTimer class is used only as fallback when running on a pre 3.1 device where CADisplayLink
 	// isn't available.
 	id displayLink;
-    NSTimer *animationTimer;
 	
 	/*Other Stuff*/
 	CFTimeInterval lastTime;

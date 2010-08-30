@@ -6,9 +6,12 @@
 //  Copyright GandoGames 2009. All rights reserved.
 //
 
-varying lowp vec4 colorVarying;
+uniform sampler2D sampler;
+
+varying mediump vec2 texcoordVarying;
 
 void main()
 {
-	gl_FragColor = colorVarying;
+    gl_FragColor = texture2D(sampler, texcoordVarying);
 }
+

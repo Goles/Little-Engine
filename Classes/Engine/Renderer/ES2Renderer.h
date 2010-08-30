@@ -1,33 +1,49 @@
 //
 //  ES2Renderer.h
-//  Particles_2
+//  Texture Shader
 //
-//  Created by Nicolas Goles on 9/19/09.
-//  Copyright GandoGames 2009. All rights reserved.
+//  Created by Nicolas Goles on 6/10/10.
+//  Copyright 2010 GandoGames. All rights reserved.
 //
-
-#import "ESRenderer.h"
 
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 
+#include "ShaderVars.h"
+#include "ESRenderer.h"
+#include "Texture2D.h"
+#include "SceneManager.h"
+
 @interface ES2Renderer : NSObject <ESRenderer>
 {
 @private
-	EAGLContext *context;
+    //Context and init
+    EAGLContext *context;
+    BOOL scene_setup;
+    
+    // The pixel dimensions of the CAEAGLLayer
+    GLint backingWidth;
+    GLint backingHeight;
 	
-	// The pixel dimensions of the CAEAGLLayer
-	GLint backingWidth;
-	GLint backingHeight;
+    // The OpenGL ES names for the framebuffer and renderbuffer used to render to this view
+    GLuint defaultFramebuffer, colorRenderbuffer;
+    GLuint program;
+	uniforms *s_uniform;
+    
+    //Scene Transformation
+    GLfloat scene_transform_mat[16];
 	
-	// The OpenGL names for the framebuffer and renderbuffer used to render to this view
-	GLuint defaultFramebuffer, colorRenderbuffer;
+	//Game Scene Manager
+	SceneManager *gameSceneManager;
 	
-	GLuint program;
+    //Test Texture
+    Texture2D *aTexture;
 }
 
+- (void) initGame;
+- (BOOL) setupScene;
+- (void) update:(float)delta;
 - (void) render;
-- (void) update:(float) delta;
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer;
 
 @end
