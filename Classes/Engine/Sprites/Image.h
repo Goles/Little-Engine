@@ -24,6 +24,7 @@
     @remarks
         Allows several initialization modes, such as passing a texture name, file name, or UIImage
         The object's properties can be set and modified once the object is defined, through its setter methods.
+        Method "getSubImage" allows manipulation of SpriteSheet objects 
 */
      
 
@@ -44,60 +45,96 @@ public:
 	            
 	Image();
 	
-	/**Initializer for pre-loaded textures
+	/** Initializer for pre-loaded textures
     	@param inTexture Pointer to a Texture2D object.*/
 	void	initWithTexture2D(Texture2D *inTexture);
 	/** @param scale Optional scaling amount. */
 	void	initWithTexture2D(Texture2D *inTexture, float scale);
 	
-	/**Uses a file name to load texture data
+	/** Use a file name to load texture data
 	    @param inTextureName file name containing texture data. */
 	void	initWithTextureFile(const std::string &inTextureName);
 	/** 	    @param scale Optional scaling amount */
 	void	initWithTextureFile(const std::string &textureName, float inScale);
-	/**Uses pre-loaded texture data. */
+	/** Use pre-loaded texture data. */
 	void	initWithUIImage(UIImage *inImage);
 	/** @param filter Optional GLFilter to apply. */
 	void	initWithUIImage(UIImage *inImage, GLenum filter);
 	/** @param inScale Optional scaling amount */
 	void	initWithUIImage(UIImage *inImage, float inScale, GLenum filter);	
 	
-	/** Crops an existing Image object.
+	/** Crop an existing Image object to form a sub-image.
 	    @param point Upper left corner of selected area.
 	    @param subImageWidth Width of selected area.
 	    @param subImageHeight Height of selected area.
 	    @param subImageScale Scaling factor for the resulting Image.	        
 	*/
 	Image *getSubImage(CGPoint point,  GLuint subImageWidth, GLuint subImageHeight, float subImageScale);
-	/**Renders the Image
+
+	/** Renders the Image
 	    @param point Coordinates of a point.
 	    @param centerOfImage If set, point is the center of the image, else it's bottom left corner.
-	    
+	*/    
 	void	renderAtPoint(CGPoint point, BOOL centerOfImage);
+	/** Select and render a sub-image, using a point as corner or center position.
+	    @param point Render coordinates
+	    @param offsetPoint Upper left corner of selected area 
+	*/
 	void	renderSubImageAtPoint(CGPoint point, CGPoint offsetPoint, GLfloat subImageWidth, GLfloat subImageHeight, BOOL isCenterOfImage);
+    /** Render using texture coordinates and vertices
+        @param point Render coordinates
+        @param tc Texture Coordinates
+        @param qv Quad Vertices
+    */
 	void	render(CGPoint point, Quad2* tc, Quad2* qv);
+	/** Handles vertex calculations, storing results in Image.vertices[] malloc'd space. */
 	void	calculateVertices(CGPoint point, GLuint subImageWidth, GLuint subImageHeight, BOOL center);
+	/** Calculates vertex coordinates, storing results in Image.texCoords[] malloc'd space */
 	void	calculateTexCoordsAtOffset(CGPoint offsetPoint, GLuint subImageWidth, GLuint subImageHeight);
+    /** OpenGL bind(), GL tells the GPU to bind the texture. */
 	void	bind();
 	
 	// Setters
+	/** Applies a color filter to the Image object.
+	    @param Red 
+	    @param Green
+	    @param Blue 0.0 -> 1.0 Amout of color to apply
+	    @param alpha Transparency layer
+	*/ 
 	void setColorFilter(float Red, float Green, float Blue, float alpha);
+	/** Manually set the transparency amount */
 	void setAlpha(float alpha);
+	/** Manually set texture offset X coordinates */
 	void setTextureOffsetX(int inTextureOffset);
+	/** Manually set texture offset Y coordinates */
 	void setTextureOffsetY(int inTextureOffset);
+	/** Manually set Image Width */
 	void setImageWidth(GLuint inWidth);
+	/** Manually set Image Height */
 	void setImageHeight(GLuint inHeight);
+	/** Set rotation amount 
+	    @param inRotation Rotation amount, in degrees.
+	*/
 	void setRotation(float inRotation);
+	/** Modify the texture name */
 	void setTextureName(const std::string &inTextureName);
+	/** Sets the Horizontal Flip toggle */
 	void setFlipHorizontally(bool f) { flipHorizontally = f; }
+	/** Sets the Vertical Flip toggle */
 	void setFlipVertically(bool f) { flipVertically = f; }
 	
 	//Getters
+	/** Gets Image width */
 	int		getImageWidth();
+	/** Gets Image height */
 	int		getImageHeight();
+	/** Gets Image scale */
 	float		getScale();
+	/** Get texture coordinates */
 	Quad2*	getTexCoords();
+	/** Gets Image vertex list */
 	Quad2*	getVertex();
+	/** Gets the texture name */
 	std::string getTextureName();
 	
 protected:	
