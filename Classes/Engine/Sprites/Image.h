@@ -149,17 +149,17 @@ private:
 	int			imageHeight;
 	int			textureWidth;
 	int			textureHeight;
-	float			maxTexWidth;
-	float			maxTexHeight;
-	float			texWidthRatio;
-	float			texHeightRatio;
+	float		maxTexWidth;
+	float		maxTexHeight;
+	float		texWidthRatio;
+	float		texHeightRatio;
 	int			textureOffsetX;
 	int			textureOffsetY;
-	float			rotation;
-	float			scale;
-	bool			flipHorizontally;
-	bool			flipVertically;
-	float			colourFilter[4];
+	float		rotation;
+	float		scale;
+	bool		flipHorizontally;
+	bool		flipVertically;
+	float		colourFilter[4];
 	
 	// Vertex arrays
 	Quad2		*vertices;
