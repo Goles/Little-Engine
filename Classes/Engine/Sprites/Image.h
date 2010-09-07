@@ -24,7 +24,7 @@
     @remarks
         Allows several initialization modes, such as passing a texture name, file name, or UIImage
         The object's properties can be set and modified once the object is defined, through its setter methods.
-        Method "getSubImage" allows manipulation of SpriteSheet objects 
+        Method "getSubImage" allows manipulation of SpriteSheet objects
 */
      
 
