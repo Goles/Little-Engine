@@ -9,7 +9,7 @@
 /*
  *	Coded in C++ to start avoiding the Objective-C overhead. Still Texture2D is in Obj-C but as a future 
 	project it should be ported to pure C++ to reduce the overhead of the class.
- *
+ *  Test!
  *	_NG
  */
 
