@@ -91,10 +91,6 @@ void Image::initWithTexture2D(Texture2D *inTexture, float inScale)
 	}else {
 		printf("Could not load texture when creating Image from Texture2D with scale: %f\n", inScale);
 	}
-<<<<<<< HEAD
-	
-=======
->>>>>>> 129ee07e3cf6e783912ec1cc86a33dfec6417c1a
 }
 
 /*Does try to initialize an Image with a texture file*/
@@ -118,7 +114,7 @@ void Image::initWithTextureFile(const std::string &inTextureName)
 void Image::initWithTextureFile(const std::string &inTextureName, float imageScale)
 {	
 	Texture2D *imTexture = TEXTURE_MANAGER->createTexture(inTextureName);
-	
+
 	if(imTexture)
 	{
 		texture = imTexture;
@@ -219,7 +215,7 @@ Image* Image::getSubImage(CGPoint inPoint,  GLuint inSubImageWidth, GLuint inSub
 	
 	// Set the rotatoin of the subImage to match the current images rotation
 	subImage->setRotation(rotation);
-	
+
 	return subImage;
 }
 
@@ -259,8 +255,8 @@ void Image::renderAtPoint(CGPoint point, BOOL center)
 {
 	CGPoint offsetPoint = CGPointMake(textureOffsetX, textureOffsetY);
 	
-	this->calculateVertices(point, imageWidth, imageHeight, center);
-	this->calculateTexCoordsAtOffset(offsetPoint, imageWidth, imageHeight);
+	calculateVertices(point, imageWidth, imageHeight, center);
+	calculateTexCoordsAtOffset(offsetPoint, imageWidth, imageHeight);
 	
 	render(point, texCoords, vertices);
 }
@@ -279,41 +275,12 @@ void Image::renderSubImageAtPoint(CGPoint point, CGPoint offsetPoint, GLfloat su
 void Image::render(CGPoint point, Quad2* tc, Quad2* qv)
 {		   
 	// Save the current matrix to the stack
-	//glPushMatrix();
+	glPushMatrix();
 	
-	//Translate the image
-	GLfloat translatef[16] = {
-		1, 0, 0, point.x,
-	    0, 1, 0, point.y,
-		0, 0, 1, 0,
-		0, 0, 0, 0,
-	};
-	
-	// This should normalize rotation.
-	
-	float c = cosf(-rotation);
-	float s = sinf(-rotation);
-	
-	// Rotate around the Z axis by the angle defined for this image	
-	//see man glRotate to understand this rotation matrix around vector 0,0,1
-	GLfloat rotatef[16] = {
-		c, -s,  0,					0,
-		s,	c,  0,					0,
-		0,	0,  (1*(1.0f - c) + c),	0,
-		0,  0,  0,					1,
-	};
-	
-	//Re-position the image.
-	GLfloat translatef_2[16] = {
-		1, 0, 0, -point.x,
-	    0, 1, 0, -point.y,
-		0, 0, 1, 0,
-		0, 0, 0, 0,
-	};
-	
-	//	glTranslatef(point.x, point.y, 0);
-	//	glRotatef(-rotation, 0.0f, 0.0f, 1.0f);
-	//	glTranslatef(-point.x, -point.y, 0);
+	// Rotate around the Z axis by the angle defined for this image
+	glTranslatef(point.x, point.y, 0);
+	glRotatef(-rotation, 0.0f, 0.0f, 1.0f);
+	glTranslatef(-point.x, -point.y, 0);
 	
 	// Set the glColor to apply alpha to the image
 	glColor4f(colourFilter[0], colourFilter[1], colourFilter[2], colourFilter[3]);
