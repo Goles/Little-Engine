@@ -22,6 +22,13 @@ void gecHealthHuman::update(float delta)
 }
 
 #pragma mark -
+#pragma mark To registrate with Lua.
+static void registrate(void)
+{
+	
+}
+
+#pragma mark -
 #pragma mark CompHealth Inteface
 void gecHealthHuman::removeHealth(const int removed_health)
 {

@@ -24,6 +24,9 @@ public:
 	virtual const gec_id_type &componentID() const { return mGECTypeID; }
 	virtual void update(float delta);
 	
+	//To register with Lua.
+	static void registrate(void);
+	
 	//Private Atributes.
 private:
 	static gec_id_type mGECTypeID;

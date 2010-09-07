@@ -33,7 +33,7 @@ namespace luabind { namespace detail {
 
     LUABIND_API void push_instance_metatable(lua_State* L);
 
-    namespace {
+		//DELETED NAMESPACE UNNAMED to FIX XCODE LINKING ERROR
 
         int create_cpp_class_metatable(lua_State* L)
         {
@@ -104,7 +104,6 @@ namespace luabind { namespace detail {
             return luaL_ref(L, LUA_REGISTRYINDEX);
         }
 
-    } // namespace unnamed
 
     class class_rep;
 
