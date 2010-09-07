@@ -7,6 +7,7 @@
 //
 
 #import "Particles_2AppDelegate.h"
+#include "ggEngine.h"
 #import "EAGLView.h"
 
 @implementation Particles_2AppDelegate
@@ -16,6 +17,7 @@
 
 - (void) applicationDidFinishLaunching:(UIApplication *)application
 {
+	gg::init();
 	[glView startAnimation];
 }
 

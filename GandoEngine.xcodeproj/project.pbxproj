@@ -161,6 +161,8 @@
 		14A85490122B085500615BF4 /* GLES-Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14A8548A122B085500615BF4 /* GLES-Render.cpp */; };
 		14A85491122B085500615BF4 /* GandoBox2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14A8548D122B085500615BF4 /* GandoBox2D.mm */; };
 		14A85492122B085500615BF4 /* GContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14A8548F122B085500615BF4 /* GContactListener.mm */; };
+		14AC58431235A88400173BEC /* LuaRegisterManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14AC58411235A88400173BEC /* LuaRegisterManager.cpp */; };
+		14AC59481235B5D400173BEC /* libLuabind.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A609991227704600F41A4E /* libLuabind.a */; };
 		14E31418121E47E200917795 /* CompBehaviour.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E3135B121E47E100917795 /* CompBehaviour.mm */; };
 		14E31419121E47E200917795 /* gecFSM.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E3135D121E47E100917795 /* gecFSM.mm */; };
 		14E3141A121E47E200917795 /* CompCollision.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31360121E47E100917795 /* CompCollision.mm */; };
@@ -236,7 +238,7 @@
 		14E31463121E47E200917795 /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E31411121E47E200917795 /* FileUtils.m */; };
 		14E31464121E47E200917795 /* HardwareClock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14E31412121E47E200917795 /* HardwareClock.cpp */; };
 		14E31465121E47E200917795 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E31415121E47E200917795 /* main.m */; };
-		14E31466121E47E200917795 /* Particles_2AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E31417121E47E200917795 /* Particles_2AppDelegate.m */; };
+		14E31466121E47E200917795 /* Particles_2AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31417121E47E200917795 /* Particles_2AppDelegate.mm */; };
 		14E31488121E47FE00917795 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14E31469121E47FE00917795 /* MainWindow.xib */; };
 		14E31489121E47FE00917795 /* backgroundDummy.png in Resources */ = {isa = PBXBuildFile; fileRef = 14E3146B121E47FE00917795 /* backgroundDummy.png */; };
 		14E3148A121E47FE00917795 /* brolyLightUltima.png in Resources */ = {isa = PBXBuildFile; fileRef = 14E3146C121E47FE00917795 /* brolyLightUltima.png */; };
@@ -350,87 +352,87 @@
 		14A6095512276F6E00F41A4E /* lzio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lzio.c; path = "lua-5.1.4/src/lzio.c"; sourceTree = "<group>"; };
 		14A6095612276F6E00F41A4E /* lzio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lzio.h; path = "lua-5.1.4/src/lzio.h"; sourceTree = "<group>"; };
 		14A609991227704600F41A4E /* libLuabind.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLuabind.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		14A6099E1227707200F41A4E /* adopt_policy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = adopt_policy.hpp; sourceTree = "<group>"; };
-		14A6099F1227707200F41A4E /* back_reference.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = back_reference.hpp; sourceTree = "<group>"; };
-		14A609A01227707200F41A4E /* back_reference_fwd.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = back_reference_fwd.hpp; sourceTree = "<group>"; };
-		14A609A11227707200F41A4E /* class.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = class.hpp; sourceTree = "<group>"; };
-		14A609A21227707200F41A4E /* class_info.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = class_info.hpp; sourceTree = "<group>"; };
-		14A609A31227707200F41A4E /* config.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = config.hpp; sourceTree = "<group>"; };
-		14A609A41227707200F41A4E /* container_policy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = container_policy.hpp; sourceTree = "<group>"; };
-		14A609A51227707200F41A4E /* copy_policy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = copy_policy.hpp; sourceTree = "<group>"; };
-		14A609A61227707200F41A4E /* dependency_policy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = dependency_policy.hpp; sourceTree = "<group>"; };
-		14A609A81227707200F41A4E /* calc_arity.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = calc_arity.hpp; sourceTree = "<group>"; };
-		14A609A91227707200F41A4E /* call.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = call.hpp; sourceTree = "<group>"; };
-		14A609AA1227707200F41A4E /* call_function.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = call_function.hpp; sourceTree = "<group>"; };
-		14A609AB1227707200F41A4E /* call_member.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = call_member.hpp; sourceTree = "<group>"; };
-		14A609AC1227707200F41A4E /* call_operator_iterate.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = call_operator_iterate.hpp; sourceTree = "<group>"; };
-		14A609AD1227707200F41A4E /* class_cache.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = class_cache.hpp; sourceTree = "<group>"; };
-		14A609AE1227707200F41A4E /* class_registry.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = class_registry.hpp; sourceTree = "<group>"; };
-		14A609AF1227707200F41A4E /* class_rep.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = class_rep.hpp; sourceTree = "<group>"; };
-		14A609B01227707200F41A4E /* compute_score.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = compute_score.hpp; sourceTree = "<group>"; };
-		14A609B11227707200F41A4E /* constructor.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = constructor.hpp; sourceTree = "<group>"; };
-		14A609B21227707200F41A4E /* conversion_storage.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = conversion_storage.hpp; sourceTree = "<group>"; };
-		14A609B31227707200F41A4E /* convert_to_lua.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = convert_to_lua.hpp; sourceTree = "<group>"; };
-		14A609B41227707200F41A4E /* debug.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = debug.hpp; sourceTree = "<group>"; };
-		14A609B51227707200F41A4E /* decorate_type.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = decorate_type.hpp; sourceTree = "<group>"; };
-		14A609B61227707200F41A4E /* deduce_signature.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = deduce_signature.hpp; sourceTree = "<group>"; };
-		14A609B71227707200F41A4E /* enum_maker.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = enum_maker.hpp; sourceTree = "<group>"; };
-		14A609B81227707200F41A4E /* format_signature.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = format_signature.hpp; sourceTree = "<group>"; };
-		14A609B91227707200F41A4E /* garbage_collector.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = garbage_collector.hpp; sourceTree = "<group>"; };
-		14A609BA1227707200F41A4E /* get_signature.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = get_signature.hpp; sourceTree = "<group>"; };
-		14A609BB1227707200F41A4E /* has_get_pointer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = has_get_pointer.hpp; sourceTree = "<group>"; };
-		14A609BC1227707200F41A4E /* inheritance.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = inheritance.hpp; sourceTree = "<group>"; };
-		14A609BD1227707200F41A4E /* instance_holder.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = instance_holder.hpp; sourceTree = "<group>"; };
-		14A609BE1227707200F41A4E /* is_indirect_const.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = is_indirect_const.hpp; sourceTree = "<group>"; };
-		14A609BF1227707200F41A4E /* link_compatibility.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = link_compatibility.hpp; sourceTree = "<group>"; };
-		14A609C01227707200F41A4E /* make_instance.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = make_instance.hpp; sourceTree = "<group>"; };
-		14A609C11227707200F41A4E /* most_derived.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = most_derived.hpp; sourceTree = "<group>"; };
-		14A609C21227707200F41A4E /* object_call.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = object_call.hpp; sourceTree = "<group>"; };
-		14A609C31227707200F41A4E /* object_funs.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = object_funs.hpp; sourceTree = "<group>"; };
-		14A609C41227707200F41A4E /* object_rep.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = object_rep.hpp; sourceTree = "<group>"; };
-		14A609C51227707200F41A4E /* open.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = open.hpp; sourceTree = "<group>"; };
-		14A609C61227707200F41A4E /* operator_id.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = operator_id.hpp; sourceTree = "<group>"; };
-		14A609C71227707200F41A4E /* other.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = other.hpp; sourceTree = "<group>"; };
-		14A609C81227707200F41A4E /* pcall.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pcall.hpp; sourceTree = "<group>"; };
-		14A609C91227707200F41A4E /* pointee_sizeof.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pointee_sizeof.hpp; sourceTree = "<group>"; };
-		14A609CA1227707200F41A4E /* pointee_typeid.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pointee_typeid.hpp; sourceTree = "<group>"; };
-		14A609CB1227707200F41A4E /* policy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = policy.hpp; sourceTree = "<group>"; };
-		14A609CC1227707200F41A4E /* primitives.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = primitives.hpp; sourceTree = "<group>"; };
-		14A609CD1227707200F41A4E /* property.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = property.hpp; sourceTree = "<group>"; };
-		14A609CE1227707200F41A4E /* ref.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ref.hpp; sourceTree = "<group>"; };
-		14A609CF1227707200F41A4E /* signature_match.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = signature_match.hpp; sourceTree = "<group>"; };
-		14A609D01227707200F41A4E /* stack_utils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = stack_utils.hpp; sourceTree = "<group>"; };
-		14A609D11227707200F41A4E /* typetraits.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = typetraits.hpp; sourceTree = "<group>"; };
-		14A609D21227707200F41A4E /* yes_no.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = yes_no.hpp; sourceTree = "<group>"; };
-		14A609D31227707200F41A4E /* discard_result_policy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = discard_result_policy.hpp; sourceTree = "<group>"; };
-		14A609D41227707200F41A4E /* error.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = error.hpp; sourceTree = "<group>"; };
-		14A609D51227707200F41A4E /* exception_handler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = exception_handler.hpp; sourceTree = "<group>"; };
-		14A609D61227707200F41A4E /* from_stack.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = from_stack.hpp; sourceTree = "<group>"; };
-		14A609D71227707200F41A4E /* function.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = function.hpp; sourceTree = "<group>"; };
-		14A609D81227707200F41A4E /* get_main_thread.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = get_main_thread.hpp; sourceTree = "<group>"; };
-		14A609D91227707200F41A4E /* get_pointer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = get_pointer.hpp; sourceTree = "<group>"; };
-		14A609DA1227707200F41A4E /* handle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = handle.hpp; sourceTree = "<group>"; };
-		14A609DB1227707200F41A4E /* iterator_policy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = iterator_policy.hpp; sourceTree = "<group>"; };
-		14A609DC1227707200F41A4E /* lua_include.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = lua_include.hpp; sourceTree = "<group>"; };
-		14A609DD1227707200F41A4E /* luabind.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = luabind.hpp; sourceTree = "<group>"; };
-		14A609DE1227707200F41A4E /* make_function.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = make_function.hpp; sourceTree = "<group>"; };
-		14A609DF1227707200F41A4E /* nil.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = nil.hpp; sourceTree = "<group>"; };
-		14A609E01227707200F41A4E /* object.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = object.hpp; sourceTree = "<group>"; };
-		14A609E11227707200F41A4E /* open.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = open.hpp; sourceTree = "<group>"; };
-		14A609E21227707200F41A4E /* operator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = operator.hpp; sourceTree = "<group>"; };
-		14A609E31227707200F41A4E /* out_value_policy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = out_value_policy.hpp; sourceTree = "<group>"; };
-		14A609E41227707200F41A4E /* prefix.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = prefix.hpp; sourceTree = "<group>"; };
-		14A609E51227707200F41A4E /* raw_policy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = raw_policy.hpp; sourceTree = "<group>"; };
-		14A609E61227707200F41A4E /* return_reference_to_policy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = return_reference_to_policy.hpp; sourceTree = "<group>"; };
-		14A609E71227707200F41A4E /* scope.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = scope.hpp; sourceTree = "<group>"; };
-		14A609E81227707200F41A4E /* shared_ptr_converter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = shared_ptr_converter.hpp; sourceTree = "<group>"; };
-		14A609E91227707200F41A4E /* tag_function.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tag_function.hpp; sourceTree = "<group>"; };
-		14A609EA1227707200F41A4E /* typeid.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = typeid.hpp; sourceTree = "<group>"; };
-		14A609EB1227707200F41A4E /* value_wrapper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = value_wrapper.hpp; sourceTree = "<group>"; };
-		14A609EC1227707200F41A4E /* version.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = version.hpp; sourceTree = "<group>"; };
-		14A609ED1227707200F41A4E /* weak_ref.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = weak_ref.hpp; sourceTree = "<group>"; };
-		14A609EE1227707200F41A4E /* wrapper_base.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = wrapper_base.hpp; sourceTree = "<group>"; };
-		14A609EF1227707200F41A4E /* yield_policy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = yield_policy.hpp; sourceTree = "<group>"; };
+		14A6099E1227707200F41A4E /* adopt_policy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = adopt_policy.hpp; path = Classes/Engine/Middleware/Luabind/luabind/adopt_policy.hpp; sourceTree = SOURCE_ROOT; };
+		14A6099F1227707200F41A4E /* back_reference.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = back_reference.hpp; path = Classes/Engine/Middleware/Luabind/luabind/back_reference.hpp; sourceTree = SOURCE_ROOT; };
+		14A609A01227707200F41A4E /* back_reference_fwd.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = back_reference_fwd.hpp; path = Classes/Engine/Middleware/Luabind/luabind/back_reference_fwd.hpp; sourceTree = SOURCE_ROOT; };
+		14A609A11227707200F41A4E /* class.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = class.hpp; path = Classes/Engine/Middleware/Luabind/luabind/class.hpp; sourceTree = SOURCE_ROOT; };
+		14A609A21227707200F41A4E /* class_info.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = class_info.hpp; path = Classes/Engine/Middleware/Luabind/luabind/class_info.hpp; sourceTree = SOURCE_ROOT; };
+		14A609A31227707200F41A4E /* config.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = config.hpp; path = Classes/Engine/Middleware/Luabind/luabind/config.hpp; sourceTree = SOURCE_ROOT; };
+		14A609A41227707200F41A4E /* container_policy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = container_policy.hpp; path = Classes/Engine/Middleware/Luabind/luabind/container_policy.hpp; sourceTree = SOURCE_ROOT; };
+		14A609A51227707200F41A4E /* copy_policy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = copy_policy.hpp; path = Classes/Engine/Middleware/Luabind/luabind/copy_policy.hpp; sourceTree = SOURCE_ROOT; };
+		14A609A61227707200F41A4E /* dependency_policy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = dependency_policy.hpp; path = Classes/Engine/Middleware/Luabind/luabind/dependency_policy.hpp; sourceTree = SOURCE_ROOT; };
+		14A609A81227707200F41A4E /* calc_arity.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = calc_arity.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/calc_arity.hpp; sourceTree = SOURCE_ROOT; };
+		14A609A91227707200F41A4E /* call.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = call.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/call.hpp; sourceTree = SOURCE_ROOT; };
+		14A609AA1227707200F41A4E /* call_function.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = call_function.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/call_function.hpp; sourceTree = SOURCE_ROOT; };
+		14A609AB1227707200F41A4E /* call_member.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = call_member.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/call_member.hpp; sourceTree = SOURCE_ROOT; };
+		14A609AC1227707200F41A4E /* call_operator_iterate.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = call_operator_iterate.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/call_operator_iterate.hpp; sourceTree = SOURCE_ROOT; };
+		14A609AD1227707200F41A4E /* class_cache.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = class_cache.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/class_cache.hpp; sourceTree = SOURCE_ROOT; };
+		14A609AE1227707200F41A4E /* class_registry.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = class_registry.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/class_registry.hpp; sourceTree = SOURCE_ROOT; };
+		14A609AF1227707200F41A4E /* class_rep.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = class_rep.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/class_rep.hpp; sourceTree = SOURCE_ROOT; };
+		14A609B01227707200F41A4E /* compute_score.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = compute_score.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/compute_score.hpp; sourceTree = SOURCE_ROOT; };
+		14A609B11227707200F41A4E /* constructor.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = constructor.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/constructor.hpp; sourceTree = SOURCE_ROOT; };
+		14A609B21227707200F41A4E /* conversion_storage.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = conversion_storage.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/conversion_storage.hpp; sourceTree = SOURCE_ROOT; };
+		14A609B31227707200F41A4E /* convert_to_lua.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = convert_to_lua.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/convert_to_lua.hpp; sourceTree = SOURCE_ROOT; };
+		14A609B41227707200F41A4E /* debug.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = debug.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/debug.hpp; sourceTree = SOURCE_ROOT; };
+		14A609B51227707200F41A4E /* decorate_type.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = decorate_type.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/decorate_type.hpp; sourceTree = SOURCE_ROOT; };
+		14A609B61227707200F41A4E /* deduce_signature.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = deduce_signature.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/deduce_signature.hpp; sourceTree = SOURCE_ROOT; };
+		14A609B71227707200F41A4E /* enum_maker.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = enum_maker.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/enum_maker.hpp; sourceTree = SOURCE_ROOT; };
+		14A609B81227707200F41A4E /* format_signature.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = format_signature.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/format_signature.hpp; sourceTree = SOURCE_ROOT; };
+		14A609B91227707200F41A4E /* garbage_collector.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = garbage_collector.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/garbage_collector.hpp; sourceTree = SOURCE_ROOT; };
+		14A609BA1227707200F41A4E /* get_signature.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = get_signature.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/get_signature.hpp; sourceTree = SOURCE_ROOT; };
+		14A609BB1227707200F41A4E /* has_get_pointer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = has_get_pointer.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/has_get_pointer.hpp; sourceTree = SOURCE_ROOT; };
+		14A609BC1227707200F41A4E /* inheritance.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = inheritance.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/inheritance.hpp; sourceTree = SOURCE_ROOT; };
+		14A609BD1227707200F41A4E /* instance_holder.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = instance_holder.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/instance_holder.hpp; sourceTree = SOURCE_ROOT; };
+		14A609BE1227707200F41A4E /* is_indirect_const.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = is_indirect_const.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/is_indirect_const.hpp; sourceTree = SOURCE_ROOT; };
+		14A609BF1227707200F41A4E /* link_compatibility.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = link_compatibility.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/link_compatibility.hpp; sourceTree = SOURCE_ROOT; };
+		14A609C01227707200F41A4E /* make_instance.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = make_instance.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/make_instance.hpp; sourceTree = SOURCE_ROOT; };
+		14A609C11227707200F41A4E /* most_derived.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = most_derived.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/most_derived.hpp; sourceTree = SOURCE_ROOT; };
+		14A609C21227707200F41A4E /* object_call.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = object_call.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/object_call.hpp; sourceTree = SOURCE_ROOT; };
+		14A609C31227707200F41A4E /* object_funs.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = object_funs.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/object_funs.hpp; sourceTree = SOURCE_ROOT; };
+		14A609C41227707200F41A4E /* object_rep.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = object_rep.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/object_rep.hpp; sourceTree = SOURCE_ROOT; };
+		14A609C51227707200F41A4E /* open.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = open.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/open.hpp; sourceTree = SOURCE_ROOT; };
+		14A609C61227707200F41A4E /* operator_id.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = operator_id.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/operator_id.hpp; sourceTree = SOURCE_ROOT; };
+		14A609C71227707200F41A4E /* other.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = other.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/other.hpp; sourceTree = SOURCE_ROOT; };
+		14A609C81227707200F41A4E /* pcall.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = pcall.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/pcall.hpp; sourceTree = SOURCE_ROOT; };
+		14A609C91227707200F41A4E /* pointee_sizeof.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = pointee_sizeof.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/pointee_sizeof.hpp; sourceTree = SOURCE_ROOT; };
+		14A609CA1227707200F41A4E /* pointee_typeid.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = pointee_typeid.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/pointee_typeid.hpp; sourceTree = SOURCE_ROOT; };
+		14A609CB1227707200F41A4E /* policy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = policy.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/policy.hpp; sourceTree = SOURCE_ROOT; };
+		14A609CC1227707200F41A4E /* primitives.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = primitives.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/primitives.hpp; sourceTree = SOURCE_ROOT; };
+		14A609CD1227707200F41A4E /* property.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = property.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/property.hpp; sourceTree = SOURCE_ROOT; };
+		14A609CE1227707200F41A4E /* ref.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ref.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/ref.hpp; sourceTree = SOURCE_ROOT; };
+		14A609CF1227707200F41A4E /* signature_match.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = signature_match.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/signature_match.hpp; sourceTree = SOURCE_ROOT; };
+		14A609D01227707200F41A4E /* stack_utils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = stack_utils.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/stack_utils.hpp; sourceTree = SOURCE_ROOT; };
+		14A609D11227707200F41A4E /* typetraits.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = typetraits.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/typetraits.hpp; sourceTree = SOURCE_ROOT; };
+		14A609D21227707200F41A4E /* yes_no.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = yes_no.hpp; path = Classes/Engine/Middleware/Luabind/luabind/detail/yes_no.hpp; sourceTree = SOURCE_ROOT; };
+		14A609D31227707200F41A4E /* discard_result_policy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = discard_result_policy.hpp; path = Classes/Engine/Middleware/Luabind/luabind/discard_result_policy.hpp; sourceTree = SOURCE_ROOT; };
+		14A609D41227707200F41A4E /* error.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = error.hpp; path = Classes/Engine/Middleware/Luabind/luabind/error.hpp; sourceTree = SOURCE_ROOT; };
+		14A609D51227707200F41A4E /* exception_handler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = exception_handler.hpp; path = Classes/Engine/Middleware/Luabind/luabind/exception_handler.hpp; sourceTree = SOURCE_ROOT; };
+		14A609D61227707200F41A4E /* from_stack.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = from_stack.hpp; path = Classes/Engine/Middleware/Luabind/luabind/from_stack.hpp; sourceTree = SOURCE_ROOT; };
+		14A609D71227707200F41A4E /* function.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = function.hpp; path = Classes/Engine/Middleware/Luabind/luabind/function.hpp; sourceTree = SOURCE_ROOT; };
+		14A609D81227707200F41A4E /* get_main_thread.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = get_main_thread.hpp; path = Classes/Engine/Middleware/Luabind/luabind/get_main_thread.hpp; sourceTree = SOURCE_ROOT; };
+		14A609D91227707200F41A4E /* get_pointer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = get_pointer.hpp; path = Classes/Engine/Middleware/Luabind/luabind/get_pointer.hpp; sourceTree = SOURCE_ROOT; };
+		14A609DA1227707200F41A4E /* handle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = handle.hpp; path = Classes/Engine/Middleware/Luabind/luabind/handle.hpp; sourceTree = SOURCE_ROOT; };
+		14A609DB1227707200F41A4E /* iterator_policy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = iterator_policy.hpp; path = Classes/Engine/Middleware/Luabind/luabind/iterator_policy.hpp; sourceTree = SOURCE_ROOT; };
+		14A609DC1227707200F41A4E /* lua_include.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = lua_include.hpp; path = Classes/Engine/Middleware/Luabind/luabind/lua_include.hpp; sourceTree = SOURCE_ROOT; };
+		14A609DD1227707200F41A4E /* luabind.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = luabind.hpp; path = Classes/Engine/Middleware/Luabind/luabind/luabind.hpp; sourceTree = SOURCE_ROOT; };
+		14A609DE1227707200F41A4E /* make_function.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = make_function.hpp; path = Classes/Engine/Middleware/Luabind/luabind/make_function.hpp; sourceTree = SOURCE_ROOT; };
+		14A609DF1227707200F41A4E /* nil.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = nil.hpp; path = Classes/Engine/Middleware/Luabind/luabind/nil.hpp; sourceTree = SOURCE_ROOT; };
+		14A609E01227707200F41A4E /* object.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = object.hpp; path = Classes/Engine/Middleware/Luabind/luabind/object.hpp; sourceTree = SOURCE_ROOT; };
+		14A609E11227707200F41A4E /* open.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = open.hpp; path = Classes/Engine/Middleware/Luabind/luabind/open.hpp; sourceTree = SOURCE_ROOT; };
+		14A609E21227707200F41A4E /* operator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = operator.hpp; path = Classes/Engine/Middleware/Luabind/luabind/operator.hpp; sourceTree = SOURCE_ROOT; };
+		14A609E31227707200F41A4E /* out_value_policy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = out_value_policy.hpp; path = Classes/Engine/Middleware/Luabind/luabind/out_value_policy.hpp; sourceTree = SOURCE_ROOT; };
+		14A609E41227707200F41A4E /* prefix.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = prefix.hpp; path = Classes/Engine/Middleware/Luabind/luabind/prefix.hpp; sourceTree = SOURCE_ROOT; };
+		14A609E51227707200F41A4E /* raw_policy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = raw_policy.hpp; path = Classes/Engine/Middleware/Luabind/luabind/raw_policy.hpp; sourceTree = SOURCE_ROOT; };
+		14A609E61227707200F41A4E /* return_reference_to_policy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = return_reference_to_policy.hpp; path = Classes/Engine/Middleware/Luabind/luabind/return_reference_to_policy.hpp; sourceTree = SOURCE_ROOT; };
+		14A609E71227707200F41A4E /* scope.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = scope.hpp; path = Classes/Engine/Middleware/Luabind/luabind/scope.hpp; sourceTree = SOURCE_ROOT; };
+		14A609E81227707200F41A4E /* shared_ptr_converter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = shared_ptr_converter.hpp; path = Classes/Engine/Middleware/Luabind/luabind/shared_ptr_converter.hpp; sourceTree = SOURCE_ROOT; };
+		14A609E91227707200F41A4E /* tag_function.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = tag_function.hpp; path = Classes/Engine/Middleware/Luabind/luabind/tag_function.hpp; sourceTree = SOURCE_ROOT; };
+		14A609EA1227707200F41A4E /* typeid.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = typeid.hpp; path = Classes/Engine/Middleware/Luabind/luabind/typeid.hpp; sourceTree = SOURCE_ROOT; };
+		14A609EB1227707200F41A4E /* value_wrapper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = value_wrapper.hpp; path = Classes/Engine/Middleware/Luabind/luabind/value_wrapper.hpp; sourceTree = SOURCE_ROOT; };
+		14A609EC1227707200F41A4E /* version.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = version.hpp; path = Classes/Engine/Middleware/Luabind/luabind/version.hpp; sourceTree = SOURCE_ROOT; };
+		14A609ED1227707200F41A4E /* weak_ref.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = weak_ref.hpp; path = Classes/Engine/Middleware/Luabind/luabind/weak_ref.hpp; sourceTree = SOURCE_ROOT; };
+		14A609EE1227707200F41A4E /* wrapper_base.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = wrapper_base.hpp; path = Classes/Engine/Middleware/Luabind/luabind/wrapper_base.hpp; sourceTree = SOURCE_ROOT; };
+		14A609EF1227707200F41A4E /* yield_policy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = yield_policy.hpp; path = Classes/Engine/Middleware/Luabind/luabind/yield_policy.hpp; sourceTree = SOURCE_ROOT; };
 		14A609F11227707200F41A4E /* class.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = class.cpp; sourceTree = "<group>"; };
 		14A609F21227707200F41A4E /* class_info.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = class_info.cpp; sourceTree = "<group>"; };
 		14A609F31227707200F41A4E /* class_registry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = class_registry.cpp; sourceTree = "<group>"; };
@@ -455,7 +457,9 @@
 		14A8548D122B085500615BF4 /* GandoBox2D.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GandoBox2D.mm; path = Box2D_EnginePlug/GandoBox2D.mm; sourceTree = "<group>"; };
 		14A8548E122B085500615BF4 /* GContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GContactListener.h; path = Box2D_EnginePlug/GContactListener.h; sourceTree = "<group>"; };
 		14A8548F122B085500615BF4 /* GContactListener.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GContactListener.mm; path = Box2D_EnginePlug/GContactListener.mm; sourceTree = "<group>"; };
-		14A85496122B0D6A00615BF4 /* GLuaInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLuaInterface.h; sourceTree = "<group>"; };
+		14AC58411235A88400173BEC /* LuaRegisterManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LuaRegisterManager.cpp; sourceTree = "<group>"; };
+		14AC58421235A88400173BEC /* LuaRegisterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaRegisterManager.h; sourceTree = "<group>"; };
+		14AC587E1235ABCC00173BEC /* ggEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ggEngine.h; sourceTree = "<group>"; };
 		14E31358121E47E100917795 /* BehaviourActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BehaviourActions.h; sourceTree = "<group>"; };
 		14E31359121E47E100917795 /* BehaviourStates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BehaviourStates.h; sourceTree = "<group>"; };
 		14E3135A121E47E100917795 /* CompBehaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompBehaviour.h; sourceTree = "<group>"; };
@@ -616,7 +620,7 @@
 		14E31414121E47E200917795 /* VectorList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VectorList.h; sourceTree = "<group>"; };
 		14E31415121E47E200917795 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		14E31416121E47E200917795 /* Particles_2AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particles_2AppDelegate.h; sourceTree = "<group>"; };
-		14E31417121E47E200917795 /* Particles_2AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Particles_2AppDelegate.m; sourceTree = "<group>"; };
+		14E31417121E47E200917795 /* Particles_2AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Particles_2AppDelegate.mm; sourceTree = "<group>"; };
 		14E31467121E47FE00917795 /* GandoEngine_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GandoEngine_Prefix.pch; sourceTree = "<group>"; };
 		14E31468121E47FE00917795 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14E31469121E47FE00917795 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
@@ -682,6 +686,7 @@
 				14FB89F0121E4ADB00E1B242 /* Foundation.framework in Frameworks */,
 				14FB89F4121E4AEF00E1B242 /* libboost_signals.a in Frameworks */,
 				14A6098D12276FA000F41A4E /* libLua.a in Frameworks */,
+				14AC59481235B5D400173BEC /* libLuabind.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -694,8 +699,9 @@
 				14A6099D1227707200F41A4E /* luabind */,
 				14A609F01227707200F41A4E /* src */,
 			);
-			path = Luabind;
-			sourceTree = "<group>";
+			name = Luabind;
+			path = Classes/Engine/Middleware/Luabind;
+			sourceTree = SOURCE_ROOT;
 		};
 		14A6092212276F1000F41A4E /* Lua */ = {
 			isa = PBXGroup;
@@ -759,6 +765,8 @@
 		14A6099D1227707200F41A4E /* luabind */ = {
 			isa = PBXGroup;
 			children = (
+				14A609A71227707200F41A4E /* detail */,
+				14A609DC1227707200F41A4E /* lua_include.hpp */,
 				14A6099E1227707200F41A4E /* adopt_policy.hpp */,
 				14A6099F1227707200F41A4E /* back_reference.hpp */,
 				14A609A01227707200F41A4E /* back_reference_fwd.hpp */,
@@ -768,7 +776,6 @@
 				14A609A41227707200F41A4E /* container_policy.hpp */,
 				14A609A51227707200F41A4E /* copy_policy.hpp */,
 				14A609A61227707200F41A4E /* dependency_policy.hpp */,
-				14A609A71227707200F41A4E /* detail */,
 				14A609D31227707200F41A4E /* discard_result_policy.hpp */,
 				14A609D41227707200F41A4E /* error.hpp */,
 				14A609D51227707200F41A4E /* exception_handler.hpp */,
@@ -778,7 +785,6 @@
 				14A609D91227707200F41A4E /* get_pointer.hpp */,
 				14A609DA1227707200F41A4E /* handle.hpp */,
 				14A609DB1227707200F41A4E /* iterator_policy.hpp */,
-				14A609DC1227707200F41A4E /* lua_include.hpp */,
 				14A609DD1227707200F41A4E /* luabind.hpp */,
 				14A609DE1227707200F41A4E /* make_function.hpp */,
 				14A609DF1227707200F41A4E /* nil.hpp */,
@@ -799,8 +805,9 @@
 				14A609EE1227707200F41A4E /* wrapper_base.hpp */,
 				14A609EF1227707200F41A4E /* yield_policy.hpp */,
 			);
-			path = luabind;
-			sourceTree = "<group>";
+			name = luabind;
+			path = Classes/Engine/Middleware/Luabind/luabind;
+			sourceTree = SOURCE_ROOT;
 		};
 		14A609A71227707200F41A4E /* detail */ = {
 			isa = PBXGroup;
@@ -902,7 +909,8 @@
 		14A85495122B0D6A00615BF4 /* Lua */ = {
 			isa = PBXGroup;
 			children = (
-				14A85496122B0D6A00615BF4 /* GLuaInterface.h */,
+				14AC58421235A88400173BEC /* LuaRegisterManager.h */,
+				14AC58411235A88400173BEC /* LuaRegisterManager.cpp */,
 			);
 			path = Lua;
 			sourceTree = "<group>";
@@ -913,7 +921,7 @@
 				14E31353121E47E100917795 /* Engine */,
 				14E31415121E47E200917795 /* main.m */,
 				14E31416121E47E200917795 /* Particles_2AppDelegate.h */,
-				14E31417121E47E200917795 /* Particles_2AppDelegate.m */,
+				14E31417121E47E200917795 /* Particles_2AppDelegate.mm */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -930,6 +938,7 @@
 				14E313FD121E47E200917795 /* SharedManagers */,
 				14E31406121E47E200917795 /* Sprites */,
 				14E3140F121E47E200917795 /* Support */,
+				14AC587E1235ABCC00173BEC /* ggEngine.h */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -1007,10 +1016,10 @@
 		14E3136A121E47E100917795 /* Health */ = {
 			isa = PBXGroup;
 			children = (
-				14E3136B121E47E100917795 /* CompHealth.cpp */,
 				14E3136C121E47E100917795 /* CompHealth.h */,
-				14E3136D121E47E100917795 /* gecHealthHuman.cpp */,
+				14E3136B121E47E100917795 /* CompHealth.cpp */,
 				14E3136E121E47E100917795 /* gecHealthHuman.h */,
+				14E3136D121E47E100917795 /* gecHealthHuman.cpp */,
 			);
 			path = Health;
 			sourceTree = "<group>";
@@ -1567,14 +1576,21 @@
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "GandoEngine" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* GandoEngine */,
 				14A6091C12276EDC00F41A4E /* Lua */,
 				14A609981227704600F41A4E /* Luabind */,
+				1D6058900D05DD3D006BFB54 /* GandoEngine */,
 			);
 		};
 /* End PBXProject section */
@@ -1755,10 +1771,11 @@
 				14E31463121E47E200917795 /* FileUtils.m in Sources */,
 				14E31464121E47E200917795 /* HardwareClock.cpp in Sources */,
 				14E31465121E47E200917795 /* main.m in Sources */,
-				14E31466121E47E200917795 /* Particles_2AppDelegate.m in Sources */,
+				14E31466121E47E200917795 /* Particles_2AppDelegate.mm in Sources */,
 				14A85490122B085500615BF4 /* GLES-Render.cpp in Sources */,
 				14A85491122B085500615BF4 /* GandoBox2D.mm in Sources */,
 				14A85492122B085500615BF4 /* GContactListener.mm in Sources */,
+				14AC58431235A88400173BEC /* LuaRegisterManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1790,6 +1807,7 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "-DTARGET_OS_IPHONE";
 				PREBINDING = NO;
 				PRODUCT_NAME = Lua;
 			};
@@ -1802,6 +1820,10 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				OTHER_CFLAGS = (
+					"-DTARGET_OS_IPHONE",
+					"-falign-loops=16",
+				);
 				PREBINDING = NO;
 				PRODUCT_NAME = Lua;
 				ZERO_LINK = NO;
@@ -1827,6 +1849,11 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				OTHER_CPLUSPLUSFLAGS = (
+					"-fvisibility=hidden",
+					"-DTARGET_OS_IPHONE",
+					"$(OTHER_CFLAGS)",
+				);
 				PREBINDING = NO;
 				PRODUCT_NAME = Luabind;
 				ZERO_LINK = NO;
@@ -1847,7 +1874,6 @@
 				INFOPLIST_FILE = Info.plist;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../Utility/Boost\"",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/Libraries\"",
 				);
@@ -1870,7 +1896,6 @@
 				INFOPLIST_FILE = Info.plist;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../Utility/Boost\"",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/Libraries\"",
 				);
@@ -1881,15 +1906,17 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nicolas Goles (K29F552GKG)";
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_THUMB_SUPPORT = NO;
-				GCC_VERSION = 4.2;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
@@ -1900,7 +1927,7 @@
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C536926E-CEAB-4E32-944F-D2E3A82D0638";
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos4.1;
 				STRIP_INSTALLED_PRODUCT = NO;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 			};
@@ -1909,15 +1936,17 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nicolas Goles (K29F552GKG)";
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_UNROLL_LOOPS = YES;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
@@ -1932,9 +1961,10 @@
 					"-DTARGET_OS_IPHONE",
 					"$(OTHER_CFLAGS)",
 				);
+				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C536926E-CEAB-4E32-944F-D2E3A82D0638";
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos4.1;
 				STRIP_INSTALLED_PRODUCT = YES;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 			};

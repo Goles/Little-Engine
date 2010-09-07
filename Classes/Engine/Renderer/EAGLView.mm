@@ -8,6 +8,7 @@
 
 #import "EAGLView.h"
 #import "ES2Renderer.h"
+#import "ES1Renderer.h"
 #import "SharedInputManager.h"
 #import "GandoBox2D.h"
 
@@ -33,11 +34,10 @@
         eaglLayer.opaque = TRUE;
         eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:
                                         [NSNumber numberWithBool:FALSE], kEAGLDrawablePropertyRetainedBacking, kEAGLColorFormatRGB565, kEAGLDrawablePropertyColorFormat, nil];
-			
-		
+
 		if (!renderer)
 		{
-			renderer = [[ES2Renderer alloc] init];
+			renderer = [[ES1Renderer alloc] init];
 			
 			if (!renderer)
 			{
