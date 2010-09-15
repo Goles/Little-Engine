@@ -17,6 +17,7 @@
 #include "GandoBox2D.h"
 #include "LuaRegisterManager.h"
 
+#import "FileUtils.h"
 /** Good Game Engine Namespace
 	@remarks
 		gg:: namespace represents everything living inside the Good Game 2D 

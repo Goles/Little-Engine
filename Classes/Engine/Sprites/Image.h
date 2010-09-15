@@ -122,6 +122,8 @@ public:
 	void setFlipHorizontally(bool f) { flipHorizontally = f; }
 	/** Sets the Vertical Flip toggle */
 	void setFlipVertically(bool f) { flipVertically = f; }
+	/** Directly set the scale of the Image*/
+	void setScale(float s){ scale = s; }
 	
 	//Getters
 	/** Gets Image width */
@@ -129,13 +131,20 @@ public:
 	/** Gets Image height */
 	int		getImageHeight();
 	/** Gets Image scale */
-	float		getScale();
+	float const getScale();
 	/** Get texture coordinates */
 	Quad2*	getTexCoords();
 	/** Gets Image vertex list */
 	Quad2*	getVertex();
 	/** Gets the texture name */
 	std::string getTextureName();
+	
+	/** Lua Interface
+		@remarks
+			This methods are to expose this class to the Lua runtime.
+	 */
+public:
+	static void registrate(void);
 	
 protected:	
 	void initImplementation();

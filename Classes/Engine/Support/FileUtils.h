@@ -20,4 +20,7 @@
 }
 /** converts a relative path to a full path */
 +(NSString*) fullPathFromRelativePath:(NSString*) relPath;
+
+/** converts a relative path to a full path*/
++(const char *) fullCPathFromRelativePath:(const char *) cPath;
 @end

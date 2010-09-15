@@ -161,7 +161,7 @@
 		14A85490122B085500615BF4 /* GLES-Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14A8548A122B085500615BF4 /* GLES-Render.cpp */; };
 		14A85491122B085500615BF4 /* GandoBox2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14A8548D122B085500615BF4 /* GandoBox2D.mm */; };
 		14A85492122B085500615BF4 /* GContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14A8548F122B085500615BF4 /* GContactListener.mm */; };
-		14AC58431235A88400173BEC /* LuaRegisterManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14AC58411235A88400173BEC /* LuaRegisterManager.cpp */; };
+		14AC58431235A88400173BEC /* LuaRegisterManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14AC58411235A88400173BEC /* LuaRegisterManager.mm */; };
 		14AC59481235B5D400173BEC /* libLuabind.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A609991227704600F41A4E /* libLuabind.a */; };
 		14E31418121E47E200917795 /* CompBehaviour.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E3135B121E47E100917795 /* CompBehaviour.mm */; };
 		14E31419121E47E200917795 /* gecFSM.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E3135D121E47E100917795 /* gecFSM.mm */; };
@@ -235,9 +235,9 @@
 		14E31460121E47E200917795 /* Frame.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E3140A121E47E200917795 /* Frame.mm */; };
 		14E31461121E47E200917795 /* Image.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E3140C121E47E200917795 /* Image.mm */; };
 		14E31462121E47E200917795 /* SpriteSheet.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E3140E121E47E200917795 /* SpriteSheet.mm */; };
-		14E31463121E47E200917795 /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E31411121E47E200917795 /* FileUtils.m */; };
+		14E31463121E47E200917795 /* FileUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31411121E47E200917795 /* FileUtils.mm */; };
 		14E31464121E47E200917795 /* HardwareClock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14E31412121E47E200917795 /* HardwareClock.cpp */; };
-		14E31465121E47E200917795 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E31415121E47E200917795 /* main.m */; };
+		14E31465121E47E200917795 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31415121E47E200917795 /* main.mm */; };
 		14E31466121E47E200917795 /* Particles_2AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31417121E47E200917795 /* Particles_2AppDelegate.mm */; };
 		14E31488121E47FE00917795 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14E31469121E47FE00917795 /* MainWindow.xib */; };
 		14E31489121E47FE00917795 /* backgroundDummy.png in Resources */ = {isa = PBXBuildFile; fileRef = 14E3146B121E47FE00917795 /* backgroundDummy.png */; };
@@ -457,7 +457,7 @@
 		14A8548D122B085500615BF4 /* GandoBox2D.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GandoBox2D.mm; path = Box2D_EnginePlug/GandoBox2D.mm; sourceTree = "<group>"; };
 		14A8548E122B085500615BF4 /* GContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GContactListener.h; path = Box2D_EnginePlug/GContactListener.h; sourceTree = "<group>"; };
 		14A8548F122B085500615BF4 /* GContactListener.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GContactListener.mm; path = Box2D_EnginePlug/GContactListener.mm; sourceTree = "<group>"; };
-		14AC58411235A88400173BEC /* LuaRegisterManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LuaRegisterManager.cpp; sourceTree = "<group>"; };
+		14AC58411235A88400173BEC /* LuaRegisterManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LuaRegisterManager.mm; sourceTree = "<group>"; };
 		14AC58421235A88400173BEC /* LuaRegisterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaRegisterManager.h; sourceTree = "<group>"; };
 		14AC587E1235ABCC00173BEC /* ggEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ggEngine.h; sourceTree = "<group>"; };
 		14E31358121E47E100917795 /* BehaviourActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BehaviourActions.h; sourceTree = "<group>"; };
@@ -614,11 +614,11 @@
 		14E3140D121E47E200917795 /* SpriteSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteSheet.h; sourceTree = "<group>"; };
 		14E3140E121E47E200917795 /* SpriteSheet.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SpriteSheet.mm; sourceTree = "<group>"; };
 		14E31410121E47E200917795 /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
-		14E31411121E47E200917795 /* FileUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUtils.m; sourceTree = "<group>"; };
+		14E31411121E47E200917795 /* FileUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FileUtils.mm; sourceTree = "<group>"; };
 		14E31412121E47E200917795 /* HardwareClock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HardwareClock.cpp; sourceTree = "<group>"; };
 		14E31413121E47E200917795 /* HardwareClock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HardwareClock.h; sourceTree = "<group>"; };
 		14E31414121E47E200917795 /* VectorList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VectorList.h; sourceTree = "<group>"; };
-		14E31415121E47E200917795 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		14E31415121E47E200917795 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		14E31416121E47E200917795 /* Particles_2AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particles_2AppDelegate.h; sourceTree = "<group>"; };
 		14E31417121E47E200917795 /* Particles_2AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Particles_2AppDelegate.mm; sourceTree = "<group>"; };
 		14E31467121E47FE00917795 /* GandoEngine_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GandoEngine_Prefix.pch; sourceTree = "<group>"; };
@@ -910,7 +910,7 @@
 			isa = PBXGroup;
 			children = (
 				14AC58421235A88400173BEC /* LuaRegisterManager.h */,
-				14AC58411235A88400173BEC /* LuaRegisterManager.cpp */,
+				14AC58411235A88400173BEC /* LuaRegisterManager.mm */,
 			);
 			path = Lua;
 			sourceTree = "<group>";
@@ -919,7 +919,7 @@
 			isa = PBXGroup;
 			children = (
 				14E31353121E47E100917795 /* Engine */,
-				14E31415121E47E200917795 /* main.m */,
+				14E31415121E47E200917795 /* main.mm */,
 				14E31416121E47E200917795 /* Particles_2AppDelegate.h */,
 				14E31417121E47E200917795 /* Particles_2AppDelegate.mm */,
 			);
@@ -1304,9 +1304,9 @@
 			isa = PBXGroup;
 			children = (
 				14E31410121E47E200917795 /* FileUtils.h */,
-				14E31411121E47E200917795 /* FileUtils.m */,
-				14E31412121E47E200917795 /* HardwareClock.cpp */,
+				14E31411121E47E200917795 /* FileUtils.mm */,
 				14E31413121E47E200917795 /* HardwareClock.h */,
+				14E31412121E47E200917795 /* HardwareClock.cpp */,
 				14E31414121E47E200917795 /* VectorList.h */,
 			);
 			path = Support;
@@ -1768,14 +1768,14 @@
 				14E31460121E47E200917795 /* Frame.mm in Sources */,
 				14E31461121E47E200917795 /* Image.mm in Sources */,
 				14E31462121E47E200917795 /* SpriteSheet.mm in Sources */,
-				14E31463121E47E200917795 /* FileUtils.m in Sources */,
+				14E31463121E47E200917795 /* FileUtils.mm in Sources */,
 				14E31464121E47E200917795 /* HardwareClock.cpp in Sources */,
-				14E31465121E47E200917795 /* main.m in Sources */,
+				14E31465121E47E200917795 /* main.mm in Sources */,
 				14E31466121E47E200917795 /* Particles_2AppDelegate.mm in Sources */,
 				14A85490122B085500615BF4 /* GLES-Render.cpp in Sources */,
 				14A85491122B085500615BF4 /* GandoBox2D.mm in Sources */,
 				14A85492122B085500615BF4 /* GContactListener.mm in Sources */,
-				14AC58431235A88400173BEC /* LuaRegisterManager.cpp in Sources */,
+				14AC58431235A88400173BEC /* LuaRegisterManager.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
