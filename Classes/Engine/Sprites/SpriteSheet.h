@@ -16,8 +16,22 @@
 class SpriteSheet
 {
 public:
+//------------------------------------------------------------------------------	
+	/** Empty Constructor.
+		@remarks
+			Prevents C++ to create a "default" constructor just in case.
+	 */
+	SpriteSheet(){}
 	
-	//Action Methods
+	/** Destructor
+		@remarks
+			Takes care of cleaning the sheetImage associated with the SpriteSheet. 
+	 */
+	~SpriteSheet()
+	{
+		delete sheetImage;
+	}
+//------------------------------------------------------------------------------	
 	/** Takes a spriteSheet, defines a sprite size, and calculates horizontal and vertical numbers 
 	    @param spriteSheet Image containing several sprites
 	    @param spriteWidth Width of each sprite
@@ -26,23 +40,28 @@ public:
 	    @remarks Details of the implementation of this calculation can be found in SpriteSheet.mm:13
 	*/
 	void	initWithImage(Image *spriteSheet, GLuint spriteWidth, GLuint spriteHeight, GLuint spriteSpacing);
+	
 	/** Wrapper for previous method, takes a filename string, validates it and loads the contents into an Image.
 	*/
 	void	initWithImageNamed(const std::string &inTextureName, GLuint spriteWidth, GLuint spriteHeight, GLuint spacing, float imageScale);
+	
 	/** Calculates a point with coordinates for the selected sprite, and then passes it to getSubImage with the correct sprite size.
 	    @returns The subImage as a new Image object.
 	    @param horizontalNumber selects a sprite in the nth column
 	    @param verticalNumber selects a sprite in the mth row
 	*/
 	Image*	getSpriteAt(GLuint horizontalNumber, GLuint verticalNumber);
+	
 	/** Wrapper for renderSubImage, translates hNum and vNum into coordinates, and passes directly to renderSubImage method.
 	    @param point Render coordinates
 	*/
 	void	renderSpriteAt(GLuint horizontalNumber, GLuint verticalNumber, CGPoint point, BOOL isCenterOfImage);
+	
 	/** Calculates the coordinates for the selected sprite
 	    @returns CGPoint with coordinates
 	*/	
 	CGPoint	getOffsetForSpriteAt(int horizontalNumber, int verticalNumber);
+	
 	/** Wrapper for calculateTexCoordsAtOffset, translates hNum and vNum, and passes them to calculateTexCoordsAtOffset.
 	    @returns Quad2 with texture coordinates.
 	*/
@@ -66,8 +85,13 @@ public:
         _FA
 	*/
 	Quad2*	getVerticesForSpriteAt(GLuint horizontalNumber, GLuint verticalNumber, CGPoint point, BOOL isCenterOfImage);
-	
-	//Getters
+//------------------------------------------------------------------------------	
+	/** Lua Interface
+	 @remarks
+	 This method is to expose this class to the Lua runtime.
+	 */
+	static void registrate(void);
+//------------------------------------------------------------------------------
 	/** Returns sheetImage Image object */
 	Image*	getSheetImage();
 	/** Getter for spriteWidth */
@@ -84,7 +108,7 @@ public:
 	Quad2*	getVertices();
 	/** Getter for tc */
 	Quad2*	getTexCoords();
-	
+//------------------------------------------------------------------------------	
 private:
 	// Class Atributes
 	Image*	sheetImage;			//This wil be the main spriteSheet image.

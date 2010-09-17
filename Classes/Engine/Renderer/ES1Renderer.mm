@@ -24,6 +24,8 @@
 #include <boost/bind.hpp>
 #include "gecBoxCollision.h"
 #include "gecWeapon.h"
+#include "LuaRegisterManager.h"
+#include "ggEngine.h"
 
 @implementation ES1Renderer
 
@@ -37,11 +39,9 @@
         if (!context || ![EAGLContext setCurrentContext:context])
 		{
             [self release];
-            return nil;
+            return NULL;
         }
-		
-		[self initGame];
-		
+				
 		// Create default framebuffer object. The backing will be allocated for the current layer in -resizeFromLayer
 		glGenFramebuffersOES(1, &defaultFramebuffer);
 		glGenRenderbuffersOES(1, &colorRenderbuffer);
@@ -50,6 +50,15 @@
 		glFramebufferRenderbufferOES(GL_FRAMEBUFFER_OES, GL_COLOR_ATTACHMENT0_OES, GL_RENDERBUFFER_OES, colorRenderbuffer);
 	}
 
+	//Start the game up.
+	static bool game_init = NO;
+	
+	if(!game_init)
+	{
+		[self initGame];
+		game_init = YES;
+	}
+	
 	return self;
 }
 
@@ -61,9 +70,8 @@
 - (void) initGame
 {
 	[self initScenes];
-	GBOX_2D->initBaseWorld();
-	GBOX_2D->initDebugDraw();
-	[self offsetTest];
+	[self box2d];
+	gg::startup();
 }
 
 /*
@@ -230,13 +238,13 @@
 
 #pragma mark update_game
 - (void) update:(float)delta
-{
+{	
 	if(aSceneManager)
 		aSceneManager->updateScene(delta);
 
 	aSceneManager->sortEntitiesY();
-	GBOX_2D->update(delta);
-//	GBOX_2D->debugUpdate(delta);
+//	GBOX_2D->update(delta);
+	GBOX_2D->debugUpdate(delta);
 }
 
 #pragma mark render_scene
@@ -262,7 +270,7 @@
 	if(sprite)
 		sprite->renderAtPoint(CGPointMake(240.0, 160.0), true);
 	
-	//GBOX_2D->debugRender();
+	GBOX_2D->debugRender();
 	
 	glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
 	[context presentRenderbuffer:GL_RENDERBUFFER_OES];
@@ -302,7 +310,7 @@
 	
 	// Tear down context
 	if ([EAGLContext currentContext] == context)
-        [EAGLContext setCurrentContext:nil];
+        [EAGLContext setCurrentContext:NULL];
 	
 	//Tear down singletons.
 	delete PARTICLE_MANAGER;
@@ -311,7 +319,7 @@
 	delete GBOX_2D;
 	
 	[context release];
-	context = nil;	
+	context = NULL;	
 	[super dealloc];
 }
 

@@ -9,6 +9,8 @@
 
 #include <iostream>
 
+#include "lua.hpp"
+
 #include "LuaRegisterManager.h"
 #include "FileUtils.h"
 
@@ -43,20 +45,25 @@ void LuaRegisterManager::execScript(const char *script)
 	}
 }
 
-/** Init the LuaRegisterManager.
- @remarks
-	Does start up the lua-runtime, and also binds the runtime to the luabind library.
- */
 LuaRegisterManager::LuaRegisterManager()
 {
-	L = lua_open();
+	//Init Lua, open the default libs and register state with Luabind.
+	L = luaL_newstate();
+	luaL_openlibs(L);
 	luabind::open(L);
+	
+	//Register with luabind.
+	luabind::module(L) 
+	[
+	 luabind::class_<LuaRegisterManager>("LuaRegisterManager")
+	 .def("execScript", &LuaRegisterManager::execScript)
+	 .scope
+	 [
+	  luabind::def("getInstance", &LuaRegisterManager::getInstance) //returns static singleton instance
+      ]
+	 ];
 }
 
-/** Destroys the LuaRegisterManager.
- @remarks
-	It does close the Lua Runtime.
- */
 LuaRegisterManager::~LuaRegisterManager()
 {
 	lua_close(L);

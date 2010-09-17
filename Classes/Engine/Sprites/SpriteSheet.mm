@@ -8,6 +8,7 @@
 
 #include "SpriteSheet.h"
 #import "Texture2D.h"
+#include "LuaRegisterManager.h"
 
 #pragma mark private_action_methods
 void SpriteSheet::initImplementation(GLuint inSpriteWidth, GLuint inSpriteHeight, GLuint inSpacing, float inImageScale)
@@ -70,6 +71,17 @@ void	SpriteSheet::renderSpriteAt(GLuint x, GLuint y, CGPoint point, BOOL isCente
 	// Rather than return a new image for this sprite we are going to just render the specified
 	// sprite at the specified location
 	sheetImage->renderSubImageAtPoint(point, spritePoint, spriteWidth, spriteHeight, isCenterOfImage);
+}
+#pragma mark -
+#pragma mark lua registration
+static void registrate(void)
+{
+	luabind::module(LR_MANAGER_STATE) 
+	[
+	 luabind::class_<SpriteSheet>("SpriteSheet")
+	 .def(luabind::constructor<>())
+	 .def("initWithImageNamed", &SpriteSheet::initWithImageNamed)
+	 ];		
 }
 
 #pragma mark -

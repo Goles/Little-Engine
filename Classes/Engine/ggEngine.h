@@ -17,7 +17,6 @@
 #include "GandoBox2D.h"
 #include "LuaRegisterManager.h"
 
-#import "FileUtils.h"
 /** Good Game Engine Namespace
 	@remarks
 		gg:: namespace represents everything living inside the Good Game 2D 
@@ -30,13 +29,20 @@ namespace gg
 		Basically startup all the required singletons ( shared managers ). 
 	 */
 	inline void init(void)
-	{
+	{		
 		LR_MANAGER;			/** < Initialize the Lua Registrate Manager */
 		GE_FACTORY;			/** < Initialize the Game Entity Factory */
 		INPUT_MANAGER;		/** < Initialize the Input Manager*/
 		PARTICLE_MANAGER;	/** < Initialize the Particles Manager*/
 		TEXTURE_MANAGER;	/** < Initialize the Texture Manager*/
 		GBOX_2D;			/** < Initialize the Box2D Plug for GG*/
+	}
+	
+	inline void startup(void)
+	{
+		//GBOX_2D->initBaseWorld();
+		//GBOX_2D->initDebugDraw();
+		LR_MANAGER->execScript("ggmain.lua");
 	}
 }
 

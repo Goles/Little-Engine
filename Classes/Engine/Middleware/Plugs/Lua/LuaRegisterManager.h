@@ -10,19 +10,13 @@
 #ifndef _LUA_REGISTER_MANAGER_H_
 #define _LUA_REGISTER_MANAGER_H_
 
-/** Include Lua in C++
- @remarks
-	This is to avoid linker errors.
- */
-extern "C" {
-	#include "lua.h"
-	#include "lauxlib.h"
-}
-
+/** Include Luabind in C++ */
 #include "luabind.hpp"
 
 #define LR_MANAGER LuaRegisterManager::getInstance()
 #define LR_MANAGER_STATE LuaRegisterManager::getInstance()->getLuaState()
+
+class lua_State;
 
 class LuaRegisterManager 
 {

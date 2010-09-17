@@ -253,7 +253,6 @@ Quad2* Image::getVertex()
 #pragma mark lua interface
 static void registrate(void)
 {
-	//Bindings for the "Placemark" Class.
 	luabind::module(LR_MANAGER_STATE) 
 	[
 	 luabind::class_<Image>("Image")

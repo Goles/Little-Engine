@@ -14,25 +14,51 @@
 #include "Animation.h"
 #include <map>
 
+/** Container for Sprite Animations
+	@remarks
+		The gecAnimatedSprite is a container for Animations, which are sequences
+		of sprites. Each animation has a key (std::string) and a pointer to an Animation
+		object.
+ */
 class gecAnimatedSprite : public gecVisual
 {
-	//GEComponent interface
 public:
+	/** Constructor */
 	gecAnimatedSprite();
+	
+	/** Returns the id of this component*/
 	virtual const gec_id_type &componentID() const { return mGECTypeID; }
 	
-	//gecVisual interface
-public:
+	/** Inherited render() method from gecVisual */
 	virtual void render() const;
+	
+	/** Update method inherited from gecComponent*/
 	virtual void update(float delta);
 	
-	//gecAnimatedSprite interface
-public:
+	/** Adds an animation to the componentAnimations map.
+		@param animationName will be the "key" used to obtain the animation.
+		@param animation will be a pointer to an Animation object.
+	 */
 	void addAnimation(const std::string &animationName, 
 					  Animation *animation);
+	
+	/** Adds an anitmation to the componentAnimations map.
+		@param animationName will be the "key" used to obtain the animation.
+		@param positions will be a vector containing the coordinates of the Sprite Frames
+		in the SpriteSheet. - The positions are in the format, [COL, ROW] 1,0 is COL 1, ROW 0-
+		@param ss is a pointer to a SpriteSheet object.
+	 */
 	void addAnimation(const std::string &animationName, 
 					  const std::vector<int> &positions, 
 					  SpriteSheet *ss);
+
+	/** Adds an anitmation to the componentAnimations map.
+		@param animationName will be the "key" used to obtain the animation.
+		@param positions will be a vector containing the coordinates of the Sprite Frames
+		in the SpriteSheet. - The positions are in the format, [COL, ROW] 1,0 is COL 1, ROW 0-
+		@param durations will be a vector<float> with the duration of each frame of an animation.
+		@param ss is a pointer to a SpriteSheet object.
+	 */
 	void addAnimation(const std::string &animationName,
 					  const std::vector<int> &positions,
 					  const std::vector<float> &durations,

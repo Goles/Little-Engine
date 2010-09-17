@@ -111,9 +111,11 @@ void GandoBox2D::update(float delta)
 	//CompCollision object.
 	for (b2Body* b = world->GetBodyList(); b; b = b->GetNext())
 	{
-		if (b->GetUserData() != NULL) {
+		if (b->GetUserData() != 0) {
 			//Synchronize the Sprites position and rotation with the corresponding body
 			GEComponent *gc = (GEComponent *)b->GetUserData();
+			
+			std::cout << gc->componentID() << std::endl;
 			
 			if(gc->componentID().compare("gecBoxCollision") == 0)
 			{

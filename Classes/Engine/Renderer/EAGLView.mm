@@ -70,11 +70,11 @@
 	time	= CFAbsoluteTimeGetCurrent();
 	delta	= (time - lastTime);
 
-	/* update */
-	[renderer update:delta];
-	
 	/* render */
 	[renderer render];
+	
+	/* update */
+	[renderer update:delta];
 	
 	lastTime = time;
 }
