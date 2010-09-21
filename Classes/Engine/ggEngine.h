@@ -16,6 +16,7 @@
 #include "SharedTextureManager.h"
 #include "GandoBox2D.h"
 #include "LuaRegisterManager.h"
+#include "LuaBaseTypes.h"
 
 /** Good Game Engine Namespace
 	@remarks
@@ -42,6 +43,7 @@ namespace gg
 	{
 		//GBOX_2D->initBaseWorld();
 		//GBOX_2D->initDebugDraw();
+		gg::lua::bindBasicTypes();
 		LR_MANAGER->execScript("ggmain.lua");
 	}
 }

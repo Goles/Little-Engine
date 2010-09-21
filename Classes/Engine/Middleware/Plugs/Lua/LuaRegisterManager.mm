@@ -32,6 +32,7 @@ LuaRegisterManager* LuaRegisterManager::getInstance()
 	That's what L - 1 means ( pop out the top of the stack ), and I know that in
 	case of error, the top of the stack will be a C string ( %s ).
  */
+
 void LuaRegisterManager::execScript(const char *script)
 {
 	if(luaL_dofile(L, [FileUtils fullCPathFromRelativePath:script]))
@@ -40,7 +41,7 @@ void LuaRegisterManager::execScript(const char *script)
 					<< script 
 					<< std::endl
 					<< "Error: "
-					<< lua_tostring(L, -1)
+		<< lua_tostring(L, -1)
 					<< std::endl;
 	}
 }

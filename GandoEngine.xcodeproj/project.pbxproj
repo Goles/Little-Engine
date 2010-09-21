@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1400DD2C12412ACD0007F6E9 /* test.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1400DD2B12412ACD0007F6E9 /* test.lua */; };
+		1400DD2C12412ACD0007F6E9 /* ggmain.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1400DD2B12412ACD0007F6E9 /* ggmain.lua */; };
 		14A6095712276F6E00F41A4E /* lapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 14A6092312276F6E00F41A4E /* lapi.c */; };
 		14A6095812276F6E00F41A4E /* lapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 14A6092412276F6E00F41A4E /* lapi.h */; };
 		14A6095912276F6E00F41A4E /* lauxlib.c in Sources */ = {isa = PBXBuildFile; fileRef = 14A6092512276F6E00F41A4E /* lauxlib.c */; };
@@ -299,7 +299,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1400DD2B12412ACD0007F6E9 /* test.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.lua; sourceTree = "<group>"; };
+		1400DD2B12412ACD0007F6E9 /* ggmain.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ggmain.lua; sourceTree = "<group>"; };
+		1427CE5A12444FFC007BF343 /* LuaBaseTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaBaseTypes.h; sourceTree = "<group>"; };
 		14A6091D12276EDC00F41A4E /* libLua.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLua.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		14A6092312276F6E00F41A4E /* lapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lapi.c; path = "lua-5.1.4/src/lapi.c"; sourceTree = "<group>"; };
 		14A6092412276F6E00F41A4E /* lapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lapi.h; path = "lua-5.1.4/src/lapi.h"; sourceTree = "<group>"; };
@@ -698,7 +699,7 @@
 		1400DD2A12412ACD0007F6E9 /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
-				1400DD2B12412ACD0007F6E9 /* test.lua */,
+				1400DD2B12412ACD0007F6E9 /* ggmain.lua */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
@@ -921,6 +922,7 @@
 			children = (
 				14AC58421235A88400173BEC /* LuaRegisterManager.h */,
 				14AC58411235A88400173BEC /* LuaRegisterManager.mm */,
+				1427CE5A12444FFC007BF343 /* LuaBaseTypes.h */,
 			);
 			path = Lua;
 			sourceTree = "<group>";
@@ -1637,7 +1639,7 @@
 				14E3149F121E47FE00917795 /* smoke.pvr in Resources */,
 				14E314A0121E47FE00917795 /* sprite_test.png in Resources */,
 				14E314A1121E47FE00917795 /* spritesheet16.gif in Resources */,
-				1400DD2C12412ACD0007F6E9 /* test.lua in Resources */,
+				1400DD2C12412ACD0007F6E9 /* ggmain.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

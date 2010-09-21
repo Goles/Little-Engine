@@ -38,7 +38,7 @@ typedef struct {
 class Image
 {
 public:
-//------------------------------------------------------------------------------	
+//------------------------------------------------------------------------------
 	/** Image Constructor
 	    @remarks
 	        Sets all coordinates and offsets to 0.
@@ -168,7 +168,7 @@ public:
 	
 	/** Gets the texture name */
 	std::string getTextureName();
-//------------------------------------------------------------------------------	
+//------------------------------------------------------------------------------
 protected:	
 	void initImplementation();
 private:

@@ -16,7 +16,7 @@
 class SpriteSheet
 {
 public:
-//------------------------------------------------------------------------------	
+//------------------------------------------------------------------------------
 	/** Empty Constructor.
 		@remarks
 			Prevents C++ to create a "default" constructor just in case.
@@ -31,7 +31,7 @@ public:
 	{
 		delete sheetImage;
 	}
-//------------------------------------------------------------------------------	
+//------------------------------------------------------------------------------
 	/** Takes a spriteSheet, defines a sprite size, and calculates horizontal and vertical numbers 
 	    @param spriteSheet Image containing several sprites
 	    @param spriteWidth Width of each sprite
@@ -85,7 +85,7 @@ public:
         _FA
 	*/
 	Quad2*	getVerticesForSpriteAt(GLuint horizontalNumber, GLuint verticalNumber, CGPoint point, BOOL isCenterOfImage);
-//------------------------------------------------------------------------------	
+//------------------------------------------------------------------------------
 	/** Lua Interface
 	 @remarks
 	 This method is to expose this class to the Lua runtime.

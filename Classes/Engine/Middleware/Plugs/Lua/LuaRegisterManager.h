@@ -36,9 +36,9 @@ public:
 			We will have to manually call this post main() or in main().
 	 */
 	template <typename T>
-    void registrate() {
-        T::registrate();
-    }
+	void registrate() {
+		T::registrate();
+	}
 	
 	/** Returns the Lua runtime */
 	lua_State *getLuaState() { return L; };	
@@ -63,5 +63,6 @@ private:
 	static LuaRegisterManager* instance;	
 	lua_State* L;
 };
+
 
 #endif

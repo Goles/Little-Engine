@@ -23,9 +23,11 @@
 class gecAnimatedSprite : public gecVisual
 {
 public:
+//------------------------------------------------------------------------------
 	/** Constructor */
 	gecAnimatedSprite();
 	
+//------------------------------------------------------------------------------
 	/** Returns the id of this component*/
 	virtual const gec_id_type &componentID() const { return mGECTypeID; }
 	
@@ -35,6 +37,7 @@ public:
 	/** Update method inherited from gecComponent*/
 	virtual void update(float delta);
 	
+//------------------------------------------------------------------------------
 	/** Adds an animation to the componentAnimations map.
 		@param animationName will be the "key" used to obtain the animation.
 		@param animation will be a pointer to an Animation object.
@@ -63,23 +66,69 @@ public:
 					  const std::vector<int> &positions,
 					  const std::vector<float> &durations,
 					  SpriteSheet *ss);
+
+//------------------------------------------------------------------------------
+	/** Lua Interface
+	 @remarks
+	 This methods are to expose this class to the Lua runtime.
+	 */
+	static void registrate(void);
+	
+//------------------------------------------------------------------------------	
+	/** Set's the active animation to animationName
+		@param animationName must be a std::string "key" in the componentAnimations map
+	 */
 	void setCurrentAnimation(const std::string &animationName);
+	
+	/** Returns a pointer to the current animation.
+		@remarks
+			Note that we don't return a const pointer, this is in case we want 
+			to make some changes to the returned Animation*.
+		
+	 */
 	Animation* getCurrentAnimation() { return currentAnimation; }
+	
+	/** Returns an animation present in the map.
+		@param animationName is the std::string	"key" of the animation in componentAnimations.
+		@returns Animation pointer to the requested animation or NULL if the animation is not found.
+	 */
 	Animation* getAnimation(const std::string&animationName);
+	
+	/** Set the current animation mode to "running" or "active". */
 	void setCurrentRunning(Boolean isRunning){ currentAnimation->setIsRunning(isRunning); }
+	
+	/** Set the current animation mode to "repeating"
+		@remarks
+			This means that for a 3 frames Animation it will go, 0,1,2,0,1,2,0,1,2
+	 */
 	void setCurrentRepeating(Boolean isRepeating){ currentAnimation->setIsRepeating(isRepeating); } 
+	
+	/** Set the current animation mode to "pingPong"
+		@remarks
+			This means that for a 3 frames animation it will go, 0,1,2,1,0,1,2,1,0
+	 */
 	void setCurrentPingPong(Boolean isPingPong){ currentAnimation->setIsPingPong(isPingPong); }
+	
+	/** Flips an Animation horizontally.*/
 	void setFlipHorizontally(bool f);
+	
+	/** Flips an Animation vertically. */
 	void setFlipVertically(bool f);
+	
+//------------------------------------------------------------------------------	
+	/** Internal debug function
+		@remarks Print's the information of the animations available in the map.
+	 */
 	void debugPrintAnimationMap();
-	
+
+//------------------------------------------------------------------------------	
 private:
-	typedef std::map<const std::string, Animation*> AnimationMap;
-	typedef std::pair<const std::string, Animation*> AnimationMapPair;
+	typedef std::map<const std::string, Animation*> AnimationMap;		/** < Typedef to manipulate an Animation std::map easily */
+	typedef std::pair<const std::string, Animation*> AnimationMapPair;	/** < Typedef  to manipulate an AnimationMap iterator easily*/
 	
-	static gec_id_type	mGECTypeID;
-	Animation*			currentAnimation;
-	AnimationMap		componentAnimations;
+	static gec_id_type	mGECTypeID;										/** < Label of this kind of component */
+	Animation*			currentAnimation;								/** < Animation pointer to the current active Animation */
+	AnimationMap		componentAnimations;							/** < Map with all the animations of the component */
 	bool				flipHorizontally;
 	bool				flipVertically;
 };
