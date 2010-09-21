@@ -33,7 +33,7 @@
         
         eaglLayer.opaque = TRUE;
         eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:
-                                        [NSNumber numberWithBool:FALSE], kEAGLDrawablePropertyRetainedBacking, kEAGLColorFormatRGB565, kEAGLDrawablePropertyColorFormat, nil];
+                                        [NSNumber numberWithBool:false], kEAGLDrawablePropertyRetainedBacking, kEAGLColorFormatRGB565, kEAGLDrawablePropertyColorFormat, NULL];
 
 		if (!renderer)
 		{
@@ -42,7 +42,7 @@
 			if (!renderer)
 			{
 				[self release];
-				return nil;
+				return NULL;
 			}
 		}
 		
@@ -50,7 +50,7 @@
 		animating = FALSE;
 		displayLinkSupported = FALSE;
 		animationFrameInterval = 1;
-		displayLink = nil;
+		displayLink = NULL;
 		
 		// A system version of 3.1 or greater is required to use CADisplayLink. The NSTimer
 		// class is used as fallback when it isn't available.
@@ -136,7 +136,7 @@
 		if (displayLinkSupported)
 		{
 			[displayLink invalidate];
-			displayLink = nil;
+			displayLink = NULL;
 		}
 		animating = FALSE;
 	}

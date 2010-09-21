@@ -90,7 +90,15 @@ public:
 	 @remarks
 	 This method is to expose this class to the Lua runtime.
 	 */
-	static void registrate(void);
+	static void registrate(void)
+	{
+		luabind::module(LR_MANAGER_STATE) 
+		[
+		 luabind::class_<SpriteSheet>("SpriteSheet")
+		 .def(luabind::constructor<>())
+		 .def("initWithImageNamed", &SpriteSheet::initWithImageNamed)
+		 ];		
+	}
 //------------------------------------------------------------------------------
 	/** Returns sheetImage Image object */
 	Image*	getSheetImage();

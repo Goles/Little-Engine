@@ -13,13 +13,17 @@
 
 #include "LuaRegisterManager.h"
 #include "FileUtils.h"
+#include "LuaBaseTypes.h"
 
 LuaRegisterManager *LuaRegisterManager::instance = NULL;
 
 LuaRegisterManager* LuaRegisterManager::getInstance()
 {
 	if(instance == NULL)
+	{
 		instance = new LuaRegisterManager();
+		gg::lua::bindAll();
+	}
 
 	return instance;
 }

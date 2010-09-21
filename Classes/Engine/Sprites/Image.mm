@@ -9,7 +9,6 @@
 #import "Image.h"
 #include "FileUtils.h"
 #include "SharedTextureManager.h"
-#include "LuaRegisterManager.h"
 
 Image::Image()
 {
@@ -251,16 +250,8 @@ Quad2* Image::getVertex()
 }
 
 #pragma mark lua interface
-static void registrate(void)
-{
-	luabind::module(LR_MANAGER_STATE) 
-	[
-	 luabind::class_<Image>("Image")
-	 .def(luabind::constructor<>())
-	 .def("initWithTextureFile", (void(Image::*)(const std::string &))&Image::initWithTextureFile)
-	 .property("scale", &Image::getScale, &Image::setScale)
-	 ];	
-}
+//static void Image::registrate(void)
+
 
 #pragma mark rendering
 

@@ -10,6 +10,8 @@
 #include "GandoBox2D.h"
 #include "ConstantsAndMacros.h"
 
+#define nil NULL //Due to Luabind nil definition.
+
 @interface ES2Renderer (PrivateMethods)
 - (BOOL)loadShaders;
 - (BOOL)compileShader:(GLuint *)shader type:(GLenum)type file:(NSString *)file;
@@ -32,14 +34,14 @@
         if (!context || ![EAGLContext setCurrentContext:context] || ![self loadShaders])
         {
             [self release];
-            return nil;
+            return NULL;
         }
 		
 		//Init the Game World.
 		[self initGame];
 		
 		
-        aTexture = [[Texture2D alloc] initWithImagePath:[[NSBundle mainBundle] pathForResource:@"logo.png" ofType:nil] filter:GL_LINEAR];
+        aTexture = [[Texture2D alloc] initWithImagePath:[[NSBundle mainBundle] pathForResource:@"logo.png" ofType:NULL] filter:GL_LINEAR];
         
         // Create default framebuffer object. The backing will be allocated for the current layer in -resizeFromLayer
         glGenFramebuffers(1, &defaultFramebuffer);

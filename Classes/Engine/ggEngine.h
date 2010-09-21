@@ -43,7 +43,7 @@ namespace gg
 	{
 		//GBOX_2D->initBaseWorld();
 		//GBOX_2D->initDebugDraw();
-		gg::lua::bindBasicTypes();
+
 		LR_MANAGER->execScript("ggmain.lua");
 	}
 }

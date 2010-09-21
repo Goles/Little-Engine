@@ -72,17 +72,6 @@ void	SpriteSheet::renderSpriteAt(GLuint x, GLuint y, CGPoint point, BOOL isCente
 	// sprite at the specified location
 	sheetImage->renderSubImageAtPoint(point, spritePoint, spriteWidth, spriteHeight, isCenterOfImage);
 }
-#pragma mark -
-#pragma mark lua registration
-static void registrate(void)
-{
-	luabind::module(LR_MANAGER_STATE) 
-	[
-	 luabind::class_<SpriteSheet>("SpriteSheet")
-	 .def(luabind::constructor<>())
-	 .def("initWithImageNamed", &SpriteSheet::initWithImageNamed)
-	 ];		
-}
 
 #pragma mark -
 #pragma mark getters

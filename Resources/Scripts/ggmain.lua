@@ -1,6 +1,15 @@
-something = int_vector()
+print("---Lua is available---")
 
-something:push_back(44)
-something:push_back(33)
-something:push_back(21)
-something:push_back(40)
+someIntVector = int_vector()
+someFloatVector = float_vector()
+
+someIntVector:push_back(44)
+someIntVector:push_back(33)
+someIntVector:push_back(21)
+someIntVector:push_back(40)
+
+someFloatVector:push_back(3.0)
+someFloatVector:push_back(3.14)
+someFloatVector:push_back(9999.0)
+
+someAnimatedSprite = gecAnimatedSprite()

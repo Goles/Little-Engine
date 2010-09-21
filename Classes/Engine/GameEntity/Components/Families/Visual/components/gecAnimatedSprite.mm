@@ -63,20 +63,6 @@ void gecAnimatedSprite::addAnimation(const std::string &animationName,
 	componentAnimations.insert(AnimationMapPair(animationName, newAnimation));
 }
 
-static void registrate(void)
-{
-	luabind::module(LR_MANAGER_STATE) 
-	[
-	 luabind::class_<gecAnimatedSprite>("gecAnimatedSprite")
-	 .def(luabind::constructor<>())
-	 .def("addAnimation", (void(gecAnimatedSprite::*)(const std::string &, 
-													  const std::vector<int> &, 
-													  const std::vector<float> &, 
-													  SpriteSheet *)) 
-		  &gecAnimatedSprite::addAnimation)
-	 ];	
-}
-
 void gecAnimatedSprite::setCurrentAnimation(const std::string &animationName)
 {	
 	AnimationMap::iterator it = componentAnimations.find(animationName);

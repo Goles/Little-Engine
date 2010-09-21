@@ -16,9 +16,11 @@
 #ifndef _IMAGE_H_
 #define _IMAGE_H_
 
-#import "Texture2D.h"
 #include <string>
 #include <iostream>
+
+#import "Texture2D.h"
+#include "LuaRegisterManager.h"
 
 /** Image base class.
     @remarks
@@ -109,7 +111,16 @@ public:
 	 @remarks
 	 This methods are to expose this class to the Lua runtime.
 	 */
-	static void registrate(void);
+	static void registrate(void)
+	{
+		luabind::module(LR_MANAGER_STATE) 
+		[
+		 luabind::class_<Image>("Image")
+		 .def(luabind::constructor<>())
+		 .def("initWithTextureFile", (void(Image::*)(const std::string &))&Image::initWithTextureFile)
+		 .property("scale", &Image::getScale, &Image::setScale)
+		 ];	
+	}
 //------------------------------------------------------------------------------
 	/** Applies a color filter to the Image object.
 	    @param Red 
