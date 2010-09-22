@@ -12,6 +12,9 @@
 #include <map>
 #include <vector>
 
+#include "GEComponent.h"
+#include "LuaRegisterManager.h"
+
 /** Forward Declaration of GEComponent */
 class GEComponent;
 
@@ -132,6 +135,22 @@ public:
             return ((a->y - (a->height/2)) > (b->y - (b->height/2)) );
         }
     };
+	
+//------------------------------------------------------------------------------
+/** Lua Interface
+ @remarks
+ This methods are to expose this class to the Lua runtime.
+ */
+static void registrate(void)
+{
+	luabind::module(LR_MANAGER_STATE) 
+	[
+	 luabind::class_<GameEntity>("GameEntity")	/** < Binds the GameEntity class*/
+	 .def(luabind::constructor<>())				/** < Binds the GameEntity constructor  */
+	 .def("setGEC", &GameEntity::setGEC)		/** < Binds the GameEntity setGec method  */
+	 ];
+}
+	
 //------------------------------------------------------------------------------
 public:
 	/** Print's all the Game Entity components for debugging
@@ -139,7 +158,8 @@ public:
 		Ideally you can use this anywhere in the code, but also when using GDB.		
 	 */
 	void debugPrintComponents();
-//------------------------------------------------------------------------------	
+//------------------------------------------------------------------------------
+	
 private:
 	/** Definition to easily work with an STL Map of Components */
 	typedef std::map<const std::string, GEComponent *> ComponentMap;

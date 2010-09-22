@@ -7,10 +7,11 @@
 //
 
 #include "GEComponent.h"
+#include "SharedInputManager.h"
+#include "GameEntity.h"
 #include "gecJoystick.h"
 #include "gecAnimatedSprite.h"
 #include "gecFSM.h"
-#include "SharedInputManager.h"
 #include "BehaviourActions.h"
 
 std::string gecJoystick::mComponentID = "gecJoystick";

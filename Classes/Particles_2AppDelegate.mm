@@ -7,8 +7,8 @@
 //
 
 #import "Particles_2AppDelegate.h"
-#include "ggEngine.h"
 #import "EAGLView.h"
+#include "ggEngine.h"
 
 @implementation Particles_2AppDelegate
 
@@ -41,8 +41,7 @@
 - (void) dealloc
 {
 	[window release];
-	[glView release];
-	
+	[glView release];	
 	[super dealloc];
 }
 

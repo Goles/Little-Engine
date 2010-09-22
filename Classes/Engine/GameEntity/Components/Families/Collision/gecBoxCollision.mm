@@ -9,6 +9,7 @@
 
 #include "gecBoxCollision.h"
 #include "GandoBox2D.h"
+#include "GameEntity.h"
 
 std::string gecBoxCollision::mGECTypeID = "gecBoxCollision";
 

@@ -8,6 +8,7 @@
  */
 
 #include "gecScrollingBackground.h"
+#include "GameEntity.h"
 
 std::string gecScrollingBackground::mGECTypeID = "gecScrollingBackground";
 

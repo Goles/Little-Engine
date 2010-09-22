@@ -9,6 +9,7 @@
 
 #include "gecImage.h"
 #include "SharedTextureManager.h"
+#include "GameEntity.h"
 
 std::string gecImage::mGECTypeID = "gecImage";
 

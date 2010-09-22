@@ -9,7 +9,9 @@
 #ifndef _GECOMPONENT_H_
 #define _GECOMPONENT_H_
 
-#include "GameEntity.h"
+/** Forward Declaration of GameEntity */
+class GameEntity;
+
 #include <string>
 
 
@@ -31,7 +33,7 @@ public:
 	 */
 	GEComponent():ownerGE(0){}
 	virtual ~GEComponent(){}
-	
+//------------------------------------------------------------------------------	
 	/** Returns the GEComponent Family ID.
 	 @remarks
 		The familyID should be unique to each component family.
@@ -63,6 +65,7 @@ public:
 	/** Returns a reference to the owner GameEntity of this particular Component */
 	GameEntity*	getOwnerGE() const;
 	
+//------------------------------------------------------------------------------
 protected:
 	/** Reference to the GameEntity that owns this Component. */
 	GameEntity *ownerGE;

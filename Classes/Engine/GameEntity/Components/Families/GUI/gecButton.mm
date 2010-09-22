@@ -7,9 +7,11 @@
 //
 
 #include "gecButton.h"
+#include "SharedInputManager.h"
+#include "GameEntity.h"
 #include "GEComponent.h"
 #include "gecAnimatedSprite.h"
-#include "SharedInputManager.h"
+
 
 std::string gecButton::mComponentID = "gecButton";
 

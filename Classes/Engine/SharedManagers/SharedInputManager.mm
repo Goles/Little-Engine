@@ -9,6 +9,7 @@
 #include "SharedInputManager.h"
 #include "gecGUI.h"
 #include "GandoBox2D.h"
+#include "GameEntity.h"
 
 SharedInputManager* SharedInputManager::singletonInstance = NULL;
 

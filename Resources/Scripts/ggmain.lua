@@ -13,3 +13,4 @@ someFloatVector:push_back(3.14)
 someFloatVector:push_back(9999.0)
 
 someAnimatedSprite = gecAnimatedSprite()
+coolDude = GameEntity()

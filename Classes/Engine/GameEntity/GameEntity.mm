@@ -7,7 +7,8 @@
 //
 
 #import "GameEntity.h"
-#import "GEComponent.h"
+
+#include "GEComponent.h"
 
 GameEntity::GameEntity()
 {

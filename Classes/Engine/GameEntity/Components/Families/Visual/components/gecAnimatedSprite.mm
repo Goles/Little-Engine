@@ -8,6 +8,7 @@
 
 #include "gecAnimatedSprite.h"
 #include "LuaRegisterManager.h"
+#include "GameEntity.h"
 
 std::string gecAnimatedSprite::mGECTypeID = "gecAnimatedSprite";
 
