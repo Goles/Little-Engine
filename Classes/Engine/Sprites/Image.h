@@ -106,7 +106,7 @@ public:
     
 	/** OpenGL bind(), GL tells the GPU to bind the texture. */
 	void	bind();
-//------------------------------------------------------------------------------	
+//------------------------------------------------------------------------------
 	/** Lua Interface
 	 @remarks
 	 This methods are to expose this class to the Lua runtime.
@@ -121,6 +121,7 @@ public:
 		 .property("scale", &Image::getScale, &Image::setScale)
 		 ];	
 	}
+	
 //------------------------------------------------------------------------------
 	/** Applies a color filter to the Image object.
 	    @param Red 

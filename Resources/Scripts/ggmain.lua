@@ -14,3 +14,8 @@ someFloatVector:push_back(9999.0)
 
 someAnimatedSprite = gecAnimatedSprite()
 coolDude = GameEntity()
+coolDude:setPosition(160.0, 130.0)
+
+
+aSceneManager = SceneManager()
+aSceneManager:addEntity(coolDude)

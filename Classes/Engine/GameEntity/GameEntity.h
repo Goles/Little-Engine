@@ -102,6 +102,9 @@ public:
 	/** Set's the GameEntity speed */
 	const void		setSpeed(float s) { speed = s; }
 	
+	/** Set the GameEntity position*/
+	const void		setPosition(float _x, float _y) { x = _x; y = _y; }
+	
 	/** Flips the GameEntity Horizontally (facing right or left)*/
 	void			setFlipHorizontally(bool f){ flipHorizontally = f; }
 	
@@ -147,7 +150,8 @@ static void registrate(void)
 	[
 	 luabind::class_<GameEntity>("GameEntity")	/** < Binds the GameEntity class*/
 	 .def(luabind::constructor<>())				/** < Binds the GameEntity constructor  */
-	 .def("setGEC", &GameEntity::setGEC)		/** < Binds the GameEntity setGec method  */
+	 .def("setGEC", &GameEntity::setGEC)		/** < Binds the GameEntity setGEC method  */
+	 .def("setPosition", &GameEntity::setPosition) /** < Binds the GameEntity setPositon method */
 	 ];
 }
 	
