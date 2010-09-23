@@ -227,7 +227,7 @@
 		14E31457121E47E200917795 /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E313F4121E47E200917795 /* EAGLView.mm */; };
 		14E31458121E47E200917795 /* ES1Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E313F6121E47E200917795 /* ES1Renderer.mm */; };
 		14E31459121E47E200917795 /* ES2Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E313F8121E47E200917795 /* ES2Renderer.mm */; };
-		14E3145A121E47E200917795 /* SceneManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E313FC121E47E200917795 /* SceneManager.mm */; };
+		14E3145A121E47E200917795 /* Scene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E313FC121E47E200917795 /* Scene.mm */; };
 		14E3145B121E47E200917795 /* GETemplateManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E313FF121E47E200917795 /* GETemplateManager.mm */; };
 		14E3145C121E47E200917795 /* SharedInputManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31401121E47E200917795 /* SharedInputManager.mm */; };
 		14E3145D121E47E200917795 /* SharedParticleSystemManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31403121E47E200917795 /* SharedParticleSystemManager.mm */; };
@@ -598,8 +598,8 @@
 		14E313F7121E47E200917795 /* ES2Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ES2Renderer.h; sourceTree = "<group>"; };
 		14E313F8121E47E200917795 /* ES2Renderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ES2Renderer.mm; sourceTree = "<group>"; };
 		14E313F9121E47E200917795 /* ESRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESRenderer.h; sourceTree = "<group>"; };
-		14E313FB121E47E200917795 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
-		14E313FC121E47E200917795 /* SceneManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SceneManager.mm; sourceTree = "<group>"; };
+		14E313FB121E47E200917795 /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
+		14E313FC121E47E200917795 /* Scene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Scene.mm; sourceTree = "<group>"; };
 		14E313FE121E47E200917795 /* GETemplateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GETemplateManager.h; sourceTree = "<group>"; };
 		14E313FF121E47E200917795 /* GETemplateManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GETemplateManager.mm; sourceTree = "<group>"; };
 		14E31400121E47E200917795 /* SharedInputManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedInputManager.h; sourceTree = "<group>"; };
@@ -1276,8 +1276,8 @@
 		14E313FA121E47E200917795 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				14E313FB121E47E200917795 /* SceneManager.h */,
-				14E313FC121E47E200917795 /* SceneManager.mm */,
+				14E313FB121E47E200917795 /* Scene.h */,
+				14E313FC121E47E200917795 /* Scene.mm */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -1773,7 +1773,7 @@
 				14E31457121E47E200917795 /* EAGLView.mm in Sources */,
 				14E31458121E47E200917795 /* ES1Renderer.mm in Sources */,
 				14E31459121E47E200917795 /* ES2Renderer.mm in Sources */,
-				14E3145A121E47E200917795 /* SceneManager.mm in Sources */,
+				14E3145A121E47E200917795 /* Scene.mm in Sources */,
 				14E3145B121E47E200917795 /* GETemplateManager.mm in Sources */,
 				14E3145C121E47E200917795 /* SharedInputManager.mm in Sources */,
 				14E3145D121E47E200917795 /* SharedParticleSystemManager.mm in Sources */,

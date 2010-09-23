@@ -56,7 +56,7 @@
 
 - (void) initGame
 {	
-	gameSceneManager = new SceneManager(); 
+	gameSceneManager = new Scene(); 
 	GBOX_2D->initBaseWorld();
 	//GBOX_2D->initDebugDraw();
 }

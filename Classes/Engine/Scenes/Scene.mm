@@ -6,19 +6,19 @@
 //  Copyright 2009 GandoGames. All rights reserved.
 //
 
-#include "SceneManager.h"
+#include "Scene.h"
 #include "SharedParticleSystemManager.h"
 #include "gecVisual.h"
 
 //Constructor
 #pragma mark contructor
-SceneManager::SceneManager()
+Scene::Scene()
 {
 	//Init some stuff here.
 }
 
 #pragma mark drawing_updating
-void SceneManager::updateScene(float delta)
+void Scene::updateScene(float delta)
 {	
 	ENTITY_VECTOR_ITERATOR it ;
 	
@@ -30,7 +30,7 @@ void SceneManager::updateScene(float delta)
 	}
 }
 
-void SceneManager::renderScene()
+void Scene::renderScene()
 {
 	ENTITY_VECTOR_ITERATOR it ;
 	
@@ -51,7 +51,7 @@ void SceneManager::renderScene()
 /*
  * Methods to add/remove several Kinds of "GameEntities" to the entityList
  */
-GameEntity *SceneManager::addEntity(GameEntity *inGameEntity)
+GameEntity *Scene::addEntity(GameEntity *inGameEntity)
 {
 	entityList.push_back(inGameEntity);
 	
@@ -59,7 +59,7 @@ GameEntity *SceneManager::addEntity(GameEntity *inGameEntity)
 	return inGameEntity;
 }
 
-void SceneManager::removeEntity(GameEntity *inGameEntity)
+void Scene::removeEntity(GameEntity *inGameEntity)
 {
 	ENTITY_VECTOR_ITERATOR it = entityList.begin();
 
@@ -72,18 +72,18 @@ void SceneManager::removeEntity(GameEntity *inGameEntity)
 	}
 }
 
-void SceneManager::sortEntitiesX()
+void Scene::sortEntitiesX()
 {
 	std::sort(entityList.begin(), entityList.end(), GameEntity::compareByX());	
 }
 
-void SceneManager::sortEntitiesY()
+void Scene::sortEntitiesY()
 {
 	std::sort(entityList.begin(), entityList.end(), GameEntity::compareByY());
 }
 
 #pragma mark debug
-void SceneManager::debugPrintEntityList()
+void Scene::debugPrintEntityList()
 {
 	std::cout << "*DEBUG Print Entity List ( Scene Manager ) *" << std::endl;
 	
@@ -104,7 +104,7 @@ void SceneManager::debugPrintEntityList()
 }
 
 #pragma mark destructor
-SceneManager::~SceneManager()
+Scene::~Scene()
 {
 	/*Erase the whole scene entity list on delete.*/
 	ENTITY_VECTOR_ITERATOR it = entityList.begin();

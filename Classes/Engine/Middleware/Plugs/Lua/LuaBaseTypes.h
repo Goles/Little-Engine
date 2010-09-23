@@ -14,7 +14,7 @@
 #include "LuaRegisterManager.h"
 
 #include "GameEntity.h"
-#include "SceneManager.h"
+#include "Scene.h"
 #include "Image.h"
 #include "SpriteSheet.h"
 #include "gecAnimatedSprite.h"
@@ -47,7 +47,7 @@ namespace gg
 			LR_MANAGER->registrate<SpriteSheet>();
 			LR_MANAGER->registrate<gecAnimatedSprite>();
 			LR_MANAGER->registrate<GameEntity>();
-			LR_MANAGER->registrate<SceneManager>();
+			LR_MANAGER->registrate<Scene>();
 		}
 		
 		static inline void bindAll(void)

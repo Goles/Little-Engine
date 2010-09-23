@@ -16,7 +16,7 @@
 #import "SharedParticleSystemManager.h"
 #import "SharedTextureManager.h"
 #import "gecParticleSystem.h"
-#import "SceneManager.h"
+#import "Scene.h"
 #include "GETemplateManager.h"
 #include "GandoBox2D.h"
 
@@ -52,7 +52,7 @@
 	SpriteSheet*	ss2;
 	Image*			sprite;
 	Animation*		animatedSprite;
-	SceneManager*	aSceneManager;
+	Scene*			aSceneManager;
 }
 
 - (void) update:(float)delta;

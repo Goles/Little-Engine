@@ -11,7 +11,7 @@
 #import "Texture2D.h"
 #import "EmitterFunctions.h"
 #import "FileUtils.h"
-#import "SceneManager.h"
+#import "Scene.h"
 #import "GEComponent.h"
 #import "gecAnimatedSprite.h"
 #import "gecVisualContainer.h"
@@ -64,7 +64,7 @@
 
 - (void) initScenes
 {
-	aSceneManager = new SceneManager();
+	aSceneManager = new Scene();
 }
 
 - (void) initGame

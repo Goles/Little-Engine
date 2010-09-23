@@ -15,21 +15,21 @@
 #include "LuaRegisterManager.h"
 #include "GameEntity.h"
 
-/** The SceneManager class is a node with a list of it's associated GameEntities.
+/** The Scene class is a node with a list of it's associated GameEntities.
 	@remarks
 		We don't use the classic Scene->SceneList. We talk about a SceneManager, 
 		which manages a list of GameEntities. Each GameEntity can also have it's
 		own list of GameEntities.
  */
-class SceneManager
+class Scene
 {
 public:
 //------------------------------------------------------------------------------	
 	/** Constructor */
-	SceneManager();
+	Scene();
 	
 	/** Destructor */
-	~SceneManager();
+	~Scene();
 	
 //------------------------------------------------------------------------------		
 	/** Updates the GameEntities present in this scene. 
@@ -63,6 +63,17 @@ public:
 	GameEntity* addEntity(GameEntity *gameEntity);
 	
 //------------------------------------------------------------------------------
+	/** Sets the scene unique id 
+		@param _id is an std::string unique for this scene.
+	 */
+	void setSceneId(const std::string &_id) { sceneId = std::string(_id); }
+	
+	/** Gets the scene unique id 
+		@returns reference to sceneId
+	 */
+	const std::string &getSceneId(void) { return sceneId; }
+	
+//------------------------------------------------------------------------------
 	/** Lua Interface
 	 @remarks
 		This methods are to expose this class to the Lua runtime.
@@ -71,9 +82,10 @@ public:
 	{
 		luabind::module(LR_MANAGER_STATE) 
 		[
-		 luabind::class_<SceneManager>("SceneManager")
+		 luabind::class_<Scene>("Scene")
 		 .def(luabind::constructor<>())
-		 .def("addEntity", &SceneManager::addEntity)
+		 .def("addEntity", &Scene::addEntity)
+		 .property("sceneId", &Scene::getSceneId, &Scene::setSceneId)
 		 ];	
 	}
 	
@@ -88,6 +100,8 @@ public:
 private:
 	typedef std::vector<GameEntity *> ENTITY_VECTOR;
 	typedef std::vector<GameEntity *>::iterator ENTITY_VECTOR_ITERATOR;
+	
+	std::string sceneId; /** < Unique identifier for this scene */
 	
 	ENTITY_VECTOR entityList; /** Vector of GameEntities owned by this SceneManager */
 };

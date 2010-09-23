@@ -12,7 +12,7 @@
 #include "ShaderVars.h"
 #include "ESRenderer.h"
 #include "Texture2D.h"
-#include "SceneManager.h"
+#include "Scene.h"
 
 @interface ES2Renderer : NSObject <ESRenderer>
 {
@@ -34,7 +34,7 @@
     GLfloat scene_transform_mat[16];
 	
 	//Game Scene Manager
-	SceneManager *gameSceneManager;
+	Scene *gameSceneManager;
 	
     //Test Texture
     Texture2D *aTexture;
