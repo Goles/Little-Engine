@@ -1,5 +1,5 @@
 /*
- *  LuaBaseTypes.h
+ *  LuaInit.h
  *  GandoEngine
  *
  *  Created by Nicolas Goles on 9/17/10.
@@ -19,6 +19,7 @@
 #include "SpriteSheet.h"
 #include "gecAnimatedSprite.h"
 
+#include "SharedSceneManager.h"
 
 namespace gg
 {
@@ -40,7 +41,7 @@ namespace gg
 			 .def("push_back", &std::vector<float>::push_back)
 			 ];
 		}
-	
+		
 		static inline void bindClasses(void)
 		{
 			LR_MANAGER->registrate<Image>();
@@ -50,13 +51,17 @@ namespace gg
 			LR_MANAGER->registrate<Scene>();
 		}
 		
+		static inline void bindManagers(void)
+		{
+			LR_MANAGER->registrate<SharedSceneManager>();
+		}
+
 		static inline void bindAll(void)
 		{
 			bindBasicTypes();
 			bindClasses();
+			bindManagers();
 		}
 	}
-	
-	
 }
 #endif

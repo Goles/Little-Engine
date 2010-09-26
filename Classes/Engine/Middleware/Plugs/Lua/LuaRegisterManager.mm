@@ -13,7 +13,7 @@
 
 #include "LuaRegisterManager.h"
 #include "FileUtils.h"
-#include "LuaBaseTypes.h"
+#include "LuaInit.h"
 
 LuaRegisterManager *LuaRegisterManager::instance = NULL;
 

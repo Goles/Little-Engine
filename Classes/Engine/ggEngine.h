@@ -16,7 +16,7 @@
 #include "SharedTextureManager.h"
 #include "GandoBox2D.h"
 #include "LuaRegisterManager.h"
-#include "LuaBaseTypes.h"
+#include "LuaInit.h"
 
 /** Good Game Engine Namespace
 	@remarks
@@ -32,18 +32,16 @@ namespace gg
 	inline void init(void)
 	{		
 		LR_MANAGER;			/** < Initialize the Lua Registrate Manager */
-		GE_FACTORY;			/** < Initialize the Game Entity Factory */
 		INPUT_MANAGER;		/** < Initialize the Input Manager*/
-		PARTICLE_MANAGER;	/** < Initialize the Particles Manager*/
+		SCENE_MANAGER;		/** < Initialize the Scene Manager */
 		TEXTURE_MANAGER;	/** < Initialize the Texture Manager*/
+		PARTICLE_MANAGER;	/** < Initialize the Particles Manager*/
 		GBOX_2D;			/** < Initialize the Box2D Plug for GG*/
+		GE_FACTORY;			/** < Initialize the Game Entity Factory */
 	}
 	
 	inline void startup(void)
 	{
-		//GBOX_2D->initBaseWorld();
-		//GBOX_2D->initDebugDraw();
-
 		LR_MANAGER->execScript("ggmain.lua");
 	}
 }

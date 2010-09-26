@@ -71,7 +71,7 @@ public:
 	/** Gets the scene unique id 
 		@returns reference to sceneId
 	 */
-	const std::string &getSceneId(void) { return sceneId; }
+	const std::string &getSceneId(void) const { return sceneId; }
 	
 //------------------------------------------------------------------------------
 	/** Lua Interface

@@ -22,14 +22,6 @@
 #import "Texture2D.h"
 #include "LuaRegisterManager.h"
 
-/** Image base class.
-    @remarks
-        Allows several initialization modes, such as passing a texture name, file name, or UIImage
-        The object's properties can be set and modified once the object is defined, through its setter methods.
-        Method "getSubImage" allows manipulation of SpriteSheet objects
-*/
-     
-
 typedef struct {
 	float tl_x, tl_y;
 	float tr_x, tr_y;
@@ -37,6 +29,13 @@ typedef struct {
 	float br_x, br_y;
 } Quad2;
 
+
+/** Image base class.
+ @remarks
+ Allows several initialization modes, such as passing a texture name, file name, or UIImage
+ The object's properties can be set and modified once the object is defined, through its setter methods.
+ Method "getSubImage" allows manipulation of SpriteSheet objects
+ */
 class Image
 {
 public:
@@ -47,16 +46,19 @@ public:
 	        Additionally, the texture can be initialized in various ways, using pre-loaded textures or files. */
 	            
 	Image();
+	
 //------------------------------------------------------------------------------	
 	/** Initializer for pre-loaded textures
-    	@param inTexture Pointer to a Texture2D object.*/
+    	@param inTexture Pointer to a Texture2D object.
+	 */
 	void	initWithTexture2D(Texture2D *inTexture);
 	
 	/** @param scale Optional scaling amount. */
 	void	initWithTexture2D(Texture2D *inTexture, float scale);
 	
 	/** Use a file name to load texture data
-	    @param inTextureName file name containing texture data. */
+	    @param inTextureName file name containing texture data. 
+	 */
 	void	initWithTextureFile(const std::string &inTextureName);
 	
 	/** 	    @param scale Optional scaling amount */
@@ -69,7 +71,8 @@ public:
 	void	initWithUIImage(UIImage *inImage, GLenum filter);
 	
 	/** @param inScale Optional scaling amount */
-	void	initWithUIImage(UIImage *inImage, float inScale, GLenum filter);	
+	void	initWithUIImage(UIImage *inImage, float inScale, GLenum filter);
+	
 //------------------------------------------------------------------------------	
 	/** Crop an existing Image object to form a sub-image.
 	    @param point Upper left corner of selected area.
@@ -106,10 +109,11 @@ public:
     
 	/** OpenGL bind(), GL tells the GPU to bind the texture. */
 	void	bind();
+	
 //------------------------------------------------------------------------------
 	/** Lua Interface
-	 @remarks
-	 This methods are to expose this class to the Lua runtime.
+		@remarks
+			This methods are to expose this class to the Lua runtime.
 	 */
 	static void registrate(void)
 	{
@@ -180,6 +184,7 @@ public:
 	
 	/** Gets the texture name */
 	std::string getTextureName();
+	
 //------------------------------------------------------------------------------
 protected:	
 	void initImplementation();

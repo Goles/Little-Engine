@@ -301,7 +301,7 @@
 
 /* Begin PBXFileReference section */
 		1400DD2B12412ACD0007F6E9 /* ggmain.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ggmain.lua; sourceTree = "<group>"; };
-		1427CE5A12444FFC007BF343 /* LuaBaseTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaBaseTypes.h; sourceTree = "<group>"; };
+		1427CE5A12444FFC007BF343 /* LuaInit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaInit.h; sourceTree = "<group>"; };
 		149F93ED124B8ECE00CE4E3D /* SharedSceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedSceneManager.h; sourceTree = "<group>"; };
 		149F93EE124B8ECE00CE4E3D /* SharedSceneManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SharedSceneManager.mm; sourceTree = "<group>"; };
 		14A6091D12276EDC00F41A4E /* libLua.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLua.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -925,7 +925,7 @@
 			children = (
 				14AC58421235A88400173BEC /* LuaRegisterManager.h */,
 				14AC58411235A88400173BEC /* LuaRegisterManager.mm */,
-				1427CE5A12444FFC007BF343 /* LuaBaseTypes.h */,
+				1427CE5A12444FFC007BF343 /* LuaInit.h */,
 			);
 			path = Lua;
 			sourceTree = "<group>";

@@ -1,5 +1,6 @@
 print("---Lua is available---")
 
+-- Create some vectors
 someIntVector = int_vector()
 someFloatVector = float_vector()
 
@@ -12,10 +13,18 @@ someFloatVector:push_back(3.0)
 someFloatVector:push_back(3.14)
 someFloatVector:push_back(9999.0)
 
+--- Construct a Scene ---
+
+-- Create a GameEntity
 someAnimatedSprite = gecAnimatedSprite()
 coolDude = GameEntity()
 coolDude:setPosition(160.0, 130.0)
 
+-- Create a Scene
+aScene = Scene()
+aScene.sceneId = "CoolScene"		
+aScene:addEntity(coolDude)	-- Add a coolDude to the scene.
 
-aSceneManager = SceneManager()
-aSceneManager:addEntity(coolDude)
+-- Push aScene to the Global SceneManager
+SceneManager.getInstance():addScene(aScene)
+
