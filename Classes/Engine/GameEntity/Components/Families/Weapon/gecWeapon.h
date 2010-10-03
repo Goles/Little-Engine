@@ -19,19 +19,19 @@ class gecWeapon: public CompWeapon
 {
 	//gecWeapon interface
 public:
-	gecWeapon();
+	gecWeapon(){}
 
 	void attack();
 
     //init method
     
 public:
-    init(GameEntity *ge, float _width, float _height):
-                width(_width),
-				height(_height)
+    void init(GameEntity *ge, float _width, float _height)
     {
-        tag = new std::string("weapon");
-        active = false;
+		width = _width;
+		height = _height;
+        tag = new std::string("weapon");        
+		active = false;
         ownerGE = ge;
         this->intialize();
     }
@@ -56,10 +56,7 @@ public:
 		[
 		 luabind::class_<gecWeapon>("gecWeapon")                				/** < Binds the gecWeapon class*/
 		 .def(luabind::constructor<>())											/** < Binds the gecWeapon constructor  */
-		 .def("init", (void(gecWeapon::*)(const GameEntity &,
-										  const float &, 
-										  const float &)) 
-	         )
+		 .def("init" , &gecWeapon::init)
 		 ];
 	}
 	
