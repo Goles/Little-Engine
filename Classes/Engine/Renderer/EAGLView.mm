@@ -82,7 +82,6 @@
 - (void) layoutSubviews
 {
 	[renderer resizeFromLayer:(CAEAGLLayer*)self.layer];
-//    [self drawView:nil];
 }
 
 - (NSInteger) animationFrameInterval

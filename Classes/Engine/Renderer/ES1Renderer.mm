@@ -225,8 +225,7 @@
 
 #pragma mark action_methods
 - (void) setupView
-{	
-	// setup viewport and projection
+{
 	glViewport(0, 0, backingWidth, backingHeight);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();

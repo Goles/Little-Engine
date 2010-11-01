@@ -31,14 +31,10 @@
 #ifdef nil
 #undef nil
 #endif
- 
+
 #include <luabind/config.hpp>
 #include <luabind/class.hpp>
 #include <luabind/function.hpp>
 #include <luabind/open.hpp>
-
-#define check
-
-#define nil
 
 #endif // LUABIND_BIND_HPP_INCLUDED

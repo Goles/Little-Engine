@@ -3,6 +3,13 @@
    <BuildAction
       buildConfiguration = "Debug"
       parallelizeBuildables = "NO">
+      <BuildableProductReferences>
+         <BuildableProductReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "14A609981227704600F41A4E"
+            ReferencedContainer = "container:GandoEngine.xcodeproj">
+         </BuildableProductReference>
+      </BuildableProductReferences>
    </BuildAction>
    <TestAction
       failureAction = "0">
@@ -13,28 +20,13 @@
       loadSymbolsForSpecifiedModules = "NO"
       displayScaleIsEnabled = "NO"
       displayScale = "1.00">
-      <BuildableProductRunnable>
-         <BuildableProductReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
-            ReferencedContainer = "container:GandoEngine.xcodeproj">
-         </BuildableProductReference>
-      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
-      persistedCurrentAnalysisToolIdentifier = ""
       displayScaleIsEnabled = "NO"
       displayScale = "1.00"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <BuildableProductRunnable>
-         <BuildableProductReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
-            ReferencedContainer = "container:GandoEngine.xcodeproj">
-         </BuildableProductReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <ArchiveAction>
       <ArchivingStrategy

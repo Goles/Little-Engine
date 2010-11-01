@@ -42,7 +42,7 @@ namespace gg
 	
 	inline void startup(void)
 	{
-		LR_MANAGER->execScript("ggmain.lua");
+		LR_MANAGER->execScript("init.lua");
 	}
 }
 
