@@ -164,6 +164,7 @@
 		14A85491122B085500615BF4 /* GandoBox2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14A8548D122B085500615BF4 /* GandoBox2D.mm */; };
 		14A85492122B085500615BF4 /* GContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14A8548F122B085500615BF4 /* GContactListener.mm */; };
 		14AC58431235A88400173BEC /* LuaRegisterManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14AC58411235A88400173BEC /* LuaRegisterManager.mm */; };
+		14D4E0E412882C2B006139EF /* base_functions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14D4E0E31288241B006139EF /* base_functions.lua */; };
 		14E31418121E47E200917795 /* CompBehaviour.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E3135B121E47E100917795 /* CompBehaviour.mm */; };
 		14E31419121E47E200917795 /* gecFSM.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E3135D121E47E100917795 /* gecFSM.mm */; };
 		14E3141A121E47E200917795 /* CompCollision.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31360121E47E100917795 /* CompCollision.mm */; };
@@ -279,14 +280,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 14A6091C12276EDC00F41A4E /* Lua */;
+			remoteGlobalIDString = 14A6091C12276EDC00F41A4E;
 			remoteInfo = Lua;
 		};
 		1497B43B127E6F6200A836D4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 1497B31D127E6AB100A836D4 /* Luabind */;
+			remoteGlobalIDString = 1497B31D127E6AB100A836D4;
 			remoteInfo = Luabind;
 		};
 		14A60A741227719700F41A4E /* PBXContainerItemProxy */ = {
@@ -464,6 +465,7 @@
 		14AC58411235A88400173BEC /* LuaRegisterManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LuaRegisterManager.mm; sourceTree = "<group>"; };
 		14AC58421235A88400173BEC /* LuaRegisterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaRegisterManager.h; sourceTree = "<group>"; };
 		14AC587E1235ABCC00173BEC /* ggEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ggEngine.h; sourceTree = "<group>"; };
+		14D4E0E31288241B006139EF /* base_functions.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = base_functions.lua; sourceTree = "<group>"; };
 		14E31358121E47E100917795 /* BehaviourActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BehaviourActions.h; sourceTree = "<group>"; };
 		14E31359121E47E100917795 /* BehaviourStates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BehaviourStates.h; sourceTree = "<group>"; };
 		14E3135A121E47E100917795 /* CompBehaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompBehaviour.h; sourceTree = "<group>"; };
@@ -700,6 +702,7 @@
 		1400DD2A12412ACD0007F6E9 /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				14D4E0E31288241B006139EF /* base_functions.lua */,
 				1400DD2B12412ACD0007F6E9 /* init.lua */,
 			);
 			path = Scripts;
@@ -1640,6 +1643,7 @@
 				14E314A0121E47FE00917795 /* sprite_test.png in Resources */,
 				14E314A1121E47FE00917795 /* spritesheet16.gif in Resources */,
 				1400DD2C12412ACD0007F6E9 /* init.lua in Resources */,
+				14D4E0E412882C2B006139EF /* base_functions.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1928,7 +1932,7 @@
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_THUMB_SUPPORT = NO;
-				GCC_VERSION = 4.2;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
@@ -1938,8 +1942,7 @@
 				OTHER_CFLAGS = "-DTARGET_OS_IPHONE";
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C536926E-CEAB-4E32-944F-D2E3A82D0638";
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = NO;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 			};
@@ -1958,7 +1961,7 @@
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_UNROLL_LOOPS = YES;
-				GCC_VERSION = 4.2;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
@@ -1975,8 +1978,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C536926E-CEAB-4E32-944F-D2E3A82D0638";
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = YES;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 			};

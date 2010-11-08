@@ -83,7 +83,7 @@ void GameEntity::debugPrintComponents()
 {
 	ComponentMap::iterator it;
 	
-	std::cout << "Parent Entity[" << (*it).second->getOwnerGE() << "] " << std::endl;
+	//std::cout << "Parent Entity[" << (*it).second->getOwnerGE() << "] " << std::endl;
 	
 	for(it = components.begin(); it != components.end(); ++it)
 	{

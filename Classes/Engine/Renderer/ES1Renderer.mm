@@ -26,6 +26,7 @@
 #include "gecWeapon.h"
 #include "LuaRegisterManager.h"
 #include "ggEngine.h"
+#include "SharedSceneManager.h"
 
 @implementation ES1Renderer
 
@@ -64,13 +65,11 @@
 
 - (void) initScenes
 {
-	aSceneManager = new Scene();
+	
 }
 
 - (void) initGame
 {
-	[self initScenes];
-	[self box2d];
 	gg::startup();
 }
 
@@ -241,9 +240,9 @@
 	if(aSceneManager)
 		aSceneManager->updateScene(delta);
 
-	aSceneManager->sortEntitiesY();
+	SCENE_MANAGER->getActiveScene()->sortEntitiesY();
 //	GBOX_2D->update(delta);
-	GBOX_2D->debugUpdate(delta);
+//	GBOX_2D->debugUpdate(delta);
 }
 
 #pragma mark render_scene
@@ -261,15 +260,19 @@
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 		
-	if(aSceneManager != NULL)
-	{
-		aSceneManager->renderScene();
-	}
+//	if(aSceneManager != NULL)
+//	{
+//		aSceneManager->renderScene();
+//	}
+	
+	Scene *a = SCENE_MANAGER->getActiveScene();
+	
+	a->renderScene();
 	
 	if(sprite)
 		sprite->renderAtPoint(CGPointMake(240.0, 160.0), true);
 	
-	GBOX_2D->debugRender();
+	//GBOX_2D->debugRender();
 	
 	glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
 	[context presentRenderbuffer:GL_RENDERBUFFER_OES];

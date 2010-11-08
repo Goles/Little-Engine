@@ -13,11 +13,14 @@
 
 #include "LuaRegisterManager.h"
 
+#include "FileUtils.h"
+
 #include "GameEntity.h"
 #include "Scene.h"
 #include "Image.h"
 #include "SpriteSheet.h"
 #include "gecAnimatedSprite.h"
+#include "GEComponent.h"
 
 #include "SharedSceneManager.h"
 
@@ -25,6 +28,14 @@ namespace gg
 {
 	namespace lua 
 	{
+        static inline void bindBasicFunctions(void)
+        {
+            luabind::module(LR_MANAGER_STATE) 
+            [
+             luabind::def("getFileRelativePath", &FileUtils::relativeCPathForFile)
+             ];
+        }
+        
 		static inline void bindBasicTypes(void)
 		{	
 			luabind::module(LR_MANAGER_STATE)
@@ -41,7 +52,7 @@ namespace gg
 			 .def("push_back", &std::vector<float>::push_back)
 			 ];
 		}
-		
+		 
 		static inline void bindClasses(void)
 		{
 			LR_MANAGER->registrate<Image>();
@@ -59,6 +70,7 @@ namespace gg
 		static inline void bindAll(void)
 		{
 			bindBasicTypes();
+            bindBasicFunctions();
 			bindClasses();
 			bindManagers();
 		}

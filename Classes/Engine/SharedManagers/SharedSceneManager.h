@@ -51,6 +51,13 @@ public:
 			The active Scene is being updated and rendered.
 	 */
 	int		setActiveScene(const std::string &sceneName);
+    
+    /** Get the current active Scene
+        @
+        @
+        @
+     */
+    Scene   *getActiveScene() { return activeScene; }
 	
 //------------------------------------------------------------------------------
 /** Lua Interface

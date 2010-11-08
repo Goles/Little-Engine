@@ -1,24 +1,31 @@
+
+-- Set the package path to the App Directory.
+package.path = getFileRelativePath("init.lua") .. "/?.lua;"
+
+-- require "base_functions"
+require "base_functions"
+
 print("---Lua is available---")
+-- Load a Sprite Sheet.
+ss = SpriteSheet()
+ss:initWithImageNamed("hitter1_1.png", 80, 80, 0.0, 1.0)
 
--- Create some vectors
-someIntVector = int_vector()
-someFloatVector = float_vector()
+-- Manually define a standing animation vector ( horrible way to do it, but testing )
+standingVector = makeIntVector(0,0,1,0,2,3,0)
 
-someIntVector:push_back(44)
-someIntVector:push_back(33)
-someIntVector:push_back(21)
-someIntVector:push_back(40)
+-- Manually define a standing time vector
+timeVector = makeFloatVector(1.0)
 
-someFloatVector:push_back(3.0)
-someFloatVector:push_back(3.14)
-someFloatVector:push_back(9999.0)
-
---- Construct a Scene ---
-
--- Create a GameEntity
+-- Create a sprite component
 someAnimatedSprite = gecAnimatedSprite()
+someAnimatedSprite:addAnimation("stand", standingVector, timeVector, ss)
+someAnimatedSprite:setCurrentAnimation("stand")
+
+-- Attach the sprite component to a game entity
 coolDude = GameEntity()
 coolDude:setPosition(160.0, 130.0)
+coolDude:setGEC(someAnimatedSprite);
+coolDude:setIsActive(true)
 
 -- Create a Scene
 aScene = Scene()
@@ -26,5 +33,5 @@ aScene.sceneId = "CoolScene"
 aScene:addEntity(coolDude)	-- Add a coolDude to the scene.
 
 -- Push aScene to the Global SceneManager
-SceneManager.getInstance():addScene(aScene)
-
+pushScene(aScene)
+activateScene("CoolScene")

@@ -40,9 +40,11 @@ Texture2D* SharedTextureManager::createTexture(const std::string &textureName)
 	Texture2D *imTexture;	
 	NSString *textureFileName = [NSString stringWithUTF8String:textureName.c_str()];
 
+    NSString *fullPath = FileUtils::fullPathFromRelativePath(textureFileName);
+    
 	if([textureFileName hasSuffix:@".pvr"])
 	{
-		imTexture = [[Texture2D alloc] initWithPVRTCFile:[FileUtils fullPathFromRelativePath:textureFileName]];
+		imTexture = [[Texture2D alloc] initWithPVRTCFile:fullPath];
 	}else{
 		imTexture = [[Texture2D alloc] initWithImagePath:[[NSBundle mainBundle] pathForResource:textureFileName ofType:nil] filter:GL_LINEAR];
 	}

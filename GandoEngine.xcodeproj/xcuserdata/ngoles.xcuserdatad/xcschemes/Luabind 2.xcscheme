@@ -3,13 +3,6 @@
    <BuildAction
       buildConfiguration = "Debug"
       parallelizeBuildables = "NO">
-      <BuildableProductReferences>
-         <BuildableProductReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1497B31D127E6AB100A836D4"
-            ReferencedContainer = "container:GandoEngine.xcodeproj">
-         </BuildableProductReference>
-      </BuildableProductReferences>
    </BuildAction>
    <TestAction
       failureAction = "0">

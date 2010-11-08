@@ -37,6 +37,8 @@ Scene* SharedSceneManager::addScene(Scene *aScene)
 {
 	std::string sceneName = aScene->getSceneId();
 	
+	std::cout << sceneName << std::endl;
+	
 	//Return NULL if the scene remains unnamed
 	if(!aScene->getSceneId().compare("unnamed"))
 	{
@@ -51,7 +53,7 @@ Scene* SharedSceneManager::addScene(Scene *aScene)
 	{
 		return NULL;
 	}
-
+    
 	//Return a pointer to the inserted scene
 	return((scenes.insert(SceneMapPair(sceneName, aScene))).first->second);	
 }
@@ -60,7 +62,7 @@ int SharedSceneManager::setActiveScene(const std::string &sceneName)
 {
 	SceneMap::iterator it = scenes.find(sceneName);
 	
-	if (it != scenes.end()) 
+	if (it == scenes.end()) 
 	{
 		std::cout << "Error: No scene named " << sceneName << " in the sceneMap" << std::endl;
 		return 0;

@@ -152,6 +152,7 @@ static void registrate(void)
 	 .def(luabind::constructor<>())				/** < Binds the GameEntity constructor  */
 	 .def("setGEC", &GameEntity::setGEC)		/** < Binds the GameEntity setGEC method  */
 	 .def("setPosition", &GameEntity::setPosition) /** < Binds the GameEntity setPositon method */
+	 .def("setIsActive", &GameEntity::setIsActive)
 	 ];
 }
 	

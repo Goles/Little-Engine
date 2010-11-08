@@ -81,7 +81,7 @@ void SharedInputManager::touchesBegan(float x, float y, void *touchID)
 			//std::cout << "Touches Began "<< std::endl;
 			//this->debugPrintGUIState();
 			//std::cout << std::endl;
-			GBOX_2D->addDebugSpriteWithCoords(x, y);
+			//GBOX_2D->addDebugSpriteWithCoords(x, y);
 			break;
 		}
 	}

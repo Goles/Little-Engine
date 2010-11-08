@@ -53,6 +53,8 @@ void Scene::renderScene()
  */
 GameEntity *Scene::addEntity(GameEntity *inGameEntity)
 {
+	inGameEntity->debugPrintComponents();
+	
 	entityList.push_back(inGameEntity);
 	
 	//return entityList.back();	

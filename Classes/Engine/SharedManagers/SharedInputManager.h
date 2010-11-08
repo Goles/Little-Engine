@@ -68,8 +68,8 @@ protected:
 
 	//private Atributes
 private:
-	typedef std::map<int, GameEntity *>		gameEntityMap;
-	typedef std::pair<int, GameEntity *>	gameEntityMapPair;
+	typedef std::map<int, GameEntity *>	gameEntityMap;
+	typedef std::pair<int, GameEntity *> gameEntityMapPair;
 	
 	gameEntityMap				receiversMap;
 	boost::mutex				io_mutex;
