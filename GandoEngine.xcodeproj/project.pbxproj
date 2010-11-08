@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1400DD2C12412ACD0007F6E9 /* init.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1400DD2B12412ACD0007F6E9 /* init.lua */; };
+		140C15B112886A0A002C136D /* entity.lua in Resources */ = {isa = PBXBuildFile; fileRef = 140C15AF12886A0A002C136D /* entity.lua */; };
+		140C15B212886A0A002C136D /* main.lua in Resources */ = {isa = PBXBuildFile; fileRef = 140C15B012886A0A002C136D /* main.lua */; };
 		1497B38C127E6B1B00A836D4 /* adopt_policy.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1497B329127E6B1B00A836D4 /* adopt_policy.hpp */; };
 		1497B38D127E6B1B00A836D4 /* back_reference.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1497B32A127E6B1B00A836D4 /* back_reference.hpp */; };
 		1497B38E127E6B1B00A836D4 /* back_reference_fwd.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1497B32B127E6B1B00A836D4 /* back_reference_fwd.hpp */; };
@@ -301,6 +303,8 @@
 
 /* Begin PBXFileReference section */
 		1400DD2B12412ACD0007F6E9 /* init.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = init.lua; sourceTree = "<group>"; };
+		140C15AF12886A0A002C136D /* entity.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = entity.lua; sourceTree = "<group>"; };
+		140C15B012886A0A002C136D /* main.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.lua; sourceTree = "<group>"; };
 		1427CE5A12444FFC007BF343 /* LuaInit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaInit.h; sourceTree = "<group>"; };
 		1497B31E127E6AB100A836D4 /* libLuabind.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLuabind.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1497B329127E6B1B00A836D4 /* adopt_policy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = adopt_policy.hpp; sourceTree = "<group>"; };
@@ -704,6 +708,8 @@
 			children = (
 				14D4E0E31288241B006139EF /* base_functions.lua */,
 				1400DD2B12412ACD0007F6E9 /* init.lua */,
+				140C15AF12886A0A002C136D /* entity.lua */,
+				140C15B012886A0A002C136D /* main.lua */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
@@ -1644,6 +1650,8 @@
 				14E314A1121E47FE00917795 /* spritesheet16.gif in Resources */,
 				1400DD2C12412ACD0007F6E9 /* init.lua in Resources */,
 				14D4E0E412882C2B006139EF /* base_functions.lua in Resources */,
+				140C15B112886A0A002C136D /* entity.lua in Resources */,
+				140C15B212886A0A002C136D /* main.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

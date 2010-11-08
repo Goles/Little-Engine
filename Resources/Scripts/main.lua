@@ -1,3 +1,5 @@
+print("-- Executing Main.lua --")
+
 -- Load a Sprite Sheet.
 ss = SpriteSheet()
 ss:initWithImageNamed("hitter1_1.png", 80, 80, 0.0, 1.0)
