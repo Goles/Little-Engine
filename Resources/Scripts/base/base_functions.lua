@@ -1,19 +1,27 @@
+require "tableprint"
+
 -- This function is bound to std::vector<float>
-function makeFloatVector(...)
-	vector = float_vector()	
+function makeFloatVector(t)
+	vector = float_vector()
 	
-	for i,v in ipairs(arg) do
-		vector:push_back(v)
+	if(type(t) == "number") then
+		vector:push_back(t)
+	end
+	
+	if(type(t) == "table") then
+		for i,v in ipairs(t) do
+			vector:push_back(v)
+		end
 	end
 	
 	return vector
 end
 
 -- This function is bound to std::vector<int>
-function makeIntVector(...)
-	vector = int_vector()	
+function makeIntVector(t)
+	vector = int_vector()
 	
-	for i,v in ipairs(arg) do
+	for i,v in ipairs(t) do
 		vector:push_back(v)
 	end
 	

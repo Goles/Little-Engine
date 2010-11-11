@@ -145,7 +145,7 @@ public:
  This methods are to expose this class to the Lua runtime.
  */
 static void registrate(void)
-{
+{	
 	luabind::module(LR_MANAGER_STATE) 
 	[
 	 luabind::class_<GameEntity>("GameEntity")	/** < Binds the GameEntity class*/

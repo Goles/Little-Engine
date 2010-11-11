@@ -100,22 +100,16 @@ public:
 		 ];		
 	}
 //------------------------------------------------------------------------------
-	/** Returns sheetImage Image object */
 	Image*	getSheetImage();
-	/** Getter for spriteWidth */
 	GLuint	getSpriteWidth();
-	/** Getter for spriteHeight */
 	GLuint	getSpriteHeight();
-	/** Getter for spacing */
 	GLuint	getSpacing();
-	/** Getter for horizontalNumber */
 	int		getHorizontalNumber();
-	/** Getter for verticalNumber */
 	int		getVerticalNumber();
-	/** Getter for qv */
 	Quad2*	getVertices();
-	/** Getter for tc */
 	Quad2*	getTexCoords();
+	
+	
 //------------------------------------------------------------------------------	
 private:
 	// Class Atributes
