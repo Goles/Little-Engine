@@ -1,4 +1,4 @@
-print("-- Executing Main.lua --")
+--[[print("-- Executing Main.lua --")
 
 -- Load a Sprite Sheet.
 ss = SpriteSheet()
@@ -25,6 +25,22 @@ coolDude:setIsActive(true)
 aScene = Scene()
 aScene.sceneId = "CoolScene"		
 aScene:addEntity(coolDude)	-- Add a coolDude to the scene.
+
+-- Push aScene to the Global SceneManager
+pushScene(aScene)
+activateScene("CoolScene")
+]]--
+
+require "EntityBuilder"
+
+someEntity = buildEntity("entity.lua")
+someEntity:setPosition(160.0, 130.0)
+someEntity:setIsActive(true)
+
+-- Create a Scene
+aScene = Scene()
+aScene.sceneId = "CoolScene"		
+aScene:addEntity(someEntity)	-- Add a coolDude to the scene.
 
 -- Push aScene to the Global SceneManager
 pushScene(aScene)
