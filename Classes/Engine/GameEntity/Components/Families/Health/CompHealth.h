@@ -23,6 +23,17 @@ public:
 public:
 	virtual const gec_id_type &familyID() const { return mFamilyID; }
 	
+	//To register with lua
+	static void registrate(void)
+	{
+		luabind::module(LR_MANAGER_STATE) 
+		[
+		 luabind::class_<GEComponent>("GEComponent"),
+		 luabind::class_<CompHealth, GEComponent>("CompHealth")	/** < Binds the CompHealth class*/
+		 .def(luabind::constructor<>())							    /** < Binds the CompHealth constructor  */
+		];
+	}
+	
 	//Shared Atributes
 protected:
 	int current_health;
