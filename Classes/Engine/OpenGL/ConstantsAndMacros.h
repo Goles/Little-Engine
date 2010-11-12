@@ -44,6 +44,9 @@ static float InvSqrt (float x)
 #define SCREEN_HEIGHT 480
 #define SCREEN_WIDTH  320
 
+//definitions
+#define GGPoint CGPoint
+
 //simple macro that swaps 2 variables
 #define CC_SWAP( x, y )			\
 ({ __typeof__(x) temp  = (x);		\

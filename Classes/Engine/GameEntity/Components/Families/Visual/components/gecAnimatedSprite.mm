@@ -14,10 +14,10 @@ std::string gecAnimatedSprite::mGECTypeID = "gecAnimatedSprite";
 
 #pragma mark -
 #pragma mark gecAnimatedSprite Interface.
-gecAnimatedSprite::gecAnimatedSprite()
+gecAnimatedSprite::gecAnimatedSprite() : flipHorizontally(false),
+										 flipVertically(false),
+										 currentAnimation(NULL)
 {
-	flipHorizontally	= false;
-	flipVertically		= false;	
 }
 
 //Adds an Animation with default parameters.
@@ -111,6 +111,13 @@ void gecAnimatedSprite::setFlipVertically(bool f)
 void gecAnimatedSprite::render() const
 {
 	GameEntity *ge = this->getOwnerGE();
+	
+	if(!currentAnimation)
+	{
+		std::cout << "ERROR: currentAnimation can't be NULL in gecAnimatedSprite... aborting (use setCurrentAnimation)." << std::endl;
+		abort();
+	}
+
 	currentAnimation->renderAtPoint(CGPointMake(ge->x,ge->y));
 }
 

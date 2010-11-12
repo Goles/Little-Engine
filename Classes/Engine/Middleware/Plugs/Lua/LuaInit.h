@@ -21,6 +21,7 @@
 #include "SpriteSheet.h"
 #include "gecAnimatedSprite.h"
 #include "GEComponent.h"
+#include "ConstantsAndMacros.h"
 
 #include "SharedSceneManager.h"
 
@@ -51,6 +52,14 @@ namespace gg
 			 luabind::class_<std::vector<float> >("float_vector")
 			 .def(luabind::constructor<>())
 			 .def("push_back", &std::vector<float>::push_back)
+			 ];
+			
+			luabind::module(LR_MANAGER_STATE)
+			[
+			 luabind::class_<GGPoint>("GGPoint")
+			 .def(luabind::constructor<>())
+			 .def_readwrite("x", &GGPoint::x)
+			 .def_readwrite("y", &GGPoint::y)			 
 			 ];
 		}
 		 
