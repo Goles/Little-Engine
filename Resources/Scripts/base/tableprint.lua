@@ -1,4 +1,4 @@
-function print_object( in_object, in_indent )
+function tableprint( in_object, in_indent )
     
     -- HANDLE CONSOLE INDENTATION FOR READABILITY
     
