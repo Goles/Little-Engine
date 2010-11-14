@@ -18,6 +18,8 @@
 #include "GameEntity.h"
 #include "Scene.h"
 #include "Image.h"
+#include "Frame.h"
+#include "Animation.h"
 #include "SpriteSheet.h"
 #include "gecAnimatedSprite.h"
 #include "GEComponent.h"
@@ -71,6 +73,8 @@ namespace gg
 		static inline void bindClasses(void)
 		{
 			LR_MANAGER->registrate<Image>();
+			LR_MANAGER->registrate<Frame>();
+			LR_MANAGER->registrate<Animation>();
 			LR_MANAGER->registrate<SpriteSheet>();
 			LR_MANAGER->registrate<gecAnimatedSprite>();
 			LR_MANAGER->registrate<GameEntity>();

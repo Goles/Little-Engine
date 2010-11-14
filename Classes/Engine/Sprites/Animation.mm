@@ -11,18 +11,19 @@
 
 #pragma mark -
 #pragma mark constructor
-Animation::Animation() : currentPoint(CGPointZero)
+Animation::Animation() : currentPoint(CGPointZero),
+						 currentFrame(0),
+						 frameTimer(0.0f),
+						 isRunning(false),
+						 isRepeating(false),
+						 isPingPong(false),
+						 notify(false),
+						 delegation(false),
+						 isFlipped(false),
+						 direction(kDirection_Forward)
+							
 {
-	//currentPoint	= CGPointZero;
-	currentFrame	= 0;
-	frameTimer		= 0.0f;
-	isRunning		= false;
-	isRepeating		= false;
-	isPingPong		= false;
-	notify			= false;
-	delegation		= false;
-	isFlipped		= false;
-	direction		= kDirection_Forward;
+	//Init some stuff here.
 }
 
 Animation::Animation(CGPoint inCurrentPoint)
@@ -94,6 +95,10 @@ void Animation::addFrameWithImage(Image *inImage, float delay)
 	spriteFrames.push_back(aFrame);
 }
 
+void Animation::addFrame(Frame *aFrame)
+{
+	spriteFrames.push_back(aFrame);
+}
 
 void Animation::update(float delta)
 {
@@ -133,7 +138,8 @@ void Animation::update(float delta)
 void Animation::renderAtPoint(CGPoint inPoint)
 {
 	Frame *aFrame = spriteFrames.at(currentFrame);
-	aFrame->getFrameImage()->renderAtPoint(inPoint, true);
+	Image *frameImage = aFrame->getFrameImage();
+	frameImage->renderAtPoint(inPoint, true);
 	
 	if(delegation)
 		this->notifyDelegate();

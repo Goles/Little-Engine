@@ -20,23 +20,15 @@ function gecAnimatedSpriteBuild(t)
 	
 	flag = 0
 	
-	for k,v in pairs(animationsTable) do		
-		gec:addAnimation(v.name, 
-						 v.coordinates,
-						 v.frameDuration, 
-						 spritesheetsTable[v.spritesheetName])	
-		--[[ This Should be something like:	
-			gec:addAnimation(animationBuild(v))											
-		]]				
-				
+	for k,v in pairs(animationsTable) do	
+		animation = animationBuild(v, spritesheetsTable[v.spritesheetName])
+		gec:addAnimation(v.name, animation)											
+			
 		if(flag == 0) then		
 			gec:setCurrentAnimation(v.name)
 			gec:setCurrentRunning(true)
-			gec:setCurrentRepeating(v.repeats) -- TODO: This should not be here
-			gec:setCurrentPingPong(v.pingpong) -- should be for every animation
 			flag = 1
-		end
-			
+		end		
 	end
 	
 	return gec

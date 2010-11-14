@@ -79,7 +79,8 @@ public:
 		 luabind::class_<GEComponent>("GEComponent"),
 		 luabind::class_<gecAnimatedSprite, GEComponent>("gecAnimatedSprite")	/** < Binds the gecAnimatedSprite class*/
 		 .def(luabind::constructor<>())											/** < Binds the gecAnimatedSprite constructor  */
-		 .def("addAnimation", (void(gecAnimatedSprite::*)(const std::string &,
+		 .def("addAnimation", (void(gecAnimatedSprite::*)(const std::string &, Animation *)) &gecAnimatedSprite::addAnimation)
+		 .def("addCustomAnimation", (void(gecAnimatedSprite::*)(const std::string &,
 														  const std::vector<int> &, 
 														  const std::vector<float> &, 
 														  SpriteSheet *)) 

@@ -9,6 +9,11 @@
 #include "Frame.h"
 
 #pragma mark constructor_destructor
+Frame::Frame() : frameImage(NULL), frameDelay(0.0)
+{
+	//Do nothing here.
+}
+
 Frame::Frame(Image* inFrameImage, float inFrameDelay)
 {
 	this->frameImage = inFrameImage;
