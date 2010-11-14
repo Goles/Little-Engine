@@ -94,6 +94,7 @@ void Animation::addFrameWithImage(Image *inImage, float delay)
 	spriteFrames.push_back(aFrame);
 }
 
+
 void Animation::update(float delta)
 {
 	if(isRunning)

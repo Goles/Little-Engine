@@ -48,9 +48,9 @@ public:
 	
 	//Setters
 	void	setCurrentFrame(int frame) { if(frame <= spriteFrames.size()) currentFrame = frame; }
-	void	setIsRunning(Boolean inIsRunning) { isRunning = inIsRunning; }
-	void	setIsRepeating(Boolean inIsRepeating) { isRepeating = inIsRepeating; }
-	void	setIsPingPong(Boolean inIsPingPong) { isPingPong = inIsPingPong; }
+	void	setIsRunning(bool inIsRunning) { isRunning = inIsRunning; }
+	void	setIsRepeating(bool inIsRepeating) { isRepeating = inIsRepeating; }
+	void	setIsPingPong(bool inIsPingPong) { isPingPong = inIsPingPong; }
 	void	setFlipHorizontally(bool f);
 	void	setFlipVertically(bool f);
 	

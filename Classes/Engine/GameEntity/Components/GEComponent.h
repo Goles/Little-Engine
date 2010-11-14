@@ -61,7 +61,7 @@ public:
 	virtual void update(float delta) = 0;
 	
 	/** Set's the owner GameEntity for this particular component */
-	void		setOwnerGE(GameEntity *gE){ ownerGE = gE; }
+	void		setOwnerGE(GameEntity *gE);
 
 	/** Returns a reference to the owner GameEntity of this particular Component */
 	GameEntity*	getOwnerGE() const;

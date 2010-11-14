@@ -32,13 +32,14 @@ void Scene::updateScene(float delta)
 
 void Scene::renderScene()
 {
-	ENTITY_VECTOR_ITERATOR it ;
+	ENTITY_VECTOR::const_iterator it ;
 	
 	for (it = entityList.begin(); it < entityList.end(); ++it)
 	{
 		if((*it)->isActive)
 		{	GEComponent *gec = (*it)->getGEC(std::string("CompVisual"));
 			gecVisual *gvis	 = static_cast<gecVisual*> (gec);
+			
 			if( gvis )
 			{
 				gvis->render();
@@ -52,9 +53,7 @@ void Scene::renderScene()
  * Methods to add/remove several Kinds of "GameEntities" to the entityList
  */
 GameEntity *Scene::addEntity(GameEntity *inGameEntity)
-{
-	inGameEntity->debugPrintComponents();
-	
+{	
 	entityList.push_back(inGameEntity);
 	
 	//return entityList.back();	
@@ -87,7 +86,7 @@ void Scene::sortEntitiesY()
 #pragma mark debug
 void Scene::debugPrintEntityList()
 {
-	std::cout << "*DEBUG Print Entity List ( Scene Manager ) *" << std::endl;
+	std::cout << "*** DEBUG Print Entity List ( Scene Manager ) ***" << std::endl;
 	
 	ENTITY_VECTOR_ITERATOR it = entityList.begin();
 	
@@ -97,8 +96,8 @@ void Scene::debugPrintEntityList()
 	{
 		if(*it)
 		{
-			std::cout << "\nEntity " << i <<"[" << (*it)->x << "][" <<(*it)->y <<  "]" << std::endl;
-			(*it)->debugPrintComponents();
+			std::cout << "\nEntity " << i << " [" << (*it) << "] - " <<"[" << (*it)->x << "][" <<(*it)->y <<  "]" << std::endl;
+			//(*it)->debugPrintComponents();
 		}
 		++it;
 		++i;

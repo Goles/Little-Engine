@@ -33,15 +33,19 @@ activateScene("CoolScene")
 
 require "EntityBuilder"
 
-someEntity = buildEntity("entity.lua")
-someEntity:setPosition(160.0, 130.0)
-someEntity:setIsActive(true)
-
 -- Create a Scene
 aScene = Scene()
-aScene.sceneId = "CoolScene"		
-aScene:addEntity(someEntity)	-- Add a coolDude to the scene.
+entities = {}
+
+-- Create entities
+for i=1,1 do
+	entities[i] = buildEntity("entity.lua") 
+	entities[i]:setPosition(50.0 + 60 * i, 130.0)
+	entities[i]:setIsActive(true)
+	aScene:addEntity(entities[i])	-- Add a coolDude to the scene.	
+end
 
 -- Push aScene to the Global SceneManager
+aScene.sceneId = "CoolScene"
 pushScene(aScene)
 activateScene("CoolScene")

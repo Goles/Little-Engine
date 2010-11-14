@@ -19,14 +19,16 @@ end
 
 -- Build Animation
 function animationTableBuild(t)
-	assert(#t == 4, "An Animation must be defined by {name, coordinates, frameDurations, spriteSheetName}")
+	assert(#t == 6, "An Animation must be defined by {name, coordinates, frameDurations, spriteSheetName, repeats, pingpong}")
 	
 	animationTable = 
 	{
 		name = t[1], 
 		coordinates = makeIntVector(t[2]), 
 		frameDuration = makeFloatVector(t[3]),	
-		spritesheetName = t[4]
+		spritesheetName = t[4],
+		repeats = t[5],
+		pingpong = t[6],
 	}
 	
 	return animationTable

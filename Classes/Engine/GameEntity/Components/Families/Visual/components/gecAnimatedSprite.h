@@ -85,6 +85,10 @@ public:
 														  SpriteSheet *)) 
 														  &gecAnimatedSprite::addAnimation) /** < Binds the gecAnimatedSprite addAnimation method */
 		 .def("setCurrentAnimation", &gecAnimatedSprite::setCurrentAnimation)
+		 .def("setCurrentRunning", &gecAnimatedSprite::setCurrentRunning)
+		 .def("setCurrentRepeating", &gecAnimatedSprite::setCurrentRepeating)
+		 .def("setCurrentPingPong", &gecAnimatedSprite::setCurrentPingPong)		 
+		 .def("setOwnerGE", &GEComponent::setOwnerGE)
 		 ];
 	}
 	
@@ -109,19 +113,19 @@ public:
 	Animation* getAnimation(const std::string&animationName);
 	
 	/** Set the current animation mode to "running" or "active". */
-	void setCurrentRunning(Boolean isRunning){ currentAnimation->setIsRunning(isRunning); }
+	void setCurrentRunning(bool isRunning){ currentAnimation->setIsRunning(isRunning); }
 	
 	/** Set the current animation mode to "repeating"
 		@remarks
 			This means that for a 3 frames Animation it will go, 0,1,2,0,1,2,0,1,2
 	 */
-	void setCurrentRepeating(Boolean isRepeating){ currentAnimation->setIsRepeating(isRepeating); } 
+	void setCurrentRepeating(bool isRepeating){ currentAnimation->setIsRepeating(isRepeating); } 
 	
 	/** Set the current animation mode to "pingPong"
 		@remarks
 			This means that for a 3 frames animation it will go, 0,1,2,1,0,1,2,1,0
 	 */
-	void setCurrentPingPong(Boolean isPingPong){ currentAnimation->setIsPingPong(isPingPong); }
+	void setCurrentPingPong(bool isPingPong){ currentAnimation->setIsPingPong(isPingPong); }
 	
 	/** Flips an Animation horizontally.*/
 	void setFlipHorizontally(bool f);

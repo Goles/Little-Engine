@@ -29,6 +29,11 @@ namespace gg
 {
 	namespace lua 
 	{
+		static inline void enableSettings(void)
+		{
+			lua_gc(LR_MANAGER_STATE, LUA_GCSTOP, 0);
+		}
+		
         static inline void bindBasicFunctions(void)
         {
             luabind::module(LR_MANAGER_STATE) 
@@ -78,7 +83,7 @@ namespace gg
 		}
 
 		static inline void bindAll(void)
-		{
+		{			
 			bindBasicTypes();
             bindBasicFunctions();
 			bindClasses();
