@@ -47,7 +47,7 @@ void GameEntity::setGEC( GEComponent *newGEC )
 		std::cout << "ERROR: Can't pass NULL component!" << std::endl;
 		assert(newGEC != NULL);
 	}else {
-		newGEC->setOwnerGE(this);
+//		newGEC->setOwnerGE(this);
 		std::string familyID = newGEC->familyID();
 		components[familyID] = newGEC;
 	}
@@ -83,11 +83,12 @@ void GameEntity::debugPrintComponents()
 {
 	ComponentMap::iterator it;
 	
-	//std::cout << "Parent Entity[" << (*it).second->getOwnerGE() << "] " << std::endl;
 	
 	for(it = components.begin(); it != components.end(); ++it)
 	{
-		std::cout << "[" << (*it).second << "] " << (*it).second->componentID() 
-		<< "[" << x << "]" << "[" << y << "]" << std::endl;
+		std::cout << (*it).second->componentID()
+		<< "[" << (*it).second << "] " //Print The Component Address
+		<< " - Parent Entity [" << (*it).second->getOwnerGE() << "] " 
+		<< std::endl;
 	}
 }

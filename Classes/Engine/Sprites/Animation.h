@@ -36,6 +36,7 @@ public:
 	~Animation();
 	
 	//Action methods
+	void	addFrame(Frame *aFrame);
 	void	addFrameWithImage(Image *inImage, float delay);
 	void	update(float delta);
 	void	renderAtPoint(CGPoint inPoint);
@@ -45,12 +46,15 @@ public:
 	Frame*	getFrame(GLuint frameNumber);
 	GLuint	getCurrentFrameNumber();
 	GLuint	getAnimationFrameCount();
+	const bool getIsRunning(){ return isRunning; }
+	const bool getIsRepeating(){ return isRepeating; }	
+	const bool getIsPingPong(){ return isPingPong; }
 	
 	//Setters
 	void	setCurrentFrame(int frame) { if(frame <= spriteFrames.size()) currentFrame = frame; }
-	void	setIsRunning(Boolean inIsRunning) { isRunning = inIsRunning; }
-	void	setIsRepeating(Boolean inIsRepeating) { isRepeating = inIsRepeating; }
-	void	setIsPingPong(Boolean inIsPingPong) { isPingPong = inIsPingPong; }
+	void	setIsRunning(bool inIsRunning) { isRunning = inIsRunning; }
+	void	setIsRepeating(bool inIsRepeating) { isRepeating = inIsRepeating; }
+	void	setIsPingPong(bool inIsPingPong) { isPingPong = inIsPingPong; }
 	void	setFlipHorizontally(bool f);
 	void	setFlipVertically(bool f);
 	
@@ -64,6 +68,24 @@ public:
 	//inherited stuff.
 	void draw();
 	void update();
+	
+//------------------------------------------------------------------------------
+/** Lua Interface
+ @remarks
+ This methods are to expose this class to the Lua runtime.
+ */
+	static void registrate(void)
+	{	
+		luabind::module(LR_MANAGER_STATE) 
+		[
+		 luabind::class_<Animation>("Animation")	/** < Binds the GameEntity class*/
+		 .def(luabind::constructor<>())				/** < Binds the GameEntity constructor  */
+		 .def("addFrame", &Animation::addFrame)
+		 .property("running", &Animation::getIsRunning, &Animation::setIsRunning)
+		 .property("repeating", &Animation::getIsRepeating, &Animation::setIsRepeating)
+		 .property("pingpong", &Animation::getIsPingPong, &Animation::setIsPingPong)
+		 ];
+	}
 	
 private:
 	CGPoint				currentPoint;

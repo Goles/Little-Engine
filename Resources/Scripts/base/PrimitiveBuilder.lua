@@ -19,15 +19,53 @@ end
 
 -- Build Animation
 function animationTableBuild(t)
-	assert(#t == 4, "An Animation must be defined by {name, coordinates, frameDurations, spriteSheetName}")
+	assert(#t == 6, "An Animation must be defined by {name, coordinates, frameDurations, spriteSheetName, repeats, pingpong}")
 	
 	animationTable = 
 	{
 		name = t[1], 
-		coordinates = makeIntVector(t[2]), 
-		frameDuration = makeFloatVector(t[3]),	
-		spritesheetName = t[4]
+		coordinates = t[2], --makeIntVector(t[2]), 
+		frameDuration = t[3], --makeFloatVector(t[3]),	
+		spritesheetName = t[4],
+		repeating = t[5],
+		pingpong = t[6],
 	}
 	
 	return animationTable
+end
+
+function frameBuild(frameImage, frameDelay)
+	aFrame = Frame()
+	aFrame.image = frameImage
+	aFrame.delay = frameDelay
+	
+	return aFrame
+end
+	
+
+function animationBuild(animationTable, spriteSheetInstance)
+	animation = Animation()
+
+	for i=1, #animationTable.coordinates, 2 do
+		
+		aFrame = {}	
+		
+		if(type(animationTable.frameDuration) == "number") then
+			aFrame = frameBuild(spriteSheetInstance:getSpriteAtCoordinate(animationTable.coordinates[i], animationTable.coordinates[i+1]), animationTable.frameDuration)
+		
+		elseif(type(animationTable.frameDuration == "table") and (#animationTable.frameDuration == (#animationTable.coordinates)/2)) then
+			aFrame = frameBuild(spriteSheetInstance:getSpriteAtCoordinate(animationTable.coordinates[i], animationTable.coordinates[i+1]), animationTable.frameDuration[i])
+					
+		else
+			print("frameDuration, must have a single value or specify a value for EACH Animation Frame")
+			assert(#animationTable.frameDuration == (#animationTable.frameDuration)/2)
+		end
+		
+		animation:addFrame(aFrame)
+	end
+
+	animation.repeating = animationTable.repeating
+	animation.pingpong = animationTable.pingpong
+
+	return animation
 end

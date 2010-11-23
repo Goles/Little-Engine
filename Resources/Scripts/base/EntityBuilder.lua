@@ -9,6 +9,7 @@ function buildEntity(fileName)
 		
 		if component_function_table[ key ] ~= nil then
 			component = component_function_table[ key ]( value )
+			component:setOwnerGE(entity)
 			entity:setGEC(component)
 		end
 		

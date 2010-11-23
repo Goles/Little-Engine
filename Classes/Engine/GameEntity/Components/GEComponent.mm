@@ -8,10 +8,22 @@
 
 #import "GEComponent.h"
 
+#include <iostream>
+
+#include "GameEntity.h"
+
 GameEntity* GEComponent::getOwnerGE() const
 { 
 	if(ownerGE == NULL)
+	{
+		std::cout << "The Owner Game Entity of a GEComponent can't be NULL" << std::endl;
 		assert(ownerGE != NULL);
-	
+	}
+
 	return ownerGE;
+}
+
+void GEComponent::setOwnerGE(GameEntity *gE)
+{
+	ownerGE = static_cast<GameEntity *>(gE);
 }

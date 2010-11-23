@@ -135,6 +135,7 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	
 	//Add an FSM to our Game Entity
 	gecFSM *fsm = new gecFSM();
+	fsm->setOwnerGE(gE);
 	
 	//Build the rules for this entity FSM.
 	fsm->setRule(kBehaviourState_stand, kBehaviourAction_doAttack, kBehaviourState_attack, "attack");
@@ -231,14 +232,14 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	gE->setGEC(fsm);
 	
 	//Attach collisioning to the entity:
-	gecBoxCollision *gbc = new gecBoxCollision();
-	gbc->setOwnerGE(gE);
-	gE->setGEC(gbc);
+//	gecBoxCollision *gbc = new gecBoxCollision();
+//	gbc->setOwnerGE(gE);
+//	gE->setGEC(gbc);
 	
 	//Attach weapon
-	gecWeapon *gwc = new gecWeapon();
-	gwc->init(gE, 10.0, 10.0f);
-	gE->setGEC(gwc);
+//	gecWeapon *gwc = new gecWeapon();
+//	gwc->init(gE, 10.0, 10.0f);
+//	gE->setGEC(gwc);
 	
 	return gE;
 }

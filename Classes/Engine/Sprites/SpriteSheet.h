@@ -97,6 +97,7 @@ public:
 		 luabind::class_<SpriteSheet>("SpriteSheet")
 		 .def(luabind::constructor<>())
 		 .def("initWithImageNamed", &SpriteSheet::initWithImageNamed)
+		 .def("getSpriteAtCoordinate", &SpriteSheet::getSpriteAt)
 		 ];		
 	}
 //------------------------------------------------------------------------------

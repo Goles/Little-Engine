@@ -71,6 +71,9 @@
 - (void) initGame
 {
 	gg::startup();
+//	GBOX_2D->initBaseWorld();
+//	[self offsetTest];
+	
 }
 
 /*
@@ -117,6 +120,9 @@
 
 - (void) offsetTest
 {
+	aSceneManager = new Scene();
+	aSceneManager->setSceneId("main_scene");
+	
 	//Declare our game entities
 	GameEntity *b		= GE_FACTORY->createGE("scrollingBackground", 0, 320.0);
 	GameEntity *hitter	= GE_FACTORY->createGE("hitter1", 240.0f, 120.0f);
@@ -127,8 +133,9 @@
 	
 	srand(time(NULL));
 	
-	for(int i = 0; i < 10; i++)
+	for(int i = 0; i < 20; i++)
 	{
+		std::cout << "Entity " << i << std::endl;
 		GameEntity *h = GE_FACTORY->createGE("hitter1", rand()%400 + 20, rand()%80 + 80);
 		aSceneManager->addEntity(h);
 	}
@@ -152,6 +159,9 @@
 //	aSceneManager->addEntity(hitter3);	
 	aSceneManager->addEntity(j);
 	aSceneManager->addEntity(button);
+	
+	SCENE_MANAGER->addScene(aSceneManager);
+	SCENE_MANAGER->setActiveScene("main_scene");
 }
 
 - (void) fsmTest
@@ -241,8 +251,7 @@
 		aSceneManager->updateScene(delta);
 
 	SCENE_MANAGER->getActiveScene()->sortEntitiesY();
-//	GBOX_2D->update(delta);
-//	GBOX_2D->debugUpdate(delta);
+	SCENE_MANAGER->getActiveScene()->updateScene(delta);
 }
 
 #pragma mark render_scene
@@ -267,10 +276,8 @@
 	
 	Scene *a = SCENE_MANAGER->getActiveScene();
 	
-	a->renderScene();
-	
-	if(sprite)
-		sprite->renderAtPoint(CGPointMake(240.0, 160.0), true);
+	if(a)
+		a->renderScene();
 	
 	//GBOX_2D->debugRender();
 	

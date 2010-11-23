@@ -22,6 +22,7 @@ LuaRegisterManager* LuaRegisterManager::getInstance()
 	if(instance == NULL)
 	{
 		instance = new LuaRegisterManager();
+		gg::lua::enableSettings();
 		gg::lua::bindAll();
 	}
 

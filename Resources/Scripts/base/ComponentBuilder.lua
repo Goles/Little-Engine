@@ -20,17 +20,15 @@ function gecAnimatedSpriteBuild(t)
 	
 	flag = 0
 	
-	for k,v in pairs(animationsTable) do
-		gec:addAnimation(v.name, 
-						 v.coordinates,
-						 v.frameDuration, 
-						 spritesheetsTable[v.spritesheetName])	
-		
+	for k,v in pairs(animationsTable) do	
+		animation = animationBuild(v, spritesheetsTable[v.spritesheetName])
+		gec:addAnimation(v.name, animation)											
+			
 		if(flag == 0) then		
 			gec:setCurrentAnimation(v.name)
+			gec:setCurrentRunning(true)
 			flag = 1
-		end
-			
+		end		
 	end
 	
 	return gec
