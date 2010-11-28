@@ -33,6 +33,6 @@ function pushScene(scene)
 	SceneManager.getInstance():addScene(scene)
 end
 
-function activateScene(sceneName)
-	SceneManager.getInstance():setActiveScene(sceneName)
+function activateScene(scene)
+	SceneManager.getInstance():setActiveScene(scene.sceneId)
 end

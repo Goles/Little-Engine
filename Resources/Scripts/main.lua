@@ -1,7 +1,6 @@
-require "EntityBuilder"
-
+require "SceneBuilder"
 -- Create a Scene
-aScene = Scene()
+--[[aScene = Scene()
 entities = {}
 
 -- Create entities
@@ -16,3 +15,8 @@ end
 aScene.sceneId = "CoolScene"
 pushScene(aScene)
 activateScene("CoolScene")
+]]--
+scene = buildScene("scene1.lua")
+pushScene(scene)
+activateScene(scene)
+
