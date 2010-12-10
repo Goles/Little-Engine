@@ -11,6 +11,7 @@ function buildEntity(fileName)
 			component = component_function_table[ key ]( value )
 			component:setOwnerGE(entity)
 			entity:setGEC(component)
+			entity:setIsActive(true)
 		end
 		
 	end

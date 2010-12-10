@@ -19,7 +19,7 @@ std::string gecButton::mComponentID = "gecButton";
 gecButton::gecButton()
 {
 	//TODO: INPUT_MANAGER GIVE ME A NEW ID
-	this->setGuiID(INPUT_MANAGER->giveID());
+	this->setGuiID(INPUT_MANAGER->generateID());
 
 	 //We don't assign button actions by default.
 	buttonActions[0] = kBehaviourAction_none;

@@ -17,7 +17,6 @@
 #ifndef _SHARED_INPUT_MANAGER_H
 #define _SHARED_INPUT_MANAGER_H
 
-#include <boost/thread/mutex.hpp>
 #include <string>
 #include <map>
 
@@ -50,31 +49,31 @@ class SharedInputManager
 public:
 	static SharedInputManager*	getInstance();	
 	void						registerGameEntity(GameEntity *anEntity);
+	void						removeGameEntity(int guiID);	
 	GameEntity*					getGameEntity(int guiID);
 	void						setTouchCount(int t) { touchCount = t; }
 	int							getTouchCount() { return touchCount; }
-	void						removeGameEntity(int guiID);
 	void						touchesBegan(float x, float y, void *touchID);
 	void						touchesMoved(float x, float y, void *touchID);
 	void						touchesEnded(float x, float y, void *touchID);
-	int							giveID(){ return (++guiIDMax); }
+	int							generateID(){ return (++incrementalID); }
 	
-	UIState GUIState[MAX_TOUCHES]; //public for easier accesibility
+	UIState GUIState[MAX_TOUCHES]; //public for easier accesibility no thread safe though.
 	
 	~SharedInputManager();
 		
 protected:
 	SharedInputManager();
+	void						initGUIState();
 
 	//private Atributes
 private:
-	typedef std::map<int, GameEntity *>	gameEntityMap;
-	typedef std::pair<int, GameEntity *> gameEntityMapPair;
-	
-	gameEntityMap				receiversMap;
-	boost::mutex				io_mutex;
+	typedef std::map<int, GameEntity *>	GameEntityMap;
+	typedef std::pair<int, GameEntity *> GameEntityMapPair;
+
 	static SharedInputManager*	singletonInstance;
-	int							guiIDMax;
+	GameEntityMap				touchReceivers;
+	int							incrementalID;
 	int							touchCount;
 
 	//private Methods

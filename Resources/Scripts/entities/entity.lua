@@ -17,8 +17,18 @@ TestEntity =
 				{"walk", {4,0,5,0,6,0,7,0}, 0.10, "hitter1_1.png", true, false},
 				{"attack",{8,0,9,0,10,0}, 0.08, "hitter1_1.png", false, false},
 			},
-		}
-	}
+		},
+	},
 }
 
 return TestEntity
+
+gecAnimatedSprite = 
+{
+	spritesheets = { { spritesheet = "string",
+	 				  width = 1, 
+					  height = 1,
+					  separation = 0.1,
+					  scale = 0.1} 
+					},
+}
