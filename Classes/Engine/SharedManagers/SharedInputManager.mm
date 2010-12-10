@@ -13,7 +13,8 @@
 
 SharedInputManager* SharedInputManager::singletonInstance = NULL;
 
-#pragma mark constructor
+#pragma mark initializers
+
 SharedInputManager* SharedInputManager::getInstance()
 {
 	if(singletonInstance == NULL)
@@ -23,7 +24,12 @@ SharedInputManager* SharedInputManager::getInstance()
 	return singletonInstance;
 }
 
-SharedInputManager::SharedInputManager()
+SharedInputManager::SharedInputManager() : incrementalID(0)
+{
+	this->initGUIState();
+}
+
+void SharedInputManager::initGUIState()
 {
 	for(int i = 0; i < MAX_TOUCHES; i++)
 	{
@@ -32,22 +38,21 @@ SharedInputManager::SharedInputManager()
 		GUIState[i].fingerDown	= false;
 		GUIState[i].hitFirst	= false;
 		GUIState[i].touchID		= NULL;
-	}
-
-	guiIDMax = 0;
+	}	
 }
 
 #pragma mark action_methods
+
 void SharedInputManager::registerGameEntity(GameEntity *anEntity)
 {
-	receiversMap.insert(gameEntityMapPair(guiIDMax, anEntity));
+	touchReceivers.insert(GameEntityMapPair(incrementalID, anEntity));
 }
 
 GameEntity* SharedInputManager::getGameEntity(int guiID)
 {
-	gameEntityMap::iterator it = receiversMap.find(guiID);
+	GameEntityMap::iterator it = touchReceivers.find(guiID);
 	
-	if (it != receiversMap.end()) {
+	if (it != touchReceivers.end()) {
 		return(it->second);
 	}
 	
@@ -56,7 +61,7 @@ GameEntity* SharedInputManager::getGameEntity(int guiID)
 
 void SharedInputManager::removeGameEntity(int guiID)
 {
-	receiversMap.erase(guiID);
+	touchReceivers.erase(guiID);
 }
 
 #pragma mark touch_management
@@ -77,11 +82,6 @@ void SharedInputManager::touchesBegan(float x, float y, void *touchID)
 			GUIState[i].fingerDown = true;
 			GUIState[i].touchID	= touchID;
 			this->broadcastInteraction(x, y, i, touchID, kTouchType_began);
-			
-			//std::cout << "Touches Began "<< std::endl;
-			//this->debugPrintGUIState();
-			//std::cout << std::endl;
-			//GBOX_2D->addDebugSpriteWithCoords(x, y);
 			break;
 		}
 	}
@@ -103,10 +103,6 @@ void SharedInputManager::touchesMoved(float x, float y, void *touchID)
 			GUIState[i].y = y;
 			GUIState[i].fingerDown = true;
 			this->broadcastInteraction(x, y, i, touchID, kTouchType_moved);
-			
-			//std::cout << "Touches Moved "<< std::endl;
-			//this->debugPrintGUIState();
-			//std::cout << std::endl;			
 			break;
 		}
 	}
@@ -129,28 +125,21 @@ void SharedInputManager::touchesEnded(float x, float y, void *touchID)
 			GUIState[i].fingerDown	= false;
 			GUIState[i].touchID	= touchID;
 			GUIState[i].hitFirst = false;
-			
 			this->broadcastInteraction(x, y, i, touchID, kTouchType_ended);
 			GUIState[i].touchID = NULL;
-			
-			//std::cout << "Touches Ended "<< std::endl;
-			//this->debugPrintGUIState();
-			//std::cout << std::endl;
 			break;
 		}
 	}
-	
-	
 }
 
 void SharedInputManager::broadcastInteraction(float x, float y, int touchIndex, void *touchID, int touchType)
 {	
-	gameEntityMap::iterator it;
+	GameEntityMap::iterator it;
 	
-	//std::cout << "X :" << x << " Y: " << y << std::endl;
+	//TODO: This logic should be created in components that will support touch
 	
 	/*We tell every component the is subscribed that touches happened*/
-	for (it = receiversMap.begin(); it != receiversMap.end(); ++it)
+	for (it = touchReceivers.begin(); it != touchReceivers.end(); ++it)
 	{
 		if(((*it).second)->isActive)
 		{	
@@ -184,12 +173,12 @@ void SharedInputManager::debugPrintGUIState()
 
 void SharedInputManager::debugPrintMap()
 {
-	gameEntityMap::iterator it;
+	GameEntityMap::iterator it;
 	
 	std::cout << "**DEBUG PRINT MAP **" << std::endl;
-	std::cout << "Map Size " << receiversMap.size() << std::endl;
+	std::cout << "Map Size " << touchReceivers.size() << std::endl;
 	/*We tell every component the is subscribed that we have touched it.*/
-	for (it = receiversMap.begin(); it != receiversMap.end(); it++)
+	for (it = touchReceivers.begin(); it != touchReceivers.end(); it++)
 	{
 		std::cout << (*it).second << std::endl;
 	}

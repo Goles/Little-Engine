@@ -13,8 +13,10 @@
 #define MAX_STATES 8
 #define MAX_ACTION 8
 
-#include "CompBehaviour.h"
 #include <map>
+
+#include "CompBehaviour.h"
+#include "LuaRegisterManager.h"
 
 class gecFSM : public CompBehaviour 
 {
@@ -35,6 +37,21 @@ public:
 				 std::string &resultingStateName);
 	void performAction(kBehaviourAction action);
 	void animationFinishedDelegate();
+	
+	/** Lua Interface
+	 @remarks
+	 This methods are to expose this class to the Lua runtime.
+	 */
+	static void registrate(void)
+	{
+		luabind::module(LR_MANAGER_STATE) 
+		[
+		 luabind::class_<gecFSM, GEComponent>("gecFSM")	/** < Binds the gecFSM class*/
+		 .def(luabind::constructor<>())	
+		 .def("setRule", &gecFSM::setRule)
+		 .def("setOwnerGE", &GEComponent::setOwnerGE)
+		 ];
+	}
 	
 protected:
 	const std::string getNameForAction(kBehaviourState action) const;

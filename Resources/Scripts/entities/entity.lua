@@ -22,3 +22,13 @@ TestEntity =
 }
 
 return TestEntity
+
+gecAnimatedSprite = 
+{
+	spritesheets = { { spritesheet = "string",
+	 				  width = 1, 
+					  height = 1,
+					  separation = 0.1,
+					  scale = 0.1} 
+					},
+}

@@ -14,6 +14,7 @@
 #include "LuaRegisterManager.h"
 
 #include "FileUtils.h"
+#include "ConstantsAndMacros.h"
 
 #include "GameEntity.h"
 #include "Scene.h"
@@ -21,9 +22,10 @@
 #include "Frame.h"
 #include "Animation.h"
 #include "SpriteSheet.h"
-#include "gecAnimatedSprite.h"
+
 #include "GEComponent.h"
-#include "ConstantsAndMacros.h"
+#include "gecAnimatedSprite.h"
+#include "gecFSM.h"
 
 #include "SharedSceneManager.h"
 
@@ -77,6 +79,7 @@ namespace gg
 			LR_MANAGER->registrate<Animation>();
 			LR_MANAGER->registrate<SpriteSheet>();
 			LR_MANAGER->registrate<gecAnimatedSprite>();
+			LR_MANAGER->registrate<gecFSM>();
 			LR_MANAGER->registrate<GameEntity>();
 			LR_MANAGER->registrate<Scene>();
 		}
