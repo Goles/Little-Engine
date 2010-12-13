@@ -15,6 +15,7 @@
 		1433F5F5128AE00E00878671 /* init.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1433F5EE128AE00E00878671 /* init.lua */; };
 		1433F5F6128AE00E00878671 /* main.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1433F5EF128AE00E00878671 /* main.lua */; };
 		1433F6B7128B9AAB00878671 /* tableprint.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1433F6B6128B9AAB00878671 /* tableprint.lua */; };
+		145C8F2512B69BE00073B0D3 /* event_manager.lua in Resources */ = {isa = PBXBuildFile; fileRef = 145C8F2412B69BE00073B0D3 /* event_manager.lua */; };
 		145DC36E12A2E40100080A76 /* SceneBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 145DC36D12A2E40100080A76 /* SceneBuilder.lua */; };
 		145DC3B312A2E7CF00080A76 /* scene1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 145DC3B212A2E7CF00080A76 /* scene1.lua */; };
 		1464891D12A1239500CF9913 /* scene_ideal.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1464891B12A1239500CF9913 /* scene_ideal.lua */; };
@@ -319,6 +320,8 @@
 		1433F5EE128AE00E00878671 /* init.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = init.lua; sourceTree = "<group>"; };
 		1433F5EF128AE00E00878671 /* main.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.lua; sourceTree = "<group>"; };
 		1433F6B6128B9AAB00878671 /* tableprint.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tableprint.lua; sourceTree = "<group>"; };
+		145C8F1A12B699B30073B0D3 /* EventBroadcaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventBroadcaster.h; sourceTree = "<group>"; };
+		145C8F2412B69BE00073B0D3 /* event_manager.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = event_manager.lua; sourceTree = "<group>"; };
 		145DC36D12A2E40100080A76 /* SceneBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SceneBuilder.lua; sourceTree = "<group>"; };
 		145DC3B212A2E7CF00080A76 /* scene1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scene1.lua; sourceTree = "<group>"; };
 		1464891B12A1239500CF9913 /* scene_ideal.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scene_ideal.lua; sourceTree = "<group>"; };
@@ -755,6 +758,7 @@
 		1433F5E6128AE00E00878671 /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				145C8F2312B69BE00073B0D3 /* events */,
 				1464891A12A1239500CF9913 /* scenes */,
 				1433F5E7128AE00E00878671 /* base */,
 				1433F5EC128AE00E00878671 /* entities */,
@@ -783,6 +787,22 @@
 				1433F5ED128AE00E00878671 /* entity.lua */,
 			);
 			path = entities;
+			sourceTree = "<group>";
+		};
+		145C8F1912B699810073B0D3 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				145C8F1A12B699B30073B0D3 /* EventBroadcaster.h */,
+			);
+			name = Events;
+			sourceTree = "<group>";
+		};
+		145C8F2312B69BE00073B0D3 /* events */ = {
+			isa = PBXGroup;
+			children = (
+				145C8F2412B69BE00073B0D3 /* event_manager.lua */,
+			);
+			path = events;
 			sourceTree = "<group>";
 		};
 		1464891A12A1239500CF9913 /* scenes */ = {
@@ -1029,6 +1049,7 @@
 		14E31353121E47E100917795 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				145C8F1912B699810073B0D3 /* Events */,
 				14E31354121E47E100917795 /* GameEntity */,
 				14E31384121E47E100917795 /* Middleware */,
 				14E313DC121E47E200917795 /* OpenGL */,
@@ -1718,6 +1739,7 @@
 				1464891D12A1239500CF9913 /* scene_ideal.lua in Resources */,
 				145DC36E12A2E40100080A76 /* SceneBuilder.lua in Resources */,
 				145DC3B312A2E7CF00080A76 /* scene1.lua in Resources */,
+				145C8F2512B69BE00073B0D3 /* event_manager.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,8 @@
 #import "Particles_2AppDelegate.h"
 #import "EAGLView.h"
 #include "ggEngine.h"
+#import "EventBroadcaster.h"
+#include "LuaRegisterManager.h"
 
 @implementation Particles_2AppDelegate
 
@@ -19,7 +21,7 @@
 {
 	//init gg engine.
 	gg::init();
-	
+		
 	[glView startAnimation];
 }
 
