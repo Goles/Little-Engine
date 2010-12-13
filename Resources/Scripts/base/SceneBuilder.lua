@@ -2,7 +2,7 @@ require "EntityBuilder"
 require "tableprint"
 function buildScene(sceneName)
 
-	assert(type(sceneName) == "string", "The Scene Name for build scene must be a File Name")
+	assert(type(sceneName) == "string", "The Scene Name for buildScene must be a File Name")
 
 	sceneTable = dofile(filePath(sceneName));
 
