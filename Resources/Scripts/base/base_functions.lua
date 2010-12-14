@@ -1,3 +1,8 @@
+--[[
+	base_functions.lua
+	Copyright 2010 Nicolas Goles. All Rights Reserved. 
+]]--
+
 require "tableprint"
 
 -- This function is bound to std::vector<float>

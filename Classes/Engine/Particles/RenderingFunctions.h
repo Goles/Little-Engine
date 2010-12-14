@@ -3,7 +3,7 @@
  *  Particles_2
  *
  *  Created by Nicolas Goles on 9/25/09.
- *  Copyright 2009 Gando Games. All rights reserved.
+ *  Copyright 2009 Nicolas Goles. All rights reserved.
  *
  */
 

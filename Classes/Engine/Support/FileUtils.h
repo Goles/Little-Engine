@@ -2,7 +2,7 @@
 //  FileUtils.h
 //
 //  Created by Nicolas Goles on 11/08/10.
-//  Copyright 2010 GandoGames. All rights reserved.
+//  Copyright 2010 Nicolas Goles. All rights reserved.
 //
 
 #ifndef _FILE_UTILS_H_

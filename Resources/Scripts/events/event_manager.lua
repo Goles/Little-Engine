@@ -1,3 +1,8 @@
+--[[
+	event_manager.lua
+	Copyright 2010 Nicolas Goles. All Rights Reserved. 
+]]--
+
 event = {
     listeners = {},
 }

@@ -1,3 +1,8 @@
+--[[
+	SceneBuilder.lua
+	Copyright 2010 Nicolas Goles. All Rights Reserved. 
+]]--
+
 require "EntityBuilder"
 require "tableprint"
 function buildScene(sceneName)

@@ -1,3 +1,8 @@
+--[[
+	PrimitiveBuilder.lua
+	Copyright 2010 Nicolas Goles. All Rights Reserved. 
+]]--
+
 require "base_functions"
 require "tableprint"
 

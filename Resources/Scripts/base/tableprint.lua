@@ -1,3 +1,8 @@
+--[[
+	tableprint.lua
+	Copyright 2010 Nicolas Goles. All Rights Reserved. 
+]]--
+
 function tableprint( in_object, in_indent )
     
     -- HANDLE CONSOLE INDENTATION FOR READABILITY

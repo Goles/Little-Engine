@@ -1,3 +1,8 @@
+--[[
+	ComponentBuilder.lua
+	Copyright 2010 Nicolas Goles. All Rights Reserved. 
+]]--
+
 require "PrimitiveBuilder" -- Primitive builder could use a better name
 require "tableprint"
 

@@ -3,7 +3,7 @@
  *  GandoEngine
  *
  *  Created by Nicolas Goles on 12/13/10.
- *  Copyright 2010 GandoGames. All rights reserved.
+ *  Copyright 2010 Nicolas Goles. All rights reserved.
  *
  *	The in_event_payload should be a Lua table, it's normally specified like:
  *		

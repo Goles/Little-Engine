@@ -3,7 +3,7 @@
 //  Particles_2
 //
 //  Created by Nicolas Goles on 10/30/09.
-//  Copyright 2009 GandoGames. All rights reserved.
+//  Copyright 2009 Nicolas Goles. All rights reserved.
 //
 
 //#import <Foundation/Foundation.h>

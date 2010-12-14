@@ -3,7 +3,7 @@
  *  GandoEngine
  *
  *  Created by Nicolas Goles on 9/17/10.
- *  Copyright 2010 GandoGames. All rights reserved.
+ *  Copyright 2010 Nicolas Goles. All rights reserved.
  *
  */
 #ifndef __LUA_BASE_TYPES_H__

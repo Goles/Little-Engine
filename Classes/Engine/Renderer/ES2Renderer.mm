@@ -3,7 +3,7 @@
 //  Texture Shader
 //
 //  Created by Nicolas Goles on 6/10/10.
-//  Copyright 2010 GandoGames. All rights reserved.
+//  Copyright 2010 Nicolas Goles. All rights reserved.
 //
 
 #import	 "ES2Renderer.h"

@@ -1,5 +1,13 @@
 TestEntity = 
 {	
+	register_events =
+	{
+		event_handler = "zombie_event_handler.lua",
+		events = 
+		{
+			"E_HIT",
+		},
+	},	
 	components = 
 	{
 		gecAnimatedSprite =
