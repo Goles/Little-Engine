@@ -1,6 +1,10 @@
 -- Never use the reserved keyword "GameEntity"
 TestEntity = 
-{	
+{
+	events_handler = 
+	{
+		"test_entity_EH"
+	},
 	components = 
 	{
 		gecAnimatedSprite =

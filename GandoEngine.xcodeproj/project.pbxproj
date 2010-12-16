@@ -19,6 +19,8 @@
 		145DC36E12A2E40100080A76 /* SceneBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 145DC36D12A2E40100080A76 /* SceneBuilder.lua */; };
 		145DC3B312A2E7CF00080A76 /* scene1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 145DC3B212A2E7CF00080A76 /* scene1.lua */; };
 		1464891D12A1239500CF9913 /* scene_ideal.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1464891B12A1239500CF9913 /* scene_ideal.lua */; };
+		147660D412BA7CB70092D758 /* CompLevelLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 147660D012BA7CB60092D758 /* CompLevelLoader.mm */; };
+		147660D512BA7CB70092D758 /* CompSpawn.mm in Sources */ = {isa = PBXBuildFile; fileRef = 147660D312BA7CB70092D758 /* CompSpawn.mm */; };
 		1497B38C127E6B1B00A836D4 /* adopt_policy.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1497B329127E6B1B00A836D4 /* adopt_policy.hpp */; };
 		1497B38D127E6B1B00A836D4 /* back_reference.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1497B32A127E6B1B00A836D4 /* back_reference.hpp */; };
 		1497B38E127E6B1B00A836D4 /* back_reference_fwd.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1497B32B127E6B1B00A836D4 /* back_reference_fwd.hpp */; };
@@ -325,6 +327,10 @@
 		145DC36D12A2E40100080A76 /* SceneBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SceneBuilder.lua; sourceTree = "<group>"; };
 		145DC3B212A2E7CF00080A76 /* scene1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scene1.lua; sourceTree = "<group>"; };
 		1464891B12A1239500CF9913 /* scene_ideal.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scene_ideal.lua; sourceTree = "<group>"; };
+		147660CF12BA7CB60092D758 /* CompLevelLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompLevelLoader.h; sourceTree = "<group>"; };
+		147660D012BA7CB60092D758 /* CompLevelLoader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CompLevelLoader.mm; sourceTree = "<group>"; };
+		147660D212BA7CB70092D758 /* CompSpawn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompSpawn.h; sourceTree = "<group>"; };
+		147660D312BA7CB70092D758 /* CompSpawn.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CompSpawn.mm; sourceTree = "<group>"; };
 		1497B31E127E6AB100A836D4 /* libLuabind.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLuabind.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1497B329127E6B1B00A836D4 /* adopt_policy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = adopt_policy.hpp; sourceTree = "<group>"; };
 		1497B32A127E6B1B00A836D4 /* back_reference.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = back_reference.hpp; sourceTree = "<group>"; };
@@ -814,6 +820,24 @@
 			path = scenes;
 			sourceTree = "<group>";
 		};
+		147660CE12BA7CB60092D758 /* LevelLoader */ = {
+			isa = PBXGroup;
+			children = (
+				147660CF12BA7CB60092D758 /* CompLevelLoader.h */,
+				147660D012BA7CB60092D758 /* CompLevelLoader.mm */,
+			);
+			path = LevelLoader;
+			sourceTree = "<group>";
+		};
+		147660D112BA7CB70092D758 /* Spawner */ = {
+			isa = PBXGroup;
+			children = (
+				147660D212BA7CB70092D758 /* CompSpawn.h */,
+				147660D312BA7CB70092D758 /* CompSpawn.mm */,
+			);
+			path = Spawner;
+			sourceTree = "<group>";
+		};
 		1497B328127E6B1B00A836D4 /* luabind */ = {
 			isa = PBXGroup;
 			children = (
@@ -1087,6 +1111,8 @@
 		14E31356121E47E100917795 /* Families */ = {
 			isa = PBXGroup;
 			children = (
+				147660CE12BA7CB60092D758 /* LevelLoader */,
+				147660D112BA7CB70092D758 /* Spawner */,
 				14E31357121E47E100917795 /* Behaviour */,
 				14E3135E121E47E100917795 /* Collision */,
 				14E31363121E47E100917795 /* GUI */,
@@ -1892,6 +1918,8 @@
 				14AC58431235A88400173BEC /* LuaRegisterManager.mm in Sources */,
 				149F93EF124B8ECE00CE4E3D /* SharedSceneManager.mm in Sources */,
 				149C3CF012AD6C88007A0027 /* SharedBehaviorManager.mm in Sources */,
+				147660D412BA7CB70092D758 /* CompLevelLoader.mm in Sources */,
+				147660D512BA7CB70092D758 /* CompSpawn.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
