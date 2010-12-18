@@ -1,10 +1,31 @@
+--[[
+	entity.lua
+	Copyright 2010 Nicolas Goles. All Rights Reserved. 
+]]--
+
 -- Never use the reserved keyword "GameEntity"
 TestEntity = 
 {
-	events_handler = 
+	event_data =
 	{
-		"test_entity_EH"
+		listen_events = 
+		{
+			"E_ROCK",
+			"E_EXPLOSION",
+		},
+
+		handle_event = function(in_event, in_data)
+
+			if (in_event == "E_ROCK") then
+				print("EVENT_ROCK received")
+
+			elseif(in_event == "E_EXPLOSION") then
+				print("EVENT_EXPLOSION received")
+			end
+
+		end
 	},
+	
 	components = 
 	{
 		gecAnimatedSprite =

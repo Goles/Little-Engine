@@ -58,11 +58,11 @@ function event:_broadcast( in_event, in_data )
 
     -- FIND LISTENERS
     local _objects = self.listeners[ in_event ]
-
+			print("HOLA")
     if _objects then
         -- INFORM LISTNERS
-        for key, value in pairs( _objects ) do
-            key:event( in_event, in_data )
+        for key, entity in pairs( _objects ) do
+			entity.handle_event(in_event, in_data)
         end
     --else
     --	print( "EVENT NOT FOUND" )
