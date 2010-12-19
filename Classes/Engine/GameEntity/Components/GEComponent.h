@@ -41,7 +41,7 @@ public:
 	 @returns
 		The FamilyID String. (eg:"CompVisual")
 	 */
-	virtual const gec_id_type&	familyID() const	= 0;
+	virtual const gec_id_type& familyID() const = 0;
 	
 	/** Returns the Component ID.
 	 @remarks
@@ -49,7 +49,7 @@ public:
 	 @returns
 		The ComponentID String. (eg:"gecSprite")
 	 */	
-	virtual const gec_id_type&	componentID() const = 0;
+	virtual const gec_id_type& componentID() const = 0;
 	
 	/** Updates a given component.
 	 @remarks
@@ -61,7 +61,7 @@ public:
 	virtual void update(float delta) = 0;
 	
 	/** Set's the owner GameEntity for this particular component */
-	void		setOwnerGE(GameEntity *gE);
+	void setOwnerGE(GameEntity *gE);
 
 	/** Returns a reference to the owner GameEntity of this particular Component */
 	GameEntity*	getOwnerGE() const;

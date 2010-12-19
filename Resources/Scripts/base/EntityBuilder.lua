@@ -11,6 +11,20 @@ require "tableprint"
 function buildEntity(fileName)
 	entityTable = dofile(filePath(fileName))
 	entity = GameEntity()
+	entity.components = {}
+		
+	-- add the components to the entity in question
+	for key,value in pairs(entityTable.components)	do
+		
+		if component_function_table[ key ] ~= nil then
+			component = component_function_table[ key ]( value )
+			entity:setGEC(component)
+			entity.components[key] = component
+			entity.id = entity:getId()			
+			entity:setIsActive(true)
+		end
+		
+	end
 	
 	-- set the event listener settings for this entity
 	if entityTable.event_data ~= nil then
@@ -23,18 +37,6 @@ function buildEntity(fileName)
 		-- set the entity as a listener for several events
 		for i,v in ipairs(entityTable.event_data.listen_events) do
 			event:_add_listener(entity, v)
-		end
-		
-	end
-	
-	-- add the components to the entity in question
-	for key,value in pairs(entityTable.components)	do
-		
-		if component_function_table[ key ] ~= nil then
-			component = component_function_table[ key ]( value )
-			component:setOwnerGE(entity)
-			entity:setGEC(component)
-			entity:setIsActive(true)
 		end
 		
 	end

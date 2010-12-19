@@ -53,16 +53,16 @@ function event:_remove_events_for_object( in_object )
 end
 
 function event:_broadcast( in_event, in_data )
-	--print( "event:broadcast" )
-	--print( in_event )
+	-- print( "event:broadcast" )
+	-- print( in_event )
 
     -- FIND LISTENERS
     local _objects = self.listeners[ in_event ]
-			print("HOLA")
+
     if _objects then
         -- INFORM LISTNERS
         for key, entity in pairs( _objects ) do
-			entity.handle_event(in_event, in_data)
+			entity:handle_event(in_event, in_data)
         end
     --else
     --	print( "EVENT NOT FOUND" )

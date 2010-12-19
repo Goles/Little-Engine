@@ -178,6 +178,7 @@
 		14A85491122B085500615BF4 /* GandoBox2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14A8548D122B085500615BF4 /* GandoBox2D.mm */; };
 		14A85492122B085500615BF4 /* GContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14A8548F122B085500615BF4 /* GContactListener.mm */; };
 		14AC58431235A88400173BEC /* LuaRegisterManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14AC58411235A88400173BEC /* LuaRegisterManager.mm */; };
+		14B9379B12BD1B7A00008627 /* id_generator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14B9379A12BD1B7A00008627 /* id_generator.mm */; };
 		14E31418121E47E200917795 /* CompBehaviour.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E3135B121E47E100917795 /* CompBehaviour.mm */; };
 		14E31419121E47E200917795 /* gecFSM.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E3135D121E47E100917795 /* gecFSM.mm */; };
 		14E3141A121E47E200917795 /* CompCollision.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31360121E47E100917795 /* CompCollision.mm */; };
@@ -496,6 +497,8 @@
 		14AC58411235A88400173BEC /* LuaRegisterManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LuaRegisterManager.mm; sourceTree = "<group>"; };
 		14AC58421235A88400173BEC /* LuaRegisterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaRegisterManager.h; sourceTree = "<group>"; };
 		14AC587E1235ABCC00173BEC /* ggEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ggEngine.h; sourceTree = "<group>"; };
+		14B9377512BD14DC00008627 /* id_generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = id_generator.h; sourceTree = "<group>"; };
+		14B9379A12BD1B7A00008627 /* id_generator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = id_generator.mm; sourceTree = "<group>"; };
 		14E31358121E47E100917795 /* BehaviourActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BehaviourActions.h; sourceTree = "<group>"; };
 		14E31359121E47E100917795 /* BehaviourStates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BehaviourStates.h; sourceTree = "<group>"; };
 		14E3135A121E47E100917795 /* CompBehaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompBehaviour.h; sourceTree = "<group>"; };
@@ -1074,7 +1077,7 @@
 			isa = PBXGroup;
 			children = (
 				145C8F1912B699810073B0D3 /* Events */,
-				14E31354121E47E100917795 /* GameEntity */,
+				14E31354121E47E100917795 /* Entities */,
 				14E31384121E47E100917795 /* Middleware */,
 				14E313DC121E47E200917795 /* OpenGL */,
 				14E313E5121E47E200917795 /* Particles */,
@@ -1088,13 +1091,16 @@
 			path = Engine;
 			sourceTree = "<group>";
 		};
-		14E31354121E47E100917795 /* GameEntity */ = {
+		14E31354121E47E100917795 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
 				14E31355121E47E100917795 /* Components */,
 				14E31382121E47E100917795 /* GameEntity.h */,
 				14E31383121E47E100917795 /* GameEntity.mm */,
+				14B9377512BD14DC00008627 /* id_generator.h */,
+				14B9379A12BD1B7A00008627 /* id_generator.mm */,
 			);
+			name = Entities;
 			path = GameEntity;
 			sourceTree = "<group>";
 		};
@@ -1920,6 +1926,7 @@
 				149C3CF012AD6C88007A0027 /* SharedBehaviorManager.mm in Sources */,
 				147660D412BA7CB70092D758 /* CompLevelLoader.mm in Sources */,
 				147660D512BA7CB70092D758 /* CompSpawn.mm in Sources */,
+				14B9379B12BD1B7A00008627 /* id_generator.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

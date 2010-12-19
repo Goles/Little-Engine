@@ -47,6 +47,9 @@ static float InvSqrt (float x)
 //definitions
 #define GGPoint CGPoint
 
+//Definition that returns a CGPoint
+#define ggp(__X__,__Y__) CGPointMake(__X__,__Y__)
+
 //simple macro that swaps 2 variables
 #define CC_SWAP( x, y )			\
 ({ __typeof__(x) temp  = (x);		\

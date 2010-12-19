@@ -14,13 +14,20 @@ TestEntity =
 			"E_EXPLOSION",
 		},
 
-		handle_event = function(in_event, in_data)
-
+		handle_event = function(this, in_event, in_data)
+			
 			if (in_event == "E_ROCK") then
-				print("EVENT_ROCK received")
+										
+				local c = this.components["gecAnimatedSprite"]
+				c:setCurrentAnimation("walk")
+				c:setCurrentRunning(true)
+				c:setCurrentRepeating(true)	
 
 			elseif(in_event == "E_EXPLOSION") then
-				print("EVENT_EXPLOSION received")
+				
+				local c = this.components["gecAnimatedSprite"]
+				c:setCurrentAnimation("walk")
+				
 			end
 
 		end

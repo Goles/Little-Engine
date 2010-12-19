@@ -110,6 +110,10 @@ public:
 	
 	/** Returns the GameEntity Flip State.*/
 	bool			getFlipHorizontally() { return flipHorizontally; }
+	
+	/** Returns the unique id of this entity */
+	unsigned const	getId(){ return unique_id; }
+	
 //------------------------------------------------------------------------------
 public:
 	/** Functor to sort/compare Game Entities by the X poosition coordinate  
@@ -153,6 +157,7 @@ static void registrate(void)
 	 .def("setGEC", &GameEntity::setGEC)		/** < Binds the GameEntity setGEC method  */
 	 .def("setPosition", &GameEntity::setPosition) /** < Binds the GameEntity setPositon method */
 	 .def("setIsActive", &GameEntity::setIsActive)
+	 .def("getId", &GameEntity::getId)
 	 ];
 }
 	
@@ -166,6 +171,9 @@ public:
 //------------------------------------------------------------------------------
 	
 private:
+	/** Method to request unique_id and make the overall GameEntity init */
+	void initialize();
+	
 	/** Definition to easily work with an STL Map of Components */
 	typedef std::map<const std::string, GEComponent *> ComponentMap;
 	
@@ -174,6 +182,7 @@ private:
 	
 	ComponentMap components; /** < Game Entity Map of Components */
 	bool flipHorizontally;	 /** < Game Entity bool to switch horizontally */
+	unsigned unique_id;		 /**< Entity Unique Id **/
 };
 
 #endif
