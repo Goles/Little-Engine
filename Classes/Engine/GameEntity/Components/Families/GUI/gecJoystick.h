@@ -39,7 +39,20 @@ public:
 	CGRect		getShape() const { return shape; }
 	void		setCenter (float a, float b){ center.x = a; center.y = b; }
 	void		setInRadius (float r ) { inRadius = r; }
-	void		setOutRadius (float r ) { outRadius = r; }	
+	void		setOutRadius (float r ) { outRadius = r; }
+	
+	static void registrate(void)
+	{
+		luabind::module(LR_MANAGER_STATE) 
+		[
+			luabind::class_<gecJoystick, GEComponent>("gecJoystick")
+			.def(luabind::constructor<>())
+			.def("setShape", &gecJoystick::setShape)
+			.def("setCenter", &gecJoystick::setCenter)
+			.def("setInRadius", &gecJoystick::setInRadius)
+			.def("setOutRadius", &gecJoystick::setOutRadius)
+		 ];
+	}
 	
 protected:
 	void		updateSubscriberState(kBehaviourAction s);

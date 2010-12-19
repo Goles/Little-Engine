@@ -46,7 +46,8 @@ static float InvSqrt (float x)
 
 //definitions
 #define GGPoint CGPoint
-
+#define GGSize CGSize
+#define GGRect CGRect
 //Definition that returns a CGPoint
 #define ggp(__X__,__Y__) CGPointMake(__X__,__Y__)
 

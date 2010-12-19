@@ -26,7 +26,7 @@ TestEntity =
 			elseif(in_event == "E_EXPLOSION") then
 				
 				local c = this.components["gecAnimatedSprite"]
-				c:setCurrentAnimation("walk")
+				c:setCurrentAnimation("walk")				
 				
 			end
 

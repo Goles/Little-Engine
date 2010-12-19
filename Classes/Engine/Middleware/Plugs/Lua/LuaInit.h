@@ -26,6 +26,7 @@
 #include "GEComponent.h"
 #include "gecAnimatedSprite.h"
 #include "gecFSM.h"
+#include "gecJoystick.h"
 
 #include "SharedSceneManager.h"
 
@@ -42,8 +43,8 @@ namespace gg
         {
             luabind::module(LR_MANAGER_STATE) 
             [
-             luabind::def("fileRelativePath", &FileUtils::relativeCPathForFile),
-             luabind::def("filePath", &FileUtils::fullCPathFromRelativePath) 
+				luabind::def("fileRelativePath", &FileUtils::relativeCPathForFile),
+				luabind::def("filePath", &FileUtils::fullCPathFromRelativePath) 
 			 ];
         }
         
@@ -51,25 +52,40 @@ namespace gg
 		{	
 			luabind::module(LR_MANAGER_STATE)
 			[
-			 luabind::class_<std::vector<int> >("int_vector")
-			 .def(luabind::constructor<>())
-			 .def("push_back", &std::vector<int>::push_back)
+				luabind::class_<std::vector<int> >("int_vector")
+				.def(luabind::constructor<>())
+				.def("push_back", &std::vector<int>::push_back)
+			];
+			
+			luabind::module(LR_MANAGER_STATE)
+			[
+				luabind::class_<std::vector<float> >("float_vector")
+				.def(luabind::constructor<>())
+				.def("push_back", &std::vector<float>::push_back)
+			];
+			
+			luabind::module(LR_MANAGER_STATE)
+			[				
+				luabind::class_<GGPoint>("GGPoint")
+				.def(luabind::constructor<>())
+				.def_readwrite("x", &GGPoint::x)
+				.def_readwrite("y", &GGPoint::y)			 
 			 ];
 			
 			luabind::module(LR_MANAGER_STATE)
 			[
-			 luabind::class_<std::vector<float> >("float_vector")
-			 .def(luabind::constructor<>())
-			 .def("push_back", &std::vector<float>::push_back)
-			 ];
+				luabind::class_<GGSize>("GGSize")
+				.def_readwrite("width", &GGSize::width)
+				.def_readwrite("height", &GGSize::height)
+			];
 			
 			luabind::module(LR_MANAGER_STATE)
 			[
-			 luabind::class_<GGPoint>("GGPoint")
-			 .def(luabind::constructor<>())
-			 .def_readwrite("x", &GGPoint::x)
-			 .def_readwrite("y", &GGPoint::y)			 
-			 ];
+				luabind::class_<CGRect>("GGRect")
+				.def(luabind::constructor<>())
+				.def_readwrite("origin", &GGRect::origin)
+				.def_readwrite("size", &GGRect::size)
+			];
 		}
 		 
 		static inline void bindClasses(void)
@@ -80,6 +96,7 @@ namespace gg
 			LR_MANAGER->registrate<SpriteSheet>();
 			LR_MANAGER->registrate<gecAnimatedSprite>();
 			LR_MANAGER->registrate<gecFSM>();
+			LR_MANAGER->registrate<gecJoystick>();
 			LR_MANAGER->registrate<GameEntity>();
 			LR_MANAGER->registrate<Scene>();
 		}

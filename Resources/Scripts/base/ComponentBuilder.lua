@@ -39,6 +39,11 @@ function gecAnimatedSpriteBuild(t)
 	return gec
 end
 
+-- Build a gecJoystick
+function gecJoystickBuild(t)
+	-- build gecJoystick
+end
+
 -- Function table with { Key, function() } for each component builder.
 component_function_table = 
 {

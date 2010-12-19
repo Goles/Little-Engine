@@ -17,7 +17,7 @@
 std::string gecJoystick::mComponentID = "gecJoystick";
 
 #pragma mark Contrstructor
-gecJoystick::gecJoystick()
+gecJoystick::gecJoystick(): active(false), firstTouch(true), fsm(NULL), subscribedGE(NULL), currentTouchID(NULL)
 {
 	shape.origin.x		= 0.0f;
 	shape.origin.y		= 0.0f;
@@ -27,11 +27,6 @@ gecJoystick::gecJoystick()
 	center.y			= 0.0f;
 	latestVelocity.x	= 0.0f;
 	latestVelocity.y	= 0.0f;
-	active				= false;
-	firstTouch			= true;
-	fsm					= NULL;
-	subscribedGE		= NULL;
-	currentTouchID		= NULL;
 }
 
 #pragma mark gec_gui_interface
