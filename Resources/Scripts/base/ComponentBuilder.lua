@@ -41,11 +41,18 @@ end
 
 -- Build a gecJoystick
 function gecJoystickBuild(t)
-	-- build gecJoystick
+	assert(t.shape ~= nil, "To build a joystick a shape should be defined containing x, y, width and height")
+
+	joypad = gecJoystick()
+	local shape = ggr(t.shape.x, t.shape.y, t.shape.width, t.shape.height)
+	joypad:setShape(shape)	
+	
+	return joypad
 end
 
 -- Function table with { Key, function() } for each component builder.
 component_function_table = 
 {
 	["gecAnimatedSprite"] = gecAnimatedSpriteBuild,
+	["gecJoystick"] = gecJoystickBuild,
 }

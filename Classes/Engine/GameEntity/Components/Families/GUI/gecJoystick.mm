@@ -17,7 +17,7 @@
 std::string gecJoystick::mComponentID = "gecJoystick";
 
 #pragma mark Contrstructor
-gecJoystick::gecJoystick(): active(false), firstTouch(true), fsm(NULL), subscribedGE(NULL), currentTouchID(NULL)
+gecJoystick::gecJoystick()
 {
 	shape.origin.x		= 0.0f;
 	shape.origin.y		= 0.0f;
@@ -27,16 +27,25 @@ gecJoystick::gecJoystick(): active(false), firstTouch(true), fsm(NULL), subscrib
 	center.y			= 0.0f;
 	latestVelocity.x	= 0.0f;
 	latestVelocity.y	= 0.0f;
+	active				= false;
+	firstTouch			= true;
+	fsm					= NULL;
+	subscribedGE		= NULL;
+	currentTouchID		= NULL;
+	
+	std::cout << "Rock'n Roll you built a joypad" << std::endl;
 }
 
 #pragma mark gec_gui_interface
 void gecJoystick::update(float delta)
-{
-	float delta_velocity	= delta*subscribedGE->getSpeed();
+{	
+	float delta_velocity = 0.0;
 	
 	/*Updating the component or other components dependant of it happens here*/
 	if(subscribedGE != NULL)
 	{
+		delta_velocity = delta*subscribedGE->getSpeed();
+		
 		//For our current usage, we will not move the entity on attack. This should
 		//be done in a much cleaner way.
 		if(fsm->getState() != kBehaviourState_attack)

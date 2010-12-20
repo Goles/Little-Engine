@@ -44,7 +44,8 @@ namespace gg
             luabind::module(LR_MANAGER_STATE) 
             [
 				luabind::def("fileRelativePath", &FileUtils::relativeCPathForFile),
-				luabind::def("filePath", &FileUtils::fullCPathFromRelativePath) 
+				luabind::def("filePath", &FileUtils::fullCPathFromRelativePath),
+				luabind::def("ggr", &CGRectMake)
 			 ];
         }
         

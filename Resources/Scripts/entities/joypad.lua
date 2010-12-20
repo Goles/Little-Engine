@@ -4,9 +4,9 @@
 ]]--
 
 -- Never use the reserved keyword "GameEntity"
-TestEntity = 
+Joypad = 
 {
-	event_data =
+--[[	event_data =
 	{
 		listen_events = 
 		{
@@ -18,12 +18,12 @@ TestEntity =
 			-- Handle events there.
 		end
 	},
-	
+]]--	
 	components = 
 	{
 		gecJoystick =
 		{
-			shape = {width = 42, height = 42}
+			shape = {x = 60, y = 60, width = 42, height = 42},
 		},
 		
 		gecAnimatedSprite =
@@ -44,4 +44,4 @@ TestEntity =
 	},
 }
 
-return TestEntity
+return Joypad

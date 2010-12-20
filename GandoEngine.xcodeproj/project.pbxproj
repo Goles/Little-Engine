@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		142AB9F912BF89E1005C6942 /* joypad.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142AB9F812BF89E1005C6942 /* joypad.lua */; };
 		1433F5F0128AE00E00878671 /* base_functions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1433F5E8128AE00E00878671 /* base_functions.lua */; };
 		1433F5F1128AE00E00878671 /* ComponentBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1433F5E9128AE00E00878671 /* ComponentBuilder.lua */; };
 		1433F5F2128AE00E00878671 /* EntityBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1433F5EA128AE00E00878671 /* EntityBuilder.lua */; };
@@ -315,6 +316,7 @@
 
 /* Begin PBXFileReference section */
 		1427CE5A12444FFC007BF343 /* LuaInit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaInit.h; sourceTree = "<group>"; };
+		142AB9F812BF89E1005C6942 /* joypad.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = joypad.lua; sourceTree = "<group>"; };
 		1433F5E8128AE00E00878671 /* base_functions.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = base_functions.lua; sourceTree = "<group>"; };
 		1433F5E9128AE00E00878671 /* ComponentBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ComponentBuilder.lua; sourceTree = "<group>"; };
 		1433F5EA128AE00E00878671 /* EntityBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EntityBuilder.lua; sourceTree = "<group>"; };
@@ -793,6 +795,7 @@
 		1433F5EC128AE00E00878671 /* entities */ = {
 			isa = PBXGroup;
 			children = (
+				142AB9F812BF89E1005C6942 /* joypad.lua */,
 				1433F5ED128AE00E00878671 /* entity.lua */,
 			);
 			path = entities;
@@ -1772,6 +1775,7 @@
 				145DC36E12A2E40100080A76 /* SceneBuilder.lua in Resources */,
 				145DC3B312A2E7CF00080A76 /* scene1.lua in Resources */,
 				145C8F2512B69BE00073B0D3 /* event_manager.lua in Resources */,
+				142AB9F912BF89E1005C6942 /* joypad.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
