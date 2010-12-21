@@ -51,6 +51,7 @@ public:
 			.def("setCenter", &gecJoystick::setCenter)
 			.def("setInRadius", &gecJoystick::setInRadius)
 			.def("setOutRadius", &gecJoystick::setOutRadius)
+			.def("registerGUI", &gecGUI::registerGUI)
 		 ];
 	}
 	

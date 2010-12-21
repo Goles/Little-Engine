@@ -17,7 +17,7 @@
 std::string gecJoystick::mComponentID = "gecJoystick";
 
 #pragma mark Contrstructor
-gecJoystick::gecJoystick()
+gecJoystick::gecJoystick(): active(false), firstTouch(true), fsm(NULL), subscribedGE(NULL), currentTouchID(NULL)
 {
 	shape.origin.x		= 0.0f;
 	shape.origin.y		= 0.0f;
@@ -27,13 +27,6 @@ gecJoystick::gecJoystick()
 	center.y			= 0.0f;
 	latestVelocity.x	= 0.0f;
 	latestVelocity.y	= 0.0f;
-	active				= false;
-	firstTouch			= true;
-	fsm					= NULL;
-	subscribedGE		= NULL;
-	currentTouchID		= NULL;
-	
-	std::cout << "Rock'n Roll you built a joypad" << std::endl;
 }
 
 #pragma mark gec_gui_interface
@@ -80,8 +73,7 @@ Boolean	gecJoystick::outerRegionHit()
 	float cX = center.x;
 	float cY = center.y;
 	
-	float d = sqrtf((_x - cX)*(_x - cX) -
-					(_y - cY)*(_y - cY));
+	float d = sqrtf((_x - cX) * (_x - cX) - (_y - cY) * (_y - cY));
 	
 	if(d == (outRadius - inRadius))
 		return true;

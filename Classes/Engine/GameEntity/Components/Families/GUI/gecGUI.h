@@ -17,7 +17,6 @@ class gecGUI: public GEComponent
 	//GEComponent interface
 public:
 	virtual const gec_id_type &familyID() const { return mFamilyID; }
-	void setOwnerGE(GameEntity *gE);
 	virtual void update(float delta) {}
 	
 	//gecGUI interface
@@ -26,7 +25,8 @@ public:
 	virtual Boolean regionHit(float x, float y) = 0;
 	virtual Boolean immGUI(float x, float y, int touchIndex, void *guiID, int touchType) = 0;
 	int getGuiID() const { return guiID; }
-	void setGuiID(int gid) { guiID = gid; } 
+	void setGuiID(int gid) { guiID = gid; }
+	void registerGUI();
 
 protected:
 	int guiID;
