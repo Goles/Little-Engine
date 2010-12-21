@@ -27,6 +27,8 @@ gecJoystick::gecJoystick(): active(false), firstTouch(true), fsm(NULL), subscrib
 	center.y			= 0.0f;
 	latestVelocity.x	= 0.0f;
 	latestVelocity.y	= 0.0f;
+	
+	this->registerTouchable();
 }
 
 #pragma mark gec_gui_interface

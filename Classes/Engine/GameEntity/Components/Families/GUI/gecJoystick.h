@@ -6,23 +6,23 @@
 //  Copyright 2009 Nicolas Goles. All rights reserved.
 //
 
-#ifndef _GECGUI_H_
-#define _GECGUI_H_
+#ifndef __GEC_JOYSTICK__
+#define __GEC_JOYSTICK__
 
-#include "gecGUI.h"
+#include "CompTouchable.h"
 #include "BehaviourActions.h"
 
 class GameEntity;
 class gecFSM;
 
-class gecJoystick: public gecGUI
+class gecJoystick: public CompTouchable
 {	
 	//GEComponent Interface
 public:
 	virtual const gec_id_type &componentID() const { return mComponentID; }
 	virtual void update(float delta);
 	
-	//gecGUI Interface
+	//CompTouchable Interface
 public:
 	virtual Boolean regionHit(float x, float y);
 	virtual Boolean immGUI(float x, float y, int touchIndex, void *touchID, int touchType);
@@ -51,7 +51,6 @@ public:
 			.def("setCenter", &gecJoystick::setCenter)
 			.def("setInRadius", &gecJoystick::setInRadius)
 			.def("setOutRadius", &gecJoystick::setOutRadius)
-			.def("registerGUI", &gecGUI::registerGUI)
 		 ];
 	}
 	

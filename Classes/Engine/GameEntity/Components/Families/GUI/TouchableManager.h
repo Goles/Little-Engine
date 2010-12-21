@@ -42,16 +42,16 @@ typedef struct
 	void*	touchID;	//Represents the pointer to the "Touch" event, which will be his ID.
 } GTouch;
 
-class gecGUI;
+class CompTouchable;
 
 class TouchableManager
 {
 	//SharedInputManager Singleton Interface.
 public:
 	static TouchableManager*	getInstance();	
-	void						registerTouchable(gecGUI *gui_component);
+	void						registerTouchable(CompTouchable *gui_component);
 	void						removeTouchable(int guiID);	
-	gecGUI*						getTouchable(int guiID);
+	CompTouchable*				getTouchable(int guiID);
 	void						setTouchCount(int t) { touchCount = t; }
 	int							getTouchCount() { return touchCount; }
 	void						touchesBegan(float x, float y, void *touchID);
@@ -69,8 +69,8 @@ protected:
 	
 	//private Atributes
 private:
-	typedef std::map<int, gecGUI *>	TouchableMap;
-	typedef std::pair<int, gecGUI *> TouchableMapPair;
+	typedef std::map<int, CompTouchable *>	TouchableMap;
+	typedef std::pair<int, CompTouchable *> TouchableMapPair;
 	
 	static TouchableManager*	singletonInstance;
 	TouchableMap				touchReceivers;

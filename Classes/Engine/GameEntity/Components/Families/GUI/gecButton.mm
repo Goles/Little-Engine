@@ -12,14 +12,13 @@
 #include "GEComponent.h"
 #include "gecAnimatedSprite.h"
 
-
 std::string gecButton::mComponentID = "gecButton";
 
 #pragma mark contructor
 gecButton::gecButton()
 {
 	//TODO: TOUCHABLE_MANAGER GIVE ME A NEW ID
-	this->setGuiID(TOUCHABLE_MANAGER->generateID());
+	this->setId(TOUCHABLE_MANAGER->generateID());
 
 	 //We don't assign button actions by default.
 	buttonActions[0] = kBehaviourAction_none;
@@ -29,7 +28,7 @@ gecButton::gecButton()
 gecButton::~gecButton()
 {
 	//we ask the input manager to remove us.
-	TOUCHABLE_MANAGER->removeTouchable(this->getGuiID());
+	TOUCHABLE_MANAGER->removeTouchable(this->getId());
 }
 
 #pragma mark -

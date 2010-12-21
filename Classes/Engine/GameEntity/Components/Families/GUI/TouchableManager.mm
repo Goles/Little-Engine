@@ -8,7 +8,7 @@
  */
 
 #include "TouchableManager.h"
-#include "gecGUI.h"
+#include "CompTouchable.h"
 #include "GandoBox2D.h"
 #include "GameEntity.h"
 
@@ -43,12 +43,12 @@ void TouchableManager::initGUIState()
 
 #pragma mark action_methods
 
-void TouchableManager::registerTouchable(gecGUI *inTouchable)
+void TouchableManager::registerTouchable(CompTouchable *inTouchable)
 {
 	touchReceivers.insert(TouchableMapPair(incrementalID, inTouchable));
 }
 
-gecGUI* TouchableManager::getTouchable(int guiID)
+CompTouchable* TouchableManager::getTouchable(int guiID)
 {
 	TouchableMap::iterator it = touchReceivers.find(guiID);
 	
@@ -143,7 +143,7 @@ void TouchableManager::broadcastInteraction(float x, float y, int touchIndex, vo
 	{
 		if (((*it).second)->getOwnerGE()->isActive)
 		{	
-			gecGUI *gGUI = (*it).second;
+			CompTouchable *gGUI = (*it).second;
 			if( gGUI )
 			{
 				if(touchType == kTouchType_began && gGUI->regionHit(x, y))
