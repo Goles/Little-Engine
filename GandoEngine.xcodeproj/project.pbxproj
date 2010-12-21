@@ -178,6 +178,7 @@
 		14A85490122B085500615BF4 /* GLES-Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14A8548A122B085500615BF4 /* GLES-Render.cpp */; };
 		14A85491122B085500615BF4 /* GandoBox2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14A8548D122B085500615BF4 /* GandoBox2D.mm */; };
 		14A85492122B085500615BF4 /* GContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14A8548F122B085500615BF4 /* GContactListener.mm */; };
+		14ABD5CB12C148320059B96F /* TouchableManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14ABD5CA12C148320059B96F /* TouchableManager.mm */; };
 		14AC58431235A88400173BEC /* LuaRegisterManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14AC58411235A88400173BEC /* LuaRegisterManager.mm */; };
 		14B9379B12BD1B7A00008627 /* id_generator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14B9379A12BD1B7A00008627 /* id_generator.mm */; };
 		14E31418121E47E200917795 /* CompBehaviour.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E3135B121E47E100917795 /* CompBehaviour.mm */; };
@@ -245,7 +246,6 @@
 		14E31459121E47E200917795 /* ES2Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E313F8121E47E200917795 /* ES2Renderer.mm */; };
 		14E3145A121E47E200917795 /* Scene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E313FC121E47E200917795 /* Scene.mm */; };
 		14E3145B121E47E200917795 /* GETemplateManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E313FF121E47E200917795 /* GETemplateManager.mm */; };
-		14E3145C121E47E200917795 /* SharedInputManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31401121E47E200917795 /* SharedInputManager.mm */; };
 		14E3145D121E47E200917795 /* SharedParticleSystemManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31403121E47E200917795 /* SharedParticleSystemManager.mm */; };
 		14E3145E121E47E200917795 /* SharedTextureManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31405121E47E200917795 /* SharedTextureManager.mm */; };
 		14E3145F121E47E200917795 /* Animation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31408121E47E200917795 /* Animation.mm */; };
@@ -496,6 +496,8 @@
 		14A8548D122B085500615BF4 /* GandoBox2D.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GandoBox2D.mm; path = Box2D_EnginePlug/GandoBox2D.mm; sourceTree = "<group>"; };
 		14A8548E122B085500615BF4 /* GContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GContactListener.h; path = Box2D_EnginePlug/GContactListener.h; sourceTree = "<group>"; };
 		14A8548F122B085500615BF4 /* GContactListener.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GContactListener.mm; path = Box2D_EnginePlug/GContactListener.mm; sourceTree = "<group>"; };
+		14ABD5C912C148320059B96F /* TouchableManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchableManager.h; path = ../GameEntity/Components/Families/GUI/TouchableManager.h; sourceTree = "<group>"; };
+		14ABD5CA12C148320059B96F /* TouchableManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TouchableManager.mm; path = ../GameEntity/Components/Families/GUI/TouchableManager.mm; sourceTree = "<group>"; };
 		14AC58411235A88400173BEC /* LuaRegisterManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LuaRegisterManager.mm; sourceTree = "<group>"; };
 		14AC58421235A88400173BEC /* LuaRegisterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaRegisterManager.h; sourceTree = "<group>"; };
 		14AC587E1235ABCC00173BEC /* ggEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ggEngine.h; sourceTree = "<group>"; };
@@ -640,8 +642,6 @@
 		14E313FC121E47E200917795 /* Scene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Scene.mm; sourceTree = "<group>"; };
 		14E313FE121E47E200917795 /* GETemplateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GETemplateManager.h; sourceTree = "<group>"; };
 		14E313FF121E47E200917795 /* GETemplateManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GETemplateManager.mm; sourceTree = "<group>"; };
-		14E31400121E47E200917795 /* SharedInputManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedInputManager.h; sourceTree = "<group>"; };
-		14E31401121E47E200917795 /* SharedInputManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SharedInputManager.mm; sourceTree = "<group>"; };
 		14E31402121E47E200917795 /* SharedParticleSystemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedParticleSystemManager.h; sourceTree = "<group>"; };
 		14E31403121E47E200917795 /* SharedParticleSystemManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SharedParticleSystemManager.mm; sourceTree = "<group>"; };
 		14E31404121E47E200917795 /* SharedTextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedTextureManager.h; sourceTree = "<group>"; };
@@ -1431,8 +1431,8 @@
 			children = (
 				14E313FE121E47E200917795 /* GETemplateManager.h */,
 				14E313FF121E47E200917795 /* GETemplateManager.mm */,
-				14E31400121E47E200917795 /* SharedInputManager.h */,
-				14E31401121E47E200917795 /* SharedInputManager.mm */,
+				14ABD5C912C148320059B96F /* TouchableManager.h */,
+				14ABD5CA12C148320059B96F /* TouchableManager.mm */,
 				14E31402121E47E200917795 /* SharedParticleSystemManager.h */,
 				14E31403121E47E200917795 /* SharedParticleSystemManager.mm */,
 				14E31404121E47E200917795 /* SharedTextureManager.h */,
@@ -1911,7 +1911,6 @@
 				14E31459121E47E200917795 /* ES2Renderer.mm in Sources */,
 				14E3145A121E47E200917795 /* Scene.mm in Sources */,
 				14E3145B121E47E200917795 /* GETemplateManager.mm in Sources */,
-				14E3145C121E47E200917795 /* SharedInputManager.mm in Sources */,
 				14E3145D121E47E200917795 /* SharedParticleSystemManager.mm in Sources */,
 				14E3145E121E47E200917795 /* SharedTextureManager.mm in Sources */,
 				14E3145F121E47E200917795 /* Animation.mm in Sources */,
@@ -1931,6 +1930,7 @@
 				147660D412BA7CB70092D758 /* CompLevelLoader.mm in Sources */,
 				147660D512BA7CB70092D758 /* CompSpawn.mm in Sources */,
 				14B9379B12BD1B7A00008627 /* id_generator.mm in Sources */,
+				14ABD5CB12C148320059B96F /* TouchableManager.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

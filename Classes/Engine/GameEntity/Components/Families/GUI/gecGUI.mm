@@ -7,7 +7,7 @@
 //
 
 #import "gecGUI.h"
-#import "SharedInputManager.h"
+#import "TouchableManager.h"
 #include <iostream>
 std::string gecGUI::mFamilyID = "CompGUI";
 
@@ -15,5 +15,5 @@ void gecGUI::registerGUI()
 {
 	
 	std::cout << "Nice :) " << std::endl;
-	INPUT_MANAGER->registerGameEntity(this->getOwnerGE());
+	TOUCHABLE_MANAGER->registerTouchable(this);
 }

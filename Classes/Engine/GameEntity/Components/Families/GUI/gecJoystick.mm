@@ -7,7 +7,7 @@
 //
 
 #include "GEComponent.h"
-#include "SharedInputManager.h"
+#include "TouchableManager.h"
 #include "GameEntity.h"
 #include "gecJoystick.h"
 #include "gecAnimatedSprite.h"
@@ -149,7 +149,7 @@ Boolean gecJoystick::immGUI(float x, float y, int touchIndex, void *touchID, int
 		for(int i = 0; i < MAX_TOUCHES; i++)
 		{
 			//Holding inside the joystick bounds
-			if(INPUT_MANAGER->GUIState[i].fingerDown && INPUT_MANAGER->GUIState[i].touchID == touchID)
+			if(TOUCHABLE_MANAGER->GUIState[i].fingerDown && TOUCHABLE_MANAGER->GUIState[i].touchID == touchID)
 			{
 				//Activate joystick and update our entity state.
 				active = true;
@@ -158,7 +158,7 @@ Boolean gecJoystick::immGUI(float x, float y, int touchIndex, void *touchID, int
 				this->updateVelocity(x, y);
 			}
 			//Releasing inside the Joystick bounds.
-			else if(INPUT_MANAGER->GUIState[i].fingerDown == false && INPUT_MANAGER->GUIState[i].touchID == touchID)
+			else if(TOUCHABLE_MANAGER->GUIState[i].fingerDown == false && TOUCHABLE_MANAGER->GUIState[i].touchID == touchID)
 			{
 				//De-activate Joystick
 				active = false;
@@ -181,7 +181,7 @@ Boolean gecJoystick::immGUI(float x, float y, int touchIndex, void *touchID, int
 		for(int i = 0; i < MAX_TOUCHES; i++)
 		{
 			//releasing outside joystick bounds with
-			if(INPUT_MANAGER->GUIState[i].fingerDown == false && INPUT_MANAGER->GUIState[i].touchID == currentTouchID)
+			if(TOUCHABLE_MANAGER->GUIState[i].fingerDown == false && TOUCHABLE_MANAGER->GUIState[i].touchID == currentTouchID)
 			{
 				//We de-activate our joystick and set it's "normal" animation
 				//if there's a normal animation.
@@ -204,7 +204,7 @@ Boolean gecJoystick::immGUI(float x, float y, int touchIndex, void *touchID, int
 			//Holding outside joystick bounds
 			//This is useful when we drag our finger OUTSIDE of the joystick
 			//bounds, and still want the joystick to keep responding.
-			 if((INPUT_MANAGER->GUIState[i].fingerDown == true) && (touchID == currentTouchID) && active)
+			 if((TOUCHABLE_MANAGER->GUIState[i].fingerDown == true) && (touchID == currentTouchID) && active)
 			{
 				active = true;
 				gAni->setCurrentAnimation("hot");

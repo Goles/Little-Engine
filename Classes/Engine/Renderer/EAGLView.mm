@@ -9,7 +9,7 @@
 #import "EAGLView.h"
 #import "ES2Renderer.h"
 #import "ES1Renderer.h"
-#import "SharedInputManager.h"
+#import "TouchableManager.h"
 #import "GandoBox2D.h"
 
 @implementation EAGLView
@@ -150,7 +150,7 @@
 	for ( UITouch* aTouch in touches )
 	{
 		loc = [aTouch locationInView:self];
-		INPUT_MANAGER->touchesBegan(loc.x, loc.y, aTouch);		
+		TOUCHABLE_MANAGER->touchesBegan(loc.x, loc.y, aTouch);		
 	}
 }
 
@@ -161,7 +161,7 @@
 	for ( UITouch* aTouch in touches )
 	{
 		loc = [aTouch locationInView:self];
-		INPUT_MANAGER->touchesMoved(loc.x, loc.y, aTouch);		
+		TOUCHABLE_MANAGER->touchesMoved(loc.x, loc.y, aTouch);		
 	}
 }
 
@@ -172,7 +172,7 @@
 	for ( UITouch* aTouch in touches )
 	{
 		loc = [aTouch locationInView:self];
-		INPUT_MANAGER->touchesEnded(loc.x, loc.y, aTouch);		
+		TOUCHABLE_MANAGER->touchesEnded(loc.x, loc.y, aTouch);		
 	}
 }
 

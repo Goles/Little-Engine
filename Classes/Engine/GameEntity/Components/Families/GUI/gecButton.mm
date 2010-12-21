@@ -7,7 +7,7 @@
 //
 
 #include "gecButton.h"
-#include "SharedInputManager.h"
+#include "TouchableManager.h"
 #include "GameEntity.h"
 #include "GEComponent.h"
 #include "gecAnimatedSprite.h"
@@ -18,8 +18,8 @@ std::string gecButton::mComponentID = "gecButton";
 #pragma mark contructor
 gecButton::gecButton()
 {
-	//TODO: INPUT_MANAGER GIVE ME A NEW ID
-	this->setGuiID(INPUT_MANAGER->generateID());
+	//TODO: TOUCHABLE_MANAGER GIVE ME A NEW ID
+	this->setGuiID(TOUCHABLE_MANAGER->generateID());
 
 	 //We don't assign button actions by default.
 	buttonActions[0] = kBehaviourAction_none;
@@ -29,7 +29,7 @@ gecButton::gecButton()
 gecButton::~gecButton()
 {
 	//we ask the input manager to remove us.
-	INPUT_MANAGER->removeGameEntity(this->getGuiID());
+	TOUCHABLE_MANAGER->removeTouchable(this->getGuiID());
 }
 
 #pragma mark -
@@ -63,9 +63,9 @@ Boolean gecButton::immGUI(float x, float y, int touchIndex, void *touchID, int t
 	{
 		for(int i = 0; i < MAX_TOUCHES; i++)
 		{
-			if(INPUT_MANAGER->GUIState[i].touchID == touchID)
+			if(TOUCHABLE_MANAGER->GUIState[i].touchID == touchID)
 			{
-				if(INPUT_MANAGER->GUIState[i].fingerDown && INPUT_MANAGER->GUIState[i].hitFirst)
+				if(TOUCHABLE_MANAGER->GUIState[i].fingerDown && TOUCHABLE_MANAGER->GUIState[i].hitFirst)
 				{
 					gAni->setCurrentAnimation("hot");					
 					
@@ -77,7 +77,7 @@ Boolean gecButton::immGUI(float x, float y, int touchIndex, void *touchID, int t
 					
 					return true;
 				}
-				else if(!INPUT_MANAGER->GUIState[i].fingerDown)
+				else if(!TOUCHABLE_MANAGER->GUIState[i].fingerDown)
 				{
 					gAni->setCurrentAnimation("normal");		
 					return false;
@@ -87,7 +87,7 @@ Boolean gecButton::immGUI(float x, float y, int touchIndex, void *touchID, int t
 	}else {
 		for(int i = 0; i < MAX_TOUCHES; i++)
 		{
-			if(INPUT_MANAGER->GUIState[i].fingerDown == false && i != touchIndex)
+			if(TOUCHABLE_MANAGER->GUIState[i].fingerDown == false && i != touchIndex)
 			{
 				gAni->setCurrentAnimation("normal");
 			} 

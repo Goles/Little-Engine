@@ -1,35 +1,35 @@
-//
-//  SharedInputManager.m
-//  Particles_2
-//
-//  Created by Nicolas Goles on 12/3/09.
-//  Copyright 2009 Nicolas Goles. All rights reserved.
-//
+/*
+ *  TouchableManager.mm
+ *  GandoEngine
+ *
+ *  Created by Nicolas Goles on 12/21/10.
+ *  Copyright 2010 GandoGames. All rights reserved.
+ *
+ */
 
-#include "SharedInputManager.h"
+#include "TouchableManager.h"
 #include "gecGUI.h"
 #include "GandoBox2D.h"
 #include "GameEntity.h"
 
-SharedInputManager* SharedInputManager::singletonInstance = NULL;
+TouchableManager* TouchableManager::singletonInstance = NULL;
 
 #pragma mark initializers
 
-SharedInputManager* SharedInputManager::getInstance()
+TouchableManager* TouchableManager::getInstance()
 {
 	if(singletonInstance == NULL)
-	{
-		singletonInstance = new SharedInputManager();
-	}
+		singletonInstance = new TouchableManager();
+	
 	return singletonInstance;
 }
 
-SharedInputManager::SharedInputManager() : incrementalID(0)
+TouchableManager::TouchableManager() : incrementalID(0)
 {
 	this->initGUIState();
 }
 
-void SharedInputManager::initGUIState()
+void TouchableManager::initGUIState()
 {
 	for(int i = 0; i < MAX_TOUCHES; i++)
 	{
@@ -43,14 +43,14 @@ void SharedInputManager::initGUIState()
 
 #pragma mark action_methods
 
-void SharedInputManager::registerGameEntity(GameEntity *anEntity)
+void TouchableManager::registerTouchable(gecGUI *inTouchable)
 {
-	touchReceivers.insert(GameEntityMapPair(incrementalID, anEntity));
+	touchReceivers.insert(TouchableMapPair(incrementalID, inTouchable));
 }
 
-GameEntity* SharedInputManager::getGameEntity(int guiID)
+gecGUI* TouchableManager::getTouchable(int guiID)
 {
-	GameEntityMap::iterator it = touchReceivers.find(guiID);
+	TouchableMap::iterator it = touchReceivers.find(guiID);
 	
 	if (it != touchReceivers.end()) {
 		return(it->second);
@@ -59,13 +59,13 @@ GameEntity* SharedInputManager::getGameEntity(int guiID)
 	return NULL;
 }
 
-void SharedInputManager::removeGameEntity(int guiID)
+void TouchableManager::removeTouchable(int guiID)
 {
 	touchReceivers.erase(guiID);
 }
 
 #pragma mark touch_management
-void SharedInputManager::touchesBegan(float x, float y, void *touchID)
+void TouchableManager::touchesBegan(float x, float y, void *touchID)
 {
 	//Flip Parameters due to landscape mode
 	float auxX = x;
@@ -87,7 +87,7 @@ void SharedInputManager::touchesBegan(float x, float y, void *touchID)
 	}
 }
 
-void SharedInputManager::touchesMoved(float x, float y, void *touchID)
+void TouchableManager::touchesMoved(float x, float y, void *touchID)
 {
 	//Flip Parameters due to landscape mode
 	float auxX = x;
@@ -108,7 +108,7 @@ void SharedInputManager::touchesMoved(float x, float y, void *touchID)
 	}
 }
 
-void SharedInputManager::touchesEnded(float x, float y, void *touchID)
+void TouchableManager::touchesEnded(float x, float y, void *touchID)
 {
 	//Flip Parameters due to landscape mode
 	float auxX = x;
@@ -132,19 +132,18 @@ void SharedInputManager::touchesEnded(float x, float y, void *touchID)
 	}
 }
 
-void SharedInputManager::broadcastInteraction(float x, float y, int touchIndex, void *touchID, int touchType)
+void TouchableManager::broadcastInteraction(float x, float y, int touchIndex, void *touchID, int touchType)
 {	
-	GameEntityMap::iterator it;
+	TouchableMap::iterator it;
 	
 	//TODO: This logic should be created in components that will support touch
 	
 	/*We tell every component the is subscribed that touches happened*/
 	for (it = touchReceivers.begin(); it != touchReceivers.end(); ++it)
 	{
-		if(((*it).second)->isActive)
+		if (((*it).second)->getOwnerGE()->isActive)
 		{	
-			GEComponent *gec = ((*it).second)->getGEC(std::string("CompGUI"));
-			gecGUI *gGUI = static_cast<gecGUI *> (gec);
+			gecGUI *gGUI = (*it).second;
 			if( gGUI )
 			{
 				if(touchType == kTouchType_began && gGUI->regionHit(x, y))
@@ -157,7 +156,7 @@ void SharedInputManager::broadcastInteraction(float x, float y, int touchIndex, 
 	}
 }
 
-void SharedInputManager::debugPrintGUIState()
+void TouchableManager::debugPrintGUIState()
 {
 	std::cout << "**DEBUG PRINT GUISTATE[]**" << std::endl;
 	
@@ -171,9 +170,9 @@ void SharedInputManager::debugPrintGUIState()
 	}
 }
 
-void SharedInputManager::debugPrintMap()
+void TouchableManager::debugPrintMap()
 {
-	GameEntityMap::iterator it;
+	TouchableMap::iterator it;
 	
 	std::cout << "**DEBUG PRINT MAP **" << std::endl;
 	std::cout << "Map Size " << touchReceivers.size() << std::endl;

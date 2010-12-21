@@ -11,7 +11,7 @@
 #define __GG_ENGINE_H__
 
 #include "GETemplateManager.h"
-#include "SharedInputManager.h"
+#include "TouchableManager.h"
 #include "SharedParticleSystemManager.h"
 #include "SharedTextureManager.h"
 #include "GandoBox2D.h"
@@ -32,7 +32,7 @@ namespace gg
 	inline void init(void)
 	{		
 		LR_MANAGER;			/** < Initialize the Lua Registrate Manager */
-		INPUT_MANAGER;		/** < Initialize the Input Manager*/
+		TOUCHABLE_MANAGER;		/** < Initialize the Input Manager*/
 		SCENE_MANAGER;		/** < Initialize the Scene Manager */
 		TEXTURE_MANAGER;	/** < Initialize the Texture Manager*/
 		PARTICLE_MANAGER;	/** < Initialize the Particles Manager*/
