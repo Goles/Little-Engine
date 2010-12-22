@@ -66,7 +66,7 @@ void TouchableManager::removeTouchable(int guiID)
 }
 
 #pragma mark touch_management
-void TouchableManager::touchesBegan(float x, float y, void *touchID)
+void TouchableManager::touchesBegan(float x, float y, int touchID)
 {
 	//Flip Parameters due to landscape mode
 	float auxX = x;
@@ -88,7 +88,7 @@ void TouchableManager::touchesBegan(float x, float y, void *touchID)
 	}
 }
 
-void TouchableManager::touchesMoved(float x, float y, void *touchID)
+void TouchableManager::touchesMoved(float x, float y, int touchID)
 {
 	//Flip Parameters due to landscape mode
 	float auxX = x;
@@ -109,7 +109,7 @@ void TouchableManager::touchesMoved(float x, float y, void *touchID)
 	}
 }
 
-void TouchableManager::touchesEnded(float x, float y, void *touchID)
+void TouchableManager::touchesEnded(float x, float y, int touchID)
 {
 	//Flip Parameters due to landscape mode
 	float auxX = x;
@@ -133,7 +133,7 @@ void TouchableManager::touchesEnded(float x, float y, void *touchID)
 	}
 }
 
-void TouchableManager::broadcastInteraction(float x, float y, int touchIndex, void *touchID, int touchType)
+void TouchableManager::broadcastInteraction(float x, float y, int touchIndex, int touchID, int touchType)
 {	
 	TouchableMap::iterator it;
 	

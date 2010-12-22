@@ -53,7 +53,7 @@ Boolean gecButton::regionHit(float x, float y)
 	return false;
 }
 
-Boolean gecButton::handle_touch(float x, float y, int touchIndex, void *touchID, int touchType)
+Boolean gecButton::handle_touch(float x, float y, int touchIndex, int touchID, int touchType)
 {
 	GEComponent *gec = this->getOwnerGE()->getGEC(std::string("CompVisual")); //we obtain a gecAnimatedSprite
 	gecAnimatedSprite *gAni = static_cast<gecAnimatedSprite *> (gec);

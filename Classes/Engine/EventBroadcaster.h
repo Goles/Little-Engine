@@ -24,9 +24,9 @@ namespace gg {
 			luabind::call_function<void>(LR_MANAGER_STATE, "broadcast", in_eventType, in_event_payload);
 		}
 		
-		static inline void broadcast_touch(float in_x, float in_y, int in_touchIndex, void *in_touchId, int in_touchType)
+		static inline void broadcast_touch(float in_x, float in_y, int in_touchIndex, int in_touchId, int in_touchType)
 		{			
-			luabind::call_function<void>(LR_MANAGER_STATE, "broadcast_touch", in_x, in_y, in_touchIndex, (int)in_touchId, in_touchType);	
+			luabind::call_function<void>(LR_MANAGER_STATE, "broadcast_touch", in_x, in_y, in_touchIndex, in_touchId, in_touchType);	
 		}
 	}
 }

@@ -29,7 +29,7 @@ public:
 	//CompTouchable Interface
 public:
 	virtual Boolean regionHit(float x, float y);
-	virtual Boolean handle_touch(float x, float y, int touchIndex, void *touchID, int touchType);
+	virtual Boolean handle_touch(float x, float y, int touchIndex, int touchID, int touchType);
 	
 	//gecButton Interface
 public:

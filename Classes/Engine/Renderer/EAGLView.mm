@@ -150,7 +150,7 @@
 	for ( UITouch* aTouch in touches )
 	{
 		loc = [aTouch locationInView:self];
-		TOUCHABLE_MANAGER->touchesBegan(loc.x, loc.y, aTouch);		
+		TOUCHABLE_MANAGER->touchesBegan(loc.x, loc.y, (int)aTouch);		
 	}
 }
 
@@ -161,7 +161,7 @@
 	for ( UITouch* aTouch in touches )
 	{
 		loc = [aTouch locationInView:self];
-		TOUCHABLE_MANAGER->touchesMoved(loc.x, loc.y, aTouch);		
+		TOUCHABLE_MANAGER->touchesMoved(loc.x, loc.y, (int)aTouch);		
 	}
 }
 
@@ -172,7 +172,7 @@
 	for ( UITouch* aTouch in touches )
 	{
 		loc = [aTouch locationInView:self];
-		TOUCHABLE_MANAGER->touchesEnded(loc.x, loc.y, aTouch);		
+		TOUCHABLE_MANAGER->touchesEnded(loc.x, loc.y, (int)aTouch);		
 	}
 }
 

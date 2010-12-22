@@ -69,16 +69,14 @@ function event:_broadcast( in_event, in_data )
     end
 end
 
-function event:_broadcast_touch(in_x, in_y, in_touchIndex, in_touchID, in_touchType)
-	-- print("event:_broadcast_touch")
-
+function event:_broadcast_touch( in_x, in_y, in_touchIndex, in_touchID, in_touchType )
 	-- FIND TOUCH LISTENERS
 	local _objects = self.listeners[ "E_TOUCH" ]
-	
+
 	-- INFORM LISTENERS
 	if _objects then
 		for key, entity in pairs ( _objects ) do
-			entity:handle_touch(in_x, in_y, in_touchIndex, in_touchID, in_touchType)
+			entity:handle_touch_event( in_x, in_y, in_touchIndex, in_touchID, in_touchType )
 		end
 	--else
 	--print("NO E_TOUCH LISTENERS")
@@ -98,6 +96,5 @@ function broadcast(in_event, in_data)
 end
 
 function broadcast_touch(in_x, in_y, in_touchIndex, in_touchID, in_touchType)
-	print("broadcast_touch")
---	event:_broadcast_touch(in_x, in_y, in_touchIndex, in_touchID, in_touchType)
+	event:_broadcast_touch(in_x, in_y, in_touchIndex, in_touchID, in_touchType)
 end

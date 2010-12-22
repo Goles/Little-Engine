@@ -22,7 +22,7 @@ Joypad =
 		handle_touch_event =
 		function(this, in_x, in_y, in_touchIndex, in_touchId, in_touchType)
 			-- Handle touch events here.
-			print("Touch happened!")
+			this.components["gecJoystick"]:handle_touch(in_x, in_y, in_touchIndex, in_touchId, in_touchType)
 		end		
 	},	
 	components = 

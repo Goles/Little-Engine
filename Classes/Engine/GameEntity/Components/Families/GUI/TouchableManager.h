@@ -39,7 +39,7 @@ typedef struct
 	float	y;
 	bool	fingerDown;	//True if the user has his finger down.
 	bool	hitFirst;	//True if the user "hit" an interface element on touches begin.
-	void*	touchID;	//Represents the pointer to the "Touch" event, which will be his ID.
+	int		touchID;	//Represents the pointer to the "Touch" event, which will be his ID.
 } GTouch;
 
 class CompTouchable;
@@ -54,9 +54,9 @@ public:
 	CompTouchable*				getTouchable(int guiID);
 	void						setTouchCount(int t) { touchCount = t; }
 	int							getTouchCount() { return touchCount; }
-	void						touchesBegan(float x, float y, void *touchID);
-	void						touchesMoved(float x, float y, void *touchID);
-	void						touchesEnded(float x, float y, void *touchID);
+	void						touchesBegan(float x, float y, int touchId);
+	void						touchesMoved(float x, float y, int touchId);
+	void						touchesEnded(float x, float y, int touchId);
 	int							generateID(){ return (++incrementalID); }
 	
 	GTouch GUIState[MAX_TOUCHES]; //public for easier accesibility no thread safe though.
@@ -79,7 +79,7 @@ private:
 	
 	//private Methods
 private:
-	void broadcastInteraction(float x, float y, int touchIndex, void *touchID, int touchType);
+	void broadcastInteraction(float x, float y, int touchIndex, int touchID, int touchType);
 	
 	//Debug interface
 public:
