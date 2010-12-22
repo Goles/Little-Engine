@@ -11,6 +11,7 @@
 #include "CompTouchable.h"
 #include "GandoBox2D.h"
 #include "GameEntity.h"
+#include "EventBroadcaster.h"
 
 TouchableManager* TouchableManager::singletonInstance = NULL;
 
@@ -139,21 +140,23 @@ void TouchableManager::broadcastInteraction(float x, float y, int touchIndex, vo
 	//TODO: This logic should be created in components that will support touch
 	
 	/*We tell every component the is subscribed that touches happened*/
-	for (it = touchReceivers.begin(); it != touchReceivers.end(); ++it)
-	{
-		if (((*it).second)->getOwnerGE()->isActive)
-		{	
-			CompTouchable *gGUI = (*it).second;
-			if( gGUI )
-			{
-				if(touchType == kTouchType_began && gGUI->regionHit(x, y))
-				{
-					GUIState[touchIndex].hitFirst = true;
-				}
-				gGUI->handle_touch(x, y, touchIndex, touchID, touchType); //Trigger the immGUI handler.
-			}
-		}
-	}
+//	for (it = touchReceivers.begin(); it != touchReceivers.end(); ++it)
+//	{
+//		if (((*it).second)->getOwnerGE()->isActive)
+//		{	
+//			CompTouchable *gGUI = (*it).second;
+//			if( gGUI )
+//			{
+//				if(touchType == kTouchType_began && gGUI->regionHit(x, y))
+//				{
+//					GUIState[touchIndex].hitFirst = true;
+//				}
+//				gGUI->handle_touch(x, y, touchIndex, touchID, touchType); //Trigger the immGUI handler.
+//			}
+//		}
+//	}
+	gg::event::broadcast_touch(x, y, touchIndex, touchID, touchType);
+	
 }
 
 void TouchableManager::debugPrintGUIState()

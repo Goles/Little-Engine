@@ -33,7 +33,12 @@ function buildEntity(fileName)
 		
 		-- set the event handling function defined in the entity.lua file
 		entity.handle_event = entityTable.event_data.handle_event
-	
+		
+		-- we set the entity handle_touch_event function if available.
+		if(entityTable.event_data.handle_touch_event ~= nil) then
+			entity.handle_touch_event = entityTable.event_data.handle_touch_event
+		end
+				
 		-- set the entity as a listener for several events
 		for i,v in ipairs(entityTable.event_data.listen_events) do
 			event:_add_listener(entity, v)

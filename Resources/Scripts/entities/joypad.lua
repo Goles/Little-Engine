@@ -6,19 +6,25 @@
 -- Never use the reserved keyword "GameEntity"
 Joypad = 
 {
---[[	event_data =
+	event_data =
 	{
 		listen_events = 
 		{
-			-- Events to listen
+			-- Since E_TOUCH is defined we must specify a "handle_touch_event function"
+			"E_TOUCH"
 		},
 		
 		handle_event = 
 		function(this, in_event, in_data)
 			-- Handle events there.
-		end
-	},
-]]--	
+		end,
+		
+		handle_touch_event =
+		function(this, in_x, in_y, in_touchIndex, in_touchId, in_touchType)
+			-- Handle touch events here.
+			print("Touch happened!")
+		end		
+	},	
 	components = 
 	{
 		gecJoystick =

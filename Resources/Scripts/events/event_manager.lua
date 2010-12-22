@@ -55,7 +55,7 @@ end
 function event:_broadcast( in_event, in_data )
 	-- print( "event:broadcast" )
 	-- print( in_event )
-
+	
     -- FIND LISTENERS
     local _objects = self.listeners[ in_event ]
 
@@ -69,8 +69,35 @@ function event:_broadcast( in_event, in_data )
     end
 end
 
--- Public Functions to expose to C++ ... should be removed when I learn how to properly call event:XXXX(t) from C++
+function event:_broadcast_touch(in_x, in_y, in_touchIndex, in_touchID, in_touchType)
+	-- print("event:_broadcast_touch")
+
+	-- FIND TOUCH LISTENERS
+	local _objects = self.listeners[ "E_TOUCH" ]
+	
+	-- INFORM LISTENERS
+	if _objects then
+		for key, entity in pairs ( _objects ) do
+			entity:handle_touch(in_x, in_y, in_touchIndex, in_touchID, in_touchType)
+		end
+	--else
+	--print("NO E_TOUCH LISTENERS")
+	end
+end
+
+--[[ 
+	Public Functions to expose to C++ ... 
+	should be removed when I learn how to properly call event:XXXX(t) from C++ 
+	
+	_NG
+]]--
+
 function broadcast(in_event, in_data)
---	print(in_event)
+	assert(in_event ~= "E_TOUCH", "To handle E_TOUCH use broadcast_touch and not broadcast (in-engine event)")
 	event:_broadcast(in_event, in_data)
+end
+
+function broadcast_touch(in_x, in_y, in_touchIndex, in_touchID, in_touchType)
+	print("broadcast_touch")
+--	event:_broadcast_touch(in_x, in_y, in_touchIndex, in_touchID, in_touchType)
 end
