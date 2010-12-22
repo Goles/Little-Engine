@@ -13,7 +13,10 @@ std::string CompTouchable::mFamilyID = "CompGUI";
 
 void CompTouchable::registerTouchable()
 {
-	
-	std::cout << "Nice :) " << std::endl;
 	TOUCHABLE_MANAGER->registerTouchable(this);
+}
+
+void CompTouchable::unregisterTouchable()
+{
+	TOUCHABLE_MANAGER->removeTouchable(this->getId());
 }

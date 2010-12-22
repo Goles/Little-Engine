@@ -25,11 +25,12 @@ public:
 	//CompTouchable Interface
 public:
 	virtual Boolean regionHit(float x, float y);
-	virtual Boolean immGUI(float x, float y, int touchIndex, void *touchID, int touchType);
+	virtual Boolean handle_touch(float x, float y, int touchIndex, void *touchID, int touchType);
 	
 	//gecJoystick Interface
 public:
 	gecJoystick();
+	~gecJoystick();
 	Boolean		outerRegionHit();
 	void		updateVelocity(float x, float y);
 	void		subscribeGameEntity(GameEntity *gE);
@@ -47,6 +48,7 @@ public:
 		[
 			luabind::class_<gecJoystick, GEComponent>("gecJoystick")
 			.def(luabind::constructor<>())
+			.def("handle_touch", &gecJoystick::handle_touch)
 			.def("setShape", &gecJoystick::setShape)
 			.def("setCenter", &gecJoystick::setCenter)
 			.def("setInRadius", &gecJoystick::setInRadius)

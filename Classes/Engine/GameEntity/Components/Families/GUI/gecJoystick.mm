@@ -31,6 +31,11 @@ gecJoystick::gecJoystick(): active(false), firstTouch(true), fsm(NULL), subscrib
 	this->registerTouchable();
 }
 
+gecJoystick::~gecJoystick()
+{
+	this->unregisterTouchable();
+}
+
 #pragma mark gec_gui_interface
 void gecJoystick::update(float delta)
 {	
@@ -132,7 +137,7 @@ void gecJoystick::updateVelocity(float x, float y)
 	}
 }
 
-Boolean gecJoystick::immGUI(float x, float y, int touchIndex, void *touchID, int touchType)
+Boolean gecJoystick::handle_touch(float x, float y, int touchIndex, void *touchID, int touchType)
 {
 	//we obtain a gecAnimatedSprite for the Joystick
 	GEComponent *gec = this->getOwnerGE()->getGEC(std::string("CompVisual"));

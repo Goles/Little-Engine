@@ -150,7 +150,7 @@ void TouchableManager::broadcastInteraction(float x, float y, int touchIndex, vo
 				{
 					GUIState[touchIndex].hitFirst = true;
 				}
-				gGUI->immGUI(x, y, touchIndex, touchID, touchType); //Trigger the immGUI handler.
+				gGUI->handle_touch(x, y, touchIndex, touchID, touchType); //Trigger the immGUI handler.
 			}
 		}
 	}

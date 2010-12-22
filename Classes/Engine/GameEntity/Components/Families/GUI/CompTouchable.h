@@ -23,12 +23,13 @@ public:
 public:
 	typedef boost::signal<void ()> ContactSignal; //typedef for our basic signal type.	
 	virtual Boolean regionHit(float x, float y) = 0;
-	virtual Boolean immGUI(float x, float y, int touchIndex, void *guiID, int touchType) = 0;
+	virtual Boolean handle_touch(float x, float y, int touchIndex, void *guiID, int touchType) = 0;
 	int getId() const { return m_Id; }
-	void setId(int inId) { m_Id = inId; }
-	void registerTouchable();
+	void setId(int inId) { m_Id = inId	; }
 
 protected:
+	void unregisterTouchable();
+	void registerTouchable();
 	int m_Id;
 
 private:
