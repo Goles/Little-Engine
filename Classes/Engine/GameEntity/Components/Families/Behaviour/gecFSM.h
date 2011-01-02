@@ -35,6 +35,9 @@ public:
 				 int inputAction, 
 				 kBehaviourState resultingState, 
 				 const std::string &resultingStateName);
+	void addRule(const std::string &state,
+				 const std::string &inputAction,
+				 const std::string &resultingState);
 	void performAction(kBehaviourAction action);
 	void animationFinishedDelegate();
 	
@@ -50,6 +53,7 @@ public:
 		 .def(luabind::constructor<>())	
 		 .def("setRule", &gecFSM::setRule)
 		 .def("setOwnerGE", &GEComponent::setOwnerGE)
+		 .def("performAction", &gecFSM::performAction)
 		 ];
 	}
 	

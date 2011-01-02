@@ -1,3 +1,8 @@
+--[[
+	test.lua
+	Copyright 2010 Nicolas Goles. All Rights Reserved. 
+]]--
+
 TestEntity = 
 {	
 	register_events =

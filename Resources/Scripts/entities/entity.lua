@@ -19,22 +19,24 @@ TestEntity =
 			if (in_event == "E_ROCK") then
 										
 				local c = this.components["gecAnimatedSprite"]
-				c:setCurrentAnimation("walk")
+				c:setCurrentAnimation("S_WALK")
 				c:setCurrentRunning(true)
 				c:setCurrentRepeating(true)	
 
 			elseif(in_event == "E_EXPLOSION") then
 				
 				local c = this.components["gecAnimatedSprite"]
-				c:setCurrentAnimation("walk")				
+				c:setCurrentAnimation("S_WALK")				
 				
 			end
 
 		end
 	},
 	
+	-- Component definitions for this Entity
 	components = 
 	{
+		-- Sprite Sheet Animations Component
 		gecAnimatedSprite =
 		{
 			spritesheets = 
@@ -45,9 +47,31 @@ TestEntity =
 			{
 				-- Animation name, Animation spritesheet coords, Animation frame duration.
 				-- {id=, coords=, duration= , sheet= , repeats=, pingpong= }
-				{"stand", {0,0,1,0,2,0,3,0}, 0.10, "hitter1_1.png", true, true},				
-				{"walk", {4,0,5,0,6,0,7,0}, 0.10, "hitter1_1.png", true, false},
-				{"attack",{8,0,9,0,10,0}, 0.08, "hitter1_1.png", false, false},
+				{"S_STAND", {0,0,1,0,2,0,3,0}, 0.10, "hitter1_1.png", true, true},				
+				{"S_WALK", {4,0,5,0,6,0,7,0}, 0.10, "hitter1_1.png", true, false},
+				{"S_ATTACK",{8,0,9,0,10,0}, 0.08, "hitter1_1.png", false, false},
+			},
+		},
+		
+		-- Finite State Machine Component, a visual tool would help indeed :)
+		gecFSM =
+		{
+			rules =
+			{
+				-- current state, input action, resulting state.
+				{"S_STAND", "A_ATTACK", "S_ATTACK"},
+				{"S_STAND", "A_DRAG_GAMEPAD", "S_WALK"},
+				{"S_STAND", "A_HIT", "S_HIT"},
+				{"S_WALK", "A_DRAG_GAMEPAD", "S_WALK"},
+				{"S_WALK", "A_STOP_GAMEPAD", "S_STAND"},
+				{"S_WALK", "A_ATTACK", "S_ATTACK"},
+				{"S_WALK", "A_HIT", "S_HIT"},
+				{"S_ATTACK", "A_STOP_ATTACK","S_STAND"},			
+				{"S_ATTACK", "A_ATTACK", "S_ATTACK"},			
+				{"S_ATTACK", "A_DRAG_GAMEPAD", "S_ATTACK"},				
+				{"S_ATTACK", "A_STOP_GAMEPAD", "S_ATTACK"},				
+				{"S_ATTACK", "A_HIT","S_HIT"},
+				{"S_HIT", "A_STOP_HIT", "S_STAND"},																	
 			},
 		},
 	},

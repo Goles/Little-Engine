@@ -62,6 +62,14 @@ void gecFSM::setRule(kBehaviourState initialState,
 	actionNameMap.insert(actionMapPair(resultingState, resultingStateName));
 }
 
+
+void gecFSM::addRule(const std::string &state,
+			  const std::string &inputAction,
+			  const std::string &resultingState)
+{
+	
+}
+
 void gecFSM::performAction(kBehaviourAction action)
 {
 	kBehaviourState resultingState = fsmTable[state][action];

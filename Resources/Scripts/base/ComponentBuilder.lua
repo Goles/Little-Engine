@@ -50,9 +50,32 @@ function gecJoystickBuild(t)
 	return joypad
 end
 
+-- Build a gecFSM
+function gecFSMBuild(t)
+	
+	print("This rocks")
+	
+	fsm = gecFSM()
+	
+	local s_matrix = {}
+	
+	for k,v in pairs(t.rules) do
+					
+		if ( s_matrix[ v[1] ] == nil ) then
+			s_matrix[ v[1] ] = {}
+		end
+		
+		s_matrix[ v[1] ][ v[2] ] = v[ 3 ]
+	end
+
+	fsm.statesMatrix = s_matrix
+	
+	return fsm
+end
 -- Function table with { Key, function() } for each component builder.
 component_function_table = 
 {
 	["gecAnimatedSprite"] = gecAnimatedSpriteBuild,
 	["gecJoystick"] = gecJoystickBuild,
+	["gecFSM"] = gecFSMBuild,
 }
