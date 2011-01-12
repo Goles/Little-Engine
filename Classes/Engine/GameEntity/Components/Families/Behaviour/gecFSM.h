@@ -68,6 +68,13 @@ private:
 	static gec_id_type mComponentID;
 	actionMap actionNameMap;
 	bool locked; //This will lock the state machine in the case we need to.
+	
+	std::string caca[MAX_STATES][MAX_STATES];
+	
+	typedef std::map<std::string, std::string> stateMap;
+	
+	stateMap aMap;
+	
 };
 
 #endif 

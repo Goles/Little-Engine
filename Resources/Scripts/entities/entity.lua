@@ -19,7 +19,7 @@ TestEntity =
 			if (in_event == "E_ROCK") then
 										
 				local c = this.components["gecAnimatedSprite"]
-				c:setCurrentAnimation("S_WALK")
+				c:setCurrentAnimation("S_ATTACK")
 				c:setCurrentRunning(true)
 				c:setCurrentRepeating(true)	
 
@@ -49,7 +49,7 @@ TestEntity =
 				-- {id=, coords=, duration= , sheet= , repeats=, pingpong= }
 				{"S_STAND", {0,0,1,0,2,0,3,0}, 0.10, "hitter1_1.png", true, true},				
 				{"S_WALK", {4,0,5,0,6,0,7,0}, 0.10, "hitter1_1.png", true, false},
-				{"S_ATTACK",{8,0,9,0,10,0}, 0.08, "hitter1_1.png", false, false},
+				{"S_ATTACK",{8,0,9,0,10,0}, 0.16, "hitter1_1.png", false, false},
 			},
 		},
 		

@@ -181,6 +181,7 @@
 		14ABD5CB12C148320059B96F /* TouchableManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14ABD5CA12C148320059B96F /* TouchableManager.mm */; };
 		14AC58431235A88400173BEC /* LuaRegisterManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14AC58411235A88400173BEC /* LuaRegisterManager.mm */; };
 		14B9379B12BD1B7A00008627 /* id_generator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14B9379A12BD1B7A00008627 /* id_generator.mm */; };
+		14C9840D12DDE11D004CDD76 /* EntityMap.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14C9840C12DDE11D004CDD76 /* EntityMap.lua */; };
 		14E31418121E47E200917795 /* CompBehaviour.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E3135B121E47E100917795 /* CompBehaviour.mm */; };
 		14E31419121E47E200917795 /* gecFSM.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E3135D121E47E100917795 /* gecFSM.mm */; };
 		14E3141A121E47E200917795 /* CompCollision.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31360121E47E100917795 /* CompCollision.mm */; };
@@ -503,6 +504,7 @@
 		14AC587E1235ABCC00173BEC /* ggEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ggEngine.h; sourceTree = "<group>"; };
 		14B9377512BD14DC00008627 /* id_generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = id_generator.h; sourceTree = "<group>"; };
 		14B9379A12BD1B7A00008627 /* id_generator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = id_generator.mm; sourceTree = "<group>"; };
+		14C9840C12DDE11D004CDD76 /* EntityMap.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EntityMap.lua; sourceTree = "<group>"; };
 		14E31358121E47E100917795 /* BehaviourActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BehaviourActions.h; sourceTree = "<group>"; };
 		14E31359121E47E100917795 /* BehaviourStates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BehaviourStates.h; sourceTree = "<group>"; };
 		14E3135A121E47E100917795 /* CompBehaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompBehaviour.h; sourceTree = "<group>"; };
@@ -787,6 +789,7 @@
 				1433F5E8128AE00E00878671 /* base_functions.lua */,
 				1433F5E9128AE00E00878671 /* ComponentBuilder.lua */,
 				1433F5EA128AE00E00878671 /* EntityBuilder.lua */,
+				14C9840C12DDE11D004CDD76 /* EntityMap.lua */,
 				1433F5EB128AE00E00878671 /* PrimitiveBuilder.lua */,
 			);
 			path = base;
@@ -1776,6 +1779,7 @@
 				145DC3B312A2E7CF00080A76 /* scene1.lua in Resources */,
 				145C8F2512B69BE00073B0D3 /* event_manager.lua in Resources */,
 				142AB9F912BF89E1005C6942 /* joypad.lua in Resources */,
+				14C9840D12DDE11D004CDD76 /* EntityMap.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

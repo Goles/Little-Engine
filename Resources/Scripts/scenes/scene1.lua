@@ -11,6 +11,7 @@ Level1 =
 		{id="entity.lua", position={x=200, y=200}},
 		{id="entity.lua", position={x=300, y=180}},
 		{id="entity.lua", position={x=400, y=180}},
+		{id="entity.lua", position={x=460, y=180}},
 		{id="joypad.lua", position={x=60, y=60}},
 	},
 }

@@ -63,12 +63,10 @@ void gecFSM::setRule(kBehaviourState initialState,
 }
 
 
-void gecFSM::addRule(const std::string &state,
-			  const std::string &inputAction,
-			  const std::string &resultingState)
-{
-	
-}
+//void gecFSM::addRule(const std::string resultingStateName)
+//{
+//	aMap.insert(stateMap::pair(
+//}
 
 void gecFSM::performAction(kBehaviourAction action)
 {

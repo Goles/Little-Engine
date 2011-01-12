@@ -65,13 +65,15 @@ function gecFSMBuild(t)
 			s_matrix[ v[1] ] = {}
 		end
 		
-		s_matrix[ v[1] ][ v[2] ] = v[ 3 ]
+		-- [currentState][inputState] = [outputState]
+		s_matrix[ v[1] ][ v[2] ] = v[3]
 	end
 
 	fsm.statesMatrix = s_matrix
 	
 	return fsm
 end
+
 -- Function table with { Key, function() } for each component builder.
 component_function_table = 
 {

@@ -26,6 +26,7 @@ public:
 	
 protected:
 	kBehaviourState state;
+	std::string currentState;
 	
 private:
 	static gec_id_type mFamilyID;
