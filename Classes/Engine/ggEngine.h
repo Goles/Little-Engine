@@ -32,7 +32,7 @@ namespace gg
 	inline void init(void)
 	{		
 		LR_MANAGER;			/** < Initialize the Lua Registrate Manager */
-		TOUCHABLE_MANAGER;		/** < Initialize the Input Manager*/
+		TOUCHABLE_MANAGER;	/** < Initialize the Input Manager*/
 		SCENE_MANAGER;		/** < Initialize the Scene Manager */
 		TEXTURE_MANAGER;	/** < Initialize the Texture Manager*/
 		PARTICLE_MANAGER;	/** < Initialize the Particles Manager*/

@@ -6,7 +6,7 @@
 require "base_functions"
 require "event_manager"
 require "ComponentBuilder"
-require "entityMap"
+require "EntityMap"
 
 function buildEntity(fileName)
 	entityTable = dofile(filePath(fileName))
@@ -25,7 +25,7 @@ function buildEntity(fileName)
 	addEventData(entityTable.event_data, entity)
 	
 	-- Map the entity to store a reference
-	entity_manager:addEntity(entity)
+	entity_manager:_addMapEntity(entity)
 
 	return entity
 end
@@ -49,12 +49,12 @@ end
 
 -- Adds event data from a event_data table to a given entity.
 function addEventData( in_event_data, in_entity)
+	assert(in_event_data, "Event Listening Entities MUST specify which events to listen for")		
+	assert(in_event_data, "Event Listening Entities MUST implement a handle_event function")
 	
 	-- set the event listener settings for this entity
-	if event_data ~= nil then
-		assert(in_event_data, "Event Listening Entities MUST specify which events to listen for")		
-		assert(in_event_data, "Event Listening Entities MUST implement a handle_event function")		
-		
+	if in_event_data ~= nil then
+	
 		-- set the event handling function defined in the entity.lua file
 		entity.handle_event = in_event_data.handle_event
 		

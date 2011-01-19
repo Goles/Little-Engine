@@ -92,6 +92,7 @@ end
 
 function broadcast(in_event, in_data)
 	assert(in_event ~= "E_TOUCH", "To handle E_TOUCH use broadcast_touch and not broadcast (in-engine event)")
+	
 	event:_broadcast(in_event, in_data)
 end
 

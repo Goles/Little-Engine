@@ -11,14 +11,28 @@ entity_manager = {
 	map = {}
 }
 	
-function entity_manager:addEntity( in_entity )
+function entity_manager:_addMapEntity( in_entity )
 	self.map[ in_entity.id ] = in_entity
 end
 
-function entity_manager:fetchEntity( in_uid )
+function entity_manager:_fetchMapEntity( in_uid )
 	return self.map[ in_uid ]
 end
 
-function entity_manager:deleteEntity( in_uid )
+function entity_manager:_deleteMapEntity( in_uid )
 	self.map[ in_uid ] = nil
+end
+
+-- To expose this
+
+function addMapEntity( in_entity )
+	entity_manager:_addEntity(in_entity)
+end
+
+function fetchMapEntity( in_entity )
+	entity_manager:_fetchEntity( in_entity )
+end
+
+function deleteMapEntity( in_entity )
+	entity_manager:_deleteEntity( in_uid )
 end

@@ -20,7 +20,7 @@
 namespace gg {
 	namespace event {
 		static inline void broadcast(const char *in_eventType, const luabind::object in_event_payload)
-		{
+		{	
 			luabind::call_function<void>(LR_MANAGER_STATE, "broadcast", in_eventType, in_event_payload);
 		}
 		

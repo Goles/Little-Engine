@@ -12,18 +12,26 @@ TestEntity =
 		{
 			"E_ROCK",
 			"E_EXPLOSION",
+			"E_STATE_CHANGE"
 		},
 
 		handle_event = function(this, in_event, in_data)
 			
-			if (in_event == "E_ROCK") then
-										
+			if (in_event == "E_STATE_CHANGE") then	
+							
+				print("STATE CHANGED! ".. "in_data")
+			
+			elseif (in_event == "E_ROCK") then
+				
+				print("E_ROCK")
+				
 				local c = this.components["gecAnimatedSprite"]
-				c:setCurrentAnimation("S_ATTACK")
+				c:setCurrentAnimation("S_WALK")
 				c:setCurrentRunning(true)
 				c:setCurrentRepeating(true)	
 
 			elseif(in_event == "E_EXPLOSION") then
+				print ("E_EXPLOSION")
 				
 				local c = this.components["gecAnimatedSprite"]
 				c:setCurrentAnimation("S_WALK")				

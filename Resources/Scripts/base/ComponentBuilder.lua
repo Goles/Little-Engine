@@ -53,8 +53,6 @@ end
 -- Build a gecFSM
 function gecFSMBuild(t)
 	
-	print("This rocks")
-	
 	fsm = gecFSM()
 	
 	local s_matrix = {}
@@ -67,6 +65,12 @@ function gecFSMBuild(t)
 		
 		-- [currentState][inputState] = [outputState]
 		s_matrix[ v[1] ][ v[2] ] = v[3]
+		
+		-- We assign a default current state for the gecFSM only once.
+		if(fsm.currentState == nil) then
+			fsm.currentState = v[1]
+		end
+		
 	end
 
 	fsm.statesMatrix = s_matrix
