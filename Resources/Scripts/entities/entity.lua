@@ -12,12 +12,16 @@ TestEntity =
 		{
 			"E_ROCK",
 			"E_EXPLOSION",
-			"E_STATE_CHANGE"
+			"E_STATE_CHANGE",
+			"E_DRAG_GAMEPAD"
 		},
 
 		handle_event = function(this, in_event, in_data)
 			
-			if (in_event == "E_STATE_CHANGE") then	
+			if(in_event == "E_DRAG_GAMEPAD") then
+				-- Event triggered when the Gamepad is being dragged
+			
+			elseif (in_event == "E_STATE_CHANGE") then	
 							
 				print("STATE CHANGED! ".. "in_data")
 			

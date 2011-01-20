@@ -22,10 +22,11 @@ public:
 	
 	//CompBehaviour Interface
 public:
-	kBehaviourState	getState() { return state; }
+	std::string const getState() { return state; }
+	void setState(const std::string &in_state) { state = in_state; }
 	
 protected:
-	kBehaviourState state;
+	std::string state;
 	
 private:
 	static gec_id_type mFamilyID;

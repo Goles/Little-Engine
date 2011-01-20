@@ -176,8 +176,8 @@ void GandoBox2D::update(float delta)
 						{
 							gecFSM *fsm = (gecFSM *)gec;
 							
-							if(fsm->getState() != kBehaviourState_hit)
-								fsm->performAction(kBehaviourAction_hit);
+							//if(fsm->getState() != kBehaviourState_hit)
+								//fsm->performAction(kBehaviourAction_hit);
 						}
 					}
 				}

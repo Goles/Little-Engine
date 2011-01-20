@@ -13,6 +13,7 @@
 #include "gecAnimatedSprite.h"
 #include "gecFSM.h"
 #include "BehaviourActions.h"
+#include "EventBroadcaster.h"
 
 std::string gecJoystick::mComponentID = "gecJoystick";
 
@@ -27,7 +28,7 @@ gecJoystick::gecJoystick(): active(false), firstTouch(true), fsm(NULL), subscrib
 	center.y			= 0.0f;
 	latestVelocity.x	= 0.0f;
 	latestVelocity.y	= 0.0f;
-	
+
 	this->registerTouchable();
 }
 
@@ -48,11 +49,12 @@ void gecJoystick::update(float delta)
 		
 		//For our current usage, we will not move the entity on attack. This should
 		//be done in a much cleaner way.
-		if(fsm->getState() != kBehaviourState_attack)
+		if(fsm->getState().compare("S_ATTACK") > 0)
 		{
 			if(latestVelocity.x != 0.0 || latestVelocity.y != 0.0f)
 			{	
-				fsm->performAction(kBehaviourAction_dragGamepad);
+				//TODO: Fix this
+				fsm->performAction("A_DRAG_GAMEPAD");
 				
 //				float oldX = subscribedGE->x;
 //				float oldY = subscribedGE->y;
@@ -126,15 +128,21 @@ void gecJoystick::updateVelocity(float x, float y)
 	
 	//TODO: DONT HARD-CODE THIS! DECOUPLE
 	//Flip our entity if we face right or left.
-	if(fsm->getState() != kBehaviourState_attack)
-	{
-		if(dx < 0)
-		{
-			subscribedGE->setFlipHorizontally(true);
-		}else {
-			subscribedGE->setFlipHorizontally(false);
-		}
-	}
+	//std::string hola = fsm->getState();
+		
+	luabind::object payload = luabind::newtable(LR_MANAGER_STATE);	
+	payload["joypad_dx"] = dx;
+	gg::event::broadcast("E_DRAG_GAMEPAD", payload);
+	
+//	if(fsm->getState().compare("S_ATTACK") != 0)
+//	{
+//		if(dx < 0)
+//		{
+//			subscribedGE->setFlipHorizontally(true);
+//		}else {
+//			subscribedGE->setFlipHorizontally(false);
+//		}
+//	}
 }
 
 Boolean gecJoystick::handle_touch(float x, float y, int touchIndex, int touchID, int touchType)
@@ -236,12 +244,12 @@ void gecJoystick::subscribeGameEntity(GameEntity *gE)
 
 void gecJoystick::updateSubscriberState(kBehaviourAction a)
 {
-	if(fsm != NULL)
-		fsm->performAction(a);
-	else {
-		std::cout << "WARNING: You shouldn't be using a gecJoystick with a GameEntity that doesn't have a gecFSM" << std::endl;
-		assert(fsm != NULL);
-	}
+//	if(fsm != NULL)
+//		fsm->performAction(a);
+//	else {
+//		std::cout << "WARNING: You shouldn't be using a gecJoystick with a GameEntity that doesn't have a gecFSM" << std::endl;
+//		assert(fsm != NULL);
+//	}
 }
 
 void gecJoystick::setShape(CGRect aRect)

@@ -38,7 +38,7 @@ public:
 	void addRule(const std::string &state,
 				 const std::string &inputAction,
 				 const std::string &resultingState);
-	void performAction(kBehaviourAction action);
+	void performAction(const std::string &action);
 	void animationFinishedDelegate();
 	
 	/** Lua Interface
@@ -68,12 +68,6 @@ private:
 	static gec_id_type mComponentID;
 	actionMap actionNameMap;
 	bool locked; //This will lock the state machine in the case we need to.
-	
-	std::string caca[MAX_STATES][MAX_STATES];
-	
-	typedef std::map<std::string, std::string> stateMap;
-	
-	stateMap aMap;
 	
 };
 

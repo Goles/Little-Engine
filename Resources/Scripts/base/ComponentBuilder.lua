@@ -45,7 +45,8 @@ function gecJoystickBuild(t)
 
 	joypad = gecJoystick()
 	local shape = ggr(t.shape.x, t.shape.y, t.shape.width, t.shape.height)
-	joypad:setShape(shape)	
+	joypad:setShape(shape)
+	joypad:setCenter(t.shape.x, t.shape.y)
 	
 	return joypad
 end

@@ -71,27 +71,29 @@ void gecWeapon::setTransform(b2Body *b)
 #pragma mark gecWeapon private interface.
 int gecWeapon::checkOwnerState(kBehaviourState state) const
 {
-	GEComponent *gec = this->getOwnerGE()->getGEC("CompBehaviour");
-	if(gec)
-	{
-		//if the component is indeed an FSM
-		if(gec->componentID().compare("gecFSM") == 0)
-		{
-			gecFSM *gec_fsm = (gecFSM *)gec;
-			
-			if(gec_fsm->getState() == state)
-				//Code 1 means that the owner's gecFSM has owner.state == state
-				return 1;
-			else {
-				//Code 0 means that the owner's gecFSM has owner.state != state
-				return 0;
-			}
-		}else {
-			//Code -1 means that the owner's CompBehaviour is not gecFSM
-			return -1;
-		}
-	}
+//	GEComponent *gec = this->getOwnerGE()->getGEC("CompBehaviour");
+//	if(gec)
+//	{
+//		//if the component is indeed an FSM
+//		if(gec->componentID().compare("gecFSM") == 0)
+//		{
+//			gecFSM *gec_fsm = (gecFSM *)gec;
+//			
+//			if(gec_fsm->getState() == state)
+//				//Code 1 means that the owner's gecFSM has owner.state == state
+//				return 1;
+//			else {
+//				//Code 0 means that the owner's gecFSM has owner.state != state
+//				return 0;
+//			}
+//		}else {
+//			//Code -1 means that the owner's CompBehaviour is not gecFSM
+//			return -1;
+//		}
+//	}
+//	
+//	//Code -2 means that the owner doesn't even have a CompBehaviour.
+//	return -2;
 	
-	//Code -2 means that the owner doesn't even have a CompBehaviour.
-	return -2;
+	assert(false);
 }

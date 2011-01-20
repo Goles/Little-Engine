@@ -18,7 +18,7 @@ void gecScrollingBackground::update(float delta)
 {
 	if(subscribedGE != NULL)
 	{
-		if(subscribedGE->x >= tolerance && (fsm->getState() == kBehaviourState_walk))
+		if(subscribedGE->x >= tolerance && (fsm->getState().compare("S_WALK")))
 			dispOffset+=1;
 	}else{
 		//Assert out if our subscribedGE is null.
