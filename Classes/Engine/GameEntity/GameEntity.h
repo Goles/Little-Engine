@@ -152,12 +152,15 @@ static void registrate(void)
 {	
 	luabind::module(LR_MANAGER_STATE) 
 	[
-	 luabind::class_<GameEntity>("GameEntity")	/** < Binds the GameEntity class*/
-	 .def(luabind::constructor<>())				/** < Binds the GameEntity constructor  */
-	 .def("setGEC", &GameEntity::setGEC)		/** < Binds the GameEntity setGEC method  */
-	 .def("setPosition", &GameEntity::setPosition) /** < Binds the GameEntity setPositon method */
+	 luabind::class_<GameEntity>("GameEntity")		/** < Binds the GameEntity class */
+	 .def(luabind::constructor<>())					/** < Binds the GameEntity constructor  */
+	 .def("setGEC", &GameEntity::setGEC)			/** < Binds the GameEntity setGEC method  */
+	 .def("setPosition", &GameEntity::setPosition)	/** < Binds the GameEntity setPositon method */
 	 .def("setIsActive", &GameEntity::setIsActive)
 	 .def("getId", &GameEntity::getId)
+	 .def_readwrite("x", &GameEntity::x)
+	 .def_readwrite("y", &GameEntity::y)
+	 .def_readwrite("speed", &GameEntity::speed)
 	 ];
 }
 	

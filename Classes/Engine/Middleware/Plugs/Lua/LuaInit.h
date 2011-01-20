@@ -70,7 +70,7 @@ namespace gg
 				luabind::class_<GGPoint>("GGPoint")
 				.def(luabind::constructor<>())
 				.def_readwrite("x", &GGPoint::x)
-				.def_readwrite("y", &GGPoint::y)			 
+				.def_readwrite("y", &GGPoint::y)
 			 ];
 			
 			luabind::module(LR_MANAGER_STATE)

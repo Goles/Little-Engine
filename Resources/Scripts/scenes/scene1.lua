@@ -2,7 +2,8 @@ Level1 =
 {
 	id = "CoolScene",
 	entities =
-	{	--Create 7 hitter 1 entities...
+	{	--Create entities...
+		{id="character.lua", position={x=250, y=60}},
 		{id="entity.lua", position={x=100, y=100}},
 		{id="entity.lua", position={x=100, y=150}},
 		{id="entity.lua", position={x=100, y=200}},

@@ -11,9 +11,9 @@
 
 #include "CompTouchable.h"
 #include "BehaviourActions.h"
+#include "LuaRegisterManager.h"
 
 class GameEntity;
-class gecFSM;
 
 class gecJoystick: public CompTouchable
 {	
@@ -69,8 +69,8 @@ private:
 	CGPoint				center;
 	CGPoint				latestVelocity;
 	int					currentTouchID;
-	GameEntity*			subscribedGE;
-	gecFSM*				fsm;
+//	GameEntity*			subscribedGE;
+//	gecFSM*				fsm;
 };
 
 #endif

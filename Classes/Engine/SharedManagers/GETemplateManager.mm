@@ -138,19 +138,19 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	fsm->setOwnerGE(gE);
 	
 	//Build the rules for this entity FSM.
-	fsm->setRule(kBehaviourState_stand, kBehaviourAction_doAttack, kBehaviourState_attack, "attack");
-	fsm->setRule(kBehaviourState_stand, kBehaviourAction_dragGamepad, kBehaviourState_walk, "walk");
-	fsm->setRule(kBehaviourState_stand, kBehaviourAction_hit, kBehaviourState_hit, "hit");
-	fsm->setRule(kBehaviourState_walk, kBehaviourAction_stopGamepad, kBehaviourState_stand, "stand");
-	fsm->setRule(kBehaviourState_walk, kBehaviourAction_dragGamepad, kBehaviourState_walk, "walk");
-	fsm->setRule(kBehaviourState_walk, kBehaviourAction_doAttack, kBehaviourState_attack, "attack");
-	fsm->setRule(kBehaviourState_walk, kBehaviourAction_hit, kBehaviourState_hit, "hit");
-	fsm->setRule(kBehaviourState_attack, kBehaviourAction_stopAttack, kBehaviourState_stand, "stand");
-	fsm->setRule(kBehaviourState_attack, kBehaviourAction_doAttack, kBehaviourState_attack, "attack");
-	fsm->setRule(kBehaviourState_attack, kBehaviourAction_stopGamepad, kBehaviourState_attack, "attack");
-	fsm->setRule(kBehaviourState_attack, kBehaviourAction_dragGamepad, kBehaviourState_attack, "attack");
-	fsm->setRule(kBehaviourState_attack, kBehaviourAction_hit, kBehaviourState_hit, "hit");
-	fsm->setRule(kBehaviourState_hit, kBehaviourAction_stopHit, kBehaviourState_stand, "stand");
+	//fsm->setRule(kBehaviourState_stand, kBehaviourAction_doAttack, kBehaviourState_attack, "attack");
+//	fsm->setRule(kBehaviourState_stand, kBehaviourAction_dragGamepad, kBehaviourState_walk, "walk");
+//	fsm->setRule(kBehaviourState_stand, kBehaviourAction_hit, kBehaviourState_hit, "hit");
+//	fsm->setRule(kBehaviourState_walk, kBehaviourAction_stopGamepad, kBehaviourState_stand, "stand");
+//	fsm->setRule(kBehaviourState_walk, kBehaviourAction_dragGamepad, kBehaviourState_walk, "walk");
+//	fsm->setRule(kBehaviourState_walk, kBehaviourAction_doAttack, kBehaviourState_attack, "attack");
+//	fsm->setRule(kBehaviourState_walk, kBehaviourAction_hit, kBehaviourState_hit, "hit");
+//	fsm->setRule(kBehaviourState_attack, kBehaviourAction_stopAttack, kBehaviourState_stand, "stand");
+//	fsm->setRule(kBehaviourState_attack, kBehaviourAction_doAttack, kBehaviourState_attack, "attack");
+//	fsm->setRule(kBehaviourState_attack, kBehaviourAction_stopGamepad, kBehaviourState_attack, "attack");
+//	fsm->setRule(kBehaviourState_attack, kBehaviourAction_dragGamepad, kBehaviourState_attack, "attack");
+//	fsm->setRule(kBehaviourState_attack, kBehaviourAction_hit, kBehaviourState_hit, "hit");
+//	fsm->setRule(kBehaviourState_hit, kBehaviourAction_stopHit, kBehaviourState_stand, "stand");
 	
 	//Create the sprite animations component
 	
@@ -204,17 +204,17 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	
 	//Set a delegate for the attack animation
 	//This should be much better because EVERY animation should implement delegation by default.
-	Animation *attack = spriteAnimations->getAnimation("attack");
-	if(attack)
-		attack->setDelegate(boost::bind(&gecFSM::animationFinishedDelegate, fsm));
-	
-	Animation *hit = spriteAnimations->getAnimation("hit");
-	if(hit)
-	{
-		hit->setDelegate(boost::bind(&gecFSM::animationFinishedDelegate, fsm));
-		Animation *an = spriteAnimations->getAnimation("hit");
-		an->setIsRepeating(false);
-	}
+//	Animation *attack = spriteAnimations->getAnimation("attack");
+//	if(attack)
+//		attack->setDelegate(boost::bind(&gecFSM::animationFinishedDelegate, fsm));
+//	
+//	Animation *hit = spriteAnimations->getAnimation("hit");
+//	if(hit)
+//	{
+//		hit->setDelegate(boost::bind(&gecFSM::animationFinishedDelegate, fsm));
+//		Animation *an = spriteAnimations->getAnimation("hit");
+//		an->setIsRepeating(false);
+//	}
 		
 	
 	//The Default animation is stand and it's running

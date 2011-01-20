@@ -10,11 +10,6 @@
 #ifndef _GEC_FSM_H_
 #define _GEC_FSM_H_
 
-#define MAX_STATES 8
-#define MAX_ACTION 8
-
-#include <map>
-
 #include "CompBehaviour.h"
 #include "LuaRegisterManager.h"
 
@@ -26,20 +21,8 @@ public:
 	virtual void update(float delta);
 	
 public:
-	//Constructors
-	gecFSM() : locked(false){ state = kBehaviourState_stand; }
-	gecFSM(kBehaviourState s) : locked(false) { state = s;}
-
-	//Interface
-	void setRule(kBehaviourState initialState, 
-				 int inputAction, 
-				 kBehaviourState resultingState, 
-				 const std::string &resultingStateName);
-	void addRule(const std::string &state,
-				 const std::string &inputAction,
-				 const std::string &resultingState);
+	gecFSM() : locked(false){ }
 	void performAction(const std::string &action);
-	void animationFinishedDelegate();
 	
 	/** Lua Interface
 	 @remarks
@@ -50,23 +33,14 @@ public:
 		luabind::module(LR_MANAGER_STATE) 
 		[
 		 luabind::class_<gecFSM, GEComponent>("gecFSM")	/** < Binds the gecFSM class*/
-		 .def(luabind::constructor<>())	
-		 .def("setRule", &gecFSM::setRule)
+		 .def(luabind::constructor<>())
 		 .def("setOwnerGE", &GEComponent::setOwnerGE)
 		 .def("performAction", &gecFSM::performAction)
 		 ];
 	}
 	
-protected:
-	const std::string getNameForAction(kBehaviourState action) const;
-	void initFsmTable();
-	
 private:
-	typedef std::map<int, const std::string> actionMap;
-	typedef std::pair<int, const std::string> actionMapPair;
-	kBehaviourState fsmTable[MAX_STATES][MAX_ACTION];
 	static gec_id_type mComponentID;
-	actionMap actionNameMap;
 	bool locked; //This will lock the state machine in the case we need to.
 	
 };

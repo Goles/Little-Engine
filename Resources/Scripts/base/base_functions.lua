@@ -41,3 +41,21 @@ end
 function activateScene(scene)
 	SceneManager.getInstance():setActiveScene(scene.sceneId)
 end
+
+-- pseudo round function using only floor and ceil
+function round(in_number)
+	
+	print("Rouding")
+	
+	decimal_part = in_number - abs(in_number)
+	
+	if (decimal_part >= 0.5) then
+		
+		in_number = (in_number - decimal_part) + 1
+		
+	elseif (decimal_part < 0.5 ) then
+		
+		in_number = (in_number - decimal_part)
+		
+	end
+end

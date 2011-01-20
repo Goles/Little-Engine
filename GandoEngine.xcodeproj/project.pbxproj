@@ -127,6 +127,7 @@
 		14A2172A12E7884700A4D8EC /* main.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2171712E7884700A4D8EC /* main.lua */; };
 		14A2172B12E7884700A4D8EC /* scene1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2171912E7884700A4D8EC /* scene1.lua */; };
 		14A2172C12E7884700A4D8EC /* scene_ideal.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2171A12E7884700A4D8EC /* scene_ideal.lua */; };
+		14A218A212E89AC500A4D8EC /* character.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A218A112E89AC500A4D8EC /* character.lua */; };
 		14A6095712276F6E00F41A4E /* lapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 14A6092312276F6E00F41A4E /* lapi.c */; };
 		14A6095812276F6E00F41A4E /* lapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 14A6092412276F6E00F41A4E /* lapi.h */; };
 		14A6095912276F6E00F41A4E /* lauxlib.c in Sources */ = {isa = PBXBuildFile; fileRef = 14A6092512276F6E00F41A4E /* lauxlib.c */; };
@@ -446,6 +447,7 @@
 		14A2171712E7884700A4D8EC /* main.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.lua; sourceTree = "<group>"; };
 		14A2171912E7884700A4D8EC /* scene1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scene1.lua; sourceTree = "<group>"; };
 		14A2171A12E7884700A4D8EC /* scene_ideal.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scene_ideal.lua; sourceTree = "<group>"; };
+		14A218A112E89AC500A4D8EC /* character.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = character.lua; sourceTree = "<group>"; };
 		14A6091D12276EDC00F41A4E /* libLua.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLua.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		14A6092312276F6E00F41A4E /* lapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lapi.c; path = "lua-5.1.4/src/lapi.c"; sourceTree = "<group>"; };
 		14A6092412276F6E00F41A4E /* lapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lapi.h; path = "lua-5.1.4/src/lapi.h"; sourceTree = "<group>"; };
@@ -962,6 +964,7 @@
 		14A2171012E7884700A4D8EC /* entities */ = {
 			isa = PBXGroup;
 			children = (
+				14A218A112E89AC500A4D8EC /* character.lua */,
 				14A2171112E7884700A4D8EC /* entity.lua */,
 				14A2171212E7884700A4D8EC /* joypad.lua */,
 				14A2171312E7884700A4D8EC /* test.lua */,
@@ -1804,6 +1807,7 @@
 				14A2172A12E7884700A4D8EC /* main.lua in Resources */,
 				14A2172B12E7884700A4D8EC /* scene1.lua in Resources */,
 				14A2172C12E7884700A4D8EC /* scene_ideal.lua in Resources */,
+				14A218A212E89AC500A4D8EC /* character.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2061,6 +2065,7 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_VERSION = 4.2;
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -2081,8 +2086,9 @@
 				GCC_PREFIX_HEADER = GandoEngine_Prefix.pch;
 				GCC_THUMB_SUPPORT = NO;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
-				GCC_VERSION = 4.2;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",

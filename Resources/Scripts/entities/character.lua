@@ -18,14 +18,35 @@ TestEntity =
 
 		handle_event = function(this, in_event, in_data)
 			
-			if (in_event == "E_STATE_CHANGE") then	
+			if(in_event == "E_DRAG_GAMEPAD") then
+				-- print("latest speed x: " .. in_data.speed.x)
+				-- print("latest speed y: " .. in_data.speed.y)
+				-- print("delta: " .. in_data.delta)
+				
+				local delta_speed = in_data.delta * this.speed
+				print("speed: " .. this.speed)
+				print("delta_speed " .. delta_speed)
+				local movement_x = delta_speed * in_data.latest_speed.x
+				local movement_y = delta_speed * in_data.latest_speed.y
+				
+				if(this.components["gecFSM"].currentState ~= "S_ATTACK") then
+
+					this.x = this.x + movement_x -- + round(movement_x) 
+					this.y = this.y + movement_y -- + round(movement_y)
+					print("Handle Event Id: " .. this:getId())
+					
+
+					
+				end
+				
+			elseif (in_event == "E_STATE_CHANGE") then	
 							
 				print("STATE CHANGED! ".. "in_data")
 			
 			elseif (in_event == "E_ROCK") then
 				
 				print("E_ROCK")
-				
+				print("Handle Event Id: " .. this:getId())
 				local c = this.components["gecAnimatedSprite"]
 				c:setCurrentAnimation("S_WALK")
 				c:setCurrentRunning(true)
@@ -83,6 +104,12 @@ TestEntity =
 				{"S_HIT", "A_STOP_HIT", "S_STAND"},																	
 			},
 		},
+	},
+	
+	-- Atributes for this entity ( this should slowly dissappear )
+	attributes =
+	{
+		speed = 60
 	},
 }
 

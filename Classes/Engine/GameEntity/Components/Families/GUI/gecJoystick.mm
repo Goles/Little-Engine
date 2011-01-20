@@ -14,11 +14,12 @@
 #include "gecFSM.h"
 #include "BehaviourActions.h"
 #include "EventBroadcaster.h"
+#include <iostream>
 
 std::string gecJoystick::mComponentID = "gecJoystick";
 
 #pragma mark Contrstructor
-gecJoystick::gecJoystick(): active(false), firstTouch(true), fsm(NULL), subscribedGE(NULL), currentTouchID(NULL)
+gecJoystick::gecJoystick(): active(false), firstTouch(true), currentTouchID(NULL)
 {
 	shape.origin.x		= 0.0f;
 	shape.origin.y		= 0.0f;
@@ -40,30 +41,21 @@ gecJoystick::~gecJoystick()
 #pragma mark gec_gui_interface
 void gecJoystick::update(float delta)
 {	
-	float delta_velocity = 0.0;
 	
-	/*Updating the component or other components dependant of it happens here*/
-	if(subscribedGE != NULL)
-	{
-		delta_velocity = delta*subscribedGE->getSpeed();
+
+	
+	if(latestVelocity.x != 0.0 || latestVelocity.y != 0.0f)
+	{	
+		printf("Joypad UID: %d\n", this->getOwnerGE()->getId());
 		
-		//For our current usage, we will not move the entity on attack. This should
-		//be done in a much cleaner way.
-		if(fsm->getState().compare("S_ATTACK") > 0)
-		{
-			if(latestVelocity.x != 0.0 || latestVelocity.y != 0.0f)
-			{	
-				//TODO: Fix this
-				fsm->performAction("A_DRAG_GAMEPAD");
-				
-//				float oldX = subscribedGE->x;
-//				float oldY = subscribedGE->y;
-				
-				subscribedGE->x += roundf(latestVelocity.x * delta_velocity);
-				subscribedGE->y += roundf(latestVelocity.y * delta_velocity);
-			}
-		}
+		luabind::object payload = luabind::newtable(LR_MANAGER_STATE);
+		payload["latest_speed"] = latestVelocity;
+		payload["delta"] = delta;
+		
+		gg::event::broadcast("E_DRAG_GAMEPAD", payload);
 	}
+
+
 }
 
 #pragma mark gec_joystick_interface
@@ -129,11 +121,6 @@ void gecJoystick::updateVelocity(float x, float y)
 	//TODO: DONT HARD-CODE THIS! DECOUPLE
 	//Flip our entity if we face right or left.
 	//std::string hola = fsm->getState();
-		
-	luabind::object payload = luabind::newtable(LR_MANAGER_STATE);	
-	payload["joypad_dx"] = dx;
-	gg::event::broadcast("E_DRAG_GAMEPAD", payload);
-	
 //	if(fsm->getState().compare("S_ATTACK") != 0)
 //	{
 //		if(dx < 0)
@@ -233,13 +220,13 @@ Boolean gecJoystick::handle_touch(float x, float y, int touchIndex, int touchID,
 
 void gecJoystick::subscribeGameEntity(GameEntity *gE)
 {	
-	subscribedGE = gE;
-	fsm = ((gecFSM *)subscribedGE->getGEC("CompBehaviour"));
-	if(fsm == NULL)
-	{
-		std::cout << "WARNING: You shouldn't be using a gecJoystick with a GameEntity that doesn't have a gecFSM" << std::endl;
-		assert(fsm != NULL);
-	}
+//	subscribedGE = gE;
+//	fsm = ((gecFSM *)subscribedGE->getGEC("CompBehaviour"));
+//	if(fsm == NULL)
+//	{
+//		std::cout << "WARNING: You shouldn't be using a gecJoystick with a GameEntity that doesn't have a gecFSM" << std::endl;
+//		assert(fsm != NULL);
+//	}
 }
 
 void gecJoystick::updateSubscriberState(kBehaviourAction a)

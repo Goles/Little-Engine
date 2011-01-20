@@ -18,11 +18,26 @@ function buildEntity(fileName)
 	-- assign the entity a unique_id.
 	entity.id = entity:getId()
 	
-	-- attach the respective components to the entity
-	addComponents(entityTable.components, entity)
-	
-	-- attach the respective event listening data to the entity
-	addEventData(entityTable.event_data, entity)
+	-- add attributes
+	if (entityTable.attributes ~= nil) then
+		
+		addAttributes(entityTable.attributes, entity)		
+		
+	end
+
+	-- attach the respective components to the entity	
+	if (entityTable.components ~= nil) then
+		
+		addComponents(entityTable.components, entity)
+		
+	end
+
+	-- attach the respective event listening data to the entity	
+	if (entityTable.event_data ~= nil) then
+		
+		addEventData(entityTable.event_data, entity)
+		
+	end
 	
 	-- Map the entity to store a reference
 	entity_manager:_addMapEntity(entity)
@@ -67,6 +82,17 @@ function addEventData( in_event_data, in_entity)
 		for i,v in ipairs(in_event_data.listen_events) do
 			event:_add_listener(entity, v)
 		end
+		
+	end
+	
+end
+
+-- Adds atributes to the entity ( this function is subject to dissappear in the future)
+function addAttributes( in_attributes, in_entity )
+	
+	if( in_attributes.speed ~= nil ) then
+		
+		in_entity.speed = in_attributes.speed
 		
 	end
 	
