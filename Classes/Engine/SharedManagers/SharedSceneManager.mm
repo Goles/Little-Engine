@@ -35,10 +35,10 @@ Scene* SharedSceneManager::getScene(const std::string &sceneName)
 
 Scene* SharedSceneManager::addScene(Scene *aScene)
 {
-	std::string sceneName = aScene->getSceneId();
+	std::string sceneName = aScene->getSceneLabel();
 	
 	//Return NULL if the scene remains unnamed
-	if(!aScene->getSceneId().compare("unnamed"))
+	if(!aScene->getSceneLabel().compare("unnamed_scene"))
 	{
 		return NULL;
 	}

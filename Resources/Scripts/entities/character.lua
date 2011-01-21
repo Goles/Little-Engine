@@ -10,28 +10,37 @@ TestEntity =
 	{
 		listen_events = 
 		{
-			"E_ROCK",
-			"E_EXPLOSION",
-			"E_STATE_CHANGE",
+			"E_SCENE_ACTIVE",
 			"E_DRAG_GAMEPAD",
-			"E_STOP_GAMEPAD"
+			"E_STOP_GAMEPAD",
+			"E_STATE_CHANGE",
 		},
 
-		handle_event = function(this, in_event, in_data)
-			print("HANDLE EVENT")
-			print("Event Type: " .. in_event)
+		handle_event = function (this, in_event, in_data)
+			
+			--
+			--	EVENT ACTIVE SCENE
+			--
+			if (in_event == "E_SCENE_ACTIVE") then
+
+				local c = this.components["gecAnimatedSprite"]
+				c:setCurrentAnimation("S_STAND")
+				c:setCurrentRunning(true)
+				c:setCurrentRepeating(true)
+				
+				if(in_data == "CoolScene") then
+					-- this is level "CoolScene" manage special according to this level.
+				end
 			
 			--
 			--	EVENT DRAG GAMEPAD
 			--
-			if(in_event == "E_DRAG_GAMEPAD") then
-				-- print("latest speed x: " .. in_data.speed.x)
-				-- print("latest speed y: " .. in_data.speed.y)
-				-- print("delta: " .. in_data.delta)
-				local fsm = this.components["gecFSM"]
-
+			elseif (in_event == "E_DRAG_GAMEPAD") then
+				
 				if(fsm ~= nil) then
-					fsm:performAction("A_DRAG_GAMEPAD")
+					
+					this.components["gecFSM"]:performAction("A_DRAG_GAMEPAD")
+					
 				end
 				
 				local delta_speed = in_data.delta * this.speed
@@ -48,32 +57,19 @@ TestEntity =
 			--
 			--	EVENT STOP GAMEPAD
 			--
-			elseif(in_event == "E_STOP_GAMEPAD") then
-				print("Stop Gamepad")
-				print("Character.lua line:53")
+			elseif (in_event == "E_STOP_GAMEPAD") then
+				
 				this.components["gecFSM"]:performAction("A_STOP_GAMEPAD")
 			
 			--
 			-- EVENT STATE CHANGE
 			--
-			elseif (in_event == "E_STATE_CHANGE") then	
-							
-				print("STATE CHANGED! ".. "in_data")
-			
-			--
-			-- EVENT ROCK
-			--
-			elseif (in_event == "E_ROCK") then
+			elseif (in_event == "E_STATE_CHANGE") then
 				
-				print("E_ROCK")
-				print("Handle Event Id: " .. this:getId())
-				local c = this.components["gecAnimatedSprite"]
-				c:setCurrentAnimation("S_STAND")
-				c:setCurrentRunning(true)
-				c:setCurrentRepeating(true)			
-				
+				this.components["gecAnimatedSprite"]:setCurrentAnimation(in_data)
+				this.components["gecAnimatedSprite"]:setCurrentRunning(true)
 			end
-
+			
 		end
 	},
 	
@@ -89,7 +85,7 @@ TestEntity =
 			},
 			animations =
 			{
-				-- Animation name, Animation spritesheet coords, Animation frame duration.
+				-- Animation id (matches state names), Animation spritesheet coords, Animation frame duration.
 				-- {id=, coords=, duration= , sheet= , repeats=, pingpong= }
 				{"S_STAND", {0,0,1,0,2,0,3,0}, 0.10, "hitter1_1.png", true, true},				
 				{"S_WALK", {4,0,5,0,6,0,7,0}, 0.10, "hitter1_1.png", true, false},

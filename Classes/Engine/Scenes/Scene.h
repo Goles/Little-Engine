@@ -66,12 +66,12 @@ public:
 	/** Sets the scene unique id 
 		@param _id is an std::string unique for this scene.
 	 */
-	void setSceneId(const std::string &_id) { sceneId = std::string(_id); }
+	void setSceneLabel(const std::string &in_label) { label = std::string(in_label); }
 	
 	/** Gets the scene unique id 
 		@returns reference to sceneId
 	 */
-	const std::string &getSceneId(void) const { return sceneId; }
+	const std::string &getSceneLabel(void) { return label; }
 	
 //------------------------------------------------------------------------------
 	/** Lua Interface
@@ -85,7 +85,7 @@ public:
 		 luabind::class_<Scene>("Scene")
 		 .def(luabind::constructor<>())
 		 .def("addEntity", &Scene::addEntity)
-		 .property("sceneId", &Scene::getSceneId, &Scene::setSceneId)
+		 .property("label", &Scene::getSceneLabel, &Scene::setSceneLabel)
 		 ];	
 	}
 	
@@ -101,7 +101,7 @@ private:
 	typedef std::vector<GameEntity *> ENTITY_VECTOR;
 	typedef std::vector<GameEntity *>::iterator ENTITY_VECTOR_ITERATOR;
 	
-	std::string sceneId; /** < Unique identifier for this scene */
+	std::string label; /** < Unique identifier for this scene */
 	
 	ENTITY_VECTOR entityList; /** Vector of GameEntities owned by this SceneManager */
 };

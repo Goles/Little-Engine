@@ -10,6 +10,7 @@ TestEntity =
 	{
 		listen_events = 
 		{
+			"E_SCENE_ACTIVE",
 			"E_ROCK",
 			"E_EXPLOSION",
 			"E_STATE_CHANGE",
@@ -18,18 +19,23 @@ TestEntity =
 
 		handle_event = function(this, in_event, in_data)
 			
-			if (in_event == "E_STATE_CHANGE") then	
-							
-				print("STATE CHANGED! ".. "in_data")
-			
-			elseif (in_event == "E_ROCK") then
+			if( in_event == "E_SCENE_ACTIVE" ) then
 				
-				print("E_ROCK")
-				
+				-- Setup startup animation
 				local c = this.components["gecAnimatedSprite"]
 				c:setCurrentAnimation("S_WALK")
 				c:setCurrentRunning(true)
-				c:setCurrentRepeating(true)	
+				c:setCurrentRepeating(true)
+				
+				if(in_data == "CoolScene") then
+					-- this is level "CoolScene" manage special according to this level.
+				end
+				
+			
+			elseif (in_event == "E_STATE_CHANGE") then	
+							
+				print("STATE CHANGED! ".. "in_data")
+			
 
 			elseif(in_event == "E_EXPLOSION") then
 				print ("E_EXPLOSION")

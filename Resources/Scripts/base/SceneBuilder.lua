@@ -14,7 +14,7 @@ function buildScene(sceneName)
 	aScene = Scene()
 	entities = {}
 
-	aScene.sceneId = sceneTable.id
+	aScene.label = sceneTable.id
 
 	for k,v in pairs(sceneTable.entities) do
 		

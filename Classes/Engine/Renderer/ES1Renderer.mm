@@ -121,7 +121,7 @@
 - (void) offsetTest
 {
 	aSceneManager = new Scene();
-	aSceneManager->setSceneId("main_scene");
+	aSceneManager->setSceneLabel("main_scene");
 	
 	//Declare our game entities
 	GameEntity *b		= GE_FACTORY->createGE("scrollingBackground", 0, 320.0);

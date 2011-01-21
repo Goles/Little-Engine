@@ -39,7 +39,7 @@ function pushScene(scene)
 end
 
 function activateScene(scene)
-	SceneManager.getInstance():setActiveScene(scene.sceneId)
+	SceneManager.getInstance():setActiveScene(scene.label)
 end
 
 -- pseudo round function using only floor and ceil

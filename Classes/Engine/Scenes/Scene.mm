@@ -12,7 +12,7 @@
 
 //Constructor
 #pragma mark contructor
-Scene::Scene() : sceneId("unnamed")
+Scene::Scene() : label("unnamed_scene")
 {
 	//Init some stuff here.
 }

@@ -22,12 +22,6 @@
 	//init gg engine.
 	gg::init();
 	
-	
-	luabind::object payload = luabind::newtable(LR_MANAGER_STATE);	
-	payload["foo"] = "bar";
-	gg::event::broadcast("E_ROCK", payload);
-	
-	
 	[glView startAnimation];
 }
 
