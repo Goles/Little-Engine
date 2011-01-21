@@ -74,7 +74,26 @@ function gecFSMBuild(t)
 		
 	end
 
+	-- Assign the states matrix as an fsm value
 	fsm.statesMatrix = s_matrix
+	
+	-- Assign the perform action as an fsm value
+	fsm.performAction = function(this, in_action)
+
+		-- Problem here, maybe this way to access a bi-dimensional matrix is incorrect...
+		-- double check everything. :) good progress btw.
+		local oldState = this.currentState
+		local newState = this.statesMatrix[oldState][in_action]
+		
+		if( oldState ~= newState ) then
+			this.currentState = newState
+
+			-- broadcast an event letting an entity know that it's state changed			
+			this.ownerGE:handle_event("E_STATE_CHANGE", newState)
+			
+		end
+
+	end
 	
 	return fsm
 end

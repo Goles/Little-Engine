@@ -13,7 +13,6 @@ function buildEntity(fileName)
 	
 	-- create a new entity
 	entity = GameEntity()
-	entity.components = {}
 	
 	-- assign the entity a unique_id.
 	entity.id = entity:getId()
@@ -41,21 +40,24 @@ function buildEntity(fileName)
 	
 	-- Map the entity to store a reference
 	entity_manager:_addMapEntity(entity)
-
+	
 	return entity
 end
 
 -- Adds components from a component table to a given entity.
 function addComponents( in_components , in_entity )
 	
+	in_entity.components = {}
+	
 	-- add the corresponding components to the entity in question
 	for key,value in pairs(in_components)	do
 		
 		if component_function_table[ key ] ~= nil then
 			component = component_function_table[ key ]( value )
-			entity:setGEC(component)
-			entity.components[key] = component					
-			entity:setIsActive(true)
+			component.ownerGE = in_entity
+			in_entity:setGEC(component)
+			in_entity.components[key] = component					
+			in_entity:setIsActive(true)
 		end
 		
 	end
@@ -70,17 +72,17 @@ function addEventData( in_event_data, in_entity)
 	-- set the event listener settings for this entity
 	if in_event_data ~= nil then
 	
-		-- set the event handling function defined in the entity.lua file
-		entity.handle_event = in_event_data.handle_event
+		-- set the event handling function defined in the entity.lua file		
+		in_entity.handle_event = in_event_data.handle_event
 		
 		-- we set the entity handle_touch_event function if available.
 		if(in_event_data.handle_touch_event ~= nil) then
-			entity.handle_touch_event = in_event_data.handle_touch_event
+			in_entity.handle_touch_event = in_event_data.handle_touch_event
 		end
 				
 		-- set the entity as a listener for several events
 		for i,v in ipairs(in_event_data.listen_events) do
-			event:_add_listener(entity, v)
+			event:_add_listener(in_entity, v)
 		end
 		
 	end

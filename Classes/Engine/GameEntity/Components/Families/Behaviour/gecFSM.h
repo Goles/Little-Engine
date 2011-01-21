@@ -35,7 +35,7 @@ public:
 		 luabind::class_<gecFSM, GEComponent>("gecFSM")	/** < Binds the gecFSM class*/
 		 .def(luabind::constructor<>())
 		 .def("setOwnerGE", &GEComponent::setOwnerGE)
-		 .def("performAction", &gecFSM::performAction)
+//		 .def("performAction", &gecFSM::performAction)
 		 ];
 	}
 	

@@ -13,50 +13,64 @@ TestEntity =
 			"E_ROCK",
 			"E_EXPLOSION",
 			"E_STATE_CHANGE",
-			"E_DRAG_GAMEPAD"
+			"E_DRAG_GAMEPAD",
+			"E_STOP_GAMEPAD"
 		},
 
 		handle_event = function(this, in_event, in_data)
+			print("HANDLE EVENT")
+			print("Event Type: " .. in_event)
 			
+			--
+			--	EVENT DRAG GAMEPAD
+			--
 			if(in_event == "E_DRAG_GAMEPAD") then
 				-- print("latest speed x: " .. in_data.speed.x)
 				-- print("latest speed y: " .. in_data.speed.y)
 				-- print("delta: " .. in_data.delta)
+				local fsm = this.components["gecFSM"]
+
+				if(fsm ~= nil) then
+					fsm:performAction("A_DRAG_GAMEPAD")
+				end
 				
 				local delta_speed = in_data.delta * this.speed
-				print("speed: " .. this.speed)
-				print("delta_speed " .. delta_speed)
 				local movement_x = delta_speed * in_data.latest_speed.x
 				local movement_y = delta_speed * in_data.latest_speed.y
 				
-				if(this.components["gecFSM"].currentState ~= "S_ATTACK") then
+				if(fsm.currentState ~= "S_ATTACK") then
 
 					this.x = this.x + movement_x -- + round(movement_x) 
 					this.y = this.y + movement_y -- + round(movement_y)
-					print("Handle Event Id: " .. this:getId())
-					
-
 					
 				end
-				
+			
+			--
+			--	EVENT STOP GAMEPAD
+			--
+			elseif(in_event == "E_STOP_GAMEPAD") then
+				print("Stop Gamepad")
+				print("Character.lua line:53")
+				this.components["gecFSM"]:performAction("A_STOP_GAMEPAD")
+			
+			--
+			-- EVENT STATE CHANGE
+			--
 			elseif (in_event == "E_STATE_CHANGE") then	
 							
 				print("STATE CHANGED! ".. "in_data")
 			
+			--
+			-- EVENT ROCK
+			--
 			elseif (in_event == "E_ROCK") then
 				
 				print("E_ROCK")
 				print("Handle Event Id: " .. this:getId())
 				local c = this.components["gecAnimatedSprite"]
-				c:setCurrentAnimation("S_WALK")
+				c:setCurrentAnimation("S_STAND")
 				c:setCurrentRunning(true)
-				c:setCurrentRepeating(true)	
-
-			elseif(in_event == "E_EXPLOSION") then
-				print ("E_EXPLOSION")
-				
-				local c = this.components["gecAnimatedSprite"]
-				c:setCurrentAnimation("S_WALK")				
+				c:setCurrentRepeating(true)			
 				
 			end
 

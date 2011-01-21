@@ -41,21 +41,13 @@ gecJoystick::~gecJoystick()
 #pragma mark gec_gui_interface
 void gecJoystick::update(float delta)
 {	
-	
-
-	
 	if(latestVelocity.x != 0.0 || latestVelocity.y != 0.0f)
-	{	
-		printf("Joypad UID: %d\n", this->getOwnerGE()->getId());
-		
+	{			
 		luabind::object payload = luabind::newtable(LR_MANAGER_STATE);
 		payload["latest_speed"] = latestVelocity;
-		payload["delta"] = delta;
-		
+		payload["delta"] = delta;		
 		gg::event::broadcast("E_DRAG_GAMEPAD", payload);
 	}
-
-
 }
 
 #pragma mark gec_joystick_interface
@@ -165,7 +157,9 @@ Boolean gecJoystick::handle_touch(float x, float y, int touchIndex, int touchID,
 				//De-activate Joystick
 				active = false;
 				gAni->setCurrentAnimation("normal");
-				this->updateSubscriberState(kBehaviourAction_stopGamepad);
+				//this->updateSubscriberState(kBehaviourAction_stopGamepad);
+				luabind::object payload = luabind::newtable(LR_MANAGER_STATE);
+				gg::event::broadcast("E_STOP_GAMEPAD", payload);
 				
 				//Return to center.
 				this->getOwnerGE()->x = center.x;
