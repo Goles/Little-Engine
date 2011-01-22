@@ -33,7 +33,6 @@ public:
 	~gecJoystick();
 	Boolean		outerRegionHit();
 	void		updateVelocity(float x, float y);
-	void		subscribeGameEntity(GameEntity *gE);
 	
 	//Getters & Setters
 	void		setShape(CGRect aShape);
@@ -55,9 +54,6 @@ public:
 			.def("setOutRadius", &gecJoystick::setOutRadius)
 		 ];
 	}
-	
-protected:
-	void		updateSubscriberState(kBehaviourAction s);
 	
 private:	
 	static gec_id_type	mComponentID;

@@ -148,7 +148,8 @@ Boolean gecJoystick::handle_touch(float x, float y, int touchIndex, int touchID,
 				//Activate joystick and update our entity state.
 				active = true;
 				gAni->setCurrentAnimation("hot");
-				this->updateSubscriberState(kBehaviourAction_dragGamepad);	
+				//TODO: FIX THIS
+				//this->updateSubscriberState(kBehaviourAction_dragGamepad);	
 				this->updateVelocity(x, y);
 			}
 			//Releasing inside the Joystick bounds.
@@ -166,6 +167,12 @@ Boolean gecJoystick::handle_touch(float x, float y, int touchIndex, int touchID,
 				this->getOwnerGE()->y = center.y;
 				this->setShape(CGRectMake(center.x, center.y, shape.size.width, shape.size.height));
 				latestVelocity = CGPointMake(0.0f, 0.0f);
+				
+				// We reset the joystick first touch. This means that we will 
+				// touch it for the "first time" now.				
+				firstTouch = true;
+				currentTouchID = NULL;
+				
 				return true;
 			}
 		}
@@ -176,6 +183,14 @@ Boolean gecJoystick::handle_touch(float x, float y, int touchIndex, int touchID,
 	{
 		for(int i = 0; i < MAX_TOUCHES; i++)
 		{
+
+			/*  DEBUG COUT
+				std::cout << "********" << std::endl;
+				std::cout << "Finger " << i << " down : " << TOUCHABLE_MANAGER->GUIState[i].fingerDown << std::endl;
+				std::cout << "Finger " << i << " touchID: " << TOUCHABLE_MANAGER->GUIState[i].touchID << std::endl;
+				std::cout << "Current TouchID: " << currentTouchID << std::endl;
+			 */
+			
 			//releasing outside joystick bounds with
 			if(TOUCHABLE_MANAGER->GUIState[i].fingerDown == false && TOUCHABLE_MANAGER->GUIState[i].touchID == currentTouchID)
 			{
@@ -183,7 +198,8 @@ Boolean gecJoystick::handle_touch(float x, float y, int touchIndex, int touchID,
 				//if there's a normal animation.
 				active = false;
 				gAni->setCurrentAnimation("normal");
-				this->updateSubscriberState(kBehaviourAction_stopGamepad);
+				//TODO: FIX THIS
+				//this->updateSubscriberState(kBehaviourAction_stopGamepad);
 				
 				//Return to the center
 				this->updateVelocity(x, y);
@@ -200,37 +216,17 @@ Boolean gecJoystick::handle_touch(float x, float y, int touchIndex, int touchID,
 			//Holding outside joystick bounds
 			//This is useful when we drag our finger OUTSIDE of the joystick
 			//bounds, and still want the joystick to keep responding.
-			 if((TOUCHABLE_MANAGER->GUIState[i].fingerDown == true) && (touchID == currentTouchID) && active)
+			 if((TOUCHABLE_MANAGER->GUIState[i].fingerDown == true) /*&& (touchID == currentTouchID)*/ && active)
 			{
 				active = true;
 				gAni->setCurrentAnimation("hot");
-				this->updateSubscriberState(kBehaviourAction_dragGamepad);	
+				//TODO: FIX THIS
+				//this->updateSubscriberState(kBehaviourAction_dragGamepad);	
 				this->updateVelocity(x, y);
 			}
 		}
 	}
 	return false; //button not activated.
-}
-
-void gecJoystick::subscribeGameEntity(GameEntity *gE)
-{	
-//	subscribedGE = gE;
-//	fsm = ((gecFSM *)subscribedGE->getGEC("CompBehaviour"));
-//	if(fsm == NULL)
-//	{
-//		std::cout << "WARNING: You shouldn't be using a gecJoystick with a GameEntity that doesn't have a gecFSM" << std::endl;
-//		assert(fsm != NULL);
-//	}
-}
-
-void gecJoystick::updateSubscriberState(kBehaviourAction a)
-{
-//	if(fsm != NULL)
-//		fsm->performAction(a);
-//	else {
-//		std::cout << "WARNING: You shouldn't be using a gecJoystick with a GameEntity that doesn't have a gecFSM" << std::endl;
-//		assert(fsm != NULL);
-//	}
 }
 
 void gecJoystick::setShape(CGRect aRect)

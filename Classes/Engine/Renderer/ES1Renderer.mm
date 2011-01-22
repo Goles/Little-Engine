@@ -145,7 +145,7 @@
 	((gecButton *)button->getGEC("CompGUI"))->setActionReleased(kBehaviourAction_stopAttack);
 //	((gecButton	*)button->getGEC("CompGUI"))->addSignal(boost::bind(&gecFSM::performAction, 
 //																	(gecFSM*)hitter->getGEC("CompBehaviour"), _1));
-	((gecJoystick *)j->getGEC("CompGUI"))->subscribeGameEntity(hitter);
+//((gecJoystick *)j->getGEC("CompGUI"))->subscribeGameEntity(hitter);
 	
 	//Subscribe entity
 	((gecScrollingBackground *)b->getGEC("CompVisual"))->setSubscribedGE(hitter);
@@ -198,7 +198,7 @@
 	GameEntity *gE		= aSceneManager->addEntity(GE_FACTORY->createGE("testDummy",240.0f, 160.0f));
 	GameEntity *joypadE = aSceneManager->addEntity(GE_FACTORY->createGE("joypad", 70.0f, 70.0f));
 	aSceneManager->addEntity(GE_FACTORY->createGE("buttonDummy", 350.0f, 50.0f));	
-	((gecJoystick *)joypadE->getGEC("CompGUI"))->subscribeGameEntity(gE);
+	//((gecJoystick *)joypadE->getGEC("CompGUI"))->subscribeGameEntity(gE);
 }
 
 - (void) particlesTest
