@@ -23,7 +23,7 @@ TestEntity =
 				
 				-- Setup startup animation
 				local c = this.components["gecAnimatedSprite"]
-				c:setCurrentAnimation("S_WALK")
+				c:setCurrentAnimation("S_STAND")
 				c:setCurrentRunning(true)
 				c:setCurrentRepeating(true)
 				

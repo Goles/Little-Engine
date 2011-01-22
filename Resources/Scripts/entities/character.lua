@@ -36,6 +36,9 @@ TestEntity =
 			--	EVENT DRAG GAMEPAD
 			--
 			elseif (in_event == "E_DRAG_GAMEPAD") then
+
+				
+				this.flipHorizontally = in_data.dx_negative
 				
 				if(fsm ~= nil) then
 					

@@ -21,7 +21,7 @@ public:
 	virtual void update(float delta);
 	
 public:
-	gecFSM() : locked(false){ }
+	gecFSM() : locked(false){}
 	void performAction(const std::string &action);
 	
 	/** Lua Interface
@@ -35,7 +35,6 @@ public:
 		 luabind::class_<gecFSM, GEComponent>("gecFSM")	/** < Binds the gecFSM class*/
 		 .def(luabind::constructor<>())
 		 .def("setOwnerGE", &GEComponent::setOwnerGE)
-//		 .def("performAction", &gecFSM::performAction)
 		 ];
 	}
 	

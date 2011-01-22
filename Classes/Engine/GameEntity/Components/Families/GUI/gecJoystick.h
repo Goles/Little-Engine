@@ -10,7 +10,6 @@
 #define __GEC_JOYSTICK__
 
 #include "CompTouchable.h"
-#include "BehaviourActions.h"
 #include "LuaRegisterManager.h"
 
 class GameEntity;
@@ -64,9 +63,8 @@ private:
 	CGRect				shape;
 	CGPoint				center;
 	CGPoint				latestVelocity;
+	bool				dx_negative;
 	int					currentTouchID;
-//	GameEntity*			subscribedGE;
-//	gecFSM*				fsm;
 };
 
 #endif

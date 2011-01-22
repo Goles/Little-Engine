@@ -158,9 +158,11 @@ static void registrate(void)
 	 .def("setPosition", &GameEntity::setPosition)	/** < Binds the GameEntity setPositon method */
 	 .def("setIsActive", &GameEntity::setIsActive)
 	 .def("getId", &GameEntity::getId)
+	 .property("flipHorizontally", &GameEntity::getFlipHorizontally, &GameEntity::setFlipHorizontally)
 	 .def_readwrite("x", &GameEntity::x)
 	 .def_readwrite("y", &GameEntity::y)
 	 .def_readwrite("speed", &GameEntity::speed)
+
 	 ];
 }
 	

@@ -6,20 +6,19 @@
 //  Copyright 2009 Nicolas Goles. All rights reserved.
 //
 
-#include "GEComponent.h"
-#include "TouchableManager.h"
-#include "GameEntity.h"
 #include "gecJoystick.h"
-#include "gecAnimatedSprite.h"
-#include "gecFSM.h"
-#include "BehaviourActions.h"
+
+#include "GEComponent.h"
+#include "GameEntity.h"
+
+#include "TouchableManager.h"
 #include "EventBroadcaster.h"
-#include <iostream>
+#include "gecAnimatedSprite.h"
 
 std::string gecJoystick::mComponentID = "gecJoystick";
 
 #pragma mark Contrstructor
-gecJoystick::gecJoystick(): active(false), firstTouch(true), currentTouchID(NULL)
+gecJoystick::gecJoystick(): active(false), dx_negative(false), firstTouch(true), currentTouchID(NULL)
 {
 	shape.origin.x		= 0.0f;
 	shape.origin.y		= 0.0f;
@@ -45,7 +44,8 @@ void gecJoystick::update(float delta)
 	{			
 		luabind::object payload = luabind::newtable(LR_MANAGER_STATE);
 		payload["latest_speed"] = latestVelocity;
-		payload["delta"] = delta;		
+		payload["delta"] = delta;
+		payload["dx_negative"] = dx_negative;
 		gg::event::broadcast("E_DRAG_GAMEPAD", payload);
 	}
 }
@@ -110,18 +110,12 @@ void gecJoystick::updateVelocity(float x, float y)
 	//We update the "latest" velocity ( that's what we will use as a cached reference.
 	latestVelocity = velocity;
 	
-	//TODO: DONT HARD-CODE THIS! DECOUPLE
-	//Flip our entity if we face right or left.
-	//std::string hola = fsm->getState();
-//	if(fsm->getState().compare("S_ATTACK") != 0)
-//	{
-//		if(dx < 0)
-//		{
-//			subscribedGE->setFlipHorizontally(true);
-//		}else {
-//			subscribedGE->setFlipHorizontally(false);
-//		}
-//	}
+	//Used as an event argument to flip our entity if we face right or left.
+	if(dx < 0)
+		dx_negative = true;
+	else {
+		dx_negative = false;
+	}
 }
 
 Boolean gecJoystick::handle_touch(float x, float y, int touchIndex, int touchID, int touchType)
@@ -148,8 +142,6 @@ Boolean gecJoystick::handle_touch(float x, float y, int touchIndex, int touchID,
 				//Activate joystick and update our entity state.
 				active = true;
 				gAni->setCurrentAnimation("hot");
-				//TODO: FIX THIS
-				//this->updateSubscriberState(kBehaviourAction_dragGamepad);	
 				this->updateVelocity(x, y);
 			}
 			//Releasing inside the Joystick bounds.
@@ -158,7 +150,7 @@ Boolean gecJoystick::handle_touch(float x, float y, int touchIndex, int touchID,
 				//De-activate Joystick
 				active = false;
 				gAni->setCurrentAnimation("normal");
-				//this->updateSubscriberState(kBehaviourAction_stopGamepad);
+
 				luabind::object payload = luabind::newtable(LR_MANAGER_STATE);
 				gg::event::broadcast("E_STOP_GAMEPAD", payload);
 				
@@ -198,8 +190,9 @@ Boolean gecJoystick::handle_touch(float x, float y, int touchIndex, int touchID,
 				//if there's a normal animation.
 				active = false;
 				gAni->setCurrentAnimation("normal");
-				//TODO: FIX THIS
-				//this->updateSubscriberState(kBehaviourAction_stopGamepad);
+
+				luabind::object payload = luabind::newtable(LR_MANAGER_STATE);	
+				gg::event::broadcast("E_STOP_GAMEPAD", payload);				
 				
 				//Return to the center
 				this->updateVelocity(x, y);
@@ -212,6 +205,9 @@ Boolean gecJoystick::handle_touch(float x, float y, int touchIndex, int touchID,
 				// touch it for the "first time" now.				
 				firstTouch = true;
 				currentTouchID = NULL;
+				
+				//Added so we don't broadcast the stop gamepad twice
+				return true;
 			}
 			//Holding outside joystick bounds
 			//This is useful when we drag our finger OUTSIDE of the joystick
@@ -219,9 +215,7 @@ Boolean gecJoystick::handle_touch(float x, float y, int touchIndex, int touchID,
 			 if((TOUCHABLE_MANAGER->GUIState[i].fingerDown == true) /*&& (touchID == currentTouchID)*/ && active)
 			{
 				active = true;
-				gAni->setCurrentAnimation("hot");
-				//TODO: FIX THIS
-				//this->updateSubscriberState(kBehaviourAction_dragGamepad);	
+				gAni->setCurrentAnimation("hot");	
 				this->updateVelocity(x, y);
 			}
 		}

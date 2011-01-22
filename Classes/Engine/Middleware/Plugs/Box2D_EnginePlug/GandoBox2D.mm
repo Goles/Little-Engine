@@ -174,7 +174,7 @@ void GandoBox2D::update(float delta)
 						GEComponent *gec = collisionBoxB->getOwnerGE()->getGEC("CompBehaviour");
 						if(gec->componentID().compare("gecFSM") == 0)
 						{
-							gecFSM *fsm = (gecFSM *)gec;
+							//gecFSM *fsm = (gecFSM *)gec;
 							
 							//if(fsm->getState() != kBehaviourState_hit)
 								//fsm->performAction(kBehaviourAction_hit);
