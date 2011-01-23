@@ -33,7 +33,7 @@ public:
 		the ownerGE variable to NULL.
 	 */
 	GEComponent():ownerGE(0){}
-	virtual ~GEComponent(){}
+	virtual ~GEComponent(){ ownerGE = NULL; }
 //------------------------------------------------------------------------------	
 	/** Returns the GEComponent Family ID.
 	 @remarks

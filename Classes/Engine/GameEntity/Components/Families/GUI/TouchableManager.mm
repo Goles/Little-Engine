@@ -42,16 +42,15 @@ void TouchableManager::initGUIState()
 	}	
 }
 
-#pragma mark action_methods
-
-void TouchableManager::registerTouchable(CompTouchable *inTouchable)
+#pragma mark action_methods	
+void TouchableManager::registerTouchable(const CompTouchable *in_Touchable)
 {
-	touchReceivers.insert(TouchableMapPair(incrementalID, inTouchable));
+	touchReceivers.insert(TouchableMapPair(incrementalID, in_Touchable));
 }
 
-CompTouchable* TouchableManager::getTouchable(int guiID)
+const CompTouchable* TouchableManager::getTouchable(int guiID)
 {
-	TouchableMap::iterator it = touchReceivers.find(guiID);
+	TouchableMap::const_iterator it = touchReceivers.find(guiID);
 	
 	if (it != touchReceivers.end()) {
 		return(it->second);
@@ -60,9 +59,17 @@ CompTouchable* TouchableManager::getTouchable(int guiID)
 	return NULL;
 }
 
-void TouchableManager::removeTouchable(int guiID)
-{
-	touchReceivers.erase(guiID);
+void TouchableManager::deleteTouchable(int guiID)
+{	
+	TouchableMap::iterator tmit = touchReceivers.find(guiID);
+	
+	if(tmit != touchReceivers.end())
+	{
+		touchReceivers.erase(tmit);
+	}else {
+		std::cout << "ERROR: Touchable component couldn't be deleted because it's guiID was not found!" << std::endl;
+		assert(tmit != touchReceivers.end());
+	}
 }
 
 #pragma mark touch_management
@@ -135,28 +142,7 @@ void TouchableManager::touchesEnded(float x, float y, int touchID)
 
 void TouchableManager::broadcastInteraction(float x, float y, int touchIndex, int touchID, int touchType)
 {	
-	TouchableMap::iterator it;
-	
-	//TODO: This logic should be created in components that will support touch
-	
-	/*We tell every component the is subscribed that touches happened*/
-//	for (it = touchReceivers.begin(); it != touchReceivers.end(); ++it)
-//	{
-//		if (((*it).second)->getOwnerGE()->isActive)
-//		{	
-//			CompTouchable *gGUI = (*it).second;
-//			if( gGUI )
-//			{
-//				if(touchType == kTouchType_began && gGUI->regionHit(x, y))
-//				{
-//					GUIState[touchIndex].hitFirst = true;
-//				}
-//				gGUI->handle_touch(x, y, touchIndex, touchID, touchType); //Trigger the immGUI handler.
-//			}
-//		}
-//	}
 	gg::event::broadcast_touch(x, y, touchIndex, touchID, touchType);
-	
 }
 
 void TouchableManager::debugPrintGUIState()
@@ -175,12 +161,12 @@ void TouchableManager::debugPrintGUIState()
 
 void TouchableManager::debugPrintMap()
 {
-	TouchableMap::iterator it;
+	TouchableMap::const_iterator it;
 	
 	std::cout << "**DEBUG PRINT MAP **" << std::endl;
 	std::cout << "Map Size " << touchReceivers.size() << std::endl;
 	/*We tell every component the is subscribed that we have touched it.*/
-	for (it = touchReceivers.begin(); it != touchReceivers.end(); it++)
+	for (it = touchReceivers.begin(); it != touchReceivers.end(); ++it)
 	{
 		std::cout << (*it).second << std::endl;
 	}

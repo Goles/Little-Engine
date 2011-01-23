@@ -17,18 +17,11 @@ std::string gecButton::mComponentID = "gecButton";
 #pragma mark contructor
 gecButton::gecButton()
 {
-	//TODO: TOUCHABLE_MANAGER GIVE ME A NEW ID
-	this->setId(TOUCHABLE_MANAGER->generateID());
-
 	 //We don't assign button actions by default.
 	buttonActions[0] = kBehaviourAction_none;
 	buttonActions[1] = kBehaviourAction_none;
-}
-
-gecButton::~gecButton()
-{
-	//we ask the input manager to remove us.
-	TOUCHABLE_MANAGER->removeTouchable(this->getId());
+	
+	this->registerTouchable(this);
 }
 
 #pragma mark -

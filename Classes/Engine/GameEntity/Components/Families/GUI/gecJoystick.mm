@@ -18,23 +18,18 @@
 std::string gecJoystick::mComponentID = "gecJoystick";
 
 #pragma mark Contrstructor
-gecJoystick::gecJoystick(): active(false), dx_negative(false), firstTouch(true), currentTouchID(NULL)
+gecJoystick::gecJoystick():	inRadius(0.0f),
+							outRadius(0.0f),
+							active(false), 							
+							firstTouch(true),
+							dx_negative(false),
+							currentTouchID(0)
 {
-	shape.origin.x		= 0.0f;
-	shape.origin.y		= 0.0f;
-	shape.size.width	= 0.0f;
-	shape.size.height	= 0.0f;	
-	center.x			= 0.0f;
-	center.y			= 0.0f;
-	latestVelocity.x	= 0.0f;
-	latestVelocity.y	= 0.0f;
-
-	this->registerTouchable();
-}
-
-gecJoystick::~gecJoystick()
-{
-	this->unregisterTouchable();
+	shape = CGRectZero;
+	center = CGPointZero;
+	latestVelocity = CGPointZero;
+	
+	this->registerTouchable(this);
 }
 
 #pragma mark gec_gui_interface
@@ -158,7 +153,7 @@ Boolean gecJoystick::handle_touch(float x, float y, int touchIndex, int touchID,
 				this->getOwnerGE()->x = center.x;
 				this->getOwnerGE()->y = center.y;
 				this->setShape(CGRectMake(center.x, center.y, shape.size.width, shape.size.height));
-				latestVelocity = CGPointMake(0.0f, 0.0f);
+				latestVelocity = CGPointZero;
 				
 				// We reset the joystick first touch. This means that we will 
 				// touch it for the "first time" now.				
@@ -199,7 +194,7 @@ Boolean gecJoystick::handle_touch(float x, float y, int touchIndex, int touchID,
 				this->getOwnerGE()->x = center.x;
 				this->getOwnerGE()->y = center.y;
 				this->setShape(CGRectMake(center.x, center.y, shape.size.width, shape.size.height));
-				latestVelocity = CGPointMake(0.0f, 0.0f);
+				latestVelocity = CGPointZero;
 				
 				// We reset the joystick first touch. This means that we will 
 				// touch it for the "first time" now.				

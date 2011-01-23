@@ -12,14 +12,14 @@
  *
  */
 
-#ifndef	_EVENT_BROADCASTER_H_
-#define _EVENT_BROADCASTER_H_
+#ifndef	__EVENT_BROADCASTER_H__
+#define __EVENT_BROADCASTER_H__
 
 #import "LuaRegisterManager.h"
 
 namespace gg {
 	namespace event {
-		static inline void broadcast(const char *in_eventType, const luabind::object in_event_payload)
+		static inline void broadcast(const char *in_eventType, const luabind::object &in_event_payload)
 		{	
 			luabind::call_function<void>(LR_MANAGER_STATE, "broadcast", in_eventType, in_event_payload);
 		}

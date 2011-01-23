@@ -6,13 +6,11 @@
 //  Copyright 2009 Nicolas Goles. All rights reserved.
 //
 
-#ifndef __GEC_JOYSTICK__
-#define __GEC_JOYSTICK__
+#ifndef __GEC_JOYSTICK_H__
+#define __GEC_JOYSTICK_H__
 
 #include "CompTouchable.h"
 #include "LuaRegisterManager.h"
-
-class GameEntity;
 
 class gecJoystick: public CompTouchable
 {	
@@ -29,14 +27,13 @@ public:
 	//gecJoystick Interface
 public:
 	gecJoystick();
-	~gecJoystick();
 	Boolean		outerRegionHit();
 	void		updateVelocity(float x, float y);
 	
 	//Getters & Setters
 	void		setShape(CGRect aShape);
 	CGRect		getShape() const { return shape; }
-	void		setCenter (float a, float b){ center.x = a; center.y = b; }
+	void		setCenter (float a, float b){ center.x = a; center.y = b; }	
 	void		setInRadius (float r ) { inRadius = r; }
 	void		setOutRadius (float r ) { outRadius = r; }
 	

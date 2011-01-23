@@ -34,7 +34,6 @@ public:
 	//gecButton Interface
 public:
 	gecButton();
-	~gecButton();
 	void				setShape(CGRect aShape);
 	void				setParentSharedShape(CGRect aRect);
 	void				setActionPressed(kBehaviourAction a) { buttonActions[0] = a; }

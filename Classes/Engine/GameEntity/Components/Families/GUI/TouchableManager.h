@@ -49,9 +49,9 @@ class TouchableManager
 	//SharedInputManager Singleton Interface.
 public:
 	static TouchableManager*	getInstance();	
-	void						registerTouchable(CompTouchable *gui_component);
-	void						removeTouchable(int guiID);	
-	CompTouchable*				getTouchable(int guiID);
+	void						registerTouchable(const CompTouchable *in_Touchable);
+	void						deleteTouchable(int guiID);	
+	const CompTouchable*		getTouchable(int guiID);
 	void						setTouchCount(int t) { touchCount = t; }
 	int							getTouchCount() { return touchCount; }
 	void						touchesBegan(float x, float y, int touchId);
@@ -69,8 +69,8 @@ protected:
 	
 	//private Atributes
 private:
-	typedef std::map<int, CompTouchable *>	TouchableMap;
-	typedef std::pair<int, CompTouchable *> TouchableMapPair;
+	typedef std::map<int, const CompTouchable *> TouchableMap;
+	typedef std::pair<int, const CompTouchable *> TouchableMapPair;
 	
 	static TouchableManager*	singletonInstance;
 	TouchableMap				touchReceivers;

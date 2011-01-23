@@ -9,8 +9,8 @@
 #import "Particles_2AppDelegate.h"
 #import "EAGLView.h"
 #include "ggEngine.h"
-#import "EventBroadcaster.h"
-#include "LuaRegisterManager.h"
+#include "gecJoystick.h"
+#include "TouchableManager.h"
 
 @implementation Particles_2AppDelegate
 
@@ -21,6 +21,9 @@
 {
 	//init gg engine.
 	gg::init();
+	
+	gecJoystick joypad;
+	
 	
 	[glView startAnimation];
 }

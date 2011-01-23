@@ -7,16 +7,17 @@
 //
 
 #import "CompTouchable.h"
-#import "TouchableManager.h"
+
 #include <iostream>
+
 std::string CompTouchable::mFamilyID = "CompGUI";
 
-void CompTouchable::registerTouchable()
+void CompTouchable::registerTouchable(const CompTouchable *in_touchable)
 {
-	TOUCHABLE_MANAGER->registerTouchable(this);
+	TOUCHABLE_MANAGER->registerTouchable(in_touchable);
 }
 
 void CompTouchable::unregisterTouchable()
 {
-	TOUCHABLE_MANAGER->removeTouchable(this->getId());
+	TOUCHABLE_MANAGER->deleteTouchable(m_Id);
 }
