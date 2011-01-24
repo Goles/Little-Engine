@@ -4,9 +4,10 @@
 ]]--
 
 require "PrimitiveBuilder" -- Primitive builder could use a better name
-require "tableprint"
 
+--
 -- Build a gecAnimatedSprite
+--
 function gecAnimatedSpriteBuild(t)
 	assert(t.spritesheets, "*** A gecAnimatedSprite should contain at least 1 SpriteSheet")
 	assert(t.animations, "*** A gecAnimatedSprite should contain at least 1 Animation")
@@ -39,7 +40,9 @@ function gecAnimatedSpriteBuild(t)
 	return gec
 end
 
+--
 -- Build a gecJoystick
+--
 function gecJoystickBuild(t)
 	assert(t.shape ~= nil, "To build a joystick a shape should be defined containing x, y, width and height")
 
@@ -51,7 +54,22 @@ function gecJoystickBuild(t)
 	return joypad
 end
 
+--
+-- Build a gecButton
+--
+function gecButtonBuild(t)
+	assert(t.shape ~= nil, "To build a gecButton a shape should be defined containing x, y, width and height")
+	
+	button = gecButton()
+	local shape = ggr(t.shape.x, t.shape.y, t.shape.width, t.shape.height)
+	button:setShape(shape)
+	
+	return button
+end
+
+--
 -- Build a gecFSM
+--
 function gecFSMBuild(t)
 	
 	fsm = gecFSM()
@@ -98,10 +116,13 @@ function gecFSMBuild(t)
 	return fsm
 end
 
--- Function table with { Key, function() } for each component builder.
+-- =================================================================== --
+-- Function table with { Key, function() } for each component builder. --
+-- =================================================================== --
 component_function_table = 
 {
 	["gecAnimatedSprite"] = gecAnimatedSpriteBuild,
-	["gecJoystick"] = gecJoystickBuild,
 	["gecFSM"] = gecFSMBuild,
+	["gecButton"] = gecButtonBuild,
+	["gecJoystick"] = gecJoystickBuild,
 }

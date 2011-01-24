@@ -141,8 +141,8 @@
 	}
 	
 	//Configure our button
-	((gecButton *)button->getGEC("CompGUI"))->setActionPressed(kBehaviourAction_doAttack);
-	((gecButton *)button->getGEC("CompGUI"))->setActionReleased(kBehaviourAction_stopAttack);
+//	((gecButton *)button->getGEC("CompGUI"))->setActionPressed(kBehaviourAction_doAttack);
+//	((gecButton *)button->getGEC("CompGUI"))->setActionReleased(kBehaviourAction_stopAttack);
 //	((gecButton	*)button->getGEC("CompGUI"))->addSignal(boost::bind(&gecFSM::performAction, 
 //																	(gecFSM*)hitter->getGEC("CompBehaviour"), _1));
 //((gecJoystick *)j->getGEC("CompGUI"))->subscribeGameEntity(hitter);
@@ -170,8 +170,8 @@
 	GameEntity *button = GE_FACTORY->createGE("buttonDummy", 350.0f, 50.0f);
 
 	//Configure our button
-	((gecButton *)button->getGEC("CompGUI"))->setActionPressed(kBehaviourAction_doAttack);
-	((gecButton *)button->getGEC("CompGUI"))->setActionReleased(kBehaviourAction_stopAttack);
+	//((gecButton *)button->getGEC("CompGUI"))->setActionPressed(kBehaviourAction_doAttack);
+	//((gecButton *)button->getGEC("CompGUI"))->setActionReleased(kBehaviourAction_stopAttack);
 	//((gecButton	*)button->getGEC("CompGUI"))->addSignal(boost::bind(&gecFSM::performAction, (gecFSM*)hitter->getGEC("CompBehaviour"), _1));
 	
 	//Add everything to the Scene.

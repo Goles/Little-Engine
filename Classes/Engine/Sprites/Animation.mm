@@ -8,17 +8,20 @@
 
 #include "Animation.h"
 #include "GameEntity.h"
+#include "EventBroadcaster.h"
+#include "gecAnimatedSprite.h"
 
 #pragma mark -
 #pragma mark constructor
-Animation::Animation() : currentPoint(CGPointZero),
+Animation::Animation() : ownerGAS(NULL),
+						 currentPoint(CGPointZero),
 						 currentFrame(0),
 						 frameTimer(0.0f),
 						 isRunning(false),
 						 isRepeating(false),
 						 isPingPong(false),
 						 notify(false),
-						 delegation(false),
+						 delegation(true),
 						 isFlipped(false),
 						 direction(kDirection_Forward)
 							
@@ -210,13 +213,6 @@ void Animation::setFlipVertically(bool f)
 	}
 }
 
-#pragma mark -
-#pragma mark delegate
-void Animation::setDelegate(const AnimationTrigger::slot_type& slot)
-{
-	delegate.connect(slot);
-	delegation = true; //Activate delegation for this Animation.
-}
 
 void Animation::notifyDelegate()
 {
@@ -226,10 +222,18 @@ void Animation::notifyDelegate()
 	 */
 	if(notify)
 	{
-		delegate();
+		
+		luabind::object payload = luabind::newtable(LR_MANAGER_STATE);
+		
+		if(ownerGAS != NULL)
+		{
+			payload["owner_ge_uid"] = ownerGAS->getOwnerGE()->getId();
+		}
+		
+		payload["animation_label"] = animation_label;
+		gg::event::broadcast("E_ANIMATION_FINISH", payload);
 		notify = false;
 	}
-
 }
 
 #pragma mark -

@@ -9,15 +9,8 @@
 #ifndef __GECBUTTON_H__
 #define __GECBUTTON_H__
 
-#include <boost/signal.hpp>
-#include <boost/bind.hpp>
-
 #include "CompTouchable.h"
 #include "BehaviourActions.h"
-
-//To pass signals to FSM for example. 
-//(signature: void Function(kBehaviourAction))
-typedef boost::signal<void (kBehaviourAction)> TriggerSignal;
 
 class gecButton : public CompTouchable
 {
@@ -34,21 +27,29 @@ public:
 	//gecButton Interface
 public:
 	gecButton();
-	void				setShape(CGRect aShape);
-	void				setParentSharedShape(CGRect aRect);
-	void				setActionPressed(kBehaviourAction a) { buttonActions[0] = a; }
-	void				setActionReleased(kBehaviourAction a) { buttonActions[1] = a; }
-	CGRect				getShape() const { return shape; }
-	kBehaviourAction	getActionPressed(){ return buttonActions[0]; }
-	kBehaviourAction	getActionReleased(){ return buttonActions[1]; }
-	void				addSignal(const TriggerSignal::slot_type& slot);
-	void				call(kBehaviourAction action);
+	void setShape(CGRect aShape);
+	void setParentSharedShape(CGRect aRect);
+	CGRect getShape() const { return shape; }
 	
-private:	
-	TriggerSignal triggerSignal;	
+	static void registrate(void)
+	{
+		luabind::module(LR_MANAGER_STATE) 
+		[
+		 luabind::class_<gecButton, GEComponent>("gecButton")
+		 .def(luabind::constructor<>())
+		 .def("handle_touch", &gecButton::handle_touch)
+		 .def("setShape", &gecButton::setShape)
+		 .def("setParentSharedShape", &gecButton::setParentSharedShape)
+		 ];
+	}
+	
+protected:
+	void broadcastButtonPress();
+	void broadcastButtonRelease();
+	
+private:
 	static gec_id_type mComponentID;
-	CGRect shape;	
-	kBehaviourAction buttonActions[2];
+	CGRect shape;
 };
 
 #endif

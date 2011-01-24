@@ -13,7 +13,10 @@ TestEntity =
 			"E_SCENE_ACTIVE",
 			"E_DRAG_GAMEPAD",
 			"E_STOP_GAMEPAD",
+			"E_BUTTON_PRESS",
+			"E_BUTTON_RELEASE",
 			"E_STATE_CHANGE",
+			"E_ANIMATION_FINISH",
 		},
 
 		handle_event = function (this, in_event, in_data)
@@ -65,12 +68,41 @@ TestEntity =
 				this.components["gecFSM"]:performAction("A_STOP_GAMEPAD")
 			
 			--
+			--	EVENT BUTTON PRESS
+			--
+			elseif (in_event == "E_BUTTON_PRESS") then
+								
+				if (in_data.label == "BUTTON_ATTACK") then
+					
+					this.components["gecFSM"]:performAction("A_ATTACK")
+					
+				end
+				
+			--
+			--	EVENT BUTTON RELEASE
+			--
+			elseif (in_event == "E_BUTTON_RELEASE") then
+			
+				
+			--
+			--	EVENT ANIMATION FINISH
+			--
+			elseif (in_event == "E_ANIMATION_FINISH") then
+
+					if (in_data.animation_label == "S_ATTACK" and in_data.owner_ge_uid == this.id) then
+					
+						this.components["gecFSM"]:performAction("A_STOP_ATTACK")
+					
+					end
+
+			--
 			-- EVENT STATE CHANGE
 			--
 			elseif (in_event == "E_STATE_CHANGE") then
 				
 				this.components["gecAnimatedSprite"]:setCurrentAnimation(in_data)
 				this.components["gecAnimatedSprite"]:setCurrentRunning(true)
+				
 			end
 			
 		end
@@ -89,10 +121,10 @@ TestEntity =
 			animations =
 			{
 				-- Animation id (matches state names), Animation spritesheet coords, Animation frame duration.
-				-- {id=, coords=, duration= , sheet= , repeats=, pingpong= }
+				-- {label=, coords=, duration= , sheet= , repeats=, pingpong= }
 				{"S_STAND", {0,0,1,0,2,0,3,0}, 0.07, "hitter1_1.png", true, true},				
 				{"S_WALK", {4,0,5,0,6,0,7,0}, 0.07, "hitter1_1.png", true, false},
-				{"S_ATTACK",{8,0,9,0,10,0}, 0.16, "hitter1_1.png", false, false},
+				{"S_ATTACK",{8,0,9,0,10,0}, 0.08, "hitter1_1.png", false, false},
 			},
 		},
 		
@@ -122,7 +154,7 @@ TestEntity =
 	-- Atributes for this entity ( this should slowly dissappear )
 	attributes =
 	{
-		speed = 60
+		speed = 120
 	},
 }
 

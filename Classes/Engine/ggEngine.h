@@ -27,7 +27,7 @@ namespace gg
 {	
 	/** Initialize the Good Game Engine (ggEngine)
 	 @remarks
-		Basically startup all the required singletons ( shared managers ). 
+	 Basically startup all the required singletons ( shared managers ). 
 	 */
 	inline void init(void)
 	{		

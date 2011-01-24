@@ -11,29 +11,14 @@
 #include "GameEntity.h"
 #include "GEComponent.h"
 #include "gecAnimatedSprite.h"
+#include "EventBroadcaster.h"
 
 std::string gecButton::mComponentID = "gecButton";
 
 #pragma mark contructor
 gecButton::gecButton()
-{
-	 //We don't assign button actions by default.
-	buttonActions[0] = kBehaviourAction_none;
-	buttonActions[1] = kBehaviourAction_none;
-	
+{	
 	this->registerTouchable(this);
-}
-
-#pragma mark -
-#pragma mark signal binding
-void gecButton::addSignal(const TriggerSignal::slot_type& slot)
-{
-	triggerSignal.connect(slot);
-}
-
-void gecButton::call(kBehaviourAction action)
-{
-	triggerSignal(action);
 }
 
 #pragma mark -
@@ -57,21 +42,19 @@ Boolean gecButton::handle_touch(float x, float y, int touchIndex, int touchID, i
 		{
 			if(TOUCHABLE_MANAGER->GUIState[i].touchID == touchID)
 			{
+				//First hit inside the button
 				if(TOUCHABLE_MANAGER->GUIState[i].fingerDown && TOUCHABLE_MANAGER->GUIState[i].hitFirst)
 				{
 					gAni->setCurrentAnimation("hot");					
-					
-					//  We trigger behaviour only for kTouchType_began. 
-					//  This may be different for a menu item, which should trigger
-					//  envent for kTouchType_ended.
-					if(buttonActions[0] > kBehaviourAction_none && touchType == kTouchType_began)
-						this->call(buttonActions[0]);
-					
+					this->broadcastButtonPress();					
 					return true;
 				}
+				
+				//Release finger inside the button
 				else if(!TOUCHABLE_MANAGER->GUIState[i].fingerDown)
 				{
-					gAni->setCurrentAnimation("normal");		
+					gAni->setCurrentAnimation("normal");
+					this->broadcastButtonRelease();
 					return false;
 				}
 			}
@@ -79,9 +62,10 @@ Boolean gecButton::handle_touch(float x, float y, int touchIndex, int touchID, i
 	}else {
 		for(int i = 0; i < MAX_TOUCHES; i++)
 		{
-			if(TOUCHABLE_MANAGER->GUIState[i].fingerDown == false && i != touchIndex)
+			if(!TOUCHABLE_MANAGER->GUIState[i].fingerDown)
 			{
-				gAni->setCurrentAnimation("normal");
+				gAni->setCurrentAnimation("normal");				
+				return false;
 			} 
 		}
 	}
@@ -93,9 +77,9 @@ void gecButton::setShape(CGRect aRect)
 {	
 	//We need to center our CGRect
 	shape = CGRectMake(aRect.origin.x - aRect.size.width*0.5, 
-			   aRect.origin.y - aRect.size.height*0.5, 
-			   aRect.size.width, 
-			   aRect.size.height);
+					   aRect.origin.y - aRect.size.height*0.5, 
+					   aRect.size.width, 
+					   aRect.size.height);
 }
 
 void gecButton::setParentSharedShape(CGRect aRect)
@@ -107,4 +91,18 @@ void gecButton::setParentSharedShape(CGRect aRect)
 	this->setShape(aRect);
 	this->getOwnerGE()->height = aRect.size.height;
 	this->getOwnerGE()->width  = aRect.size.width;
+}
+
+void gecButton::broadcastButtonPress()
+{
+	luabind::object payload = luabind::newtable(LR_MANAGER_STATE);
+	payload["label"] = this->getOwnerGE()->getLabel();
+	gg::event::broadcast("E_BUTTON_PRESS", payload);
+}
+
+void gecButton::broadcastButtonRelease()
+{
+	luabind::object payload = luabind::newtable(LR_MANAGER_STATE);
+	payload["label"] = this->getOwnerGE()->getLabel();
+	gg::event::broadcast("E_BUTTON_RELEASE", payload);
 }

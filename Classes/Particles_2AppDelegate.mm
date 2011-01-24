@@ -21,10 +21,7 @@
 {
 	//init gg engine.
 	gg::init();
-	
-	gecJoystick joypad;
-	
-	
+
 	[glView startAnimation];
 }
 

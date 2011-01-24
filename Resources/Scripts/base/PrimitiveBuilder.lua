@@ -49,8 +49,10 @@ end
 	
 
 function animationBuild(animationTable, spriteSheetInstance)
+	
 	animation = Animation()
-
+	animation.animation_label = animationTable.name
+	
 	for i=1, #animationTable.coordinates, 2 do
 		
 		aFrame = {}	

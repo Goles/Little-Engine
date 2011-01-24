@@ -28,6 +28,13 @@ void gecAnimatedSprite::addAnimation(const std::string &animationName, Animation
 	if(it != componentAnimations.end())
 		return;
 	
+	//set the GameEntity "owner" uid of this animation ( used as payload for animations
+	//broadcasted by the Animation. 
+	//TODO: A better way of doing this could be using a 
+	//delegate system where every Animation belonging a gecAnimatedSprite has the
+	//gecAnimatedSprite as it's delegate	
+	animation->setOwnerGAS(this);
+	
 	componentAnimations.insert(AnimationMapPair(animationName, animation));
 }
 

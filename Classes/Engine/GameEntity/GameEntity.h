@@ -8,15 +8,10 @@
 #ifndef __GAME_ENTITY_H__
 #define __GAME_ENTITY_H__
 
-#include <iostream>
 #include <map>
-#include <vector>
 
 #include "GEComponent.h"
 #include "LuaRegisterManager.h"
-
-/** Forward Declaration of GEComponent */
-class GEComponent;
 
 /** Base class to represent a Game Entity.
  @remarks
@@ -40,8 +35,8 @@ public:
 	/** Position Constructor
 	 @remarks
 		Constructor to set the game entity to an initial position.
-	 @param x specify X screen position coordinate.
-	 @param y specity Y screen position coordinate.
+		 @param x specify X screen position coordinate.
+		 @param y specity Y screen position coordinate.
 	 */
 	GameEntity(float x, float y);
 	
@@ -49,13 +44,15 @@ public:
 	 @remarks
 		Constructor to place the entity to an initial position and set a
 		fixed size for this entity.
-	 @param x specify X screen position coordinate.
-	 @param y specity Y screen position coordinate.
-	 @param inWidth represents entity width.
-	 @param inHeight represents entity height.
+		 @param x specify X screen position coordinate.
+		 @param y specity Y screen position coordinate.
+		 @param inWidth represents entity width.
+		 @param inHeight represents entity height.
 	 */
 	GameEntity(float inX, float inY, int inWidth, int inHeight);
-	virtual ~GameEntity(){ this->clearGECs(); }
+
+	/** Destructor */
+	~GameEntity(){ this->clearGECs(); }
 //------------------------------------------------------------------------------
 	/** Updates the Game Entity.
 	 @remarks
@@ -109,10 +106,16 @@ public:
 	void			setFlipHorizontally(bool f){ flipHorizontally = f; }
 	
 	/** Returns the GameEntity Flip State.*/
-	bool			getFlipHorizontally() { return flipHorizontally; }
+	bool			getFlipHorizontally() const { return flipHorizontally; }
 	
 	/** Returns the unique id of this entity */
-	unsigned const	getId(){ return unique_id; }
+	unsigned		getId() const { return unique_id; }
+	
+	/** Set the label of this entity */
+	void			setLabel(const std::string &in_label) {	label = in_label; }
+	
+	/** Returns the label of this entity */
+	std::string		getLabel() const { return label; }
 	
 //------------------------------------------------------------------------------
 public:
@@ -159,6 +162,7 @@ static void registrate(void)
 	 .def("setIsActive", &GameEntity::setIsActive)
 	 .def("getId", &GameEntity::getId)
 	 .property("flipHorizontally", &GameEntity::getFlipHorizontally, &GameEntity::setFlipHorizontally)
+	 .property("label", &GameEntity::getLabel, &GameEntity::setLabel)
 	 .def_readwrite("x", &GameEntity::x)
 	 .def_readwrite("y", &GameEntity::y)
 	 .def_readwrite("speed", &GameEntity::speed)
@@ -186,8 +190,9 @@ private:
 	typedef std::pair<const std::string, GEComponent *>	ComponentMapPair;
 	
 	ComponentMap components; /** < Game Entity Map of Components */
-	bool flipHorizontally;	 /** < Game Entity bool to switch horizontally */
 	unsigned unique_id;		 /**< Entity Unique Id **/
+	std::string label;		 /**< Entity Label assigned by user*/
+	bool flipHorizontally;	 /** < Game Entity bool to switch horizontally */
 };
 
 #endif

@@ -27,6 +27,7 @@
 #include "gecAnimatedSprite.h"
 #include "gecFSM.h"
 #include "gecJoystick.h"
+#include "gecButton.h"
 
 #include "SharedSceneManager.h"
 
@@ -51,6 +52,12 @@ namespace gg
         
 		static inline void bindBasicTypes(void)
 		{	
+			luabind::module(LR_MANAGER_STATE)
+			[
+			 luabind::class_<std::string>("string")
+			 .def("c_str", &std::string::c_str)
+			 ];
+			
 			luabind::module(LR_MANAGER_STATE)
 			[
 				luabind::class_<std::vector<int> >("int_vector")
@@ -98,6 +105,7 @@ namespace gg
 			LR_MANAGER->registrate<gecAnimatedSprite>();
 			LR_MANAGER->registrate<gecFSM>();
 			LR_MANAGER->registrate<gecJoystick>();
+			LR_MANAGER->registrate<gecButton>();
 			LR_MANAGER->registrate<GameEntity>();
 			LR_MANAGER->registrate<Scene>();
 		}

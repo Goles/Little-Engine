@@ -119,9 +119,6 @@
 		14A2172212E7884700A4D8EC /* tableprint.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2170C12E7884700A4D8EC /* tableprint.lua */; };
 		14A2172312E7884700A4D8EC /* gecFSM_interface.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2170E12E7884700A4D8EC /* gecFSM_interface.lua */; };
 		14A2172412E7884700A4D8EC /* CoolDude.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2170F12E7884700A4D8EC /* CoolDude.lua */; };
-		14A2172512E7884700A4D8EC /* entity.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2171112E7884700A4D8EC /* entity.lua */; };
-		14A2172612E7884700A4D8EC /* joypad.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2171212E7884700A4D8EC /* joypad.lua */; };
-		14A2172712E7884700A4D8EC /* test.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2171312E7884700A4D8EC /* test.lua */; };
 		14A2172812E7884700A4D8EC /* event_manager.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2171512E7884700A4D8EC /* event_manager.lua */; };
 		14A2172912E7884700A4D8EC /* init.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2171612E7884700A4D8EC /* init.lua */; };
 		14A2172A12E7884700A4D8EC /* main.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2171712E7884700A4D8EC /* main.lua */; };
@@ -187,6 +184,9 @@
 		14ABD5CB12C148320059B96F /* TouchableManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14ABD5CA12C148320059B96F /* TouchableManager.mm */; };
 		14AC58431235A88400173BEC /* LuaRegisterManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14AC58411235A88400173BEC /* LuaRegisterManager.mm */; };
 		14B9379B12BD1B7A00008627 /* id_generator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14B9379A12BD1B7A00008627 /* id_generator.mm */; };
+		14D1A7F512EDD8180070D86F /* hitter_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14D1A7F312EDD8180070D86F /* hitter_1.lua */; };
+		14D1A7F612EDD8180070D86F /* joypad_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14D1A7F412EDD8180070D86F /* joypad_1.lua */; };
+		14D1A85112EDE0570070D86F /* button_attack.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14D1A85012EDE0570070D86F /* button_attack.lua */; };
 		14E31418121E47E200917795 /* CompBehaviour.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E3135B121E47E100917795 /* CompBehaviour.mm */; };
 		14E31419121E47E200917795 /* gecFSM.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E3135D121E47E100917795 /* gecFSM.mm */; };
 		14E3141A121E47E200917795 /* CompCollision.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31360121E47E100917795 /* CompCollision.mm */; };
@@ -439,9 +439,6 @@
 		14A2170C12E7884700A4D8EC /* tableprint.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tableprint.lua; sourceTree = "<group>"; };
 		14A2170E12E7884700A4D8EC /* gecFSM_interface.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gecFSM_interface.lua; sourceTree = "<group>"; };
 		14A2170F12E7884700A4D8EC /* CoolDude.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CoolDude.lua; sourceTree = "<group>"; };
-		14A2171112E7884700A4D8EC /* entity.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = entity.lua; sourceTree = "<group>"; };
-		14A2171212E7884700A4D8EC /* joypad.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = joypad.lua; sourceTree = "<group>"; };
-		14A2171312E7884700A4D8EC /* test.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.lua; sourceTree = "<group>"; };
 		14A2171512E7884700A4D8EC /* event_manager.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = event_manager.lua; sourceTree = "<group>"; };
 		14A2171612E7884700A4D8EC /* init.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = init.lua; sourceTree = "<group>"; };
 		14A2171712E7884700A4D8EC /* main.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.lua; sourceTree = "<group>"; };
@@ -515,6 +512,9 @@
 		14AC587E1235ABCC00173BEC /* ggEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ggEngine.h; sourceTree = "<group>"; };
 		14B9377512BD14DC00008627 /* id_generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = id_generator.h; sourceTree = "<group>"; };
 		14B9379A12BD1B7A00008627 /* id_generator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = id_generator.mm; sourceTree = "<group>"; };
+		14D1A7F312EDD8180070D86F /* hitter_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hitter_1.lua; sourceTree = "<group>"; };
+		14D1A7F412EDD8180070D86F /* joypad_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = joypad_1.lua; sourceTree = "<group>"; };
+		14D1A85012EDE0570070D86F /* button_attack.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = button_attack.lua; sourceTree = "<group>"; };
 		14E31358121E47E100917795 /* BehaviourActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BehaviourActions.h; sourceTree = "<group>"; };
 		14E31359121E47E100917795 /* BehaviourStates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BehaviourStates.h; sourceTree = "<group>"; };
 		14E3135A121E47E100917795 /* CompBehaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompBehaviour.h; sourceTree = "<group>"; };
@@ -964,10 +964,10 @@
 		14A2171012E7884700A4D8EC /* entities */ = {
 			isa = PBXGroup;
 			children = (
+				14D1A85012EDE0570070D86F /* button_attack.lua */,
+				14D1A7F312EDD8180070D86F /* hitter_1.lua */,
+				14D1A7F412EDD8180070D86F /* joypad_1.lua */,
 				14A218A112E89AC500A4D8EC /* character.lua */,
-				14A2171112E7884700A4D8EC /* entity.lua */,
-				14A2171212E7884700A4D8EC /* joypad.lua */,
-				14A2171312E7884700A4D8EC /* test.lua */,
 			);
 			path = entities;
 			sourceTree = "<group>";
@@ -1799,15 +1799,15 @@
 				14A2172212E7884700A4D8EC /* tableprint.lua in Resources */,
 				14A2172312E7884700A4D8EC /* gecFSM_interface.lua in Resources */,
 				14A2172412E7884700A4D8EC /* CoolDude.lua in Resources */,
-				14A2172512E7884700A4D8EC /* entity.lua in Resources */,
-				14A2172612E7884700A4D8EC /* joypad.lua in Resources */,
-				14A2172712E7884700A4D8EC /* test.lua in Resources */,
 				14A2172812E7884700A4D8EC /* event_manager.lua in Resources */,
 				14A2172912E7884700A4D8EC /* init.lua in Resources */,
 				14A2172A12E7884700A4D8EC /* main.lua in Resources */,
 				14A2172B12E7884700A4D8EC /* scene1.lua in Resources */,
 				14A2172C12E7884700A4D8EC /* scene_ideal.lua in Resources */,
 				14A218A212E89AC500A4D8EC /* character.lua in Resources */,
+				14D1A7F512EDD8180070D86F /* hitter_1.lua in Resources */,
+				14D1A7F612EDD8180070D86F /* joypad_1.lua in Resources */,
+				14D1A85112EDE0570070D86F /* button_attack.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

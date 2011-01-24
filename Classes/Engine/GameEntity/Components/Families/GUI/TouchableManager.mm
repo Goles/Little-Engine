@@ -61,6 +61,8 @@ const CompTouchable* TouchableManager::getTouchable(int guiID)
 
 void TouchableManager::deleteTouchable(int guiID)
 {	
+	this->debugPrintMap();
+	
 	TouchableMap::iterator tmit = touchReceivers.find(guiID);
 	
 	if(tmit != touchReceivers.end())
@@ -70,6 +72,8 @@ void TouchableManager::deleteTouchable(int guiID)
 		std::cout << "ERROR: Touchable component couldn't be deleted because it's guiID was not found!" << std::endl;
 		assert(tmit != touchReceivers.end());
 	}
+	
+	this->debugPrintMap();
 }
 
 #pragma mark touch_management
@@ -88,6 +92,7 @@ void TouchableManager::touchesBegan(float x, float y, int touchID)
 			GUIState[i].x = x;
 			GUIState[i].y = y;
 			GUIState[i].fingerDown = true;
+			GUIState[i].hitFirst = true;
 			GUIState[i].touchID	= touchID;
 			this->broadcastInteraction(x, y, i, touchID, kTouchType_began);
 			break;
@@ -110,6 +115,7 @@ void TouchableManager::touchesMoved(float x, float y, int touchID)
 			GUIState[i].x = x;
 			GUIState[i].y = y;
 			GUIState[i].fingerDown = true;
+			GUIState[i].hitFirst = false;
 			this->broadcastInteraction(x, y, i, touchID, kTouchType_moved);
 			break;
 		}

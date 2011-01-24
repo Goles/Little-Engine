@@ -8,22 +8,21 @@
 
 #import "GameEntity.h"
 
-#include "GEComponent.h"
 #include "id_generator.h"
 
-GameEntity::GameEntity() : x(0.0f), y(0.0f), height(0.0f), width(0.0f), speed(0.0f), flipHorizontally(false), unique_id(-1)
+GameEntity::GameEntity() : x(0.0f), y(0.0f), height(0.0f), width(0.0f), speed(0.0f),  unique_id(-1), flipHorizontally(false)
 {
 	this->initialize();
 }
 
-GameEntity::GameEntity(float inX, float inY) : height(0.0f), width(0.0f), speed(0.0f), flipHorizontally(false), unique_id(-1)
+GameEntity::GameEntity(float inX, float inY) : height(0.0f), width(0.0f), speed(0.0f), unique_id(-1), flipHorizontally(false)
 {
 	x			= inX;
 	y			= inY;
 	this->initialize();	
 }
 
-GameEntity::GameEntity(float inX, float inY, int inWidth, int inHeight) : speed(0.0f), flipHorizontally(false), unique_id(-1)
+GameEntity::GameEntity(float inX, float inY, int inWidth, int inHeight) : speed(0.0f), unique_id(-1), flipHorizontally(false)
 {
 	x			= inX;
 	y			= inY;

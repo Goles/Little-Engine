@@ -6,16 +6,13 @@
 //  Copyright 2009 Nicolas Goles. All rights reserved.
 //
 
-#ifndef _ANIMATION_H_
-#define _ANIMATION_H_
+#ifndef __ANIMATION_H__
+#define __ANIMATION_H__
+
+#include <vector>
 
 #include "SpriteSheet.h"
 #include "Frame.h"
-#include <vector>
-#include <boost/signal.hpp>
-#include <boost/bind.hpp>
-
-class GameEntity;
 
 enum {
 	kDirection_Forward = 1,
@@ -23,7 +20,8 @@ enum {
 };
 
 typedef std::vector<Frame *> FRAMES_VECTOR;
-typedef boost::signal<void ()> AnimationTrigger; //gets notified when an animation ends ( displays last frame )
+
+class gecAnimatedSprite;
 
 class Animation
 {
@@ -49,6 +47,7 @@ public:
 	const bool getIsRunning(){ return isRunning; }
 	const bool getIsRepeating(){ return isRepeating; }	
 	const bool getIsPingPong(){ return isPingPong; }
+	std::string getAnimationLabel() const { return animation_label; }
 	
 	//Setters
 	void	setCurrentFrame(int frame) { if(frame <= spriteFrames.size()) currentFrame = frame; }
@@ -57,9 +56,10 @@ public:
 	void	setIsPingPong(bool inIsPingPong) { isPingPong = inIsPingPong; }
 	void	setFlipHorizontally(bool f);
 	void	setFlipVertically(bool f);
+	void	setAnimationLabel(const std::string &in_animation_label){ animation_label = in_animation_label; }
+	void	setOwnerGAS(gecAnimatedSprite *gas) { ownerGAS = gas; }
 	
 	//Delegate
-	void	setDelegate(const AnimationTrigger::slot_type& slot);
 	void	notifyDelegate();
 	
 	//Debug
@@ -84,10 +84,13 @@ public:
 		 .property("running", &Animation::getIsRunning, &Animation::setIsRunning)
 		 .property("repeating", &Animation::getIsRepeating, &Animation::setIsRepeating)
 		 .property("pingpong", &Animation::getIsPingPong, &Animation::setIsPingPong)
+		 .property("animation_label", &Animation::getAnimationLabel, &Animation::setAnimationLabel)
 		 ];
 	}
 	
 private:
+	gecAnimatedSprite*	ownerGAS; 
+	std::string			animation_label;
 	CGPoint				currentPoint;
 	FRAMES_VECTOR		spriteFrames;
 	float				frameTimer;
@@ -99,7 +102,6 @@ private:
 	bool				notify;
 	int					direction;
 	int					currentFrame;
-	AnimationTrigger	delegate;		//This is used to let a subscriber know when certain animation finishes displaying. (not used all the time)
 };
 
 #endif

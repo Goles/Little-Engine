@@ -8,8 +8,10 @@ require "event_manager"
 require "ComponentBuilder"
 require "EntityMap"
 
-function buildEntity(fileName)
+function buildEntity(fileName)	
 	entityTable = dofile(filePath(fileName))
+	
+	assert(entityTable, "ERROR: EntityTable == nil, maybe forgot to return the GameEntity at the end of " .. fileName .. " ?" )
 	
 	-- create a new entity
 	entity = GameEntity()
@@ -96,6 +98,12 @@ function addAttributes( in_attributes, in_entity )
 		
 		in_entity.speed = in_attributes.speed
 		
+	end
+	
+	if (in_attributes.label ~= nil) then
+	
+		in_entity.label = in_attributes.label
+	
 	end
 	
 end
