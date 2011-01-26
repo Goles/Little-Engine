@@ -244,6 +244,7 @@
 
 	SCENE_MANAGER->getActiveScene()->sortEntitiesY();
 	SCENE_MANAGER->getActiveScene()->updateScene(delta);
+	GBOX_2D->update(delta);
 }
 
 #pragma mark render_scene
@@ -271,7 +272,7 @@
 	if(a)
 		a->renderScene();
 	
-	//GBOX_2D->debugRender();
+	GBOX_2D->debugRender();
 	
 	glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
 	[context presentRenderbuffer:GL_RENDERBUFFER_OES];

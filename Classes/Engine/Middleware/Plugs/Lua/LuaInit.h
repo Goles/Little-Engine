@@ -28,6 +28,7 @@
 #include "gecFSM.h"
 #include "gecJoystick.h"
 #include "gecButton.h"
+#include "gecBoxCollision.h"
 
 #include "SharedSceneManager.h"
 
@@ -46,7 +47,8 @@ namespace gg
             [
 				luabind::def("fileRelativePath", &FileUtils::relativeCPathForFile),
 				luabind::def("filePath", &FileUtils::fullCPathFromRelativePath),
-				luabind::def("ggr", &CGRectMake)
+				luabind::def("ggr", &CGRectMake),
+				luabind::def("ggs", &CGSizeMake)
 			 ];
         }
         
@@ -106,6 +108,7 @@ namespace gg
 			LR_MANAGER->registrate<gecFSM>();
 			LR_MANAGER->registrate<gecJoystick>();
 			LR_MANAGER->registrate<gecButton>();
+			LR_MANAGER->registrate<gecBoxCollision>();
 			LR_MANAGER->registrate<GameEntity>();
 			LR_MANAGER->registrate<Scene>();
 		}

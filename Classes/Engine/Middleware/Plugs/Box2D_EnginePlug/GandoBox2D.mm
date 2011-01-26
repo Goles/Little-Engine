@@ -20,10 +20,10 @@ GandoBox2D* GandoBox2D::instance = NULL;
 
 #pragma mark -
 #pragma mark init
-GandoBox2D::GandoBox2D()
+GandoBox2D::GandoBox2D() : world(NULL), contactListener(NULL)
 {
-	world = NULL;
-	contactListener = NULL;
+	this->initBaseWorld();
+	this->initDebugDraw();
 }
 
 void GandoBox2D::initBaseWorld()
@@ -113,19 +113,19 @@ void GandoBox2D::update(float delta)
 	{
 		if (b->GetUserData() != 0) {
 			//Synchronize the Sprites position and rotation with the corresponding body
-			GEComponent *gc = (GEComponent *)b->GetUserData();
-			
-			std::cout << gc->componentID() << std::endl;
+			GEComponent *gc = static_cast<GEComponent *>(b->GetUserData());
 			
 			if(gc->componentID().compare("gecBoxCollision") == 0)
 			{
 				gecBoxCollision *c_col = (gecBoxCollision *)gc;
 				c_col->setTransform(b);
 				
-			}else if(gc->componentID().compare("gecWeapon") == 0){
+			}
+			/*
+			else if(gc->componentID().compare("gecWeapon") == 0){
 				gecWeapon *c_weap = static_cast<gecWeapon *> (gc);
 				c_weap->setTransform(b);
-			}
+			}*/
 		}	
 	}
 

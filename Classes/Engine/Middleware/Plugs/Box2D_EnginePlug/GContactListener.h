@@ -30,7 +30,6 @@ class GContactListener : public b2ContactListener
 {
 public:    
     GContactListener();
-    ~GContactListener(){};
     
 	virtual void BeginContact(b2Contact* contact);
 	virtual void EndContact(b2Contact* contact);

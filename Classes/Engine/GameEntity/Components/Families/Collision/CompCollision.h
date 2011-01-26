@@ -21,7 +21,7 @@ class CompCollision: public GEComponent
 public:
 	CompCollision() : entityBody(NULL), tag(NULL){}
 	~CompCollision();
-	virtual void setTransform(b2Body *b) = 0;
+	virtual void setTransform(b2Body * const b) = 0;
 	void setTag(const std::string &name) { if(!tag){ tag = new std::string(name); } else tag->assign(name); }
 	const std::string *getTag() { return tag; }
 	

@@ -116,6 +116,23 @@ function gecFSMBuild(t)
 	return fsm
 end
 
+--
+--	Build a gecBoxCollision
+--
+function gecBoxCollisionBuild(t)
+	
+	assert(t.size, "You need to define a shape = {x=, y=, width=, height=} to build a gecBoxCollision component")
+	
+	gbc = gecBoxCollision()	
+		
+	gbc:setSize( ggs(t.size.width, t.size.height) )
+	gbc:createB2dBodyDef()
+	
+	return gbc
+
+end
+	
+
 -- =================================================================== --
 -- Function table with { Key, function() } for each component builder. --
 -- =================================================================== --
@@ -123,6 +140,7 @@ component_function_table =
 {
 	["gecAnimatedSprite"] = gecAnimatedSpriteBuild,
 	["gecFSM"] = gecFSMBuild,
+	["gecBoxCollision"] = gecBoxCollisionBuild,
 	["gecButton"] = gecButtonBuild,
 	["gecJoystick"] = gecJoystickBuild,
 }

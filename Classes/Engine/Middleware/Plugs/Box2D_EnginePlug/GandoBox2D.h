@@ -76,7 +76,7 @@ public:
 	/** Init's a default Box2D world. */
 	void				initBaseWorld();
 	
-	/** Init's a custom Box2D world.
+	/** Inits a custom Box2D world.
 	 @remarks
 		You can only allow sleeping entities if you are fully embracing Box2D world
 		with physics, moving entities trough vectors, etc. You can't allow sleeping

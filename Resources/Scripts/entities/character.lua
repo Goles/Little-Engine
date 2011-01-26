@@ -3,8 +3,7 @@
 	Copyright 2010 Nicolas Goles. All Rights Reserved. 
 ]]--
 
--- Never use the reserved keyword "GameEntity"
-TestEntity = 
+Character = 
 {
 	event_data =
 	{
@@ -14,7 +13,6 @@ TestEntity =
 			"E_DRAG_GAMEPAD",
 			"E_STOP_GAMEPAD",
 			"E_BUTTON_PRESS",
-			"E_BUTTON_RELEASE",
 			"E_STATE_CHANGE",
 			"E_ANIMATION_FINISH",
 		},
@@ -39,14 +37,11 @@ TestEntity =
 			--	EVENT DRAG GAMEPAD
 			--
 			elseif (in_event == "E_DRAG_GAMEPAD") then
-
-				
+								
 				this.flipHorizontally = in_data.dx_negative
 				
-				if(fsm ~= nil) then
-					
-					this.components["gecFSM"]:performAction("A_DRAG_GAMEPAD")
-					
+				if(fsm ~= nil) then					
+					this.components["gecFSM"]:performAction("A_DRAG_GAMEPAD")					
 				end
 				
 				local delta_speed = in_data.delta * this.speed
@@ -54,10 +49,8 @@ TestEntity =
 				local movement_y = delta_speed * in_data.latest_speed.y
 				
 				if(fsm.currentState ~= "S_ATTACK") then
-
 					this.x = this.x + movement_x -- + round(movement_x) 
-					this.y = this.y + movement_y -- + round(movement_y)
-					
+					this.y = this.y + movement_y -- + round(movement_y)					
 				end
 			
 			--
@@ -72,37 +65,25 @@ TestEntity =
 			--
 			elseif (in_event == "E_BUTTON_PRESS") then
 								
-				if (in_data.label == "BUTTON_ATTACK") then
-					
-					this.components["gecFSM"]:performAction("A_ATTACK")
-					
-				end
-				
-			--
-			--	EVENT BUTTON RELEASE
-			--
-			elseif (in_event == "E_BUTTON_RELEASE") then
-			
+				if (in_data.label == "BUTTON_ATTACK") then					
+					this.components["gecFSM"]:performAction("A_ATTACK")					
+				end			
 				
 			--
 			--	EVENT ANIMATION FINISH
 			--
 			elseif (in_event == "E_ANIMATION_FINISH") then
 
-					if (in_data.animation_label == "S_ATTACK" and in_data.owner_ge_uid == this.id) then
-					
-						this.components["gecFSM"]:performAction("A_STOP_ATTACK")
-					
+					if (in_data.animation_label == "S_ATTACK" and in_data.owner_ge_uid == this.id) then					
+						this.components["gecFSM"]:performAction("A_STOP_ATTACK")					
 					end
 
 			--
 			-- EVENT STATE CHANGE
 			--
-			elseif (in_event == "E_STATE_CHANGE") then
-				
+			elseif (in_event == "E_STATE_CHANGE") then				
 				this.components["gecAnimatedSprite"]:setCurrentAnimation(in_data)
-				this.components["gecAnimatedSprite"]:setCurrentRunning(true)
-				
+				this.components["gecAnimatedSprite"]:setCurrentRunning(true)				
 			end
 			
 		end
@@ -149,7 +130,15 @@ TestEntity =
 				{"S_HIT", "A_STOP_HIT", "S_STAND"},																	
 			},
 		},
+		
+		-- Simple box collision component
+		gecBoxCollision =
+		{
+			size = {height=40, width=40}
+		},
 	},
+	
+
 	
 	-- Atributes for this entity ( this should slowly dissappear )
 	attributes =
@@ -158,4 +147,4 @@ TestEntity =
 	},
 }
 
-return TestEntity
+return Character

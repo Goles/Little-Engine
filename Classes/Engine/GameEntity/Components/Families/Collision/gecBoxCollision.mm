@@ -13,9 +13,13 @@
 
 std::string gecBoxCollision::mGECTypeID = "gecBoxCollision";
 
+gecBoxCollision::gecBoxCollision() : m_size(CGSizeZero)
+{
+}
+
 #pragma mark -
 #pragma mark CompCollision Interface
-void gecBoxCollision::setTransform(b2Body *b)
+void gecBoxCollision::setTransform(b2Body * const b)
 {
 	//We only apply transformations over our own body.
 	if (b == entityBody)
@@ -27,6 +31,13 @@ void gecBoxCollision::setTransform(b2Body *b)
 	}
 }
 
+void gecBoxCollision::setSize(CGSize in_size)
+{
+	m_size.width = in_size.width/PTM_RATIO;
+	m_size.height = in_size.height/PTM_RATIO;
+}
+
+
 #pragma mark -
 #pragma mark GEComponent Interface
 void gecBoxCollision::update(float delta)
@@ -36,21 +47,12 @@ void gecBoxCollision::update(float delta)
 
 //Override setOwnerGE to automaically assign a boxCollisionShape to the 
 //GameEntity in question.
-void gecBoxCollision::setOwnerGE(GameEntity *ge)
+void gecBoxCollision::createB2dBodyDef(void)
 {
-	if(ge == NULL)
-	{
-		std::cout << "ERROR: Specified OwnerGameEntity can't be NULL" << std::endl;
-		assert(ge != NULL);
-	}
-	
-	//Assign our ownerGE
-	ownerGE = ge;
-	
 	//Define our Box2d body
 	b2BodyDef spriteBodyDef;
     spriteBodyDef.type = b2_dynamicBody;
-    spriteBodyDef.position.Set(ownerGE->x/PTM_RATIO, ownerGE->y/PTM_RATIO);
+    spriteBodyDef.position.Set(0.0f, 0.0f);
 	spriteBodyDef.bullet = true;
     spriteBodyDef.userData = this;
    
@@ -58,7 +60,7 @@ void gecBoxCollision::setOwnerGE(GameEntity *ge)
 	entityBody->SetLinearVelocity(b2Vec2(0.0f, 0.0f));
 	//Define our Box2d Shape
     b2PolygonShape entityShape;
-    entityShape.SetAsBox((ownerGE->width/PTM_RATIO)*0.18f, (ownerGE->height/PTM_RATIO)*0.20f);
+    entityShape.SetAsBox((m_size.width)*0.4f, (m_size.height)*0.4f);
     
 	//Make our fixture definition.
 	b2FixtureDef entityShapeDef;

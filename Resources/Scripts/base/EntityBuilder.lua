@@ -8,40 +8,37 @@ require "event_manager"
 require "ComponentBuilder"
 require "EntityMap"
 
-function buildEntity(fileName)	
-	entityTable = dofile(filePath(fileName))
+-- ====================================== --
+--         ENTITY BUILDER FUNCTION        --
+-- ====================================== --
+function buildEntity (fileName)	
+	entityTable = dofile (filePath(fileName))
 	
 	assert(entityTable, "ERROR: EntityTable == nil, maybe forgot to return the GameEntity at the end of " .. fileName .. " ?" )
 	
 	-- create a new entity
-	entity = GameEntity()
+	entity = GameEntity(); 
 	
 	-- assign the entity a unique_id.
 	entity.id = entity:getId()
 	
 	-- add attributes
-	if (entityTable.attributes ~= nil) then
-		
-		addAttributes(entityTable.attributes, entity)		
-		
+	if entityTable.attributes then 
+		addAttributes (entityTable.attributes, entity) 
 	end
 
 	-- attach the respective components to the entity	
-	if (entityTable.components ~= nil) then
-		
-		addComponents(entityTable.components, entity)
-		
+	if entityTable.components then 
+		addComponents (entityTable.components, entity) 
 	end
 
 	-- attach the respective event listening data to the entity	
-	if (entityTable.event_data ~= nil) then
-		
-		addEventData(entityTable.event_data, entity)
-		
+	if entityTable.event_data then 
+		addEventData (entityTable.event_data, entity) 
 	end
 	
 	-- Map the entity to store a reference
-	entity_manager:_addMapEntity(entity)
+	entity_manager:_addMapEntity (entity)
 	
 	return entity
 end
@@ -58,7 +55,7 @@ function addComponents( in_components , in_entity )
 			component = component_function_table[ key ]( value )
 			component.ownerGE = in_entity
 			in_entity:setGEC(component)
-			in_entity.components[key] = component					
+			in_entity.components[ key ] = component					
 			in_entity:setIsActive(true)
 		end
 		
