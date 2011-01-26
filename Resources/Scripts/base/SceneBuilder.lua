@@ -16,19 +16,14 @@ function buildScene(sceneName)
 
 	aScene.label = sceneTable.id
 
-	for k,v in pairs(sceneTable.entities) do
+	for _, e in pairs(sceneTable.entities) do
 		
 		-- We build the entity
-		local entity = buildEntity(v.id) 
+		local entity = buildEntity(e.file) 
 		
 		-- If we assign a position to the entity {x= 20, y=30}.
-		if(type(v.position) == "table") then
-			entity:setPosition(v.position.x, v.position.y)
-		end
-		
-		-- If we want to randomize the entity position within the device screen.
-		if((v.random ~= nil) and (v.random == true)) then
-			entity:setPosition(math.random(0,480), math.random(0,320))
+		if e.position then
+			entity:setPosition(e.position.x, e.position.y)
 		end
 		
 		-- entities[i]:setIsActive(true)
