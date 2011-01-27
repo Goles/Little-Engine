@@ -161,6 +161,7 @@ static void registrate(void)
 	 .def("setPosition", &GameEntity::setPosition)	/** < Binds the GameEntity setPositon method */
 	 .def("setIsActive", &GameEntity::setIsActive)
 	 .def("getId", &GameEntity::getId)
+	 .def("debugPrintComponents", &GameEntity::debugPrintComponents)
 	 .property("flipHorizontally", &GameEntity::getFlipHorizontally, &GameEntity::setFlipHorizontally)
 	 .property("label", &GameEntity::getLabel, &GameEntity::setLabel)
 	 .def_readwrite("x", &GameEntity::x)

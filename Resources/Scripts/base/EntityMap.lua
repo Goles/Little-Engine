@@ -16,7 +16,7 @@ function entity_manager:_addMapEntity( in_entity )
 end
 
 function entity_manager:_fetchMapEntity( in_uid )
-	return self.map[ in_uid ]
+	return self.map[in_uid]	
 end
 
 function entity_manager:_deleteMapEntity( in_uid )
@@ -26,13 +26,15 @@ end
 -- To expose this
 
 function addMapEntity( in_entity )
-	entity_manager:_addEntity(in_entity)
+	entity_manager:_addMapEntity(in_entity)
 end
 
-function fetchMapEntity( in_entity )
-	entity_manager:_fetchEntity( in_entity )
+function fetchMapEntity( in_entity_uid )
+	local e = entity_manager:_fetchMapEntity(in_entity_uid)
+	
+	return e
 end
 
 function deleteMapEntity( in_entity )
-	entity_manager:_deleteEntity( in_uid )
+	entity_manager:_deleteMapEntity(in_uid)
 end

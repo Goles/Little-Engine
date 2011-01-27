@@ -11,10 +11,10 @@ require "EntityMap"
 -- ====================================== --
 --         ENTITY BUILDER FUNCTION        --
 -- ====================================== --
-function buildEntity (fileName)	
-	entityTable = dofile (filePath(fileName))
+function buildEntity (e)	
+	entityTable = dofile (filePath(e.file))
 	
-	assert(entityTable, "ERROR: EntityTable == nil, maybe forgot to return the GameEntity at the end of " .. fileName .. " ?" )
+	assert(entityTable, "ERROR: EntityTable == nil, maybe forgot to return the GameEntity at the end of " .. e.file)
 	
 	-- create a new entity
 	entity = GameEntity(); 
@@ -22,8 +22,11 @@ function buildEntity (fileName)
 	-- assign the entity a unique_id.
 	entity.id = entity:getId()
 	
-	-- add attributes
-	if entityTable.attributes then 
+	-- add the scene defined position to the entity
+	if e.position then entity:setPosition(e.position.x, e.position.y) end
+	
+	-- add entity attributes
+	if entityTable.attributes then	
 		addAttributes (entityTable.attributes, entity) 
 	end
 
@@ -38,7 +41,7 @@ function buildEntity (fileName)
 	end
 	
 	-- Map the entity to store a reference
-	entity_manager:_addMapEntity (entity)
+	addMapEntity (entity)
 	
 	return entity
 end
@@ -91,16 +94,12 @@ end
 -- Adds atributes to the entity ( this function is subject to dissappear in the future)
 function addAttributes( in_attributes, in_entity )
 	
-	if( in_attributes.speed ~= nil ) then
-		
-		in_entity.speed = in_attributes.speed
-		
+	if( in_attributes.speed ~= nil ) then		
+		in_entity.speed = in_attributes.speed		
 	end
 	
-	if (in_attributes.label ~= nil) then
-	
-		in_entity.label = in_attributes.label
-	
+	if (in_attributes.label ~= nil) then	
+		in_entity.label = in_attributes.label	
 	end
 	
 end

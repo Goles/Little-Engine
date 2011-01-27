@@ -79,6 +79,9 @@ void GameEntity::debugPrintComponents()
 {
 	ComponentMap::iterator it;	
 	
+	std::cout << "-----------------[ENTITY COMPONENT LIST]------------" << std::endl;
+	std::cout << "[ID " << unique_id << "] " << std::endl;
+	
 	for(it = components.begin(); it != components.end(); ++it)
 	{
 		std::cout << (*it).second->componentID()

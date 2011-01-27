@@ -11,14 +11,16 @@ TestEntity =
 		listen_events = 
 		{
 			"E_SCENE_ACTIVE",
-			"E_ROCK",
-			"E_EXPLOSION",
 			"E_STATE_CHANGE",
-			"E_DRAG_GAMEPAD"
+			"E_DRAG_GAMEPAD",
+			"E_COLLISION",
 		},
 
 		handle_event = function(this, in_event, in_data)
 			
+			--
+			-- EVENT SCENE ACTIVE
+			--
 			if( in_event == "E_SCENE_ACTIVE" ) then
 				
 				-- Setup startup animation
@@ -30,21 +32,29 @@ TestEntity =
 				if(in_data == "CoolScene") then
 					-- this is level "CoolScene" manage special according to this level.
 				end
-				
 			
+				
+			--
+			--	EVENT STATE CHANGE
+			--
 			elseif (in_event == "E_STATE_CHANGE") then	
 							
-				print("STATE CHANGED! ".. "in_data")
+				print("STATE CHANGED! ".. "in_data")			
+				
+			--
+			-- EVENT STATE CHANGE
+			--
+			elseif (in_event == "E_STATE_CHANGE") then				
+				this.components["gecAnimatedSprite"]:setCurrentAnimation(in_data)
+				this.components["gecAnimatedSprite"]:setCurrentRunning(true)
 			
+			--
+			--	EVENT COLLISION
+			--
+			elseif(in_event == "E_COLLISION") then
+				print("Collision detected")
 
-			elseif(in_event == "E_EXPLOSION") then
-				print ("E_EXPLOSION")
-				
-				local c = this.components["gecAnimatedSprite"]
-				c:setCurrentAnimation("S_WALK")				
-				
 			end
-
 		end
 	},
 	
@@ -58,6 +68,7 @@ TestEntity =
 			{
 				{"hitter1_1.png", 80, 80, 0.0, 1.0}
 			},
+			
 			animations =
 			{
 				-- Animation name, Animation spritesheet coords, Animation frame duration.
@@ -89,6 +100,11 @@ TestEntity =
 				{"S_HIT", "A_STOP_HIT", "S_STAND"},																	
 			},
 		},
+		
+		gecBoxCollision =
+		{
+			size = {width=40, height=40}
+		}
 	},
 }
 

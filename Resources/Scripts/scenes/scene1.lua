@@ -1,6 +1,6 @@
 Level1 = 
 {
-	id = "Level_1",
+	label = "Level_1",
 	entities =
 	{	
 		-- Main Character.

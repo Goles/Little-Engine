@@ -43,21 +43,24 @@ void gecBoxCollision::setSize(CGSize in_size)
 void gecBoxCollision::update(float delta)
 {
 	/* Perform the updates for this entity here. */
+	if(entityBody == NULL)
+	{
+		this->createB2dBodyDef();
+	}
 }
 
 //Override setOwnerGE to automaically assign a boxCollisionShape to the 
 //GameEntity in question.
 void gecBoxCollision::createB2dBodyDef(void)
-{
+{	
 	//Define our Box2d body
 	b2BodyDef spriteBodyDef;
     spriteBodyDef.type = b2_dynamicBody;
-    spriteBodyDef.position.Set(0.0f, 0.0f);
+    spriteBodyDef.position.Set(this->getOwnerGE()->x, this->getOwnerGE()->y);
 	spriteBodyDef.bullet = true;
-    spriteBodyDef.userData = this;
-   
+    spriteBodyDef.userData = this;   
 	entityBody = GBOX_2D_WORLD->CreateBody(&spriteBodyDef);
-	entityBody->SetLinearVelocity(b2Vec2(0.0f, 0.0f));
+
 	//Define our Box2d Shape
     b2PolygonShape entityShape;
     entityShape.SetAsBox((m_size.width)*0.4f, (m_size.height)*0.4f);

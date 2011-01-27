@@ -3,6 +3,9 @@
 	Copyright 2010 Nicolas Goles. All Rights Reserved. 
 ]]--
 
+-- Required to pass events to target entities by their UID
+require "EntityMap"
+
 event = {
     listeners = {},
 }
@@ -83,18 +86,31 @@ function event:_broadcast_touch( in_x, in_y, in_touchIndex, in_touchID, in_touch
 	end
 end
 
---[[ 
-	Public Functions to expose to C++ ... 
-	should be removed when I learn how to properly call event:XXXX(t) from C++ 
+function event:_notify_target_entity(in_event, in_data, in_entity_uid)
 	
-	_NG
-]]--
+	-- FETCH SPECIFIC ENTITY
+	local e = fetchMapEntity(in_entity_uid)
 
-function broadcast(in_event, in_data)
+	-- IF IT EXISTS THEN TELL IT TO HANDLE A SPECIFIC EVENT
+	if e then e:handle_event(in_event, in_data) end
+	
+end
+
+--[[===========================================
+--
+--		PUBLIC FUNCTIONS TO EXPOSE TO C++
+--	
+===============================================]]
+
+function broadcast (in_event, in_data)
 	assert(in_event ~= "E_TOUCH", "To handle E_TOUCH use broadcast_touch and not broadcast (in-engine event)")
 	event:_broadcast(in_event, in_data)
 end
 
-function broadcast_touch(in_x, in_y, in_touchIndex, in_touchID, in_touchType)
+function broadcast_touch (in_x, in_y, in_touchIndex, in_touchID, in_touchType)
 	event:_broadcast_touch(in_x, in_y, in_touchIndex, in_touchID, in_touchType)
+end
+
+function notify_target_entity (in_event, in_data, in_entity_uid)
+	event:_notify_target_entity(in_event, in_data, in_entity_uid)
 end

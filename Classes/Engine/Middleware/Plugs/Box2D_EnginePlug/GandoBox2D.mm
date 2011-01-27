@@ -15,6 +15,7 @@
 #include "gecBoxCollision.h"
 #include "gecFSM.h"
 #include "gecWeapon.h"
+#include "EventBroadcaster.h"
 
 GandoBox2D* GandoBox2D::instance = NULL;
 
@@ -184,13 +185,21 @@ void GandoBox2D::update(float delta)
 					
 				//If we have two different bodies colliding
 				if (collisionBoxA != NULL && collisionBoxB != NULL)
-				{
-					geA->getOwnerGE()->x += roundf(2*(bodyA->GetPosition().x - bodyB->GetPosition().x));
-					geA->getOwnerGE()->y += roundf(2*(bodyA->GetPosition().y - bodyB->GetPosition().y));
+				{					
+					geB->getOwnerGE()->x -= 2.0f * (bodyA->GetPosition().x - bodyB->GetPosition().x);
+					geB->getOwnerGE()->y -= 2.0f * (bodyA->GetPosition().y - bodyB->GetPosition().y);
+					this->notifyCollisionEntity(*geA);
 				}
 			}
 		}
 	}	
+}
+
+void GandoBox2D::notifyCollisionEntity(const GEComponent &in_collisionable)
+{
+	luabind::object payload = luabind::newtable(LR_MANAGER_STATE);
+	
+	gg::event::notify_target_entity("E_COLLISION", payload, in_collisionable.getOwnerGE()->getId());
 }
 
 #pragma mark -

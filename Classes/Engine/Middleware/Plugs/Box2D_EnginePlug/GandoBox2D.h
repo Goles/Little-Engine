@@ -31,12 +31,13 @@
  */
 #define PTM_RATIO 32
 
-#include <iostream>
 #include <vector>
 
 #include "Box2D.h"
 #include "GandoBox2DDebug.h"
 #include "GContactListener.h"
+
+#include "GEComponent.h"
 
 class GLESDebugDraw; /** < Forward declaration for GLESDebugDraw */
 
@@ -110,6 +111,8 @@ public:
 protected:
 	/** Protected constructor to respect the singleton pattern. */
 	GandoBox2D();
+	
+	void notifyCollisionEntity(const GEComponent &in_collisionable);
 //------------------------------------------------------------------------------	
 private:
 	b2World*			world; /** < Instance of the Box2D world*/

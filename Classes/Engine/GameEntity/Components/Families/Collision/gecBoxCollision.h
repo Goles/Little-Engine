@@ -38,7 +38,6 @@ public:
 		 luabind::class_<gecBoxCollision, GEComponent>("gecBoxCollision")
 		 .def(luabind::constructor<>())
 		 .def("setSize", &gecBoxCollision::setSize)
-		 .def("createB2dBodyDef", &gecBoxCollision::createB2dBodyDef)
 		];
 	}
 	

@@ -124,9 +124,7 @@ function gecBoxCollisionBuild(t)
 	assert(t.size, "You need to define a shape = {x=, y=, width=, height=} to build a gecBoxCollision component")
 	
 	gbc = gecBoxCollision()	
-		
 	gbc:setSize( ggs(t.size.width, t.size.height) )
-	gbc:createB2dBodyDef()
 	
 	return gbc
 

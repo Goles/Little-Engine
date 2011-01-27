@@ -28,6 +28,11 @@ namespace gg {
 		{			
 			luabind::call_function<void>(LR_MANAGER_STATE, "broadcast_touch", in_x, in_y, in_touchIndex, in_touchId, in_touchType);	
 		}
+		
+		static inline void notify_target_entity(const char *in_eventType, const luabind::object &in_event_payload, const int in_uid)
+		{
+			luabind::call_function<void>(LR_MANAGER_STATE, "notify_target_entity", in_eventType, in_event_payload, in_uid);
+		}
 	}
 }
 
