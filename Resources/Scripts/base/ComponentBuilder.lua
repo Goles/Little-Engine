@@ -102,12 +102,16 @@ function gecFSMBuild(t)
 		-- double check everything. :) good progress btw.
 		local oldState = this.currentState
 		local newState = this.statesMatrix[oldState][in_action]
-		
-		if( oldState ~= newState ) then
-			this.currentState = newState
+				
+		if newState then 
+					
+			if( oldState ~= newState ) then
+				this.currentState = newState
 
-			-- broadcast an event letting an entity know that it's state changed			
-			this.ownerGE:handle_event("E_STATE_CHANGE", newState)
+				-- broadcast an event letting an entity know that it's state changed			
+				this.ownerGE:handle_event("E_STATE_CHANGE", newState)
+			
+			end
 			
 		end
 

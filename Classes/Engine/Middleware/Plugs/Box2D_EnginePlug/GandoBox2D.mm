@@ -24,7 +24,7 @@ GandoBox2D* GandoBox2D::instance = NULL;
 GandoBox2D::GandoBox2D() : world(NULL), contactListener(NULL)
 {
 	this->initBaseWorld();
-	this->initDebugDraw();
+//	this->initDebugDraw();
 }
 
 void GandoBox2D::initBaseWorld()

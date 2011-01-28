@@ -14,6 +14,7 @@ TestEntity =
 			"E_STATE_CHANGE",
 			"E_DRAG_GAMEPAD",
 			"E_COLLISION",
+			"E_ANIMATION_FINISH",
 		},
 
 		handle_event = function(this, in_event, in_data)
@@ -32,28 +33,32 @@ TestEntity =
 				if(in_data == "CoolScene") then
 					-- this is level "CoolScene" manage special according to this level.
 				end
-			
 				
-			--
-			--	EVENT STATE CHANGE
-			--
-			elseif (in_event == "E_STATE_CHANGE") then	
-							
-				print("STATE CHANGED! ".. "in_data")			
 				
 			--
 			-- EVENT STATE CHANGE
 			--
-			elseif (in_event == "E_STATE_CHANGE") then				
+			elseif (in_event == "E_STATE_CHANGE") then		
 				this.components["gecAnimatedSprite"]:setCurrentAnimation(in_data)
 				this.components["gecAnimatedSprite"]:setCurrentRunning(true)
+				
+			--
+			--	EVENT ANIMATION FINISH
+			--
+			elseif (in_event == "E_ANIMATION_FINISH") then
+
+				if (in_data.animation_label == "S_HIT" and in_data.owner_ge_uid == this.id) then
+
+					this.components["gecFSM"]:performAction("A_STOP_HIT")					
+				end
 			
 			--
 			--	EVENT COLLISION
 			--
 			elseif(in_event == "E_COLLISION") then
-				print("Collision detected")
-
+				
+				this.components["gecFSM"]:performAction("A_HIT")
+				
 			end
 		end
 	},
@@ -76,6 +81,7 @@ TestEntity =
 				{"S_STAND", {0,0,1,0,2,0,3,0}, 0.10, "hitter1_1.png", true, true},				
 				{"S_WALK", {4,0,5,0,6,0,7,0}, 0.10, "hitter1_1.png", true, false},
 				{"S_ATTACK",{8,0,9,0,10,0}, 0.16, "hitter1_1.png", false, false},
+				{"S_HIT", {5,1}, 0.10, "hitter1_1.png", false, false},
 			},
 		},
 		
@@ -101,9 +107,10 @@ TestEntity =
 			},
 		},
 		
+		-- Box Collisionable Component
 		gecBoxCollision =
 		{
-			size = {width=40, height=40}
+			size = {width=30, height=40}
 		}
 	},
 }
