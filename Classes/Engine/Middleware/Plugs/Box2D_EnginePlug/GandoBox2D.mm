@@ -24,7 +24,7 @@ GandoBox2D* GandoBox2D::instance = NULL;
 GandoBox2D::GandoBox2D() : world(NULL), contactListener(NULL), debugDraw(NULL)
 {
 	this->initBaseWorld();
-	//	this->initDebugDraw();
+//	this->initDebugDraw();
 }
 
 void GandoBox2D::initBaseWorld()
@@ -136,18 +136,24 @@ void GandoBox2D::update(const float delta)
 		CompCollisionable *ccp1 = static_cast<CompCollisionable *>(b2body_p1->GetUserData());
 		CompCollisionable *ccp2 = static_cast<CompCollisionable *>(b2body_p2->GetUserData());
 		
-		//If we have an entity in each of the bodies
-		if(ccp1 && ccp2)
+		//OwnerGE's
+		GameEntity *gep1 = ccp1->getOwnerGE();
+		GameEntity *gep2 = ccp2->getOwnerGE();
+		
+		//If the entities are active, if they are not, we wont detect collision
+		if(gep1->isActive && gep2->isActive)
 		{	
+			//If we have two different bodies colliding
 			if (ccp1->getOwnerGE() != ccp2->getOwnerGE())
 			{				
-				//If we have two different bodies colliding
-				if (ccp1 && ccp2)
-				{					
+				//If the collisioners are solid then apply "solid" collision correction.
+				if(ccp1->getSolid() && ccp2->getSolid())
+				{
 					ccp2->getOwnerGE()->x -= 2.0f * (b2body_p1->GetPosition().x - b2body_p2->GetPosition().x);
-					ccp2->getOwnerGE()->y -= 2.0f * (b2body_p1->GetPosition().y - b2body_p2->GetPosition().y);
-					this->notifyCollisionEntity(ccp1->getOwnerGE());
+					ccp2->getOwnerGE()->y -= 2.0f * (b2body_p1->GetPosition().y - b2body_p2->GetPosition().y);						
 				}
+				
+				this->notifyCollisionEntity(ccp1->getOwnerGE());
 			}
 		}
 	}	

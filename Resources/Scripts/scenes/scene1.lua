@@ -6,6 +6,9 @@ Level1 =
 		-- Main Character.
 		{file="character.lua", position={x=250, y=60}},
 		
+		-- Main Character weapon slot
+		{file="weapon_1.lua", position={x=250, y=60}},
+		
 		-- Enemies
 		{file="hitter_1.lua"; position={x=100, y=100}},
 		{file="hitter_1.lua"; position={x=100, y=150}},

@@ -50,7 +50,7 @@ Character =
 				
 				if(fsm.currentState ~= "S_ATTACK") then
 					this.x = this.x + movement_x -- + round(movement_x) 
-					this.y = this.y + movement_y -- + round(movement_y)					
+					this.y = this.y + movement_y -- + round(movement_y)
 				end
 			
 			--
@@ -66,16 +66,23 @@ Character =
 			elseif (in_event == "E_BUTTON_PRESS") then
 								
 				if (in_data.label == "BUTTON_ATTACK") then					
-					this.components["gecFSM"]:performAction("A_ATTACK")					
-				end			
+					this.components["gecFSM"]:performAction("A_ATTACK")
+					
+					-- Broadcast an Attack Event for the Weapon Game Entity to manage					
+					broadcast("E_CHARACTER_ATTACK", {x=this.x, y=this.y})
+				end
 				
 			--
 			--	EVENT ANIMATION FINISH
 			--
 			elseif (in_event == "E_ANIMATION_FINISH") then
-
+				
 				if (in_data.animation_label == "S_ATTACK" and in_data.owner_ge_uid == this.id) then					
-					this.components["gecFSM"]:performAction("A_STOP_ATTACK")					
+					this.components["gecFSM"]:performAction("A_STOP_ATTACK")
+					
+					-- broadcast a character attack stop event
+					broadcast("E_CHARACTER_ATTACK_STOP", nil)
+									
 				end
 
 			--
@@ -134,7 +141,8 @@ Character =
 		-- Simple box collision component
 		gecBoxCollisionable =
 		{
-			size = {height=40, width=40}
+			solid = true,
+			size = {height=40, width=40},			
 		},
 	},
 	

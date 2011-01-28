@@ -59,7 +59,7 @@ function addComponents( in_components , in_entity )
 			component.ownerGE = in_entity
 			in_entity:setGEC(component)
 			in_entity.components[ key ] = component					
-			in_entity:setIsActive(true)
+			in_entity.active = true
 		end
 		
 	end

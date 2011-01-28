@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1453691512F359A100B97FB4 /* weapon_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1453691412F359A100B97FB4 /* weapon_1.lua */; };
 		147660D412BA7CB70092D758 /* CompLevelLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 147660D012BA7CB60092D758 /* CompLevelLoader.mm */; };
 		147660D512BA7CB70092D758 /* CompSpawn.mm in Sources */ = {isa = PBXBuildFile; fileRef = 147660D312BA7CB70092D758 /* CompSpawn.mm */; };
 		1497B38C127E6B1B00A836D4 /* adopt_policy.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1497B329127E6B1B00A836D4 /* adopt_policy.hpp */; };
@@ -322,6 +323,7 @@
 
 /* Begin PBXFileReference section */
 		1427CE5A12444FFC007BF343 /* LuaInit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaInit.h; sourceTree = "<group>"; };
+		1453691412F359A100B97FB4 /* weapon_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = weapon_1.lua; sourceTree = "<group>"; };
 		145C8F1A12B699B30073B0D3 /* EventBroadcaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventBroadcaster.h; sourceTree = "<group>"; };
 		147660CF12BA7CB60092D758 /* CompLevelLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompLevelLoader.h; sourceTree = "<group>"; };
 		147660D012BA7CB60092D758 /* CompLevelLoader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CompLevelLoader.mm; sourceTree = "<group>"; };
@@ -964,6 +966,7 @@
 		14A2171012E7884700A4D8EC /* entities */ = {
 			isa = PBXGroup;
 			children = (
+				1453691412F359A100B97FB4 /* weapon_1.lua */,
 				14D1A85012EDE0570070D86F /* button_attack.lua */,
 				14D1A7F312EDD8180070D86F /* hitter_1.lua */,
 				14D1A7F412EDD8180070D86F /* joypad_1.lua */,
@@ -1809,6 +1812,7 @@
 				14D1A7F512EDD8180070D86F /* hitter_1.lua in Resources */,
 				14D1A7F612EDD8180070D86F /* joypad_1.lua in Resources */,
 				14D1A85112EDE0570070D86F /* button_attack.lua in Resources */,
+				1453691512F359A100B97FB4 /* weapon_1.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

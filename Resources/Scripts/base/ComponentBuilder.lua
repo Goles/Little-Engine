@@ -125,9 +125,17 @@ end
 --
 function gecBoxCollisionableBuild(t)
 	
-	assert(t.size, "You need to define a shape = {x=, y=, width=, height=} to build a gecBoxCollisionable component")
+	assert(t.size, "You need to define a size = {width=, height=} to build a gecBoxCollisionable component")
 	
-	gbc = gecBoxCollisionable()	
+	gbc = gecBoxCollisionable()
+	
+	-- The gecBoxCollisionable will be a non-solid box by default
+	if not t.solid  then
+		gbc.solid = false		
+	else
+		gbc.solid = t.solid
+	end	
+	
 	gbc:setSize( ggs(t.size.width, t.size.height) )
 	
 	return gbc

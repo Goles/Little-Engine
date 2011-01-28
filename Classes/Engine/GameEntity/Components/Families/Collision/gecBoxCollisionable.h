@@ -38,6 +38,7 @@ public:
 		 luabind::class_<gecBoxCollisionable, GEComponent>("gecBoxCollisionable")
 		 .def(luabind::constructor<>())
 		 .def("setSize", &gecBoxCollisionable::setSize)
+		 .property("solid", &CompCollisionable::getSolid, &CompCollisionable::setSolid)
 		];
 	}
 	

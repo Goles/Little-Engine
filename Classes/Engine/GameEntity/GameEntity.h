@@ -159,9 +159,9 @@ static void registrate(void)
 	 .def(luabind::constructor<>())					/** < Binds the GameEntity constructor  */
 	 .def("setGEC", &GameEntity::setGEC)			/** < Binds the GameEntity setGEC method  */
 	 .def("setPosition", &GameEntity::setPosition)	/** < Binds the GameEntity setPositon method */
-	 .def("setIsActive", &GameEntity::setIsActive)
 	 .def("getId", &GameEntity::getId)
 	 .def("debugPrintComponents", &GameEntity::debugPrintComponents)
+	 .property("active", &GameEntity::getIsActive, &GameEntity::setIsActive)
 	 .property("flipHorizontally", &GameEntity::getFlipHorizontally, &GameEntity::setFlipHorizontally)
 	 .property("label", &GameEntity::getLabel, &GameEntity::setLabel)
 	 .def_readwrite("x", &GameEntity::x)
