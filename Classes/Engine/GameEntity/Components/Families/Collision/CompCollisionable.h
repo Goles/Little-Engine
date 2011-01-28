@@ -1,5 +1,5 @@
 /*
- *  CompCollision.h
+ *  CompCollisionable.h
  *  GandoEngine
  *
  *  Created by Nicolas Goles on 5/7/10.
@@ -7,20 +7,20 @@
  *
  */
 
-#ifndef _CompCollision_H_
-#define _CompCollision_H_
+#ifndef _CompCollisionable_H_
+#define _CompCollisionable_H_
 
 #include <string>
 
 #include "Box2D.h"
 #include "GEComponent.h"
 
-class CompCollision: public GEComponent
+class CompCollisionable: public GEComponent
 {
-	//CompCollision interface
+	//CompCollisionable interface
 public:
-	CompCollision() : entityBody(NULL), tag(NULL){}
-	~CompCollision();
+	CompCollisionable() : entityBody(NULL), tag(NULL){}
+	~CompCollisionable();
 	virtual void setTransform(b2Body * const b) = 0;
 	void setTag(const std::string &name) { if(!tag){ tag = new std::string(name); } else tag->assign(name); }
 	const std::string *getTag() { return tag; }

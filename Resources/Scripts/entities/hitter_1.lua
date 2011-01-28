@@ -108,7 +108,7 @@ TestEntity =
 		},
 		
 		-- Box Collisionable Component
-		gecBoxCollision =
+		gecBoxCollisionable =
 		{
 			size = {width=30, height=40}
 		}

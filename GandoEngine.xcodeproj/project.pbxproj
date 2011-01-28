@@ -189,8 +189,8 @@
 		14D1A85112EDE0570070D86F /* button_attack.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14D1A85012EDE0570070D86F /* button_attack.lua */; };
 		14E31418121E47E200917795 /* CompBehaviour.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E3135B121E47E100917795 /* CompBehaviour.mm */; };
 		14E31419121E47E200917795 /* gecFSM.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E3135D121E47E100917795 /* gecFSM.mm */; };
-		14E3141A121E47E200917795 /* CompCollision.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31360121E47E100917795 /* CompCollision.mm */; };
-		14E3141B121E47E200917795 /* gecBoxCollision.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31362121E47E100917795 /* gecBoxCollision.mm */; };
+		14E3141A121E47E200917795 /* CompCollisionable.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31360121E47E100917795 /* CompCollisionable.mm */; };
+		14E3141B121E47E200917795 /* gecBoxCollisionable.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31362121E47E100917795 /* gecBoxCollisionable.mm */; };
 		14E3141C121E47E200917795 /* gecButton.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31365121E47E100917795 /* gecButton.mm */; };
 		14E3141D121E47E200917795 /* CompTouchable.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31367121E47E100917795 /* CompTouchable.mm */; };
 		14E3141E121E47E200917795 /* gecJoystick.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31369121E47E100917795 /* gecJoystick.mm */; };
@@ -521,10 +521,10 @@
 		14E3135B121E47E100917795 /* CompBehaviour.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CompBehaviour.mm; sourceTree = "<group>"; };
 		14E3135C121E47E100917795 /* gecFSM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecFSM.h; sourceTree = "<group>"; };
 		14E3135D121E47E100917795 /* gecFSM.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecFSM.mm; sourceTree = "<group>"; };
-		14E3135F121E47E100917795 /* CompCollision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompCollision.h; sourceTree = "<group>"; };
-		14E31360121E47E100917795 /* CompCollision.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CompCollision.mm; sourceTree = "<group>"; };
-		14E31361121E47E100917795 /* gecBoxCollision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecBoxCollision.h; sourceTree = "<group>"; };
-		14E31362121E47E100917795 /* gecBoxCollision.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecBoxCollision.mm; sourceTree = "<group>"; };
+		14E3135F121E47E100917795 /* CompCollisionable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompCollisionable.h; sourceTree = "<group>"; };
+		14E31360121E47E100917795 /* CompCollisionable.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CompCollisionable.mm; sourceTree = "<group>"; };
+		14E31361121E47E100917795 /* gecBoxCollisionable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecBoxCollisionable.h; sourceTree = "<group>"; };
+		14E31362121E47E100917795 /* gecBoxCollisionable.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecBoxCollisionable.mm; sourceTree = "<group>"; };
 		14E31364121E47E100917795 /* gecButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecButton.h; sourceTree = "<group>"; };
 		14E31365121E47E100917795 /* gecButton.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecButton.mm; sourceTree = "<group>"; };
 		14E31366121E47E100917795 /* CompTouchable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompTouchable.h; sourceTree = "<group>"; };
@@ -1105,6 +1105,7 @@
 		14E31353121E47E100917795 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				14E31355121E47E100917795 /* Components */,
 				145C8F1912B699810073B0D3 /* Events */,
 				14E31354121E47E100917795 /* Entities */,
 				14E31384121E47E100917795 /* Middleware */,
@@ -1123,7 +1124,6 @@
 		14E31354121E47E100917795 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				14E31355121E47E100917795 /* Components */,
 				14E31382121E47E100917795 /* GameEntity.h */,
 				14E31383121E47E100917795 /* GameEntity.mm */,
 				14B9377512BD14DC00008627 /* id_generator.h */,
@@ -1140,7 +1140,8 @@
 				14E31380121E47E100917795 /* GEComponent.h */,
 				14E31381121E47E100917795 /* GEComponent.mm */,
 			);
-			path = Components;
+			name = Components;
+			path = GameEntity/Components;
 			sourceTree = "<group>";
 		};
 		14E31356121E47E100917795 /* Families */ = {
@@ -1174,10 +1175,10 @@
 		14E3135E121E47E100917795 /* Collision */ = {
 			isa = PBXGroup;
 			children = (
-				14E3135F121E47E100917795 /* CompCollision.h */,
-				14E31360121E47E100917795 /* CompCollision.mm */,
-				14E31361121E47E100917795 /* gecBoxCollision.h */,
-				14E31362121E47E100917795 /* gecBoxCollision.mm */,
+				14E3135F121E47E100917795 /* CompCollisionable.h */,
+				14E31360121E47E100917795 /* CompCollisionable.mm */,
+				14E31361121E47E100917795 /* gecBoxCollisionable.h */,
+				14E31362121E47E100917795 /* gecBoxCollisionable.mm */,
 			);
 			path = Collision;
 			sourceTree = "<group>";
@@ -1880,8 +1881,8 @@
 			files = (
 				14E31418121E47E200917795 /* CompBehaviour.mm in Sources */,
 				14E31419121E47E200917795 /* gecFSM.mm in Sources */,
-				14E3141A121E47E200917795 /* CompCollision.mm in Sources */,
-				14E3141B121E47E200917795 /* gecBoxCollision.mm in Sources */,
+				14E3141A121E47E200917795 /* CompCollisionable.mm in Sources */,
+				14E3141B121E47E200917795 /* gecBoxCollisionable.mm in Sources */,
 				14E3141C121E47E200917795 /* gecButton.mm in Sources */,
 				14E3141D121E47E200917795 /* CompTouchable.mm in Sources */,
 				14E3141E121E47E200917795 /* gecJoystick.mm in Sources */,

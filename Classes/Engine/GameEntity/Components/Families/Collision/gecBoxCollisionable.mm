@@ -1,5 +1,5 @@
 /*
- *  gecBoxCollision.cpp
+ *  gecBoxCollisionable.cpp
  *  GandoEngine
  *
  *  Created by Nicolas Goles on 5/7/10.
@@ -7,19 +7,19 @@
  *
  */
 
-#include "gecBoxCollision.h"
+#include "gecBoxCollisionable.h"
 #include "GandoBox2D.h"
 #include "GameEntity.h"
 
-std::string gecBoxCollision::mGECTypeID = "gecBoxCollision";
+std::string gecBoxCollisionable::mGECTypeID = "gecBoxCollisionable";
 
-gecBoxCollision::gecBoxCollision() : m_size(CGSizeZero)
+gecBoxCollisionable::gecBoxCollisionable() : m_size(CGSizeZero)
 {
 }
 
 #pragma mark -
-#pragma mark CompCollision Interface
-void gecBoxCollision::setTransform(b2Body * const b)
+#pragma mark CompCollisionable Interface
+void gecBoxCollisionable::setTransform(b2Body * const b)
 {
 	//We only apply transformations over our own body.
 	if (b == entityBody)
@@ -31,7 +31,7 @@ void gecBoxCollision::setTransform(b2Body * const b)
 	}
 }
 
-void gecBoxCollision::setSize(CGSize in_size)
+void gecBoxCollisionable::setSize(CGSize in_size)
 {
 	m_size.width = in_size.width/PTM_RATIO;
 	m_size.height = in_size.height/PTM_RATIO;
@@ -40,7 +40,7 @@ void gecBoxCollision::setSize(CGSize in_size)
 
 #pragma mark -
 #pragma mark GEComponent Interface
-void gecBoxCollision::update(float delta)
+void gecBoxCollisionable::update(float delta)
 {
 	/* Perform the updates for this entity here. */
 	if(entityBody == NULL)
@@ -51,7 +51,7 @@ void gecBoxCollision::update(float delta)
 
 //Override setOwnerGE to automaically assign a boxCollisionShape to the 
 //GameEntity in question.
-void gecBoxCollision::createB2dBodyDef(void)
+void gecBoxCollisionable::createB2dBodyDef(void)
 {	
 	//Define our Box2d body
 	b2BodyDef spriteBodyDef;

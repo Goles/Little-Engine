@@ -8,23 +8,23 @@
  */
 
 #include "GandoBox2D.h"
-#include "GLES-Render.h"
 #include "GandoBox2DDebug.h"
-#include "ConstantsAndMacros.h"
-#include "GameEntity.h"
-#include "gecBoxCollision.h"
-#include "gecFSM.h"
-#include "gecWeapon.h"
+#include "CompCollisionable.h"
+#include "GLES-Render.h"
+
 #include "EventBroadcaster.h"
+#include "GameEntity.h"
+
+#include "ConstantsAndMacros.h"
 
 GandoBox2D* GandoBox2D::instance = NULL;
 
 #pragma mark -
 #pragma mark init
-GandoBox2D::GandoBox2D() : world(NULL), contactListener(NULL)
+GandoBox2D::GandoBox2D() : world(NULL), contactListener(NULL), debugDraw(NULL)
 {
 	this->initBaseWorld();
-//	this->initDebugDraw();
+	//	this->initDebugDraw();
 }
 
 void GandoBox2D::initBaseWorld()
@@ -92,7 +92,7 @@ b2World* GandoBox2D::getWorld() const
 	return world;
 }
 
-void GandoBox2D::update(float delta)
+void GandoBox2D::update(const float delta)
 {
 	//It is recommended that a fixed time step is used with Box2D for stability
 	//of the simulation, however, we are using a variable time step here.
@@ -108,28 +108,17 @@ void GandoBox2D::update(float delta)
 	
 	//Iterate over the bodies in the physics world and apply transformations
 	//To keep in Sync with our Entity World
-	//TODO: This is just temporary, in the future EVERYTHING that colides is a 
-	//CompCollision object.
 	for (b2Body* b = world->GetBodyList(); b; b = b->GetNext())
 	{
-		if (b->GetUserData() != 0) {
+		CompCollisionable *ccp = static_cast<CompCollisionable *>(b->GetUserData());
+		
+		if (ccp != NULL) 
+		{
 			//Synchronize the Sprites position and rotation with the corresponding body
-			GEComponent *gc = static_cast<GEComponent *>(b->GetUserData());
-			
-			if(gc->componentID().compare("gecBoxCollision") == 0)
-			{
-				gecBoxCollision *c_col = (gecBoxCollision *)gc;
-				c_col->setTransform(b);
-				
-			}
-			/*
-			else if(gc->componentID().compare("gecWeapon") == 0){
-				gecWeapon *c_weap = static_cast<gecWeapon *> (gc);
-				c_weap->setTransform(b);
-			}*/
+			ccp->setTransform(b);
 		}	
 	}
-
+	
 	//Get our constant contacts vector reference and declare an appropiate const
 	//iterator.
 	const vector<GContact> *contacts = contactListener->getContacts();
@@ -140,66 +129,35 @@ void GandoBox2D::update(float delta)
 		GContact contact = *it;
 		
 		//Check contact between two bodies.
-		b2Body *bodyA = contact.fixtureA->GetBody();
-		b2Body *bodyB = contact.fixtureB->GetBody();
+		b2Body *b2body_p1 = contact.fixtureA->GetBody();
+		b2Body *b2body_p2 = contact.fixtureB->GetBody();
+		
+		//Obtain user data (pointers to CompCollisionable in ggengine)
+		CompCollisionable *ccp1 = static_cast<CompCollisionable *>(b2body_p1->GetUserData());
+		CompCollisionable *ccp2 = static_cast<CompCollisionable *>(b2body_p2->GetUserData());
 		
 		//If we have an entity in each of the bodies
-		if(bodyA->GetUserData() != NULL && bodyB->GetUserData() != NULL)
-		{
-			GEComponent *geA = (GEComponent *)(bodyA->GetUserData());
-			GEComponent *geB = (GEComponent *)(bodyB->GetUserData());
-			
-			if (geA->getOwnerGE() != geB->getOwnerGE())
-			{
-				gecBoxCollision *collisionBoxA = NULL;
-				gecWeapon *componentWeaponA = NULL;
-				gecBoxCollision *collisionBoxB = NULL;
-				gecWeapon *componentWeaponB = NULL;
-				
-				//Checks for componentA.
-				if (geA->componentID().compare("gecBoxCollision") == 0)
-					collisionBoxA = (gecBoxCollision *)geA;
-				else if (geA->componentID().compare("gecWeapon") == 0)
-					componentWeaponA = (gecWeapon *)geA;
-				
-				//Checks for componentB
-				if (geB->componentID().compare("gecBoxCollision") == 0)
-					collisionBoxB = (gecBoxCollision *)geB;
-				else if (geB->componentID().compare("gecWeapon") == 0)
-					componentWeaponB = (gecWeapon *)geB;
-				
-				if(componentWeaponA && collisionBoxB)
-				{
-					if(componentWeaponA->getActive())
-					{
-						GEComponent *gec = collisionBoxB->getOwnerGE()->getGEC("CompBehaviour");
-						if(gec->componentID().compare("gecFSM") == 0)
-						{
-							//gecFSM *fsm = (gecFSM *)gec;
-							
-							//if(fsm->getState() != kBehaviourState_hit)
-								//fsm->performAction(kBehaviourAction_hit);
-						}
-					}
-				}
-					
+		if(ccp1 && ccp2)
+		{	
+			if (ccp1->getOwnerGE() != ccp2->getOwnerGE())
+			{				
 				//If we have two different bodies colliding
-				if (collisionBoxA != NULL && collisionBoxB != NULL)
+				if (ccp1 && ccp2)
 				{					
-					geB->getOwnerGE()->x -= 2.0f * (bodyA->GetPosition().x - bodyB->GetPosition().x);
-					geB->getOwnerGE()->y -= 2.0f * (bodyA->GetPosition().y - bodyB->GetPosition().y);
-					this->notifyCollisionEntity(*geA);
+					ccp2->getOwnerGE()->x -= 2.0f * (b2body_p1->GetPosition().x - b2body_p2->GetPosition().x);
+					ccp2->getOwnerGE()->y -= 2.0f * (b2body_p1->GetPosition().y - b2body_p2->GetPosition().y);
+					this->notifyCollisionEntity(ccp1->getOwnerGE());
 				}
 			}
 		}
 	}	
 }
 
-void GandoBox2D::notifyCollisionEntity(const GEComponent &in_collisionable)
+void GandoBox2D::notifyCollisionEntity(const GameEntity * const in_entity)
 {
+	//TODO:Add payload data of the collisioned entity.
 	luabind::object payload = luabind::newtable(LR_MANAGER_STATE);
-	
-	gg::event::notify_target_entity("E_COLLISION", payload, in_collisionable.getOwnerGE()->getId());
+	gg::event::notify_target_entity("E_COLLISION", payload, in_entity->getId());
 }
 
 #pragma mark -
@@ -221,7 +179,7 @@ void GandoBox2D::debugRender()
 		std::cout << "Box2d world is NULL, please check that you initialized it" << std::endl;
 		assert(world != NULL);
 	}
-
+	
 	std::vector<Gbox*>::iterator it;
 	
 	for(it = boxes.begin(); it < boxes.end(); ++it)
@@ -306,4 +264,5 @@ GandoBox2D::~GandoBox2D()
 	
 	if(contactListener != NULL)
 		delete contactListener;
+	
 }

@@ -7,8 +7,8 @@
  *
  */
 
-#ifndef _GANDO_BOX_2D_DEBUG_H_
-#define _GANDO_BOX_2D_DEBUG_H_
+#ifndef __GANDO_BOX_2D_DEBUG_H__
+#define __GANDO_BOX_2D_DEBUG_H__
 
 #include "Image.h"
 #include "Box2D.h"

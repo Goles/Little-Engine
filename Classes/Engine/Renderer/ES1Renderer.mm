@@ -22,7 +22,7 @@
 #include "Image.h"
 #include "gecScrollingBackground.h"
 #include <boost/bind.hpp>
-#include "gecBoxCollision.h"
+#include "gecBoxCollisionable.h"
 #include "gecWeapon.h"
 #include "LuaRegisterManager.h"
 #include "ggEngine.h"

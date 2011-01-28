@@ -28,7 +28,7 @@
 #include "gecFSM.h"
 #include "gecJoystick.h"
 #include "gecButton.h"
-#include "gecBoxCollision.h"
+#include "gecBoxCollisionable.h"
 
 #include "SharedSceneManager.h"
 
@@ -108,7 +108,7 @@ namespace gg
 			LR_MANAGER->registrate<gecFSM>();
 			LR_MANAGER->registrate<gecJoystick>();
 			LR_MANAGER->registrate<gecButton>();
-			LR_MANAGER->registrate<gecBoxCollision>();
+			LR_MANAGER->registrate<gecBoxCollisionable>();
 			LR_MANAGER->registrate<GameEntity>();
 			LR_MANAGER->registrate<Scene>();
 		}

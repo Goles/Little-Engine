@@ -1,5 +1,5 @@
 /*
- *  CompCollision.cpp
+ *  CompCollisionable.cpp
  *  GandoEngine
  *
  *  Created by Nicolas Goles on 5/7/10.
@@ -7,14 +7,14 @@
  *
  */
 
-#include "CompCollision.h"
+#include "CompCollisionable.h"
 #include "GandoBox2D.h"
 
-std::string CompCollision::mFamilyID = "CompCollision";
+std::string CompCollisionable::mFamilyID = "CompCollisionable";
 
 #pragma mark -
 #pragma mark destroy
-CompCollision::~CompCollision()
+CompCollisionable::~CompCollisionable()
 {
 	GBOX_2D_WORLD->DestroyBody(entityBody);
 }

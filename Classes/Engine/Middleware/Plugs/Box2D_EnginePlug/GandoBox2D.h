@@ -46,7 +46,7 @@ class GLESDebugDraw; /** < Forward declaration for GLESDebugDraw */
 	The main purpose of this class is to synchronize the Box2D world with the 
 	GGEngine world. The class is a singleton.
  */
-class	GandoBox2D
+class GandoBox2D
 {
 public:
 	~GandoBox2D();
@@ -67,7 +67,7 @@ public:
 		algorithms of Box2D.
 	 @param delta is the interval of time since the last update was called, usually 1/60 (60 fps)	 
 	 */
-	void				update(float delta);
+	void				update(const float delta);
 	
 	/** Returns the constant b2World (box2d world) for you to access some of it's elements
 		in a more direct way. 
@@ -112,7 +112,7 @@ protected:
 	/** Protected constructor to respect the singleton pattern. */
 	GandoBox2D();
 	
-	void notifyCollisionEntity(const GEComponent &in_collisionable);
+	void notifyCollisionEntity(const GameEntity * const in_entity);
 //------------------------------------------------------------------------------	
 private:
 	b2World*			world; /** < Instance of the Box2D world*/

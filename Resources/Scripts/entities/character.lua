@@ -132,7 +132,7 @@ Character =
 		},
 		
 		-- Simple box collision component
-		gecBoxCollision =
+		gecBoxCollisionable =
 		{
 			size = {height=40, width=40}
 		},

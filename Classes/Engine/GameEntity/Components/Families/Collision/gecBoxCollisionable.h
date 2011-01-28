@@ -1,5 +1,5 @@
 /*
- *  gecBoxCollision.h
+ *  gecBoxCollisionable.h
  *  GandoEngine
  *
  *  Created by Nicolas Goles on 5/7/10.
@@ -7,13 +7,13 @@
  *
  */
 
-#ifndef __gecBoxCollision_H__
-#define __gecBoxCollision_H__
+#ifndef __gecBoxCollisionable_H__
+#define __gecBoxCollisionable_H__
 
-#include "CompCollision.h"
+#include "CompCollisionable.h"
 #include "LuaRegisterManager.h"
 
-class gecBoxCollision: public CompCollision
+class gecBoxCollisionable: public CompCollisionable
 {
 	
 	//GEComponent Interface
@@ -21,13 +21,13 @@ public:
 	virtual const gec_id_type &componentID() const { return mGECTypeID; }
 	virtual void update(float delta);	
 	
-	//CompCollision interface
+	//CompCollisionable interface
 public:
 	virtual void setTransform(b2Body * const b);
 	
-	//gecBoxCollision interface
+	//gecBoxCollisionable interface
 public:
-	gecBoxCollision();
+	gecBoxCollisionable();
 	void setSize(const CGSize in_size);
 	void createB2dBodyDef(void);	
 	
@@ -35,9 +35,9 @@ public:
 	{
 		luabind::module(LR_MANAGER_STATE)
 		[
-		 luabind::class_<gecBoxCollision, GEComponent>("gecBoxCollision")
+		 luabind::class_<gecBoxCollisionable, GEComponent>("gecBoxCollisionable")
 		 .def(luabind::constructor<>())
-		 .def("setSize", &gecBoxCollision::setSize)
+		 .def("setSize", &gecBoxCollisionable::setSize)
 		];
 	}
 	

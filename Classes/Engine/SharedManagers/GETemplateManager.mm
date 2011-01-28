@@ -21,7 +21,7 @@
 #include "gecFSM.h"
 #include "gecImage.h"
 #include "gecScrollingBackground.h"
-#include "gecBoxCollision.h"
+#include "gecBoxCollisionable.h"
 #include "gecWeapon.h"
 
 GETemplateManager* GETemplateManager::singletonInstance = NULL;
@@ -232,7 +232,7 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	gE->setGEC(fsm);
 	
 	//Attach collisioning to the entity:
-//	gecBoxCollision *gbc = new gecBoxCollision();
+//	gecBoxCollisionable *gbc = new gecBoxCollisionable();
 //	gbc->setOwnerGE(gE);
 //	gE->setGEC(gbc);
 	
