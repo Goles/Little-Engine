@@ -20,36 +20,30 @@ public:
 	//Abstract ICompCamera Implementation
 	virtual void update(float delta);
 	virtual void restore();
-	virtual void locate();
-	gecFollowingCamera() :	m_dirty(false), 
-							m_eye(Vector3DMake(0.0f, 0.0f, FLT_EPSILON)), 
-							m_center(Vector3DMake(0.0f, 0.0f, 0.0f)),
-							m_up(Vector3DMake(0.0f, 1.0f, 0.0f)){}
-	
+	virtual void locate();			
+	gecFollowingCamera() :	m_eye_x(0.0f),
+							m_eye_y(0.0f),
+							m_eye_z(1.0f),
+							m_center_x(0.0f),
+							m_center_y(0.0f),
+							m_center_z(0.0f),
+							m_up_x(0.0f),
+							m_up_y(1.0f),
+							m_up_z(0.0f),
+							m_dirty(true),
+							m_follow_x(true),
+							m_follow_y(true){}
+		
 	//GEComponent Implementation
 	virtual const gec_id_type &componentID() const { return m_id; }
 	
 	//Setters & Getters
-	void setEye(const Vector3D &in_eye) { m_eye = in_eye; m_dirty = true; }
-	void setCenter(const Vector3D &in_center){ m_center = in_center; m_dirty = true; }
-	void setUp(const Vector3D &in_up){ m_up = in_up; m_dirty = true; }
 	bool getDirty() { return m_dirty; }	
 	float getZEye(){ return FLT_EPSILON; }
-	void setX(int in_x) {
-		x = in_x;
-	}
-	
-	void setY(int in_y) {
-		y = in_y;
-	}
-	
-	int getY() {
-		return y;
-	}
-	
-	int getX(){
-		return x;
-	}
+	bool getFollowX() { return m_follow_x; }
+	void setFollowX(bool doesFollow) { m_follow_x = doesFollow; }
+	bool getFollowY() { return m_follow_y; }
+	void setFollowY(bool doesFollow) { m_follow_y = doesFollow; }
 	
 	static void registrate()
 	{
@@ -57,22 +51,19 @@ public:
 		[
 		 luabind::class_<gecFollowingCamera, GEComponent>("gecFollowingCamera")
 		 .def(luabind::constructor<>())
-		 .property("x", &gecFollowingCamera::getX, &gecFollowingCamera::setX)
-		 .property("y", &gecFollowingCamera::getY, &gecFollowingCamera::setY)
-		 .def("setEye", &gecFollowingCamera::setEye)
-		 .def("setCenter", &gecFollowingCamera::setCenter)
-		 .def("setUp", &gecFollowingCamera::setEye)
+		 .property("follow_x", &gecFollowingCamera::getFollowX, &gecFollowingCamera::setFollowX)
+		 .property("follow_y", &gecFollowingCamera::getFollowY, &gecFollowingCamera::setFollowY)
 		 ];
 	}
 	
 private:
-	static std::string m_id;		
-	bool m_dirty;	
-	Vector3D m_eye;
-	Vector3D m_center;
-	Vector3D m_up;
-	int x; 
-	int y;
+	static std::string m_id;
+	int	 m_eye_x, m_eye_y, m_eye_z;
+	int	 m_center_x, m_center_y, m_center_z;
+	int	 m_up_x, m_up_y, m_up_z;
+	bool m_dirty;
+	bool m_follow_x;
+	bool m_follow_y;
 };
 
 #endif

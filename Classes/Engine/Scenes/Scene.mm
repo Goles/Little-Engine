@@ -9,6 +9,7 @@
 #include "Scene.h"
 #include "SharedParticleSystemManager.h"
 #include "gecVisual.h"
+#include "ICompCamera.h"
 
 #include <OpenGLES/ES1/gl.h>
 
@@ -47,19 +48,30 @@ void Scene::render()
 	
 	glPushMatrix();
 	
-	this->transform();
+	//Apply Camera transformations
+	for (e_it = entityList.begin(); e_it < entityList.end(); ++e_it)
+	{
+		if((*e_it)->isActive)
+		{	
+			ICompCamera *camera_p = static_cast<ICompCamera *> ((*e_it)->getGEC(std::string("ICompCamera")));
+			
+			if(camera_p != NULL)
+			{
+				camera_p->locate();
+			}
+		}
+	}
 	
 	//Render our entities
 	for (e_it = entityList.begin(); e_it < entityList.end(); ++e_it)
 	{
 		if((*e_it)->isActive)
-		{	
-			GEComponent *gec = (*e_it)->getGEC(std::string("CompVisual"));
-			gecVisual *gvis	 = static_cast<gecVisual*> (gec);
+		{
+			gecVisual *visual_p	 = static_cast<gecVisual *> ((*e_it)->getGEC(std::string("CompVisual")));
 			
-			if( gvis )
+			if(visual_p != NULL)
 			{
-				gvis->render();
+				visual_p->render();
 			}
 		}
 	}

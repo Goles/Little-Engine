@@ -9,41 +9,62 @@
 
 #include "gecFollowingCamera.h"
 #include "GameEntity.h"
+#include <OpenGLES/ES1/gl.h>
 #include <iostream>
 
 std::string gecFollowingCamera::m_id = "gecFollowingCamera";
 
 void gecFollowingCamera::update(float delta)
 {
-//	glMatrixMode(GL_PROJECTION); 
-//	glLoadIdentity();
-//	glRotatef(-90.0, 0.0, 0.0, 1.0);
-//	std::cout << x << " " << y << std::endl;
-//	glOrthof(this->getOwnerGE()->x - 240, 480+this->getOwnerGE()->x - 240, 0, 320, -1, 1);
-//	glMatrixMode(GL_MODELVIEW);
+	GameEntity *ownerge_p = this->getOwnerGE();
 	
-	glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-    gluLookAt(this->getOwnerGE()->x - 240,0,1,
-			  this->getOwnerGE()->x-240,0,0,
-			  0,1,0);
+	if(m_follow_x)
+	{
+		if(m_eye_x != ownerge_p->x || m_center_x != ownerge_p->x)
+		{
+			m_eye_x = ownerge_p->x;
+			m_center_x = ownerge_p->x;
+			m_dirty = true;
+		}
+	}
+	
+	if(m_follow_y)
+	{
+		if(m_eye_y != ownerge_p->y || m_center_y != ownerge_p->x)
+		{
+			m_eye_y = ownerge_p->y;
+			m_center_y = ownerge_p->y;
+			m_dirty = true;
+		}
+	}
 }
 
 void gecFollowingCamera::restore()
 {
-	m_eye = Vector3DMake(0.0f, 0.0f, FLT_EPSILON);
-	m_center = Vector3DMake(0.0f, 0.0f, 0.0f);
-	m_up = Vector3DMake(0.0f, 1.0f, 0.0f);	
-	m_dirty = false;
+	m_eye_x = 0.0f;
+	m_eye_y = 0.0f;
+	m_eye_z = 1.0f;
+	m_center_x = 0.0f;
+	m_center_y = 0.0f;
+	m_center_z = 0.0f;
+	m_up_x = 0.0f;
+	m_up_y = 1.0f;
+	m_up_z = 0.0f;
+	m_dirty = true;
 }
 
 void gecFollowingCamera::locate()
 {
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	if( m_dirty )
-		gluLookAt(m_eye.x, m_eye.y, m_eye.z,
-				  m_center.x, m_center.y, m_center.z,
-				  m_up.x, m_up.y, m_up.z
+	
+	if (m_dirty)
+	{
+		gluLookAt(m_eye_x - 240, m_eye_y - 160, m_eye_z,
+				  m_center_x - 240, m_center_y - 160, m_center_z,
+				  m_up_x, m_up_y, m_up_z
 				  );
+		
+		m_dirty = false;
+	}	
 }

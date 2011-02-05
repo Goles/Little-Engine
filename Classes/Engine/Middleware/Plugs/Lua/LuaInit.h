@@ -50,7 +50,8 @@ namespace gg
 				luabind::def("fileRelativePath", &FileUtils::relativeCPathForFile),
 				luabind::def("filePath", &FileUtils::fullCPathFromRelativePath),
 				luabind::def("ggr", &CGRectMake),
-				luabind::def("ggs", &CGSizeMake)
+				luabind::def("ggs", &CGSizeMake),
+				luabind::def("gluLookAt", &gluLookAt)
 			 ];
         }
         
