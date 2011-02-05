@@ -26,7 +26,7 @@
 #include "gecWeapon.h"
 #include "LuaRegisterManager.h"
 #include "ggEngine.h"
-#include "SharedSceneManager.h"
+#include "SceneManager.h"
 
 @implementation ES1Renderer
 
@@ -120,48 +120,48 @@
 
 - (void) offsetTest
 {
-	aSceneManager = new Scene();
-	aSceneManager->setSceneLabel("main_scene");
-	
-	//Declare our game entities
-	GameEntity *b		= GE_FACTORY->createGE("scrollingBackground", 0, 320.0);
-	GameEntity *hitter	= GE_FACTORY->createGE("hitter1", 240.0f, 120.0f);
-	GameEntity *j		= GE_FACTORY->createGE("joypad",  75.0f, 65.0f);
-	GameEntity *button	= GE_FACTORY->createGE("buttonAttack", 400.0f, 50.0f);
-	//GameEntity *hitter2 = GE_FACTORY->createGE("hitter1", 200, 160.0f);
-	//GameEntity *hitter3 = GE_FACTORY->createGE("hitter1", 320.0f, 160.0f);
-	
-	srand(time(NULL));
-	
-	for(int i = 0; i < 20; i++)
-	{
-		std::cout << "Entity " << i << std::endl;
-		GameEntity *h = GE_FACTORY->createGE("hitter1", rand()%400 + 20, rand()%80 + 80);
-		aSceneManager->addEntity(h);
-	}
-	
-	//Configure our button
-//	((gecButton *)button->getGEC("CompGUI"))->setActionPressed(kBehaviourAction_doAttack);
-//	((gecButton *)button->getGEC("CompGUI"))->setActionReleased(kBehaviourAction_stopAttack);
-//	((gecButton	*)button->getGEC("CompGUI"))->addSignal(boost::bind(&gecFSM::performAction, 
-//																	(gecFSM*)hitter->getGEC("CompBehaviour"), _1));
-//((gecJoystick *)j->getGEC("CompGUI"))->subscribeGameEntity(hitter);
-	
-	//Subscribe entity
-	((gecScrollingBackground *)b->getGEC("CompVisual"))->setSubscribedGE(hitter);
-	
-	//Add everything to the Scene.
-//	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_Smoke, CGPointMake(240, 140), "smoke.pvr"));
-	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainGiant, CGPointMake(320, 50), "Particle2.pvr"));
-	aSceneManager->addEntity(b);
-	aSceneManager->addEntity(hitter);
-//	aSceneManager->addEntity(hitter2);
-//	aSceneManager->addEntity(hitter3);	
-	aSceneManager->addEntity(j);
-	aSceneManager->addEntity(button);
-	
-	SCENE_MANAGER->addScene(aSceneManager);
-	SCENE_MANAGER->setActiveScene("main_scene");
+//	aSceneManager = new Scene();
+//	aSceneManager->setSceneLabel("main_scene");
+//	
+//	//Declare our game entities
+//	GameEntity *b		= GE_FACTORY->createGE("scrollingBackground", 0, 320.0);
+//	GameEntity *hitter	= GE_FACTORY->createGE("hitter1", 240.0f, 120.0f);
+//	GameEntity *j		= GE_FACTORY->createGE("joypad",  75.0f, 65.0f);
+//	GameEntity *button	= GE_FACTORY->createGE("buttonAttack", 400.0f, 50.0f);
+//	//GameEntity *hitter2 = GE_FACTORY->createGE("hitter1", 200, 160.0f);
+//	//GameEntity *hitter3 = GE_FACTORY->createGE("hitter1", 320.0f, 160.0f);
+//	
+//	srand(time(NULL));
+//	
+//	for(int i = 0; i < 20; i++)
+//	{
+//		std::cout << "Entity " << i << std::endl;
+//		GameEntity *h = GE_FACTORY->createGE("hitter1", rand()%400 + 20, rand()%80 + 80);
+//		aSceneManager->addEntity(h);
+//	}
+//	
+//	//Configure our button
+////	((gecButton *)button->getGEC("CompGUI"))->setActionPressed(kBehaviourAction_doAttack);
+////	((gecButton *)button->getGEC("CompGUI"))->setActionReleased(kBehaviourAction_stopAttack);
+////	((gecButton	*)button->getGEC("CompGUI"))->addSignal(boost::bind(&gecFSM::performAction, 
+////																	(gecFSM*)hitter->getGEC("CompBehaviour"), _1));
+////((gecJoystick *)j->getGEC("CompGUI"))->subscribeGameEntity(hitter);
+//	
+//	//Subscribe entity
+//	((gecScrollingBackground *)b->getGEC("CompVisual"))->setSubscribedGE(hitter);
+//	
+//	//Add everything to the Scene.
+////	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_Smoke, CGPointMake(240, 140), "smoke.pvr"));
+//	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainGiant, CGPointMake(320, 50), "Particle2.pvr"));
+//	aSceneManager->addEntity(b);
+//	aSceneManager->addEntity(hitter);
+////	aSceneManager->addEntity(hitter2);
+////	aSceneManager->addEntity(hitter3);	
+//	aSceneManager->addEntity(j);
+//	aSceneManager->addEntity(button);
+//	
+//	SCENE_MANAGER->addScene(aSceneManager);
+//	SCENE_MANAGER->setActiveScene("main_scene");
 }
 
 - (void) fsmTest
@@ -174,37 +174,37 @@
 	//((gecButton *)button->getGEC("CompGUI"))->setActionReleased(kBehaviourAction_stopAttack);
 	//((gecButton	*)button->getGEC("CompGUI"))->addSignal(boost::bind(&gecFSM::performAction, (gecFSM*)hitter->getGEC("CompBehaviour"), _1));
 	
-	//Add everything to the Scene.
-	aSceneManager->addEntity(hitter);
-	aSceneManager->addEntity(button);
+//	//Add everything to the Scene.
+//	aSceneManager->addEntity(hitter);
+//	aSceneManager->addEntity(button);
 }
 
 - (void) multiTouchTest
 {
-	aSceneManager->addEntity(GE_FACTORY->createGE("buttonDummy", 240.0f, 160.0f));
-	aSceneManager->addEntity(GE_FACTORY->createGE("buttonDummy", 100.0f, 100.0f));
+//	aSceneManager->addEntity(GE_FACTORY->createGE("buttonDummy", 240.0f, 160.0f));
+//	aSceneManager->addEntity(GE_FACTORY->createGE("buttonDummy", 100.0f, 100.0f));
 }
 
 - (void) particlesShowOff
 {
-	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainGiant, CGPointMake(160, 60) , "Particle2.pvr"));
-	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_Smoke, CGPointMake(240, 120) , "smoke.pvr"));
-	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainBig, CGPointMake(240, 100), "Particle2.pvr"));
-	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainGiant, CGPointMake(320, 60) , "Particle2.pvr"));
+//	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainGiant, CGPointMake(160, 60) , "Particle2.pvr"));
+//	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_Smoke, CGPointMake(240, 120) , "smoke.pvr"));
+//	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainBig, CGPointMake(240, 100), "Particle2.pvr"));
+//	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainGiant, CGPointMake(320, 60) , "Particle2.pvr"));
 }
 
 - (void) particlesTest
 {		
-	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(50, 100) , "Particle2.pvr"));
-	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireMedium, CGPointMake(100, 100), "Particle2.pvr"));
-	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireBig, CGPointMake(150, 100), "Particle2.pvr"));
-	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_ExplosionSmall, CGPointMake(200, 100), "Particle2.pvr"));
-	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_ExplosionMedium, CGPointMake(250, 100), "Particle2.pvr"));
-	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_ExplosionBig, CGPointMake(300, 100), "Particle2.pvr"));
-	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainSmall, CGPointMake(350, 100), "Particle2.pvr"));
-	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainMedium, CGPointMake(400, 100), "Particle2.pvr"));
-	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainBig, CGPointMake(450, 100), "Particle2.pvr"));
-	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_Smoke, CGPointMake(140, 265), "smoke.pvr"));
+//	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireSmall, CGPointMake(50, 100) , "Particle2.pvr"));
+//	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireMedium, CGPointMake(100, 100), "Particle2.pvr"));
+//	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FireBig, CGPointMake(150, 100), "Particle2.pvr"));
+//	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_ExplosionSmall, CGPointMake(200, 100), "Particle2.pvr"));
+//	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_ExplosionMedium, CGPointMake(250, 100), "Particle2.pvr"));
+//	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_ExplosionBig, CGPointMake(300, 100), "Particle2.pvr"));
+//	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainSmall, CGPointMake(350, 100), "Particle2.pvr"));
+//	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainMedium, CGPointMake(400, 100), "Particle2.pvr"));
+//	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_FountainBig, CGPointMake(450, 100), "Particle2.pvr"));
+//	aSceneManager->addEntity(PARTICLE_MANAGER->createParticleSystem(kParticleSystemFX_Smoke, CGPointMake(140, 265), "smoke.pvr"));
 }
 
 - (void) textureManagerTest:(NSString *) inTextureName
@@ -233,17 +233,14 @@
 	glRotatef(-90.0, 0.0, 0.0, 1.0);
 	glOrthof(0, 480, 0, 320, -1, 1);
 	glMatrixMode(GL_MODELVIEW);
-	glEnable(GL_DEPTH_TEST);
+	//glEnable(GL_DEPTH_TEST);
 }
 
 #pragma mark update_game
-- (void) update:(float)delta
-{	
-	if(aSceneManager)
-		aSceneManager->updateScene(delta);
-
+- (void) update:(float) delta
+{
 	SCENE_MANAGER->getActiveScene()->sortEntitiesY();
-	SCENE_MANAGER->getActiveScene()->updateScene(delta);
+	SCENE_MANAGER->getActiveScene()->update(delta);
 	GBOX_2D->update(delta);
 }
 
@@ -261,16 +258,8 @@
 	
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
-		
-//	if(aSceneManager != NULL)
-//	{
-//		aSceneManager->renderScene();
-//	}
 	
-	Scene *a = SCENE_MANAGER->getActiveScene();
-	
-	if(a)
-		a->renderScene();
+	SCENE_MANAGER->getActiveScene()->render();
 	
 	GBOX_2D->debugRender();
 	

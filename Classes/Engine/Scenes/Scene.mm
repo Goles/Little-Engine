@@ -10,34 +10,51 @@
 #include "SharedParticleSystemManager.h"
 #include "gecVisual.h"
 
-//Constructor
-#pragma mark contructor
-Scene::Scene() : label("unnamed_scene")
+#include <OpenGLES/ES1/gl.h>
+
+
+Scene::Scene() : m_label("unnamed_scene"), m_zOrder(-1), m_position(CGPointZero)
 {
 	//Init some stuff here.
 }
 
-#pragma mark drawing_updating
-void Scene::updateScene(float delta)
-{	
-	ENTITY_VECTOR_ITERATOR it ;
+void Scene::update(float delta)
+{		
+	ENTITY_VECTOR::iterator e_it;
+	SCENE_VECTOR::iterator s_it;
 	
-	for(it = entityList.begin(); it < entityList.end(); ++it)
+	//Update our Entities
+	for(e_it = entityList.begin(); e_it < entityList.end(); ++e_it)
 	{
-		if((*it) != NULL)
-			if((*it)->isActive)
-				(*it)->update(delta);
+		if((*e_it) != NULL)
+			if((*e_it)->isActive)
+			{
+				(*e_it)->update(delta);
+			}
+	}
+	
+	//update our Children Scenes
+	for(s_it = m_children.begin(); s_it < m_children.end(); ++s_it)
+	{
+		(*s_it)->update(delta);
 	}
 }
 
-void Scene::renderScene()
-{
-	ENTITY_VECTOR::const_iterator it ;
+void Scene::render()
+{	
+	ENTITY_VECTOR::const_iterator e_it;
+	SCENE_VECTOR::const_iterator s_it;
 	
-	for (it = entityList.begin(); it < entityList.end(); ++it)
+	glPushMatrix();
+	
+	this->transform();
+	
+	//Render our entities
+	for (e_it = entityList.begin(); e_it < entityList.end(); ++e_it)
 	{
-		if((*it)->isActive)
-		{	GEComponent *gec = (*it)->getGEC(std::string("CompVisual"));
+		if((*e_it)->isActive)
+		{	
+			GEComponent *gec = (*e_it)->getGEC(std::string("CompVisual"));
 			gecVisual *gvis	 = static_cast<gecVisual*> (gec);
 			
 			if( gvis )
@@ -46,13 +63,25 @@ void Scene::renderScene()
 			}
 		}
 	}
+	
+	//Render our Child Scenes
+	for (s_it = m_children.begin(); s_it < m_children.end(); ++s_it)
+	{
+		(*s_it)->render();
+	}
+	
+	glPopMatrix();
 }
 
-#pragma mark remove_add
-/*
- * Methods to add/remove several Kinds of "GameEntities" to the entityList
- */
-GameEntity *Scene::addEntity(GameEntity *inGameEntity)
+void Scene::transform()
+{
+	if(m_position.x != 0 || m_position.y != 0)
+	{
+		glTranslatef(m_position.x, m_position.y, 0);
+	}
+}
+
+GameEntity *Scene::addGameEntity(GameEntity *inGameEntity)
 {	
 	entityList.push_back(inGameEntity);
 	
@@ -60,9 +89,9 @@ GameEntity *Scene::addEntity(GameEntity *inGameEntity)
 	return inGameEntity;
 }
 
-void Scene::removeEntity(GameEntity *inGameEntity)
+void Scene::removeGameEntity(GameEntity *inGameEntity)
 {
-	ENTITY_VECTOR_ITERATOR it = entityList.begin();
+	ENTITY_VECTOR::iterator it = entityList.begin();
 
 	while (it != entityList.end())
 	{
@@ -76,19 +105,55 @@ void Scene::removeEntity(GameEntity *inGameEntity)
 void Scene::sortEntitiesX()
 {
 	std::sort(entityList.begin(), entityList.end(), GameEntity::compareByX());	
+
+	if(m_children.size() == 0)
+		return;
+	
+	SCENE_VECTOR::iterator s_it;
+	
+	for(s_it = m_children.begin(); s_it < m_children.end(); ++s_it)
+	{
+		(*s_it)->sortEntitiesY();
+	}
 }
 
 void Scene::sortEntitiesY()
 {
 	std::sort(entityList.begin(), entityList.end(), GameEntity::compareByY());
+	
+	if(m_children.size() == 0)
+		return;
+		
+	SCENE_VECTOR::iterator s_it;
+	
+	for(s_it = m_children.begin(); s_it < m_children.end(); ++s_it)
+	{
+		(*s_it)->sortEntitiesY();
+	}		
+}
+
+void Scene::addChild(Scene *child)
+{
+	assert(child->getZOrder() != -1);
+	
+	m_children.push_back(child);
+	std::sort(m_children.begin(), m_children.end(), compareByZOrder());
+}
+
+void Scene::removeChild(Scene *child)
+{
+	// we have to make a remove child function
 }
 
 #pragma mark debug
 void Scene::debugPrintEntityList()
 {
-	std::cout << "*** DEBUG Print Entity List ( Scene Manager ) ***" << std::endl;
+	std::cout << "*** DEBUG Print Entity List [ Scene: " << m_label << " ] ***" << std::endl;
 	
-	ENTITY_VECTOR_ITERATOR it = entityList.begin();
+	if(entityList.size() == 0)
+		std::cout << "EMPTY" << std::endl;
+	
+	ENTITY_VECTOR::iterator it = entityList.begin();
 	
 	int i = 0;
 	
@@ -97,10 +162,25 @@ void Scene::debugPrintEntityList()
 		if(*it)
 		{
 			std::cout << "\nEntity " << i << " [" << (*it) << "] - " <<"[" << (*it)->x << "][" <<(*it)->y <<  "]" << std::endl;
-			//(*it)->debugPrintComponents();
+			(*it)->debugPrintComponents();
 		}
 		++it;
 		++i;
+	}
+}
+
+void Scene::debugPrintChildren()
+{
+	std::cout << "*** DEBUG Print Child List [ Scene: " << m_label << " ] ***" << std::endl;
+	
+	if(m_children.size() == 0)
+		std::cout << "EMPTY" << std::endl;
+	
+	SCENE_VECTOR::iterator s_it;
+	
+	for(s_it = m_children.begin(); s_it < m_children.end(); ++s_it)
+	{
+		std::cout << (*s_it)->getSceneLabel() << std::endl;
 	}
 }
 
@@ -108,7 +188,7 @@ void Scene::debugPrintEntityList()
 Scene::~Scene()
 {
 	/*Erase the whole scene entity list on delete.*/
-	ENTITY_VECTOR_ITERATOR it = entityList.begin();
+	ENTITY_VECTOR::iterator it = entityList.begin();
 	
 	while (it != entityList.end())
 	{

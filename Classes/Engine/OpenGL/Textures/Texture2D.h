@@ -45,7 +45,6 @@ Be aware that the content of the generated textures will be upside-down!
 	
 	//VBO. It's better  to hold the texture in a VBO.
     GLuint vbo;
-	
 }
 - (id) initWithData:(const void*)data pixelFormat:(Texture2DPixelFormat)pixelFormat pixelsWide:(NSUInteger)width pixelsHigh:(NSUInteger)height contentSize:(CGSize)size filter:(GLenum) filter;
 

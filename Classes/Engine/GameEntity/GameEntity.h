@@ -31,25 +31,6 @@ public:
 //------------------------------------------------------------------------------
 	/** Default Constructor */
 	GameEntity();
-	
-	/** Position Constructor
-	 @remarks
-		Constructor to set the game entity to an initial position.
-		 @param x specify X screen position coordinate.
-		 @param y specity Y screen position coordinate.
-	 */
-	GameEntity(float x, float y);
-	
-	/** Position + Size Constructor
-	 @remarks
-		Constructor to place the entity to an initial position and set a
-		fixed size for this entity.
-		 @param x specify X screen position coordinate.
-		 @param y specity Y screen position coordinate.
-		 @param inWidth represents entity width.
-		 @param inHeight represents entity height.
-	 */
-	GameEntity(float inX, float inY, int inWidth, int inHeight);
 
 	/** Destructor */
 	~GameEntity(){ this->clearGECs(); }
@@ -115,7 +96,7 @@ public:
 	void			setLabel(const std::string &in_label) {	label = in_label; }
 	
 	/** Returns the label of this entity */
-	std::string		getLabel() const { return label; }
+	const std::string &getLabel() const { return label; }
 	
 //------------------------------------------------------------------------------
 public:
@@ -167,7 +148,6 @@ static void registrate(void)
 	 .def_readwrite("x", &GameEntity::x)
 	 .def_readwrite("y", &GameEntity::y)
 	 .def_readwrite("speed", &GameEntity::speed)
-
 	 ];
 }
 	

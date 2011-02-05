@@ -14,19 +14,8 @@ Frame::Frame() : frameImage(NULL), frameDelay(0.0)
 	//Do nothing here.
 }
 
-Frame::Frame(Image* inFrameImage, float inFrameDelay)
-{
-	this->frameImage = inFrameImage;
-	this->frameDelay = inFrameDelay;
-}
-
-Frame::~Frame()
-{
-	//Destroy something.
-}
-
 #pragma mark getters
-Image* Frame::getFrameImage()
+Image* Frame::getFrameImage() const
 {
 	return frameImage;
 }

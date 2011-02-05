@@ -1,5 +1,5 @@
 /*
- *  SharedSceneManager.h
+ *  SceneManager.h
  *  GandoEngine
  *
  *  Created by Nicolas Goles on 9/23/10.
@@ -16,16 +16,16 @@
 #include "Scene.h"
 #include "LuaRegisterManager.h"
 
-#define SCENE_MANAGER SharedSceneManager::getInstance()
+#define SCENE_MANAGER SceneManager::getInstance()
 
 /** Manages the whole SceneMap of a Game
  */
-class SharedSceneManager
+class SceneManager
 {	
 public:
 //------------------------------------------------------------------------------
 	/** Returns singleton instance */
-	static	SharedSceneManager* getInstance();
+	static	SceneManager* getInstance();
 	
 	/** Retrieves Scene from the Scene Map
 		@param s is the scene std::string "key" name.
@@ -68,27 +68,27 @@ static void registrate(void)
 {
 	luabind::module(LR_MANAGER_STATE) 
 	[
-	 luabind::class_<SharedSceneManager>("SceneManager")
-	 .def("addScene", &SharedSceneManager::addScene)
-	 .def("getScene", &SharedSceneManager::getScene)
-	 .def("setActiveScene", &SharedSceneManager::setActiveScene)
+	 luabind::class_<SceneManager>("SceneManager")
+	 .def("addScene", &SceneManager::addScene)
+	 .def("getScene", &SceneManager::getScene)
+	 .def("setActiveScene", &SceneManager::setActiveScene)
 	 .scope
 	 [
-	  luabind::def("getInstance", &SharedSceneManager::getInstance)
+	  luabind::def("getInstance", &SceneManager::getInstance)
 	 ]
 	 ];	
 }
 
 //------------------------------------------------------------------------------ 
 protected:
-	SharedSceneManager():activeScene(NULL){}
+	SceneManager() : activeScene(0){}
 
 //------------------------------------------------------------------------------	
 private:
 	typedef std::map<std::string, Scene *> SceneMap;
 	typedef std::pair<std::string, Scene *> SceneMapPair;
 	
-	static SharedSceneManager *instance;
+	static SceneManager *instance;
 	Scene *activeScene;
 	SceneMap scenes;
 

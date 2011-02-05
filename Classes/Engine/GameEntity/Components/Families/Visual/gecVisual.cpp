@@ -8,4 +8,4 @@
 
 #include "gecVisual.h"
 
-std::string gecVisual::mFamilyID = "CompVisual";
+std::string gecVisual::m_id = "CompVisual";

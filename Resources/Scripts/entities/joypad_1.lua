@@ -25,6 +25,7 @@ Joypad =
 			this.components["gecJoystick"]:handle_touch(in_x, in_y, in_touchIndex, in_touchId, in_touchType)
 		end		
 	},	
+
 	components = 
 	{
 		gecJoystick =

@@ -29,7 +29,6 @@ typedef struct {
 	float br_x, br_y;
 } Quad2;
 
-
 /** Image base class.
  @remarks
  Allows several initialization modes, such as passing a texture name, file name, or UIImage
@@ -45,33 +44,32 @@ public:
 	        Sets all coordinates and offsets to 0.
 	        Additionally, the texture can be initialized in various ways, using pre-loaded textures or files. */
 	            
-	Image();
-	
+	Image();	
 //------------------------------------------------------------------------------	
 	/** Initializer for pre-loaded textures
     	@param inTexture Pointer to a Texture2D object.
 	 */
-	void	initWithTexture2D(Texture2D *inTexture);
+	void	initWithTexture2D(const Texture2D* const inTexture);
 	
 	/** @param scale Optional scaling amount. */
-	void	initWithTexture2D(Texture2D *inTexture, float scale);
+	void	initWithTexture2D(const Texture2D* const inTexture, float scale);
 	
 	/** Use a file name to load texture data
 	    @param inTextureName file name containing texture data. 
 	 */
 	void	initWithTextureFile(const std::string &inTextureName);
 	
-	/** 	    @param scale Optional scaling amount */
+	/**  @param scale Optional scaling amount */
 	void	initWithTextureFile(const std::string &textureName, float inScale);
 	
 	/** Use pre-loaded texture data. */
-	void	initWithUIImage(UIImage *inImage);
+	void	initWithUIImage(const UIImage* const inImage);
 	
 	/** @param filter Optional GLFilter to apply. */
-	void	initWithUIImage(UIImage *inImage, GLenum filter);
+	void	initWithUIImage(const UIImage* const inImage, GLenum filter);
 	
 	/** @param inScale Optional scaling amount */
-	void	initWithUIImage(UIImage *inImage, float inScale, GLenum filter);
+	void	initWithUIImage(const UIImage* const inImage, float inScale, GLenum filter);
 	
 //------------------------------------------------------------------------------	
 	/** Crop an existing Image object to form a sub-image.
@@ -80,7 +78,7 @@ public:
 	    @param subImageHeight Height of selected area.
 	    @param subImageScale Scaling factor for the resulting Image.	        
 	*/
-	Image *getSubImage(CGPoint point,  GLuint subImageWidth, GLuint subImageHeight, float subImageScale);
+	Image*	getSubImage(CGPoint point,  GLuint subImageWidth, GLuint subImageHeight, float subImageScale);
 
 	/** Renders the Image
 	    @param point Coordinates of a point.
@@ -99,7 +97,7 @@ public:
         @param tc Texture Coordinates
         @param qv Quad Vertices
     */
-	void	render(CGPoint point, Quad2* tc, Quad2* qv);
+	const void render(CGPoint point, const Quad2* const tc, const Quad2* const qv);
 	
 	/** Handles vertex calculations, storing results in Image.vertices[] malloc'd space. */
 	void	calculateVertices(CGPoint point, GLuint subImageWidth, GLuint subImageHeight, BOOL center);
@@ -108,7 +106,11 @@ public:
 	void	calculateTexCoordsAtOffset(CGPoint offsetPoint, GLuint subImageWidth, GLuint subImageHeight);
     
 	/** OpenGL bind(), GL tells the GPU to bind the texture. */
-	void	bind();
+	const inline void bind()
+	{
+		if(texture)
+			[texture bind];
+	}
 	
 //------------------------------------------------------------------------------
 	/** Lua Interface
@@ -183,34 +185,37 @@ public:
 	Quad2*	getVertex();
 	
 	/** Gets the texture name */
-	std::string getTextureName();
+	const std::string &getTextureName();
 	
 //------------------------------------------------------------------------------
 protected:	
 	void initImplementation();
+	
 private:
+	// Vertex arrays
+	Quad2		*vertices;
+	Quad2		*texCoords;
+	GLushort	*indices;
+	
+	//Texture
 	Texture2D	*texture;
+	
 	std::string	textureName;
 	int			imageWidth;
 	int			imageHeight;
 	int			textureWidth;
 	int			textureHeight;
+	int			textureOffsetX;
+	int			textureOffsetY;
+	float		colourFilter[4];
 	float		maxTexWidth;
 	float		maxTexHeight;
 	float		texWidthRatio;
 	float		texHeightRatio;
-	int			textureOffsetX;
-	int			textureOffsetY;
 	float		rotation;
 	float		scale;
 	bool		flipHorizontally;
 	bool		flipVertically;
-	float		colourFilter[4];
-	
-	// Vertex arrays
-	Quad2		*vertices;
-	Quad2		*texCoords;
-	GLushort	*indices;
 };
 
 #endif

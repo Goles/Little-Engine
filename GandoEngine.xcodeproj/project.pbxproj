@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		143C241012F9116F009B37EF /* zero.lua in Resources */ = {isa = PBXBuildFile; fileRef = 143C240F12F9116F009B37EF /* zero.lua */; };
+		1444259312FCB0D200BD0D32 /* world1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1444259212FCB0D200BD0D32 /* world1.lua */; };
+		1444259512FCB0DA00BD0D32 /* game_entities_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1444259412FCB0DA00BD0D32 /* game_entities_1.lua */; };
+		1444259712FCB0DE00BD0D32 /* gui.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1444259612FCB0DE00BD0D32 /* gui.lua */; };
 		1453691512F359A100B97FB4 /* weapon_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1453691412F359A100B97FB4 /* weapon_1.lua */; };
 		147660D412BA7CB70092D758 /* CompLevelLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 147660D012BA7CB60092D758 /* CompLevelLoader.mm */; };
 		147660D512BA7CB70092D758 /* CompSpawn.mm in Sources */ = {isa = PBXBuildFile; fileRef = 147660D312BA7CB70092D758 /* CompSpawn.mm */; };
+		1486128E12F775B3007A3F4E /* ICompCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1486128D12F775B3007A3F4E /* ICompCamera.mm */; };
+		1486129812F7792F007A3F4E /* gecFollowingCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1486129712F7792F007A3F4E /* gecFollowingCamera.mm */; };
 		1497B38C127E6B1B00A836D4 /* adopt_policy.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1497B329127E6B1B00A836D4 /* adopt_policy.hpp */; };
 		1497B38D127E6B1B00A836D4 /* back_reference.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1497B32A127E6B1B00A836D4 /* back_reference.hpp */; };
 		1497B38E127E6B1B00A836D4 /* back_reference_fwd.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1497B32B127E6B1B00A836D4 /* back_reference_fwd.hpp */; };
@@ -109,7 +115,7 @@
 		1497B3EC127E6B1B00A836D4 /* wrapper_base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1497B38B127E6B1B00A836D4 /* wrapper_base.cpp */; };
 		1497B43F127E6FAF00A836D4 /* libLuabind.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1497B31E127E6AB100A836D4 /* libLuabind.a */; };
 		149C3CF012AD6C88007A0027 /* SharedBehaviorManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 149C3CEF12AD6C88007A0027 /* SharedBehaviorManager.mm */; };
-		149F93EF124B8ECE00CE4E3D /* SharedSceneManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 149F93EE124B8ECE00CE4E3D /* SharedSceneManager.mm */; };
+		149F93EF124B8ECE00CE4E3D /* SceneManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 149F93EE124B8ECE00CE4E3D /* SceneManager.mm */; };
 		14A2171B12E7884700A4D8EC /* base_functions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2170512E7884700A4D8EC /* base_functions.lua */; };
 		14A2171C12E7884700A4D8EC /* ComponentBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2170612E7884700A4D8EC /* ComponentBuilder.lua */; };
 		14A2171D12E7884700A4D8EC /* EntityBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2170712E7884700A4D8EC /* EntityBuilder.lua */; };
@@ -184,6 +190,7 @@
 		14A85492122B085500615BF4 /* GContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14A8548F122B085500615BF4 /* GContactListener.mm */; };
 		14ABD5CB12C148320059B96F /* TouchableManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14ABD5CA12C148320059B96F /* TouchableManager.mm */; };
 		14AC58431235A88400173BEC /* LuaRegisterManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14AC58411235A88400173BEC /* LuaRegisterManager.mm */; };
+		14AFB05612F7207800351FF1 /* gecImageScroll.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14AFB05512F7207800351FF1 /* gecImageScroll.mm */; };
 		14B9379B12BD1B7A00008627 /* id_generator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14B9379A12BD1B7A00008627 /* id_generator.mm */; };
 		14D1A7F512EDD8180070D86F /* hitter_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14D1A7F312EDD8180070D86F /* hitter_1.lua */; };
 		14D1A7F612EDD8180070D86F /* joypad_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14D1A7F412EDD8180070D86F /* joypad_1.lua */; };
@@ -323,12 +330,20 @@
 
 /* Begin PBXFileReference section */
 		1427CE5A12444FFC007BF343 /* LuaInit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaInit.h; sourceTree = "<group>"; };
+		143C240F12F9116F009B37EF /* zero.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zero.lua; sourceTree = "<group>"; };
+		1444259212FCB0D200BD0D32 /* world1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = world1.lua; sourceTree = "<group>"; };
+		1444259412FCB0DA00BD0D32 /* game_entities_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = game_entities_1.lua; sourceTree = "<group>"; };
+		1444259612FCB0DE00BD0D32 /* gui.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gui.lua; sourceTree = "<group>"; };
 		1453691412F359A100B97FB4 /* weapon_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = weapon_1.lua; sourceTree = "<group>"; };
 		145C8F1A12B699B30073B0D3 /* EventBroadcaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventBroadcaster.h; sourceTree = "<group>"; };
 		147660CF12BA7CB60092D758 /* CompLevelLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompLevelLoader.h; sourceTree = "<group>"; };
 		147660D012BA7CB60092D758 /* CompLevelLoader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CompLevelLoader.mm; sourceTree = "<group>"; };
 		147660D212BA7CB70092D758 /* CompSpawn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompSpawn.h; sourceTree = "<group>"; };
 		147660D312BA7CB70092D758 /* CompSpawn.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CompSpawn.mm; sourceTree = "<group>"; };
+		1486128C12F775B3007A3F4E /* ICompCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICompCamera.h; sourceTree = "<group>"; };
+		1486128D12F775B3007A3F4E /* ICompCamera.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ICompCamera.mm; sourceTree = "<group>"; };
+		1486129612F7792F007A3F4E /* gecFollowingCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecFollowingCamera.h; sourceTree = "<group>"; };
+		1486129712F7792F007A3F4E /* gecFollowingCamera.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecFollowingCamera.mm; sourceTree = "<group>"; };
 		1497B31E127E6AB100A836D4 /* libLuabind.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLuabind.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1497B329127E6B1B00A836D4 /* adopt_policy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = adopt_policy.hpp; sourceTree = "<group>"; };
 		1497B32A127E6B1B00A836D4 /* back_reference.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = back_reference.hpp; sourceTree = "<group>"; };
@@ -429,8 +444,8 @@
 		1497B38B127E6B1B00A836D4 /* wrapper_base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = wrapper_base.cpp; sourceTree = "<group>"; };
 		149C3CEE12AD6C88007A0027 /* SharedBehaviorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedBehaviorManager.h; sourceTree = "<group>"; };
 		149C3CEF12AD6C88007A0027 /* SharedBehaviorManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SharedBehaviorManager.mm; sourceTree = "<group>"; };
-		149F93ED124B8ECE00CE4E3D /* SharedSceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedSceneManager.h; sourceTree = "<group>"; };
-		149F93EE124B8ECE00CE4E3D /* SharedSceneManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SharedSceneManager.mm; sourceTree = "<group>"; };
+		149F93ED124B8ECE00CE4E3D /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
+		149F93EE124B8ECE00CE4E3D /* SceneManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SceneManager.mm; sourceTree = "<group>"; };
 		14A2170512E7884700A4D8EC /* base_functions.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = base_functions.lua; sourceTree = "<group>"; };
 		14A2170612E7884700A4D8EC /* ComponentBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ComponentBuilder.lua; sourceTree = "<group>"; };
 		14A2170712E7884700A4D8EC /* EntityBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EntityBuilder.lua; sourceTree = "<group>"; };
@@ -512,6 +527,8 @@
 		14AC58411235A88400173BEC /* LuaRegisterManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LuaRegisterManager.mm; sourceTree = "<group>"; };
 		14AC58421235A88400173BEC /* LuaRegisterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaRegisterManager.h; sourceTree = "<group>"; };
 		14AC587E1235ABCC00173BEC /* ggEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ggEngine.h; sourceTree = "<group>"; };
+		14AFB05412F7207800351FF1 /* gecImageScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecImageScroll.h; sourceTree = "<group>"; };
+		14AFB05512F7207800351FF1 /* gecImageScroll.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecImageScroll.mm; sourceTree = "<group>"; };
 		14B9377512BD14DC00008627 /* id_generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = id_generator.h; sourceTree = "<group>"; };
 		14B9379A12BD1B7A00008627 /* id_generator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = id_generator.mm; sourceTree = "<group>"; };
 		14D1A7F312EDD8180070D86F /* hitter_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hitter_1.lua; sourceTree = "<group>"; };
@@ -780,6 +797,23 @@
 			name = images;
 			sourceTree = "<group>";
 		};
+		1444258812FCB01400BD0D32 /* level1 */ = {
+			isa = PBXGroup;
+			children = (
+				1444259412FCB0DA00BD0D32 /* game_entities_1.lua */,
+				1444259212FCB0D200BD0D32 /* world1.lua */,
+			);
+			name = level1;
+			sourceTree = "<group>";
+		};
+		1444258912FCB01B00BD0D32 /* gui */ = {
+			isa = PBXGroup;
+			children = (
+				1444259612FCB0DE00BD0D32 /* gui.lua */,
+			);
+			name = gui;
+			sourceTree = "<group>";
+		};
 		145C8F1912B699810073B0D3 /* Events */ = {
 			isa = PBXGroup;
 			children = (
@@ -804,6 +838,15 @@
 				147660D312BA7CB70092D758 /* CompSpawn.mm */,
 			);
 			path = Spawner;
+			sourceTree = "<group>";
+		};
+		1486129512F778F9007A3F4E /* components */ = {
+			isa = PBXGroup;
+			children = (
+				1486129612F7792F007A3F4E /* gecFollowingCamera.h */,
+				1486129712F7792F007A3F4E /* gecFollowingCamera.mm */,
+			);
+			name = components;
 			sourceTree = "<group>";
 		};
 		1497B328127E6B1B00A836D4 /* luabind */ = {
@@ -967,6 +1010,7 @@
 			isa = PBXGroup;
 			children = (
 				1453691412F359A100B97FB4 /* weapon_1.lua */,
+				143C240F12F9116F009B37EF /* zero.lua */,
 				14D1A85012EDE0570070D86F /* button_attack.lua */,
 				14D1A7F312EDD8180070D86F /* hitter_1.lua */,
 				14D1A7F412EDD8180070D86F /* joypad_1.lua */,
@@ -986,6 +1030,8 @@
 		14A2171812E7884700A4D8EC /* scenes */ = {
 			isa = PBXGroup;
 			children = (
+				1444258912FCB01B00BD0D32 /* gui */,
+				1444258812FCB01400BD0D32 /* level1 */,
 				14A2171912E7884700A4D8EC /* scene1.lua */,
 				14A2171A12E7884700A4D8EC /* scene_ideal.lua */,
 			);
@@ -1094,6 +1140,16 @@
 			path = Lua;
 			sourceTree = "<group>";
 		};
+		14AFB09B12F739C200351FF1 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				1486129512F778F9007A3F4E /* components */,
+				1486128C12F775B3007A3F4E /* ICompCamera.h */,
+				1486128D12F775B3007A3F4E /* ICompCamera.mm */,
+			);
+			name = Camera;
+			sourceTree = "<group>";
+		};
 		14E31352121E47E100917795 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -1150,6 +1206,7 @@
 		14E31356121E47E100917795 /* Families */ = {
 			isa = PBXGroup;
 			children = (
+				14AFB09B12F739C200351FF1 /* Camera */,
 				147660CE12BA7CB60092D758 /* LevelLoader */,
 				147660D112BA7CB70092D758 /* Spawner */,
 				14E31357121E47E100917795 /* Behaviour */,
@@ -1231,6 +1288,8 @@
 				14E31376121E47E100917795 /* gecScrollingBackground.mm */,
 				14E31377121E47E100917795 /* gecVisualContainer.h */,
 				14E31378121E47E100917795 /* gecVisualContainer.mm */,
+				14AFB05412F7207800351FF1 /* gecImageScroll.h */,
+				14AFB05512F7207800351FF1 /* gecImageScroll.mm */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -1467,8 +1526,8 @@
 				14E31403121E47E200917795 /* SharedParticleSystemManager.mm */,
 				14E31404121E47E200917795 /* SharedTextureManager.h */,
 				14E31405121E47E200917795 /* SharedTextureManager.mm */,
-				149F93ED124B8ECE00CE4E3D /* SharedSceneManager.h */,
-				149F93EE124B8ECE00CE4E3D /* SharedSceneManager.mm */,
+				149F93ED124B8ECE00CE4E3D /* SceneManager.h */,
+				149F93EE124B8ECE00CE4E3D /* SceneManager.mm */,
 				149C3CEE12AD6C88007A0027 /* SharedBehaviorManager.h */,
 				149C3CEF12AD6C88007A0027 /* SharedBehaviorManager.mm */,
 			);
@@ -1813,6 +1872,10 @@
 				14D1A7F612EDD8180070D86F /* joypad_1.lua in Resources */,
 				14D1A85112EDE0570070D86F /* button_attack.lua in Resources */,
 				1453691512F359A100B97FB4 /* weapon_1.lua in Resources */,
+				143C241012F9116F009B37EF /* zero.lua in Resources */,
+				1444259312FCB0D200BD0D32 /* world1.lua in Resources */,
+				1444259512FCB0DA00BD0D32 /* game_entities_1.lua in Resources */,
+				1444259712FCB0DE00BD0D32 /* gui.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1962,12 +2025,15 @@
 				14A85491122B085500615BF4 /* GandoBox2D.mm in Sources */,
 				14A85492122B085500615BF4 /* GContactListener.mm in Sources */,
 				14AC58431235A88400173BEC /* LuaRegisterManager.mm in Sources */,
-				149F93EF124B8ECE00CE4E3D /* SharedSceneManager.mm in Sources */,
+				149F93EF124B8ECE00CE4E3D /* SceneManager.mm in Sources */,
 				149C3CF012AD6C88007A0027 /* SharedBehaviorManager.mm in Sources */,
 				147660D412BA7CB70092D758 /* CompLevelLoader.mm in Sources */,
 				147660D512BA7CB70092D758 /* CompSpawn.mm in Sources */,
 				14B9379B12BD1B7A00008627 /* id_generator.mm in Sources */,
 				14ABD5CB12C148320059B96F /* TouchableManager.mm in Sources */,
+				14AFB05612F7207800351FF1 /* gecImageScroll.mm in Sources */,
+				1486128E12F775B3007A3F4E /* ICompCamera.mm in Sources */,
+				1486129812F7792F007A3F4E /* gecFollowingCamera.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2068,7 +2134,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GandoEngine_Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
-				GCC_VERSION = 4.2;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -2136,7 +2202,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nicolas Goles (K29F552GKG)";
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
@@ -2144,7 +2210,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_THUMB_SUPPORT = NO;
-				GCC_UNROLL_LOOPS = YES;
+				GCC_UNROLL_LOOPS = NO;
 				GCC_VERSION = 4.2;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -2152,14 +2218,8 @@
 					"$(SRCROOT)/**",
 					/usr/include/my_boost,
 				);
-				OTHER_CFLAGS = (
-					"-DTARGET_OS_IPHONE",
-					"-falign-loops=16",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DTARGET_OS_IPHONE",
-					"$(OTHER_CFLAGS)",
-				);
+				OTHER_CFLAGS = "-DTARGET_OS_IPHONE";
+				OTHER_CPLUSPLUSFLAGS = "-DTARGET_OS_IPHONE";
 				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
 				SDKROOT = iphoneos;

@@ -34,11 +34,11 @@ public:
 //------------------------------------------------------------------------------		
 	/** Updates the GameEntities present in this scene. 
 	 */
-	void updateScene(float delta);
+	void update(float delta);
 	
-	/** Renders the GameEntities present in this scene.
+	/** Renders the GameEntities present in this scene hierarchy.
 	 */
-	void renderScene();
+	void render();
 	
 	/** Sorsts the GameEntities comparing them by their Y botton coordinate.
 	 */
@@ -48,30 +48,68 @@ public:
 	 */
 	void sortEntitiesX();
 	
+	/** Adds a child scene node to this Scene Node, 
+	 */
+	void addChild(Scene *child);
+	
+	/** Remove Child from the Scene hierarchy.
+	 */
+	void removeChild(Scene *child);
+	
 	/** Removes a GameEntity from the Scene.
 		@param gameEntity is a pointer to the gameEntity that we want to remove.
 		@remarks
 			The idea is that the memory address of the gameEntity is their "hash"
 	 */
-	void removeEntity(GameEntity *gameEntity);
+	void removeGameEntity(GameEntity *gameEntity);
 	
 	/** Adds a GameEntity to the Scene.
 		@param gameEntity is a pointer to a gameEntity.
 		@remarks
 			This scene is responsible for deallocating the referenced gameEntity.
 	 */
-	GameEntity* addEntity(GameEntity *gameEntity);
+	GameEntity* addGameEntity(GameEntity *gameEntity);
 	
 //------------------------------------------------------------------------------
+public:
+	/** Functor to sort/compare Game Entities by the X poosition coordinate  
+	 @remarks
+	 Mostly used by STL containers
+	 */
+	friend class compareByZOrder;
+    class compareByZOrder
+	{
+	public:
+		bool operator()(Scene const *lhs, Scene const *rhs) { 
+            return (lhs->getZOrder() < rhs->getZOrder());
+        }
+    };
+//------------------------------------------------------------------------------
+	/** Gets the scene unique id 
+	 @returns reference to sceneId
+	 */
+	const std::string &getSceneLabel(void) { return m_label; }
+	
 	/** Sets the scene unique id 
 		@param _id is an std::string unique for this scene.
 	 */
-	void setSceneLabel(const std::string &in_label) { label = std::string(in_label); }
+	void setSceneLabel(const std::string &in_label) { m_label = std::string(in_label); }
 	
-	/** Gets the scene unique id 
-		@returns reference to sceneId
+	/** Returns the ZOrder (to see rendering/update order in hierarchy) of this scene ( bigger Z means rendered first )
 	 */
-	const std::string &getSceneLabel(void) { return label; }
+	int getZOrder() const { return m_zOrder; }
+	
+	/**
+	 */
+	void setZOrder(int in_zOrder) { m_zOrder = in_zOrder; }
+	
+	/**
+	 */
+	const CGPoint &getPosition() { return m_position; }
+	
+	/**
+	 */
+	void setPosition(CGPoint in_position) { m_position = in_position; }
 	
 //------------------------------------------------------------------------------
 	/** Lua Interface
@@ -84,7 +122,10 @@ public:
 		[
 		 luabind::class_<Scene>("Scene")
 		 .def(luabind::constructor<>())
-		 .def("addEntity", &Scene::addEntity)
+		 .def("addEntity", &Scene::addGameEntity)
+		 .def("addChild", &Scene::addChild)
+		 .property("z_order", &Scene::getZOrder, &Scene::setZOrder)
+		 .property("position", &Scene::getPosition, &Scene::setPosition)
 		 .property("label", &Scene::getSceneLabel, &Scene::setSceneLabel)
 		 ];	
 	}
@@ -96,14 +137,25 @@ public:
 	 */
 	void debugPrintEntityList();
 	
+	/** Print the Scene child list.
+	 */
+	void debugPrintChildren();
+	
+//------------------------------------------------------------------------------
+protected:
+	void transform();
+
 //------------------------------------------------------------------------------
 private:
 	typedef std::vector<GameEntity *> ENTITY_VECTOR;
-	typedef std::vector<GameEntity *>::iterator ENTITY_VECTOR_ITERATOR;
+	typedef std::vector<Scene *> SCENE_VECTOR;
+		
+	ENTITY_VECTOR entityList; /** Vector of GameEntities owned by this Scene */
+	SCENE_VECTOR m_children; /** Vector of Children Scenes */
 	
-	std::string label; /** < Unique identifier for this scene */
-	
-	ENTITY_VECTOR entityList; /** Vector of GameEntities owned by this SceneManager */
+	std::string m_label; /** < Unique identifier for this scene */
+	int m_zOrder; 
+	CGPoint m_position;
 };
 
 #endif

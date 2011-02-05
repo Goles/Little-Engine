@@ -99,7 +99,7 @@ function addAttributes( in_attributes, in_entity )
 	end
 	
 	if (in_attributes.label ~= nil) then	
-		in_entity.label = in_attributes.label	
+		in_entity.label = in_attributes.label
 	end
 	
 end

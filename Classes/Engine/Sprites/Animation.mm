@@ -94,7 +94,11 @@ Animation::Animation(const std::vector<int>& positions,
 #pragma mark action_methods
 void Animation::addFrameWithImage(Image *inImage, float delay)
 {
-	Frame *aFrame = new Frame(inImage, delay);
+	Frame *aFrame = new Frame();
+	
+	aFrame->setFrameImage(inImage);
+	aFrame->setFrameDelay(delay);
+	
 	spriteFrames.push_back(aFrame);
 }
 
@@ -189,12 +193,10 @@ GLuint Animation::getAnimationFrameCount()
 }
 
 void Animation::setFlipHorizontally(bool f)
-{	
-
-	FRAMES_VECTOR::iterator it;	
+{
 	if(isFlipped != f)
 	{
-		for(it = spriteFrames.begin(); it < spriteFrames.end(); ++it)
+		for(FRAMES_VECTOR::iterator it = spriteFrames.begin(); it < spriteFrames.end(); ++it)
 		{
 			Image *im = (*it)->getFrameImage();
 			im->setFlipHorizontally(f);

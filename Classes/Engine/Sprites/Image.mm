@@ -68,7 +68,7 @@ void Image::initImplementation()
 }
 
 /*Init an image with pre-allocated Texture2D*/
-void Image::initWithTexture2D(Texture2D *inTexture)
+void Image::initWithTexture2D(const Texture2D *inTexture)
 {
 	if(inTexture)
 	{
@@ -81,7 +81,7 @@ void Image::initWithTexture2D(Texture2D *inTexture)
 }
 
 /*Init an image with pre-allocated Texture2D and a input scaling*/
-void Image::initWithTexture2D(Texture2D *inTexture, float inScale)
+void Image::initWithTexture2D(const Texture2D *inTexture, float inScale)
 {
 	if(inTexture)
 	{
@@ -127,7 +127,7 @@ void Image::initWithTextureFile(const std::string &inTextureName, float imageSca
 }
 
 /*Does initialize an Image with a UIImage*/
-void Image::initWithUIImage(UIImage *image)
+void Image::initWithUIImage(const UIImage* const image)
 {
 	texture = [[Texture2D alloc] initWithImage:image filter:GL_NEAREST];
 	scale	= 1.0f;
@@ -135,13 +135,13 @@ void Image::initWithUIImage(UIImage *image)
 }
 
 /*Does initialize an Image with a UIImage and a GL_FILTER*/
-void Image::initWithUIImage(UIImage *inImage, GLenum filter)
+void Image::initWithUIImage(const UIImage* const inImage, GLenum filter)
 {
 	texture	= [[Texture2D alloc] initWithImage:inImage filter:filter];
 }
 
 /*Does initialize an Image with a UIImage a Scale and a GL_FILTER*/
-void Image::initWithUIImage(UIImage *inImage, float inScale, GLenum inFilter)
+void Image::initWithUIImage(const UIImage* const inImage, float inScale, GLenum inFilter)
 {
 	texture = [[Texture2D alloc] initWithImage:inImage filter:inFilter];
 	scale	= inScale;
@@ -219,7 +219,7 @@ Image* Image::getSubImage(CGPoint inPoint,  GLuint inSubImageWidth, GLuint inSub
 	return subImage;
 }
 
-std::string Image::getTextureName()
+const std::string &Image::getTextureName()
 {
 	return textureName;
 }
@@ -276,7 +276,7 @@ void Image::renderSubImageAtPoint(CGPoint point, CGPoint offsetPoint, GLfloat su
 	this->render(point, texCoords, vertices);
 }
 
-void Image::render(CGPoint point, Quad2* tc, Quad2* qv)
+const void Image::render(const CGPoint point, const Quad2* tc, const Quad2* qv)
 {		   
 	// Save the current matrix to the stack
 	glPushMatrix();
@@ -322,12 +322,6 @@ void Image::render(CGPoint point, Quad2* tc, Quad2* qv)
 	
 	// Restore the saved matrix from the stack
 	glPopMatrix();
-}
-
-void Image::bind()
-{
-	if(texture)
-		[texture bind];
 }
 
 #pragma mark calculations

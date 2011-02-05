@@ -91,10 +91,10 @@
 #pragma mark update_game
 - (void) update:(float)delta
 {	
-	if(gameSceneManager)
-		gameSceneManager->updateScene(delta);
-	
-	gameSceneManager->sortEntitiesY();
+//	if(gameSceneManager)
+//		gameSceneManager->updateScene(delta);
+//	
+//	gameSceneManager->sortEntitiesY();
 	
 	GBOX_2D->update(delta);
 	//	GBOX_2D->debugUpdate(delta);

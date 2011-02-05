@@ -5,18 +5,42 @@
 
 require "EntityBuilder"
 
-function buildScene(sceneName)
-
+function buildScene(sceneName, root_scene)
+	
 	assert(type(sceneName) == "string", "The Scene Name for buildScene must be a File Name")
-
-	sceneTable = dofile(filePath(sceneName));
-
-	aScene = Scene()
-	aScene.label = sceneTable.label
-
-	for _, e in pairs(sceneTable.entities) do
-		aScene:addEntity( buildEntity(e) )
+	
+	if not root_scene then
+		root_scene = Scene() 
 	end
-		
-	return aScene
+	
+	sceneTable = dofile(filePath(sceneName));
+	root_scene.label = sceneTable.label
+
+	if sceneTable.children then
+		return buildSceneGraph(sceneTable, root_scene)		
+	else
+		return buildSceneTable(sceneTable, root_scene)
+	end
+	
+end
+
+function buildSceneTable(t, root_scene)
+
+	for _, e in pairs(t.entities) do
+		root_scene:addEntity( buildEntity(e) )
+	end
+	
+	return root_scene
+end
+
+function buildSceneGraph(t, root_scene)
+
+	for _, v in pairs(t.children) do
+		local child = buildScene(v.scene_name, parent_scene)
+		child.z_order = v.z_order
+		root_scene:addChild(child)
+	end
+
+	return root_scene
+
 end

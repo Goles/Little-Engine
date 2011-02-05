@@ -1,5 +1,5 @@
 /*
- *  SharedSceneManager.cpp
+ *  SceneManager.cpp
  *  GandoEngine
  *
  *  Created by Nicolas Goles on 9/23/10.
@@ -7,21 +7,21 @@
  *
  */
 
-#include "SharedSceneManager.h"
+#include "SceneManager.h"
 
-SharedSceneManager *SharedSceneManager::instance = NULL;
+SceneManager *SceneManager::instance = NULL;
 
-SharedSceneManager* SharedSceneManager::getInstance()
+SceneManager* SceneManager::getInstance()
 {
 	if(!instance)
 	{
-		instance = new SharedSceneManager();
+		instance = new SceneManager();
 	}
 	
 	return instance;
 }
 
-Scene* SharedSceneManager::getScene(const std::string &sceneName)
+Scene* SceneManager::getScene(const std::string &sceneName)
 {
 	//Should check if he has it, if it doesn't then create it.
 	SceneMap::iterator it = scenes.find(sceneName);
@@ -33,7 +33,7 @@ Scene* SharedSceneManager::getScene(const std::string &sceneName)
 	return NULL;
 }
 
-Scene* SharedSceneManager::addScene(Scene *aScene)
+Scene* SceneManager::addScene(Scene *aScene)
 {
 	std::string sceneName = aScene->getSceneLabel();
 	
@@ -56,7 +56,7 @@ Scene* SharedSceneManager::addScene(Scene *aScene)
 	return((scenes.insert(SceneMapPair(sceneName, aScene))).first->second);	
 }
 
-int SharedSceneManager::setActiveScene(const std::string &sceneName)
+int SceneManager::setActiveScene(const std::string &sceneName)
 {
 	SceneMap::iterator it = scenes.find(sceneName);
 	

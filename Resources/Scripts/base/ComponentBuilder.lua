@@ -141,7 +141,45 @@ function gecBoxCollisionableBuild(t)
 	return gbc
 
 end
+
+--
+--	Build a gecFollowingCamera
+--
+function gecFollowingCameraBuild(t)
+	camera = gecFollowingCamera()
 	
+	if t.eye then
+		
+		local v_eye = Vector3D()
+		v_eye.x = t.eye.x
+		v_eye.y = t.eye.y
+		v_eye.z = t.eye.z
+		camera:setEye(v_eye)
+		
+	end
+	
+	if t.center then
+		
+		local v_center = Vector3D()
+		v_center.x = t.center.x
+		v_center.y = t.center.y
+		v_center.z = t.center.y
+		camera:setCenter(v_center)
+		
+	end
+
+	if t.up then
+		
+		local v_up = Vector3D()
+		v_up.x = t.up.x
+		v_up.y = t.up.y
+		v_up.z = t.up.z
+		camera:setUp(v_up)
+
+	end
+	
+	return camera
+end
 
 -- =================================================================== --
 -- Function table with { Key, function() } for each component builder. --
@@ -152,5 +190,6 @@ component_function_table =
 	["gecFSM"] = gecFSMBuild,
 	["gecBoxCollisionable"] = gecBoxCollisionableBuild,
 	["gecButton"] = gecButtonBuild,
+	["gecFollowingCamera"] = gecFollowingCameraBuild,
 	["gecJoystick"] = gecJoystickBuild,
 }

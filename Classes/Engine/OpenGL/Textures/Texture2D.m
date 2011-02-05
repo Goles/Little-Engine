@@ -66,7 +66,6 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 #import "PVRTexture.h"
 
 //CONSTANTS:
-
 #define kMaxTextureSize		1024
 
 //CLASS IMPLEMENTATIONS:

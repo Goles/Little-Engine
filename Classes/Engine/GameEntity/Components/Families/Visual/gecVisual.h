@@ -15,14 +15,15 @@ class gecVisual: public GEComponent
 {
 	//GEComponent Interface
 public:
-	virtual const gec_id_type& familyID() const { return mFamilyID; }	
+	virtual const gec_id_type& familyID() const { return m_id; }	
 
 	//gecVisual Interface
 public:
 	virtual void render() const = 0;
+	virtual ~gecVisual() {}
 	
 private:
-	static gec_id_type mFamilyID;
+	static gec_id_type m_id;
 };
 
 #endif

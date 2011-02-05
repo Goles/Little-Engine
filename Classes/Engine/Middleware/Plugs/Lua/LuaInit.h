@@ -15,6 +15,7 @@
 
 #include "FileUtils.h"
 #include "ConstantsAndMacros.h"
+#include "OpenGLCommon.h"
 
 #include "GameEntity.h"
 #include "Scene.h"
@@ -25,12 +26,13 @@
 
 #include "GEComponent.h"
 #include "gecAnimatedSprite.h"
+#include "gecFollowingCamera.h"
 #include "gecFSM.h"
 #include "gecJoystick.h"
 #include "gecButton.h"
 #include "gecBoxCollisionable.h"
 
-#include "SharedSceneManager.h"
+#include "SceneManager.h"
 
 namespace gg
 {
@@ -96,6 +98,15 @@ namespace gg
 				.def_readwrite("origin", &GGRect::origin)
 				.def_readwrite("size", &GGRect::size)
 			];
+			
+			luabind::module(LR_MANAGER_STATE)
+			[
+				 luabind::class_<Vector3D>("Vector3D")
+				 .def(luabind::constructor<>())
+				 .def_readwrite("x",&Vector3D::x)
+				 .def_readwrite("y",&Vector3D::y)
+				 .def_readwrite("z",&Vector3D::z)
+			 ];
 		}
 		 
 		static inline void bindClasses(void)
@@ -105,6 +116,7 @@ namespace gg
 			LR_MANAGER->registrate<Animation>();
 			LR_MANAGER->registrate<SpriteSheet>();
 			LR_MANAGER->registrate<gecAnimatedSprite>();
+			LR_MANAGER->registrate<gecFollowingCamera>();
 			LR_MANAGER->registrate<gecFSM>();
 			LR_MANAGER->registrate<gecJoystick>();
 			LR_MANAGER->registrate<gecButton>();
@@ -115,7 +127,7 @@ namespace gg
 		
 		static inline void bindManagers(void)
 		{
-			LR_MANAGER->registrate<SharedSceneManager>();
+			LR_MANAGER->registrate<SceneManager>();
 		}
 
 		static inline void bindAll(void)

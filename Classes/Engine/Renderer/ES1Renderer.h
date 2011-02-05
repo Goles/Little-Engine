@@ -52,7 +52,6 @@
 	SpriteSheet*	ss2;
 	Image*			sprite;
 	Animation*		animatedSprite;
-	Scene*			aSceneManager;
 }
 
 - (void) update:(float)delta;

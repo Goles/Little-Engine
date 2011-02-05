@@ -78,7 +78,7 @@ void TouchableManager::deleteTouchable(int guiID)
 
 #pragma mark touch_management
 void TouchableManager::touchesBegan(float x, float y, int touchID)
-{
+{	
 	//Flip Parameters due to landscape mode
 	float auxX = x;
 	x = y;

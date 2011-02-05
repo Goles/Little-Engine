@@ -73,6 +73,7 @@ GameEntity* GETemplateManager::createGE(const std::string &geName, float x, floa
 //Creates a broly entity
 GameEntity* GETemplateManager::broly(float x, float y)
 {
+	/*
 	//This is usually the width/height of the sprite.
 	float	width	= 80,
 			height	= 80;
@@ -104,38 +105,40 @@ GameEntity* GETemplateManager::broly(float x, float y)
 	coordWalk.push_back(0);	
 	coordWalk.push_back(6);
 	coordWalk.push_back(0);
+	*/
 	
 	/*Add the animations to the sprite*/	
-	spriteAnimations->addAnimation("walk", coordWalk, ss);
-	spriteAnimations->addAnimation("stand", coordStand, ss);
+	
+	//spriteAnimations->addAnimation("walk", coordWalk, ss);
+//	spriteAnimations->addAnimation("stand", coordStand, ss);
 	
 	/*The Default animation is stand and it's running*/
-	spriteAnimations->setCurrentAnimation(std::string("stand"));
-	spriteAnimations->setCurrentRunning(true);
+//	spriteAnimations->setCurrentAnimation(std::string("stand"));
+//	spriteAnimations->setCurrentRunning(true);
 	
 	//add the sprite animations to our game entity, make it active and set it's position
-	gE->setGEC(spriteAnimations);
-	gE->isActive = true;
+//	gE->setGEC(spriteAnimations);
+//	gE->isActive = true;
 
-	return gE;		
+//	return gE;		
 }
 
 //Creates a hitter1 Entity
 GameEntity* GETemplateManager::hitter1(float x, float y)
 {
-	//This is usually the width/height of the sprite.
-	float	width	= 80,
-			height	= 80;
-	
-	GameEntity *gE = new GameEntity(x, y, width, height);
-	gE->setSpeed(75.0);
-	
-	SpriteSheet *ss = new SpriteSheet();
-	ss->initWithImageNamed("hitter1_1.png", gE->height, gE->width, 0.0, 1.0);
-	
-	//Add an FSM to our Game Entity
-	gecFSM *fsm = new gecFSM();
-	fsm->setOwnerGE(gE);
+//	//This is usually the width/height of the sprite.
+//	float	width	= 80,
+//			height	= 80;
+//	
+//	GameEntity *gE = new GameEntity(x, y, width, height);
+//	gE->setSpeed(75.0);
+//	
+//	SpriteSheet *ss = new SpriteSheet();
+//	ss->initWithImageNamed("hitter1_1.png", gE->height, gE->width, 0.0, 1.0);
+//	
+//	//Add an FSM to our Game Entity
+//	gecFSM *fsm = new gecFSM();
+//	fsm->setOwnerGE(gE);
 	
 	//Build the rules for this entity FSM.
 	//fsm->setRule(kBehaviourState_stand, kBehaviourAction_doAttack, kBehaviourState_attack, "attack");
@@ -154,53 +157,53 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 	
 	//Create the sprite animations component
 	
-	gecAnimatedSprite *spriteAnimations = new gecAnimatedSprite();
-	spriteAnimations->setOwnerGE(gE);
-	
-	std::vector<int> coord_Standing,
-	coord_Moving,
-	coord_Hitting1Punch,
-	coord_Hitting2Conector,
-	coord_Hitting3Uppercut,
-	coord_BeenHit1,
-	coord_BeenHit2,
-	coord_Dying;
-	
-	std::vector<float> time_Standing,
-	time_Moving,
-	time_Hitting1Punch,
-	time_Hitting2Conector,
-	time_Hitting3Uppercut,
-	time_BeenHit1,
-	time_BeenHit2,
-	time_Dying;
-	
-	coord_Standing = vlist_of<int>(0)(0)(1)(0)(2)(0)(3)(0);
-	coord_Moving = vlist_of<int>(4)(0)(5)(0)(6)(0)(7)(0);
-	coord_Hitting1Punch = vlist_of<int>(8)(0)(9)(0)(10)(0);
-	coord_Hitting2Conector = vlist_of<int>(11)(0)(0)(1);
-	coord_Hitting3Uppercut = vlist_of<int>(1)(1)(2)(1)(3)(1);
-	coord_BeenHit1 = vlist_of<int>(4)(1);
-	coord_BeenHit2 = vlist_of<int>(5)(1);
-	coord_Dying = vlist_of<int>(6)(1)(7)(1)(8)(1)(9)(1)(10)(1)(11)(1)(0)(2)(1)(2);
-	time_Standing.push_back(0.10f);
-	time_Moving.push_back(0.10f);
-	time_Hitting1Punch.push_back(0.08f);
-	time_Hitting2Conector.push_back(0.16f);
-	time_Hitting3Uppercut.push_back(0.16f);
-	time_BeenHit1.push_back(0.4f);
-	time_BeenHit2.push_back(0.4f);
-	time_Dying.push_back(0.07f);
-	
-	//Add the animations to the sprite
-	spriteAnimations->addAnimation("stand", coord_Standing, time_Standing, ss);
-	spriteAnimations->addAnimation("walk", coord_Moving, time_Moving, ss);
-	spriteAnimations->addAnimation("attack", coord_Hitting1Punch, time_Hitting1Punch, ss);
-	spriteAnimations->addAnimation("attack2", coord_Hitting2Conector, time_Hitting2Conector, ss);
-	spriteAnimations->addAnimation("attack3", coord_Hitting3Uppercut, time_Hitting3Uppercut, ss);
-	spriteAnimations->addAnimation("hit", coord_BeenHit1, time_BeenHit1, ss);
-	spriteAnimations->addAnimation("hit2", coord_BeenHit2, time_BeenHit2, ss);
-	spriteAnimations->addAnimation("dying", coord_Dying, time_Dying, ss);
+//	gecAnimatedSprite *spriteAnimations = new gecAnimatedSprite();
+//	spriteAnimations->setOwnerGE(gE);
+//	
+//	std::vector<int> coord_Standing,
+//	coord_Moving,
+//	coord_Hitting1Punch,
+//	coord_Hitting2Conector,
+//	coord_Hitting3Uppercut,
+//	coord_BeenHit1,
+//	coord_BeenHit2,
+//	coord_Dying;
+//	
+//	std::vector<float> time_Standing,
+//	time_Moving,
+//	time_Hitting1Punch,
+//	time_Hitting2Conector,
+//	time_Hitting3Uppercut,
+//	time_BeenHit1,
+//	time_BeenHit2,
+//	time_Dying;
+//	
+//	coord_Standing = vlist_of<int>(0)(0)(1)(0)(2)(0)(3)(0);
+//	coord_Moving = vlist_of<int>(4)(0)(5)(0)(6)(0)(7)(0);
+//	coord_Hitting1Punch = vlist_of<int>(8)(0)(9)(0)(10)(0);
+//	coord_Hitting2Conector = vlist_of<int>(11)(0)(0)(1);
+//	coord_Hitting3Uppercut = vlist_of<int>(1)(1)(2)(1)(3)(1);
+//	coord_BeenHit1 = vlist_of<int>(4)(1);
+//	coord_BeenHit2 = vlist_of<int>(5)(1);
+//	coord_Dying = vlist_of<int>(6)(1)(7)(1)(8)(1)(9)(1)(10)(1)(11)(1)(0)(2)(1)(2);
+//	time_Standing.push_back(0.10f);
+//	time_Moving.push_back(0.10f);
+//	time_Hitting1Punch.push_back(0.08f);
+//	time_Hitting2Conector.push_back(0.16f);
+//	time_Hitting3Uppercut.push_back(0.16f);
+//	time_BeenHit1.push_back(0.4f);
+//	time_BeenHit2.push_back(0.4f);
+//	time_Dying.push_back(0.07f);
+//	
+//	//Add the animations to the sprite
+//	spriteAnimations->addAnimation("stand", coord_Standing, time_Standing, ss);
+//	spriteAnimations->addAnimation("walk", coord_Moving, time_Moving, ss);
+//	spriteAnimations->addAnimation("attack", coord_Hitting1Punch, time_Hitting1Punch, ss);
+//	spriteAnimations->addAnimation("attack2", coord_Hitting2Conector, time_Hitting2Conector, ss);
+//	spriteAnimations->addAnimation("attack3", coord_Hitting3Uppercut, time_Hitting3Uppercut, ss);
+//	spriteAnimations->addAnimation("hit", coord_BeenHit1, time_BeenHit1, ss);
+//	spriteAnimations->addAnimation("hit2", coord_BeenHit2, time_BeenHit2, ss);
+//	spriteAnimations->addAnimation("dying", coord_Dying, time_Dying, ss);
 	
 	//Set a delegate for the attack animation
 	//This should be much better because EVERY animation should implement delegation by default.
@@ -215,21 +218,21 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 //		Animation *an = spriteAnimations->getAnimation("hit");
 //		an->setIsRepeating(false);
 //	}
-		
-	
-	//The Default animation is stand and it's running
-	spriteAnimations->setCurrentAnimation(std::string("stand"));
-	spriteAnimations->setCurrentRunning(true);
-	spriteAnimations->setCurrentPingPong(true);
-	spriteAnimations->setCurrentRepeating(true);
-	
-	//add the sprite animations to our game entity, make it active and set it's position
-	gE->setGEC(spriteAnimations);
-	gE->isActive = true;
-	gE->x = x;
-	gE->y = y;
-	//Attach the FSM to the hitter.
-	gE->setGEC(fsm);
+//		
+//	
+//	//The Default animation is stand and it's running
+//	spriteAnimations->setCurrentAnimation(std::string("stand"));
+//	spriteAnimations->setCurrentRunning(true);
+//	spriteAnimations->setCurrentPingPong(true);
+//	spriteAnimations->setCurrentRepeating(true);
+//	
+//	//add the sprite animations to our game entity, make it active and set it's position
+//	gE->setGEC(spriteAnimations);
+//	gE->isActive = true;
+//	gE->x = x;
+//	gE->y = y;
+//	//Attach the FSM to the hitter.
+//	gE->setGEC(fsm);
 	
 	//Attach collisioning to the entity:
 //	gecBoxCollisionable *gbc = new gecBoxCollisionable();
@@ -241,7 +244,7 @@ GameEntity* GETemplateManager::hitter1(float x, float y)
 //	gwc->init(gE, 10.0, 10.0f);
 //	gE->setGEC(gwc);
 	
-	return gE;
+//	return gE;
 }
 
 //Creates a testDummy Entity
@@ -430,25 +433,25 @@ GameEntity*	GETemplateManager::buttonAttack(float x, float y)
 //Creates a background 480x320 entity
 GameEntity* GETemplateManager::background1(float x, float y)
 {
-	//Dimensions
-	float	width	= 480,
-			height	= 320;
-	
-	//Creating GameEntity
-	GameEntity	*ge = new GameEntity(x, y, width, height);
-	
-	//Create a visualComponent
-	Image *i = new Image();
-	i->initWithTextureFile("backgroundDummy.png");
-	
-	//Create and set the gecImage
-	gecImage *gi = new gecImage(i);
-	ge->setGEC(gi);
-	
-	ge->isActive = true;
-	ge->x = x;
-	ge->y = y;
-	return ge;
+//	//Dimensions
+//	float	width	= 480,
+//			height	= 320;
+//	
+//	//Creating GameEntity
+//	GameEntity	*ge = new GameEntity(x, y, width, height);
+//	
+//	//Create a visualComponent
+//	Image *i = new Image();
+//	i->initWithTextureFile("backgroundDummy.png");
+//	
+//	//Create and set the gecImage
+//	gecImage *gi = new gecImage(i);
+//	ge->setGEC(gi);
+//	
+//	ge->isActive = true;
+//	ge->x = x;
+//	ge->y = y;
+//	return ge;
 }
 
 GameEntity* GETemplateManager::scrollingBackground(float x, float y)
@@ -467,35 +470,35 @@ GameEntity* GETemplateManager::scrollingBackground(float x, float y)
 //Creates a background 480x320 entity
 GameEntity* GETemplateManager::backgroundDummy(float x, float y)
 {
-	//This is usually the width/height of the sprite.
-	float	width	= 480,
-			height	= 320;
-	
-	GameEntity *gE = new GameEntity(x, y, width, height);
-	
-	SpriteSheet *ss = new SpriteSheet();
-	ss->initWithImageNamed("backgroundDummy.png", gE->width, gE->height, 0.0, 1.0);
-	
-	gecAnimatedSprite *spriteAnimations = new gecAnimatedSprite();
-	spriteAnimations->setOwnerGE(gE);
-	
-	std::vector<int>	coordBack;
-	coordBack.push_back(0);
-	coordBack.push_back(0);
-	
-	/*Add the animations to the sprite*/
-	spriteAnimations->addAnimation("display",coordBack, ss);
-	
-	/*The Default animation is stand and it's running*/
-	spriteAnimations->setCurrentAnimation(std::string("display"));
-	spriteAnimations->setCurrentRunning(true);
-	
-	gE->setGEC(spriteAnimations);
-	gE->isActive = true;
-	gE->x = x;
-	gE->y = y;
-	
-	return gE;
+//	//This is usually the width/height of the sprite.
+//	float	width	= 480,
+//			height	= 320;
+//	
+//	GameEntity *gE = new GameEntity(x, y, width, height);
+//	
+//	SpriteSheet *ss = new SpriteSheet();
+//	ss->initWithImageNamed("backgroundDummy.png", gE->width, gE->height, 0.0, 1.0);
+//	
+//	gecAnimatedSprite *spriteAnimations = new gecAnimatedSprite();
+//	spriteAnimations->setOwnerGE(gE);
+//	
+//	std::vector<int>	coordBack;
+//	coordBack.push_back(0);
+//	coordBack.push_back(0);
+//	
+//	/*Add the animations to the sprite*/
+//	spriteAnimations->addAnimation("display",coordBack, ss);
+//	
+//	/*The Default animation is stand and it's running*/
+//	spriteAnimations->setCurrentAnimation(std::string("display"));
+//	spriteAnimations->setCurrentRunning(true);
+//	
+//	gE->setGEC(spriteAnimations);
+//	gE->isActive = true;
+//	gE->x = x;
+//	gE->y = y;
+//	
+//	return gE;
 }
 
 //Creates a 4x4 Pixel Entity

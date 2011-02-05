@@ -51,6 +51,10 @@ Character =
 				if(fsm.currentState ~= "S_ATTACK") then
 					this.x = this.x + movement_x -- + round(movement_x) 
 					this.y = this.y + movement_y -- + round(movement_y)
+					
+					-- test
+					this.components["gecFollowingCamera"].x =   this.x
+					this.components["gecFollowingCamera"].y =   this.y
 				end
 			
 			--
@@ -144,10 +148,13 @@ Character =
 			solid = true,
 			size = {height=40, width=40},			
 		},
+		
+		-- Following Camera component
+		gecFollowingCamera =
+		{
+		},
 	},
-	
-
-	
+		
 	-- Atributes for this entity ( this should slowly dissappear )
 	attributes =
 	{
