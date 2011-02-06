@@ -231,7 +231,7 @@
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	glRotatef(-90.0, 0.0, 0.0, 1.0);
-	glOrthof(0, 480, 0, 320, -1, 1);
+	glOrthof(0, SCENE_MANAGER->getWindow().width, 0, SCENE_MANAGER->getWindow().height, -1, 1);
 	glMatrixMode(GL_MODELVIEW);
 	//glEnable(GL_DEPTH_TEST);
 }

@@ -53,11 +53,16 @@ public:
 	int		setActiveScene(const std::string &sceneName);
     
     /** Get the current active Scene
-        @
-        @
-        @
      */
     Scene   *getActiveScene() { return activeScene; }
+	
+	/**
+	 */
+	const CGSize &getWindow() { return m_window; }
+	
+	/**
+	 */
+	void setWindow(const CGSize &in_window) { m_window = in_window; }
 	
 //------------------------------------------------------------------------------
 /** Lua Interface
@@ -72,6 +77,7 @@ static void registrate(void)
 	 .def("addScene", &SceneManager::addScene)
 	 .def("getScene", &SceneManager::getScene)
 	 .def("setActiveScene", &SceneManager::setActiveScene)
+	 .property("window", &SceneManager::getWindow, &SceneManager::setWindow)
 	 .scope
 	 [
 	  luabind::def("getInstance", &SceneManager::getInstance)
@@ -81,17 +87,17 @@ static void registrate(void)
 
 //------------------------------------------------------------------------------ 
 protected:
-	SceneManager() : activeScene(0){}
+	SceneManager() : m_window(CGSizeZero), activeScene(0){}
 
 //------------------------------------------------------------------------------	
 private:
 	typedef std::map<std::string, Scene *> SceneMap;
 	typedef std::pair<std::string, Scene *> SceneMapPair;
 	
-	static SceneManager *instance;
+	CGSize m_window;
 	Scene *activeScene;
+	static SceneManager *instance;
 	SceneMap scenes;
-
 };
 
 #endif

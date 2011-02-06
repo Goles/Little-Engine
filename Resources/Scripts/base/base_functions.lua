@@ -43,19 +43,10 @@ function activateScene(scene)
 end
 
 -- pseudo round function using only floor and ceil
-function round(in_number)
-	
-	print("Rouding")
-	
-	decimal_part = in_number - abs(in_number)
-	
-	if (decimal_part >= 0.5) then
-		
-		in_number = (in_number - decimal_part) + 1
-		
-	elseif (decimal_part < 0.5 ) then
-		
-		in_number = (in_number - decimal_part)
-		
-	end
+function round(val, decimal)
+  if (decimal) then
+    return math.floor( (val * 10^decimal) + 0.5) / (10^decimal)
+  else
+    return math.floor(val+0.5)
+  end
 end

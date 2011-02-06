@@ -125,7 +125,6 @@
 		14A2172112E7884700A4D8EC /* SceneBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2170B12E7884700A4D8EC /* SceneBuilder.lua */; };
 		14A2172212E7884700A4D8EC /* tableprint.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2170C12E7884700A4D8EC /* tableprint.lua */; };
 		14A2172312E7884700A4D8EC /* gecFSM_interface.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2170E12E7884700A4D8EC /* gecFSM_interface.lua */; };
-		14A2172412E7884700A4D8EC /* CoolDude.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2170F12E7884700A4D8EC /* CoolDude.lua */; };
 		14A2172812E7884700A4D8EC /* event_manager.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2171512E7884700A4D8EC /* event_manager.lua */; };
 		14A2172912E7884700A4D8EC /* init.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2171612E7884700A4D8EC /* init.lua */; };
 		14A2172A12E7884700A4D8EC /* main.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2171712E7884700A4D8EC /* main.lua */; };
@@ -195,6 +194,8 @@
 		14D1A7F512EDD8180070D86F /* hitter_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14D1A7F312EDD8180070D86F /* hitter_1.lua */; };
 		14D1A7F612EDD8180070D86F /* joypad_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14D1A7F412EDD8180070D86F /* joypad_1.lua */; };
 		14D1A85112EDE0570070D86F /* button_attack.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14D1A85012EDE0570070D86F /* button_attack.lua */; };
+		14DC3FC612FDDE71004CC360 /* config_functions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14DC3FC512FDDE71004CC360 /* config_functions.lua */; };
+		14DC3FD312FDDE8E004CC360 /* config.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14DC3FD212FDDE8E004CC360 /* config.lua */; };
 		14E31418121E47E200917795 /* CompBehaviour.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E3135B121E47E100917795 /* CompBehaviour.mm */; };
 		14E31419121E47E200917795 /* gecFSM.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E3135D121E47E100917795 /* gecFSM.mm */; };
 		14E3141A121E47E200917795 /* CompCollisionable.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31360121E47E100917795 /* CompCollisionable.mm */; };
@@ -455,7 +456,6 @@
 		14A2170B12E7884700A4D8EC /* SceneBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SceneBuilder.lua; sourceTree = "<group>"; };
 		14A2170C12E7884700A4D8EC /* tableprint.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tableprint.lua; sourceTree = "<group>"; };
 		14A2170E12E7884700A4D8EC /* gecFSM_interface.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gecFSM_interface.lua; sourceTree = "<group>"; };
-		14A2170F12E7884700A4D8EC /* CoolDude.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CoolDude.lua; sourceTree = "<group>"; };
 		14A2171512E7884700A4D8EC /* event_manager.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = event_manager.lua; sourceTree = "<group>"; };
 		14A2171612E7884700A4D8EC /* init.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = init.lua; sourceTree = "<group>"; };
 		14A2171712E7884700A4D8EC /* main.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.lua; sourceTree = "<group>"; };
@@ -534,6 +534,8 @@
 		14D1A7F312EDD8180070D86F /* hitter_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hitter_1.lua; sourceTree = "<group>"; };
 		14D1A7F412EDD8180070D86F /* joypad_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = joypad_1.lua; sourceTree = "<group>"; };
 		14D1A85012EDE0570070D86F /* button_attack.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = button_attack.lua; sourceTree = "<group>"; };
+		14DC3FC512FDDE71004CC360 /* config_functions.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config_functions.lua; sourceTree = "<group>"; };
+		14DC3FD212FDDE8E004CC360 /* config.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.lua; sourceTree = "<group>"; };
 		14E31358121E47E100917795 /* BehaviourActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BehaviourActions.h; sourceTree = "<group>"; };
 		14E31359121E47E100917795 /* BehaviourStates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BehaviourStates.h; sourceTree = "<group>"; };
 		14E3135A121E47E100917795 /* CompBehaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompBehaviour.h; sourceTree = "<group>"; };
@@ -973,12 +975,12 @@
 			children = (
 				14A2170412E7884700A4D8EC /* base */,
 				14A2170D12E7884700A4D8EC /* components */,
-				14A2170F12E7884700A4D8EC /* CoolDude.lua */,
+				14DC3FD112FDDE8E004CC360 /* configuration */,
 				14A2171012E7884700A4D8EC /* entities */,
 				14A2171412E7884700A4D8EC /* events */,
+				14A2171812E7884700A4D8EC /* scenes */,
 				14A2171612E7884700A4D8EC /* init.lua */,
 				14A2171712E7884700A4D8EC /* main.lua */,
-				14A2171812E7884700A4D8EC /* scenes */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
@@ -986,6 +988,7 @@
 		14A2170412E7884700A4D8EC /* base */ = {
 			isa = PBXGroup;
 			children = (
+				14DC3FC512FDDE71004CC360 /* config_functions.lua */,
 				14A2170512E7884700A4D8EC /* base_functions.lua */,
 				14A2170612E7884700A4D8EC /* ComponentBuilder.lua */,
 				14A2170712E7884700A4D8EC /* EntityBuilder.lua */,
@@ -1148,6 +1151,14 @@
 				1486128D12F775B3007A3F4E /* ICompCamera.mm */,
 			);
 			name = Camera;
+			sourceTree = "<group>";
+		};
+		14DC3FD112FDDE8E004CC360 /* configuration */ = {
+			isa = PBXGroup;
+			children = (
+				14DC3FD212FDDE8E004CC360 /* config.lua */,
+			);
+			path = configuration;
 			sourceTree = "<group>";
 		};
 		14E31352121E47E100917795 /* Classes */ = {
@@ -1861,7 +1872,6 @@
 				14A2172112E7884700A4D8EC /* SceneBuilder.lua in Resources */,
 				14A2172212E7884700A4D8EC /* tableprint.lua in Resources */,
 				14A2172312E7884700A4D8EC /* gecFSM_interface.lua in Resources */,
-				14A2172412E7884700A4D8EC /* CoolDude.lua in Resources */,
 				14A2172812E7884700A4D8EC /* event_manager.lua in Resources */,
 				14A2172912E7884700A4D8EC /* init.lua in Resources */,
 				14A2172A12E7884700A4D8EC /* main.lua in Resources */,
@@ -1876,6 +1886,8 @@
 				1444259312FCB0D200BD0D32 /* world1.lua in Resources */,
 				1444259512FCB0DA00BD0D32 /* game_entities_1.lua in Resources */,
 				1444259712FCB0DE00BD0D32 /* gui.lua in Resources */,
+				14DC3FC612FDDE71004CC360 /* config_functions.lua in Resources */,
+				14DC3FD312FDDE8E004CC360 /* config.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

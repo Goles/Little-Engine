@@ -49,8 +49,8 @@ Character =
 				local movement_y = delta_speed * in_data.latest_speed.y
 				
 				if(fsm.currentState ~= "S_ATTACK") then
-					this.x = this.x + movement_x -- + round(movement_x) 
-					this.y = this.y + movement_y -- + round(movement_y)
+					this.x = round(this.x + movement_x)
+					this.y = round(this.y + movement_y)
 					
 					-- test
 					this.components["gecFollowingCamera"].x =   this.x
@@ -151,7 +151,17 @@ Character =
 		
 		-- Following Camera component
 		gecFollowingCamera =
-		{
+		{			
+			follow_x = true,
+			follow_y = false,
+			
+			death_zone = 
+			{
+				x = 120,
+				y = 0,
+				width = 240,
+				height = 320,
+			},
 		},
 	},
 		

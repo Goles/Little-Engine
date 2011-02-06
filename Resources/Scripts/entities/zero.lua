@@ -64,16 +64,13 @@ Zero =
 	
 			elseif in_event == "E_DRAG_GAMEPAD" then
 				
-				this.flipHorizontally = in_data.dx_negative				
-				
-				print(in_data.delta .. " " .. this.speed )
-				
+				this.flipHorizontally = in_data.dx_negative			
 				local delta_speed = in_data.delta * this.speed
 				local movement_x = delta_speed * in_data.latest_speed.x
 				local movement_y = delta_speed * in_data.latest_speed.y
 				
-				this.x = this.x + movement_x -- + round(movement_x) 
-				this.y = this.y + movement_y -- + round(movement_y)
+				this.x = this.x + round(movement_x) 
+				this.y = this.y + round(movement_y)
 
 			end
 		end
