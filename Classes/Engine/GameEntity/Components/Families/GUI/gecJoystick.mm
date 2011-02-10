@@ -207,7 +207,7 @@ Boolean gecJoystick::handle_touch(float x, float y, int touchIndex, int touchID,
 			//Holding outside joystick bounds
 			//This is useful when we drag our finger OUTSIDE of the joystick
 			//bounds, and still want the joystick to keep responding.
-			 if((TOUCHABLE_MANAGER->GUIState[i].fingerDown == true) /*&& (touchID == currentTouchID)*/ && active)
+			 if((TOUCHABLE_MANAGER->GUIState[i].fingerDown == true) && (touchID == currentTouchID))
 			{
 				active = true;
 				gAni->setCurrentAnimation("hot");	
