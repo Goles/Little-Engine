@@ -81,13 +81,17 @@ public:
 	
 protected:
 	enum kDirection {
-		kDirection_North = 0,
+		kDirection_Invalid = -1,
+		kDirection_North,
 		kDirection_South,
 		kDirection_East,
 		kDirection_West,
 		kDirection_Null,
 	};
 	
+	inline kDirection leftDeathZoneFromDirection(const CGPoint &in_point);
+	inline void updateCameraX(const GameEntity *owner_p);
+	inline void updateCameraY(const GameEntity *owner_p);
 	inline bool deathZoneContainsPoint(const CGPoint &in_point);
 	inline int calculateCameraOffset(CGPoint in_EntityPosition);
 	inline kDirection getPointDirection(CGPoint point, CGPoint origin);
