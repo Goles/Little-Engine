@@ -45,6 +45,46 @@ void gecFollowingCamera::update(float delta)
 	}
 }
 
+void gecFollowingCamera::restore()
+{
+	m_eye_x = 0.0f;
+	m_eye_y = 0.0f;
+	m_eye_z = 1.0f;
+	m_center_x = 0.0f;
+	m_center_y = 0.0f;
+	m_center_z = 0.0f;
+	m_up_x = 0.0f;
+	m_up_y = 1.0f;
+	m_up_z = 0.0f;
+	m_dirty = true;
+}
+
+void gecFollowingCamera::locate()
+{
+	if (m_dirty)
+	{	
+		int offset = this->calculateCameraOffset(CGPointMake(this->getOwnerGE()->x, this->getOwnerGE()->y));
+		
+		if(offset != 0)
+			m_cameraOffset = offset;
+		
+		glMatrixMode(GL_MODELVIEW);
+		glLoadIdentity();
+		//X AXIS
+//		gluLookAt(m_eye_x - cameraOffset, m_eye_y, m_eye_z,
+//				  m_center_x - cameraOffset, m_center_y , m_center_z,
+//				  m_up_x, m_up_y, m_up_z
+//				  );
+		
+		gluLookAt(m_eye_x, m_eye_y - m_cameraOffset, m_eye_z,
+				  m_center_x, m_center_y - m_cameraOffset, m_center_z,
+				  m_up_x, m_up_y, m_up_z
+				  );
+		
+		m_dirty = false;
+	}
+}
+
 void gecFollowingCamera::updateCameraX(const GameEntity *ownerge_p)
 {
 	if (m_follow_x)
@@ -71,36 +111,6 @@ void gecFollowingCamera::updateCameraY(const GameEntity *ownerge_p)
 	}
 	
 	m_dirty = true;
-}
-
-void gecFollowingCamera::restore()
-{
-	m_eye_x = 0.0f;
-	m_eye_y = 0.0f;
-	m_eye_z = 1.0f;
-	m_center_x = 0.0f;
-	m_center_y = 0.0f;
-	m_center_z = 0.0f;
-	m_up_x = 0.0f;
-	m_up_y = 1.0f;
-	m_up_z = 0.0f;
-	m_dirty = true;
-}
-
-void gecFollowingCamera::locate()
-{
-	if (m_dirty)
-	{	
-		int cameraOffset = this->calculateCameraOffset(CGPointMake(this->getOwnerGE()->x, this->getOwnerGE()->y));
-		glMatrixMode(GL_MODELVIEW);
-		glLoadIdentity();
-		gluLookAt(m_eye_x - cameraOffset, m_eye_y, m_eye_z,
-				  m_center_x - cameraOffset, m_center_y , m_center_z,
-				  m_up_x, m_up_y, m_up_z
-				  );
-		
-		m_dirty = false;
-	}
 }
 
 gecFollowingCamera::kDirection gecFollowingCamera::leftDeathZoneFromDirection(const CGPoint &in_point)
@@ -134,19 +144,27 @@ int gecFollowingCamera::calculateCameraOffset(CGPoint in_EntityPosition)
 	
 	switch (direction) {
 		case kDirection_East:
-			cameraOffset = SCENE_MANAGER->getWindow().width - m_deathZone.origin.x;
+			if (m_follow_x)
+				cameraOffset = SCENE_MANAGER->getWindow().width - m_deathZone.origin.x;
+
 			break;
 			
 		case kDirection_West:
-			cameraOffset = m_deathZone.origin.x;
+			if (m_follow_x)
+				cameraOffset = m_deathZone.origin.x;
+
 			break;
 			
 		case kDirection_North:
-			cameraOffset = SCENE_MANAGER->getWindow().height - m_deathZone.origin.y;			
+			if (m_follow_y)
+				cameraOffset = SCENE_MANAGER->getWindow().height - m_deathZone.origin.y;
+
 			break;
 			
 		case kDirection_South:
-			cameraOffset = m_deathZone.origin.y;
+			if (m_follow_y)
+				cameraOffset = m_deathZone.origin.y;
+
 			break;
 			
 		case kDirection_Null:
@@ -174,7 +192,7 @@ gecFollowingCamera::kDirection gecFollowingCamera::getPointDirection(CGPoint poi
 	
 	if(offset_x < 0)
 		return kDirection_West;
-
+	
 	else if(offset_x > 0)
 		return kDirection_East;
 	

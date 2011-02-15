@@ -88,10 +88,10 @@ protected:
 		kDirection_West,
 		kDirection_Null,
 	};
-	
+
+	inline void updateCameraX(const GameEntity* owner_p);
+	inline void updateCameraY(const GameEntity* owner_p);
 	inline kDirection leftDeathZoneFromDirection(const CGPoint &in_point);
-	inline void updateCameraX(const GameEntity *owner_p);
-	inline void updateCameraY(const GameEntity *owner_p);
 	inline bool deathZoneContainsPoint(const CGPoint &in_point);
 	inline int calculateCameraOffset(CGPoint in_EntityPosition);
 	inline kDirection getPointDirection(CGPoint point, CGPoint origin);
@@ -102,6 +102,7 @@ private:
 	int	 m_eye_x, m_eye_y, m_eye_z;
 	int	 m_center_x, m_center_y, m_center_z;
 	int	 m_up_x, m_up_y, m_up_z;
+	int  m_cameraOffset;
 	CGRect m_deathZone;
 	bool m_enableDeathZone;
 	bool m_dirty;
