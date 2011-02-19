@@ -12,6 +12,7 @@
 
 #include "ICompCamera.h"
 #include "LuaRegisterManager.h"
+#include "SceneManager.h"
 
 class gecFollowingCamera : public ICompCamera
 {
@@ -20,18 +21,10 @@ public:
 	virtual void update(float delta);
 	virtual void restore();
 	virtual void locate();			
-	gecFollowingCamera() :	m_eye_x(0.0f),
-							m_eye_y(0.0f),
-							m_eye_z(1.0f),
-							m_center_x(0.0f),
-							m_center_y(0.0f),
-							m_center_z(0.0f),
-							m_up_x(0.0f),
-							m_up_y(1.0f),
-							m_up_z(0.0f),
-							m_deathZone(CGRectZero),
-							m_enableDeathZone(false),
-							m_dirty(true),
+	gecFollowingCamera() :	m_deathZoneX(SCENE_MANAGER->getWindow().width/2),
+							m_deathZoneY(SCENE_MANAGER->getWindow().height/2),
+							m_cameraView(CGRectMake(0, 0, SCENE_MANAGER->getWindow().width, SCENE_MANAGER->getWindow().height)), 
+							m_active(true),
 							m_follow_x(true),
 							m_follow_y(true){}
 		
@@ -39,10 +32,6 @@ public:
 	virtual const gec_id_type &componentID() const { return m_id; }
 	
 	//Setters & Getters
-	bool getDirty() { return m_dirty; }	
-	
-	float getZEye(){ return FLT_EPSILON; }
-	
 	bool getFollowX() const { return m_follow_x; }
 	
 	void setFollowX(bool doesFollow) { m_follow_x = doesFollow; }
@@ -51,61 +40,48 @@ public:
 	
 	void setFollowY(bool doesFollow) { m_follow_y = doesFollow; }
 	
-	const CGRect &getDeathZone() const { return m_deathZone; }
-
-	void setDeathZone(const CGRect &in_deathZone) { 
-		m_deathZone = in_deathZone;
-		this->setEnableDeathZone(true);
+	int getDeathZoneX() const { return m_deathZoneX; }
+	
+	void setDeathZoneX(int x) {
+		assert(x >= 0);
+		m_deathZoneX = x;
 	}
 	
-	void setEnableDeathZone(bool in_useDeathZone) {
-		m_enableDeathZone = in_useDeathZone;
+	int getDeathZoneY() const { return m_deathZoneY; }
+	
+	void setDeathZoneY(int y) {
+		assert(y >= 0);
+		m_deathZoneY = y;
 	}
 	
-	bool getEnableDeathZone() {
-		return m_enableDeathZone;
-	}
+	bool getActive() { return m_active; }
+	void setActive(bool active) { m_active = active; }
 	
+	//Lua binding code
 	static void registrate()
 	{
 		luabind::module(LR_MANAGER_STATE) 
 		[
 		 luabind::class_<gecFollowingCamera, GEComponent>("gecFollowingCamera")
-		 .def(luabind::constructor<>())
-		 .def("enableDeathZone", &gecFollowingCamera::setEnableDeathZone)
+		 .def(luabind::constructor<>())		
 		 .property("follow_x", &gecFollowingCamera::getFollowX, &gecFollowingCamera::setFollowX)
 		 .property("follow_y", &gecFollowingCamera::getFollowY, &gecFollowingCamera::setFollowY)
-		 .property("death_zone", &gecFollowingCamera::getDeathZone, &gecFollowingCamera::setDeathZone)
+		 .property("death_zone_x", &gecFollowingCamera::getDeathZoneX, &gecFollowingCamera::setDeathZoneX)
+		 .property("death_zone_y", &gecFollowingCamera::getDeathZoneY, &gecFollowingCamera::setDeathZoneY)
+		 .property("active", &gecFollowingCamera::getActive, &gecFollowingCamera::setActive)
 		 ];
 	}
 	
 protected:
-	enum kDirection {
-		kDirection_Invalid = -1,
-		kDirection_North,
-		kDirection_South,
-		kDirection_East,
-		kDirection_West,
-		kDirection_Null,
-	};
-
-	inline void updateCameraX(const GameEntity* owner_p);
-	inline void updateCameraY(const GameEntity* owner_p);
-	inline kDirection leftDeathZoneFromDirection(const CGPoint &in_point);
-	inline bool deathZoneContainsPoint(const CGPoint &in_point);
-	inline int calculateCameraOffset(CGPoint in_EntityPosition);
-	inline kDirection getPointDirection(CGPoint point, CGPoint origin);
+	inline void setCameraX(int x) { m_cameraView.origin.x = x; }
+	inline void setCameraY(int y){ m_cameraView.origin.y = y; }
 	
 private:
-
 	static std::string m_id;
-	int	 m_eye_x, m_eye_y, m_eye_z;
-	int	 m_center_x, m_center_y, m_center_z;
-	int	 m_up_x, m_up_y, m_up_z;
-	int  m_cameraOffset;
-	CGRect m_deathZone;
-	bool m_enableDeathZone;
-	bool m_dirty;
+	CGRect m_cameraView;
+	int	 m_deathZoneX;
+	int  m_deathZoneY;
+	bool m_active;
 	bool m_follow_x;
 	bool m_follow_y;
 };

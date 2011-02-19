@@ -152,15 +152,13 @@ Character =
 		-- Following Camera component
 		gecFollowingCamera =
 		{			
-			follow_x = false,
+			follow_x = true,
 			follow_y = true,
-			
+					
 			death_zone = 
 			{
-				x = 0,
-				y = 80,
-				width = 480,
-				height = 160,
+				x_treshold = 120,
+				y_treshold = 120,
 			},
 		},
 	},

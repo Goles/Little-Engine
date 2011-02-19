@@ -149,7 +149,15 @@ function gecFollowingCameraBuild(t)
 	camera = gecFollowingCamera()
 	
 	if t.death_zone then
-		camera.death_zone = ggr(t.death_zone.x, t.death_zone.y, t.death_zone.width, t.death_zone.height)
+		
+		if t.death_zone.x_treshold ~= nil then			
+			camera.death_zone_x = t.death_zone.x_treshold
+		end
+			
+		if t.death_zone.y_treshold ~= nil then
+			camera.death_zone_y = t.death_zone.y_treshold	
+		end
+		
 	end
 	
 	if t.follow_x == true or t.follow_x == false then

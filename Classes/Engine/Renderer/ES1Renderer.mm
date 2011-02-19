@@ -166,8 +166,8 @@
 
 - (void) fsmTest
 {
-	GameEntity *hitter = GE_FACTORY->createGE("hitter1", 240.0f, 160.0f);
-	GameEntity *button = GE_FACTORY->createGE("buttonDummy", 350.0f, 50.0f);
+//	GameEntity *hitter = GE_FACTORY->createGE("hitter1", 240.0f, 160.0f);
+//	GameEntity *button = GE_FACTORY->createGE("buttonDummy", 350.0f, 50.0f);
 
 	//Configure our button
 	//((gecButton *)button->getGEC("CompGUI"))->setActionPressed(kBehaviourAction_doAttack);
