@@ -21,7 +21,6 @@
 #include "gecImage.h"
 #include "Image.h"
 #include "gecScrollingBackground.h"
-#include <boost/bind.hpp>
 #include "gecBoxCollisionable.h"
 #include "gecWeapon.h"
 #include "LuaRegisterManager.h"
