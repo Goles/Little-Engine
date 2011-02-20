@@ -65,7 +65,7 @@ public:
 	
 protected:
 	TouchableManager();
-	void						initGUIState();
+	void initGUIState();
 	
 	//private Atributes
 private:

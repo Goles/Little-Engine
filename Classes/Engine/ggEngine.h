@@ -10,12 +10,14 @@
 #ifndef __GG_ENGINE_H__
 #define __GG_ENGINE_H__
 
-#include "GETemplateManager.h"
-#include "TouchableManager.h"
-#include "SharedParticleSystemManager.h"
-#include "SharedTextureManager.h"
-#include "GandoBox2D.h"
 #include "LuaRegisterManager.h"
+#include "TouchableManager.h"
+#include "SceneManager.h"
+#include "SharedTextureManager.h"
+#include "SharedParticleSystemManager.h"
+#include "GandoBox2D.h"
+#include "GETemplateManager.h"
+
 #include "LuaInit.h"
 
 /** Good Game Engine Namespace
@@ -42,7 +44,25 @@ namespace gg
 	
 	inline void startup(void)
 	{
+		gg::init();
+		
+#ifdef DEBUG
+		NSLog(@"DRAW SHIT");
+		GBOX_2D->initDebugDraw();
+#endif
+		
 		LR_MANAGER->execScript("init.lua");
+	}
+	
+	inline void shutDown(void)
+	{
+		delete LR_MANAGER;			/** < delete the Lua Registrate Manager */
+		delete TOUCHABLE_MANAGER;	/** < delete the Input Manager*/
+		delete SCENE_MANAGER;		/** < delete the Scene Manager */
+		delete TEXTURE_MANAGER;		/** < delete the Texture Manager*/
+		delete PARTICLE_MANAGER;	/** < delete the Particles Manager*/
+		delete GBOX_2D;				/** < delete the Box2D Plug for GG*/
+		delete GE_FACTORY;			/** < delete the Game Entity Factory */		
 	}
 }
 

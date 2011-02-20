@@ -151,6 +151,12 @@ void TouchableManager::broadcastInteraction(float x, float y, int touchIndex, in
 	gg::event::broadcast_touch(x, y, touchIndex, touchID, touchType);
 }
 
+TouchableManager::~TouchableManager()
+{
+	//Don't free the touchables here since those will be freed by the Scene Manager.
+	//Touchable manager is not responsible for those references.
+}
+
 void TouchableManager::debugPrintGUIState()
 {
 	std::cout << "**DEBUG PRINT GUISTATE[]**" << std::endl;

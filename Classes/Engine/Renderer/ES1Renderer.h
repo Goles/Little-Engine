@@ -10,19 +10,6 @@
 
 #import <OpenGLES/ES1/gl.h>
 #import <OpenGLES/ES1/glext.h>
-#import "Image.h"
-#import "SpriteSheet.h"
-#import "Animation.h"
-#import "SharedParticleSystemManager.h"
-#import "SharedTextureManager.h"
-#import "gecParticleSystem.h"
-#import "Scene.h"
-#include "GETemplateManager.h"
-#include "GandoBox2D.h"
-
-@class ParticleController;
-@class Texture2D;
-@class SingletonParticleSystemManager;
 
 @interface ES1Renderer : NSObject <ESRenderer>
 {
@@ -38,20 +25,15 @@
 	
 	//setup
 	BOOL viewSetup;
+	BOOL showFps;
+	
+	//Display Fps if needed
+	CFTimeInterval CurrentTime;
+	CFTimeInterval LastFPSUpdate;
+
 	
 	// The OpenGL names for the framebuffer and renderbuffer used to render to this view
 	GLuint defaultFramebuffer, colorRenderbuffer;
-
-	Texture2D*	testTex;
-	Texture2D*	backgroundTex;
-	Image*		someImage;
-	Image*		particleTextures;
-	
-	//Testing C++ stuff
-	SpriteSheet*	ss;
-	SpriteSheet*	ss2;
-	Image*			sprite;
-	Animation*		animatedSprite;
 }
 
 - (void) update:(float)delta;
@@ -59,15 +41,7 @@
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer;
 - (void) setupView;
 - (void) initGame;
-- (void) initScenes;
+- (void) setFps;
+- (void) showFps;
 
-/*Tests*/
-- (void) box2d;
-- (void) fsmTest;
-- (void) offsetTest;
-- (void) multiTouchTest;
-- (void) particlesTest;
-- (void) particlesShowOff;
-- (void) textureManagerTest:(NSString *) inTextureName;
- 
 @end

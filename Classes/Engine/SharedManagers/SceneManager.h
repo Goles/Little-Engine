@@ -73,15 +73,15 @@ static void registrate(void)
 {
 	luabind::module(LR_MANAGER_STATE) 
 	[
-	 luabind::class_<SceneManager>("SceneManager")
-	 .def("addScene", &SceneManager::addScene)
-	 .def("getScene", &SceneManager::getScene)
-	 .def("setActiveScene", &SceneManager::setActiveScene)
-	 .property("window", &SceneManager::getWindow, &SceneManager::setWindow)
-	 .scope
-	 [
-	  luabind::def("getInstance", &SceneManager::getInstance)
-	 ]
+		 luabind::class_<SceneManager>("SceneManager")
+		 .def("addScene", &SceneManager::addScene)
+		 .def("getScene", &SceneManager::getScene)
+		 .def("setActiveScene", &SceneManager::setActiveScene)
+		 .property("window", &SceneManager::getWindow, &SceneManager::setWindow)
+		 .scope
+		 [
+			luabind::def("getInstance", &SceneManager::getInstance)
+		 ]
 	 ];	
 }
 

@@ -46,18 +46,19 @@ public:
 	/** Returns the singleton instance for the Lua register manager*/
 	static LuaRegisterManager* getInstance();
 	
+	/** Destroys the LuaRegisterManager.
+	 @remarks
+	 It does close the Lua Runtime.
+	 */
+	~LuaRegisterManager();
+	
+	
 protected:
 	/** Init the LuaRegisterManager.
 	 @remarks
 	 Does start up the lua-runtime, and also binds the runtime to the luabind library.
 	 */
 	LuaRegisterManager();
-	
-	/** Destroys the LuaRegisterManager.
-	 @remarks
-	 It does close the Lua Runtime.
-	 */
-	~LuaRegisterManager();
 	
 private:	
 	static LuaRegisterManager* instance;	

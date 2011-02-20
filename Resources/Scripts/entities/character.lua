@@ -29,7 +29,7 @@ Character =
 				c:setCurrentRunning(true)
 				c:setCurrentRepeating(true)
 				
-				if(in_data == "CoolScene") then
+				if(in_data == "World_1") then
 					-- this is level "CoolScene" manage special according to this level.
 				end
 			
