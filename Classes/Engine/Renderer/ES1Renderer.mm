@@ -26,6 +26,8 @@
 #include "LuaRegisterManager.h"
 #include "ggEngine.h"
 #include "SceneManager.h"
+#include "FontManager.h"
+#include "IFont.h"
 
 @implementation ES1Renderer
 
@@ -257,10 +259,14 @@
 	
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
-	
+
 	SCENE_MANAGER->getActiveScene()->render();
 	
-	GBOX_2D->debugRender();
+	IFont *font = FONT_MANAGER->getFont("TOONISH.ttf",12);
+	font->setText("EHLO!");
+	font->render();
+	
+	//GBOX_2D->debugRender();
 	
 	glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
 	[context presentRenderbuffer:GL_RENDERBUFFER_OES];

@@ -62,7 +62,7 @@ void Scene::render()
 		}
 	}
 	
-	//Render our entities
+	//Render our Visual Components
 	for (e_it = entityList.begin(); e_it < entityList.end(); ++e_it)
 	{
 		if((*e_it)->isActive)

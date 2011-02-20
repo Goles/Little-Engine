@@ -12,6 +12,11 @@
 		1444259512FCB0DA00BD0D32 /* game_entities_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1444259412FCB0DA00BD0D32 /* game_entities_1.lua */; };
 		1444259712FCB0DE00BD0D32 /* gui.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1444259612FCB0DE00BD0D32 /* gui.lua */; };
 		1453691512F359A100B97FB4 /* weapon_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1453691412F359A100B97FB4 /* weapon_1.lua */; };
+		148B1F761310A2DC00B1CE94 /* gecFollowingCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1F731310A2DC00B1CE94 /* gecFollowingCamera.mm */; };
+		148B1F771310A2DC00B1CE94 /* ICompCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1F751310A2DC00B1CE94 /* ICompCamera.mm */; };
+		148B1F871310A44100B1CE94 /* FontManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1F861310A44100B1CE94 /* FontManager.mm */; };
+		148B1FBD1310AA9E00B1CE94 /* ftglesTextureFont.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1FBC1310AA9E00B1CE94 /* ftglesTextureFont.mm */; };
+		148B20D01310C9CA00B1CE94 /* TOONISH.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 148B20CF1310C9CA00B1CE94 /* TOONISH.ttf */; };
 		14A2171B12E7884700A4D8EC /* base_functions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2170512E7884700A4D8EC /* base_functions.lua */; };
 		14A2171C12E7884700A4D8EC /* ComponentBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2170612E7884700A4D8EC /* ComponentBuilder.lua */; };
 		14A2171D12E7884700A4D8EC /* EntityBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2170712E7884700A4D8EC /* EntityBuilder.lua */; };
@@ -38,14 +43,12 @@
 		14DEC0311310835C0094F680 /* gecFSM.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF581310835C0094F680 /* gecFSM.mm */; };
 		14DEC0321310835C0094F680 /* CompCollisionable.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF5B1310835C0094F680 /* CompCollisionable.mm */; };
 		14DEC0331310835C0094F680 /* gecBoxCollisionable.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF5D1310835C0094F680 /* gecBoxCollisionable.mm */; };
-		14DEC0341310835C0094F680 /* gecFollowingCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF5F1310835C0094F680 /* gecFollowingCamera.mm */; };
 		14DEC0351310835C0094F680 /* CompTouchable.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF621310835C0094F680 /* CompTouchable.mm */; };
 		14DEC0361310835C0094F680 /* gecButton.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF641310835C0094F680 /* gecButton.mm */; };
 		14DEC0371310835C0094F680 /* gecJoystick.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF661310835C0094F680 /* gecJoystick.mm */; };
 		14DEC0381310835C0094F680 /* TouchableManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF681310835C0094F680 /* TouchableManager.mm */; };
 		14DEC0391310835C0094F680 /* CompHealth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF6A1310835C0094F680 /* CompHealth.cpp */; };
 		14DEC03A1310835C0094F680 /* gecHealthHuman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF6C1310835C0094F680 /* gecHealthHuman.cpp */; };
-		14DEC03C1310835C0094F680 /* ICompCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF711310835C0094F680 /* ICompCamera.mm */; };
 		14DEC03D1310835C0094F680 /* CompLevelLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF741310835C0094F680 /* CompLevelLoader.mm */; };
 		14DEC03E1310835C0094F680 /* CompSpawn.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF771310835C0094F680 /* CompSpawn.mm */; };
 		14DEC03F1310835C0094F680 /* gecAnimatedSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF7B1310835C0094F680 /* gecAnimatedSprite.mm */; };
@@ -63,7 +66,6 @@
 		14DEC06E1310835C0094F680 /* GandoBox2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFE91310835C0094F680 /* GandoBox2D.mm */; };
 		14DEC06F1310835C0094F680 /* GContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFEB1310835C0094F680 /* GContactListener.mm */; };
 		14DEC0701310835C0094F680 /* LuaRegisterManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFF01310835C0094F680 /* LuaRegisterManager.mm */; };
-		14DEC0711310835C0094F680 /* IFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFF21310835C0094F680 /* IFont.cpp */; };
 		14DEC0721310835C0094F680 /* PVRTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFFB1310835C0094F680 /* PVRTexture.m */; };
 		14DEC0731310835C0094F680 /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFFD1310835C0094F680 /* Texture2D.m */; };
 		14DEC0741310835C0094F680 /* gecParticleSystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0011310835C0094F680 /* gecParticleSystem.mm */; };
@@ -144,14 +146,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 14DEBD921310777C0094F680 /* box2d.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D /* libbox2d.a */;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
 			remoteInfo = box2d;
 		};
 		14DEBDA51310778D0094F680 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 14DEBD921310777C0094F680 /* box2d.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D /* box2d */;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = box2d;
 		};
 		14F64F2E13101678006DBA13 /* PBXContainerItemProxy */ = {
@@ -170,6 +172,15 @@
 		1444259612FCB0DE00BD0D32 /* gui.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gui.lua; sourceTree = "<group>"; };
 		144BAA1913100C77005AD895 /* luabind.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = luabind.xcodeproj; path = Libraries/luabind/luabind.xcodeproj; sourceTree = "<group>"; };
 		1453691412F359A100B97FB4 /* weapon_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = weapon_1.lua; sourceTree = "<group>"; };
+		148B1F721310A2DC00B1CE94 /* gecFollowingCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecFollowingCamera.h; sourceTree = "<group>"; };
+		148B1F731310A2DC00B1CE94 /* gecFollowingCamera.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecFollowingCamera.mm; sourceTree = "<group>"; };
+		148B1F741310A2DC00B1CE94 /* ICompCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICompCamera.h; sourceTree = "<group>"; };
+		148B1F751310A2DC00B1CE94 /* ICompCamera.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ICompCamera.mm; sourceTree = "<group>"; };
+		148B1F851310A44100B1CE94 /* FontManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontManager.h; sourceTree = "<group>"; };
+		148B1F861310A44100B1CE94 /* FontManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FontManager.mm; sourceTree = "<group>"; };
+		148B1FBB1310AA9E00B1CE94 /* ftglesTextureFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftglesTextureFont.h; sourceTree = "<group>"; };
+		148B1FBC1310AA9E00B1CE94 /* ftglesTextureFont.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ftglesTextureFont.mm; sourceTree = "<group>"; };
+		148B20CF1310C9CA00B1CE94 /* TOONISH.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TOONISH.ttf; sourceTree = "<group>"; };
 		14A2170512E7884700A4D8EC /* base_functions.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = base_functions.lua; sourceTree = "<group>"; };
 		14A2170612E7884700A4D8EC /* ComponentBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ComponentBuilder.lua; sourceTree = "<group>"; };
 		14A2170712E7884700A4D8EC /* EntityBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EntityBuilder.lua; sourceTree = "<group>"; };
@@ -202,8 +213,6 @@
 		14DEBF5B1310835C0094F680 /* CompCollisionable.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CompCollisionable.mm; sourceTree = "<group>"; };
 		14DEBF5C1310835C0094F680 /* gecBoxCollisionable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecBoxCollisionable.h; sourceTree = "<group>"; };
 		14DEBF5D1310835C0094F680 /* gecBoxCollisionable.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecBoxCollisionable.mm; sourceTree = "<group>"; };
-		14DEBF5E1310835C0094F680 /* gecFollowingCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecFollowingCamera.h; sourceTree = "<group>"; };
-		14DEBF5F1310835C0094F680 /* gecFollowingCamera.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecFollowingCamera.mm; sourceTree = "<group>"; };
 		14DEBF611310835C0094F680 /* CompTouchable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompTouchable.h; sourceTree = "<group>"; };
 		14DEBF621310835C0094F680 /* CompTouchable.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CompTouchable.mm; sourceTree = "<group>"; };
 		14DEBF631310835C0094F680 /* gecButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecButton.h; sourceTree = "<group>"; };
@@ -216,8 +225,6 @@
 		14DEBF6B1310835C0094F680 /* CompHealth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompHealth.h; sourceTree = "<group>"; };
 		14DEBF6C1310835C0094F680 /* gecHealthHuman.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gecHealthHuman.cpp; sourceTree = "<group>"; };
 		14DEBF6D1310835C0094F680 /* gecHealthHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecHealthHuman.h; sourceTree = "<group>"; };
-		14DEBF701310835C0094F680 /* ICompCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICompCamera.h; sourceTree = "<group>"; };
-		14DEBF711310835C0094F680 /* ICompCamera.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ICompCamera.mm; sourceTree = "<group>"; };
 		14DEBF731310835C0094F680 /* CompLevelLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompLevelLoader.h; sourceTree = "<group>"; };
 		14DEBF741310835C0094F680 /* CompLevelLoader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CompLevelLoader.mm; sourceTree = "<group>"; };
 		14DEBF761310835C0094F680 /* CompSpawn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompSpawn.h; sourceTree = "<group>"; };
@@ -255,7 +262,6 @@
 		14DEBFEE1310835C0094F680 /* LuaInit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaInit.h; sourceTree = "<group>"; };
 		14DEBFEF1310835C0094F680 /* LuaRegisterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaRegisterManager.h; sourceTree = "<group>"; };
 		14DEBFF01310835C0094F680 /* LuaRegisterManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LuaRegisterManager.mm; sourceTree = "<group>"; };
-		14DEBFF21310835C0094F680 /* IFont.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IFont.cpp; sourceTree = "<group>"; };
 		14DEBFF31310835C0094F680 /* IFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFont.h; sourceTree = "<group>"; };
 		14DEBFF41310835C0094F680 /* ggEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ggEngine.h; sourceTree = "<group>"; };
 		14DEBFF61310835C0094F680 /* ccConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccConfig.h; sourceTree = "<group>"; };
@@ -415,6 +421,25 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		148B1F711310A2DC00B1CE94 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				148B1F721310A2DC00B1CE94 /* gecFollowingCamera.h */,
+				148B1F731310A2DC00B1CE94 /* gecFollowingCamera.mm */,
+				148B1F741310A2DC00B1CE94 /* ICompCamera.h */,
+				148B1F751310A2DC00B1CE94 /* ICompCamera.mm */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		148B20CE1310C9C300B1CE94 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				148B20CF1310C9CA00B1CE94 /* TOONISH.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		14A2170312E7884700A4D8EC /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
@@ -523,14 +548,11 @@
 		14DEBF511310835C0094F680 /* Families */ = {
 			isa = PBXGroup;
 			children = (
+				148B1F711310A2DC00B1CE94 /* Camera */,
 				14DEBF521310835C0094F680 /* Behaviour */,
 				14DEBF591310835C0094F680 /* Collision */,
-				14DEBF5E1310835C0094F680 /* gecFollowingCamera.h */,
-				14DEBF5F1310835C0094F680 /* gecFollowingCamera.mm */,
 				14DEBF601310835C0094F680 /* GUI */,
 				14DEBF691310835C0094F680 /* Health */,
-				14DEBF701310835C0094F680 /* ICompCamera.h */,
-				14DEBF711310835C0094F680 /* ICompCamera.mm */,
 				14DEBF721310835C0094F680 /* LevelLoader */,
 				14DEBF751310835C0094F680 /* Spawner */,
 				14DEBF781310835C0094F680 /* Visual */,
@@ -716,8 +738,9 @@
 		14DEBFF11310835C0094F680 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				14DEBFF21310835C0094F680 /* IFont.cpp */,
 				14DEBFF31310835C0094F680 /* IFont.h */,
+				148B1FBB1310AA9E00B1CE94 /* ftglesTextureFont.h */,
+				148B1FBC1310AA9E00B1CE94 /* ftglesTextureFont.mm */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -799,6 +822,8 @@
 				14DEC01E1310835C0094F680 /* SharedParticleSystemManager.mm */,
 				14DEC01F1310835C0094F680 /* SharedTextureManager.h */,
 				14DEC0201310835C0094F680 /* SharedTextureManager.mm */,
+				148B1F851310A44100B1CE94 /* FontManager.h */,
+				148B1F861310A44100B1CE94 /* FontManager.mm */,
 			);
 			path = SharedManagers;
 			sourceTree = "<group>";
@@ -864,6 +889,7 @@
 		14E3146A121E47FE00917795 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				148B20CE1310C9C300B1CE94 /* Fonts */,
 				14A2170312E7884700A4D8EC /* Scripts */,
 				1433F5CF128ADC1D00878671 /* images */,
 				14E31484121E47FE00917795 /* Shaders */,
@@ -1067,6 +1093,7 @@
 				1444259712FCB0DE00BD0D32 /* gui.lua in Resources */,
 				14DC3FC612FDDE71004CC360 /* config_functions.lua in Resources */,
 				14DC3FD312FDDE8E004CC360 /* config.lua in Resources */,
+				148B20D01310C9CA00B1CE94 /* TOONISH.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1083,14 +1110,12 @@
 				14DEC0311310835C0094F680 /* gecFSM.mm in Sources */,
 				14DEC0321310835C0094F680 /* CompCollisionable.mm in Sources */,
 				14DEC0331310835C0094F680 /* gecBoxCollisionable.mm in Sources */,
-				14DEC0341310835C0094F680 /* gecFollowingCamera.mm in Sources */,
 				14DEC0351310835C0094F680 /* CompTouchable.mm in Sources */,
 				14DEC0361310835C0094F680 /* gecButton.mm in Sources */,
 				14DEC0371310835C0094F680 /* gecJoystick.mm in Sources */,
 				14DEC0381310835C0094F680 /* TouchableManager.mm in Sources */,
 				14DEC0391310835C0094F680 /* CompHealth.cpp in Sources */,
 				14DEC03A1310835C0094F680 /* gecHealthHuman.cpp in Sources */,
-				14DEC03C1310835C0094F680 /* ICompCamera.mm in Sources */,
 				14DEC03D1310835C0094F680 /* CompLevelLoader.mm in Sources */,
 				14DEC03E1310835C0094F680 /* CompSpawn.mm in Sources */,
 				14DEC03F1310835C0094F680 /* gecAnimatedSprite.mm in Sources */,
@@ -1108,7 +1133,6 @@
 				14DEC06E1310835C0094F680 /* GandoBox2D.mm in Sources */,
 				14DEC06F1310835C0094F680 /* GContactListener.mm in Sources */,
 				14DEC0701310835C0094F680 /* LuaRegisterManager.mm in Sources */,
-				14DEC0711310835C0094F680 /* IFont.cpp in Sources */,
 				14DEC0721310835C0094F680 /* PVRTexture.m in Sources */,
 				14DEC0731310835C0094F680 /* Texture2D.m in Sources */,
 				14DEC0741310835C0094F680 /* gecParticleSystem.mm in Sources */,
@@ -1131,6 +1155,10 @@
 				14DEC0851310835C0094F680 /* SpriteSheet.mm in Sources */,
 				14DEC0861310835C0094F680 /* FileUtils.mm in Sources */,
 				14DEC0871310835C0094F680 /* HardwareClock.cpp in Sources */,
+				148B1F761310A2DC00B1CE94 /* gecFollowingCamera.mm in Sources */,
+				148B1F771310A2DC00B1CE94 /* ICompCamera.mm in Sources */,
+				148B1F871310A44100B1CE94 /* FontManager.mm in Sources */,
+				148B1FBD1310AA9E00B1CE94 /* ftglesTextureFont.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

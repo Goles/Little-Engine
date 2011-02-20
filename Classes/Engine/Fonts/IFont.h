@@ -10,12 +10,14 @@
 #ifndef __I_FONT_H__
 #define __I_FONT_H__
 
-#include <iostream>
+#include <string>
 
 class IFont
 {
+public:
+	virtual ~IFont() {};
 	virtual void render() = 0;
-	virtual void setSize(int pt) = 0;
+	virtual bool open(const std::string &fontFileName, int size) = 0;
 	virtual void setText(const std::string &text) = 0;
 };
 
