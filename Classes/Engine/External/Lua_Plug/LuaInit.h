@@ -24,6 +24,8 @@
 #include "Animation.h"
 #include "SpriteSheet.h"
 
+#include "IFont.h"
+
 #include "GEComponent.h"
 #include "gecAnimatedSprite.h"
 #include "gecFollowingCamera.h"
@@ -33,6 +35,7 @@
 #include "gecBoxCollisionable.h"
 
 #include "SceneManager.h"
+#include "FontManager.h"
 
 namespace gg
 {
@@ -110,6 +113,16 @@ namespace gg
 			 ];
 		}
 		 
+		static inline void bindAbstractInterfaces(void)
+		{
+			luabind::module(LR_MANAGER_STATE)
+			[
+				 luabind::class_<IFont>("IFont")
+				 .def("open", &IFont::open)
+				 .def("setText", &IFont::setText)
+			 ];
+		}
+		
 		static inline void bindClasses(void)
 		{
 			LR_MANAGER->registrate<Image>();
@@ -129,12 +142,14 @@ namespace gg
 		static inline void bindManagers(void)
 		{
 			LR_MANAGER->registrate<SceneManager>();
+			LR_MANAGER->registrate<FontManager>();
 		}
 
 		static inline void bindAll(void)
 		{			
 			bindBasicTypes();
             bindBasicFunctions();
+			bindAbstractInterfaces();
 			bindClasses();
 			bindManagers();
 		}

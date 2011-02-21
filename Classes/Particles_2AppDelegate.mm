@@ -19,9 +19,6 @@
 
 - (void) applicationDidFinishLaunching:(UIApplication *)application
 {
-	//init gg engine.
-	gg::init();
-
 	[glView startAnimation];
 }
 
