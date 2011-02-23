@@ -76,11 +76,7 @@ static char fpsText[32];
 	SCENE_MANAGER->getActiveScene()->sortEntitiesY();
 	SCENE_MANAGER->getActiveScene()->update(delta);
 	
-#ifndef DEBUG
 	GBOX_2D->update(delta);
-#else
-	GBOX_2D->debugUpdate(delta);
-#endif
 	
 	if(showFps)
 		[self setFps];
@@ -106,9 +102,6 @@ static char fpsText[32];
 	if(showFps)
 		[self showFps];
 
-#ifdef DEBUG
-	GBOX_2D->debugRender();
-#endif
 	
 	glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
 	[context presentRenderbuffer:GL_RENDERBUFFER_OES];

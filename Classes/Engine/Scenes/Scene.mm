@@ -10,6 +10,7 @@
 #include "SharedParticleSystemManager.h"
 #include "gecVisual.h"
 #include "ICompCamera.h"
+#include "GandoBox2D.h"
 
 #include <OpenGLES/ES1/gl.h>
 
@@ -75,6 +76,10 @@ void Scene::render()
 			}
 		}
 	}
+	
+#ifdef DEBUG
+	GBOX_2D->debugRender();
+#endif
 	
 	//Render our Child Scenes
 	for (s_it = m_children.begin(); s_it < m_children.end(); ++s_it)
