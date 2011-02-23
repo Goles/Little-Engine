@@ -22,11 +22,11 @@ Scene::Scene() : m_label("unnamed_scene"), m_zOrder(-1), m_position(CGPointZero)
 
 void Scene::update(float delta)
 {		
-	ENTITY_VECTOR::iterator e_it;
-	SCENE_VECTOR::iterator s_it;
+	EntityVector::iterator e_it;
+	SceneVector::iterator s_it;
 	
 	//Update our Entities
-	for(e_it = entityList.begin(); e_it < entityList.end(); ++e_it)
+	for(e_it = m_entities.begin(); e_it < m_entities.end(); ++e_it)
 	{
 		if((*e_it) != NULL)
 			if((*e_it)->isActive)
@@ -36,7 +36,7 @@ void Scene::update(float delta)
 	}
 	
 	//update our Children Scenes
-	for(s_it = m_children.begin(); s_it < m_children.end(); ++s_it)
+	for(s_it = m_scenes.begin(); s_it < m_scenes.end(); ++s_it)
 	{
 		(*s_it)->update(delta);
 	}
@@ -44,13 +44,13 @@ void Scene::update(float delta)
 
 void Scene::render()
 {	
-	ENTITY_VECTOR::const_iterator e_it;
-	SCENE_VECTOR::const_iterator s_it;
+	EntityVector::const_iterator e_it;
+	SceneVector::const_iterator s_it;
 	
 	glPushMatrix();
 	
 	//Apply Camera transformations
-	for (e_it = entityList.begin(); e_it < entityList.end(); ++e_it)
+	for (e_it = m_entities.begin(); e_it < m_entities.end(); ++e_it)
 	{
 		if((*e_it)->isActive)
 		{	
@@ -64,7 +64,7 @@ void Scene::render()
 	}
 	
 	//Render our Visual Components
-	for (e_it = entityList.begin(); e_it < entityList.end(); ++e_it)
+	for (e_it = m_entities.begin(); e_it < m_entities.end(); ++e_it)
 	{
 		if((*e_it)->isActive)
 		{
@@ -78,11 +78,22 @@ void Scene::render()
 	}
 	
 #ifdef DEBUG
-	GBOX_2D->debugRender();
+	//In debug mode we call GBOX_2D debug render only once if we even detect a collider in the scene.
+	//This could be improved but it's simple and will hold for the moment.
+	//@remarks: This will only allow correct debugging if only if ONE scene contains colliders.
+	//ISSUE 159
+	for(EntityVector::iterator entity = m_entities.begin(); entity != m_entities.end(); ++entity)
+	{
+		if((*entity)->getGEC("CompCollisionable") != NULL)
+		{	
+			GBOX_2D->debugRender();
+			break;
+		}		
+	}
 #endif
 	
 	//Render our Child Scenes
-	for (s_it = m_children.begin(); s_it < m_children.end(); ++s_it)
+	for (s_it = m_scenes.begin(); s_it < m_scenes.end(); ++s_it)
 	{
 		(*s_it)->render();
 	}
@@ -100,20 +111,20 @@ void Scene::transform()
 
 GameEntity *Scene::addGameEntity(GameEntity *inGameEntity)
 {	
-	entityList.push_back(inGameEntity);
+	m_entities.push_back(inGameEntity);
 	
-	//return entityList.back();	
+	//return m_entities.back();	
 	return inGameEntity;
 }
 
-void Scene::removeGameEntity(GameEntity *inGameEntity)
+void Scene::removeGameEntity(const GameEntity *inGameEntity)
 {
-	ENTITY_VECTOR::iterator it = entityList.begin();
+	EntityVector::iterator it = m_entities.begin();
 
-	while (it != entityList.end())
+	while (it != m_entities.end())
 	{
 		if (*it == inGameEntity) {
-			entityList.erase(it);
+			m_entities.erase(it);
 		}		
 		++it;
 	}
@@ -121,14 +132,14 @@ void Scene::removeGameEntity(GameEntity *inGameEntity)
 
 void Scene::sortEntitiesX()
 {
-	std::sort(entityList.begin(), entityList.end(), GameEntity::compareByX());	
+	std::sort(m_entities.begin(), m_entities.end(), GameEntity::compareByX());	
 
-	if(m_children.size() == 0)
+	if(m_scenes.size() == 0)
 		return;
 	
-	SCENE_VECTOR::iterator s_it;
+	SceneVector::iterator s_it;
 	
-	for(s_it = m_children.begin(); s_it < m_children.end(); ++s_it)
+	for(s_it = m_scenes.begin(); s_it < m_scenes.end(); ++s_it)
 	{
 		(*s_it)->sortEntitiesY();
 	}
@@ -136,14 +147,14 @@ void Scene::sortEntitiesX()
 
 void Scene::sortEntitiesY()
 {
-	std::sort(entityList.begin(), entityList.end(), GameEntity::compareByY());
+	std::sort(m_entities.begin(), m_entities.end(), GameEntity::compareByY());
 	
-	if(m_children.size() == 0)
+	if(m_scenes.size() == 0)
 		return;
 		
-	SCENE_VECTOR::iterator s_it;
+	SceneVector::iterator s_it;
 	
-	for(s_it = m_children.begin(); s_it < m_children.end(); ++s_it)
+	for(s_it = m_scenes.begin(); s_it < m_scenes.end(); ++s_it)
 	{
 		(*s_it)->sortEntitiesY();
 	}		
@@ -153,8 +164,8 @@ void Scene::addChild(Scene *child)
 {
 	assert(child->getZOrder() != -1);
 	
-	m_children.push_back(child);
-	std::sort(m_children.begin(), m_children.end(), compareByZOrder());
+	m_scenes.push_back(child);
+	std::sort(m_scenes.begin(), m_scenes.end(), compareByZOrder());
 }
 
 void Scene::removeChild(Scene *child)
@@ -163,18 +174,18 @@ void Scene::removeChild(Scene *child)
 }
 
 #pragma mark debug
-void Scene::debugPrintEntityList()
+void Scene::debugPrintEntities()
 {
 	std::cout << "*** DEBUG Print Entity List [ Scene: " << m_label << " ] ***" << std::endl;
 	
-	if(entityList.size() == 0)
+	if(m_entities.size() == 0)
 		std::cout << "EMPTY" << std::endl;
 	
-	ENTITY_VECTOR::iterator it = entityList.begin();
+	EntityVector::iterator it = m_entities.begin();
 	
 	int i = 0;
 	
-	while(it != entityList.end())
+	while(it != m_entities.end())
 	{
 		if(*it)
 		{
@@ -190,12 +201,12 @@ void Scene::debugPrintChildren()
 {
 	std::cout << "*** DEBUG Print Child List [ Scene: " << m_label << " ] ***" << std::endl;
 	
-	if(m_children.size() == 0)
+	if(m_scenes.size() == 0)
 		std::cout << "EMPTY" << std::endl;
 	
-	SCENE_VECTOR::iterator s_it;
+	SceneVector::iterator s_it;
 	
-	for(s_it = m_children.begin(); s_it < m_children.end(); ++s_it)
+	for(s_it = m_scenes.begin(); s_it < m_scenes.end(); ++s_it)
 	{
 		std::cout << (*s_it)->getSceneLabel() << std::endl;
 	}
@@ -205,12 +216,12 @@ void Scene::debugPrintChildren()
 Scene::~Scene()
 {
 	/*Erase the whole scene entity list on delete.*/
-	ENTITY_VECTOR::iterator it = entityList.begin();
+	EntityVector::iterator it = m_entities.begin();
 	
-	while (it != entityList.end())
+	while (it != m_entities.end())
 	{
-		entityList.erase(it);
+		m_entities.erase(it);
 	}
 	
-	entityList.clear();
+	m_entities.clear();
 }

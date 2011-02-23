@@ -8,6 +8,7 @@
  */
 
 #include "SceneManager.h"
+#include <iostream>
 
 SceneManager *SceneManager::instance = NULL;
 

@@ -10,7 +10,6 @@
 #define __SCENE_MANAGER_H__
 
 #include <vector>
-#include <iostream>
 
 #include "LuaRegisterManager.h"
 #include "GameEntity.h"
@@ -61,7 +60,7 @@ public:
 		@remarks
 			The idea is that the memory address of the gameEntity is their "hash"
 	 */
-	void removeGameEntity(GameEntity *gameEntity);
+	void removeGameEntity(const GameEntity *gameEntity);
 	
 	/** Adds a GameEntity to the Scene.
 		@param gameEntity is a pointer to a gameEntity.
@@ -135,7 +134,7 @@ public:
 		@remarks
 			Used for debug purposes.
 	 */
-	void debugPrintEntityList();
+	void debugPrintEntities();
 	
 	/** Print the Scene child list.
 	 */
@@ -147,14 +146,14 @@ protected:
 
 //------------------------------------------------------------------------------
 private:
-	typedef std::vector<GameEntity *> ENTITY_VECTOR;
-	typedef std::vector<Scene *> SCENE_VECTOR;
+	typedef std::vector<GameEntity *> EntityVector;
+	typedef std::vector<Scene *> SceneVector;
 		
-	ENTITY_VECTOR entityList; /** Vector of GameEntities owned by this Scene */
-	SCENE_VECTOR m_children; /** Vector of Children Scenes */
+	EntityVector m_entities; /** Vector of GameEntities owned by this Scene */
+	SceneVector m_scenes; /** Vector of Children Scenes */
 	
 	std::string m_label; /** < Unique identifier for this scene */
-	int m_zOrder; 
+	int m_zOrder;		/** < z order in which this scene will be drawn */
 	CGPoint m_position;
 };
 
