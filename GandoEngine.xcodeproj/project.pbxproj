@@ -1257,7 +1257,7 @@
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = NO;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
+				USER_HEADER_SEARCH_PATHS = "/usr/include/my_boost $(SRCROOT)/**";
 			};
 			name = Debug;
 		};
@@ -1289,7 +1289,7 @@
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = YES;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
+				USER_HEADER_SEARCH_PATHS = "/usr/include/my_boost $(SRCROOT)/**";
 			};
 			name = Release;
 		};
