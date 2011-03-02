@@ -23,7 +23,9 @@ function buildEntity (e)
 	entity.id = entity:getId()
 	
 	-- add the scene defined position to the entity
-	if e.position then entity:setPosition(e.position.x, e.position.y) end
+	if e.position then 
+		entity:setPosition(e.position.x, e.position.y) 
+	end
 	
 	-- add entity attributes
 	if entityTable.attributes then	
@@ -40,6 +42,9 @@ function buildEntity (e)
 		addEventData (entityTable.event_data, entity) 
 	end
 	
+	-- Add the component access interface to the entity
+	addComponentInterface (entity)
+	
 	-- Map the entity to store a reference
 	addMapEntity (entity)
 	
@@ -47,7 +52,7 @@ function buildEntity (e)
 end
 
 -- Adds components from a component table to a given entity.
-function addComponents( in_components , in_entity )
+function addComponents ( in_components , in_entity )
 	
 	in_entity.components = {}
 	
@@ -67,7 +72,7 @@ function addComponents( in_components , in_entity )
 end
 
 -- Adds event data from a event_data table to a given entity.
-function addEventData( in_event_data, in_entity)
+function addEventData ( in_event_data, in_entity)
 	assert(in_event_data, "Event Listening Entities MUST specify which events to listen for")		
 	assert(in_event_data, "Event Listening Entities MUST implement a handle_event function")
 	
@@ -92,7 +97,7 @@ function addEventData( in_event_data, in_entity)
 end
 
 -- Adds atributes to the entity ( this function is subject to dissappear in the future)
-function addAttributes( in_attributes, in_entity )
+function addAttributes ( in_attributes, in_entity )
 	
 	if( in_attributes.speed ~= nil ) then		
 		in_entity.speed = in_attributes.speed		
@@ -102,4 +107,17 @@ function addAttributes( in_attributes, in_entity )
 		in_entity.label = in_attributes.label
 	end
 	
+end
+
+-- Adds the component interface to the entity
+function addComponentInterface (in_entity)
+
+	in_entity.component = function (this, in_component_name)
+
+		assert(type(in_component_name) == "string", "The component Name must be type string.")
+
+		return this.components[in_component_name]
+
+	end
+
 end

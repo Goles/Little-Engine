@@ -24,7 +24,7 @@ Character =
 			--
 			if (in_event == "E_SCENE_ACTIVE") then
 
-				local c = this.components["gecAnimatedSprite"]
+				local c = this:component("gecAnimatedSprite")
 				c:setCurrentAnimation("S_STAND")
 				c:setCurrentRunning(true)
 				c:setCurrentRepeating(true)
@@ -37,18 +37,19 @@ Character =
 			--	EVENT DRAG GAMEPAD
 			--
 			elseif (in_event == "E_DRAG_GAMEPAD") then
-								
+				
+				this:component("gecFSM"):performAction("A_DRAG_GAMEPAD")	
+				
+				-- flip the entity if needed
 				this.flipHorizontally = in_data.dx_negative
 				
-				if(fsm ~= nil) then					
-					this.components["gecFSM"]:performAction("A_DRAG_GAMEPAD")					
-				end
-				
+				-- Update entity position
 				local delta_speed = in_data.delta * this.speed
 				local movement_x = delta_speed * in_data.latest_speed.x
 				local movement_y = delta_speed * in_data.latest_speed.y
 				
 				if(fsm.currentState ~= "S_ATTACK") then
+					
 					this.x = round(this.x + movement_x)
 					this.y = round(this.y + movement_y)
 					
@@ -62,16 +63,15 @@ Character =
 			elseif(in_event == "E_CHARACTER_MOVED") then
 				
 				-- Update the Camera
-				this.components["gecFollowingCamera"].x = this.x
-				this.components["gecFollowingCamera"].y = this.y
-				
+				this:component("gecFollowingCamera").x = this.x
+				this:component("gecFollowingCamera").y = this.y			
 			
 			--
 			--	EVENT STOP GAMEPAD
 			--
 			elseif (in_event == "E_STOP_GAMEPAD") then
 				
-				this.components["gecFSM"]:performAction("A_STOP_GAMEPAD")
+				this:component("gecFSM"):performAction("A_STOP_GAMEPAD")
 			
 			--
 			--	EVENT BUTTON PRESS
@@ -79,7 +79,7 @@ Character =
 			elseif (in_event == "E_BUTTON_PRESS") then
 								
 				if (in_data.label == "BUTTON_ATTACK") then					
-					this.components["gecFSM"]:performAction("A_ATTACK")
+					this:component("gecFSM"):performAction("A_ATTACK")
 					
 					-- Broadcast an Attack Event for the Weapon Game Entity to manage					
 					broadcast("E_CHARACTER_ATTACK", {flipped=this.flipHorizontally; x=this.x, y=this.y})
@@ -91,7 +91,8 @@ Character =
 			elseif (in_event == "E_ANIMATION_FINISH") then
 				
 				if (in_data.animation_label == "S_ATTACK" and in_data.owner_ge_uid == this.id) then					
-					this.components["gecFSM"]:performAction("A_STOP_ATTACK")
+					
+					this:component("gecFSM"):performAction("A_STOP_ATTACK")
 					
 					-- broadcast a character attack stop event
 					broadcast("E_CHARACTER_ATTACK_STOP", {flipped=this.flipHorizontally})
@@ -101,9 +102,12 @@ Character =
 			--
 			-- EVENT STATE CHANGE
 			--
-			elseif (in_event == "E_STATE_CHANGE") then				
-				this.components["gecAnimatedSprite"]:setCurrentAnimation(in_data)
-				this.components["gecAnimatedSprite"]:setCurrentRunning(true)				
+			elseif (in_event == "E_STATE_CHANGE") then
+				
+				local animated_sprite = this:component("gecAnimatedSprite")							
+				animated_sprite:setCurrentAnimation(in_data)
+				animated_sprite:setCurrentRunning(true)
+				
 			end
 			
 		end
