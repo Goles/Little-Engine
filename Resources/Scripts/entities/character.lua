@@ -52,10 +52,19 @@ Character =
 					this.x = round(this.x + movement_x)
 					this.y = round(this.y + movement_y)
 					
-					-- test
-					this.components["gecFollowingCamera"].x =   this.x
-					this.components["gecFollowingCamera"].y =   this.y
+					-- Broadcast a character moved event
+					broadcast("E_CHARACTER_MOVED", {x=this.x, y=this.y})
 				end
+			
+			--
+			--	EVENT CHARACTER MOVED
+			--
+			elseif(in_event == "E_CHARACTER_MOVED") then
+				
+				-- Update the Camera
+				this.components["gecFollowingCamera"].x = this.x
+				this.components["gecFollowingCamera"].y = this.y
+				
 			
 			--
 			--	EVENT STOP GAMEPAD
@@ -73,7 +82,7 @@ Character =
 					this.components["gecFSM"]:performAction("A_ATTACK")
 					
 					-- Broadcast an Attack Event for the Weapon Game Entity to manage					
-					broadcast("E_CHARACTER_ATTACK", {x=this.x, y=this.y})
+					broadcast("E_CHARACTER_ATTACK", {flipped=this.flipHorizontally; x=this.x, y=this.y})
 				end
 				
 			--
@@ -85,7 +94,7 @@ Character =
 					this.components["gecFSM"]:performAction("A_STOP_ATTACK")
 					
 					-- broadcast a character attack stop event
-					broadcast("E_CHARACTER_ATTACK_STOP", nil)
+					broadcast("E_CHARACTER_ATTACK_STOP", {flipped=this.flipHorizontally})
 									
 				end
 

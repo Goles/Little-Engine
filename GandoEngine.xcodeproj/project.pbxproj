@@ -191,7 +191,7 @@
 		14A2170C12E7884700A4D8EC /* tableprint.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tableprint.lua; sourceTree = "<group>"; };
 		14A2170E12E7884700A4D8EC /* gecFSM_interface.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gecFSM_interface.lua; sourceTree = "<group>"; };
 		14A2171512E7884700A4D8EC /* event_manager.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = event_manager.lua; sourceTree = "<group>"; };
-		14A2171612E7884700A4D8EC /* init.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = init.lua; sourceTree = "<group>"; };
+		14A2171612E7884700A4D8EC /* init.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = init.lua; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.lua; };
 		14A2171712E7884700A4D8EC /* main.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.lua; sourceTree = "<group>"; };
 		14A2171912E7884700A4D8EC /* scene1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scene1.lua; sourceTree = "<group>"; };
 		14A2171A12E7884700A4D8EC /* scene_ideal.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scene_ideal.lua; sourceTree = "<group>"; };
