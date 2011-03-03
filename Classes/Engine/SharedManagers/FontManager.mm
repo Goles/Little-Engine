@@ -101,7 +101,7 @@ FontManager::~FontManager()
 	//Delete TextStrins.
 	for(; string_it != m_strings.end(); ++string_it)
 	{
-		delete (*string_it).second;
+		delete (*string_it);
 	}
 	
 	delete instance;
