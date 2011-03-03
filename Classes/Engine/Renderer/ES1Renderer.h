@@ -10,6 +10,7 @@
 
 #import <OpenGLES/ES1/gl.h>
 #import <OpenGLES/ES1/glext.h>
+#include "ITextRenderer.h"
 
 @interface ES1Renderer : NSObject <ESRenderer>
 {
@@ -31,9 +32,11 @@
 	CFTimeInterval CurrentTime;
 	CFTimeInterval LastFPSUpdate;
 
-	
 	// The OpenGL names for the framebuffer and renderbuffer used to render to this view
 	GLuint defaultFramebuffer, colorRenderbuffer;
+	
+	//FPS renderer
+	ITextRenderer *textRenderer;
 }
 
 - (void) update:(float)delta;
@@ -42,6 +45,5 @@
 - (void) setupView;
 - (void) initGame;
 - (void) setFps;
-- (void) showFps;
 
 @end

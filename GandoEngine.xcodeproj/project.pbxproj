@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1430C7FC131F02F500AFA083 /* TextureTextRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1430C7FB131F02F500AFA083 /* TextureTextRenderer.mm */; };
+		1430CA7713201A3600AFA083 /* Diavlo_BLACK_II_37.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1430CA7613201A3600AFA083 /* Diavlo_BLACK_II_37.otf */; };
 		143C241012F9116F009B37EF /* zero.lua in Resources */ = {isa = PBXBuildFile; fileRef = 143C240F12F9116F009B37EF /* zero.lua */; };
 		1444259312FCB0D200BD0D32 /* world1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1444259212FCB0D200BD0D32 /* world1.lua */; };
 		1444259512FCB0DA00BD0D32 /* game_entities_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1444259412FCB0DA00BD0D32 /* game_entities_1.lua */; };
@@ -166,6 +168,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1430C7FA131F02F500AFA083 /* TextureTextRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureTextRenderer.h; sourceTree = "<group>"; };
+		1430C7FB131F02F500AFA083 /* TextureTextRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TextureTextRenderer.mm; sourceTree = "<group>"; };
+		1430C81B131F050000AFA083 /* IFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFont.h; sourceTree = "<group>"; };
+		1430CA7613201A3600AFA083 /* Diavlo_BLACK_II_37.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Diavlo_BLACK_II_37.otf; sourceTree = "<group>"; };
 		143C240F12F9116F009B37EF /* zero.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zero.lua; sourceTree = "<group>"; };
 		1444259212FCB0D200BD0D32 /* world1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = world1.lua; sourceTree = "<group>"; };
 		1444259412FCB0DA00BD0D32 /* game_entities_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = game_entities_1.lua; sourceTree = "<group>"; };
@@ -262,7 +268,7 @@
 		14DEBFEE1310835C0094F680 /* LuaInit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaInit.h; sourceTree = "<group>"; };
 		14DEBFEF1310835C0094F680 /* LuaRegisterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaRegisterManager.h; sourceTree = "<group>"; };
 		14DEBFF01310835C0094F680 /* LuaRegisterManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LuaRegisterManager.mm; sourceTree = "<group>"; };
-		14DEBFF31310835C0094F680 /* IFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFont.h; sourceTree = "<group>"; };
+		14DEBFF31310835C0094F680 /* ITextRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITextRenderer.h; sourceTree = "<group>"; };
 		14DEBFF41310835C0094F680 /* ggEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ggEngine.h; sourceTree = "<group>"; };
 		14DEBFF61310835C0094F680 /* ccConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccConfig.h; sourceTree = "<group>"; };
 		14DEBFF71310835C0094F680 /* ConstantsAndMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantsAndMacros.h; sourceTree = "<group>"; };
@@ -365,6 +371,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1430C81C131F050700AFA083 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				1430C81B131F050000AFA083 /* IFont.h */,
+				14DEBFF31310835C0094F680 /* ITextRenderer.h */,
+			);
+			name = Interfaces;
+			sourceTree = "<group>";
+		};
+		1430C8D9131F4EF100AFA083 /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				148B1FBB1310AA9E00B1CE94 /* ftglesTextureFont.h */,
+				148B1FBC1310AA9E00B1CE94 /* ftglesTextureFont.mm */,
+				1430C7FA131F02F500AFA083 /* TextureTextRenderer.h */,
+				1430C7FB131F02F500AFA083 /* TextureTextRenderer.mm */,
+			);
+			name = Implementations;
+			sourceTree = "<group>";
+		};
 		1433F5CF128ADC1D00878671 /* images */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +462,7 @@
 			isa = PBXGroup;
 			children = (
 				148B20CF1310C9CA00B1CE94 /* TOONISH.ttf */,
+				1430CA7613201A3600AFA083 /* Diavlo_BLACK_II_37.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -738,9 +765,8 @@
 		14DEBFF11310835C0094F680 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				14DEBFF31310835C0094F680 /* IFont.h */,
-				148B1FBB1310AA9E00B1CE94 /* ftglesTextureFont.h */,
-				148B1FBC1310AA9E00B1CE94 /* ftglesTextureFont.mm */,
+				1430C81C131F050700AFA083 /* Interfaces */,
+				1430C8D9131F4EF100AFA083 /* Implementations */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -1094,6 +1120,7 @@
 				14DC3FC612FDDE71004CC360 /* config_functions.lua in Resources */,
 				14DC3FD312FDDE8E004CC360 /* config.lua in Resources */,
 				148B20D01310C9CA00B1CE94 /* TOONISH.ttf in Resources */,
+				1430CA7713201A3600AFA083 /* Diavlo_BLACK_II_37.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1159,6 +1186,7 @@
 				148B1F771310A2DC00B1CE94 /* ICompCamera.mm in Sources */,
 				148B1F871310A44100B1CE94 /* FontManager.mm in Sources */,
 				148B1FBD1310AA9E00B1CE94 /* ftglesTextureFont.mm in Sources */,
+				1430C7FC131F02F500AFA083 /* TextureTextRenderer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

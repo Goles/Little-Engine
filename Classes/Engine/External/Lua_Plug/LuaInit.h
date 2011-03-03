@@ -24,7 +24,7 @@
 #include "Animation.h"
 #include "SpriteSheet.h"
 
-#include "IFont.h"
+#include "ITextRenderer.h"
 
 #include "GEComponent.h"
 #include "gecAnimatedSprite.h"
@@ -115,11 +115,12 @@ namespace gg
 		 
 		static inline void bindAbstractInterfaces(void)
 		{
-			luabind::module(LR_MANAGER_STATE)
+			luabind::module(LR_MANAGER_STATE) 
 			[
-				 luabind::class_<IFont>("IFont")
-				 .def("open", &IFont::open)
-				 .def("setText", &IFont::setText)
+				 luabind::class_<ITextRenderer>("ITextRenderer")
+				 .def("setText", &ITextRenderer::setText)
+				 .def("setFont", &ITextRenderer::setFont)
+				 .def("setPosition", &ITextRenderer::setPosition)
 			 ];
 		}
 		

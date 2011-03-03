@@ -11,7 +11,7 @@
 #include "gecVisual.h"
 #include "ICompCamera.h"
 #include "GandoBox2D.h"
-
+#include "FontManager.h"
 #include <OpenGLES/ES1/gl.h>
 
 

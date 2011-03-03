@@ -33,7 +33,20 @@ function makeIntVector(t)
 	return vector
 end
 
--- Scene Manager Wrapper Functions
+-- pseudo round function using only floor and ceil
+function round(val, decimal)
+  if (decimal) then
+    return math.floor( (val * 10^decimal) + 0.5) / (10^decimal)
+  else
+    return math.floor(val+0.5)
+  end
+end
+
+-- ======================
+-- = MANAGER INTERFACES =
+-- ======================
+
+-- SceneManager Interface
 function pushScene(scene)
 	SceneManager.getInstance():addScene(scene)
 end
@@ -42,11 +55,7 @@ function activateScene(scene)
 	SceneManager.getInstance():setActiveScene(scene.label)
 end
 
--- pseudo round function using only floor and ceil
-function round(val, decimal)
-  if (decimal) then
-    return math.floor( (val * 10^decimal) + 0.5) / (10^decimal)
-  else
-    return math.floor(val+0.5)
-  end
+-- Font Manager Interface
+function textRenderer(in_font_name, in_font_size)
+	return FontManager.getInstance():getTextRenderer(in_font_name, in_font_size)
 end

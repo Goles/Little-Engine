@@ -30,7 +30,7 @@ Character =
 				c:setCurrentRepeating(true)
 				
 				if(in_data == "World_1") then
-					-- this is level "CoolScene" manage special according to this level.
+					-- this is level "CoolScene" manage special according to this level.					
 				end
 			
 			--
@@ -47,9 +47,10 @@ Character =
 				local delta_speed = in_data.delta * this.speed
 				local movement_x = delta_speed * in_data.latest_speed.x
 				local movement_y = delta_speed * in_data.latest_speed.y
+			
 				
 				if(fsm.currentState ~= "S_ATTACK") then
-					
+										
 					this.x = round(this.x + movement_x)
 					this.y = round(this.y + movement_y)
 					
@@ -80,6 +81,8 @@ Character =
 								
 				if (in_data.label == "BUTTON_ATTACK") then					
 					this:component("gecFSM"):performAction("A_ATTACK")
+					
+
 					
 					-- Broadcast an Attack Event for the Weapon Game Entity to manage					
 					broadcast("E_CHARACTER_ATTACK", {flipped=this.flipHorizontally; x=this.x, y=this.y})

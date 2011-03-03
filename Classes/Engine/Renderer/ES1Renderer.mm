@@ -10,9 +10,7 @@
 
 #include "ggEngine.h"
 #include "FontManager.h"
-#include "IFont.h"
 
-static IFont *fpsFont = NULL;
 static int frames;
 static char fpsText[32];
 
@@ -39,8 +37,10 @@ static char fpsText[32];
 		glFramebufferRenderbufferOES(GL_FRAMEBUFFER_OES, GL_COLOR_ATTACHMENT0_OES, GL_RENDERBUFFER_OES, colorRenderbuffer);
 	}
 	
-	//Show the FPS
+	//Show the FPS if DEBUG is ON.
+#ifdef DEBUG
 	showFps = YES;
+#endif
 	
 	//Start the ggEngine + Game up
 	static bool game_init = NO;
@@ -77,9 +77,10 @@ static char fpsText[32];
 	SCENE_MANAGER->getActiveScene()->update(delta);
 	
 	GBOX_2D->update(delta);
-	
-	if(showFps)
-		[self setFps];
+
+#ifdef DEBUG
+	[self setFps];
+#endif
 }
 
 #pragma mark render_scene
@@ -96,12 +97,9 @@ static char fpsText[32];
 	
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
-
-	SCENE_MANAGER->getActiveScene()->render();	
 	
-	if(showFps)
-		[self showFps];
-
+	SCENE_MANAGER->getActiveScene()->render();
+	FONT_MANAGER->render();
 	
 	glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
 	[context presentRenderbuffer:GL_RENDERBUFFER_OES];
@@ -116,23 +114,17 @@ static char fpsText[32];
 	{ 
 		snprintf(fpsText, 32, "FPS: %d", frames);
 	
-		if(!fpsFont)
-			fpsFont = FONT_MANAGER->getFont("TOONISH.ttf", 16);
+		if(!textRenderer)
+		{
+			textRenderer = FONT_MANAGER->getTextRenderer("TOONISH.ttf", 16);
+			textRenderer->setPosition(420, 300);
+		}			
 		
-		fpsFont->setText(fpsText);
+		textRenderer->setText(fpsText);
+		
 		frames = 0;
 		LastFPSUpdate = CurrentTime;
 	}
-}
-
-- (void) showFps
-{
-	// Show the fps
-	glPushMatrix();
-	glColor4f(1.0f, 0.8f, 0.0f, 1.0f);
-	glTranslatef(430, 300, 0.0f);
-	fpsFont->render();
-	glPopMatrix();
 }
 
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer

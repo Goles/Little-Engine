@@ -11,8 +11,11 @@
 
 #include <iostream>
 #include <sstream>
-#include "IFont.h"
+#include "FileUtils.h"
+#include "FTFont.h"
 #include "ftglesTextureFont.h"
+#include "IFont.h"
+#include "TextureTextRenderer.h"
 
 FontManager *FontManager::instance = NULL;
 
@@ -24,7 +27,7 @@ FontManager* FontManager::getInstance()
 	return instance;
 }
 
-IFont *FontManager::getFont(const std::string &fontName, int fontSize)
+FTFont *FontManager::getFont(const std::string &fontName, int fontSize)
 {
 	std::ostringstream oss;
 	
@@ -33,38 +36,72 @@ IFont *FontManager::getFont(const std::string &fontName, int fontSize)
 	std::string key(fontName);
 	key += oss.str();
 	
-	FontMap::iterator result = fonts.find(key);
+	FontMap::iterator result = m_fonts.find(key);
 	
-	if(result != fonts.end())
+	if(result != m_fonts.end())
 		return result->second;
 	
 	return this->createFont(fontName, fontSize, key);
 }
 
 
-IFont *FontManager::createFont(const std::string &in_fontName, int in_fontSize, const std::string &key)
+FTFont *FontManager::createFont(const std::string &in_fontName, int in_fontSize, const std::string &key)
 {
-	IFont* font = new ftglesTextureFont();
+	const char *path = FileUtils::fullCPathFromRelativePath(in_fontName.c_str());
 	
-	if(!font->open(in_fontName, in_fontSize))
+	FTFont* font = new FTTextureFont(path);
+	
+	if(font->Error())
 	{
 		std::cout << "ERROR: Couldn't load font file " << in_fontName << std::endl;
 		std::cout << "aborting..." << std::endl;
 		assert(false);
 	}
 	
-	fonts[key] = font;
+	font->FaceSize(in_fontSize);
+	
+	m_fonts[key] = font;
 	
 	return font;
 }
 
+ITextRenderer* FontManager::getTextRenderer(const std::string &in_fontName, int font_size)
+{
+	ITextRenderer *tr = new TextureTextRenderer();	
+	IFont *font = new ftglesTextureFont();
+	font->openFont(in_fontName, font_size);
+	tr->setFont(font);
+
+	m_strings.push_back(tr);
+	
+	return tr;
+}
+
+void FontManager::render()
+{
+	TextureStrings::iterator a_string = m_strings.begin();
+	
+	for(; a_string != m_strings.end(); ++a_string)
+	{
+		(*a_string)->render();
+	}
+}
+
 FontManager::~FontManager()
 {
-	FontMap::iterator font_it = fonts.begin();
+	FontMap::iterator font_it = m_fonts.begin();
+	TextureStrings::iterator string_it = m_strings.begin();
 	
-	for(; font_it != fonts.end(); ++font_it)
+	//Delete cached Textures.
+	for(; font_it != m_fonts.end(); ++font_it)
 	{
 		delete (*font_it).second;
+	}
+	
+	//Delete TextStrins.
+	for(; string_it != m_strings.end(); ++string_it)
+	{
+		delete (*string_it).second;
 	}
 	
 	delete instance;

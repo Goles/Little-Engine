@@ -17,6 +17,7 @@
 #include "SharedParticleSystemManager.h"
 #include "GandoBox2D.h"
 #include "GETemplateManager.h"
+#include "FontManager.h"
 
 #include "LuaInit.h"
 
@@ -39,6 +40,7 @@ namespace gg
 		TEXTURE_MANAGER;	/** < Initialize the Texture Manager*/
 		PARTICLE_MANAGER;	/** < Initialize the Particles Manager*/
 		GBOX_2D;			/** < Initialize the Box2D Plug for GG*/
+		FONT_MANAGER;		/** < Initialize the FontManager*/
 		GE_FACTORY;			/** < Initialize the Game Entity Factory */
 	}
 	
@@ -57,11 +59,12 @@ namespace gg
 	inline void shutDown(void)
 	{
 		delete LR_MANAGER;			/** < delete the Lua Registrate Manager */
-		delete TOUCHABLE_MANAGER;	/** < delete the Input Manager*/
+		delete TOUCHABLE_MANAGER;	/** < delete the Input Manager */
 		delete SCENE_MANAGER;		/** < delete the Scene Manager */
-		delete TEXTURE_MANAGER;		/** < delete the Texture Manager*/
-		delete PARTICLE_MANAGER;	/** < delete the Particles Manager*/
-		delete GBOX_2D;				/** < delete the Box2D Plug for GG*/
+		delete TEXTURE_MANAGER;		/** < delete the Texture Manager */
+		delete PARTICLE_MANAGER;	/** < delete the Particles Manager */
+		delete GBOX_2D;				/** < delete the Box2D Plug for GG */
+		delete FONT_MANAGER;		/** < delete the Font Manager */
 		delete GE_FACTORY;			/** < delete the Game Entity Factory */		
 	}
 }

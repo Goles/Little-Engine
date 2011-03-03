@@ -15,19 +15,23 @@
 #define __FONT_MANAGER_H__
 
 #include <map>
+#include <vector>
 #include <string>
+
+#include "FTGL/ftgles.h"
 #include "LuaRegisterManager.h"
+#include "ITextRenderer.h"
 
 #define FONT_MANAGER FontManager::getInstance()
-
-class IFont;
 
 class FontManager
 {
 public:
 	~FontManager();
 	static FontManager* getInstance();
-	IFont *getFont(const std::string &fontName, int fontSize);
+	void render();
+	FTFont *getFont(const std::string &fontName, int fontSize);
+	ITextRenderer* getTextRenderer(const std::string &in_fontName, int font_size);
 	
 	//Lua interface
 	static void registrate(void)
@@ -35,7 +39,7 @@ public:
 		luabind::module(LR_MANAGER_STATE) 
 		[
 			 luabind::class_<FontManager>("FontManager")
-			 .def("getFont", &FontManager::getFont)
+			 .def("getTextRenderer", &FontManager::getTextRenderer)
 			 .scope
 			 [
 				luabind::def("getInstance", &FontManager::getInstance)
@@ -44,17 +48,19 @@ public:
 	}
 	
 protected:
-	IFont *createFont(const std::string &fontName, int fontSize, const std::string &key);
+	FTFont *createFont(const std::string &fontName, int fontSize, const std::string &key);
 	
 private:
-	typedef std::map<std::string, IFont *> FontMap;
+	typedef std::map<std::string, FTFont *> FontMap;
+	typedef std::vector<ITextRenderer *> TextureStrings;
 	FontManager(){}	
 	
 	//Self Instance
 	static FontManager *instance;
 
 	//Font Container
-	FontMap fonts;
+	FontMap m_fonts;
+	TextureStrings m_strings;
 };
 
 #endif
