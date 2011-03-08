@@ -6,5 +6,6 @@
 *.pyc 
 *~.nib/
 *.xuser*
+*.xcuserstate
 build/*
 .redcar/*
