@@ -49,7 +49,6 @@ namespace gg
 		gg::init();
 		
 #ifdef DEBUG
-		NSLog(@"DRAW SHIT");
 		GBOX_2D->initDebugDraw();
 #endif
 		

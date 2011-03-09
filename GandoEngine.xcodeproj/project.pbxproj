@@ -704,7 +704,6 @@
 			isa = PBXGroup;
 			children = (
 				14DEBFE31310835C0094F680 /* Box2D_Plug */,
-				14DEBFEC1310835C0094F680 /* ftgles_Plug */,
 				14DEBFED1310835C0094F680 /* Lua_Plug */,
 			);
 			path = External;
@@ -730,13 +729,6 @@
 				14DEBFE71310835C0094F680 /* GLES-Render.h */,
 			);
 			path = debug;
-			sourceTree = "<group>";
-		};
-		14DEBFEC1310835C0094F680 /* ftgles_Plug */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ftgles_Plug;
 			sourceTree = "<group>";
 		};
 		14DEBFED1310835C0094F680 /* Lua_Plug */ = {

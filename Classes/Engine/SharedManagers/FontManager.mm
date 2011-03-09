@@ -44,7 +44,6 @@ FTFont *FontManager::getFont(const std::string &fontName, int fontSize)
 	return this->createFont(fontName, fontSize, key);
 }
 
-
 FTFont *FontManager::createFont(const std::string &in_fontName, int in_fontSize, const std::string &key)
 {
 	const char *path = FileUtils::fullCPathFromRelativePath(in_fontName.c_str());
