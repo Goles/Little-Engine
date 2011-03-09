@@ -8,7 +8,6 @@
 
 #include "SpriteSheet.h"
 #import "Texture2D.h"
-#include "LuaRegisterManager.h"
 
 #pragma mark private_action_methods
 void SpriteSheet::initImplementation(GLuint inSpriteWidth, GLuint inSpriteHeight, GLuint inSpacing, float inImageScale)

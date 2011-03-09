@@ -11,7 +11,6 @@
 #define _GEC_FSM_H_
 
 #include "CompBehaviour.h"
-#include "LuaRegisterManager.h"
 
 class gecFSM : public CompBehaviour 
 {
@@ -23,20 +22,6 @@ public:
 public:
 	gecFSM() : locked(false){}
 	void performAction(const std::string &action);
-	
-	/** Lua Interface
-	 @remarks
-	 This methods are to expose this class to the Lua runtime.
-	 */
-	static void registrate(void)
-	{
-		luabind::module(LR_MANAGER_STATE) 
-		[
-		 luabind::class_<gecFSM, GEComponent>("gecFSM")	/** < Binds the gecFSM class*/
-		 .def(luabind::constructor<>())
-		 .def("setOwnerGE", &GEComponent::setOwnerGE)
-		 ];
-	}
 	
 private:
 	static gec_id_type mComponentID;

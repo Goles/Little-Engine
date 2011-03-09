@@ -11,7 +11,6 @@
 
 #include <vector>
 
-#include "LuaRegisterManager.h"
 #include "GameEntity.h"
 
 /** The Scene class is a node with a list of it's associated GameEntities.
@@ -109,25 +108,6 @@ public:
 	/**
 	 */
 	void setPosition(CGPoint in_position) { m_position = in_position; }
-	
-//------------------------------------------------------------------------------
-	/** Lua Interface
-	 @remarks
-		This methods are to expose this class to the Lua runtime.
-	 */
-	static void registrate(void)
-	{
-		luabind::module(LR_MANAGER_STATE) 
-		[
-		 luabind::class_<Scene>("Scene")
-		 .def(luabind::constructor<>())
-		 .def("addEntity", &Scene::addGameEntity)
-		 .def("addChild", &Scene::addChild)
-		 .property("z_order", &Scene::getZOrder, &Scene::setZOrder)
-		 .property("position", &Scene::getPosition, &Scene::setPosition)
-		 .property("label", &Scene::getSceneLabel, &Scene::setSceneLabel)
-		 ];	
-	}
 	
 //------------------------------------------------------------------------------		
 	/** Prints a detailed list of GameEntities present in this scene.

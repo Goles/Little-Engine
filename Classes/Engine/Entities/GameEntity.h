@@ -11,7 +11,6 @@
 #include <map>
 
 #include "GEComponent.h"
-#include "LuaRegisterManager.h"
 
 /** Base class to represent a Game Entity.
  @remarks
@@ -125,33 +124,10 @@ public:
 		{ 
             return ((a->y - (a->height/2)) > (b->y - (b->height/2)) );
         }
-    };
+    };	
 	
 //------------------------------------------------------------------------------
-/** Lua Interface
- @remarks
- This methods are to expose this class to the Lua runtime.
- */
-static void registrate(void)
-{	
-	luabind::module(LR_MANAGER_STATE) 
-	[
-	 luabind::class_<GameEntity>("GameEntity")		/** < Binds the GameEntity class */
-	 .def(luabind::constructor<>())					/** < Binds the GameEntity constructor  */
-	 .def("setGEC", &GameEntity::setGEC)			/** < Binds the GameEntity setGEC method  */
-	 .def("setPosition", &GameEntity::setPosition)	/** < Binds the GameEntity setPositon method */
-	 .def("getId", &GameEntity::getId)
-	 .def("debugPrintComponents", &GameEntity::debugPrintComponents)
-	 .property("active", &GameEntity::getIsActive, &GameEntity::setIsActive)
-	 .property("flipHorizontally", &GameEntity::getFlipHorizontally, &GameEntity::setFlipHorizontally)
-	 .property("label", &GameEntity::getLabel, &GameEntity::setLabel)
-	 .def_readwrite("x", &GameEntity::x)
-	 .def_readwrite("y", &GameEntity::y)
-	 .def_readwrite("speed", &GameEntity::speed)
-	 ];
-}
-	
-//------------------------------------------------------------------------------
+    
 public:
 	/** Print's all the Game Entity components for debugging
 	 @remarks 

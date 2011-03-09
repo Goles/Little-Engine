@@ -44,21 +44,7 @@ public:
 public:
 	virtual const gec_id_type &componentID() const { return mGECTypeID; }
 	virtual void update(float delta);
-	
-//------------------------------------------------------------------------------
-	/** Lua Interface
-	 @remarks
-		This methods are to expose this class to the Lua runtime.
-	 */
-	static void registrate(void)
-	{
-		luabind::module(LR_MANAGER_STATE) 
-		[
-		 luabind::class_<gecWeapon>("gecWeapon")                				/** < Binds the gecWeapon class*/
-		 .def(luabind::constructor<>())											/** < Binds the gecWeapon constructor  */
-		 .def("init" , &gecWeapon::init)
-		 ];
-	}
+
 //------------------------------------------------------------------------------	
 	
 	//Private Atributes.

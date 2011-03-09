@@ -7,21 +7,23 @@
  *
  */
 
+#include "LuaManager.h"
+
 #include <iostream>
+
 
 #include "lua.hpp"
 
-#include "LuaRegisterManager.h"
 #include "FileUtils.h"
 #include "LuaInit.h"
 
-LuaRegisterManager *LuaRegisterManager::instance = NULL;
+LuaManager *LuaManager::instance = NULL;
 
-LuaRegisterManager* LuaRegisterManager::getInstance()
+LuaManager* LuaManager::getInstance()
 {
 	if(instance == NULL)
 	{
-		instance = new LuaRegisterManager();
+		instance = new LuaManager();
 		gg::lua::enableSettings();
 		gg::lua::bindAll();
 	}
@@ -38,7 +40,7 @@ LuaRegisterManager* LuaRegisterManager::getInstance()
 	case of error, the top of the stack will be a C string ( %s ).
  */
 
-void LuaRegisterManager::execScript(const char *script)
+void LuaManager::execScript(const char *script)
 {
 	if(luaL_dofile(L, FileUtils::fullCPathFromRelativePath(script)))
 	{
@@ -51,7 +53,7 @@ void LuaRegisterManager::execScript(const char *script)
 	}
 }
 
-LuaRegisterManager::LuaRegisterManager()
+LuaManager::LuaManager()
 {
 	//Init Lua, open the default libs and register state with Luabind.
 	L = luaL_newstate();
@@ -61,16 +63,16 @@ LuaRegisterManager::LuaRegisterManager()
 	//Register with luabind.
 	luabind::module(L) 
 	[
-	 luabind::class_<LuaRegisterManager>("LuaRegisterManager")
-	 .def("execScript", &LuaRegisterManager::execScript)
+	 luabind::class_<LuaManager>("LuaManager")
+	 .def("execScript", &LuaManager::execScript)
 	 .scope
 	 [
-	  luabind::def("getInstance", &LuaRegisterManager::getInstance) //returns static singleton instance
+	  luabind::def("getInstance", &LuaManager::getInstance) //returns static singleton instance
       ]
 	 ];
 }
 
-LuaRegisterManager::~LuaRegisterManager()
+LuaManager::~LuaManager()
 {
 	lua_close(L);
 }

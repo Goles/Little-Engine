@@ -54,9 +54,6 @@
 		14DEC03D1310835C0094F680 /* CompLevelLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF741310835C0094F680 /* CompLevelLoader.mm */; };
 		14DEC03E1310835C0094F680 /* CompSpawn.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF771310835C0094F680 /* CompSpawn.mm */; };
 		14DEC03F1310835C0094F680 /* gecAnimatedSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF7B1310835C0094F680 /* gecAnimatedSprite.mm */; };
-		14DEC0401310835C0094F680 /* gecImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF7D1310835C0094F680 /* gecImage.mm */; };
-		14DEC0411310835C0094F680 /* gecImageScroll.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF7F1310835C0094F680 /* gecImageScroll.mm */; };
-		14DEC0421310835C0094F680 /* gecScrollingBackground.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF811310835C0094F680 /* gecScrollingBackground.mm */; };
 		14DEC0431310835C0094F680 /* gecVisualContainer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF831310835C0094F680 /* gecVisualContainer.mm */; };
 		14DEC0441310835C0094F680 /* gecVisual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF841310835C0094F680 /* gecVisual.cpp */; };
 		14DEC0451310835C0094F680 /* CompWeapon.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF881310835C0094F680 /* CompWeapon.mm */; };
@@ -67,7 +64,7 @@
 		14DEC06D1310835C0094F680 /* GLES-Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFE61310835C0094F680 /* GLES-Render.cpp */; };
 		14DEC06E1310835C0094F680 /* GandoBox2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFE91310835C0094F680 /* GandoBox2D.mm */; };
 		14DEC06F1310835C0094F680 /* GContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFEB1310835C0094F680 /* GContactListener.mm */; };
-		14DEC0701310835C0094F680 /* LuaRegisterManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFF01310835C0094F680 /* LuaRegisterManager.mm */; };
+		14DEC0701310835C0094F680 /* LuaManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFF01310835C0094F680 /* LuaManager.mm */; };
 		14DEC0721310835C0094F680 /* PVRTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFFB1310835C0094F680 /* PVRTexture.m */; };
 		14DEC0731310835C0094F680 /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFFD1310835C0094F680 /* Texture2D.m */; };
 		14DEC0741310835C0094F680 /* gecParticleSystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0011310835C0094F680 /* gecParticleSystem.mm */; };
@@ -238,11 +235,6 @@
 		14DEBF7A1310835C0094F680 /* gecAnimatedSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecAnimatedSprite.h; sourceTree = "<group>"; };
 		14DEBF7B1310835C0094F680 /* gecAnimatedSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecAnimatedSprite.mm; sourceTree = "<group>"; };
 		14DEBF7C1310835C0094F680 /* gecImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecImage.h; sourceTree = "<group>"; };
-		14DEBF7D1310835C0094F680 /* gecImage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecImage.mm; sourceTree = "<group>"; };
-		14DEBF7E1310835C0094F680 /* gecImageScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecImageScroll.h; sourceTree = "<group>"; };
-		14DEBF7F1310835C0094F680 /* gecImageScroll.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecImageScroll.mm; sourceTree = "<group>"; };
-		14DEBF801310835C0094F680 /* gecScrollingBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecScrollingBackground.h; sourceTree = "<group>"; };
-		14DEBF811310835C0094F680 /* gecScrollingBackground.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecScrollingBackground.mm; sourceTree = "<group>"; };
 		14DEBF821310835C0094F680 /* gecVisualContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecVisualContainer.h; sourceTree = "<group>"; };
 		14DEBF831310835C0094F680 /* gecVisualContainer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecVisualContainer.mm; sourceTree = "<group>"; };
 		14DEBF841310835C0094F680 /* gecVisual.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gecVisual.cpp; sourceTree = "<group>"; };
@@ -266,8 +258,8 @@
 		14DEBFEA1310835C0094F680 /* GContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GContactListener.h; sourceTree = "<group>"; };
 		14DEBFEB1310835C0094F680 /* GContactListener.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GContactListener.mm; sourceTree = "<group>"; };
 		14DEBFEE1310835C0094F680 /* LuaInit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaInit.h; sourceTree = "<group>"; };
-		14DEBFEF1310835C0094F680 /* LuaRegisterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaRegisterManager.h; sourceTree = "<group>"; };
-		14DEBFF01310835C0094F680 /* LuaRegisterManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LuaRegisterManager.mm; sourceTree = "<group>"; };
+		14DEBFEF1310835C0094F680 /* LuaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaManager.h; sourceTree = "<group>"; };
+		14DEBFF01310835C0094F680 /* LuaManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LuaManager.mm; sourceTree = "<group>"; };
 		14DEBFF31310835C0094F680 /* ITextRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITextRenderer.h; sourceTree = "<group>"; };
 		14DEBFF41310835C0094F680 /* ggEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ggEngine.h; sourceTree = "<group>"; };
 		14DEBFF61310835C0094F680 /* ccConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccConfig.h; sourceTree = "<group>"; };
@@ -672,11 +664,6 @@
 				14DEBF7A1310835C0094F680 /* gecAnimatedSprite.h */,
 				14DEBF7B1310835C0094F680 /* gecAnimatedSprite.mm */,
 				14DEBF7C1310835C0094F680 /* gecImage.h */,
-				14DEBF7D1310835C0094F680 /* gecImage.mm */,
-				14DEBF7E1310835C0094F680 /* gecImageScroll.h */,
-				14DEBF7F1310835C0094F680 /* gecImageScroll.mm */,
-				14DEBF801310835C0094F680 /* gecScrollingBackground.h */,
-				14DEBF811310835C0094F680 /* gecScrollingBackground.mm */,
 				14DEBF821310835C0094F680 /* gecVisualContainer.h */,
 				14DEBF831310835C0094F680 /* gecVisualContainer.mm */,
 			);
@@ -756,8 +743,8 @@
 			isa = PBXGroup;
 			children = (
 				14DEBFEE1310835C0094F680 /* LuaInit.h */,
-				14DEBFEF1310835C0094F680 /* LuaRegisterManager.h */,
-				14DEBFF01310835C0094F680 /* LuaRegisterManager.mm */,
+				14DEBFEF1310835C0094F680 /* LuaManager.h */,
+				14DEBFF01310835C0094F680 /* LuaManager.mm */,
 			);
 			path = Lua_Plug;
 			sourceTree = "<group>";
@@ -1146,9 +1133,6 @@
 				14DEC03D1310835C0094F680 /* CompLevelLoader.mm in Sources */,
 				14DEC03E1310835C0094F680 /* CompSpawn.mm in Sources */,
 				14DEC03F1310835C0094F680 /* gecAnimatedSprite.mm in Sources */,
-				14DEC0401310835C0094F680 /* gecImage.mm in Sources */,
-				14DEC0411310835C0094F680 /* gecImageScroll.mm in Sources */,
-				14DEC0421310835C0094F680 /* gecScrollingBackground.mm in Sources */,
 				14DEC0431310835C0094F680 /* gecVisualContainer.mm in Sources */,
 				14DEC0441310835C0094F680 /* gecVisual.cpp in Sources */,
 				14DEC0451310835C0094F680 /* CompWeapon.mm in Sources */,
@@ -1159,7 +1143,7 @@
 				14DEC06D1310835C0094F680 /* GLES-Render.cpp in Sources */,
 				14DEC06E1310835C0094F680 /* GandoBox2D.mm in Sources */,
 				14DEC06F1310835C0094F680 /* GContactListener.mm in Sources */,
-				14DEC0701310835C0094F680 /* LuaRegisterManager.mm in Sources */,
+				14DEC0701310835C0094F680 /* LuaManager.mm in Sources */,
 				14DEC0721310835C0094F680 /* PVRTexture.m in Sources */,
 				14DEC0731310835C0094F680 /* Texture2D.m in Sources */,
 				14DEC0741310835C0094F680 /* gecParticleSystem.mm in Sources */,

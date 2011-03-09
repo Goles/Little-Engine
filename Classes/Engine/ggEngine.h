@@ -10,7 +10,7 @@
 #ifndef __GG_ENGINE_H__
 #define __GG_ENGINE_H__
 
-#include "LuaRegisterManager.h"
+#include "LuaManager.h"
 #include "TouchableManager.h"
 #include "SceneManager.h"
 #include "SharedTextureManager.h"

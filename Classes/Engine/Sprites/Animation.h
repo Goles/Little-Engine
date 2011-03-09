@@ -68,26 +68,9 @@ public:
 	//inherited stuff.
 	void draw();
 	void update();
-	
-//------------------------------------------------------------------------------
-/** Lua Interface
- @remarks
- This methods are to expose this class to the Lua runtime.
- */
-	static void registrate(void)
-	{	
-		luabind::module(LR_MANAGER_STATE) 
-		[
-		 luabind::class_<Animation>("Animation")	/** < Binds the GameEntity class*/
-		 .def(luabind::constructor<>())				/** < Binds the GameEntity constructor  */
-		 .def("addFrame", &Animation::addFrame)
-		 .property("running", &Animation::getIsRunning, &Animation::setIsRunning)
-		 .property("repeating", &Animation::getIsRepeating, &Animation::setIsRepeating)
-		 .property("pingpong", &Animation::getIsPingPong, &Animation::setIsPingPong)
-		 .property("animation_label", &Animation::getAnimationLabel, &Animation::setAnimationLabel)
-		 ];
-	}
-	
+    
+//------------------------------------------------------------------------------	
+    
 private:
 	gecAnimatedSprite*	ownerGAS; 
 	std::string			animation_label;

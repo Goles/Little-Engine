@@ -31,18 +31,6 @@ public:
 	void setParentSharedShape(CGRect aRect);
 	CGRect getShape() const { return shape; }
 	
-	static void registrate(void)
-	{
-		luabind::module(LR_MANAGER_STATE) 
-		[
-		 luabind::class_<gecButton, GEComponent>("gecButton")
-		 .def(luabind::constructor<>())
-		 .def("handle_touch", &gecButton::handle_touch)
-		 .def("setShape", &gecButton::setShape)
-		 .def("setParentSharedShape", &gecButton::setParentSharedShape)
-		 ];
-	}
-	
 protected:
 	void broadcastButtonPress();
 	void broadcastButtonRelease();

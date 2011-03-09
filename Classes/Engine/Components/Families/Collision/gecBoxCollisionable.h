@@ -11,7 +11,6 @@
 #define __gecBoxCollisionable_H__
 
 #include "CompCollisionable.h"
-#include "LuaRegisterManager.h"
 
 class gecBoxCollisionable: public CompCollisionable
 {
@@ -29,18 +28,7 @@ public:
 public:
 	gecBoxCollisionable();
 	void setSize(const CGSize in_size);
-	void createB2dBodyDef(void);	
-	
-	static void registrate(void)
-	{
-		luabind::module(LR_MANAGER_STATE)
-		[
-		 luabind::class_<gecBoxCollisionable, GEComponent>("gecBoxCollisionable")
-		 .def(luabind::constructor<>())
-		 .def("setSize", &gecBoxCollisionable::setSize)
-		 .property("solid", &CompCollisionable::getSolid, &CompCollisionable::setSolid)
-		];
-	}
+	void createB2dBodyDef(void);
 	
 	//Private Atributes.
 private:

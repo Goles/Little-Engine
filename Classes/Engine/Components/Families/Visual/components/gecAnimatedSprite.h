@@ -66,33 +66,7 @@ public:
 					  const std::vector<int> &positions,
 					  const std::vector<float> &durations,
 					  SpriteSheet *ss);
-
-//------------------------------------------------------------------------------
-	/** Lua Interface
-	 @remarks
-		This methods are to expose this class to the Lua runtime.
-	 */
-	static void registrate(void)
-	{
-		luabind::module(LR_MANAGER_STATE) 
-		[
-		 luabind::class_<GEComponent>("GEComponent"),
-		 luabind::class_<gecAnimatedSprite, GEComponent>("gecAnimatedSprite")	/** < Binds the gecAnimatedSprite class*/
-		 .def(luabind::constructor<>())											/** < Binds the gecAnimatedSprite constructor  */
-		 .def("addAnimation", (void(gecAnimatedSprite::*)(const std::string &, Animation *)) &gecAnimatedSprite::addAnimation)
-		 .def("addCustomAnimation", (void(gecAnimatedSprite::*)(const std::string &,
-														  const std::vector<int> &, 
-														  const std::vector<float> &, 
-														  SpriteSheet *)) 
-														  &gecAnimatedSprite::addAnimation) /** < Binds the gecAnimatedSprite addAnimation method */
-		 .def("setCurrentAnimation", &gecAnimatedSprite::setCurrentAnimation)
-		 .def("setCurrentRunning", &gecAnimatedSprite::setCurrentRunning)
-		 .def("setCurrentRepeating", &gecAnimatedSprite::setCurrentRepeating)
-		 .def("setCurrentPingPong", &gecAnimatedSprite::setCurrentPingPong)		 
-		 .def("setOwnerGE", &GEComponent::setOwnerGE)
-		 ];
-	}
-	
+    
 //------------------------------------------------------------------------------	
 	/** Set's the active animation to animationName
 		@param animationName must be a std::string "key" in the componentAnimations map

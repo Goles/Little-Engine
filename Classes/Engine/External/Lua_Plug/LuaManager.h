@@ -13,17 +13,16 @@
 /** Include Luabind in C++ */
 #include "luabind.hpp"
 
-#define LR_MANAGER LuaRegisterManager::getInstance()
-#define LR_MANAGER_STATE LuaRegisterManager::getInstance()->getLuaState()
+#define LR_MANAGER LuaManager::getInstance()
+#define LR_MANAGER_STATE LuaManager::getInstance()->getLuaState()
 
 class lua_State;
 
-class LuaRegisterManager 
+class LuaManager 
 {
 public:
 	/** Execute a Lua Script
-	 @param script Will be a const char refering to a lua script. - "myscript.lua".
-	 
+	 @param script Will be a const char refering to a lua script. - "myscript.lua".	 
 	 @remarks
 	 On failure we print out the error from the top of the Lua Stack.
 	 That's what L - 1 means ( pop out the top of the stack ), and I know that in
@@ -31,38 +30,30 @@ public:
 	 */
 	void execScript(const char *script);
 	
-	/** Call the static registrate(void) method of a Class that registers with Lua.
-		@remarks
-			We will have to manually call this post main() or in main().
-	 */
-	template <typename T>
-	void registrate() {
-		T::registrate();
-	}
-	
 	/** Returns the Lua runtime */
 	lua_State *getLuaState() { return L; };	
 	
 	/** Returns the singleton instance for the Lua register manager*/
-	static LuaRegisterManager* getInstance();
+	static LuaManager* getInstance();
 	
-	/** Destroys the LuaRegisterManager.
+	/** Destroys the LuaManager.
 	 @remarks
 	 It does close the Lua Runtime.
 	 */
-	~LuaRegisterManager();
+	~LuaManager();
 	
 	
 protected:
-	/** Init the LuaRegisterManager.
+	/** Init the LuaManager.
 	 @remarks
 	 Does start up the lua-runtime, and also binds the runtime to the luabind library.
 	 */
-	LuaRegisterManager();
+	LuaManager();
 	
 private:	
-	static LuaRegisterManager* instance;	
+	static LuaManager* instance;	
 	lua_State* L;
+    int m_state;
 };
 
 

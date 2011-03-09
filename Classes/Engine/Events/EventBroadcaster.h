@@ -15,7 +15,7 @@
 #ifndef	__EVENT_BROADCASTER_H__
 #define __EVENT_BROADCASTER_H__
 
-#import "LuaRegisterManager.h"
+#import "LuaManager.h"
 
 namespace gg {
 	namespace event {

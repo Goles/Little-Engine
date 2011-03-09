@@ -20,7 +20,6 @@
 #include <iostream>
 
 #import "Texture2D.h"
-#include "LuaRegisterManager.h"
 
 typedef struct {
 	float tl_x, tl_y;
@@ -110,22 +109,6 @@ public:
 	{
 		if(texture)
 			[texture bind];
-	}
-	
-//------------------------------------------------------------------------------
-	/** Lua Interface
-		@remarks
-			This methods are to expose this class to the Lua runtime.
-	 */
-	static void registrate(void)
-	{
-		luabind::module(LR_MANAGER_STATE) 
-		[
-		 luabind::class_<Image>("Image")
-		 .def(luabind::constructor<>())
-		 .def("initWithTextureFile", (void(Image::*)(const std::string &))&Image::initWithTextureFile)
-		 .property("scale", &Image::getScale, &Image::setScale)
-		 ];	
 	}
 	
 //------------------------------------------------------------------------------

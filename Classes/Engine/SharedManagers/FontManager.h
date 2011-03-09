@@ -19,7 +19,6 @@
 #include <string>
 
 #include "FTGL/ftgles.h"
-#include "LuaRegisterManager.h"
 #include "ITextRenderer.h"
 
 #define FONT_MANAGER FontManager::getInstance()
@@ -32,20 +31,6 @@ public:
 	void render();
 	FTFont *getFont(const std::string &fontName, int fontSize);
 	ITextRenderer* getTextRenderer(const std::string &in_fontName, int font_size);
-	
-	//Lua interface
-	static void registrate(void)
-	{
-		luabind::module(LR_MANAGER_STATE) 
-		[
-			 luabind::class_<FontManager>("FontManager")
-			 .def("getTextRenderer", &FontManager::getTextRenderer)
-			 .scope
-			 [
-				luabind::def("getInstance", &FontManager::getInstance)
-			 ]
-		 ];	
-	}
 	
 protected:
 	FTFont *createFont(const std::string &fontName, int fontSize, const std::string &key);

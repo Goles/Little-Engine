@@ -20,7 +20,6 @@
 #include "gecButton.h"
 #include "gecFSM.h"
 #include "gecImage.h"
-#include "gecScrollingBackground.h"
 #include "gecBoxCollisionable.h"
 #include "gecWeapon.h"
 
@@ -456,15 +455,15 @@ GameEntity* GETemplateManager::background1(float x, float y)
 
 GameEntity* GETemplateManager::scrollingBackground(float x, float y)
 {
-	GameEntity *gE = new GameEntity();	
-	gecScrollingBackground *gsb = new gecScrollingBackground("scenario_3.png", "scenario_3.png");
-	
-	gE->setGEC(gsb);
-	gE->x = x;
-	gE->y = y;
-	gE->isActive = true;
-	
-	return gE;
+//	GameEntity *gE = new GameEntity();	
+//
+//	
+//	gE->setGEC(gsb);
+//	gE->x = x;
+//	gE->y = y;
+//	gE->isActive = true;
+//	
+//	return gE;
 }
 
 //Creates a background 480x320 entity

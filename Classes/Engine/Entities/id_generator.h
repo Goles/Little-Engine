@@ -12,8 +12,6 @@
 
 #include <iostream>
 
-#include "LuaRegisterManager.h"
-
 namespace gg
 {
 

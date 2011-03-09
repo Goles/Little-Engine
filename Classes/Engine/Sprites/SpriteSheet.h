@@ -85,21 +85,7 @@ public:
         _FA
 	*/
 	Quad2*	getVerticesForSpriteAt(GLuint horizontalNumber, GLuint verticalNumber, CGPoint point, BOOL isCenterOfImage);
-//------------------------------------------------------------------------------
-	/** Lua Interface
-	 @remarks
-	 This method is to expose this class to the Lua runtime.
-	 */
-	static void registrate(void)
-	{
-		luabind::module(LR_MANAGER_STATE) 
-		[
-		 luabind::class_<SpriteSheet>("SpriteSheet")
-		 .def(luabind::constructor<>())
-		 .def("initWithImageNamed", &SpriteSheet::initWithImageNamed)
-		 .def("getSpriteAtCoordinate", &SpriteSheet::getSpriteAt)
-		 ];		
-	}
+
 //------------------------------------------------------------------------------
 	Image*	getSheetImage();
 	GLuint	getSpriteWidth();

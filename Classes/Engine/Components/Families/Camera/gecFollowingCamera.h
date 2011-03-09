@@ -11,7 +11,6 @@
 #define __GEC_FOLLOWING_CAMERA__
 
 #include "ICompCamera.h"
-#include "LuaRegisterManager.h"
 #include "SceneManager.h"
 
 class gecFollowingCamera : public ICompCamera
@@ -56,21 +55,6 @@ public:
 	
 	bool getActive() { return m_active; }
 	void setActive(bool active) { m_active = active; }
-	
-	//Lua binding code
-	static void registrate()
-	{
-		luabind::module(LR_MANAGER_STATE) 
-		[
-		 luabind::class_<gecFollowingCamera, GEComponent>("gecFollowingCamera")
-		 .def(luabind::constructor<>())		
-		 .property("follow_x", &gecFollowingCamera::getFollowX, &gecFollowingCamera::setFollowX)
-		 .property("follow_y", &gecFollowingCamera::getFollowY, &gecFollowingCamera::setFollowY)
-		 .property("death_zone_x", &gecFollowingCamera::getDeathZoneX, &gecFollowingCamera::setDeathZoneX)
-		 .property("death_zone_y", &gecFollowingCamera::getDeathZoneY, &gecFollowingCamera::setDeathZoneY)
-		 .property("active", &gecFollowingCamera::getActive, &gecFollowingCamera::setActive)
-		 ];
-	}
 	
 protected:
 	inline void setCameraX(int x) { m_cameraView.origin.x = x; }

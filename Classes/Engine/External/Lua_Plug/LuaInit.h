@@ -11,7 +11,7 @@
 
 #include <vector>
 
-#include "LuaRegisterManager.h"
+#include "LuaManager.h"
 
 #include "FileUtils.h"
 #include "ConstantsAndMacros.h"
@@ -59,20 +59,7 @@ namespace gg
         }
         
 		static inline void bindBasicTypes(void)
-		{	
-			luabind::module(LR_MANAGER_STATE)
-			[
-			 luabind::class_<std::string>("string")
-			 .def("c_str", &std::string::c_str)
-			 ];
-			
-			luabind::module(LR_MANAGER_STATE)
-			[
-				luabind::class_<std::vector<int> >("int_vector")
-				.def(luabind::constructor<>())
-				.def("push_back", &std::vector<int>::push_back)
-			];
-			
+		{			
 			luabind::module(LR_MANAGER_STATE)
 			[
 				luabind::class_<std::vector<float> >("float_vector")
@@ -102,15 +89,6 @@ namespace gg
 				.def_readwrite("origin", &GGRect::origin)
 				.def_readwrite("size", &GGRect::size)
 			];
-			
-			luabind::module(LR_MANAGER_STATE)
-			[
-				 luabind::class_<Vector3D>("Vector3D")
-				 .def(luabind::constructor<>())
-				 .def_readwrite("x",&Vector3D::x)
-				 .def_readwrite("y",&Vector3D::y)
-				 .def_readwrite("z",&Vector3D::z)
-			 ];
 		}
 		 
 		static inline void bindAbstractInterfaces(void)
@@ -126,24 +104,171 @@ namespace gg
 		
 		static inline void bindClasses(void)
 		{
-			LR_MANAGER->registrate<Image>();
-			LR_MANAGER->registrate<Frame>();
-			LR_MANAGER->registrate<Animation>();
-			LR_MANAGER->registrate<SpriteSheet>();
-			LR_MANAGER->registrate<gecAnimatedSprite>();
-			LR_MANAGER->registrate<gecFollowingCamera>();
-			LR_MANAGER->registrate<gecFSM>();
-			LR_MANAGER->registrate<gecJoystick>();
-			LR_MANAGER->registrate<gecButton>();
-			LR_MANAGER->registrate<gecBoxCollisionable>();
-			LR_MANAGER->registrate<GameEntity>();
-			LR_MANAGER->registrate<Scene>();
+            /* Bind the Image Class */
+            luabind::module(LR_MANAGER_STATE) 
+            [
+             luabind::class_<Image>("Image")
+             .def(luabind::constructor<>())
+             .def("initWithTextureFile", (void(Image::*)(const std::string &))&Image::initWithTextureFile)
+             .property("scale", &Image::getScale, &Image::setScale)
+             ];
+
+            /* Bind the Frame Class */
+            luabind::module(LR_MANAGER_STATE) 
+            [
+             luabind::class_<Frame>("Frame")	/** < Binds the GameEntity class */
+             .def(luabind::constructor<>())		/** < Binds the GameEntity constructor */
+             .property("image", &Frame::getFrameImage, &Frame::setFrameImage)
+             .property("delay", &Frame::getFrameDelay, &Frame::setFrameDelay)
+             ];
+            
+            /* Bind the Animation Class */
+            luabind::module(LR_MANAGER_STATE) 
+            [
+             luabind::class_<Animation>("Animation")	/** < Binds the GameEntity class*/
+             .def(luabind::constructor<>())				/** < Binds the GameEntity constructor  */
+             .def("addFrame", &Animation::addFrame)
+             .property("running", &Animation::getIsRunning, &Animation::setIsRunning)
+             .property("repeating", &Animation::getIsRepeating, &Animation::setIsRepeating)
+             .property("pingpong", &Animation::getIsPingPong, &Animation::setIsPingPong)
+             .property("animation_label", &Animation::getAnimationLabel, &Animation::setAnimationLabel)
+             ];
+            
+            /* Bind the SpriteSheet Class */
+            luabind::module(LR_MANAGER_STATE) 
+            [
+             luabind::class_<SpriteSheet>("SpriteSheet")
+             .def(luabind::constructor<>())
+             .def("initWithImageNamed", &SpriteSheet::initWithImageNamed)
+             .def("getSpriteAtCoordinate", &SpriteSheet::getSpriteAt)
+             ];
+            
+            /* Bind the GEComponent Class */            
+            luabind::module(LR_MANAGER_STATE) 
+            [
+             luabind::class_<GEComponent>("GEComponent"),
+             luabind::class_<gecAnimatedSprite, GEComponent>("gecAnimatedSprite")
+             .def(luabind::constructor<>())
+             .def("addAnimation", (void(gecAnimatedSprite::*)(const std::string &, Animation *)) &gecAnimatedSprite::addAnimation)
+             .def("addCustomAnimation", (void(gecAnimatedSprite::*)(const std::string &,
+                                                                    const std::vector<int> &, 
+                                                                    const std::vector<float> &, 
+                                                                    SpriteSheet *)) 
+                  &gecAnimatedSprite::addAnimation)
+             .def("setCurrentAnimation", &gecAnimatedSprite::setCurrentAnimation)
+             .def("setCurrentRunning", &gecAnimatedSprite::setCurrentRunning)
+             .def("setCurrentRepeating", &gecAnimatedSprite::setCurrentRepeating)
+             .def("setCurrentPingPong", &gecAnimatedSprite::setCurrentPingPong)		 
+             .def("setOwnerGE", &GEComponent::setOwnerGE)
+             ];
+            
+            /* Bind the gecFollowingCamera Class */
+            luabind::module(LR_MANAGER_STATE) 
+            [
+             luabind::class_<gecFollowingCamera, GEComponent>("gecFollowingCamera")
+             .def(luabind::constructor<>())		
+             .property("follow_x", &gecFollowingCamera::getFollowX, &gecFollowingCamera::setFollowX)
+             .property("follow_y", &gecFollowingCamera::getFollowY, &gecFollowingCamera::setFollowY)
+             .property("death_zone_x", &gecFollowingCamera::getDeathZoneX, &gecFollowingCamera::setDeathZoneX)
+             .property("death_zone_y", &gecFollowingCamera::getDeathZoneY, &gecFollowingCamera::setDeathZoneY)
+             .property("active", &gecFollowingCamera::getActive, &gecFollowingCamera::setActive)
+             ];
+            
+            /* Bind the gecFSM Class */
+            luabind::module(LR_MANAGER_STATE) 
+            [
+             luabind::class_<gecFSM, GEComponent>("gecFSM")	/** < Binds the gecFSM class*/
+             .def(luabind::constructor<>())
+             .def("setOwnerGE", &GEComponent::setOwnerGE)
+             ];
+            
+            /* Bind the gecJoystick Class */
+            luabind::module(LR_MANAGER_STATE) 
+            [
+             luabind::class_<gecJoystick, GEComponent>("gecJoystick")
+             .def(luabind::constructor<>())
+             .def("handle_touch", &gecJoystick::handle_touch)
+             .def("setShape", &gecJoystick::setShape)
+             .def("setCenter", &gecJoystick::setCenter)
+             .def("setInRadius", &gecJoystick::setInRadius)
+             .def("setOutRadius", &gecJoystick::setOutRadius)
+             ];
+            
+            /* Bind the gecButton Class */
+            luabind::module(LR_MANAGER_STATE) 
+            [
+             luabind::class_<gecButton, GEComponent>("gecButton")
+             .def(luabind::constructor<>())
+             .def("handle_touch", &gecButton::handle_touch)
+             .def("setShape", &gecButton::setShape)
+             .def("setParentSharedShape", &gecButton::setParentSharedShape)
+             ];
+            
+            /* Bind the gecBoxCollisionable Class */
+            luabind::module(LR_MANAGER_STATE)
+            [
+             luabind::class_<gecBoxCollisionable, GEComponent>("gecBoxCollisionable")
+             .def(luabind::constructor<>())
+             .def("setSize", &gecBoxCollisionable::setSize)
+             .property("solid", &CompCollisionable::getSolid, &CompCollisionable::setSolid)
+             ];
+            
+            /* Bind the Game Entity Class */
+            luabind::module(LR_MANAGER_STATE) 
+            [
+             luabind::class_<GameEntity>("GameEntity")		/** < Binds the GameEntity class */
+             .def(luabind::constructor<>())					/** < Binds the GameEntity constructor  */
+             .def("setGEC", &GameEntity::setGEC)			/** < Binds the GameEntity setGEC method  */
+             .def("setPosition", &GameEntity::setPosition)	/** < Binds the GameEntity setPositon method */
+             .def("getId", &GameEntity::getId)
+             .def("debugPrintComponents", &GameEntity::debugPrintComponents)
+             .property("active", &GameEntity::getIsActive, &GameEntity::setIsActive)
+             .property("flipHorizontally", &GameEntity::getFlipHorizontally, &GameEntity::setFlipHorizontally)
+             .property("label", &GameEntity::getLabel, &GameEntity::setLabel)
+             .def_readwrite("x", &GameEntity::x)
+             .def_readwrite("y", &GameEntity::y)
+             .def_readwrite("speed", &GameEntity::speed)
+             ];
+            
+            /* Bind the Scene Class */
+            luabind::module(LR_MANAGER_STATE) 
+            [
+             luabind::class_<Scene>("Scene")
+             .def(luabind::constructor<>())
+             .def("addEntity", &Scene::addGameEntity)
+             .def("addChild", &Scene::addChild)
+             .property("z_order", &Scene::getZOrder, &Scene::setZOrder)
+             .property("position", &Scene::getPosition, &Scene::setPosition)
+             .property("label", &Scene::getSceneLabel, &Scene::setSceneLabel)
+             ];
 		}
 		
 		static inline void bindManagers(void)
 		{
-			LR_MANAGER->registrate<SceneManager>();
-			LR_MANAGER->registrate<FontManager>();
+            /* Bind Scene Manager */ 
+            luabind::module(LR_MANAGER_STATE) 
+            [
+             luabind::class_<SceneManager>("SceneManager")
+             .def("addScene", &SceneManager::addScene)
+             .def("getScene", &SceneManager::getScene)
+             .def("setActiveScene", &SceneManager::setActiveScene)
+             .property("window", &SceneManager::getWindow, &SceneManager::setWindow)
+             .scope
+             [
+                luabind::def("getInstance", &SceneManager::getInstance)
+              ]
+             ];
+            
+            /* Bind Font Manager*/
+            luabind::module(LR_MANAGER_STATE) 
+            [
+			 luabind::class_<FontManager>("FontManager")
+			 .def("getTextRenderer", &FontManager::getTextRenderer)
+			 .scope
+			 [
+              luabind::def("getInstance", &FontManager::getInstance)
+              ]
+             ];
 		}
 
 		static inline void bindAll(void)

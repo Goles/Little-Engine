@@ -14,8 +14,6 @@ class GameEntity;
 
 #include <string>
 
-#include "LuaRegisterManager.h"
-
 /** Component system base class.
  @remarks
 	To create any Family of components, the main familiy components should
@@ -65,19 +63,6 @@ public:
 
 	/** Returns a reference to the owner GameEntity of this particular Component */
 	GameEntity*	getOwnerGE() const;
-
-//------------------------------------------------------------------------------
-/** Lua Interface
- @remarks
- This methods are to expose this class to the Lua runtime.
- */
-static void registrate(void)
-{
-	luabind::module(LR_MANAGER_STATE) 
-	[
-	 luabind::class_<GEComponent>("GEComponent")/** < Binds the GEComponent class*/
-	 ];
-}	
 	
 //------------------------------------------------------------------------------
 protected:

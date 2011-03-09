@@ -10,6 +10,7 @@
 #include "gecFSM.h"
 #include "GameEntity.h"
 #include "gecAnimatedSprite.h"
+#include "LuaManager.h"
 
 std::string gecFSM::mComponentID = "gecFSM";
 

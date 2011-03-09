@@ -14,7 +14,6 @@
 #include <string>
 
 #include "Scene.h"
-#include "LuaRegisterManager.h"
 
 #define SCENE_MANAGER SceneManager::getInstance()
 
@@ -63,27 +62,6 @@ public:
 	/**
 	 */
 	void setWindow(const CGSize &in_window) { m_window = in_window; }
-	
-//------------------------------------------------------------------------------
-/** Lua Interface
- @remarks
- This methods are to expose this class to the Lua runtime.
- */
-static void registrate(void)
-{
-	luabind::module(LR_MANAGER_STATE) 
-	[
-		 luabind::class_<SceneManager>("SceneManager")
-		 .def("addScene", &SceneManager::addScene)
-		 .def("getScene", &SceneManager::getScene)
-		 .def("setActiveScene", &SceneManager::setActiveScene)
-		 .property("window", &SceneManager::getWindow, &SceneManager::setWindow)
-		 .scope
-		 [
-			luabind::def("getInstance", &SceneManager::getInstance)
-		 ]
-	 ];	
-}
 
 //------------------------------------------------------------------------------ 
 protected:
