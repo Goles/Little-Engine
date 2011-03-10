@@ -14,7 +14,7 @@
 #include "TouchableManager.h"
 #include "SceneManager.h"
 #include "SharedTextureManager.h"
-#include "SharedParticleSystemManager.h"
+#include "ParticleManager.h"
 #include "GandoBox2D.h"
 #include "GETemplateManager.h"
 #include "FontManager.h"
@@ -61,7 +61,7 @@ namespace gg
 		delete TOUCHABLE_MANAGER;	/** < delete the Input Manager */
 		delete SCENE_MANAGER;		/** < delete the Scene Manager */
 		delete TEXTURE_MANAGER;		/** < delete the Texture Manager */
-		delete PARTICLE_MANAGER;	/** < delete the Particles Manager */
+		//delete PARTICLE_MANAGER;	/** < delete the Particles Manager */
 		delete GBOX_2D;				/** < delete the Box2D Plug for GG */
 		delete FONT_MANAGER;		/** < delete the Font Manager */
 		delete GE_FACTORY;			/** < delete the Game Entity Factory */		

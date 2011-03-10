@@ -9,11 +9,23 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Classes/Engine/Renderer/ES1Renderer.mm"
-         timestampString = "307296745.844714"
+         timestampString = "321423702.749983"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "261"
-         endingLineNumber = "261">
+         startingLineNumber = "262"
+         endingLineNumber = "262">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Classes/Engine/SharedManagers/SharedParticleSystemManager.h"
+         timestampString = "321423131.276244"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "23"
+         endingLineNumber = "23">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

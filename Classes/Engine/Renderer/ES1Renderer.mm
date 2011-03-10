@@ -10,6 +10,7 @@
 
 #include "ggEngine.h"
 #include "FontManager.h"
+#include "gecParticleSystem.h"
 
 static int frames;
 static char fpsText[32];
@@ -50,7 +51,9 @@ static char fpsText[32];
 		[self initGame];
 		game_init = YES;
 	}
-	
+
+    gecParticleSystem *s = new gecParticleSystem(100);
+    
 	return self;
 }
 

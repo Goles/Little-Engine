@@ -13,6 +13,9 @@
 		1444259312FCB0D200BD0D32 /* world1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1444259212FCB0D200BD0D32 /* world1.lua */; };
 		1444259512FCB0DA00BD0D32 /* game_entities_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1444259412FCB0DA00BD0D32 /* game_entities_1.lua */; };
 		1444259712FCB0DE00BD0D32 /* gui.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1444259612FCB0DE00BD0D32 /* gui.lua */; };
+		1447AA0A13272613000DCCD8 /* Particle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1447AA0813272612000DCCD8 /* Particle.mm */; };
+		1447AA0D132730E7000DCCD8 /* ParticleManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1447AA0B132730E5000DCCD8 /* ParticleManager.mm */; };
+		1447AA141328897D000DCCD8 /* gecParticleSystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1447AA131328897C000DCCD8 /* gecParticleSystem.mm */; };
 		1453691512F359A100B97FB4 /* weapon_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1453691412F359A100B97FB4 /* weapon_1.lua */; };
 		145A10191311E5E00029FE31 /* libFTGLES.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B127C913104A730015D418 /* libFTGLES.a */; };
 		148B1F761310A2DC00B1CE94 /* gecFollowingCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1F731310A2DC00B1CE94 /* gecFollowingCamera.mm */; };
@@ -55,7 +58,7 @@
 		14DEC03E1310835C0094F680 /* CompSpawn.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF771310835C0094F680 /* CompSpawn.mm */; };
 		14DEC03F1310835C0094F680 /* gecAnimatedSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF7B1310835C0094F680 /* gecAnimatedSprite.mm */; };
 		14DEC0431310835C0094F680 /* gecVisualContainer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF831310835C0094F680 /* gecVisualContainer.mm */; };
-		14DEC0441310835C0094F680 /* gecVisual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF841310835C0094F680 /* gecVisual.cpp */; };
+		14DEC0441310835C0094F680 /* gecVisual.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF841310835C0094F680 /* gecVisual.mm */; };
 		14DEC0451310835C0094F680 /* CompWeapon.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF881310835C0094F680 /* CompWeapon.mm */; };
 		14DEC0461310835C0094F680 /* gecWeapon.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF8A1310835C0094F680 /* gecWeapon.mm */; };
 		14DEC0471310835C0094F680 /* GEComponent.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF8C1310835C0094F680 /* GEComponent.mm */; };
@@ -67,19 +70,12 @@
 		14DEC0701310835C0094F680 /* LuaManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFF01310835C0094F680 /* LuaManager.mm */; };
 		14DEC0721310835C0094F680 /* PVRTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFFB1310835C0094F680 /* PVRTexture.m */; };
 		14DEC0731310835C0094F680 /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFFD1310835C0094F680 /* Texture2D.m */; };
-		14DEC0741310835C0094F680 /* gecParticleSystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0011310835C0094F680 /* gecParticleSystem.mm */; };
-		14DEC0751310835C0094F680 /* Particle.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0031310835C0094F680 /* Particle.m */; };
-		14DEC0761310835C0094F680 /* ParticleController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0051310835C0094F680 /* ParticleController.mm */; };
-		14DEC0771310835C0094F680 /* ParticleEmitter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0071310835C0094F680 /* ParticleEmitter.mm */; };
-		14DEC0781310835C0094F680 /* ParticleRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0091310835C0094F680 /* ParticleRenderer.mm */; };
 		14DEC0791310835C0094F680 /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC00D1310835C0094F680 /* EAGLView.mm */; };
 		14DEC07A1310835C0094F680 /* ES1Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC00F1310835C0094F680 /* ES1Renderer.mm */; };
 		14DEC07B1310835C0094F680 /* ES2Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0111310835C0094F680 /* ES2Renderer.mm */; };
 		14DEC07C1310835C0094F680 /* Scene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0151310835C0094F680 /* Scene.mm */; };
 		14DEC07D1310835C0094F680 /* GETemplateManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0181310835C0094F680 /* GETemplateManager.mm */; };
 		14DEC07E1310835C0094F680 /* SceneManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC01A1310835C0094F680 /* SceneManager.mm */; };
-		14DEC07F1310835C0094F680 /* SharedBehaviorManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC01C1310835C0094F680 /* SharedBehaviorManager.mm */; };
-		14DEC0801310835C0094F680 /* SharedParticleSystemManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC01E1310835C0094F680 /* SharedParticleSystemManager.mm */; };
 		14DEC0811310835C0094F680 /* SharedTextureManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0201310835C0094F680 /* SharedTextureManager.mm */; };
 		14DEC0821310835C0094F680 /* Animation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0231310835C0094F680 /* Animation.mm */; };
 		14DEC0831310835C0094F680 /* Frame.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0251310835C0094F680 /* Frame.mm */; };
@@ -173,6 +169,13 @@
 		1444259212FCB0D200BD0D32 /* world1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = world1.lua; sourceTree = "<group>"; };
 		1444259412FCB0DA00BD0D32 /* game_entities_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = game_entities_1.lua; sourceTree = "<group>"; };
 		1444259612FCB0DE00BD0D32 /* gui.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gui.lua; sourceTree = "<group>"; };
+		1447AA0813272612000DCCD8 /* Particle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Particle.mm; sourceTree = "<group>"; };
+		1447AA0913272612000DCCD8 /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particle.h; sourceTree = "<group>"; };
+		1447AA0B132730E5000DCCD8 /* ParticleManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ParticleManager.mm; path = ../Particles/ParticleManager.mm; sourceTree = "<group>"; };
+		1447AA0C132730E6000DCCD8 /* ParticleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticleManager.h; path = ../Particles/ParticleManager.h; sourceTree = "<group>"; };
+		1447AA0E13283E55000DCCD8 /* ObjectPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectPool.h; sourceTree = "<group>"; };
+		1447AA121328897C000DCCD8 /* gecParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecParticleSystem.h; sourceTree = "<group>"; };
+		1447AA131328897C000DCCD8 /* gecParticleSystem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecParticleSystem.mm; sourceTree = "<group>"; };
 		144BAA1913100C77005AD895 /* luabind.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = luabind.xcodeproj; path = Libraries/luabind/luabind.xcodeproj; sourceTree = "<group>"; };
 		1453691412F359A100B97FB4 /* weapon_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = weapon_1.lua; sourceTree = "<group>"; };
 		148B1F721310A2DC00B1CE94 /* gecFollowingCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecFollowingCamera.h; sourceTree = "<group>"; };
@@ -237,7 +240,7 @@
 		14DEBF7C1310835C0094F680 /* gecImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecImage.h; sourceTree = "<group>"; };
 		14DEBF821310835C0094F680 /* gecVisualContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecVisualContainer.h; sourceTree = "<group>"; };
 		14DEBF831310835C0094F680 /* gecVisualContainer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecVisualContainer.mm; sourceTree = "<group>"; };
-		14DEBF841310835C0094F680 /* gecVisual.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gecVisual.cpp; sourceTree = "<group>"; };
+		14DEBF841310835C0094F680 /* gecVisual.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecVisual.mm; sourceTree = "<group>"; };
 		14DEBF851310835C0094F680 /* gecVisual.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecVisual.h; sourceTree = "<group>"; };
 		14DEBF871310835C0094F680 /* CompWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompWeapon.h; sourceTree = "<group>"; };
 		14DEBF881310835C0094F680 /* CompWeapon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CompWeapon.mm; sourceTree = "<group>"; };
@@ -269,18 +272,6 @@
 		14DEBFFB1310835C0094F680 /* PVRTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVRTexture.m; sourceTree = "<group>"; };
 		14DEBFFC1310835C0094F680 /* Texture2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture2D.h; sourceTree = "<group>"; };
 		14DEBFFD1310835C0094F680 /* Texture2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Texture2D.m; sourceTree = "<group>"; };
-		14DEBFFF1310835C0094F680 /* EmitterFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmitterFunctions.h; sourceTree = "<group>"; };
-		14DEC0001310835C0094F680 /* gecParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecParticleSystem.h; sourceTree = "<group>"; };
-		14DEC0011310835C0094F680 /* gecParticleSystem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecParticleSystem.mm; sourceTree = "<group>"; };
-		14DEC0021310835C0094F680 /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particle.h; sourceTree = "<group>"; };
-		14DEC0031310835C0094F680 /* Particle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Particle.m; sourceTree = "<group>"; };
-		14DEC0041310835C0094F680 /* ParticleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleController.h; sourceTree = "<group>"; };
-		14DEC0051310835C0094F680 /* ParticleController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ParticleController.mm; sourceTree = "<group>"; };
-		14DEC0061310835C0094F680 /* ParticleEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleEmitter.h; sourceTree = "<group>"; };
-		14DEC0071310835C0094F680 /* ParticleEmitter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ParticleEmitter.mm; sourceTree = "<group>"; };
-		14DEC0081310835C0094F680 /* ParticleRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleRenderer.h; sourceTree = "<group>"; };
-		14DEC0091310835C0094F680 /* ParticleRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ParticleRenderer.mm; sourceTree = "<group>"; };
-		14DEC00A1310835C0094F680 /* RenderingFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderingFunctions.h; sourceTree = "<group>"; };
 		14DEC00C1310835C0094F680 /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
 		14DEC00D1310835C0094F680 /* EAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EAGLView.mm; sourceTree = "<group>"; };
 		14DEC00E1310835C0094F680 /* ES1Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ES1Renderer.h; sourceTree = "<group>"; };
@@ -295,10 +286,6 @@
 		14DEC0191310835C0094F680 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
 		14DEC01A1310835C0094F680 /* SceneManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SceneManager.mm; sourceTree = "<group>"; };
 		14DEC01B1310835C0094F680 /* SharedBehaviorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedBehaviorManager.h; sourceTree = "<group>"; };
-		14DEC01C1310835C0094F680 /* SharedBehaviorManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SharedBehaviorManager.mm; sourceTree = "<group>"; };
-		14DEC01D1310835C0094F680 /* SharedParticleSystemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedParticleSystemManager.h; sourceTree = "<group>"; };
-		14DEC01E1310835C0094F680 /* SharedParticleSystemManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SharedParticleSystemManager.mm; sourceTree = "<group>"; };
-		14DEC01F1310835C0094F680 /* SharedTextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedTextureManager.h; sourceTree = "<group>"; };
 		14DEC0201310835C0094F680 /* SharedTextureManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SharedTextureManager.mm; sourceTree = "<group>"; };
 		14DEC0221310835C0094F680 /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animation.h; sourceTree = "<group>"; };
 		14DEC0231310835C0094F680 /* Animation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Animation.mm; sourceTree = "<group>"; };
@@ -652,7 +639,7 @@
 			isa = PBXGroup;
 			children = (
 				14DEBF791310835C0094F680 /* components */,
-				14DEBF841310835C0094F680 /* gecVisual.cpp */,
+				14DEBF841310835C0094F680 /* gecVisual.mm */,
 				14DEBF851310835C0094F680 /* gecVisual.h */,
 			);
 			path = Visual;
@@ -664,6 +651,8 @@
 				14DEBF7A1310835C0094F680 /* gecAnimatedSprite.h */,
 				14DEBF7B1310835C0094F680 /* gecAnimatedSprite.mm */,
 				14DEBF7C1310835C0094F680 /* gecImage.h */,
+				1447AA121328897C000DCCD8 /* gecParticleSystem.h */,
+				1447AA131328897C000DCCD8 /* gecParticleSystem.mm */,
 				14DEBF821310835C0094F680 /* gecVisualContainer.h */,
 				14DEBF831310835C0094F680 /* gecVisualContainer.mm */,
 			);
@@ -775,18 +764,8 @@
 		14DEBFFE1310835C0094F680 /* Particles */ = {
 			isa = PBXGroup;
 			children = (
-				14DEBFFF1310835C0094F680 /* EmitterFunctions.h */,
-				14DEC0001310835C0094F680 /* gecParticleSystem.h */,
-				14DEC0011310835C0094F680 /* gecParticleSystem.mm */,
-				14DEC0021310835C0094F680 /* Particle.h */,
-				14DEC0031310835C0094F680 /* Particle.m */,
-				14DEC0041310835C0094F680 /* ParticleController.h */,
-				14DEC0051310835C0094F680 /* ParticleController.mm */,
-				14DEC0061310835C0094F680 /* ParticleEmitter.h */,
-				14DEC0071310835C0094F680 /* ParticleEmitter.mm */,
-				14DEC0081310835C0094F680 /* ParticleRenderer.h */,
-				14DEC0091310835C0094F680 /* ParticleRenderer.mm */,
-				14DEC00A1310835C0094F680 /* RenderingFunctions.h */,
+				1447AA0913272612000DCCD8 /* Particle.h */,
+				1447AA0813272612000DCCD8 /* Particle.mm */,
 			);
 			path = Particles;
 			sourceTree = "<group>";
@@ -822,13 +801,11 @@
 				14DEC0191310835C0094F680 /* SceneManager.h */,
 				14DEC01A1310835C0094F680 /* SceneManager.mm */,
 				14DEC01B1310835C0094F680 /* SharedBehaviorManager.h */,
-				14DEC01C1310835C0094F680 /* SharedBehaviorManager.mm */,
-				14DEC01D1310835C0094F680 /* SharedParticleSystemManager.h */,
-				14DEC01E1310835C0094F680 /* SharedParticleSystemManager.mm */,
-				14DEC01F1310835C0094F680 /* SharedTextureManager.h */,
 				14DEC0201310835C0094F680 /* SharedTextureManager.mm */,
 				148B1F851310A44100B1CE94 /* FontManager.h */,
 				148B1F861310A44100B1CE94 /* FontManager.mm */,
+				1447AA0C132730E6000DCCD8 /* ParticleManager.h */,
+				1447AA0B132730E5000DCCD8 /* ParticleManager.mm */,
 			);
 			path = SharedManagers;
 			sourceTree = "<group>";
@@ -856,6 +833,7 @@
 				14DEC02D1310835C0094F680 /* HardwareClock.cpp */,
 				14DEC02E1310835C0094F680 /* HardwareClock.h */,
 				14DEC02F1310835C0094F680 /* VectorList.h */,
+				1447AA0E13283E55000DCCD8 /* ObjectPool.h */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -1126,7 +1104,7 @@
 				14DEC03E1310835C0094F680 /* CompSpawn.mm in Sources */,
 				14DEC03F1310835C0094F680 /* gecAnimatedSprite.mm in Sources */,
 				14DEC0431310835C0094F680 /* gecVisualContainer.mm in Sources */,
-				14DEC0441310835C0094F680 /* gecVisual.cpp in Sources */,
+				14DEC0441310835C0094F680 /* gecVisual.mm in Sources */,
 				14DEC0451310835C0094F680 /* CompWeapon.mm in Sources */,
 				14DEC0461310835C0094F680 /* gecWeapon.mm in Sources */,
 				14DEC0471310835C0094F680 /* GEComponent.mm in Sources */,
@@ -1138,19 +1116,12 @@
 				14DEC0701310835C0094F680 /* LuaManager.mm in Sources */,
 				14DEC0721310835C0094F680 /* PVRTexture.m in Sources */,
 				14DEC0731310835C0094F680 /* Texture2D.m in Sources */,
-				14DEC0741310835C0094F680 /* gecParticleSystem.mm in Sources */,
-				14DEC0751310835C0094F680 /* Particle.m in Sources */,
-				14DEC0761310835C0094F680 /* ParticleController.mm in Sources */,
-				14DEC0771310835C0094F680 /* ParticleEmitter.mm in Sources */,
-				14DEC0781310835C0094F680 /* ParticleRenderer.mm in Sources */,
 				14DEC0791310835C0094F680 /* EAGLView.mm in Sources */,
 				14DEC07A1310835C0094F680 /* ES1Renderer.mm in Sources */,
 				14DEC07B1310835C0094F680 /* ES2Renderer.mm in Sources */,
 				14DEC07C1310835C0094F680 /* Scene.mm in Sources */,
 				14DEC07D1310835C0094F680 /* GETemplateManager.mm in Sources */,
 				14DEC07E1310835C0094F680 /* SceneManager.mm in Sources */,
-				14DEC07F1310835C0094F680 /* SharedBehaviorManager.mm in Sources */,
-				14DEC0801310835C0094F680 /* SharedParticleSystemManager.mm in Sources */,
 				14DEC0811310835C0094F680 /* SharedTextureManager.mm in Sources */,
 				14DEC0821310835C0094F680 /* Animation.mm in Sources */,
 				14DEC0831310835C0094F680 /* Frame.mm in Sources */,
@@ -1163,6 +1134,9 @@
 				148B1F871310A44100B1CE94 /* FontManager.mm in Sources */,
 				148B1FBD1310AA9E00B1CE94 /* ftglesTextureFont.mm in Sources */,
 				1430C7FC131F02F500AFA083 /* TextureTextRenderer.mm in Sources */,
+				1447AA0A13272613000DCCD8 /* Particle.mm in Sources */,
+				1447AA0D132730E7000DCCD8 /* ParticleManager.mm in Sources */,
+				1447AA141328897D000DCCD8 /* gecParticleSystem.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1196,7 +1170,7 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GandoEngine_Prefix.pch;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;

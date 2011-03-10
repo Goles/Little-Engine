@@ -48,7 +48,6 @@ TestEntity =
 			elseif (in_event == "E_ANIMATION_FINISH") then
 
 				if (in_data.animation_label == "S_HIT" and in_data.owner_ge_uid == this.id) then
-
 					this.components["gecFSM"]:performAction("A_STOP_HIT")					
 				end
 			
