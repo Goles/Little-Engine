@@ -24,8 +24,7 @@ namespace gg { namespace particle {
     {
         for(int i = 0; i < m_maxParticles; ++i)
         {
-            
-            if( m_pool[i].m_size < 0.0)
+            if( m_pool[i].life < 0.0)
             {
                 m_pool.release(i);
             }

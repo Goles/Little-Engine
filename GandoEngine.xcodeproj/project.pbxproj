@@ -187,6 +187,7 @@
 		148B1FBB1310AA9E00B1CE94 /* ftglesTextureFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftglesTextureFont.h; sourceTree = "<group>"; };
 		148B1FBC1310AA9E00B1CE94 /* ftglesTextureFont.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ftglesTextureFont.mm; sourceTree = "<group>"; };
 		148B20CF1310C9CA00B1CE94 /* TOONISH.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TOONISH.ttf; sourceTree = "<group>"; };
+		1498C7241329830400BA6EAF /* Range.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Range.h; sourceTree = "<group>"; };
 		14A2170512E7884700A4D8EC /* base_functions.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = base_functions.lua; sourceTree = "<group>"; };
 		14A2170612E7884700A4D8EC /* ComponentBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ComponentBuilder.lua; sourceTree = "<group>"; };
 		14A2170712E7884700A4D8EC /* EntityBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EntityBuilder.lua; sourceTree = "<group>"; };
@@ -266,7 +267,7 @@
 		14DEBFF31310835C0094F680 /* ITextRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITextRenderer.h; sourceTree = "<group>"; };
 		14DEBFF41310835C0094F680 /* ggEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ggEngine.h; sourceTree = "<group>"; };
 		14DEBFF61310835C0094F680 /* ccConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccConfig.h; sourceTree = "<group>"; };
-		14DEBFF71310835C0094F680 /* ConstantsAndMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantsAndMacros.h; sourceTree = "<group>"; };
+		14DEBFF71310835C0094F680 /* ConstantsAndMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConstantsAndMacros.h; path = ../OpenGL/ConstantsAndMacros.h; sourceTree = "<group>"; };
 		14DEBFF81310835C0094F680 /* OpenGLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLCommon.h; sourceTree = "<group>"; };
 		14DEBFFA1310835C0094F680 /* PVRTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRTexture.h; sourceTree = "<group>"; };
 		14DEBFFB1310835C0094F680 /* PVRTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVRTexture.m; sourceTree = "<group>"; };
@@ -743,7 +744,6 @@
 			isa = PBXGroup;
 			children = (
 				14DEBFF61310835C0094F680 /* ccConfig.h */,
-				14DEBFF71310835C0094F680 /* ConstantsAndMacros.h */,
 				14DEBFF81310835C0094F680 /* OpenGLCommon.h */,
 				14DEBFF91310835C0094F680 /* Textures */,
 			);
@@ -828,12 +828,14 @@
 		14DEC02A1310835C0094F680 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				14DEBFF71310835C0094F680 /* ConstantsAndMacros.h */,
 				14DEC02B1310835C0094F680 /* FileUtils.h */,
 				14DEC02C1310835C0094F680 /* FileUtils.mm */,
 				14DEC02D1310835C0094F680 /* HardwareClock.cpp */,
 				14DEC02E1310835C0094F680 /* HardwareClock.h */,
 				14DEC02F1310835C0094F680 /* VectorList.h */,
 				1447AA0E13283E55000DCCD8 /* ObjectPool.h */,
+				1498C7241329830400BA6EAF /* Range.h */,
 			);
 			path = Support;
 			sourceTree = "<group>";

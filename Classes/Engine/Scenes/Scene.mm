@@ -7,13 +7,11 @@
 //
 
 #include "Scene.h"
-#include "SharedParticleSystemManager.h"
 #include "gecVisual.h"
 #include "ICompCamera.h"
 #include "GandoBox2D.h"
 #include "FontManager.h"
 #include <OpenGLES/ES1/gl.h>
-
 
 Scene::Scene() : m_label("unnamed_scene"), m_zOrder(-1), m_position(CGPointZero)
 {
