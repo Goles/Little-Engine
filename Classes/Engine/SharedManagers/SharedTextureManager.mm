@@ -40,11 +40,11 @@ Texture2D* SharedTextureManager::createTexture(const std::string &textureName)
 	Texture2D *imTexture;	
 	NSString *textureFileName = [NSString stringWithUTF8String:textureName.c_str()];
 
-    NSString *fullPath = FileUtils::fullPathFromRelativePath(textureFileName);
+    const NSString *fullPath = FileUtils::fullPathFromRelativePath(textureFileName);
     
 	if([textureFileName hasSuffix:@".pvr"])
 	{
-		imTexture = [[Texture2D alloc] initWithPVRTCFile:fullPath];
+		imTexture = [[Texture2D alloc] initWithPVRTCFile:(NSString *)fullPath];
 	}else{
 		imTexture = [[Texture2D alloc] initWithImagePath:[[NSBundle mainBundle] pathForResource:textureFileName ofType:nil] filter:GL_LINEAR];
 	}
@@ -67,6 +67,18 @@ void SharedTextureManager::bindTexture(const std::string &textureName)
 			std::cout << "The texture " << textureName << " is not in the texturesMap!" << std::endl;
 		}
 	}
+}
+
+//This method is useful when using middleware that doesn't allow us to easily use our manager.
+void SharedTextureManager::rebindPreviousTexture()
+{
+    TextureMap::iterator it = texturesMap.find(boundTextureName);
+    
+    if (it != texturesMap.end()) 
+    {
+        glBindTexture(GL_TEXTURE_2D, [it->second name]);
+        boundTextureName = textureName;
+    }
 }
 
 #pragma mark getters_setters

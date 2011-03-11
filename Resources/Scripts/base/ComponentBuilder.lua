@@ -171,6 +171,62 @@ function gecFollowingCameraBuild(t)
 	return camera
 end
 
+--
+--	Build a gecParticleSystem
+--
+function gecParticleSystemBuild(t)	
+	particleSystem = gecParticleSystem()
+
+	assert(t.defaultParticle ~= nil, "'defaultParticle' can't be nil on gecParticleSystem definition")
+	assert(t.duration ~= nil, "'duration' can't be nil on gecParticleSystem definition")
+	assert(t.texture ~= nil, "'texture' can't be nil on gecParticleSystem definition")
+	assert(t.emissionRate ~= nil, "'emissionRate' can't be nil on gecParticleSystem definition")
+
+	particleSystem.emissionDuration = t.duration;	
+	particleSystem.texture = t.texture;
+	particleSystem.emissionRate = t.emissionRate;
+	
+	if t.particle_size ~= nil then
+		particleSystem.size = t.particle_size;	
+	end
+	
+	if t.emissionRateVariance ~= nil then
+		particleSystem.emissionRateVariance = t.emissionRateVariance;
+	end
+	
+	if t.originVariance ~= nil then
+		particleSystem.originVariance = t.originVariance;
+	end
+	
+	if t.lifeVariance ~= nil then
+		particleSystem.lifeVariance = t.lifeVariance;
+	end
+	
+	if t.speedVariance ~= nil then
+		particleSystem.speedVariance = t.speedVariance;
+	end
+	
+	if t.decayVariance ~= nil then
+		particleSystem.decayVariance = t.decayVariance;
+	end
+	
+	local position = ggp(t.defaultParticle.position.x, t.defaultParticle.position.y)
+	local speed = ggp(t.defaultParticle.speed.x, t.defaultParticle.speed.y)
+	
+	particle = makeParticle(position,
+						    speed,
+							t.defaultParticle.life,
+							t.defaultParticle.decay,
+							t.defaultParticle.color_R,
+							t.defaultParticle.color_G,
+							t.defaultParticle.color_B,
+							t.defaultParticle.color_A,
+							t.defaultParticle.rotation)
+
+	particleSystem:setDefaultParticle(particle)
+	return particleSystem
+end
+
 -- =================================================================== --
 -- Function table with { Key, function() } for each component builder. --
 -- =================================================================== --
@@ -182,4 +238,5 @@ component_function_table =
 	["gecButton"] = gecButtonBuild,
 	["gecFollowingCamera"] = gecFollowingCameraBuild,
 	["gecJoystick"] = gecJoystickBuild,
+	["gecParticleSystem"] = gecParticleSystemBuild,
 }

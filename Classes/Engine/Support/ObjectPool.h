@@ -17,8 +17,18 @@ template <class T>
 class ObjectPool
 {
 public:
+    ObjectPool() : m_size(0)
+    {
+        std::cout << "Empty Constructor Called" << std::endl;
+        //Empty Constructor.
+        //Used when you don't want to declare the pool size inmediatly.
+        //You can then assign a pool by copy.
+        //ObjectPool<T *> p = ObjectPool<T*> a_pool(100);
+    }
+    
     ObjectPool(int size) : m_size(size)
     {
+        std::cout << "Full Constructor Called" << std::endl;
         m_pool = new T[m_size];
         m_inuse = new bool[m_size];
         
@@ -48,12 +58,17 @@ public:
         
         for (i = 0; i < m_size; ++i)
         {
-            if (!m_inuse[i])
+            if (m_inuse[i] == false)
             {
                 m_inuse[i] = true;
-                break;
+                return m_pool[i];
             }
         }
+        
+        this->debugPrintInUse();
+        
+        //Object Pool is empty, handle properly.
+        assert(false);
         
         return m_pool[i];
     }
@@ -61,6 +76,16 @@ public:
     /* Overload [] operator for easy pool item access */
     T& operator[](const int index){
         return m_pool[index];
+    }
+    
+    void debugPrintInUse()
+    {
+        std::cout << "ObjectPool Size : " << m_size << std::endl;
+        
+        for (int i = 0; i < m_size; ++i)
+        {
+            std::cout << i << " " << m_inuse[i] << std::endl;
+        }
     }
     
 private:

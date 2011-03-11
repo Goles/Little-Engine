@@ -45,7 +45,7 @@ namespace gg
 	}
 	
 	inline void startup(void)
-	{
+	{        
 		gg::init();
 		
 #ifdef DEBUG

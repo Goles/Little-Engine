@@ -14,3 +14,13 @@ function SceneManagerConfig(t)
 	end
 		
 end
+
+function ParticleManagerConfig(t)
+	
+	assert(t.maxParticles ~= nil, "ERROR: Didn't specify a 'maxParticles' value for ParticleManager (config.lua)")
+	assert(t.maxParticles ~= 0, "ERROR: Specify a 'maxParticles' value other than zero for ParticleManager (config.lua)")
+	
+	ParticleManager.getInstance():setMaxParticles(t.maxParticles)
+	
+end
+	

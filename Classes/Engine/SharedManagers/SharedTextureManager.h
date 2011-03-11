@@ -35,6 +35,7 @@ public:
 	static		SharedTextureManager* getInstance();
 	Texture2D*	createTexture(const std::string &textureName);
 	void		bindTexture(const std::string &textureName);
+    void rebindPreviousTexture();
 	
 	//Destructor
 	~SharedTextureManager();

@@ -17,6 +17,7 @@
 #include "ConstantsAndMacros.h"
 #include "OpenGLCommon.h"
 
+#include "Particle.h"
 #include "GameEntity.h"
 #include "Scene.h"
 #include "Image.h"
@@ -33,9 +34,11 @@
 #include "gecJoystick.h"
 #include "gecButton.h"
 #include "gecBoxCollisionable.h"
+#include "gecParticleSystem.h"
 
 #include "SceneManager.h"
 #include "FontManager.h"
+#include "ParticleManager.h"
 
 namespace gg
 {
@@ -54,7 +57,9 @@ namespace gg
 				luabind::def("filePath", &FileUtils::fullCPathFromRelativePath),
 				luabind::def("ggr", &CGRectMake),
 				luabind::def("ggs", &CGSizeMake),
-				luabind::def("gluLookAt", &gluLookAt)
+                luabind::def("ggp", &CGPointMake),
+				luabind::def("gluLookAt", &gluLookAt),
+                luabind::def("makeParticle", &gg::particle::utils::makeParticle)
 			 ];
         }
         
@@ -89,6 +94,21 @@ namespace gg
 				.def_readwrite("origin", &GGRect::origin)
 				.def_readwrite("size", &GGRect::size)
 			];
+            
+            luabind::module(LR_MANAGER_STATE)
+            [
+                 luabind::class_<Particle>("Particle")
+                 .def(luabind::constructor<>())
+                 .def_readwrite("position", &Particle::position)
+                 .def_readwrite("speed", &Particle::speed)
+                 .def_readwrite("life", &Particle::life)
+                 .def_readwrite("decay", &Particle::decay)
+                 .def_readwrite("color_R", &Particle::color_R)
+                 .def_readwrite("color_G", &Particle::color_G)
+                 .def_readwrite("color_B", &Particle::color_B)
+                 .def_readwrite("color_A", &Particle::color_A)             
+                 .def_readwrite("rotation", &Particle::rotation)
+             ];
 		}
 		 
 		static inline void bindAbstractInterfaces(void)
@@ -213,6 +233,30 @@ namespace gg
              .property("solid", &CompCollisionable::getSolid, &CompCollisionable::setSolid)
              ];
             
+            /* Bind the gecParticleSystem Class */
+            luabind::module(LR_MANAGER_STATE)
+            [
+                 luabind::class_<gecParticleSystem, GEComponent>("gecParticleSystem")
+                 .enum_("RenderMode")
+                 [
+                      luabind::value("POINT_SPRITES", gg::particle::render::kRenderingMode_PointSprites),
+                      luabind::value("QUADS", gg::particle::render::kRenderingMode_2xTriangles)
+                  ]
+                 .def(luabind::constructor<>())
+                 .def("emit", &gecParticleSystem::setEmit)
+                 .def("setDefaultParticle", &gecParticleSystem::setDefaultParticle)
+                 .property("texture", &gecParticleSystem::texture, &gecParticleSystem::setTexture)
+                 .property("emissionRate", &gecParticleSystem::emissionRate, &gecParticleSystem::setEmissionRate)
+                 .property("emissionRateVariance", &gecParticleSystem::emissionRateVariance, &gecParticleSystem::setEmissionRateVariance)
+                 .property("originVariance", &gecParticleSystem::originVariance, &gecParticleSystem::setOriginVariance)
+                 .property("lifeVariance", &gecParticleSystem::lifeVariance, &gecParticleSystem::setLifeVariance)
+                 .property("speedVariance", &gecParticleSystem::speedVariance, &gecParticleSystem::setSpeedVariance)
+                 .property("decayVariance", &gecParticleSystem::decayVariance, &gecParticleSystem::setDecayVariance)
+                 .property("emissionDuration", &gecParticleSystem::emissionDuration, &gecParticleSystem::setEmissionDuration)
+                 .property("size", &gecParticleSystem::size, &gecParticleSystem::setSize)
+
+            ];
+            
             /* Bind the Game Entity Class */
             luabind::module(LR_MANAGER_STATE) 
             [
@@ -269,6 +313,17 @@ namespace gg
               luabind::def("getInstance", &FontManager::getInstance)
               ]
              ];
+            
+            /* Bind Particle Manager */
+            luabind::module(LR_MANAGER_STATE)
+            [
+             luabind::class_<gg::particle::ParticleManager>("ParticleManager")
+             .def("setMaxParticles", &gg::particle::ParticleManager::setMaxParticles)
+             .scope
+             [
+              luabind::def("getInstance", &gg::particle::ParticleManager::getInstance)
+             ]
+            ];
 		}
 
 		static inline void bindAll(void)

@@ -11,6 +11,7 @@
 #import <OpenGLES/ES1/gl.h>
 #import <OpenGLES/ES1/glext.h>
 #include "IFont.h"
+#include "SharedTextureManager.h"
 
 TextureTextRenderer::TextureTextRenderer() :	m_position(CGPointZero), 
 												m_font(NULL), 
@@ -25,6 +26,8 @@ void TextureTextRenderer::render()
 	
 	m_font->render(m_text);
 	
+    TEXTURE_MANAGER->rebindPreviousTexture();
+    
 	glPopMatrix();
 }
 

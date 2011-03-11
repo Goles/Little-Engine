@@ -53,8 +53,6 @@ static char fpsText[32];
 		game_init = YES;
 	}
     
-    gecParticleSystem *s = new gecParticleSystem();
-    
 	return self;
 }
 
@@ -81,6 +79,7 @@ static char fpsText[32];
 	SCENE_MANAGER->getActiveScene()->update(delta);
 	
 	GBOX_2D->update(delta);
+    PARTICLE_MANAGER->update();    
 
 #ifdef DEBUG
 	[self setFps];
@@ -103,7 +102,10 @@ static char fpsText[32];
 	glClear(GL_COLOR_BUFFER_BIT);
 	
 	SCENE_MANAGER->getActiveScene()->render();
-	FONT_MANAGER->render();
+    
+    glPushMatrix();
+        FONT_MANAGER->render();
+    glPopMatrix();
 	
 	glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
 	[context presentRenderbuffer:GL_RENDERBUFFER_OES];

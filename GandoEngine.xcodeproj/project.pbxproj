@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1429A906132A620900314A28 /* game_entities_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1429A903132A620900314A28 /* game_entities_1.lua */; };
+		1429A907132A620900314A28 /* gui.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1429A904132A620900314A28 /* gui.lua */; };
+		1429A908132A620900314A28 /* world1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1429A905132A620900314A28 /* world1.lua */; };
+		142DA6C0132A742A00BD2A38 /* particle_test_scene.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142DA6BF132A742A00BD2A38 /* particle_test_scene.lua */; };
+		142DA6C2132A743B00BD2A38 /* particle_emmiter.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142DA6C1132A743B00BD2A38 /* particle_emmiter.lua */; };
 		1430C7FC131F02F500AFA083 /* TextureTextRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1430C7FB131F02F500AFA083 /* TextureTextRenderer.mm */; };
 		1430CA7713201A3600AFA083 /* Diavlo_BLACK_II_37.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1430CA7613201A3600AFA083 /* Diavlo_BLACK_II_37.otf */; };
 		143C241012F9116F009B37EF /* zero.lua in Resources */ = {isa = PBXBuildFile; fileRef = 143C240F12F9116F009B37EF /* zero.lua */; };
-		1444259312FCB0D200BD0D32 /* world1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1444259212FCB0D200BD0D32 /* world1.lua */; };
-		1444259512FCB0DA00BD0D32 /* game_entities_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1444259412FCB0DA00BD0D32 /* game_entities_1.lua */; };
-		1444259712FCB0DE00BD0D32 /* gui.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1444259612FCB0DE00BD0D32 /* gui.lua */; };
 		1447AA0A13272613000DCCD8 /* Particle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1447AA0813272612000DCCD8 /* Particle.mm */; };
 		1447AA0D132730E7000DCCD8 /* ParticleManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1447AA0B132730E5000DCCD8 /* ParticleManager.mm */; };
 		1447AA141328897D000DCCD8 /* gecParticleSystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1447AA131328897C000DCCD8 /* gecParticleSystem.mm */; };
@@ -35,12 +37,12 @@
 		14A2172812E7884700A4D8EC /* event_manager.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2171512E7884700A4D8EC /* event_manager.lua */; };
 		14A2172912E7884700A4D8EC /* init.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2171612E7884700A4D8EC /* init.lua */; };
 		14A2172A12E7884700A4D8EC /* main.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2171712E7884700A4D8EC /* main.lua */; };
-		14A2172B12E7884700A4D8EC /* scene1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2171912E7884700A4D8EC /* scene1.lua */; };
-		14A2172C12E7884700A4D8EC /* scene_ideal.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2171A12E7884700A4D8EC /* scene_ideal.lua */; };
 		14A218A212E89AC500A4D8EC /* character.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A218A112E89AC500A4D8EC /* character.lua */; };
 		14D1A7F512EDD8180070D86F /* hitter_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14D1A7F312EDD8180070D86F /* hitter_1.lua */; };
 		14D1A7F612EDD8180070D86F /* joypad_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14D1A7F412EDD8180070D86F /* joypad_1.lua */; };
 		14D1A85112EDE0570070D86F /* button_attack.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14D1A85012EDE0570070D86F /* button_attack.lua */; };
+		14D2B9FA132AAECB00840B7C /* Particle2.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 14E31479121E47FE00917795 /* Particle2.pvr */; };
+		14D2B9FB132AAECB00840B7C /* Particles3.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 14E3147A121E47FE00917795 /* Particles3.pvr */; };
 		14DC3FC612FDDE71004CC360 /* config_functions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14DC3FC512FDDE71004CC360 /* config_functions.lua */; };
 		14DC3FD312FDDE8E004CC360 /* config.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14DC3FD212FDDE8E004CC360 /* config.lua */; };
 		14DEBDC7131077B90094F680 /* libbox2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DEBD9A1310777C0094F680 /* libbox2d.a */; };
@@ -161,14 +163,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1429A903132A620900314A28 /* game_entities_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = game_entities_1.lua; sourceTree = "<group>"; };
+		1429A904132A620900314A28 /* gui.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gui.lua; sourceTree = "<group>"; };
+		1429A905132A620900314A28 /* world1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = world1.lua; sourceTree = "<group>"; };
+		142DA6BF132A742A00BD2A38 /* particle_test_scene.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = particle_test_scene.lua; sourceTree = "<group>"; };
+		142DA6C1132A743B00BD2A38 /* particle_emmiter.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = particle_emmiter.lua; sourceTree = "<group>"; };
 		1430C7FA131F02F500AFA083 /* TextureTextRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureTextRenderer.h; sourceTree = "<group>"; };
 		1430C7FB131F02F500AFA083 /* TextureTextRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TextureTextRenderer.mm; sourceTree = "<group>"; };
 		1430C81B131F050000AFA083 /* IFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFont.h; sourceTree = "<group>"; };
 		1430CA7613201A3600AFA083 /* Diavlo_BLACK_II_37.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Diavlo_BLACK_II_37.otf; sourceTree = "<group>"; };
 		143C240F12F9116F009B37EF /* zero.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zero.lua; sourceTree = "<group>"; };
-		1444259212FCB0D200BD0D32 /* world1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = world1.lua; sourceTree = "<group>"; };
-		1444259412FCB0DA00BD0D32 /* game_entities_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = game_entities_1.lua; sourceTree = "<group>"; };
-		1444259612FCB0DE00BD0D32 /* gui.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gui.lua; sourceTree = "<group>"; };
 		1447AA0813272612000DCCD8 /* Particle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Particle.mm; sourceTree = "<group>"; };
 		1447AA0913272612000DCCD8 /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particle.h; sourceTree = "<group>"; };
 		1447AA0B132730E5000DCCD8 /* ParticleManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ParticleManager.mm; path = ../Particles/ParticleManager.mm; sourceTree = "<group>"; };
@@ -200,13 +204,12 @@
 		14A2171512E7884700A4D8EC /* event_manager.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = event_manager.lua; sourceTree = "<group>"; };
 		14A2171612E7884700A4D8EC /* init.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = init.lua; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.lua; };
 		14A2171712E7884700A4D8EC /* main.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.lua; sourceTree = "<group>"; };
-		14A2171912E7884700A4D8EC /* scene1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scene1.lua; sourceTree = "<group>"; };
-		14A2171A12E7884700A4D8EC /* scene_ideal.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scene_ideal.lua; sourceTree = "<group>"; };
 		14A218A112E89AC500A4D8EC /* character.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = character.lua; sourceTree = "<group>"; };
 		14B127BD13104A720015D418 /* ftgles.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ftgles.xcodeproj; path = Libraries/ftgles/Xcode/ftgles/ftgles.xcodeproj; sourceTree = "<group>"; };
 		14D1A7F312EDD8180070D86F /* hitter_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hitter_1.lua; sourceTree = "<group>"; };
 		14D1A7F412EDD8180070D86F /* joypad_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = joypad_1.lua; sourceTree = "<group>"; };
 		14D1A85012EDE0570070D86F /* button_attack.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = button_attack.lua; sourceTree = "<group>"; };
+		14D2BA12132ABC0C00840B7C /* SharedTextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedTextureManager.h; sourceTree = "<group>"; };
 		14DC3FC512FDDE71004CC360 /* config_functions.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config_functions.lua; sourceTree = "<group>"; };
 		14DC3FD212FDDE8E004CC360 /* config.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.lua; sourceTree = "<group>"; };
 		14DEBD921310777C0094F680 /* box2d.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = box2d.xcodeproj; path = Libraries/box2d/box2d.xcodeproj; sourceTree = "<group>"; };
@@ -351,6 +354,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1429A902132A620900314A28 /* world1 */ = {
+			isa = PBXGroup;
+			children = (
+				1429A903132A620900314A28 /* game_entities_1.lua */,
+				1429A904132A620900314A28 /* gui.lua */,
+				1429A905132A620900314A28 /* world1.lua */,
+			);
+			path = world1;
+			sourceTree = "<group>";
+		};
+		142DA6BE132A742A00BD2A38 /* particle_test_scene */ = {
+			isa = PBXGroup;
+			children = (
+				142DA6BF132A742A00BD2A38 /* particle_test_scene.lua */,
+			);
+			path = particle_test_scene;
+			sourceTree = "<group>";
+		};
 		1430C81C131F050700AFA083 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,23 +410,6 @@
 				14E31482121E47FE00917795 /* sprite_test.png */,
 			);
 			name = images;
-			sourceTree = "<group>";
-		};
-		1444258812FCB01400BD0D32 /* level1 */ = {
-			isa = PBXGroup;
-			children = (
-				1444259412FCB0DA00BD0D32 /* game_entities_1.lua */,
-				1444259212FCB0D200BD0D32 /* world1.lua */,
-			);
-			name = level1;
-			sourceTree = "<group>";
-		};
-		1444258912FCB01B00BD0D32 /* gui */ = {
-			isa = PBXGroup;
-			children = (
-				1444259612FCB0DE00BD0D32 /* gui.lua */,
-			);
-			name = gui;
 			sourceTree = "<group>";
 		};
 		144BAA0F13100C5A005AD895 /* Libraries */ = {
@@ -489,6 +493,7 @@
 		14A2171012E7884700A4D8EC /* entities */ = {
 			isa = PBXGroup;
 			children = (
+				142DA6C1132A743B00BD2A38 /* particle_emmiter.lua */,
 				1453691412F359A100B97FB4 /* weapon_1.lua */,
 				143C240F12F9116F009B37EF /* zero.lua */,
 				14D1A85012EDE0570070D86F /* button_attack.lua */,
@@ -510,10 +515,8 @@
 		14A2171812E7884700A4D8EC /* scenes */ = {
 			isa = PBXGroup;
 			children = (
-				1444258912FCB01B00BD0D32 /* gui */,
-				1444258812FCB01400BD0D32 /* level1 */,
-				14A2171912E7884700A4D8EC /* scene1.lua */,
-				14A2171A12E7884700A4D8EC /* scene_ideal.lua */,
+				142DA6BE132A742A00BD2A38 /* particle_test_scene */,
+				1429A902132A620900314A28 /* world1 */,
 			);
 			path = scenes;
 			sourceTree = "<group>";
@@ -801,6 +804,7 @@
 				14DEC0191310835C0094F680 /* SceneManager.h */,
 				14DEC01A1310835C0094F680 /* SceneManager.mm */,
 				14DEC01B1310835C0094F680 /* SharedBehaviorManager.h */,
+				14D2BA12132ABC0C00840B7C /* SharedTextureManager.h */,
 				14DEC0201310835C0094F680 /* SharedTextureManager.mm */,
 				148B1F851310A44100B1CE94 /* FontManager.h */,
 				148B1F861310A44100B1CE94 /* FontManager.mm */,
@@ -1039,6 +1043,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14D2B9FA132AAECB00840B7C /* Particle2.pvr in Resources */,
+				14D2B9FB132AAECB00840B7C /* Particles3.pvr in Resources */,
 				14FB89FA121E4C3300E1B242 /* Shader.fsh in Resources */,
 				14FB89FB121E4C3300E1B242 /* Shader.vsh in Resources */,
 				14E31488121E47FE00917795 /* MainWindow.xib in Resources */,
@@ -1065,21 +1071,21 @@
 				14A2172812E7884700A4D8EC /* event_manager.lua in Resources */,
 				14A2172912E7884700A4D8EC /* init.lua in Resources */,
 				14A2172A12E7884700A4D8EC /* main.lua in Resources */,
-				14A2172B12E7884700A4D8EC /* scene1.lua in Resources */,
-				14A2172C12E7884700A4D8EC /* scene_ideal.lua in Resources */,
 				14A218A212E89AC500A4D8EC /* character.lua in Resources */,
 				14D1A7F512EDD8180070D86F /* hitter_1.lua in Resources */,
 				14D1A7F612EDD8180070D86F /* joypad_1.lua in Resources */,
 				14D1A85112EDE0570070D86F /* button_attack.lua in Resources */,
 				1453691512F359A100B97FB4 /* weapon_1.lua in Resources */,
 				143C241012F9116F009B37EF /* zero.lua in Resources */,
-				1444259312FCB0D200BD0D32 /* world1.lua in Resources */,
-				1444259512FCB0DA00BD0D32 /* game_entities_1.lua in Resources */,
-				1444259712FCB0DE00BD0D32 /* gui.lua in Resources */,
 				14DC3FC612FDDE71004CC360 /* config_functions.lua in Resources */,
 				14DC3FD312FDDE8E004CC360 /* config.lua in Resources */,
 				148B20D01310C9CA00B1CE94 /* TOONISH.ttf in Resources */,
 				1430CA7713201A3600AFA083 /* Diavlo_BLACK_II_37.otf in Resources */,
+				1429A906132A620900314A28 /* game_entities_1.lua in Resources */,
+				1429A907132A620900314A28 /* gui.lua in Resources */,
+				1429A908132A620900314A28 /* world1.lua in Resources */,
+				142DA6C0132A742A00BD2A38 /* particle_test_scene.lua in Resources */,
+				142DA6C2132A743B00BD2A38 /* particle_emmiter.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1172,7 +1178,7 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GandoEngine_Prefix.pch;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;

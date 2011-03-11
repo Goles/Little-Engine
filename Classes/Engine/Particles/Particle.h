@@ -22,9 +22,41 @@ namespace gg
             GGPoint speed;  
             float life;
             float decay;
-            unsigned char color[4]; //RGBA
+            unsigned char color_R;
+            unsigned char color_G;
+            unsigned char color_B;
+            unsigned char color_A;
             unsigned char rotation;
         };
+        
+        namespace utils
+        {
+            inline Particle makeParticle(const CGPoint &in_position,
+                                         const CGPoint &in_speed,
+                                         float in_life,
+                                         float in_decay,
+                                         unsigned char in_colorR,
+                                         unsigned char in_colorG,
+                                         unsigned char in_colorB,
+                                         unsigned char in_colorA,
+                                         unsigned char in_rotation)
+            {
+                Particle p;
+                p.position.x = in_position.x;
+                p.position.y = in_position.y;
+                p.speed.x = in_speed.x;
+                p.speed.y = in_speed.y;
+                p.life = in_life;
+                p.decay = in_decay;
+                p.color_R = in_colorR;
+                p.color_G = in_colorG;
+                p.color_B = in_colorB;
+                p.color_A = in_colorA;
+                p.rotation = in_rotation;
+                
+                return p;
+            }
+        }
         
         namespace render
         {

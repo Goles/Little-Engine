@@ -28,20 +28,22 @@ namespace gg { namespace particle {
         int maxParticles() { return m_maxParticles; }
         
         Particle *createParticle() {
-            return &(m_pool.create());
+            return &(m_pool->create());
         }
         
-        ~ParticleManager();
+        ~ParticleManager()
+        {
+            delete m_pool;
+        }
     
     protected:
-        ParticleManager() : m_maxParticles(0),
-                            m_pool(0) {}
+        ParticleManager() : m_pool(0) {}
         
     private:        
         typedef gg::utils::ObjectPool<gg::particle::Particle> ParticlePool;
 
         int m_maxParticles;
-        ParticlePool m_pool;
+        ParticlePool *m_pool;
 
         static ParticleManager *m_instance;
     };

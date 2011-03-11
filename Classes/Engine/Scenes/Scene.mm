@@ -44,7 +44,7 @@ void Scene::render()
 {	
 	EntityVector::const_iterator e_it;
 	SceneVector::const_iterator s_it;
-	
+    
 	glPushMatrix();
 	
 	//Apply Camera transformations
