@@ -77,7 +77,6 @@ void SharedTextureManager::rebindPreviousTexture()
     if (it != texturesMap.end()) 
     {
         glBindTexture(GL_TEXTURE_2D, [it->second name]);
-        boundTextureName = textureName;
     }
 }
 
