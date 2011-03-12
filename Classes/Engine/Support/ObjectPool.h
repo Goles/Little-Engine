@@ -35,6 +35,7 @@ public:
         //Assign all inUse to false
         for(int i = 0; i < m_size; ++i)
         {
+            m_pool[i].index = i;
             m_inuse[i] = false;
         }
     }

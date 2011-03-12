@@ -126,9 +126,7 @@ void gecParticleSystem::update(float delta)
     
     // Update active particles
     for (; particle != m_particles.end(); ++particle)
-    {
-        float destruct = ((*particle)->decay * delta);
-        
+    {        
         (*particle)->life -= ((*particle)->decay * delta);
         
         if((*particle)->life > 0.0f)
@@ -146,8 +144,12 @@ void gecParticleSystem::update(float delta)
     
     for(int i = 0; i < deleteIndexes.size(); ++i)
     {
-        std::swap(m_particles[counter], m_particles.back());
-        m_particles.pop_back();
+        if(deleteIndexes[i] < m_particles.size())
+        {
+            PARTICLE_MANAGER->releaseParticle(m_particles[deleteIndexes[i]]);
+            std::swap(m_particles[deleteIndexes[i]], m_particles.back());
+            m_particles.pop_back();
+        }
     }
     
     deleteIndexes.clear();
@@ -218,8 +220,8 @@ void gecParticleSystem::pushVertex2XTriangles()
         // Fixme not very efficient way to rotate :P
 		
 		float cachedRotation	= p->rotation;
-		float cachedPositionX	= p->position.x;
-		float cachedPositionY	= p->position.y;
+		float cachedPositionX	= p->position.y;
+		float cachedPositionY	= p->position.x;
 		
         float radians	= cachedRotation + (M_PI * 0.25f);
         float topRightX = cachedPositionX+ (cosf(radians) * w);
@@ -271,7 +273,7 @@ void gecParticleSystem::pushVertexPointSprites()
                          (p->color_R << 0);
 		
 		/*We add the point sprite to the array.*/				
-		addPointSprite(p->position.x, 
+		addPointSprite(p->position.y, 
 					   p->position.x, 
 					   color, 
 					   m_size * p->color_A, 

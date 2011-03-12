@@ -2,7 +2,7 @@ require "SceneBuilder"
 require "event_manager"
 
 -- BUILD A SCENE
-scene = buildScene("world1.lua")
+scene = buildScene("particle_test_scene.lua")
 
 -- PUSH SCENE TO SCENE MAP
 pushScene(scene)

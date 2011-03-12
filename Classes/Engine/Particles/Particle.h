@@ -22,6 +22,7 @@ namespace gg
             GGPoint speed;  
             float life;
             float decay;
+            unsigned short index;
             unsigned char color_R;
             unsigned char color_G;
             unsigned char color_B;

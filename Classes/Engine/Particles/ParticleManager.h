@@ -31,6 +31,11 @@ namespace gg { namespace particle {
             return &(m_pool->create());
         }
         
+        void releaseParticle(const Particle *p)
+        {
+            m_pool->release(p->index);
+        }
+        
         ~ParticleManager()
         {
             delete m_pool;

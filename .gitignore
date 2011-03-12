@@ -8,5 +8,6 @@
 *.xuser*
 *.xcuserstate
 *.xcsettings
+*.xcscheme
 build/*
 .redcar/*

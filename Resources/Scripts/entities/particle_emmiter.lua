@@ -17,7 +17,7 @@ Emmiter =
 
 			defaultParticle = 
 			{
-				position = {x=160 , y=240 },
+				position = {x=64 , y=240 },
 				speed = {x=100 , y=0 },
 				life = 20,
 				decay = 10,
