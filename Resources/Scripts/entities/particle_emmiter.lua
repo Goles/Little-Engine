@@ -6,10 +6,10 @@ Emmiter =
 		{
 			duration = 10.0,
 			texture = "Particle2.pvr",	
-			emissionRate = 10.0,
-			particle_size = 0.5,
+			emissionRate = 800.0,
+			particle_size = 0.25,
 --			emissionMode = 
-			emissionRateVariance = 2.0,
+			emissionRateVariance = 0.0,
 			originVariance = 5.0,
 			lifeVariance = 8.0,
 			speedVariance = 100.0,

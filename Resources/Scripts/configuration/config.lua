@@ -7,5 +7,5 @@ SceneManagerConfig{
 
 -- Particle Manager Configuration
 ParticleManagerConfig{
-	maxParticles = 1000
+	maxParticles = 5000
 }

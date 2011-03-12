@@ -15,17 +15,17 @@ std::string gecParticleSystem::m_label = "gecParticleSystem";
 
 void gecParticleSystem::init()
 {
-    m_particles.reserve( PARTICLE_MANAGER->maxParticles() / 10 );
-    deleteIndexes.reserve( PARTICLE_MANAGER->maxParticles() / 20 );
+    //m_particles.reserve(m_emissionRate);
+    //deleteIndexes.reserve(m_emissionRate);
     
     //Pre-Allocate a big chunk of vertex space
     switch (m_renderMode) {
         case gg::particle::render::kRenderingMode_PointSprites:
-            m_interleavedPointSprites = (PointSprite *) malloc(sizeof(PointSprite) * PARTICLE_MANAGER->maxParticles()/2);
+            m_interleavedPointSprites = (PointSprite *) malloc(sizeof(PointSprite) * PARTICLE_MANAGER->maxParticles());
             break;
             
         case gg::particle::render::kRenderingMode_2xTriangles:
-            m_interleavedVertexs = (ParticleVertex *) malloc(sizeof(ParticleVertex) * (PARTICLE_MANAGER->maxParticles()/2) * 6);
+            m_interleavedVertexs = (ParticleVertex *) malloc(sizeof(ParticleVertex) * (PARTICLE_MANAGER->maxParticles()) * 6);
             break;
             
         default:
@@ -39,9 +39,10 @@ void gecParticleSystem::render() const
 {
     glPushMatrix();
 	glEnable(GL_TEXTURE_2D);
+
     TEXTURE_MANAGER->bindTexture(m_texture);
     //glTranslatef(m_defaultParticle.position.x, 0, 0);
-    
+
 	switch (m_renderMode) 
     {
 		case gg::particle::render::kRenderingMode_PointSprites:
@@ -182,7 +183,9 @@ void gecParticleSystem::emit(float delta)
     if (m_emissionDuration <= 0.0f)
         m_emit = false;
     
-    int particlesToEmit = m_emissionRate + (CCRANDOM_MINUS1_1() * m_emissionRateVariance);
+    
+    
+    int particlesToEmit = ceilf(m_emissionRate*delta + (CCRANDOM_MINUS1_1() * m_emissionRateVariance));
     
     for(int i = 0; i < particlesToEmit; ++i)
     {
@@ -287,6 +290,15 @@ void gecParticleSystem::pushVertexPointSprites()
         glBindBuffer(GL_ARRAY_BUFFER, 0);
         glBindBuffer(GL_ARRAY_BUFFER, m_bufferId);
         glBufferData(GL_ARRAY_BUFFER, sizeof(PointSprite)*m_pointSpriteCount, m_interleavedPointSprites, GL_DYNAMIC_DRAW);
-        glBindBuffer(GL_ARRAY_BUFFER, 0);        
+        glBindBuffer(GL_ARRAY_BUFFER, 0);
+        
+#ifdef DEBUG
+//        GLenum error = glGetError();
+//        if (error != GL_NO_ERROR)
+//        {	
+//            NSLog(@"GL_ERROR: %x",error);
+//            assert(false);
+//        }
+#endif
     }
 }

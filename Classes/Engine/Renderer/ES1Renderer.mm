@@ -81,9 +81,9 @@ static char fpsText[32];
 	GBOX_2D->update(delta);
     PARTICLE_MANAGER->update();    
 
-#ifdef DEBUG
+
 	[self setFps];
-#endif
+
 }
 
 #pragma mark render_scene
@@ -102,11 +102,8 @@ static char fpsText[32];
 	glClear(GL_COLOR_BUFFER_BIT);
 	
 	SCENE_MANAGER->getActiveScene()->render();
+    FONT_MANAGER->render();
     
-    glPushMatrix();
-        FONT_MANAGER->render();
-    glPopMatrix();
-	
 	glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
 	[context presentRenderbuffer:GL_RENDERBUFFER_OES];
 }

@@ -38,6 +38,7 @@ public:
                           m_renderMode(gg::particle::render::kRenderingMode_PointSprites),
                           m_vertexCount(0),
                           m_pointSpriteCount(0),
+                          m_emissionAccumulator(0.0),
                           m_emissionDuration(0.0f),
                           m_emit(true)
     {
@@ -98,6 +99,7 @@ private:
     EnumType m_renderMode;
     GLuint m_bufferId;
 	GLuint m_colorBufferId;
+    float m_emissionAccumulator;
     mutable unsigned m_vertexCount;
     mutable unsigned m_pointSpriteCount;
     

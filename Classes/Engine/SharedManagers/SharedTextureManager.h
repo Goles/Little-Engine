@@ -56,6 +56,7 @@ private:
 	static SharedTextureManager *instance;
 	TextureMap texturesMap;
 	std::string boundTextureName;
+    GLuint boundTexture_id;
 };
 
 #endif

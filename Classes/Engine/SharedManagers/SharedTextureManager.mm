@@ -12,7 +12,7 @@
 SharedTextureManager* SharedTextureManager::instance = NULL;
 
 #pragma mark initializers
-SharedTextureManager::SharedTextureManager()
+SharedTextureManager::SharedTextureManager() : boundTexture_id(-1)
 {
 	/*Should construct something*/
 }
@@ -59,9 +59,10 @@ void SharedTextureManager::bindTexture(const std::string &textureName)
 		TextureMap::iterator it = texturesMap.find(textureName);
 		
 		if (it != texturesMap.end()) 
-		{
+		{            
 			glBindTexture(GL_TEXTURE_2D, [it->second name]);
 			boundTextureName = textureName;
+            boundTexture_id = [it->second name];
 		}
 		else {
 			std::cout << "The texture " << textureName << " is not in the texturesMap!" << std::endl;
@@ -72,12 +73,8 @@ void SharedTextureManager::bindTexture(const std::string &textureName)
 //This method is useful when using middleware that doesn't allow us to easily use our manager.
 void SharedTextureManager::rebindPreviousTexture()
 {
-    TextureMap::iterator it = texturesMap.find(boundTextureName);
-    
-    if (it != texturesMap.end()) 
-    {
-        glBindTexture(GL_TEXTURE_2D, [it->second name]);
-    }
+    if(boundTexture_id != -1)
+        glBindTexture(GL_TEXTURE_2D, boundTexture_id);
 }
 
 #pragma mark getters_setters
