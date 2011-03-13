@@ -83,7 +83,9 @@ public:
 protected:
     void emit(float delta);
     void pushVertexPointSprites();
+    void pushVertexPointSprite(const Particle *p);
     void pushVertex2XTriangles();
+    void pushVertex2XTriangle(const Particle *p);
     
 	//Particle System Atributes
 private:

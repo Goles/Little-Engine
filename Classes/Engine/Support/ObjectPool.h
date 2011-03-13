@@ -61,8 +61,11 @@ public:
         {
             if (m_inuse[i] == false)
             {
+                printf("%d\n",i);
                 m_inuse[i] = true;
                 return m_pool[i];
+                
+                
             }
         }
         

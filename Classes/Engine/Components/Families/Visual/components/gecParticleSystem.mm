@@ -15,8 +15,8 @@ std::string gecParticleSystem::m_label = "gecParticleSystem";
 
 void gecParticleSystem::init()
 {
-    //m_particles.reserve(m_emissionRate);
-    //deleteIndexes.reserve(m_emissionRate);
+    m_particles.reserve(m_emissionRate);
+    deleteIndexes.reserve(m_emissionRate);
     
     //Pre-Allocate a big chunk of vertex space
     switch (m_renderMode) {
@@ -130,11 +130,18 @@ void gecParticleSystem::update(float delta)
             
             if((*particle)->life > 0.0f)
             {
-                
+                //Update a Particle
                 float alpha = (*particle)->life / m_defaultParticle.life;
                 (*particle)->position.x += (*particle)->speed.x * delta;
                 (*particle)->position.y += (*particle)->speed.y * delta;
                 (*particle)->color_A = alpha * 255.0f;
+                
+                //Push the corresponding Point Sprite
+                if(m_renderMode == gg::particle::render::kRenderingMode_PointSprites)
+                    pushVertexPointSprite(*particle);
+                else
+                    assert(false);
+                
             }else {
                 deleteIndexes.push_back(counter);
             }
@@ -155,28 +162,22 @@ void gecParticleSystem::update(float delta)
         deleteIndexes.clear();
         
         //Create our vertex Arrays
-        switch (m_renderMode) {
-            case gg::particle::render::kRenderingMode_PointSprites:
-                pushVertexPointSprites();
-                break;
-                
-            case gg::particle::render::kRenderingMode_2xTriangles:
-                pushVertex2XTriangles();
-                break;
-                
-            default:
-                assert(false);
+        if(m_pointSpriteCount > 0)
+        {
+            /*Now that I pushed all my pointSprites, I can go and fill my buffer*/
+            glBindBuffer(GL_ARRAY_BUFFER, 0);
+            glBindBuffer(GL_ARRAY_BUFFER, m_bufferId);
+            glBufferData(GL_ARRAY_BUFFER, sizeof(PointSprite)*m_pointSpriteCount, m_interleavedPointSprites, GL_DYNAMIC_DRAW);
+            glBindBuffer(GL_ARRAY_BUFFER, 0);
         }
     }
     
-    this->emit(delta);
+    if(m_emit)
+        this->emit(delta);
 }
 
 void gecParticleSystem::emit(float delta)
-{
-    if (!m_emit) 
-         return;
-    
+{    
     if (m_emissionDuration >= 0.0f)
         m_emissionDuration -= delta;
     
@@ -258,6 +259,21 @@ void gecParticleSystem::pushVertex2XTriangles()
         gg::particle::render::addVertex(bottomLeftX, bottomLeftY, 0, 1, color, m_interleavedVertexs, &m_vertexCount);
         gg::particle::render::addVertex(bottomRightX, bottomRightY, 1, 1, color, m_interleavedVertexs, &m_vertexCount);
 	}
+}
+
+inline void gecParticleSystem::pushVertexPointSprite(const Particle *p)
+{
+    unsigned color = (p->color_A << 24) | 
+                     (p->color_B << 16) | 
+                     (p->color_G << 8) | 
+                     (p->color_R << 0);
+    
+    addPointSprite(p->position.y, 
+                   p->position.x, 
+                   color, 
+                   m_size * p->color_A, 
+                   m_interleavedPointSprites, 
+                   &m_pointSpriteCount);
 }
 
 void gecParticleSystem::pushVertexPointSprites()

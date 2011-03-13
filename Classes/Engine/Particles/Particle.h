@@ -90,7 +90,7 @@ namespace gg
             };
             
             /* Function to add a vertex to an interleavedVertex[] array*/
-            inline void addVertex(float x, float y, float uvx, float uvy, unsigned color, ParticleVertex _interleavedVertexs[], unsigned *_vertexCount)
+            static inline void addVertex(float x, float y, float uvx, float uvy, unsigned color, ParticleVertex _interleavedVertexs[], unsigned *_vertexCount)
             {
                 ParticleVertex *vert = &_interleavedVertexs[(*_vertexCount)];
                 vert->v[0]	= x;
@@ -102,13 +102,14 @@ namespace gg
             }
             
             /* Function to add a pointSprite to an interleavedPointSprite[] array */
-            inline void addPointSprite(float x, float y, unsigned color, float size, PointSprite _interleavedPointSprites[], unsigned *_pointSpriteCount)
+            static inline void addPointSprite(float x, float y, unsigned color, float size, PointSprite _interleavedPointSprites[], unsigned *_pointSpriteCount)
             {
-                PointSprite	*sprite	= &_interleavedPointSprites[(*_pointSpriteCount)];
-                sprite->v[0]	= x;
-                sprite->v[1]	= y;
-                sprite->size	= size;
-                sprite->color	= color;
+                //PointSprite	*sprite	= &_interleavedPointSprites[(*_pointSpriteCount)];
+                _interleavedPointSprites[(*_pointSpriteCount)].v[0] = x;
+                _interleavedPointSprites[(*_pointSpriteCount)].v[1] = y;
+                _interleavedPointSprites[(*_pointSpriteCount)].size = size;
+                _interleavedPointSprites[(*_pointSpriteCount)].color = color;
+
                 
                 (*_pointSpriteCount)++;
             }
