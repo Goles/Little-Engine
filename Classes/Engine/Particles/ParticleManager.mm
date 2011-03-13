@@ -20,17 +20,6 @@ namespace gg { namespace particle {
         return m_instance;
     }
     
-    void ParticleManager::update()
-    {                
-        for(int i = 0; i < m_maxParticles; ++i)
-        {
-            if( (*m_pool)[i].life < 0.0)
-            {
-                m_pool->release(i);
-            }
-        }
-    }
-    
     void ParticleManager::setMaxParticles(int max)
     {
         m_maxParticles = max;

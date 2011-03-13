@@ -39,9 +39,7 @@ void gecParticleSystem::render() const
 {
     glPushMatrix();
 	glEnable(GL_TEXTURE_2D);
-
     TEXTURE_MANAGER->bindTexture(m_texture);
-    //glTranslatef(m_defaultParticle.position.x, 0, 0);
 
 	switch (m_renderMode) 
     {
@@ -119,54 +117,56 @@ void gecParticleSystem::render() const
 
 void gecParticleSystem::update(float delta)
 {
-    ParticleVector::iterator particle = m_particles.begin();
-    
-    int counter = 0;
-    
-
-    
-    // Update active particles
-    for (; particle != m_particles.end(); ++particle)
-    {        
-        (*particle)->life -= ((*particle)->decay * delta);
-        
-        if((*particle)->life > 0.0f)
-        {
-            float alpha = (*particle)->life / m_defaultParticle.life;
-            (*particle)->position.x += (*particle)->speed.x * delta;
-            (*particle)->position.y += (*particle)->speed.y * delta;
-            (*particle)->color_A = alpha * 255.0f;
-        }else{
-            deleteIndexes.push_back(counter);
-        }
-                
-        ++counter;
-    }
-    
-    for(int i = 0; i < deleteIndexes.size(); ++i)
+    if(m_particles.size() > 0)
     {
-        if(deleteIndexes[i] < m_particles.size())
-        {
-            PARTICLE_MANAGER->releaseParticle(m_particles[deleteIndexes[i]]);
-            std::swap(m_particles[deleteIndexes[i]], m_particles.back());
-            m_particles.pop_back();
+        ParticleVector::iterator particle = m_particles.begin();
+        
+        int counter = 0;
+        
+        // Iterate through particles
+        for (; particle != m_particles.end(); ++particle)
+        {        
+            (*particle)->life -= ((*particle)->decay * delta);
+            
+            if((*particle)->life > 0.0f)
+            {
+                
+                float alpha = (*particle)->life / m_defaultParticle.life;
+                (*particle)->position.x += (*particle)->speed.x * delta;
+                (*particle)->position.y += (*particle)->speed.y * delta;
+                (*particle)->color_A = alpha * 255.0f;
+            }else {
+                deleteIndexes.push_back(counter);
+            }
+                    
+            ++counter;
         }
-    }
-    
-    deleteIndexes.clear();
-    
-    //Create our vertex Arrays
-    switch (m_renderMode) {
-        case gg::particle::render::kRenderingMode_PointSprites:
-            pushVertexPointSprites();
-            break;
-            
-        case gg::particle::render::kRenderingMode_2xTriangles:
-            pushVertex2XTriangles();
-            break;
-            
-        default:
-            assert(false);
+        
+        for(int i = 0; i < deleteIndexes.size(); ++i)
+        {
+            if(deleteIndexes[i] < m_particles.size())
+            {
+                PARTICLE_MANAGER->releaseParticle(m_particles[deleteIndexes[i]]);
+                std::swap(m_particles[deleteIndexes[i]], m_particles.back());
+                m_particles.pop_back();
+            }
+        }
+        
+        deleteIndexes.clear();
+        
+        //Create our vertex Arrays
+        switch (m_renderMode) {
+            case gg::particle::render::kRenderingMode_PointSprites:
+                pushVertexPointSprites();
+                break;
+                
+            case gg::particle::render::kRenderingMode_2xTriangles:
+                pushVertex2XTriangles();
+                break;
+                
+            default:
+                assert(false);
+        }
     }
     
     this->emit(delta);
@@ -183,9 +183,7 @@ void gecParticleSystem::emit(float delta)
     if (m_emissionDuration <= 0.0f)
         m_emit = false;
     
-    
-    
-    int particlesToEmit = ceilf(m_emissionRate*delta + (CCRANDOM_MINUS1_1() * m_emissionRateVariance));
+    int particlesToEmit = ceilf(m_emissionRate * delta + (CCRANDOM_MINUS1_1() * m_emissionRateVariance));
     
     for(int i = 0; i < particlesToEmit; ++i)
     {
@@ -291,14 +289,5 @@ void gecParticleSystem::pushVertexPointSprites()
         glBindBuffer(GL_ARRAY_BUFFER, m_bufferId);
         glBufferData(GL_ARRAY_BUFFER, sizeof(PointSprite)*m_pointSpriteCount, m_interleavedPointSprites, GL_DYNAMIC_DRAW);
         glBindBuffer(GL_ARRAY_BUFFER, 0);
-        
-#ifdef DEBUG
-//        GLenum error = glGetError();
-//        if (error != GL_NO_ERROR)
-//        {	
-//            NSLog(@"GL_ERROR: %x",error);
-//            assert(false);
-//        }
-#endif
     }
 }

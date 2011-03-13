@@ -79,11 +79,8 @@ static char fpsText[32];
 	SCENE_MANAGER->getActiveScene()->update(delta);
 	
 	GBOX_2D->update(delta);
-    PARTICLE_MANAGER->update();    
-
 
 	[self setFps];
-
 }
 
 #pragma mark render_scene

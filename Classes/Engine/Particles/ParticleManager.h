@@ -21,8 +21,6 @@ namespace gg { namespace particle {
         
     public:
         static ParticleManager* getInstance();
-
-        void update();
         
         void setMaxParticles(int number);
         int maxParticles() { return m_maxParticles; }
