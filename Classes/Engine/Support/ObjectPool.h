@@ -10,6 +10,7 @@
 #define __OBJECT_POOL_H__
 
 #include <iostream>
+#include <deque>
 
 namespace gg { namespace utils {
  
@@ -19,7 +20,6 @@ class ObjectPool
 public:
     ObjectPool() : m_size(0)
     {
-        std::cout << "Empty Constructor Called" << std::endl;
         //Empty Constructor.
         //Used when you don't want to declare the pool size inmediatly.
         //You can then assign a pool by copy.
@@ -28,7 +28,6 @@ public:
     
     ObjectPool(int size) : m_size(size)
     {
-        std::cout << "Full Constructor Called" << std::endl;
         m_pool = new T[m_size];
         m_inuse = new bool[m_size];
         
@@ -49,6 +48,7 @@ public:
     /* Mark a pool's object as "unused" */
     void release(int index)
     {
+        m_freePool.push_front(index);
         m_inuse[index] = false;
     }
     
@@ -57,15 +57,19 @@ public:
     {
         int i;
         
+        if(m_freePool.size())
+        {
+            int index = m_freePool.front();
+            m_freePool.pop_front();
+            return m_pool[index];
+        }
+        
         for (i = 0; i < m_size; ++i)
         {
             if (m_inuse[i] == false)
             {
-                printf("%d\n",i);
                 m_inuse[i] = true;
                 return m_pool[i];
-                
-                
             }
         }
         
@@ -95,6 +99,7 @@ public:
 private:
     int m_size;
     T *m_pool;
+    std::deque<int> m_freePool;
     bool *m_inuse;
 };
 
