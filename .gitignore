@@ -9,5 +9,6 @@
 *.xcuserstate
 *.xcsettings
 *.xcscheme
+*.xcworkspace
 build/*
 .redcar/*
