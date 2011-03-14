@@ -10,8 +10,6 @@
 
 #include "ggEngine.h"
 #include "FontManager.h"
-#include "gecParticleSystem.h"
-#include "Particle.h"
 
 static int frames;
 static char fpsText[32];
@@ -43,7 +41,7 @@ static char fpsText[32];
 #ifdef DEBUG
 	showFps = YES;
 #endif
-	
+    
 	//Start the ggEngine + Game up
 	static bool game_init = NO;
 	
