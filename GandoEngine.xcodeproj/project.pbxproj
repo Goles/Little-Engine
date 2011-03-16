@@ -42,7 +42,7 @@
 		14A218A212E89AC500A4D8EC /* character.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A218A112E89AC500A4D8EC /* character.lua */; };
 		14AC7E12132E4DA300D5ACA7 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AC7E11132E4DA300D5ACA7 /* OpenAL.framework */; };
 		14AC7E14132E4DAB00D5ACA7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AC7E13132E4DAB00D5ACA7 /* AVFoundation.framework */; };
-		14AC7E1A132E4DD600D5ACA7 /* libCocosDenshion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AC7E19132E4DD600D5ACA7 /* libCocosDenshion.a */; };
+		14AC9037133071DE00BB0A26 /* libCocosDenshion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AC9036133071DE00BB0A26 /* libCocosDenshion.a */; };
 		14ADA21D132E4F9800D3571D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14ADA21C132E4F9800D3571D /* AudioToolbox.framework */; };
 		14D1A7F512EDD8180070D86F /* hitter_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14D1A7F312EDD8180070D86F /* hitter_1.lua */; };
 		14D1A7F612EDD8180070D86F /* joypad_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14D1A7F412EDD8180070D86F /* joypad_1.lua */; };
@@ -145,6 +145,13 @@
 			remoteGlobalIDString = 14AE1A4E13306067000D105B;
 			remoteInfo = CocosDenshion;
 		};
+		14AC9032133071BC00BB0A26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14AC90291330611C00BB0A26 /* CocosDenshion.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 14AE1A4D13306067000D105B;
+			remoteInfo = CocosDenshion;
+		};
 		14B127C813104A730015D418 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 14B127BD13104A720015D418 /* ftgles.xcodeproj */;
@@ -222,8 +229,8 @@
 		14A218A112E89AC500A4D8EC /* character.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = character.lua; sourceTree = "<group>"; };
 		14AC7E11132E4DA300D5ACA7 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		14AC7E13132E4DAB00D5ACA7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		14AC7E19132E4DD600D5ACA7 /* libCocosDenshion.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libCocosDenshion.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		14AC90291330611C00BB0A26 /* CocosDenshion.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CocosDenshion.xcodeproj; path = Libraries/CocosDenshion/CocosDenshion.xcodeproj; sourceTree = "<group>"; };
+		14AC9036133071DE00BB0A26 /* libCocosDenshion.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libCocosDenshion.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		14ADA21C132E4F9800D3571D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		14B127BD13104A720015D418 /* ftgles.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ftgles.xcodeproj; path = Libraries/ftgles/Xcode/ftgles/ftgles.xcodeproj; sourceTree = "<group>"; };
 		14D1A7F312EDD8180070D86F /* hitter_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hitter_1.lua; sourceTree = "<group>"; };
@@ -359,7 +366,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14AC7E1A132E4DD600D5ACA7 /* libCocosDenshion.a in Frameworks */,
+				14AC9037133071DE00BB0A26 /* libCocosDenshion.a in Frameworks */,
 				14DEBDC7131077B90094F680 /* libbox2d.a in Frameworks */,
 				145A10191311E5E00029FE31 /* libFTGLES.a in Frameworks */,
 				14F64F3013101681006DBA13 /* libLua.a in Frameworks */,
@@ -942,7 +949,7 @@
 		14E314CE121E49AA00917795 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				14AC7E19132E4DD600D5ACA7 /* libCocosDenshion.a */,
+				14AC9036133071DE00BB0A26 /* libCocosDenshion.a */,
 				14ADA21C132E4F9800D3571D /* AudioToolbox.framework */,
 				14AC7E13132E4DAB00D5ACA7 /* AVFoundation.framework */,
 				14AC7E11132E4DA300D5ACA7 /* OpenAL.framework */,
@@ -1000,6 +1007,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				14AC9033133071BC00BB0A26 /* PBXTargetDependency */,
 				144BAA2A13100CCD005AD895 /* PBXTargetDependency */,
 				14DEBDA61310778D0094F680 /* PBXTargetDependency */,
 				145A10181311E5CE0029FE31 /* PBXTargetDependency */,
@@ -1220,6 +1228,11 @@
 			isa = PBXTargetDependency;
 			name = FTGLES;
 			targetProxy = 145A10171311E5CE0029FE31 /* PBXContainerItemProxy */;
+		};
+		14AC9033133071BC00BB0A26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CocosDenshion;
+			targetProxy = 14AC9032133071BC00BB0A26 /* PBXContainerItemProxy */;
 		};
 		14DEBDA61310778D0094F680 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
