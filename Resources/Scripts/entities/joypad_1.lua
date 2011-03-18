@@ -30,14 +30,14 @@ Joypad =
 	{
 		gecJoystick =
 		{
-			shape = {x = 60, y = 60, width = 42, height = 42},
+			shape = {x = 60, y = 60, width = 64, height = 64},
 		},
 		
 		gecAnimatedSprite =
 		{
 			spritesheets = 
 			{
-				{"joypad_move.png", 42, 42, 0.0, 1.0}
+				{"joypad_move.png", 64, 64, 0.0, 1.0}
 			},
 			animations =
 			{

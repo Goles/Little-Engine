@@ -21,19 +21,19 @@ AttackButton =
 		{
 			spritesheets =
 			{
-				{"button_attack.png", 42, 42, 0.0, 1.0},
+				{"hitbutton.png", 64, 64, 0.0, 1.0},
 			},
 			
 			animations = 
 			{
-				{"normal", {0,0}, 0.1, "button_attack.png", false, false},				
-				{"hot", {1,0}, 0.1, "button_attack.png", false, false},				
+				{"normal", {0,0}, 0.1, "hitbutton.png", false, false},				
+				{"hot", {0,0}, 0.1, "hitbutton.png", false, false},				
 			},
 		},
 		
 		gecButton = 
 		{
-			shape = {x = 430, y = 60, width = 42, height = 42},
+			shape = {x = 430, y = 60, width = 64, height = 64},
 		},
 	},
 	

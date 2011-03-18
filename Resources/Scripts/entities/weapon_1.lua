@@ -15,43 +15,36 @@ Weapon1 =
 			--	EVENT CHARACTER MOVED
 			--
 			if in_event == "E_CHARACTER_MOVED" then
-				this.x = in_data.x
+				-- deactivate weapon on the move
+				this.active = false
+				
+				local offset = 0
+				
+				if in_data.flipped == true then
+					offset = -30
+				else
+					offset = 30
+				end
+				
+				-- Update weapon position	
+				this.x = in_data.x + offset
 				this.y = in_data.y
 								
 			--
 			--	EVENT CHARACTER ATTACK
 			--						
 			elseif in_event == "E_CHARACTER_ATTACK" then
+				-- activate weapon on attack
 				this.active = true
-				offset = 0
-
-				if in_data.flipped == true then
-					offset = -40
-				else
-					offset = 40
-				end
-					
-				this.x = in_data.x + offset
-				this.y = in_data.y
 
 			--
 			--	EVENT CHARACTER ATTACK STOP
 			--
 			elseif in_event == "E_CHARACTER_ATTACK_STOP" then
-
-				-- deactivate the weapon
-				this.active = false
-				
-				-- Reset the weapon position.
-				if in_data.flipped == true then
-					offset = 40
-				else
-					offset = -40
-				end
-				
-				this.x = this.x + offset
-			
-			end			
+				-- deactivate the weapon on attack stop
+				this.active = false		
+			end	
+					
 		end
 	},
 		
@@ -59,7 +52,7 @@ Weapon1 =
 	{
 		gecBoxCollisionable =
 		{
-			size = {width=30, height=30}
+			size = {width=30, height=50}
 		}
 	},
 }

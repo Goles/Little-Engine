@@ -74,7 +74,7 @@ void Scene::render()
 			}
 		}
 	}
-	
+    
 #ifdef DEBUG
 	//In debug mode we call GBOX_2D debug render only once if we even detect a collider in the scene.
 	//This could be improved but it's simple and will hold for the moment.

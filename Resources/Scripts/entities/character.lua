@@ -41,7 +41,7 @@ Character =
 				this:component("gecFSM"):performAction("A_DRAG_GAMEPAD")	
 				
 				-- flip the entity if needed
-				this.flipHorizontally = in_data.dx_negative
+				this.flipped = in_data.dx_negative
 				
 				-- Update entity position
 				local delta_speed = in_data.delta * this.speed
@@ -55,7 +55,7 @@ Character =
 					this.y = round(this.y + movement_y)
 					
 					-- Broadcast a character moved event
-					broadcast("E_CHARACTER_MOVED", {x=this.x, y=this.y})
+					broadcast("E_CHARACTER_MOVED", {x=this.x, y=this.y, flipped=this.flipped})
 				end
 			
 			--
@@ -85,7 +85,7 @@ Character =
 
 					
 					-- Broadcast an Attack Event for the Weapon Game Entity to manage					
-					broadcast("E_CHARACTER_ATTACK", {flipped=this.flipHorizontally; x=this.x, y=this.y})
+					broadcast("E_CHARACTER_ATTACK", {flipped=this.flipped; x=this.x, y=this.y})
 				end
 				
 			--
@@ -98,7 +98,7 @@ Character =
 					this:component("gecFSM"):performAction("A_STOP_ATTACK")
 					
 					-- broadcast a character attack stop event
-					broadcast("E_CHARACTER_ATTACK_STOP", {flipped=this.flipHorizontally})
+					broadcast("E_CHARACTER_ATTACK_STOP", {flipped=this.flipped})
 									
 				end
 

@@ -19,7 +19,7 @@ class CompCollisionable: public GEComponent
 {
 	//CompCollisionable interface
 public:
-	CompCollisionable() : entityBody(NULL), tag(NULL), m_solid(false) {}
+	CompCollisionable() : entityBody(NULL), tag(NULL), m_solid(true) {}
 	~CompCollisionable();
 	virtual void setTransform(b2Body * const b) = 0;
 	void setTag(const std::string &name) { if(!tag){ tag = new std::string(name); } else tag->assign(name); }

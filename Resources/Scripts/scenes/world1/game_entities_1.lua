@@ -11,8 +11,8 @@ Level1 =
 		
 		-- Some particle magic.
 		{file="particle_emmiter_bomb.lua", position={x=240, y=160}},
-		
-		-- Enemies
+  	
+  		-- Enemies
 		{file="hitter_1.lua"; position={x=120, y=20}},
 		{file="hitter_1.lua"; position={x=120, y=100}},
 		{file="hitter_1.lua"; position={x=120, y=150}},

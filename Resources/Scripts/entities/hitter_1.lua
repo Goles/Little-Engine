@@ -48,7 +48,7 @@ TestEntity =
 			elseif (in_event == "E_ANIMATION_FINISH") then
 
 				if (in_data.animation_label == "S_HIT" and in_data.owner_ge_uid == this.id) then
-					this.components["gecFSM"]:performAction("A_STOP_HIT")					
+					this.components["gecFSM"]:performAction("A_STOP_HIT")				
 				end
 			
 			--
@@ -79,7 +79,7 @@ TestEntity =
 				-- {id=, coords=, duration= , sheet= , repeats=, pingpong= }
 				{"S_STAND", {0,0,1,0,2,0,3,0}, 0.10, "hitter1_1.png", true, true},				
 				{"S_WALK", {4,0,5,0,6,0,7,0}, 0.10, "hitter1_1.png", true, false},
-				{"S_ATTACK",{8,0,9,0,10,0}, 0.16, "hitter1_1.png", false, false},
+				{"S_ATTACK",{8,0,9,0,10,0}, 0.016, "hitter1_1.png", false, false},
 				{"S_HIT", {5,1}, 0.10, "hitter1_1.png", false, false},
 			},
 		},

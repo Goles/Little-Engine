@@ -99,8 +99,8 @@ void GandoBox2D::update(const float delta)
 	//You need to make an informed choice, the following URL is useful
 	//http://gafferongames.com/game-physics/fix-your-timestep/
 	
-	int32 velocityIterations = 10;
-	int32 positionIterations = 10;
+	int32 velocityIterations = 1;
+	int32 positionIterations = 1;
 	
 	// Instruct the world to perform a single step of simulation. It is
 	// generally best to keep the time step and iterations fixed.
@@ -153,7 +153,18 @@ void GandoBox2D::update(const float delta)
 					ccp2->getOwnerGE()->y -= 2.0f * (b2body_p1->GetPosition().y - b2body_p2->GetPosition().y);						
 				}
 				
-				this->notifyCollisionEntity(ccp1->getOwnerGE());
+                this->notifyCollisionEntity(ccp1->getOwnerGE());
+				this->notifyCollisionEntity(ccp2->getOwnerGE());
+                
+                //Deactivate the non-solids to avoid multi-collision
+                if(it == (contacts->end() - 1))
+                {
+                    if(!ccp1->getSolid())
+                        gep1->isActive = false;
+                    
+                    if(!ccp2->getSolid())
+                        gep2->isActive = false;
+                }  
 			}
 		}
 	}	
@@ -163,6 +174,7 @@ void GandoBox2D::notifyCollisionEntity(const GameEntity * const in_entity)
 {
 	//TODO:Add payload data of the collisioned entity.
 	luabind::object payload = luabind::newtable(LR_MANAGER_STATE);
+    
 	gg::event::notify_target_entity("E_COLLISION", payload, in_entity->getId());
 }
 

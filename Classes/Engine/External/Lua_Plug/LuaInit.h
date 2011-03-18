@@ -267,7 +267,7 @@ namespace gg
              .def("getId", &GameEntity::getId)
              .def("debugPrintComponents", &GameEntity::debugPrintComponents)
              .property("active", &GameEntity::getIsActive, &GameEntity::setIsActive)
-             .property("flipHorizontally", &GameEntity::getFlipHorizontally, &GameEntity::setFlipHorizontally)
+             .property("flipped", &GameEntity::getFlipHorizontally, &GameEntity::setFlipHorizontally)
              .property("label", &GameEntity::getLabel, &GameEntity::setLabel)
              .def_readwrite("x", &GameEntity::x)
              .def_readwrite("y", &GameEntity::y)

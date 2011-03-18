@@ -95,6 +95,7 @@
 		14DEC0851310835C0094F680 /* SpriteSheet.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0291310835C0094F680 /* SpriteSheet.mm */; };
 		14DEC0861310835C0094F680 /* FileUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC02C1310835C0094F680 /* FileUtils.mm */; };
 		14DEC0871310835C0094F680 /* HardwareClock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC02D1310835C0094F680 /* HardwareClock.cpp */; };
+		14E1A25D1332833A007C847F /* hitbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 14E1A25C1332833A007C847F /* hitbutton.png */; };
 		14E31465121E47E200917795 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31415121E47E200917795 /* main.mm */; };
 		14E31466121E47E200917795 /* Particles_2AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31417121E47E200917795 /* Particles_2AppDelegate.mm */; };
 		14E31488121E47FE00917795 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14E31469121E47FE00917795 /* MainWindow.xib */; };
@@ -332,6 +333,7 @@
 		14DEC02D1310835C0094F680 /* HardwareClock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HardwareClock.cpp; sourceTree = "<group>"; };
 		14DEC02E1310835C0094F680 /* HardwareClock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HardwareClock.h; sourceTree = "<group>"; };
 		14DEC02F1310835C0094F680 /* VectorList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VectorList.h; sourceTree = "<group>"; };
+		14E1A25C1332833A007C847F /* hitbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hitbutton.png; sourceTree = "<group>"; };
 		14E31415121E47E200917795 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		14E31416121E47E200917795 /* Particles_2AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particles_2AppDelegate.h; sourceTree = "<group>"; };
 		14E31417121E47E200917795 /* Particles_2AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Particles_2AppDelegate.mm; sourceTree = "<group>"; };
@@ -426,6 +428,7 @@
 		1433F5CF128ADC1D00878671 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				14E1A25C1332833A007C847F /* hitbutton.png */,
 				14E31470121E47FE00917795 /* button_attack.png */,
 				14E31472121E47FE00917795 /* gando_box.png */,
 				14E31474121E47FE00917795 /* hitter1_1.png */,
@@ -1170,6 +1173,7 @@
 				149EBD01132DC23800CCC900 /* particle_emmiter.lua in Resources */,
 				149EBD05132DC37500CCC900 /* particle_emmiter_spray.lua in Resources */,
 				149EBD07132DC99D00CCC900 /* particle_emmiter_bomb.lua in Resources */,
+				14E1A25D1332833A007C847F /* hitbutton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

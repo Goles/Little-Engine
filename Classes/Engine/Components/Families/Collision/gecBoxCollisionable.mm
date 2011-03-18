@@ -57,7 +57,7 @@ void gecBoxCollisionable::createB2dBodyDef(void)
 	b2BodyDef spriteBodyDef;
     spriteBodyDef.type = b2_dynamicBody;
     spriteBodyDef.position.Set(this->getOwnerGE()->x, this->getOwnerGE()->y);
-	spriteBodyDef.bullet = true;
+	spriteBodyDef.bullet = false;
     spriteBodyDef.userData = this;   
 	entityBody = GBOX_2D_WORLD->CreateBody(&spriteBodyDef);
 
