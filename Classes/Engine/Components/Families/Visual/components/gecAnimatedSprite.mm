@@ -77,6 +77,7 @@ void gecAnimatedSprite::setCurrentAnimation(const std::string &animationName)
 	if(it != componentAnimations.end()) //if the texture IS in the map, we switch the current texture.
 	{	
 		currentAnimation = componentAnimations[animationName];
+        currentAnimation->setIsRunning(true);
 	}
 	else {
 		std::cout << "Warning, " << animationName << " is not present in the animation Map, animation NOT being changed. " << std::endl;
@@ -130,7 +131,7 @@ void gecAnimatedSprite::render() const
 void gecAnimatedSprite::update(float delta)
 {
 	GameEntity *ge = this->getOwnerGE();
-	currentAnimation->setFlipHorizontally(ge->getFlipHorizontally());
+    currentAnimation->setFlipHorizontally(ge->getFlipHorizontally());
 	currentAnimation->update(delta);
 }
 

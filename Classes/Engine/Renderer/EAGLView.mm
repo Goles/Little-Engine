@@ -51,7 +51,7 @@
 		displayLinkSupported = FALSE;
 		animationFrameInterval = 1;
 		displayLink = NULL;
-		
+        
 		// A system version of 3.1 or greater is required to use CADisplayLink. The NSTimer
 		// class is used as fallback when it isn't available.
 		NSString *reqSysVer = @"3.1";
@@ -70,9 +70,12 @@
 	time	= CFAbsoluteTimeGetCurrent();
 	delta	= (time - lastTime);
 	
-	/* update */
+	/* update Renderer */
 	[renderer update:delta];
 
+    /* Update Box2d World */
+    GBOX_2D->update(delta);
+    
 	/* render */
 	[renderer render];
 	

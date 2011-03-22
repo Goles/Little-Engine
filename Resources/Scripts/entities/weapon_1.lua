@@ -35,14 +35,14 @@ Weapon1 =
 			--						
 			elseif in_event == "E_CHARACTER_ATTACK" then
 				-- activate weapon on attack
-				this.active = true
+				this.active = false
 
 			--
 			--	EVENT CHARACTER ATTACK STOP
 			--
 			elseif in_event == "E_CHARACTER_ATTACK_STOP" then
 				-- deactivate the weapon on attack stop
-				this.active = false		
+				this.active = true		
 			end	
 					
 		end

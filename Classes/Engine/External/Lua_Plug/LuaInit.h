@@ -39,6 +39,9 @@
 #include "SceneManager.h"
 #include "FontManager.h"
 #include "ParticleManager.h"
+#include "SimpleAudioEngine.h"
+#include "CocosDenshion.h"
+#include "CDAudioManager.h"
 
 namespace gg
 {
@@ -324,6 +327,27 @@ namespace gg
               luabind::def("getInstance", &gg::particle::ParticleManager::getInstance)
              ]
             ];
+            
+            /* Bind the Audio Manager */
+            luabind::module(LR_MANAGER_STATE)
+            [
+                luabind::class_<CocosDenshion::SimpleAudioEngine>("SimpleAudioEngine")
+                .def("_preloadBackgroundMusic", &CocosDenshion::SimpleAudioEngine::preloadBackgroundMusic)
+                .def("_stopBackgroundMusic", &CocosDenshion::SimpleAudioEngine::stopBackgroundMusic)
+                .def("_playBackgroundMusic", &CocosDenshion::SimpleAudioEngine::playBackgroundMusic)
+                .def("_pauseBackgroundMusic", &CocosDenshion::SimpleAudioEngine::pauseBackgroundMusic)
+                .def("_resumeBackgroundMusic", &CocosDenshion::SimpleAudioEngine::resumeBackgroundMusic)
+                .def("_setBackgroundMusicVolume", &CocosDenshion::SimpleAudioEngine::setBackgroundMusicVolume)
+                .def("_setEffectsVolume", &CocosDenshion::SimpleAudioEngine::setEffectsVolume)
+                .def("_playEffect", &CocosDenshion::SimpleAudioEngine::playEffect)
+                .def("_stopEffect", &CocosDenshion::SimpleAudioEngine::stopEffect)
+                .def("_preloadEffect", &CocosDenshion::SimpleAudioEngine::preloadEffect)
+                .def("_unloadEffect", &CocosDenshion::SimpleAudioEngine::unloadEffect)
+                .scope
+                [
+                 luabind::def("getInstance", &CocosDenshion::SimpleAudioEngine::sharedEngine)
+                ]
+             ];
 		}
 
 		static inline void bindAll(void)

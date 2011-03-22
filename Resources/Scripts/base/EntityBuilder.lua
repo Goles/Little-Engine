@@ -22,14 +22,14 @@ function buildEntity (e)
 	-- assign the entity a unique_id.
 	entity.id = entity:getId()
 	
-	-- add the scene defined position to the entity
-	if e.position then 
-		entity:setPosition(e.position.x, e.position.y) 
-	end
-	
 	-- add entity attributes
 	if entityTable.attributes then	
 		addAttributes (entityTable.attributes, entity) 
+	end
+		
+	-- add the scene defined position to the entity
+	if e.position then 
+		entity:setPosition(e.position.x, e.position.y) 
 	end
 
 	-- attach the respective components to the entity	

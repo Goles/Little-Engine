@@ -24,18 +24,43 @@ end
 
 -- Build Animation
 function animationTableBuild(t)
-	assert(#t == 6, "An Animation must be defined by {name, coordinates, frameDurations, spriteSheetName, repeats, pingpong}")
 	
-	animationTable = 
-	{
-		name = t[1], 
-		coordinates = t[2], --makeIntVector(t[2]), 
-		frameDuration = t[3], --makeFloatVector(t[3]),	
-		spritesheetName = t[4],
-		repeating = t[5],
-		pingpong = t[6],
-	}
+	animationTable = {}
 	
+	if (t.name ~= nil and
+	    t.coords ~= nil and
+	    t.frameDuration ~= nil and
+	    t.spritesheetName ~= nil and
+	    t.repeats ~= nil and
+	    t.pingpong ~= nil) 
+	
+	then
+		
+		animationTable.name = t.name
+		animationTable.coordinates = t.coordinates	
+		animationTable.frameDuration = t.frameDuration
+		animationTable.spritesheetName = t.spritesheetName
+		animationTable.repeating = t.repeats
+		animationTable.pingpong = t.pingpong
+	
+	elseif (t[1] ~= nil and
+			t[2] ~= nil and
+			t[3] ~= nil and
+			t[4] ~= nil and
+			t[5] ~= nil and
+			t[6] ~= nil) 
+	then
+	
+		animationTable.name = t[1]
+		animationTable.coordinates = t[2]
+		animationTable.frameDuration = t[3]
+		animationTable.spritesheetName = t[4]
+		animationTable.repeating = t[5]
+		animationTable.pingpong = t[6]
+	else
+		assert(false, "Error: Problem with animation definition. ( {label=, coords=, duration= , sheet= , repeats=, pingpong= } )")
+	end
+
 	return animationTable
 end
 
@@ -73,6 +98,6 @@ function animationBuild(animationTable, spriteSheetInstance)
 
 	animation.repeating = animationTable.repeating
 	animation.pingpong = animationTable.pingpong
-
+	
 	return animation
 end

@@ -19,6 +19,8 @@
 		1447AA141328897D000DCCD8 /* gecParticleSystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1447AA131328897C000DCCD8 /* gecParticleSystem.mm */; };
 		1453691512F359A100B97FB4 /* weapon_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1453691412F359A100B97FB4 /* weapon_1.lua */; };
 		145A10191311E5E00029FE31 /* libFTGLES.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B127C913104A730015D418 /* libFTGLES.a */; };
+		148AB5C513364E8D00FAB7CA /* sonic_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 148AB5C413364E8D00FAB7CA /* sonic_theme.mp3 */; };
+		148AB5C71337F22800FAB7CA /* character_ss_alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = 148AB5C61337F22800FAB7CA /* character_ss_alpha.png */; };
 		148B1F761310A2DC00B1CE94 /* gecFollowingCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1F731310A2DC00B1CE94 /* gecFollowingCamera.mm */; };
 		148B1F771310A2DC00B1CE94 /* ICompCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1F751310A2DC00B1CE94 /* ICompCamera.mm */; };
 		148B1F871310A44100B1CE94 /* FontManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1F861310A44100B1CE94 /* FontManager.mm */; };
@@ -192,6 +194,8 @@
 		1447AA131328897C000DCCD8 /* gecParticleSystem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecParticleSystem.mm; sourceTree = "<group>"; };
 		144BAA1913100C77005AD895 /* luabind.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = luabind.xcodeproj; path = Libraries/luabind/luabind.xcodeproj; sourceTree = "<group>"; };
 		1453691412F359A100B97FB4 /* weapon_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = weapon_1.lua; sourceTree = "<group>"; };
+		148AB5C413364E8D00FAB7CA /* sonic_theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = sonic_theme.mp3; path = ../../../../../../Desktop/sonic_theme.mp3; sourceTree = "<group>"; };
+		148AB5C61337F22800FAB7CA /* character_ss_alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = character_ss_alpha.png; sourceTree = "<group>"; };
 		148B1F721310A2DC00B1CE94 /* gecFollowingCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecFollowingCamera.h; sourceTree = "<group>"; };
 		148B1F731310A2DC00B1CE94 /* gecFollowingCamera.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecFollowingCamera.mm; sourceTree = "<group>"; };
 		148B1F741310A2DC00B1CE94 /* ICompCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICompCamera.h; sourceTree = "<group>"; };
@@ -428,6 +432,7 @@
 		1433F5CF128ADC1D00878671 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				148AB5C61337F22800FAB7CA /* character_ss_alpha.png */,
 				14E1A25C1332833A007C847F /* hitbutton.png */,
 				14E31470121E47FE00917795 /* button_attack.png */,
 				14E31472121E47FE00917795 /* gando_box.png */,
@@ -464,6 +469,14 @@
 				144BAA2113100C77005AD895 /* libluabind.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		148AB5C313364E7E00FAB7CA /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				148AB5C413364E8D00FAB7CA /* sonic_theme.mp3 */,
+			);
+			path = Audio;
 			sourceTree = "<group>";
 		};
 		148B1F711310A2DC00B1CE94 /* Camera */ = {
@@ -591,8 +604,8 @@
 				14AC903D133083E700BB0A26 /* CDAudioManager.h */,
 				14AC903E133083E700BB0A26 /* CDAudioManager.m */,
 				14AC903F133083E700BB0A26 /* CDConfig.h */,
-				14AC9040133083E700BB0A26 /* CDOpenALSupport.h */,
 				14AC9041133083E700BB0A26 /* CDOpenALSupport.m */,
+				14AC9040133083E700BB0A26 /* CDOpenALSupport.h */,
 				14AC9042133083E700BB0A26 /* CocosDenshion.h */,
 				14AC9043133083E700BB0A26 /* CocosDenshion.m */,
 				14AC9044133083E700BB0A26 /* SimpleAudioEngine.mm */,
@@ -959,6 +972,7 @@
 		14E3146A121E47FE00917795 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				148AB5C313364E7E00FAB7CA /* Audio */,
 				148B20CE1310C9C300B1CE94 /* Fonts */,
 				14A2170312E7884700A4D8EC /* Scripts */,
 				1433F5CF128ADC1D00878671 /* images */,
@@ -1174,6 +1188,8 @@
 				149EBD05132DC37500CCC900 /* particle_emmiter_spray.lua in Resources */,
 				149EBD07132DC99D00CCC900 /* particle_emmiter_bomb.lua in Resources */,
 				14E1A25D1332833A007C847F /* hitbutton.png in Resources */,
+				148AB5C513364E8D00FAB7CA /* sonic_theme.mp3 in Resources */,
+				148AB5C71337F22800FAB7CA /* character_ss_alpha.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

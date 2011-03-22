@@ -26,11 +26,10 @@ Character =
 
 				local c = this:component("gecAnimatedSprite")
 				c:setCurrentAnimation("S_STAND")
-				c:setCurrentRunning(true)
-				c:setCurrentRepeating(true)
 				
 				if(in_data == "World_1") then
-					-- this is level "CoolScene" manage special according to this level.					
+					-- this is level "CoolScene" manage special according to this level.
+					playBackgroundMusic("sonic_theme.mp3")
 				end
 			
 			--
@@ -107,9 +106,9 @@ Character =
 			--
 			elseif (in_event == "E_STATE_CHANGE") then
 				
-				local animated_sprite = this:component("gecAnimatedSprite")							
-				animated_sprite:setCurrentAnimation(in_data)
-				animated_sprite:setCurrentRunning(true)
+				local gec = this:component("gecAnimatedSprite")							
+				gec:setCurrentAnimation(in_data)
+--				gec:setCurrentRunning(true)
 				
 			end
 			
@@ -124,15 +123,15 @@ Character =
 		{
 			spritesheets = 
 			{
-				{"hitter1_1.png", 80, 80, 0.0, 1.0}
+				{"character_ss_alpha.png", 110, 110, 0.0, 1.0}
 			},
 			animations =
 			{
 				-- Animation id (matches state names), Animation spritesheet coords, Animation frame duration.
 				-- {label=, coords=, duration= , sheet= , repeats=, pingpong= }
-				{"S_STAND", {0,0,1,0,2,0,3,0}, 0.07, "hitter1_1.png", true, true},				
-				{"S_WALK", {4,0,5,0,6,0,7,0}, 0.07, "hitter1_1.png", true, false},
-				{"S_ATTACK",{8,0,9,0,10,0}, 0.08, "hitter1_1.png", false, false},
+				{"S_STAND", {0,0,1,0,2,0,3,0,4,0}, 0.05, "character_ss_alpha.png", true, true},				
+				{"S_WALK", {5,0,6,0,7,0,8,0,0,1,1,1}, 0.10, "character_ss_alpha.png", true, false},
+				{"S_ATTACK",{8,1,0,2,1,2,2,2,3,2}, 0.05, "character_ss_alpha.png", false, false},
 			},
 		},
 		

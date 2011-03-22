@@ -87,12 +87,11 @@ function event:_broadcast_touch( in_x, in_y, in_touchIndex, in_touchID, in_touch
 end
 
 function event:_notify_target_entity(in_event, in_data, in_entity_uid)
-	
 	-- FETCH SPECIFIC ENTITY
 	local e = fetchMapEntity(in_entity_uid)
 
 	-- IF IT EXISTS THEN TELL IT TO HANDLE A SPECIFIC EVENT
-	if e then e:handle_event(in_event, in_data) end
+	if e ~= nil then e:handle_event(in_event, in_data) end
 	
 end
 
@@ -112,5 +111,6 @@ function broadcast_touch (in_x, in_y, in_touchIndex, in_touchID, in_touchType)
 end
 
 function notify_target_entity (in_event, in_data, in_entity_uid)
+
 	event:_notify_target_entity(in_event, in_data, in_entity_uid)
 end

@@ -14,6 +14,7 @@
 #pragma mark -
 #pragma mark constructor
 Animation::Animation() : ownerGAS(NULL),
+                         renderFrame(NULL),
 						 currentPoint(CGPointZero),
 						 currentFrame(0),
 						 frameTimer(0.0f),
@@ -117,6 +118,7 @@ void Animation::update(float delta)
 		{
 			currentFrame += direction;
 			frameTimer = 0;
+            
 			if(currentFrame > (spriteFrames.size() - 1) || currentFrame < 0)
 			{
 				if (isPingPong) 
@@ -124,14 +126,18 @@ void Animation::update(float delta)
 					direction = -direction;
 					currentFrame += direction;
 				}
-				if (isRepeating)
-					currentFrame = 0;
-				if (!isRepeating && !isPingPong) 
-				{
-					isRunning		= false;
-					currentFrame	= 0;
+                
+                if (isRepeating && !isPingPong)
+                {
+                    currentFrame = 0;
+                }
+                
+                if(!isRepeating && !isPingPong) 
+                {
+					isRunning		= false;					
+                    currentFrame	= 0;
 				}
-				
+
 				/*
 				 * Enable the notification flag.
 				 * Basically this means that we have arrived the end of this Sprite sequence.
@@ -144,19 +150,30 @@ void Animation::update(float delta)
 
 void Animation::renderAtPoint(CGPoint inPoint)
 {
-	Frame *aFrame = spriteFrames.at(currentFrame);
-	Image *frameImage = aFrame->getFrameImage();
-	frameImage->renderAtPoint(inPoint, true);
+    //if it's running we advance
+    if(isRunning)
+        renderFrame = spriteFrames.at(currentFrame);
 	
-	if(delegation)
-		this->notifyDelegate();
+    //If it's not running we display the last rendered frame
+    if(renderFrame != NULL)
+    {
+        renderFrame->getFrameImage()->renderAtPoint(inPoint, true);
+        this->notifyDelegate();   
+    }
 }
 
 void Animation::draw()
 {
-	Frame *aFrame = spriteFrames.at(currentFrame);
-	aFrame->getFrameImage()->renderAtPoint(currentPoint, true);
-	this->notifyDelegate();
+    //if it's running we advance    
+    if(isRunning)
+         renderFrame = spriteFrames.at(currentFrame);
+
+    //If it's not running we display the last rendered frame
+    if(renderFrame != NULL)
+    {
+        renderFrame->getFrameImage()->renderAtPoint(currentPoint, true);
+        this->notifyDelegate();   
+    }
 }
 
 void Animation::update()

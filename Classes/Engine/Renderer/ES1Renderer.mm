@@ -78,8 +78,6 @@ static char fpsText[32];
 {
 	SCENE_MANAGER->getActiveScene()->sortEntitiesY();
 	SCENE_MANAGER->getActiveScene()->update(delta);
-	
-	GBOX_2D->update(delta);
 
 	[self setFps];
 }

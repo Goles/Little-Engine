@@ -74,17 +74,19 @@ public:
 private:
 	gecAnimatedSprite*	ownerGAS; 
 	std::string			animation_label;
+    Frame*              renderFrame;
 	CGPoint				currentPoint;
 	FRAMES_VECTOR		spriteFrames;
 	float				frameTimer;
+    int					direction;
+	int					currentFrame;
 	bool				isRunning;
 	bool				isRepeating;
 	bool				isPingPong;
 	bool				isFlipped;
 	bool				delegation;
 	bool				notify;
-	int					direction;
-	int					currentFrame;
+
 };
 
 #endif

@@ -30,9 +30,7 @@ function addMapEntity( in_entity )
 end
 
 function fetchMapEntity( in_entity_uid )
-	local e = entity_manager:_fetchMapEntity(in_entity_uid)
-	
-	return e
+	return entity_manager:_fetchMapEntity(in_entity_uid)
 end
 
 function deleteMapEntity( in_entity )
