@@ -10,5 +10,6 @@
 *.xcsettings
 *.xcscheme
 *.xcworkspace
+.code_swarm/*
 build/*
 .redcar/*
