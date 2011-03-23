@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		141B7847133A413D004AA63B /* sonic_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 141B7846133A413D004AA63B /* sonic_theme.mp3 */; };
 		1429A906132A620900314A28 /* game_entities_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1429A903132A620900314A28 /* game_entities_1.lua */; };
 		1429A907132A620900314A28 /* gui.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1429A904132A620900314A28 /* gui.lua */; };
 		1429A908132A620900314A28 /* world1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1429A905132A620900314A28 /* world1.lua */; };
@@ -19,7 +20,6 @@
 		1447AA141328897D000DCCD8 /* gecParticleSystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1447AA131328897C000DCCD8 /* gecParticleSystem.mm */; };
 		1453691512F359A100B97FB4 /* weapon_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1453691412F359A100B97FB4 /* weapon_1.lua */; };
 		145A10191311E5E00029FE31 /* libFTGLES.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B127C913104A730015D418 /* libFTGLES.a */; };
-		148AB5C513364E8D00FAB7CA /* sonic_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 148AB5C413364E8D00FAB7CA /* sonic_theme.mp3 */; };
 		148AB5C71337F22800FAB7CA /* character_ss_alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = 148AB5C61337F22800FAB7CA /* character_ss_alpha.png */; };
 		148B1F761310A2DC00B1CE94 /* gecFollowingCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1F731310A2DC00B1CE94 /* gecFollowingCamera.mm */; };
 		148B1F771310A2DC00B1CE94 /* ICompCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1F751310A2DC00B1CE94 /* ICompCamera.mm */; };
@@ -176,6 +176,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		141B7846133A413D004AA63B /* sonic_theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sonic_theme.mp3; sourceTree = "<group>"; };
 		1429A903132A620900314A28 /* game_entities_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = game_entities_1.lua; sourceTree = "<group>"; };
 		1429A904132A620900314A28 /* gui.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gui.lua; sourceTree = "<group>"; };
 		1429A905132A620900314A28 /* world1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = world1.lua; sourceTree = "<group>"; };
@@ -194,7 +195,6 @@
 		1447AA131328897C000DCCD8 /* gecParticleSystem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecParticleSystem.mm; sourceTree = "<group>"; };
 		144BAA1913100C77005AD895 /* luabind.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = luabind.xcodeproj; path = Libraries/luabind/luabind.xcodeproj; sourceTree = "<group>"; };
 		1453691412F359A100B97FB4 /* weapon_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = weapon_1.lua; sourceTree = "<group>"; };
-		148AB5C413364E8D00FAB7CA /* sonic_theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = sonic_theme.mp3; path = ../../../../../../Desktop/sonic_theme.mp3; sourceTree = "<group>"; };
 		148AB5C61337F22800FAB7CA /* character_ss_alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = character_ss_alpha.png; sourceTree = "<group>"; };
 		148B1F721310A2DC00B1CE94 /* gecFollowingCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecFollowingCamera.h; sourceTree = "<group>"; };
 		148B1F731310A2DC00B1CE94 /* gecFollowingCamera.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecFollowingCamera.mm; sourceTree = "<group>"; };
@@ -474,7 +474,7 @@
 		148AB5C313364E7E00FAB7CA /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				148AB5C413364E8D00FAB7CA /* sonic_theme.mp3 */,
+				141B7846133A413D004AA63B /* sonic_theme.mp3 */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -1188,8 +1188,8 @@
 				149EBD05132DC37500CCC900 /* particle_emmiter_spray.lua in Resources */,
 				149EBD07132DC99D00CCC900 /* particle_emmiter_bomb.lua in Resources */,
 				14E1A25D1332833A007C847F /* hitbutton.png in Resources */,
-				148AB5C513364E8D00FAB7CA /* sonic_theme.mp3 in Resources */,
 				148AB5C71337F22800FAB7CA /* character_ss_alpha.png in Resources */,
+				141B7847133A413D004AA63B /* sonic_theme.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
