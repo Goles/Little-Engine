@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		141B7847133A413D004AA63B /* sonic_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 141B7846133A413D004AA63B /* sonic_theme.mp3 */; };
 		1429A906132A620900314A28 /* game_entities_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1429A903132A620900314A28 /* game_entities_1.lua */; };
 		1429A907132A620900314A28 /* gui.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1429A904132A620900314A28 /* gui.lua */; };
 		1429A908132A620900314A28 /* world1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1429A905132A620900314A28 /* world1.lua */; };
@@ -15,6 +14,9 @@
 		1430C7FC131F02F500AFA083 /* TextureTextRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1430C7FB131F02F500AFA083 /* TextureTextRenderer.mm */; };
 		1430CA7713201A3600AFA083 /* Diavlo_BLACK_II_37.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1430CA7613201A3600AFA083 /* Diavlo_BLACK_II_37.otf */; };
 		143C241012F9116F009B37EF /* zero.lua in Resources */ = {isa = PBXBuildFile; fileRef = 143C240F12F9116F009B37EF /* zero.lua */; };
+		144668FF133A503D001DAE2D /* sonic_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 144668FD133A503D001DAE2D /* sonic_theme.mp3 */; };
+		14466903133A6E91001DAE2D /* swing_1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 14466902133A6E91001DAE2D /* swing_1.caf */; };
+		14466905133A75C3001DAE2D /* swing_1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 14466904133A75C3001DAE2D /* swing_1.wav */; };
 		1447AA0A13272613000DCCD8 /* Particle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1447AA0813272612000DCCD8 /* Particle.mm */; };
 		1447AA0D132730E7000DCCD8 /* ParticleManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1447AA0B132730E5000DCCD8 /* ParticleManager.mm */; };
 		1447AA141328897D000DCCD8 /* gecParticleSystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1447AA131328897C000DCCD8 /* gecParticleSystem.mm */; };
@@ -176,7 +178,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		141B7846133A413D004AA63B /* sonic_theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sonic_theme.mp3; sourceTree = "<group>"; };
 		1429A903132A620900314A28 /* game_entities_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = game_entities_1.lua; sourceTree = "<group>"; };
 		1429A904132A620900314A28 /* gui.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gui.lua; sourceTree = "<group>"; };
 		1429A905132A620900314A28 /* world1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = world1.lua; sourceTree = "<group>"; };
@@ -186,6 +187,9 @@
 		1430C81B131F050000AFA083 /* IFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFont.h; sourceTree = "<group>"; };
 		1430CA7613201A3600AFA083 /* Diavlo_BLACK_II_37.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Diavlo_BLACK_II_37.otf; sourceTree = "<group>"; };
 		143C240F12F9116F009B37EF /* zero.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zero.lua; sourceTree = "<group>"; };
+		144668FD133A503D001DAE2D /* sonic_theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sonic_theme.mp3; sourceTree = "<group>"; };
+		14466902133A6E91001DAE2D /* swing_1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = swing_1.caf; sourceTree = "<group>"; };
+		14466904133A75C3001DAE2D /* swing_1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = swing_1.wav; sourceTree = "<group>"; };
 		1447AA0813272612000DCCD8 /* Particle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Particle.mm; sourceTree = "<group>"; };
 		1447AA0913272612000DCCD8 /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particle.h; sourceTree = "<group>"; };
 		1447AA0B132730E5000DCCD8 /* ParticleManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ParticleManager.mm; path = ../Particles/ParticleManager.mm; sourceTree = "<group>"; };
@@ -451,6 +455,32 @@
 			name = images;
 			sourceTree = "<group>";
 		};
+		144668FB133A503D001DAE2D /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				144668FC133A503D001DAE2D /* Music */,
+				144668FE133A503D001DAE2D /* Sounds */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		144668FC133A503D001DAE2D /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				144668FD133A503D001DAE2D /* sonic_theme.mp3 */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		144668FE133A503D001DAE2D /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				14466902133A6E91001DAE2D /* swing_1.caf */,
+				14466904133A75C3001DAE2D /* swing_1.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		144BAA0F13100C5A005AD895 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,14 +499,6 @@
 				144BAA2113100C77005AD895 /* libluabind.a */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		148AB5C313364E7E00FAB7CA /* Audio */ = {
-			isa = PBXGroup;
-			children = (
-				141B7846133A413D004AA63B /* sonic_theme.mp3 */,
-			);
-			path = Audio;
 			sourceTree = "<group>";
 		};
 		148B1F711310A2DC00B1CE94 /* Camera */ = {
@@ -972,7 +994,7 @@
 		14E3146A121E47FE00917795 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				148AB5C313364E7E00FAB7CA /* Audio */,
+				144668FB133A503D001DAE2D /* Audio */,
 				148B20CE1310C9C300B1CE94 /* Fonts */,
 				14A2170312E7884700A4D8EC /* Scripts */,
 				1433F5CF128ADC1D00878671 /* images */,
@@ -1189,7 +1211,9 @@
 				149EBD07132DC99D00CCC900 /* particle_emmiter_bomb.lua in Resources */,
 				14E1A25D1332833A007C847F /* hitbutton.png in Resources */,
 				148AB5C71337F22800FAB7CA /* character_ss_alpha.png in Resources */,
-				141B7847133A413D004AA63B /* sonic_theme.mp3 in Resources */,
+				144668FF133A503D001DAE2D /* sonic_theme.mp3 in Resources */,
+				14466903133A6E91001DAE2D /* swing_1.caf in Resources */,
+				14466905133A75C3001DAE2D /* swing_1.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1290,6 +1314,10 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GandoEngine_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					DEBUG,
+					CD_DEBUG,
+				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_VERSION = 4.2;

@@ -108,7 +108,6 @@ Character =
 				
 				local gec = this:component("gecAnimatedSprite")							
 				gec:setCurrentAnimation(in_data)
---				gec:setCurrentRunning(true)
 				
 			end
 			
@@ -131,7 +130,7 @@ Character =
 				-- {label=, coords=, duration= , sheet= , repeats=, pingpong= }
 				{"S_STAND", {0,0,1,0,2,0,3,0,4,0}, 0.05, "character_ss_alpha.png", true, true},				
 				{"S_WALK", {5,0,6,0,7,0,8,0,0,1,1,1}, 0.10, "character_ss_alpha.png", true, false},
-				{"S_ATTACK",{8,1,0,2,1,2,2,2,3,2}, 0.05, "character_ss_alpha.png", false, false},
+				{"S_ATTACK",{8,1,0,2,1,2,2,2,3,2}, 0.030, "character_ss_alpha.png", false, false},
 			},
 		},
 		

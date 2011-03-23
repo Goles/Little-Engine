@@ -18,6 +18,7 @@
 #include "GandoBox2D.h"
 #include "GETemplateManager.h"
 #include "FontManager.h"
+#include "SimpleAudioEngine.h"
 
 #include "LuaInit.h"
 
@@ -33,8 +34,7 @@ namespace gg
 	 Basically startup all the required singletons ( shared managers ). 
 	 */
 	inline void init(void)
-	{		
-		LR_MANAGER;			/** < Initialize the Lua Registrate Manager */
+	{		 
 		TOUCHABLE_MANAGER;	/** < Initialize the Input Manager*/
 		SCENE_MANAGER;		/** < Initialize the Scene Manager */
 		TEXTURE_MANAGER;	/** < Initialize the Texture Manager*/
@@ -42,6 +42,8 @@ namespace gg
 		GBOX_2D;			/** < Initialize the Box2D Plug for GG*/
 		FONT_MANAGER;		/** < Initialize the FontManager*/
 		GE_FACTORY;			/** < Initialize the Game Entity Factory */
+        CocosDenshion::SimpleAudioEngine::sharedEngine(); /** < Initialize the Audio Engine */
+        LR_MANAGER;			/** < Initialize the Lua Registrate Manager */        
 	}
 	
 	inline void startup(void)
@@ -61,10 +63,11 @@ namespace gg
 		delete TOUCHABLE_MANAGER;	/** < delete the Input Manager */
 		delete SCENE_MANAGER;		/** < delete the Scene Manager */
 		delete TEXTURE_MANAGER;		/** < delete the Texture Manager */
-		//delete PARTICLE_MANAGER;	/** < delete the Particles Manager */
+		delete PARTICLE_MANAGER;	/** < delete the Particles Manager */
 		delete GBOX_2D;				/** < delete the Box2D Plug for GG */
 		delete FONT_MANAGER;		/** < delete the Font Manager */
-		delete GE_FACTORY;			/** < delete the Game Entity Factory */		
+		delete GE_FACTORY;			/** < delete the Game Entity Factory */	
+        CocosDenshion::SimpleAudioEngine::sharedEngine()->end();
 	}
 }
 

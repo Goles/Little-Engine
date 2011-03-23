@@ -21,9 +21,9 @@ Weapon1 =
 				local offset = 0
 				
 				if in_data.flipped == true then
-					offset = -30
+					offset = -40
 				else
-					offset = 30
+					offset = 40
 				end
 				
 				-- Update weapon position	
@@ -42,7 +42,8 @@ Weapon1 =
 			--
 			elseif in_event == "E_CHARACTER_ATTACK_STOP" then
 				-- deactivate the weapon on attack stop
-				this.active = true		
+				this.active = true
+				playEffect("swing_1.wav")
 			end	
 					
 		end
