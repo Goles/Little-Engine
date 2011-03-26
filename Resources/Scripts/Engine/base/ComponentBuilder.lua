@@ -95,6 +95,11 @@ function gecFSMBuild(t)
 	-- Assign the states matrix as an fsm value
 	fsm.statesMatrix = s_matrix
 	
+	-- Assign the __index meta method to nil, in order to get nil when
+	-- doint fsm.statesMatrix[ "NON-EXISTANT-STATE" ][ "NO EXISTANT STATE" ] 
+	local empty = {}
+	setmetatable(fsm.statesMatrix, {__index=function() return empty end})
+	
 	-- Assign the perform action as an fsm value
 	fsm.performAction = function(this, in_action)
 
