@@ -7,43 +7,66 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1429A906132A620900314A28 /* game_entities_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1429A903132A620900314A28 /* game_entities_1.lua */; };
-		1429A907132A620900314A28 /* gui.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1429A904132A620900314A28 /* gui.lua */; };
-		1429A908132A620900314A28 /* world1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1429A905132A620900314A28 /* world1.lua */; };
-		142DA6C0132A742A00BD2A38 /* particle_test_scene.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142DA6BF132A742A00BD2A38 /* particle_test_scene.lua */; };
 		1430C7FC131F02F500AFA083 /* TextureTextRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1430C7FB131F02F500AFA083 /* TextureTextRenderer.mm */; };
 		1430CA7713201A3600AFA083 /* Diavlo_BLACK_II_37.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1430CA7613201A3600AFA083 /* Diavlo_BLACK_II_37.otf */; };
-		143C241012F9116F009B37EF /* zero.lua in Resources */ = {isa = PBXBuildFile; fileRef = 143C240F12F9116F009B37EF /* zero.lua */; };
 		144668FF133A503D001DAE2D /* sonic_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 144668FD133A503D001DAE2D /* sonic_theme.mp3 */; };
 		14466903133A6E91001DAE2D /* swing_1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 14466902133A6E91001DAE2D /* swing_1.caf */; };
 		14466905133A75C3001DAE2D /* swing_1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 14466904133A75C3001DAE2D /* swing_1.wav */; };
 		1447AA0A13272613000DCCD8 /* Particle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1447AA0813272612000DCCD8 /* Particle.mm */; };
 		1447AA0D132730E7000DCCD8 /* ParticleManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1447AA0B132730E5000DCCD8 /* ParticleManager.mm */; };
 		1447AA141328897D000DCCD8 /* gecParticleSystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1447AA131328897C000DCCD8 /* gecParticleSystem.mm */; };
-		1453691512F359A100B97FB4 /* weapon_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1453691412F359A100B97FB4 /* weapon_1.lua */; };
+		144FF9E4133D8A9C0090800C /* button_attack.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9AF133D8A9C0090800C /* button_attack.png */; };
+		144FF9E5133D8A9C0090800C /* character_ss_alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9B0133D8A9C0090800C /* character_ss_alpha.png */; };
+		144FF9E6133D8A9C0090800C /* gando_box.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9B1133D8A9C0090800C /* gando_box.png */; };
+		144FF9E7133D8A9C0090800C /* hitbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9B2133D8A9C0090800C /* hitbutton.png */; };
+		144FF9E8133D8A9C0090800C /* hitter1_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9B3133D8A9C0090800C /* hitter1_1.png */; };
+		144FF9E9133D8A9C0090800C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9B4133D8A9C0090800C /* Icon.png */; };
+		144FF9EA133D8A9C0090800C /* joypad_move.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9B5133D8A9C0090800C /* joypad_move.png */; };
+		144FF9EB133D8A9C0090800C /* joystick-moving-path.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9B6133D8A9C0090800C /* joystick-moving-path.png */; };
+		144FF9EC133D8A9C0090800C /* Particle2.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9B7133D8A9C0090800C /* Particle2.pvr */; };
+		144FF9ED133D8A9C0090800C /* Particles3.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9B8133D8A9C0090800C /* Particles3.pvr */; };
+		144FF9EE133D8A9C0090800C /* pixel.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9B9133D8A9C0090800C /* pixel.png */; };
+		144FF9EF133D8A9C0090800C /* scenario_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9BA133D8A9C0090800C /* scenario_3.png */; };
+		144FF9F0133D8A9C0090800C /* smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9BB133D8A9C0090800C /* smoke.png */; };
+		144FF9F1133D8A9C0090800C /* smoke.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9BC133D8A9C0090800C /* smoke.pvr */; };
+		144FF9F2133D8A9C0090800C /* sprite_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9BD133D8A9C0090800C /* sprite_test.png */; };
+		144FF9F3133D8A9C0090800C /* base_functions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9C1133D8A9C0090800C /* base_functions.lua */; };
+		144FF9F4133D8A9C0090800C /* ComponentBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9C2133D8A9C0090800C /* ComponentBuilder.lua */; };
+		144FF9F5133D8A9C0090800C /* config_functions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9C3133D8A9C0090800C /* config_functions.lua */; };
+		144FF9F6133D8A9C0090800C /* EntityBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9C4133D8A9C0090800C /* EntityBuilder.lua */; };
+		144FF9F7133D8A9C0090800C /* EntityMap.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9C5133D8A9C0090800C /* EntityMap.lua */; };
+		144FF9F8133D8A9C0090800C /* Pickle.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9C6133D8A9C0090800C /* Pickle.lua */; };
+		144FF9F9133D8A9C0090800C /* PrimitiveBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9C7133D8A9C0090800C /* PrimitiveBuilder.lua */; };
+		144FF9FA133D8A9C0090800C /* SceneBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9C8133D8A9C0090800C /* SceneBuilder.lua */; };
+		144FF9FB133D8A9C0090800C /* tableprint.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9C9133D8A9C0090800C /* tableprint.lua */; };
+		144FF9FC133D8A9C0090800C /* gecFSM_interface.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9CB133D8A9C0090800C /* gecFSM_interface.lua */; };
+		144FF9FD133D8A9C0090800C /* config.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9CD133D8A9C0090800C /* config.lua */; };
+		144FF9FE133D8A9C0090800C /* event_manager.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9CF133D8A9C0090800C /* event_manager.lua */; };
+		144FF9FF133D8A9C0090800C /* init.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9D0133D8A9C0090800C /* init.lua */; };
+		144FFA09133D8A9C0090800C /* main.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9DC133D8A9C0090800C /* main.lua */; };
+		144FFA0A133D8A9C0090800C /* particle_test_scene.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9DF133D8A9C0090800C /* particle_test_scene.lua */; };
+		144FFA0B133D8A9C0090800C /* game_entities_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9E1133D8A9C0090800C /* game_entities_1.lua */; };
+		144FFA0C133D8A9C0090800C /* gui.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9E2133D8A9C0090800C /* gui.lua */; };
+		144FFA0D133D8A9C0090800C /* world1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9E3133D8A9C0090800C /* world1.lua */; };
+		144FFA21133D8ADC0090800C /* button_attack.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FFA10133D8ADC0090800C /* button_attack.lua */; };
+		144FFA22133D8ADC0090800C /* character.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FFA11133D8ADC0090800C /* character.lua */; };
+		144FFA23133D8ADC0090800C /* hitter_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FFA12133D8ADC0090800C /* hitter_1.lua */; };
+		144FFA24133D8ADC0090800C /* joypad_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FFA13133D8ADC0090800C /* joypad_1.lua */; };
+		144FFA25133D8ADC0090800C /* particle_emmiter.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FFA15133D8ADC0090800C /* particle_emmiter.lua */; };
+		144FFA26133D8ADC0090800C /* particle_emmiter_bomb.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FFA16133D8ADC0090800C /* particle_emmiter_bomb.lua */; };
+		144FFA27133D8ADC0090800C /* particle_emmiter_spray.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FFA17133D8ADC0090800C /* particle_emmiter_spray.lua */; };
+		144FFA28133D8ADC0090800C /* weapon_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FFA18133D8ADC0090800C /* weapon_1.lua */; };
+		144FFA29133D8ADC0090800C /* zero.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FFA19133D8ADC0090800C /* zero.lua */; };
+		144FFA2A133D8ADC0090800C /* particle_test_scene.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FFA1C133D8ADC0090800C /* particle_test_scene.lua */; };
+		144FFA2B133D8ADC0090800C /* game_entities_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FFA1E133D8ADC0090800C /* game_entities_1.lua */; };
+		144FFA2C133D8ADC0090800C /* gui.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FFA1F133D8ADC0090800C /* gui.lua */; };
+		144FFA2D133D8ADC0090800C /* world1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 144FFA20133D8ADC0090800C /* world1.lua */; };
 		145A10191311E5E00029FE31 /* libFTGLES.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B127C913104A730015D418 /* libFTGLES.a */; };
-		148AB5C71337F22800FAB7CA /* character_ss_alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = 148AB5C61337F22800FAB7CA /* character_ss_alpha.png */; };
 		148B1F761310A2DC00B1CE94 /* gecFollowingCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1F731310A2DC00B1CE94 /* gecFollowingCamera.mm */; };
 		148B1F771310A2DC00B1CE94 /* ICompCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1F751310A2DC00B1CE94 /* ICompCamera.mm */; };
 		148B1F871310A44100B1CE94 /* FontManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1F861310A44100B1CE94 /* FontManager.mm */; };
 		148B1FBD1310AA9E00B1CE94 /* ftglesTextureFont.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1FBC1310AA9E00B1CE94 /* ftglesTextureFont.mm */; };
 		148B20D01310C9CA00B1CE94 /* TOONISH.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 148B20CF1310C9CA00B1CE94 /* TOONISH.ttf */; };
-		149EBD01132DC23800CCC900 /* particle_emmiter.lua in Resources */ = {isa = PBXBuildFile; fileRef = 149EBD00132DC23800CCC900 /* particle_emmiter.lua */; };
-		149EBD05132DC37500CCC900 /* particle_emmiter_spray.lua in Resources */ = {isa = PBXBuildFile; fileRef = 149EBD04132DC37500CCC900 /* particle_emmiter_spray.lua */; };
-		149EBD07132DC99D00CCC900 /* particle_emmiter_bomb.lua in Resources */ = {isa = PBXBuildFile; fileRef = 149EBD06132DC99D00CCC900 /* particle_emmiter_bomb.lua */; };
-		14A2171B12E7884700A4D8EC /* base_functions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2170512E7884700A4D8EC /* base_functions.lua */; };
-		14A2171C12E7884700A4D8EC /* ComponentBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2170612E7884700A4D8EC /* ComponentBuilder.lua */; };
-		14A2171D12E7884700A4D8EC /* EntityBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2170712E7884700A4D8EC /* EntityBuilder.lua */; };
-		14A2171E12E7884700A4D8EC /* EntityMap.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2170812E7884700A4D8EC /* EntityMap.lua */; };
-		14A2171F12E7884700A4D8EC /* Pickle.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2170912E7884700A4D8EC /* Pickle.lua */; };
-		14A2172012E7884700A4D8EC /* PrimitiveBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2170A12E7884700A4D8EC /* PrimitiveBuilder.lua */; };
-		14A2172112E7884700A4D8EC /* SceneBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2170B12E7884700A4D8EC /* SceneBuilder.lua */; };
-		14A2172212E7884700A4D8EC /* tableprint.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2170C12E7884700A4D8EC /* tableprint.lua */; };
-		14A2172312E7884700A4D8EC /* gecFSM_interface.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2170E12E7884700A4D8EC /* gecFSM_interface.lua */; };
-		14A2172812E7884700A4D8EC /* event_manager.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2171512E7884700A4D8EC /* event_manager.lua */; };
-		14A2172912E7884700A4D8EC /* init.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2171612E7884700A4D8EC /* init.lua */; };
-		14A2172A12E7884700A4D8EC /* main.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A2171712E7884700A4D8EC /* main.lua */; };
-		14A218A212E89AC500A4D8EC /* character.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14A218A112E89AC500A4D8EC /* character.lua */; };
 		14AC7E12132E4DA300D5ACA7 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AC7E11132E4DA300D5ACA7 /* OpenAL.framework */; };
 		14AC7E14132E4DAB00D5ACA7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AC7E13132E4DAB00D5ACA7 /* AVFoundation.framework */; };
 		14AC9047133083E700BB0A26 /* CDAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AC903E133083E700BB0A26 /* CDAudioManager.m */; };
@@ -52,13 +75,6 @@
 		14AC904A133083E700BB0A26 /* SimpleAudioEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9044133083E700BB0A26 /* SimpleAudioEngine.mm */; };
 		14AC904B133083E700BB0A26 /* SimpleAudioEngine_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9046133083E700BB0A26 /* SimpleAudioEngine_objc.m */; };
 		14ADA21D132E4F9800D3571D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14ADA21C132E4F9800D3571D /* AudioToolbox.framework */; };
-		14D1A7F512EDD8180070D86F /* hitter_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14D1A7F312EDD8180070D86F /* hitter_1.lua */; };
-		14D1A7F612EDD8180070D86F /* joypad_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14D1A7F412EDD8180070D86F /* joypad_1.lua */; };
-		14D1A85112EDE0570070D86F /* button_attack.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14D1A85012EDE0570070D86F /* button_attack.lua */; };
-		14D2B9FA132AAECB00840B7C /* Particle2.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 14E31479121E47FE00917795 /* Particle2.pvr */; };
-		14D2B9FB132AAECB00840B7C /* Particles3.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 14E3147A121E47FE00917795 /* Particles3.pvr */; };
-		14DC3FC612FDDE71004CC360 /* config_functions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14DC3FC512FDDE71004CC360 /* config_functions.lua */; };
-		14DC3FD312FDDE8E004CC360 /* config.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14DC3FD212FDDE8E004CC360 /* config.lua */; };
 		14DEBDC7131077B90094F680 /* libbox2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DEBD9A1310777C0094F680 /* libbox2d.a */; };
 		14DEC0301310835C0094F680 /* CompBehaviour.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF561310835C0094F680 /* CompBehaviour.mm */; };
 		14DEC0311310835C0094F680 /* gecFSM.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF581310835C0094F680 /* gecFSM.mm */; };
@@ -99,21 +115,9 @@
 		14DEC0851310835C0094F680 /* SpriteSheet.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0291310835C0094F680 /* SpriteSheet.mm */; };
 		14DEC0861310835C0094F680 /* FileUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC02C1310835C0094F680 /* FileUtils.mm */; };
 		14DEC0871310835C0094F680 /* HardwareClock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC02D1310835C0094F680 /* HardwareClock.cpp */; };
-		14E1A25D1332833A007C847F /* hitbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 14E1A25C1332833A007C847F /* hitbutton.png */; };
 		14E31465121E47E200917795 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31415121E47E200917795 /* main.mm */; };
 		14E31466121E47E200917795 /* Particles_2AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31417121E47E200917795 /* Particles_2AppDelegate.mm */; };
 		14E31488121E47FE00917795 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14E31469121E47FE00917795 /* MainWindow.xib */; };
-		14E3148E121E47FE00917795 /* button_attack.png in Resources */ = {isa = PBXBuildFile; fileRef = 14E31470121E47FE00917795 /* button_attack.png */; };
-		14E31490121E47FE00917795 /* gando_box.png in Resources */ = {isa = PBXBuildFile; fileRef = 14E31472121E47FE00917795 /* gando_box.png */; };
-		14E31492121E47FE00917795 /* hitter1_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 14E31474121E47FE00917795 /* hitter1_1.png */; };
-		14E31493121E47FE00917795 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 14E31475121E47FE00917795 /* Icon.png */; };
-		14E31494121E47FE00917795 /* joypad_move.png in Resources */ = {isa = PBXBuildFile; fileRef = 14E31476121E47FE00917795 /* joypad_move.png */; };
-		14E31495121E47FE00917795 /* joystick-moving-path.png in Resources */ = {isa = PBXBuildFile; fileRef = 14E31477121E47FE00917795 /* joystick-moving-path.png */; };
-		14E31499121E47FE00917795 /* pixel.png in Resources */ = {isa = PBXBuildFile; fileRef = 14E3147B121E47FE00917795 /* pixel.png */; };
-		14E3149C121E47FE00917795 /* scenario_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 14E3147E121E47FE00917795 /* scenario_3.png */; };
-		14E3149E121E47FE00917795 /* smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 14E31480121E47FE00917795 /* smoke.png */; };
-		14E3149F121E47FE00917795 /* smoke.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 14E31481121E47FE00917795 /* smoke.pvr */; };
-		14E314A0121E47FE00917795 /* sprite_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 14E31482121E47FE00917795 /* sprite_test.png */; };
 		14E314D0121E49B900917795 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E314CF121E49B900917795 /* CoreGraphics.framework */; };
 		14F64F2513101665006DBA13 /* libluabind.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 144BAA2113100C77005AD895 /* libluabind.a */; };
 		14F64F3013101681006DBA13 /* libLua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F64F2F13101678006DBA13 /* libLua.a */; };
@@ -178,15 +182,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1429A903132A620900314A28 /* game_entities_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = game_entities_1.lua; sourceTree = "<group>"; };
-		1429A904132A620900314A28 /* gui.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gui.lua; sourceTree = "<group>"; };
-		1429A905132A620900314A28 /* world1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = world1.lua; sourceTree = "<group>"; };
-		142DA6BF132A742A00BD2A38 /* particle_test_scene.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = particle_test_scene.lua; sourceTree = "<group>"; };
 		1430C7FA131F02F500AFA083 /* TextureTextRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureTextRenderer.h; sourceTree = "<group>"; };
 		1430C7FB131F02F500AFA083 /* TextureTextRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TextureTextRenderer.mm; sourceTree = "<group>"; };
 		1430C81B131F050000AFA083 /* IFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFont.h; sourceTree = "<group>"; };
 		1430CA7613201A3600AFA083 /* Diavlo_BLACK_II_37.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Diavlo_BLACK_II_37.otf; sourceTree = "<group>"; };
-		143C240F12F9116F009B37EF /* zero.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zero.lua; sourceTree = "<group>"; };
 		144668FD133A503D001DAE2D /* sonic_theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sonic_theme.mp3; sourceTree = "<group>"; };
 		14466902133A6E91001DAE2D /* swing_1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = swing_1.caf; sourceTree = "<group>"; };
 		14466904133A75C3001DAE2D /* swing_1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = swing_1.wav; sourceTree = "<group>"; };
@@ -198,8 +197,52 @@
 		1447AA121328897C000DCCD8 /* gecParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecParticleSystem.h; sourceTree = "<group>"; };
 		1447AA131328897C000DCCD8 /* gecParticleSystem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecParticleSystem.mm; sourceTree = "<group>"; };
 		144BAA1913100C77005AD895 /* luabind.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = luabind.xcodeproj; path = Libraries/luabind/luabind.xcodeproj; sourceTree = "<group>"; };
-		1453691412F359A100B97FB4 /* weapon_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = weapon_1.lua; sourceTree = "<group>"; };
-		148AB5C61337F22800FAB7CA /* character_ss_alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = character_ss_alpha.png; sourceTree = "<group>"; };
+		144FF9AF133D8A9C0090800C /* button_attack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_attack.png; sourceTree = "<group>"; };
+		144FF9B0133D8A9C0090800C /* character_ss_alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = character_ss_alpha.png; sourceTree = "<group>"; };
+		144FF9B1133D8A9C0090800C /* gando_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gando_box.png; sourceTree = "<group>"; };
+		144FF9B2133D8A9C0090800C /* hitbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hitbutton.png; sourceTree = "<group>"; };
+		144FF9B3133D8A9C0090800C /* hitter1_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hitter1_1.png; sourceTree = "<group>"; };
+		144FF9B4133D8A9C0090800C /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		144FF9B5133D8A9C0090800C /* joypad_move.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = joypad_move.png; sourceTree = "<group>"; };
+		144FF9B6133D8A9C0090800C /* joystick-moving-path.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joystick-moving-path.png"; sourceTree = "<group>"; };
+		144FF9B7133D8A9C0090800C /* Particle2.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = Particle2.pvr; sourceTree = "<group>"; };
+		144FF9B8133D8A9C0090800C /* Particles3.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = Particles3.pvr; sourceTree = "<group>"; };
+		144FF9B9133D8A9C0090800C /* pixel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pixel.png; sourceTree = "<group>"; };
+		144FF9BA133D8A9C0090800C /* scenario_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scenario_3.png; sourceTree = "<group>"; };
+		144FF9BB133D8A9C0090800C /* smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smoke.png; sourceTree = "<group>"; };
+		144FF9BC133D8A9C0090800C /* smoke.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = smoke.pvr; sourceTree = "<group>"; };
+		144FF9BD133D8A9C0090800C /* sprite_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite_test.png; sourceTree = "<group>"; };
+		144FF9C1133D8A9C0090800C /* base_functions.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = base_functions.lua; sourceTree = "<group>"; };
+		144FF9C2133D8A9C0090800C /* ComponentBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ComponentBuilder.lua; sourceTree = "<group>"; };
+		144FF9C3133D8A9C0090800C /* config_functions.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config_functions.lua; sourceTree = "<group>"; };
+		144FF9C4133D8A9C0090800C /* EntityBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EntityBuilder.lua; sourceTree = "<group>"; };
+		144FF9C5133D8A9C0090800C /* EntityMap.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EntityMap.lua; sourceTree = "<group>"; };
+		144FF9C6133D8A9C0090800C /* Pickle.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Pickle.lua; sourceTree = "<group>"; };
+		144FF9C7133D8A9C0090800C /* PrimitiveBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PrimitiveBuilder.lua; sourceTree = "<group>"; };
+		144FF9C8133D8A9C0090800C /* SceneBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SceneBuilder.lua; sourceTree = "<group>"; };
+		144FF9C9133D8A9C0090800C /* tableprint.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tableprint.lua; sourceTree = "<group>"; };
+		144FF9CB133D8A9C0090800C /* gecFSM_interface.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gecFSM_interface.lua; sourceTree = "<group>"; };
+		144FF9CD133D8A9C0090800C /* config.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.lua; sourceTree = "<group>"; };
+		144FF9CF133D8A9C0090800C /* event_manager.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = event_manager.lua; sourceTree = "<group>"; };
+		144FF9D0133D8A9C0090800C /* init.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = init.lua; sourceTree = "<group>"; };
+		144FF9DC133D8A9C0090800C /* main.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.lua; sourceTree = "<group>"; };
+		144FF9DF133D8A9C0090800C /* particle_test_scene.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = particle_test_scene.lua; sourceTree = "<group>"; };
+		144FF9E1133D8A9C0090800C /* game_entities_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = game_entities_1.lua; sourceTree = "<group>"; };
+		144FF9E2133D8A9C0090800C /* gui.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gui.lua; sourceTree = "<group>"; };
+		144FF9E3133D8A9C0090800C /* world1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = world1.lua; sourceTree = "<group>"; };
+		144FFA10133D8ADC0090800C /* button_attack.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = button_attack.lua; sourceTree = "<group>"; };
+		144FFA11133D8ADC0090800C /* character.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = character.lua; sourceTree = "<group>"; };
+		144FFA12133D8ADC0090800C /* hitter_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hitter_1.lua; sourceTree = "<group>"; };
+		144FFA13133D8ADC0090800C /* joypad_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = joypad_1.lua; sourceTree = "<group>"; };
+		144FFA15133D8ADC0090800C /* particle_emmiter.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = particle_emmiter.lua; sourceTree = "<group>"; };
+		144FFA16133D8ADC0090800C /* particle_emmiter_bomb.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = particle_emmiter_bomb.lua; sourceTree = "<group>"; };
+		144FFA17133D8ADC0090800C /* particle_emmiter_spray.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = particle_emmiter_spray.lua; sourceTree = "<group>"; };
+		144FFA18133D8ADC0090800C /* weapon_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = weapon_1.lua; sourceTree = "<group>"; };
+		144FFA19133D8ADC0090800C /* zero.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zero.lua; sourceTree = "<group>"; };
+		144FFA1C133D8ADC0090800C /* particle_test_scene.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = particle_test_scene.lua; sourceTree = "<group>"; };
+		144FFA1E133D8ADC0090800C /* game_entities_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = game_entities_1.lua; sourceTree = "<group>"; };
+		144FFA1F133D8ADC0090800C /* gui.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gui.lua; sourceTree = "<group>"; };
+		144FFA20133D8ADC0090800C /* world1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = world1.lua; sourceTree = "<group>"; };
 		148B1F721310A2DC00B1CE94 /* gecFollowingCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecFollowingCamera.h; sourceTree = "<group>"; };
 		148B1F731310A2DC00B1CE94 /* gecFollowingCamera.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecFollowingCamera.mm; sourceTree = "<group>"; };
 		148B1F741310A2DC00B1CE94 /* ICompCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICompCamera.h; sourceTree = "<group>"; };
@@ -210,22 +253,6 @@
 		148B1FBC1310AA9E00B1CE94 /* ftglesTextureFont.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ftglesTextureFont.mm; sourceTree = "<group>"; };
 		148B20CF1310C9CA00B1CE94 /* TOONISH.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TOONISH.ttf; sourceTree = "<group>"; };
 		1498C7241329830400BA6EAF /* Range.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Range.h; sourceTree = "<group>"; };
-		149EBD00132DC23800CCC900 /* particle_emmiter.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = particle_emmiter.lua; sourceTree = "<group>"; };
-		149EBD04132DC37500CCC900 /* particle_emmiter_spray.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = particle_emmiter_spray.lua; sourceTree = "<group>"; };
-		149EBD06132DC99D00CCC900 /* particle_emmiter_bomb.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = particle_emmiter_bomb.lua; sourceTree = "<group>"; };
-		14A2170512E7884700A4D8EC /* base_functions.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = base_functions.lua; sourceTree = "<group>"; };
-		14A2170612E7884700A4D8EC /* ComponentBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ComponentBuilder.lua; sourceTree = "<group>"; };
-		14A2170712E7884700A4D8EC /* EntityBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EntityBuilder.lua; sourceTree = "<group>"; };
-		14A2170812E7884700A4D8EC /* EntityMap.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EntityMap.lua; sourceTree = "<group>"; };
-		14A2170912E7884700A4D8EC /* Pickle.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Pickle.lua; sourceTree = "<group>"; };
-		14A2170A12E7884700A4D8EC /* PrimitiveBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PrimitiveBuilder.lua; sourceTree = "<group>"; };
-		14A2170B12E7884700A4D8EC /* SceneBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SceneBuilder.lua; sourceTree = "<group>"; };
-		14A2170C12E7884700A4D8EC /* tableprint.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tableprint.lua; sourceTree = "<group>"; };
-		14A2170E12E7884700A4D8EC /* gecFSM_interface.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gecFSM_interface.lua; sourceTree = "<group>"; };
-		14A2171512E7884700A4D8EC /* event_manager.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = event_manager.lua; sourceTree = "<group>"; };
-		14A2171612E7884700A4D8EC /* init.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = init.lua; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.lua; };
-		14A2171712E7884700A4D8EC /* main.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.lua; sourceTree = "<group>"; };
-		14A218A112E89AC500A4D8EC /* character.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = character.lua; sourceTree = "<group>"; };
 		14AC7E11132E4DA300D5ACA7 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		14AC7E13132E4DAB00D5ACA7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		14AC9036133071DE00BB0A26 /* libCocosDenshion.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libCocosDenshion.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -243,12 +270,7 @@
 		14AC9046133083E700BB0A26 /* SimpleAudioEngine_objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAudioEngine_objc.m; sourceTree = "<group>"; };
 		14ADA21C132E4F9800D3571D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		14B127BD13104A720015D418 /* ftgles.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ftgles.xcodeproj; path = Libraries/ftgles/Xcode/ftgles/ftgles.xcodeproj; sourceTree = "<group>"; };
-		14D1A7F312EDD8180070D86F /* hitter_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hitter_1.lua; sourceTree = "<group>"; };
-		14D1A7F412EDD8180070D86F /* joypad_1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = joypad_1.lua; sourceTree = "<group>"; };
-		14D1A85012EDE0570070D86F /* button_attack.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = button_attack.lua; sourceTree = "<group>"; };
 		14D2BA12132ABC0C00840B7C /* SharedTextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedTextureManager.h; sourceTree = "<group>"; };
-		14DC3FC512FDDE71004CC360 /* config_functions.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config_functions.lua; sourceTree = "<group>"; };
-		14DC3FD212FDDE8E004CC360 /* config.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.lua; sourceTree = "<group>"; };
 		14DEBD921310777C0094F680 /* box2d.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = box2d.xcodeproj; path = Libraries/box2d/box2d.xcodeproj; sourceTree = "<group>"; };
 		14DEBF531310835C0094F680 /* BehaviourActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BehaviourActions.h; sourceTree = "<group>"; };
 		14DEBF541310835C0094F680 /* BehaviourStates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BehaviourStates.h; sourceTree = "<group>"; };
@@ -341,26 +363,12 @@
 		14DEC02D1310835C0094F680 /* HardwareClock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HardwareClock.cpp; sourceTree = "<group>"; };
 		14DEC02E1310835C0094F680 /* HardwareClock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HardwareClock.h; sourceTree = "<group>"; };
 		14DEC02F1310835C0094F680 /* VectorList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VectorList.h; sourceTree = "<group>"; };
-		14E1A25C1332833A007C847F /* hitbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hitbutton.png; sourceTree = "<group>"; };
 		14E31415121E47E200917795 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		14E31416121E47E200917795 /* Particles_2AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particles_2AppDelegate.h; sourceTree = "<group>"; };
 		14E31417121E47E200917795 /* Particles_2AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Particles_2AppDelegate.mm; sourceTree = "<group>"; };
 		14E31467121E47FE00917795 /* GandoEngine_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GandoEngine_Prefix.pch; sourceTree = "<group>"; };
 		14E31468121E47FE00917795 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14E31469121E47FE00917795 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		14E31470121E47FE00917795 /* button_attack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_attack.png; sourceTree = "<group>"; };
-		14E31472121E47FE00917795 /* gando_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gando_box.png; sourceTree = "<group>"; };
-		14E31474121E47FE00917795 /* hitter1_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hitter1_1.png; sourceTree = "<group>"; };
-		14E31475121E47FE00917795 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		14E31476121E47FE00917795 /* joypad_move.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = joypad_move.png; sourceTree = "<group>"; };
-		14E31477121E47FE00917795 /* joystick-moving-path.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joystick-moving-path.png"; sourceTree = "<group>"; };
-		14E31479121E47FE00917795 /* Particle2.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = Particle2.pvr; sourceTree = "<group>"; };
-		14E3147A121E47FE00917795 /* Particles3.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = Particles3.pvr; sourceTree = "<group>"; };
-		14E3147B121E47FE00917795 /* pixel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pixel.png; sourceTree = "<group>"; };
-		14E3147E121E47FE00917795 /* scenario_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scenario_3.png; sourceTree = "<group>"; };
-		14E31480121E47FE00917795 /* smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smoke.png; sourceTree = "<group>"; };
-		14E31481121E47FE00917795 /* smoke.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = smoke.pvr; sourceTree = "<group>"; };
-		14E31482121E47FE00917795 /* sprite_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite_test.png; sourceTree = "<group>"; };
 		14E31485121E47FE00917795 /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
 		14E31486121E47FE00917795 /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
 		14E314CF121E49B900917795 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -395,24 +403,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1429A902132A620900314A28 /* world1 */ = {
-			isa = PBXGroup;
-			children = (
-				1429A903132A620900314A28 /* game_entities_1.lua */,
-				1429A904132A620900314A28 /* gui.lua */,
-				1429A905132A620900314A28 /* world1.lua */,
-			);
-			path = world1;
-			sourceTree = "<group>";
-		};
-		142DA6BE132A742A00BD2A38 /* particle_test_scene */ = {
-			isa = PBXGroup;
-			children = (
-				142DA6BF132A742A00BD2A38 /* particle_test_scene.lua */,
-			);
-			path = particle_test_scene;
-			sourceTree = "<group>";
-		};
 		1430C81C131F050700AFA083 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
@@ -431,28 +421,6 @@
 				1430C7FB131F02F500AFA083 /* TextureTextRenderer.mm */,
 			);
 			name = Implementations;
-			sourceTree = "<group>";
-		};
-		1433F5CF128ADC1D00878671 /* images */ = {
-			isa = PBXGroup;
-			children = (
-				148AB5C61337F22800FAB7CA /* character_ss_alpha.png */,
-				14E1A25C1332833A007C847F /* hitbutton.png */,
-				14E31470121E47FE00917795 /* button_attack.png */,
-				14E31472121E47FE00917795 /* gando_box.png */,
-				14E31474121E47FE00917795 /* hitter1_1.png */,
-				14E31475121E47FE00917795 /* Icon.png */,
-				14E31476121E47FE00917795 /* joypad_move.png */,
-				14E31477121E47FE00917795 /* joystick-moving-path.png */,
-				14E31479121E47FE00917795 /* Particle2.pvr */,
-				14E3147A121E47FE00917795 /* Particles3.pvr */,
-				14E3147B121E47FE00917795 /* pixel.png */,
-				14E3147E121E47FE00917795 /* scenario_3.png */,
-				14E31480121E47FE00917795 /* smoke.png */,
-				14E31481121E47FE00917795 /* smoke.pvr */,
-				14E31482121E47FE00917795 /* sprite_test.png */,
-			);
-			name = images;
 			sourceTree = "<group>";
 		};
 		144668FB133A503D001DAE2D /* Audio */ = {
@@ -501,6 +469,178 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		144FF9AE133D8A9C0090800C /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				144FF9AF133D8A9C0090800C /* button_attack.png */,
+				144FF9B0133D8A9C0090800C /* character_ss_alpha.png */,
+				144FF9B1133D8A9C0090800C /* gando_box.png */,
+				144FF9B2133D8A9C0090800C /* hitbutton.png */,
+				144FF9B3133D8A9C0090800C /* hitter1_1.png */,
+				144FF9B4133D8A9C0090800C /* Icon.png */,
+				144FF9B5133D8A9C0090800C /* joypad_move.png */,
+				144FF9B6133D8A9C0090800C /* joystick-moving-path.png */,
+				144FF9B7133D8A9C0090800C /* Particle2.pvr */,
+				144FF9B8133D8A9C0090800C /* Particles3.pvr */,
+				144FF9B9133D8A9C0090800C /* pixel.png */,
+				144FF9BA133D8A9C0090800C /* scenario_3.png */,
+				144FF9BB133D8A9C0090800C /* smoke.png */,
+				144FF9BC133D8A9C0090800C /* smoke.pvr */,
+				144FF9BD133D8A9C0090800C /* sprite_test.png */,
+			);
+			path = Graphics;
+			sourceTree = "<group>";
+		};
+		144FF9BE133D8A9C0090800C /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				144FFA0E133D8ADC0090800C /* Game */,
+				144FF9BF133D8A9C0090800C /* Engine */,
+				144FF9DC133D8A9C0090800C /* main.lua */,
+				144FF9DD133D8A9C0090800C /* scenes */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
+		144FF9BF133D8A9C0090800C /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				144FF9C0133D8A9C0090800C /* base */,
+				144FF9CA133D8A9C0090800C /* components */,
+				144FF9CC133D8A9C0090800C /* configuration */,
+				144FF9CE133D8A9C0090800C /* events */,
+				144FF9D0133D8A9C0090800C /* init.lua */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		144FF9C0133D8A9C0090800C /* base */ = {
+			isa = PBXGroup;
+			children = (
+				144FF9C1133D8A9C0090800C /* base_functions.lua */,
+				144FF9C2133D8A9C0090800C /* ComponentBuilder.lua */,
+				144FF9C3133D8A9C0090800C /* config_functions.lua */,
+				144FF9C4133D8A9C0090800C /* EntityBuilder.lua */,
+				144FF9C5133D8A9C0090800C /* EntityMap.lua */,
+				144FF9C6133D8A9C0090800C /* Pickle.lua */,
+				144FF9C7133D8A9C0090800C /* PrimitiveBuilder.lua */,
+				144FF9C8133D8A9C0090800C /* SceneBuilder.lua */,
+				144FF9C9133D8A9C0090800C /* tableprint.lua */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		144FF9CA133D8A9C0090800C /* components */ = {
+			isa = PBXGroup;
+			children = (
+				144FF9CB133D8A9C0090800C /* gecFSM_interface.lua */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		144FF9CC133D8A9C0090800C /* configuration */ = {
+			isa = PBXGroup;
+			children = (
+				144FF9CD133D8A9C0090800C /* config.lua */,
+			);
+			path = configuration;
+			sourceTree = "<group>";
+		};
+		144FF9CE133D8A9C0090800C /* events */ = {
+			isa = PBXGroup;
+			children = (
+				144FF9CF133D8A9C0090800C /* event_manager.lua */,
+			);
+			path = events;
+			sourceTree = "<group>";
+		};
+		144FF9DD133D8A9C0090800C /* scenes */ = {
+			isa = PBXGroup;
+			children = (
+				144FF9DE133D8A9C0090800C /* particle_test_scene */,
+				144FF9E0133D8A9C0090800C /* world1 */,
+			);
+			path = scenes;
+			sourceTree = "<group>";
+		};
+		144FF9DE133D8A9C0090800C /* particle_test_scene */ = {
+			isa = PBXGroup;
+			children = (
+				144FF9DF133D8A9C0090800C /* particle_test_scene.lua */,
+			);
+			path = particle_test_scene;
+			sourceTree = "<group>";
+		};
+		144FF9E0133D8A9C0090800C /* world1 */ = {
+			isa = PBXGroup;
+			children = (
+				144FF9E1133D8A9C0090800C /* game_entities_1.lua */,
+				144FF9E2133D8A9C0090800C /* gui.lua */,
+				144FF9E3133D8A9C0090800C /* world1.lua */,
+			);
+			path = world1;
+			sourceTree = "<group>";
+		};
+		144FFA0E133D8ADC0090800C /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				144FFA0F133D8ADC0090800C /* entities */,
+				144FFA1A133D8ADC0090800C /* scenes */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		144FFA0F133D8ADC0090800C /* entities */ = {
+			isa = PBXGroup;
+			children = (
+				144FFA10133D8ADC0090800C /* button_attack.lua */,
+				144FFA11133D8ADC0090800C /* character.lua */,
+				144FFA12133D8ADC0090800C /* hitter_1.lua */,
+				144FFA13133D8ADC0090800C /* joypad_1.lua */,
+				144FFA14133D8ADC0090800C /* particles */,
+				144FFA18133D8ADC0090800C /* weapon_1.lua */,
+				144FFA19133D8ADC0090800C /* zero.lua */,
+			);
+			path = entities;
+			sourceTree = "<group>";
+		};
+		144FFA14133D8ADC0090800C /* particles */ = {
+			isa = PBXGroup;
+			children = (
+				144FFA15133D8ADC0090800C /* particle_emmiter.lua */,
+				144FFA16133D8ADC0090800C /* particle_emmiter_bomb.lua */,
+				144FFA17133D8ADC0090800C /* particle_emmiter_spray.lua */,
+			);
+			path = particles;
+			sourceTree = "<group>";
+		};
+		144FFA1A133D8ADC0090800C /* scenes */ = {
+			isa = PBXGroup;
+			children = (
+				144FFA1B133D8ADC0090800C /* particle_test_scene */,
+				144FFA1D133D8ADC0090800C /* world1 */,
+			);
+			path = scenes;
+			sourceTree = "<group>";
+		};
+		144FFA1B133D8ADC0090800C /* particle_test_scene */ = {
+			isa = PBXGroup;
+			children = (
+				144FFA1C133D8ADC0090800C /* particle_test_scene.lua */,
+			);
+			path = particle_test_scene;
+			sourceTree = "<group>";
+		};
+		144FFA1D133D8ADC0090800C /* world1 */ = {
+			isa = PBXGroup;
+			children = (
+				144FFA1E133D8ADC0090800C /* game_entities_1.lua */,
+				144FFA1F133D8ADC0090800C /* gui.lua */,
+				144FFA20133D8ADC0090800C /* world1.lua */,
+			);
+			path = world1;
+			sourceTree = "<group>";
+		};
 		148B1F711310A2DC00B1CE94 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
@@ -519,86 +659,6 @@
 				1430CA7613201A3600AFA083 /* Diavlo_BLACK_II_37.otf */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		149EBCFF132DC23800CCC900 /* particles */ = {
-			isa = PBXGroup;
-			children = (
-				149EBD06132DC99D00CCC900 /* particle_emmiter_bomb.lua */,
-				149EBD04132DC37500CCC900 /* particle_emmiter_spray.lua */,
-				149EBD00132DC23800CCC900 /* particle_emmiter.lua */,
-			);
-			path = particles;
-			sourceTree = "<group>";
-		};
-		14A2170312E7884700A4D8EC /* Scripts */ = {
-			isa = PBXGroup;
-			children = (
-				14A2170412E7884700A4D8EC /* base */,
-				14A2170D12E7884700A4D8EC /* components */,
-				14DC3FD112FDDE8E004CC360 /* configuration */,
-				14A2171012E7884700A4D8EC /* entities */,
-				14A2171412E7884700A4D8EC /* events */,
-				14A2171812E7884700A4D8EC /* scenes */,
-				14A2171612E7884700A4D8EC /* init.lua */,
-				14A2171712E7884700A4D8EC /* main.lua */,
-			);
-			path = Scripts;
-			sourceTree = "<group>";
-		};
-		14A2170412E7884700A4D8EC /* base */ = {
-			isa = PBXGroup;
-			children = (
-				14DC3FC512FDDE71004CC360 /* config_functions.lua */,
-				14A2170512E7884700A4D8EC /* base_functions.lua */,
-				14A2170612E7884700A4D8EC /* ComponentBuilder.lua */,
-				14A2170712E7884700A4D8EC /* EntityBuilder.lua */,
-				14A2170812E7884700A4D8EC /* EntityMap.lua */,
-				14A2170912E7884700A4D8EC /* Pickle.lua */,
-				14A2170A12E7884700A4D8EC /* PrimitiveBuilder.lua */,
-				14A2170B12E7884700A4D8EC /* SceneBuilder.lua */,
-				14A2170C12E7884700A4D8EC /* tableprint.lua */,
-			);
-			path = base;
-			sourceTree = "<group>";
-		};
-		14A2170D12E7884700A4D8EC /* components */ = {
-			isa = PBXGroup;
-			children = (
-				14A2170E12E7884700A4D8EC /* gecFSM_interface.lua */,
-			);
-			path = components;
-			sourceTree = "<group>";
-		};
-		14A2171012E7884700A4D8EC /* entities */ = {
-			isa = PBXGroup;
-			children = (
-				149EBCFF132DC23800CCC900 /* particles */,
-				1453691412F359A100B97FB4 /* weapon_1.lua */,
-				143C240F12F9116F009B37EF /* zero.lua */,
-				14D1A85012EDE0570070D86F /* button_attack.lua */,
-				14D1A7F312EDD8180070D86F /* hitter_1.lua */,
-				14D1A7F412EDD8180070D86F /* joypad_1.lua */,
-				14A218A112E89AC500A4D8EC /* character.lua */,
-			);
-			path = entities;
-			sourceTree = "<group>";
-		};
-		14A2171412E7884700A4D8EC /* events */ = {
-			isa = PBXGroup;
-			children = (
-				14A2171512E7884700A4D8EC /* event_manager.lua */,
-			);
-			path = events;
-			sourceTree = "<group>";
-		};
-		14A2171812E7884700A4D8EC /* scenes */ = {
-			isa = PBXGroup;
-			children = (
-				142DA6BE132A742A00BD2A38 /* particle_test_scene */,
-				1429A902132A620900314A28 /* world1 */,
-			);
-			path = scenes;
 			sourceTree = "<group>";
 		};
 		14AC9038133083E700BB0A26 /* CocosDenshion */ = {
@@ -643,14 +703,6 @@
 				14B127C913104A730015D418 /* libFTGLES.a */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		14DC3FD112FDDE8E004CC360 /* configuration */ = {
-			isa = PBXGroup;
-			children = (
-				14DC3FD212FDDE8E004CC360 /* config.lua */,
-			);
-			path = configuration;
 			sourceTree = "<group>";
 		};
 		14DEBD931310777C0094F680 /* Products */ = {
@@ -994,10 +1046,10 @@
 		14E3146A121E47FE00917795 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				144FF9AE133D8A9C0090800C /* Graphics */,
+				144FF9BE133D8A9C0090800C /* Scripts */,
 				144668FB133A503D001DAE2D /* Audio */,
 				148B20CE1310C9C300B1CE94 /* Fonts */,
-				14A2170312E7884700A4D8EC /* Scripts */,
-				1433F5CF128ADC1D00878671 /* images */,
 				14E31484121E47FE00917795 /* Shaders */,
 			);
 			path = Resources;
@@ -1164,56 +1216,60 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14D2B9FA132AAECB00840B7C /* Particle2.pvr in Resources */,
-				14D2B9FB132AAECB00840B7C /* Particles3.pvr in Resources */,
 				14FB89FA121E4C3300E1B242 /* Shader.fsh in Resources */,
 				14FB89FB121E4C3300E1B242 /* Shader.vsh in Resources */,
 				14E31488121E47FE00917795 /* MainWindow.xib in Resources */,
-				14E3148E121E47FE00917795 /* button_attack.png in Resources */,
-				14E31490121E47FE00917795 /* gando_box.png in Resources */,
-				14E31492121E47FE00917795 /* hitter1_1.png in Resources */,
-				14E31493121E47FE00917795 /* Icon.png in Resources */,
-				14E31494121E47FE00917795 /* joypad_move.png in Resources */,
-				14E31495121E47FE00917795 /* joystick-moving-path.png in Resources */,
-				14E31499121E47FE00917795 /* pixel.png in Resources */,
-				14E3149C121E47FE00917795 /* scenario_3.png in Resources */,
-				14E3149E121E47FE00917795 /* smoke.png in Resources */,
-				14E3149F121E47FE00917795 /* smoke.pvr in Resources */,
-				14E314A0121E47FE00917795 /* sprite_test.png in Resources */,
-				14A2171B12E7884700A4D8EC /* base_functions.lua in Resources */,
-				14A2171C12E7884700A4D8EC /* ComponentBuilder.lua in Resources */,
-				14A2171D12E7884700A4D8EC /* EntityBuilder.lua in Resources */,
-				14A2171E12E7884700A4D8EC /* EntityMap.lua in Resources */,
-				14A2171F12E7884700A4D8EC /* Pickle.lua in Resources */,
-				14A2172012E7884700A4D8EC /* PrimitiveBuilder.lua in Resources */,
-				14A2172112E7884700A4D8EC /* SceneBuilder.lua in Resources */,
-				14A2172212E7884700A4D8EC /* tableprint.lua in Resources */,
-				14A2172312E7884700A4D8EC /* gecFSM_interface.lua in Resources */,
-				14A2172812E7884700A4D8EC /* event_manager.lua in Resources */,
-				14A2172912E7884700A4D8EC /* init.lua in Resources */,
-				14A2172A12E7884700A4D8EC /* main.lua in Resources */,
-				14A218A212E89AC500A4D8EC /* character.lua in Resources */,
-				14D1A7F512EDD8180070D86F /* hitter_1.lua in Resources */,
-				14D1A7F612EDD8180070D86F /* joypad_1.lua in Resources */,
-				14D1A85112EDE0570070D86F /* button_attack.lua in Resources */,
-				1453691512F359A100B97FB4 /* weapon_1.lua in Resources */,
-				143C241012F9116F009B37EF /* zero.lua in Resources */,
-				14DC3FC612FDDE71004CC360 /* config_functions.lua in Resources */,
-				14DC3FD312FDDE8E004CC360 /* config.lua in Resources */,
 				148B20D01310C9CA00B1CE94 /* TOONISH.ttf in Resources */,
 				1430CA7713201A3600AFA083 /* Diavlo_BLACK_II_37.otf in Resources */,
-				1429A906132A620900314A28 /* game_entities_1.lua in Resources */,
-				1429A907132A620900314A28 /* gui.lua in Resources */,
-				1429A908132A620900314A28 /* world1.lua in Resources */,
-				142DA6C0132A742A00BD2A38 /* particle_test_scene.lua in Resources */,
-				149EBD01132DC23800CCC900 /* particle_emmiter.lua in Resources */,
-				149EBD05132DC37500CCC900 /* particle_emmiter_spray.lua in Resources */,
-				149EBD07132DC99D00CCC900 /* particle_emmiter_bomb.lua in Resources */,
-				14E1A25D1332833A007C847F /* hitbutton.png in Resources */,
-				148AB5C71337F22800FAB7CA /* character_ss_alpha.png in Resources */,
 				144668FF133A503D001DAE2D /* sonic_theme.mp3 in Resources */,
 				14466903133A6E91001DAE2D /* swing_1.caf in Resources */,
 				14466905133A75C3001DAE2D /* swing_1.wav in Resources */,
+				144FF9E4133D8A9C0090800C /* button_attack.png in Resources */,
+				144FF9E5133D8A9C0090800C /* character_ss_alpha.png in Resources */,
+				144FF9E6133D8A9C0090800C /* gando_box.png in Resources */,
+				144FF9E7133D8A9C0090800C /* hitbutton.png in Resources */,
+				144FF9E8133D8A9C0090800C /* hitter1_1.png in Resources */,
+				144FF9E9133D8A9C0090800C /* Icon.png in Resources */,
+				144FF9EA133D8A9C0090800C /* joypad_move.png in Resources */,
+				144FF9EB133D8A9C0090800C /* joystick-moving-path.png in Resources */,
+				144FF9EC133D8A9C0090800C /* Particle2.pvr in Resources */,
+				144FF9ED133D8A9C0090800C /* Particles3.pvr in Resources */,
+				144FF9EE133D8A9C0090800C /* pixel.png in Resources */,
+				144FF9EF133D8A9C0090800C /* scenario_3.png in Resources */,
+				144FF9F0133D8A9C0090800C /* smoke.png in Resources */,
+				144FF9F1133D8A9C0090800C /* smoke.pvr in Resources */,
+				144FF9F2133D8A9C0090800C /* sprite_test.png in Resources */,
+				144FF9F3133D8A9C0090800C /* base_functions.lua in Resources */,
+				144FF9F4133D8A9C0090800C /* ComponentBuilder.lua in Resources */,
+				144FF9F5133D8A9C0090800C /* config_functions.lua in Resources */,
+				144FF9F6133D8A9C0090800C /* EntityBuilder.lua in Resources */,
+				144FF9F7133D8A9C0090800C /* EntityMap.lua in Resources */,
+				144FF9F8133D8A9C0090800C /* Pickle.lua in Resources */,
+				144FF9F9133D8A9C0090800C /* PrimitiveBuilder.lua in Resources */,
+				144FF9FA133D8A9C0090800C /* SceneBuilder.lua in Resources */,
+				144FF9FB133D8A9C0090800C /* tableprint.lua in Resources */,
+				144FF9FC133D8A9C0090800C /* gecFSM_interface.lua in Resources */,
+				144FF9FD133D8A9C0090800C /* config.lua in Resources */,
+				144FF9FE133D8A9C0090800C /* event_manager.lua in Resources */,
+				144FF9FF133D8A9C0090800C /* init.lua in Resources */,
+				144FFA09133D8A9C0090800C /* main.lua in Resources */,
+				144FFA0A133D8A9C0090800C /* particle_test_scene.lua in Resources */,
+				144FFA0B133D8A9C0090800C /* game_entities_1.lua in Resources */,
+				144FFA0C133D8A9C0090800C /* gui.lua in Resources */,
+				144FFA0D133D8A9C0090800C /* world1.lua in Resources */,
+				144FFA21133D8ADC0090800C /* button_attack.lua in Resources */,
+				144FFA22133D8ADC0090800C /* character.lua in Resources */,
+				144FFA23133D8ADC0090800C /* hitter_1.lua in Resources */,
+				144FFA24133D8ADC0090800C /* joypad_1.lua in Resources */,
+				144FFA25133D8ADC0090800C /* particle_emmiter.lua in Resources */,
+				144FFA26133D8ADC0090800C /* particle_emmiter_bomb.lua in Resources */,
+				144FFA27133D8ADC0090800C /* particle_emmiter_spray.lua in Resources */,
+				144FFA28133D8ADC0090800C /* weapon_1.lua in Resources */,
+				144FFA29133D8ADC0090800C /* zero.lua in Resources */,
+				144FFA2A133D8ADC0090800C /* particle_test_scene.lua in Resources */,
+				144FFA2B133D8ADC0090800C /* game_entities_1.lua in Resources */,
+				144FFA2C133D8ADC0090800C /* gui.lua in Resources */,
+				144FFA2D133D8ADC0090800C /* world1.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
