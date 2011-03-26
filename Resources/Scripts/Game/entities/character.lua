@@ -37,7 +37,9 @@ Character =
 			--
 			elseif (in_event == "E_DRAG_GAMEPAD") then
 				
-				this:component("gecFSM"):performAction("A_DRAG_GAMEPAD")	
+				local fsm = this:component("gecFSM")
+				
+				fsm:performAction("A_DRAG_GAMEPAD")	
 				
 				-- flip the entity if needed
 				this.flipped = in_data.dx_negative
@@ -80,9 +82,7 @@ Character =
 								
 				if (in_data.label == "BUTTON_ATTACK") then					
 					this:component("gecFSM"):performAction("A_ATTACK")
-					
-
-					
+										
 					-- Broadcast an Attack Event for the Weapon Game Entity to manage					
 					broadcast("E_CHARACTER_ATTACK", {flipped=this.flipped; x=this.x, y=this.y})
 				end
