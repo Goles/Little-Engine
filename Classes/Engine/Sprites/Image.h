@@ -153,10 +153,10 @@ public:
 	void setScale(float s){ scale = s; }
 	
 	/** Gets Image width */
-	int		getImageWidth();
+	int	getImageWidth();
 	
 	/** Gets Image height */
-	int		getImageHeight();
+	int	getImageHeight();
 	
 	/** Gets Image scale */
 	float const getScale();

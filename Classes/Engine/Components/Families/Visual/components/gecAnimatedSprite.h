@@ -85,7 +85,7 @@ public:
 		@param animationName is the std::string	"key" of the animation in componentAnimations.
 		@returns Animation pointer to the requested animation or NULL if the animation is not found.
 	 */
-	Animation* getAnimation(const std::string&animationName);
+	Animation* getAnimation(const std::string &animationName);
 	
 	/** Set the current animation mode to "running" or "active". */
 	void setCurrentRunning(bool isRunning){ currentAnimation->setIsRunning(isRunning); }

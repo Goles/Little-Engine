@@ -58,6 +58,10 @@
 		144FF9F1133D8A9C0090800C /* smoke.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9BC133D8A9C0090800C /* smoke.pvr */; };
 		144FF9F2133D8A9C0090800C /* sprite_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9BD133D8A9C0090800C /* sprite_test.png */; };
 		145A10191311E5E00029FE31 /* libFTGLES.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B127C913104A730015D418 /* libFTGLES.a */; };
+		1485C2EC133FA97100E0119B /* ActionManager.mn in Sources */ = {isa = PBXBuildFile; fileRef = 1485C2EA133FA97000E0119B /* ActionManager.mn */; };
+		1485C2FB1340131300E0119B /* Action.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1485C2F71340131300E0119B /* Action.mm */; };
+		1485C2FC1340131300E0119B /* FiniteTimeAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1485C2F91340131300E0119B /* FiniteTimeAction.mm */; };
+		1485C2FF1340324900E0119B /* FadeInAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1485C2FD1340324800E0119B /* FadeInAction.mm */; };
 		148B1F761310A2DC00B1CE94 /* gecFollowingCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1F731310A2DC00B1CE94 /* gecFollowingCamera.mm */; };
 		148B1F771310A2DC00B1CE94 /* ICompCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1F751310A2DC00B1CE94 /* ICompCamera.mm */; };
 		148B1F871310A44100B1CE94 /* FontManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1F861310A44100B1CE94 /* FontManager.mm */; };
@@ -235,6 +239,15 @@
 		144FF9BB133D8A9C0090800C /* smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smoke.png; sourceTree = "<group>"; };
 		144FF9BC133D8A9C0090800C /* smoke.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = smoke.pvr; sourceTree = "<group>"; };
 		144FF9BD133D8A9C0090800C /* sprite_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite_test.png; sourceTree = "<group>"; };
+		1485C2EA133FA97000E0119B /* ActionManager.mn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ActionManager.mn; path = ../../../../gengine/Classes/Engine/SharedManagers/ActionManager.mn; sourceTree = "<group>"; };
+		1485C2EB133FA97000E0119B /* ActionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActionManager.h; path = ../../../../gengine/Classes/Engine/SharedManagers/ActionManager.h; sourceTree = "<group>"; };
+		1485C2F61340131300E0119B /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
+		1485C2F71340131300E0119B /* Action.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Action.mm; sourceTree = "<group>"; };
+		1485C2F81340131300E0119B /* FiniteTimeAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiniteTimeAction.h; sourceTree = "<group>"; };
+		1485C2F91340131300E0119B /* FiniteTimeAction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FiniteTimeAction.mm; sourceTree = "<group>"; };
+		1485C2FA1340131300E0119B /* IAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAction.h; sourceTree = "<group>"; };
+		1485C2FD1340324800E0119B /* FadeInAction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FadeInAction.mm; sourceTree = "<group>"; };
+		1485C2FE1340324900E0119B /* FadeInAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FadeInAction.h; sourceTree = "<group>"; };
 		148B1F721310A2DC00B1CE94 /* gecFollowingCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecFollowingCamera.h; sourceTree = "<group>"; };
 		148B1F731310A2DC00B1CE94 /* gecFollowingCamera.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecFollowingCamera.mm; sourceTree = "<group>"; };
 		148B1F741310A2DC00B1CE94 /* ICompCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICompCamera.h; sourceTree = "<group>"; };
@@ -605,6 +618,21 @@
 			path = Graphics;
 			sourceTree = "<group>";
 		};
+		1485C2F51340131200E0119B /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				1485C2FA1340131300E0119B /* IAction.h */,
+				1485C2F61340131300E0119B /* Action.h */,
+				1485C2F71340131300E0119B /* Action.mm */,
+				1485C2F81340131300E0119B /* FiniteTimeAction.h */,
+				1485C2F91340131300E0119B /* FiniteTimeAction.mm */,
+				1485C2FE1340324900E0119B /* FadeInAction.h */,
+				1485C2FD1340324800E0119B /* FadeInAction.mm */,
+			);
+			name = Actions;
+			path = ../../../gengine/Classes/Engine/Actions;
+			sourceTree = "<group>";
+		};
 		148B1F711310A2DC00B1CE94 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
@@ -942,6 +970,8 @@
 				148B1F861310A44100B1CE94 /* FontManager.mm */,
 				1447AA0C132730E6000DCCD8 /* ParticleManager.h */,
 				1447AA0B132730E5000DCCD8 /* ParticleManager.mm */,
+				1485C2EB133FA97000E0119B /* ActionManager.h */,
+				1485C2EA133FA97000E0119B /* ActionManager.mn */,
 			);
 			path = SharedManagers;
 			sourceTree = "<group>";
@@ -990,6 +1020,7 @@
 		14E31353121E47E100917795 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				1485C2F51340131200E0119B /* Actions */,
 				14DEBF501310835C0094F680 /* Components */,
 				14DEBF8D1310835C0094F680 /* Entities */,
 				14DEBF921310835C0094F680 /* Events */,
@@ -1294,6 +1325,10 @@
 				14AC9049133083E700BB0A26 /* CocosDenshion.m in Sources */,
 				14AC904A133083E700BB0A26 /* SimpleAudioEngine.mm in Sources */,
 				14AC904B133083E700BB0A26 /* SimpleAudioEngine_objc.m in Sources */,
+				1485C2EC133FA97100E0119B /* ActionManager.mn in Sources */,
+				1485C2FB1340131300E0119B /* Action.mm in Sources */,
+				1485C2FC1340131300E0119B /* FiniteTimeAction.mm in Sources */,
+				1485C2FF1340324900E0119B /* FadeInAction.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
