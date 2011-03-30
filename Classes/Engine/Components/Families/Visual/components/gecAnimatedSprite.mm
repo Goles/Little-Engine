@@ -124,8 +124,8 @@ void gecAnimatedSprite::render() const
 		std::cout << "ERROR: currentAnimation can't be NULL in gecAnimatedSprite... aborting (use setCurrentAnimation)." << std::endl;
 		abort();
 	}
-
-	currentAnimation->renderAtPoint(CGPointMake(ge->x,ge->y));
+    
+	currentAnimation->renderAtPoint(CGPointMake(ge->getPosition().x,ge->getPosition().y));
 }
 
 void gecAnimatedSprite::update(float delta)

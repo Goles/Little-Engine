@@ -56,8 +56,8 @@ Boolean gecJoystick::regionHit(float x, float y)
 
 Boolean	gecJoystick::outerRegionHit()
 {
-	float _x = this->getOwnerGE()->x;
-	float _y = this->getOwnerGE()->y;
+	float _x = this->getOwnerGE()->getPositionX();
+	float _y = this->getOwnerGE()->getPositionY();
 	float cX = center.x;
 	float cY = center.y;
 	
@@ -98,8 +98,8 @@ void gecJoystick::updateVelocity(float x, float y)
 	}
 	
 	// Update the thumb's position
-	this->getOwnerGE()->x = x;
-	this->getOwnerGE()->y = y;
+	this->getOwnerGE()->setPositionX(x);
+	this->getOwnerGE()->setPositionY(y);
 	this->setShape(CGRectMake(x, y, shape.size.width, shape.size.height));
 	
 	//We update the "latest" velocity ( that's what we will use as a cached reference.
@@ -150,8 +150,8 @@ Boolean gecJoystick::handle_touch(float x, float y, int touchIndex, int touchID,
 				gg::event::broadcast("E_STOP_GAMEPAD", payload);
 				
 				//Return to center.
-				this->getOwnerGE()->x = center.x;
-				this->getOwnerGE()->y = center.y;
+				this->getOwnerGE()->setPositionX(center.x);
+				this->getOwnerGE()->setPositionY(center.y);
 				this->setShape(CGRectMake(center.x, center.y, shape.size.width, shape.size.height));
 				latestVelocity = CGPointZero;
 				
@@ -191,8 +191,8 @@ Boolean gecJoystick::handle_touch(float x, float y, int touchIndex, int touchID,
 				
 				//Return to the center
 				this->updateVelocity(x, y);
-				this->getOwnerGE()->x = center.x;
-				this->getOwnerGE()->y = center.y;
+				this->getOwnerGE()->setPositionX(center.x);
+				this->getOwnerGE()->setPositionY(center.y);
 				this->setShape(CGRectMake(center.x, center.y, shape.size.width, shape.size.height));
 				latestVelocity = CGPointZero;
 				

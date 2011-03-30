@@ -86,13 +86,9 @@
 		14DEC0381310835C0094F680 /* TouchableManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF681310835C0094F680 /* TouchableManager.mm */; };
 		14DEC0391310835C0094F680 /* CompHealth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF6A1310835C0094F680 /* CompHealth.cpp */; };
 		14DEC03A1310835C0094F680 /* gecHealthHuman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF6C1310835C0094F680 /* gecHealthHuman.cpp */; };
-		14DEC03D1310835C0094F680 /* CompLevelLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF741310835C0094F680 /* CompLevelLoader.mm */; };
-		14DEC03E1310835C0094F680 /* CompSpawn.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF771310835C0094F680 /* CompSpawn.mm */; };
 		14DEC03F1310835C0094F680 /* gecAnimatedSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF7B1310835C0094F680 /* gecAnimatedSprite.mm */; };
 		14DEC0431310835C0094F680 /* gecVisualContainer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF831310835C0094F680 /* gecVisualContainer.mm */; };
 		14DEC0441310835C0094F680 /* gecVisual.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF841310835C0094F680 /* gecVisual.mm */; };
-		14DEC0451310835C0094F680 /* CompWeapon.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF881310835C0094F680 /* CompWeapon.mm */; };
-		14DEC0461310835C0094F680 /* gecWeapon.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF8A1310835C0094F680 /* gecWeapon.mm */; };
 		14DEC0471310835C0094F680 /* GEComponent.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF8C1310835C0094F680 /* GEComponent.mm */; };
 		14DEC0481310835C0094F680 /* GameEntity.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF8F1310835C0094F680 /* GameEntity.mm */; };
 		14DEC0491310835C0094F680 /* id_generator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF911310835C0094F680 /* id_generator.mm */; };
@@ -106,7 +102,6 @@
 		14DEC07A1310835C0094F680 /* ES1Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC00F1310835C0094F680 /* ES1Renderer.mm */; };
 		14DEC07B1310835C0094F680 /* ES2Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0111310835C0094F680 /* ES2Renderer.mm */; };
 		14DEC07C1310835C0094F680 /* Scene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0151310835C0094F680 /* Scene.mm */; };
-		14DEC07D1310835C0094F680 /* GETemplateManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0181310835C0094F680 /* GETemplateManager.mm */; };
 		14DEC07E1310835C0094F680 /* SceneManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC01A1310835C0094F680 /* SceneManager.mm */; };
 		14DEC0811310835C0094F680 /* SharedTextureManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0201310835C0094F680 /* SharedTextureManager.mm */; };
 		14DEC0821310835C0094F680 /* Animation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0231310835C0094F680 /* Animation.mm */; };
@@ -299,10 +294,6 @@
 		14DEBF6B1310835C0094F680 /* CompHealth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompHealth.h; sourceTree = "<group>"; };
 		14DEBF6C1310835C0094F680 /* gecHealthHuman.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gecHealthHuman.cpp; sourceTree = "<group>"; };
 		14DEBF6D1310835C0094F680 /* gecHealthHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecHealthHuman.h; sourceTree = "<group>"; };
-		14DEBF731310835C0094F680 /* CompLevelLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompLevelLoader.h; sourceTree = "<group>"; };
-		14DEBF741310835C0094F680 /* CompLevelLoader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CompLevelLoader.mm; sourceTree = "<group>"; };
-		14DEBF761310835C0094F680 /* CompSpawn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompSpawn.h; sourceTree = "<group>"; };
-		14DEBF771310835C0094F680 /* CompSpawn.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CompSpawn.mm; sourceTree = "<group>"; };
 		14DEBF7A1310835C0094F680 /* gecAnimatedSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecAnimatedSprite.h; sourceTree = "<group>"; };
 		14DEBF7B1310835C0094F680 /* gecAnimatedSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecAnimatedSprite.mm; sourceTree = "<group>"; };
 		14DEBF7C1310835C0094F680 /* gecImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecImage.h; sourceTree = "<group>"; };
@@ -310,10 +301,6 @@
 		14DEBF831310835C0094F680 /* gecVisualContainer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecVisualContainer.mm; sourceTree = "<group>"; };
 		14DEBF841310835C0094F680 /* gecVisual.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecVisual.mm; sourceTree = "<group>"; };
 		14DEBF851310835C0094F680 /* gecVisual.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecVisual.h; sourceTree = "<group>"; };
-		14DEBF871310835C0094F680 /* CompWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompWeapon.h; sourceTree = "<group>"; };
-		14DEBF881310835C0094F680 /* CompWeapon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CompWeapon.mm; sourceTree = "<group>"; };
-		14DEBF891310835C0094F680 /* gecWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecWeapon.h; sourceTree = "<group>"; };
-		14DEBF8A1310835C0094F680 /* gecWeapon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecWeapon.mm; sourceTree = "<group>"; };
 		14DEBF8B1310835C0094F680 /* GEComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEComponent.h; sourceTree = "<group>"; };
 		14DEBF8C1310835C0094F680 /* GEComponent.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GEComponent.mm; sourceTree = "<group>"; };
 		14DEBF8E1310835C0094F680 /* GameEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEntity.h; sourceTree = "<group>"; };
@@ -349,8 +336,6 @@
 		14DEC0121310835C0094F680 /* ESRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESRenderer.h; sourceTree = "<group>"; };
 		14DEC0141310835C0094F680 /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
 		14DEC0151310835C0094F680 /* Scene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Scene.mm; sourceTree = "<group>"; };
-		14DEC0171310835C0094F680 /* GETemplateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GETemplateManager.h; sourceTree = "<group>"; };
-		14DEC0181310835C0094F680 /* GETemplateManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GETemplateManager.mm; sourceTree = "<group>"; };
 		14DEC0191310835C0094F680 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
 		14DEC01A1310835C0094F680 /* SceneManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SceneManager.mm; sourceTree = "<group>"; };
 		14DEC01B1310835C0094F680 /* SharedBehaviorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedBehaviorManager.h; sourceTree = "<group>"; };
@@ -723,10 +708,7 @@
 				14DEBF591310835C0094F680 /* Collision */,
 				14DEBF601310835C0094F680 /* GUI */,
 				14DEBF691310835C0094F680 /* Health */,
-				14DEBF721310835C0094F680 /* LevelLoader */,
-				14DEBF751310835C0094F680 /* Spawner */,
 				14DEBF781310835C0094F680 /* Visual */,
-				14DEBF861310835C0094F680 /* Weapon */,
 			);
 			path = Families;
 			sourceTree = "<group>";
@@ -781,24 +763,6 @@
 			path = Health;
 			sourceTree = "<group>";
 		};
-		14DEBF721310835C0094F680 /* LevelLoader */ = {
-			isa = PBXGroup;
-			children = (
-				14DEBF731310835C0094F680 /* CompLevelLoader.h */,
-				14DEBF741310835C0094F680 /* CompLevelLoader.mm */,
-			);
-			path = LevelLoader;
-			sourceTree = "<group>";
-		};
-		14DEBF751310835C0094F680 /* Spawner */ = {
-			isa = PBXGroup;
-			children = (
-				14DEBF761310835C0094F680 /* CompSpawn.h */,
-				14DEBF771310835C0094F680 /* CompSpawn.mm */,
-			);
-			path = Spawner;
-			sourceTree = "<group>";
-		};
 		14DEBF781310835C0094F680 /* Visual */ = {
 			isa = PBXGroup;
 			children = (
@@ -821,17 +785,6 @@
 				14DEBF831310835C0094F680 /* gecVisualContainer.mm */,
 			);
 			path = components;
-			sourceTree = "<group>";
-		};
-		14DEBF861310835C0094F680 /* Weapon */ = {
-			isa = PBXGroup;
-			children = (
-				14DEBF871310835C0094F680 /* CompWeapon.h */,
-				14DEBF881310835C0094F680 /* CompWeapon.mm */,
-				14DEBF891310835C0094F680 /* gecWeapon.h */,
-				14DEBF8A1310835C0094F680 /* gecWeapon.mm */,
-			);
-			path = Weapon;
 			sourceTree = "<group>";
 		};
 		14DEBF8D1310835C0094F680 /* Entities */ = {
@@ -959,8 +912,6 @@
 		14DEC0161310835C0094F680 /* SharedManagers */ = {
 			isa = PBXGroup;
 			children = (
-				14DEC0171310835C0094F680 /* GETemplateManager.h */,
-				14DEC0181310835C0094F680 /* GETemplateManager.mm */,
 				14DEC0191310835C0094F680 /* SceneManager.h */,
 				14DEC01A1310835C0094F680 /* SceneManager.mm */,
 				14DEC01B1310835C0094F680 /* SharedBehaviorManager.h */,
@@ -1283,13 +1234,9 @@
 				14DEC0381310835C0094F680 /* TouchableManager.mm in Sources */,
 				14DEC0391310835C0094F680 /* CompHealth.cpp in Sources */,
 				14DEC03A1310835C0094F680 /* gecHealthHuman.cpp in Sources */,
-				14DEC03D1310835C0094F680 /* CompLevelLoader.mm in Sources */,
-				14DEC03E1310835C0094F680 /* CompSpawn.mm in Sources */,
 				14DEC03F1310835C0094F680 /* gecAnimatedSprite.mm in Sources */,
 				14DEC0431310835C0094F680 /* gecVisualContainer.mm in Sources */,
 				14DEC0441310835C0094F680 /* gecVisual.mm in Sources */,
-				14DEC0451310835C0094F680 /* CompWeapon.mm in Sources */,
-				14DEC0461310835C0094F680 /* gecWeapon.mm in Sources */,
 				14DEC0471310835C0094F680 /* GEComponent.mm in Sources */,
 				14DEC0481310835C0094F680 /* GameEntity.mm in Sources */,
 				14DEC0491310835C0094F680 /* id_generator.mm in Sources */,
@@ -1303,7 +1250,6 @@
 				14DEC07A1310835C0094F680 /* ES1Renderer.mm in Sources */,
 				14DEC07B1310835C0094F680 /* ES2Renderer.mm in Sources */,
 				14DEC07C1310835C0094F680 /* Scene.mm in Sources */,
-				14DEC07D1310835C0094F680 /* GETemplateManager.mm in Sources */,
 				14DEC07E1310835C0094F680 /* SceneManager.mm in Sources */,
 				14DEC0811310835C0094F680 /* SharedTextureManager.mm in Sources */,
 				14DEC0821310835C0094F680 /* Animation.mm in Sources */,

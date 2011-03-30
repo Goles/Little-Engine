@@ -187,7 +187,7 @@ void Scene::debugPrintEntities()
 	{
 		if(*it)
 		{
-			std::cout << "\nEntity " << i << " [" << (*it) << "] - " <<"[" << (*it)->x << "][" <<(*it)->y <<  "]" << std::endl;
+			std::cout << "\nEntity " << i << " [" << (*it) << "] - " <<"[" << (*it)->getPositionX() << "][" <<(*it)->getPositionY() <<  "]" << std::endl;
 			(*it)->debugPrintComponents();
 		}
 		++it;

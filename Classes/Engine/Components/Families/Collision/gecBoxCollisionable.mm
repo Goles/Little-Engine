@@ -25,7 +25,7 @@ void gecBoxCollisionable::setTransform(b2Body * const b)
 	if (b == entityBody)
 	{
 		GameEntity* ge = this->getOwnerGE();		
-		b2Vec2 b2Position = b2Vec2(ge->x/PTM_RATIO, ge->y/PTM_RATIO);
+		b2Vec2 b2Position = b2Vec2(ge->getPosition().x/PTM_RATIO, ge->getPosition().y/PTM_RATIO);
 		float32 b2Angle = 0.0f;		
 		b->SetTransform(b2Position, b2Angle);
 	}
@@ -56,7 +56,7 @@ void gecBoxCollisionable::createB2dBodyDef(void)
 	//Define our Box2d body
 	b2BodyDef spriteBodyDef;
     spriteBodyDef.type = b2_dynamicBody;
-    spriteBodyDef.position.Set(this->getOwnerGE()->x, this->getOwnerGE()->y);
+    spriteBodyDef.position.Set(this->getOwnerGE()->getPosition().x, this->getOwnerGE()->getPosition().y);
 	spriteBodyDef.bullet = false;
     spriteBodyDef.userData = this;   
 	entityBody = GBOX_2D_WORLD->CreateBody(&spriteBodyDef);

@@ -11,6 +11,7 @@
 #include <map>
 
 #include "GEComponent.h"
+#include "ConstantsAndMacros.h"
 
 /** Base class to represent a Game Entity.
  @remarks
@@ -21,9 +22,9 @@ class GameEntity
 {
 public:
 	
-	float		 x,	/**< X position of the Entity */
-				 y,	/**< Y position of the Entity */
-			height,	/**< Height of the Entity */
+	float		 a,	/**< X position of the Entity */
+                 b;	/**< Y position of the Entity */
+	float	height,	/**< Height of the Entity */
 			 width;	/**< Width of the Entity */
 	float	 speed;
 	bool  isActive;	/**< Is the Entity "sleeping" or not */
@@ -80,7 +81,18 @@ public:
 	const void		setSpeed(float s) { speed = s; }
 	
 	/** Set the GameEntity position*/
-	const void		setPosition(float _x, float _y) { x = _x; y = _y; }
+	const void		setPosition(float _x, float _y) { m_position.x = _x; m_position.y = _y; }
+    
+    const void      setPositionX(float _x) { m_position.x = _x; }
+    
+    const void      setPositionY(float _y) { m_position.y = _y; }
+    
+    const float     getPositionX() const { return m_position.x; }
+    
+    const float     getPositionY() const { return m_position.y; }
+    
+    const GGPoint &getPosition() const { return m_position; }
+    
 	
 	/** Flips the GameEntity Horizontally (facing right or left)*/
 	void			setFlipHorizontally(bool f){ flipHorizontally = f; }
@@ -95,7 +107,7 @@ public:
 	void			setLabel(const std::string &in_label) {	label = in_label; }
 	
 	/** Returns the label of this entity */
-	const std::string &getLabel() const { return label; }
+	const           std::string &getLabel() const { return label; }
 	
 //------------------------------------------------------------------------------
 public:
@@ -107,9 +119,9 @@ public:
     class compareByX 
 	{
 	public:
-	bool operator()(GameEntity const *a, GameEntity const *b) { 
-            return (a->x < b->x);
-        }
+        bool operator() (const GameEntity * const a, const GameEntity * const b) { 
+                return (a->getPosition().x < b->getPosition().x);
+            }
     };
 	
 	/** Functor to sort/compare Game Entities by the X poosition coordinate  
@@ -120,9 +132,8 @@ public:
     class compareByY 
 	{
 	public:
-        bool operator()(GameEntity const *a, GameEntity const *b) 
-		{ 
-            return ((a->y - (a->height/2)) > (b->y - (b->height/2)) );
+        bool operator() (const GameEntity * const a, GameEntity * const b) { 
+            return ((a->getPosition().y - (a->height/2)) > (b->getPosition().y - (b->height/2)) );
         }
     };	
 	
@@ -149,7 +160,8 @@ private:
 	ComponentMap components; /** < Game Entity Map of Components */
 	unsigned unique_id;		 /**< Entity Unique Id **/
 	std::string label;		 /**< Entity Label assigned by user*/
-	bool flipHorizontally;	 /** < Game Entity bool to switch horizontally */
+    GGPoint m_position;     /**< Position of the Entity */
+    bool flipHorizontally;	 /** < Game Entity bool to switch horizontally */
 };
 
 #endif

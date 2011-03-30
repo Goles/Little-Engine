@@ -272,8 +272,8 @@ namespace gg
              .property("active", &GameEntity::getIsActive, &GameEntity::setIsActive)
              .property("flipped", &GameEntity::getFlipHorizontally, &GameEntity::setFlipHorizontally)
              .property("label", &GameEntity::getLabel, &GameEntity::setLabel)
-             .def_readwrite("x", &GameEntity::x)
-             .def_readwrite("y", &GameEntity::y)
+             .property("x", &GameEntity::getPositionX, &GameEntity::setPositionX)
+             .property("y", &GameEntity::getPositionY, &GameEntity::setPositionY)
              .def_readwrite("speed", &GameEntity::speed)
              ];
             

@@ -149,8 +149,10 @@ void GandoBox2D::update(const float delta)
 				//If the collisioners are solid then apply "solid" collision correction.
 				if(ccp1->getSolid() && ccp2->getSolid())
 				{
-					ccp2->getOwnerGE()->x -= 2.0f * (b2body_p1->GetPosition().x - b2body_p2->GetPosition().x);
-					ccp2->getOwnerGE()->y -= 2.0f * (b2body_p1->GetPosition().y - b2body_p2->GetPosition().y);						
+                    GGPoint pos = ccp2->getOwnerGE()->getPosition();
+                    
+                    ccp2->getOwnerGE()->setPositionX(pos.x - 2.0f * (b2body_p1->GetPosition().x - b2body_p2->GetPosition().x));
+                    ccp2->getOwnerGE()->setPositionY(pos.y - 2.0f * (b2body_p1->GetPosition().y - b2body_p2->GetPosition().y));
 				}
 				
                 this->notifyCollisionEntity(ccp1->getOwnerGE());

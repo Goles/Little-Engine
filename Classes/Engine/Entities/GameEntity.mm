@@ -10,7 +10,7 @@
 
 #include "id_generator.h"
 
-GameEntity::GameEntity() : x(0.0f), y(0.0f), height(0.0f), width(0.0f), speed(0.0f),  unique_id(-1), flipHorizontally(false)
+GameEntity::GameEntity() : height(0.0f), width(0.0f), speed(0.0f),  unique_id(-1), m_position(CGPointZero), flipHorizontally(false)
 {
 	this->initialize();
 }

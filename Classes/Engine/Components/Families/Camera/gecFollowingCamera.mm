@@ -20,7 +20,7 @@ void gecFollowingCamera::update(float delta)
 	
 	if(m_follow_x)
 	{
-		int owner_x = ownerge_p->x;
+		int owner_x = ownerge_p->getPositionX();
 		
 		//Check if we scroll to the right
 		if((owner_x - m_cameraView.origin.x) >  (m_cameraView.size.width - m_deathZoneX))
@@ -33,7 +33,7 @@ void gecFollowingCamera::update(float delta)
 	
 	if(m_follow_y)
 	{
-		int owner_y = ownerge_p->y;		
+		int owner_y = ownerge_p->getPositionY();		
 		
 		//Check if we scroll up
 		if((owner_y - m_cameraView.origin.y) > (m_cameraView.size.height - m_deathZoneY))
