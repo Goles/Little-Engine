@@ -39,8 +39,15 @@ void gecParticleSystem::render() const
 {
     glPushMatrix();
 	glEnable(GL_TEXTURE_2D);
+    
     TEXTURE_MANAGER->bindTexture(m_texture);
 
+    if(gecVisual::m_dirtyTransform)
+        glMultMatrixf(m_transform);
+    
+    if(gecVisual::m_dirtyColor)
+        glColor4f(m_color[0], m_color[1], m_color[2], m_color[3]);
+    
 	switch (m_renderMode) 
     {
 		case gg::particle::render::kRenderingMode_PointSprites:

@@ -115,7 +115,7 @@ private:
     float m_decayVariance;
     float m_emissionDuration;
     float m_size;
-    bool m_emit;
+    bool m_emit;    
     
     static std::string m_label;
 };

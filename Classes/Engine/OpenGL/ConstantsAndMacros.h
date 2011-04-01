@@ -8,7 +8,8 @@
 #include <math.h>
 
 //Matrix Multiplication for 4x4 Matrixes.
-//typedef float mat4f_t[16];
+typedef float mat4f_t[16];
+
 static void matmul4_c(float m0[16], float m1[16], float d[16])
 {
 	d[0]  = m0[0]*m1[0] + m0[4]*m1[1] + m0[8]*m1[2] + m0[12]*m1[3];
@@ -39,10 +40,6 @@ static float InvSqrt (float x)
 	x = x * (1.5f - xhalf * x * x);
 	return x;
 }
-
-//Screen definitions
-#define SCREEN_HEIGHT 480
-#define SCREEN_WIDTH  320
 
 //definitions
 #define GGPoint CGPoint

@@ -10,6 +10,7 @@
 #define _GECVISUAL_H_
 
 #include "GEComponent.h"
+#include "ConstantsAndMacros.h"
 
 class gecVisual: public GEComponent
 {
@@ -19,13 +20,21 @@ public:
 
 	//gecVisual Interface
 public:
-    virtual void setAlpha(float alpha) = 0;
-    virtual void setColor(float R, float G, float B, float A = 255.0f) = 0;
+    gecVisual();
+    virtual ~gecVisual() {}
 	virtual void render() const = 0;
-	virtual ~gecVisual() {}
+    void setTransform(const mat4f_t &transform);
+    void setColor(float R, float G, float B, float A = 255.0f);
+    void setAlpha(float alpha);    
 	
+protected:
+    mat4f_t m_transform;
+    float m_color[4];    
+    bool m_dirtyTransform;
+    bool m_dirtyColor;
+
 private:
-	static gec_id_type m_id;    
+	static gec_id_type m_id;
 };
 
 #endif

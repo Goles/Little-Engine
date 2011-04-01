@@ -87,7 +87,6 @@
 		14DEC0391310835C0094F680 /* CompHealth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF6A1310835C0094F680 /* CompHealth.cpp */; };
 		14DEC03A1310835C0094F680 /* gecHealthHuman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF6C1310835C0094F680 /* gecHealthHuman.cpp */; };
 		14DEC03F1310835C0094F680 /* gecAnimatedSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF7B1310835C0094F680 /* gecAnimatedSprite.mm */; };
-		14DEC0431310835C0094F680 /* gecVisualContainer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF831310835C0094F680 /* gecVisualContainer.mm */; };
 		14DEC0441310835C0094F680 /* gecVisual.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF841310835C0094F680 /* gecVisual.mm */; };
 		14DEC0471310835C0094F680 /* GEComponent.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF8C1310835C0094F680 /* GEComponent.mm */; };
 		14DEC0481310835C0094F680 /* GameEntity.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF8F1310835C0094F680 /* GameEntity.mm */; };
@@ -296,9 +295,6 @@
 		14DEBF6D1310835C0094F680 /* gecHealthHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecHealthHuman.h; sourceTree = "<group>"; };
 		14DEBF7A1310835C0094F680 /* gecAnimatedSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecAnimatedSprite.h; sourceTree = "<group>"; };
 		14DEBF7B1310835C0094F680 /* gecAnimatedSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecAnimatedSprite.mm; sourceTree = "<group>"; };
-		14DEBF7C1310835C0094F680 /* gecImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecImage.h; sourceTree = "<group>"; };
-		14DEBF821310835C0094F680 /* gecVisualContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecVisualContainer.h; sourceTree = "<group>"; };
-		14DEBF831310835C0094F680 /* gecVisualContainer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecVisualContainer.mm; sourceTree = "<group>"; };
 		14DEBF841310835C0094F680 /* gecVisual.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecVisual.mm; sourceTree = "<group>"; };
 		14DEBF851310835C0094F680 /* gecVisual.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecVisual.h; sourceTree = "<group>"; };
 		14DEBF8B1310835C0094F680 /* GEComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEComponent.h; sourceTree = "<group>"; };
@@ -778,11 +774,8 @@
 			children = (
 				14DEBF7A1310835C0094F680 /* gecAnimatedSprite.h */,
 				14DEBF7B1310835C0094F680 /* gecAnimatedSprite.mm */,
-				14DEBF7C1310835C0094F680 /* gecImage.h */,
 				1447AA121328897C000DCCD8 /* gecParticleSystem.h */,
 				1447AA131328897C000DCCD8 /* gecParticleSystem.mm */,
-				14DEBF821310835C0094F680 /* gecVisualContainer.h */,
-				14DEBF831310835C0094F680 /* gecVisualContainer.mm */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -1235,7 +1228,6 @@
 				14DEC0391310835C0094F680 /* CompHealth.cpp in Sources */,
 				14DEC03A1310835C0094F680 /* gecHealthHuman.cpp in Sources */,
 				14DEC03F1310835C0094F680 /* gecAnimatedSprite.mm in Sources */,
-				14DEC0431310835C0094F680 /* gecVisualContainer.mm in Sources */,
 				14DEC0441310835C0094F680 /* gecVisual.mm in Sources */,
 				14DEC0471310835C0094F680 /* GEComponent.mm in Sources */,
 				14DEC0481310835C0094F680 /* GameEntity.mm in Sources */,
@@ -1336,7 +1328,7 @@
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GandoEngine_Prefix.pch;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
@@ -1395,7 +1387,7 @@
 				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_UNROLL_LOOPS = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;

@@ -15,7 +15,8 @@ std::string gecAnimatedSprite::mGECTypeID = "gecAnimatedSprite";
 #pragma mark gecAnimatedSprite Interface.
 gecAnimatedSprite::gecAnimatedSprite() : flipHorizontally(false),
 										 flipVertically(false),
-										 currentAnimation(NULL)
+										 currentAnimation(NULL),
+                                         m_dirtyColor(false)
 {
 }
 
@@ -28,10 +29,6 @@ void gecAnimatedSprite::addAnimation(const std::string &animationName, Animation
 		return;
 	
 	//set the GameEntity "owner" uid of this animation ( used as payload for animations
-	//broadcasted by the Animation. 
-	//TODO: A better way of doing this could be using a 
-	//delegate system where every Animation belonging a gecAnimatedSprite has the
-	//gecAnimatedSprite as it's delegate	
 	animation->setOwnerGAS(this);
 	
 	componentAnimations.insert(AnimationMapPair(animationName, animation));
@@ -120,12 +117,19 @@ void gecAnimatedSprite::render() const
 	GameEntity *ge = this->getOwnerGE();
 	
 	if(!currentAnimation)
-	{
-		std::cout << "ERROR: currentAnimation can't be NULL in gecAnimatedSprite... aborting (use setCurrentAnimation)." << std::endl;
-		abort();
-	}
+		assert(currentAnimation != NULL);
     
-	currentAnimation->renderAtPoint(CGPointMake(ge->getPosition().x,ge->getPosition().y));
+    glPushMatrix();
+    
+    if(gecVisual::m_dirtyTransform)
+        glMultMatrixf(m_transform);
+    
+    if(gecVisual::m_dirtyColor)
+        glColor4f(m_color[0], m_color[1], m_color[2], m_color[3]);
+    
+    currentAnimation->renderAtPoint(ge->getPosition());
+    
+    glPopMatrix();
 }
 
 void gecAnimatedSprite::update(float delta)

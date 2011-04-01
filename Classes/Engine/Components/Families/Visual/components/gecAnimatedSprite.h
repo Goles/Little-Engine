@@ -31,9 +31,9 @@ public:
 	/** Returns the id of this component*/
 	virtual const gec_id_type &componentID() const { return mGECTypeID; }
 	
-	/** Inherited render() method from gecVisual */
+	/** Implemented render() method from gecVisual */
 	virtual void render() const;
-	
+    
 	/** Update method inherited from gecComponent*/
 	virtual void update(float delta);
 	
@@ -119,11 +119,15 @@ private:
 	typedef std::map<const std::string, Animation*> AnimationMap;		/** < Typedef to manipulate an Animation std::map easily */
 	typedef std::pair<const std::string, Animation*> AnimationMapPair;	/** < Typedef  to manipulate an AnimationMap iterator easily*/
 	
-	static gec_id_type	mGECTypeID;										/** < Label of this kind of component */
-	Animation*			currentAnimation;								/** < Animation pointer to the current active Animation */
-	AnimationMap		componentAnimations;							/** < Map with all the animations of the component */
-	bool				flipHorizontally;
-	bool				flipVertically;
+	static gec_id_type mGECTypeID;		/** < Label of this kind of component */
+	AnimationMap componentAnimations;   /** < Map with all the animations of the component */
+	Animation *currentAnimation;		/** < Animation pointer to the current active Animation */
+    float m_color[4];
+    float m_alpha;
+    
+    bool m_dirtyColor;                
+    bool flipHorizontally;
+	bool flipVertically;
 };
 
 #endif
