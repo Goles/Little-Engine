@@ -2,32 +2,46 @@
 //  ActionManager.h
 //  GandoEngine
 //
-//  Created by Nicolas Goles on 3/27/11.
+//  Created by Nicolas Goles on 4/2/11.
 //  Copyright 2011 GandoGames. All rights reserved.
 //
 
 #ifndef __ACTION_MANAGER_H__
 #define __ACTION_MANAGER_H__
 
-class ActionManager
-{
-public:
-    static ActionManager *getInstance() {
-        if(instance == NULL)
-            instance = new ActionManager();
-        
-        return instance;
-    }
-    
-protected:
-    ActionManager();
-    
-private:
-    static ActionManager *instance;
-    
-};
+#define ACTION_MANAGER gg::action::ActionManager::getInstance()
 
-ActionManager* ActionManager::instance = NULL;
+#include <vector>
+
+class IAction;
+
+namespace gg { namespace action {
+
+    class ActionManager 
+    {
+    public:
+        static ActionManager* getInstance() {
+            if(!m_instance)
+                m_instance = new ActionManager();
+            
+            return m_instance;
+        }
+        
+        void update(float delta);
+        
+    protected:
+        ActionManager() {}
+        
+    private:
+        typedef std::vector<IAction *> ActionVector;
+        typedef std::vector< ActionVector > ActionSet;
+        
+        ActionSet actions;
+        static ActionManager *m_instance;
+    };
+
+    
+}}
+
 
 #endif
-

@@ -11,6 +11,7 @@
 #import "ES1Renderer.h"
 #import "TouchableManager.h"
 #import "GandoBox2D.h"
+#include "ActionManager.h"
 
 @implementation EAGLView
 
@@ -70,6 +71,9 @@
 	time	= CFAbsoluteTimeGetCurrent();
 	delta	= (time - lastTime);
 	
+    /* Update Actions Manager */
+    ACTION_MANAGER;
+    
 	/* Update Renderer */
 	[renderer update:delta];
 

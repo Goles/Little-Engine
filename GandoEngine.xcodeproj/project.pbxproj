@@ -121,6 +121,7 @@
 		14FB89FA121E4C3300E1B242 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 14E31485121E47FE00917795 /* Shader.fsh */; };
 		14FB89FB121E4C3300E1B242 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 14E31486121E47FE00917795 /* Shader.vsh */; };
 		14FDD3511347686D00C0CB60 /* FadeOutAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14FDD34F1347686D00C0CB60 /* FadeOutAction.mm */; };
+		14FDD3C51347B03700C0CB60 /* ActionManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14FDD3C31347B03600C0CB60 /* ActionManager.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -233,7 +234,6 @@
 		144FF9BB133D8A9C0090800C /* smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smoke.png; sourceTree = "<group>"; };
 		144FF9BC133D8A9C0090800C /* smoke.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = smoke.pvr; sourceTree = "<group>"; };
 		144FF9BD133D8A9C0090800C /* sprite_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite_test.png; sourceTree = "<group>"; };
-		1485C2EB133FA97000E0119B /* ActionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActionManager.h; path = ../../../../gengine/Classes/Engine/SharedManagers/ActionManager.h; sourceTree = "<group>"; };
 		1485C2F61340131300E0119B /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
 		1485C2F71340131300E0119B /* Action.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Action.mm; sourceTree = "<group>"; };
 		1485C2F81340131300E0119B /* FiniteTimeAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiniteTimeAction.h; sourceTree = "<group>"; };
@@ -333,7 +333,6 @@
 		14DEC0151310835C0094F680 /* Scene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Scene.mm; sourceTree = "<group>"; };
 		14DEC0191310835C0094F680 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
 		14DEC01A1310835C0094F680 /* SceneManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SceneManager.mm; sourceTree = "<group>"; };
-		14DEC01B1310835C0094F680 /* SharedBehaviorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedBehaviorManager.h; sourceTree = "<group>"; };
 		14DEC0201310835C0094F680 /* SharedTextureManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SharedTextureManager.mm; sourceTree = "<group>"; };
 		14DEC0221310835C0094F680 /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animation.h; sourceTree = "<group>"; };
 		14DEC0231310835C0094F680 /* Animation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Animation.mm; sourceTree = "<group>"; };
@@ -364,7 +363,8 @@
 		14FB89EF121E4ADB00E1B242 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		14FDD34F1347686D00C0CB60 /* FadeOutAction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FadeOutAction.mm; sourceTree = "<group>"; };
 		14FDD3501347686D00C0CB60 /* FadeOutAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FadeOutAction.h; sourceTree = "<group>"; };
-		14FDD3521347691000C0CB60 /* ActionManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ActionManager.mm; sourceTree = "<group>"; };
+		14FDD3C31347B03600C0CB60 /* ActionManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ActionManager.mm; sourceTree = "<group>"; };
+		14FDD3C41347B03700C0CB60 /* ActionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionManager.h; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* GandoEngine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GandoEngine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -911,15 +911,14 @@
 			children = (
 				14DEC0191310835C0094F680 /* SceneManager.h */,
 				14DEC01A1310835C0094F680 /* SceneManager.mm */,
-				14DEC01B1310835C0094F680 /* SharedBehaviorManager.h */,
 				14D2BA12132ABC0C00840B7C /* SharedTextureManager.h */,
 				14DEC0201310835C0094F680 /* SharedTextureManager.mm */,
 				148B1F851310A44100B1CE94 /* FontManager.h */,
 				148B1F861310A44100B1CE94 /* FontManager.mm */,
 				1447AA0C132730E6000DCCD8 /* ParticleManager.h */,
 				1447AA0B132730E5000DCCD8 /* ParticleManager.mm */,
-				1485C2EB133FA97000E0119B /* ActionManager.h */,
-				14FDD3521347691000C0CB60 /* ActionManager.mm */,
+				14FDD3C41347B03700C0CB60 /* ActionManager.h */,
+				14FDD3C31347B03600C0CB60 /* ActionManager.mm */,
 			);
 			path = SharedManagers;
 			sourceTree = "<group>";
@@ -1271,6 +1270,7 @@
 				1485C2FC1340131300E0119B /* FiniteTimeAction.mm in Sources */,
 				1485C2FF1340324900E0119B /* FadeInAction.mm in Sources */,
 				14FDD3511347686D00C0CB60 /* FadeOutAction.mm in Sources */,
+				14FDD3C51347B03700C0CB60 /* ActionManager.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

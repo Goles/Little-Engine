@@ -16,40 +16,42 @@
 
 namespace gg { namespace particle {
     
-    class ParticleManager 
-    {
-        
-    public:
-        static ParticleManager* getInstance();
-        
-        void setMaxParticles(int number);
-        int maxParticles() { return m_maxParticles; }
-        
-        Particle *createParticle() {
-            return &(m_pool->create());
-        }
-        
-        void releaseParticle(const Particle *p)
-        {
-            m_pool->release(p->index);
-        }
-        
-        ~ParticleManager()
-        {
-            delete m_pool;
-        }
+class ParticleManager 
+{
     
-    protected:
-        ParticleManager() : m_pool(0) {}
-        
-    private:        
-        typedef gg::utils::ObjectPool<gg::particle::Particle> ParticlePool;
+public:
+    static ParticleManager* getInstance();
+    
+    void setMaxParticles(int number);
+    
+    int maxParticles() { return m_maxParticles; }
+    
+    Particle *createParticle() {
+        return &(m_pool->create());
+    }
+    
+    void releaseParticle(const Particle *p)
+    {
+        m_pool->release(p->index);
+    }
+    
+    ~ParticleManager()
+    {
+        delete m_pool;
+    }
 
-        int m_maxParticles;
-        ParticlePool *m_pool;
+protected:
+    ParticleManager() : m_pool(0) {}
+    
+private:        
+    typedef gg::utils::ObjectPool<gg::particle::Particle> ParticlePool;
 
-        static ParticleManager *m_instance;
-    };
+    int m_maxParticles;
+    ParticlePool *m_pool;
+
+    static ParticleManager *m_instance;
+};
+
 }}
 
 #endif
