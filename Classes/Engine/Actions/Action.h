@@ -17,10 +17,9 @@ class Action: public IAction
 {
 
 public:
-    
-    bool isDone();
-    void startWithTarget(GameEntity *target);    
-    void stop();
+    virtual bool isDone();
+    virtual void startWithTarget(GameEntity *target);    
+    virtual void stop();
     
 protected:
     GameEntity* m_target;

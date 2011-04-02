@@ -18,7 +18,7 @@ gecVisual::gecVisual() : m_dirtyTransform(false), m_dirtyColor(false)
     m_color[3] = 255;
 }
 
-inline void gecVisual::setTransform(const mat4f_t &transform)
+void gecVisual::setTransform(const mat4f_t &transform)
 {
     m_transform[0] = transform[0];
     m_transform[1] = transform[1];
@@ -40,7 +40,7 @@ inline void gecVisual::setTransform(const mat4f_t &transform)
     m_dirtyTransform = true;
 }
 
-inline void gecVisual::setColor(float R, float G, float B, float A)
+void gecVisual::setColor(float R, float G, float B, float A)
 {
     m_color[0] = R;
     m_color[1] = G;
@@ -50,7 +50,7 @@ inline void gecVisual::setColor(float R, float G, float B, float A)
     m_dirtyColor = true;
 }
 
-inline void gecVisual::setAlpha(float alpha) 
+void gecVisual::setAlpha(float alpha) 
 { 
     m_color[3] = alpha;
     m_dirtyColor = true;

@@ -6,8 +6,8 @@
 //  Copyright 2009 Nicolas Goles. All rights reserved.
 //
 
-#ifndef _GECVISUAL_H_
-#define _GECVISUAL_H_
+#ifndef __GECVISUAL_H__
+#define __GECVISUAL_H__
 
 #include "GEComponent.h"
 #include "ConstantsAndMacros.h"
@@ -23,9 +23,9 @@ public:
     gecVisual();
     virtual ~gecVisual() {}
 	virtual void render() const = 0;
-    void setTransform(const mat4f_t &transform);
-    void setColor(float R, float G, float B, float A = 255.0f);
-    void setAlpha(float alpha);    
+    virtual void setTransform(const mat4f_t &transform);
+    virtual void setColor(float R, float G, float B, float A = 255.0f);
+    virtual void setAlpha(float alpha);    
 	
 protected:
     mat4f_t m_transform;

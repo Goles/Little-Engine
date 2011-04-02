@@ -70,7 +70,7 @@
 	time	= CFAbsoluteTimeGetCurrent();
 	delta	= (time - lastTime);
 	
-	/* update Renderer */
+	/* Update Renderer */
 	[renderer update:delta];
 
     /* Update Box2d World */
