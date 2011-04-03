@@ -11,13 +11,15 @@
 
 #include "FiniteTimeAction.h"
 
+namespace gg { namespace action {
+
 class FadeInAction : public FiniteTimeAction
 {
 
 public:
     virtual void refresh(float dt);
     
-    
 };
 
+}}
 #endif

@@ -10,6 +10,8 @@
 #include "GameEntity.h"
 #include "gecVisual.h"
 
+namespace gg { namespace action {
+
 void FadeOutAction::refresh(float dt)
 {
     gecVisual *visual = static_cast<gecVisual *>(m_target->getGEC("CompVisual"));
@@ -17,3 +19,5 @@ void FadeOutAction::refresh(float dt)
     if(visual)
         visual->setAlpha(255.0f * (1 - dt));
 }
+
+}}

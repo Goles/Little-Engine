@@ -12,10 +12,10 @@ std::string gecVisual::m_id = "CompVisual";
 
 gecVisual::gecVisual() : m_dirtyTransform(false), m_dirtyColor(false) 
 {
-    m_color[0] = 255;
-    m_color[1] = 255;
-    m_color[2] = 255;
-    m_color[3] = 255;
+    m_color[0] = 1.0f;
+    m_color[1] = 1.0f;
+    m_color[2] = 1.0f;
+    m_color[3] = 1.0f;
 }
 
 void gecVisual::setTransform(const mat4f_t &transform)

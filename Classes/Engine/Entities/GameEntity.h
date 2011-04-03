@@ -22,8 +22,6 @@ class GameEntity
 {
 public:
 	
-	float		 a,	/**< X position of the Entity */
-                 b;	/**< Y position of the Entity */
 	float	height,	/**< Height of the Entity */
 			 width;	/**< Width of the Entity */
 	float	 speed;

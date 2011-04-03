@@ -8,6 +8,7 @@
 
 #include "gecAnimatedSprite.h"
 #include "GameEntity.h"
+#include "Image.h"
 
 std::string gecAnimatedSprite::mGECTypeID = "gecAnimatedSprite";
 
@@ -125,7 +126,10 @@ void gecAnimatedSprite::render() const
         glMultMatrixf(m_transform);
     
     if(gecVisual::m_dirtyColor)
-        glColor4f(m_color[0], m_color[1], m_color[2], m_color[3]);
+    {
+        Image* frame = currentAnimation->getCurrentFrameImage();
+        frame->setColorFilter(m_color[0], m_color[1], m_color[2], m_color[3]);
+    }
     
     currentAnimation->renderAtPoint(ge->getPosition());
     

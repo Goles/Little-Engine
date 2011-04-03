@@ -40,7 +40,7 @@ Texture2D* SharedTextureManager::createTexture(const std::string &textureName)
 	Texture2D *imTexture;	
 	NSString *textureFileName = [NSString stringWithUTF8String:textureName.c_str()];
 
-    const NSString *fullPath = FileUtils::fullPathFromRelativePath(textureFileName);
+    const NSString *fullPath = gg::utils::fullPathFromRelativePath(textureFileName);
     
 	if([textureFileName hasSuffix:@".pvr"])
 	{

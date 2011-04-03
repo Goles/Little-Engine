@@ -31,6 +31,11 @@ Character =
 					-- this is level "CoolScene" manage special according to this level.
 					playBackgroundMusic("sonic_theme.mp3")
 				end
+				
+				action = FadeInAction()
+				action:setDuration(10.0)
+				action:startWithTarget(this)
+				addAction(action)
 			
 			--
 			--	EVENT DRAG GAMEPAD

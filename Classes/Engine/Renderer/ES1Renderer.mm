@@ -73,8 +73,13 @@ static char fpsText[32];
 #pragma mark update_game
 - (void) update:(float) delta
 {
-	SCENE_MANAGER->getActiveScene()->sortEntitiesY();
-	SCENE_MANAGER->getActiveScene()->update(delta);
+    Scene *currentScene = SCENE_MANAGER->getActiveScene();
+    
+    if(currentScene)
+    {
+        currentScene->sortEntitiesY();
+        currentScene->update(delta);
+    }
 
 	[self setFps];
 }
@@ -94,7 +99,11 @@ static char fpsText[32];
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
-	SCENE_MANAGER->getActiveScene()->render();
+    Scene *current = SCENE_MANAGER->getActiveScene();
+    
+    if(current)
+        current->render();
+    
     FONT_MANAGER->render();
     
 	glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);

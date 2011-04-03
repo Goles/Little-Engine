@@ -46,7 +46,7 @@ FTFont *FontManager::getFont(const std::string &fontName, int fontSize)
 
 FTFont *FontManager::createFont(const std::string &in_fontName, int in_fontSize, const std::string &key)
 {
-	const char *path = FileUtils::fullCPathFromRelativePath(in_fontName.c_str());
+	const char *path = gg::utils::fullCPathFromRelativePath(in_fontName.c_str());
 	
 	FTFont* font = new FTTextureFont(path);
 	

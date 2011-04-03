@@ -122,8 +122,6 @@ private:
 	static gec_id_type mGECTypeID;		/** < Label of this kind of component */
 	AnimationMap componentAnimations;   /** < Map with all the animations of the component */
 	Animation *currentAnimation;		/** < Animation pointer to the current active Animation */
-    float m_color[4];
-    float m_alpha;
     
     bool m_dirtyColor;                
     bool flipHorizontally;

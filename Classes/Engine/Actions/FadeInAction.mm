@@ -9,11 +9,16 @@
 #include "FadeInAction.h"
 #include "GameEntity.h"
 #include "gecVisual.h"
+#include <iostream>
+
+namespace gg { namespace action {
 
 void FadeInAction::refresh(float dt)
 {
     gecVisual *visual = static_cast<gecVisual *>(m_target->getGEC("CompVisual"));
-
+    
     if(visual)
-        visual->setAlpha(255 * dt);
+        visual->setAlpha(dt);
 }
+
+}}

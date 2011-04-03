@@ -11,6 +11,8 @@
 
 class GameEntity;
 
+namespace gg { namespace action {
+
 class IAction
 {
 public:
@@ -20,6 +22,8 @@ public:
     virtual void stop() = 0;
     virtual void update(float delta) = 0;
     virtual void refresh(float time) = 0;
+    virtual const GameEntity* target() = 0;
 };
 
+}}
 #endif

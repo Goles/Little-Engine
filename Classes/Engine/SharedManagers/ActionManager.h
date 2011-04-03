@@ -12,36 +12,36 @@
 #define ACTION_MANAGER gg::action::ActionManager::getInstance()
 
 #include <vector>
-
-class IAction;
+#include <map>
 
 namespace gg { namespace action {
 
-    class ActionManager 
-    {
-    public:
-        static ActionManager* getInstance() {
-            if(!m_instance)
-                m_instance = new ActionManager();
-            
-            return m_instance;
-        }
+class IAction;
+    
+class ActionManager 
+{
+public:
+    static ActionManager* getInstance() {
+        if(!m_instance)
+            m_instance = new ActionManager();
         
-        void update(float delta);
-        
-    protected:
-        ActionManager() {}
-        
-    private:
-        typedef std::vector<IAction *> ActionVector;
-        typedef std::vector< ActionVector > ActionSet;
-        
-        ActionSet actions;
-        static ActionManager *m_instance;
-    };
-
+        return m_instance;
+    }
+    
+    void update(float delta);
+    void addAction(IAction *action);
+    
+protected:
+    ActionManager() {}
+    
+private:
+    typedef std::vector< IAction * > ActionVector;
+    typedef std::map< int, ActionVector* > ActionMap;
+    
+    ActionMap actions;
+    
+    static ActionManager *m_instance;
+};
     
 }}
-
-
 #endif

@@ -3,8 +3,7 @@
 
 #include <stdint.h>
 
-namespace st
-{
+namespace gg { namespace utils {
 
 class HardwareClock
 {
@@ -27,6 +26,6 @@ private:
 	float m_deltaTime;
 };
 
-}
+}}
 
 #endif

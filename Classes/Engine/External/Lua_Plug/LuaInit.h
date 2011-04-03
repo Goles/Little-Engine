@@ -16,6 +16,11 @@
 #include "FileUtils.h"
 #include "ConstantsAndMacros.h"
 #include "OpenGLCommon.h"
+#include "HardwareClock.h"
+
+#include "Action.h"
+#include "FiniteTimeAction.h"
+#include "FadeInAction.h"
 
 #include "Particle.h"
 #include "GameEntity.h"
@@ -26,6 +31,7 @@
 #include "SpriteSheet.h"
 
 #include "ITextRenderer.h"
+#include "IAction.h"
 
 #include "GEComponent.h"
 #include "gecAnimatedSprite.h"
@@ -42,6 +48,10 @@
 #include "SimpleAudioEngine.h"
 #include "CocosDenshion.h"
 #include "CDAudioManager.h"
+#include "ActionManager.h"
+
+using namespace gg::action;
+
 
 namespace gg
 {
@@ -56,8 +66,8 @@ namespace gg
         {
             luabind::module(LR_MANAGER_STATE) 
             [
-				luabind::def("fileRelativePath", &FileUtils::relativeCPathForFile),
-				luabind::def("filePath", &FileUtils::fullCPathFromRelativePath),
+                luabind::def("fileRelativePath", &gg::utils::relativeCPathForFile),
+				luabind::def("filePath", &gg::utils::fullCPathFromRelativePath),
 				luabind::def("ggr", &CGRectMake),
 				luabind::def("ggs", &CGSizeMake),
                 luabind::def("ggp", &CGPointMake),
@@ -70,14 +80,14 @@ namespace gg
 		{			
 			luabind::module(LR_MANAGER_STATE)
 			[
-				luabind::class_<std::vector<float> >("float_vector")
+				luabind::class_<std::vector<float> > ("float_vector")
 				.def(luabind::constructor<>())
 				.def("push_back", &std::vector<float>::push_back)
 			];
 			
 			luabind::module(LR_MANAGER_STATE)
 			[				
-				luabind::class_<GGPoint>("GGPoint")
+				luabind::class_<GGPoint> ("GGPoint")
 				.def(luabind::constructor<>())
 				.def_readwrite("x", &GGPoint::x)
 				.def_readwrite("y", &GGPoint::y)
@@ -85,14 +95,14 @@ namespace gg
 			
 			luabind::module(LR_MANAGER_STATE)
 			[
-				luabind::class_<GGSize>("GGSize")
+				luabind::class_<GGSize> ("GGSize")
 				.def_readwrite("width", &GGSize::width)
 				.def_readwrite("height", &GGSize::height)
 			];
 			
 			luabind::module(LR_MANAGER_STATE)
 			[
-				luabind::class_<CGRect>("GGRect")
+				luabind::class_<CGRect> ("GGRect")
 				.def(luabind::constructor<>())
 				.def_readwrite("origin", &GGRect::origin)
 				.def_readwrite("size", &GGRect::size)
@@ -100,7 +110,7 @@ namespace gg
             
             luabind::module(LR_MANAGER_STATE)
             [
-                 luabind::class_<Particle>("Particle")
+                 luabind::class_<Particle> ("Particle")
                  .def(luabind::constructor<>())
                  .def_readwrite("position", &Particle::position)
                  .def_readwrite("speed", &Particle::speed)
@@ -112,17 +122,31 @@ namespace gg
                  .def_readwrite("color_A", &Particle::color_A)             
                  .def_readwrite("rotation", &Particle::rotation)
              ];
+            
+            /* Actions */
+            luabind::module(LR_MANAGER_STATE)
+            [
+             luabind::class_<IAction> ("IAction")
+             .def("isDone", &IAction::isDone)
+             .def("startWithTarget", &IAction::startWithTarget)
+             .def("stop", &IAction::stop),
+             luabind::class_<Action, IAction> ("Action"),
+             luabind::class_<FiniteTimeAction, Action> ("FiniteTimeAction")
+             .def("setDuration", &FiniteTimeAction::setDuration),
+             luabind::class_<FadeInAction, FiniteTimeAction> ("FadeInAction")
+             .def(luabind::constructor<>())
+             ];
 		}
-		 
+        
 		static inline void bindAbstractInterfaces(void)
-		{
+		{            
 			luabind::module(LR_MANAGER_STATE) 
 			[
-				 luabind::class_<ITextRenderer>("ITextRenderer")
+				 luabind::class_<ITextRenderer> ("ITextRenderer")
 				 .def("setText", &ITextRenderer::setText)
 				 .def("setFont", &ITextRenderer::setFont)
 				 .def("setPosition", &ITextRenderer::setPosition)
-			 ];
+            ];
 		}
 		
 		static inline void bindClasses(void)
@@ -130,7 +154,7 @@ namespace gg
             /* Bind the Image Class */
             luabind::module(LR_MANAGER_STATE) 
             [
-             luabind::class_<Image>("Image")
+             luabind::class_<Image> ("Image")
              .def(luabind::constructor<>())
              .def("initWithTextureFile", (void(Image::*)(const std::string &))&Image::initWithTextureFile)
              .property("scale", &Image::getScale, &Image::setScale)
@@ -139,7 +163,7 @@ namespace gg
             /* Bind the Frame Class */
             luabind::module(LR_MANAGER_STATE) 
             [
-             luabind::class_<Frame>("Frame")	/** < Binds the GameEntity class */
+             luabind::class_<Frame> ("Frame")	/** < Binds the GameEntity class */
              .def(luabind::constructor<>())		/** < Binds the GameEntity constructor */
              .property("image", &Frame::getFrameImage, &Frame::setFrameImage)
              .property("delay", &Frame::getFrameDelay, &Frame::setFrameDelay)
@@ -148,7 +172,7 @@ namespace gg
             /* Bind the Animation Class */
             luabind::module(LR_MANAGER_STATE) 
             [
-             luabind::class_<Animation>("Animation")	/** < Binds the GameEntity class*/
+             luabind::class_<Animation> ("Animation")	/** < Binds the GameEntity class*/
              .def(luabind::constructor<>())				/** < Binds the GameEntity constructor  */
              .def("addFrame", &Animation::addFrame)
              .property("running", &Animation::getIsRunning, &Animation::setIsRunning)
@@ -160,7 +184,7 @@ namespace gg
             /* Bind the SpriteSheet Class */
             luabind::module(LR_MANAGER_STATE) 
             [
-             luabind::class_<SpriteSheet>("SpriteSheet")
+             luabind::class_<SpriteSheet> ("SpriteSheet")
              .def(luabind::constructor<>())
              .def("initWithImageNamed", &SpriteSheet::initWithImageNamed)
              .def("getSpriteAtCoordinate", &SpriteSheet::getSpriteAt)
@@ -169,8 +193,8 @@ namespace gg
             /* Bind the GEComponent Class */            
             luabind::module(LR_MANAGER_STATE) 
             [
-             luabind::class_<GEComponent>("GEComponent"),
-             luabind::class_<gecAnimatedSprite, GEComponent>("gecAnimatedSprite")
+             luabind::class_<GEComponent> ("GEComponent"),
+             luabind::class_<gecAnimatedSprite, GEComponent> ("gecAnimatedSprite")
              .def(luabind::constructor<>())
              .def("addAnimation", (void(gecAnimatedSprite::*)(const std::string &, Animation *)) &gecAnimatedSprite::addAnimation)
              .def("addCustomAnimation", (void(gecAnimatedSprite::*)(const std::string &,
@@ -188,7 +212,7 @@ namespace gg
             /* Bind the gecFollowingCamera Class */
             luabind::module(LR_MANAGER_STATE) 
             [
-             luabind::class_<gecFollowingCamera, GEComponent>("gecFollowingCamera")
+             luabind::class_<gecFollowingCamera, GEComponent> ("gecFollowingCamera")
              .def(luabind::constructor<>())		
              .property("follow_x", &gecFollowingCamera::getFollowX, &gecFollowingCamera::setFollowX)
              .property("follow_y", &gecFollowingCamera::getFollowY, &gecFollowingCamera::setFollowY)
@@ -200,7 +224,7 @@ namespace gg
             /* Bind the gecFSM Class */
             luabind::module(LR_MANAGER_STATE) 
             [
-             luabind::class_<gecFSM, GEComponent>("gecFSM")	/** < Binds the gecFSM class*/
+             luabind::class_<gecFSM, GEComponent> ("gecFSM")	/** < Binds the gecFSM class*/
              .def(luabind::constructor<>())
              .def("setOwnerGE", &GEComponent::setOwnerGE)
              ];
@@ -208,7 +232,7 @@ namespace gg
             /* Bind the gecJoystick Class */
             luabind::module(LR_MANAGER_STATE) 
             [
-             luabind::class_<gecJoystick, GEComponent>("gecJoystick")
+             luabind::class_<gecJoystick, GEComponent> ("gecJoystick")
              .def(luabind::constructor<>())
              .def("handle_touch", &gecJoystick::handle_touch)
              .def("setShape", &gecJoystick::setShape)
@@ -220,7 +244,7 @@ namespace gg
             /* Bind the gecButton Class */
             luabind::module(LR_MANAGER_STATE) 
             [
-             luabind::class_<gecButton, GEComponent>("gecButton")
+             luabind::class_<gecButton, GEComponent> ("gecButton")
              .def(luabind::constructor<>())
              .def("handle_touch", &gecButton::handle_touch)
              .def("setShape", &gecButton::setShape)
@@ -230,7 +254,7 @@ namespace gg
             /* Bind the gecBoxCollisionable Class */
             luabind::module(LR_MANAGER_STATE)
             [
-             luabind::class_<gecBoxCollisionable, GEComponent>("gecBoxCollisionable")
+             luabind::class_<gecBoxCollisionable, GEComponent> ("gecBoxCollisionable")
              .def(luabind::constructor<>())
              .def("setSize", &gecBoxCollisionable::setSize)
              .property("solid", &CompCollisionable::getSolid, &CompCollisionable::setSolid)
@@ -239,7 +263,7 @@ namespace gg
             /* Bind the gecParticleSystem Class */
             luabind::module(LR_MANAGER_STATE)
             [
-                 luabind::class_<gecParticleSystem, GEComponent>("gecParticleSystem")
+                 luabind::class_<gecParticleSystem, GEComponent> ("gecParticleSystem")
                  .enum_("RenderMode")
                  [
                       luabind::value("POINT_SPRITES", gg::particle::render::kRenderingMode_PointSprites),
@@ -263,7 +287,7 @@ namespace gg
             /* Bind the Game Entity Class */
             luabind::module(LR_MANAGER_STATE) 
             [
-             luabind::class_<GameEntity>("GameEntity")		/** < Binds the GameEntity class */
+             luabind::class_<GameEntity> ("GameEntity")		/** < Binds the GameEntity class */
              .def(luabind::constructor<>())					/** < Binds the GameEntity constructor  */
              .def("setGEC", &GameEntity::setGEC)			/** < Binds the GameEntity setGEC method  */
              .def("setPosition", &GameEntity::setPosition)	/** < Binds the GameEntity setPositon method */
@@ -280,7 +304,7 @@ namespace gg
             /* Bind the Scene Class */
             luabind::module(LR_MANAGER_STATE) 
             [
-             luabind::class_<Scene>("Scene")
+             luabind::class_<Scene> ("Scene")
              .def(luabind::constructor<>())
              .def("addEntity", &Scene::addGameEntity)
              .def("addChild", &Scene::addChild)
@@ -288,6 +312,17 @@ namespace gg
              .property("position", &Scene::getPosition, &Scene::setPosition)
              .property("label", &Scene::getSceneLabel, &Scene::setSceneLabel)
              ];
+           
+            /* Bind the Class Hardware Clock */
+            luabind::module(LR_MANAGER_STATE)
+            [
+             luabind::class_<gg::utils::HardwareClock> ("HardwareClock")
+             .def(luabind::constructor<>())
+             .def("reset", &gg::utils::HardwareClock::Reset)
+             .def("getTime", &gg::utils::HardwareClock::GetTime)
+             .def("getDeltaTime", &gg::utils::HardwareClock::GetDeltaTime)
+             .def("Update", &gg::utils::HardwareClock::Update)
+            ];         
 		}
 		
 		static inline void bindManagers(void)
@@ -295,7 +330,7 @@ namespace gg
             /* Bind Scene Manager */ 
             luabind::module(LR_MANAGER_STATE) 
             [
-             luabind::class_<SceneManager>("SceneManager")
+             luabind::class_<SceneManager> ("SceneManager")
              .def("addScene", &SceneManager::addScene)
              .def("getScene", &SceneManager::getScene)
              .def("setActiveScene", &SceneManager::setActiveScene)
@@ -309,7 +344,7 @@ namespace gg
             /* Bind Font Manager*/
             luabind::module(LR_MANAGER_STATE) 
             [
-			 luabind::class_<FontManager>("FontManager")
+			 luabind::class_<FontManager> ("FontManager")
 			 .def("getTextRenderer", &FontManager::getTextRenderer)
 			 .scope
 			 [
@@ -320,7 +355,7 @@ namespace gg
             /* Bind Particle Manager */
             luabind::module(LR_MANAGER_STATE)
             [
-             luabind::class_<gg::particle::ParticleManager>("ParticleManager")
+             luabind::class_<gg::particle::ParticleManager> ("ParticleManager")
              .def("setMaxParticles", &gg::particle::ParticleManager::setMaxParticles)
              .scope
              [
@@ -348,6 +383,17 @@ namespace gg
                  luabind::def("getInstance", &CocosDenshion::SimpleAudioEngine::sharedEngine)
                 ]
              ];
+            
+            /* Bind the Action Manager */
+            luabind::module(LR_MANAGER_STATE)
+            [
+                luabind::class_<ActionManager> ("ActionManager")
+                .def("addAction", &ActionManager::addAction)
+                .scope
+                [
+                 luabind::def("getInstance", &ActionManager::getInstance)
+                ]
+            ];
 		}
 
 		static inline void bindAll(void)

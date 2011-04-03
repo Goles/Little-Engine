@@ -11,8 +11,11 @@
 
 #include "Action.h"
 
+namespace gg { namespace action {
+
 class FiniteTimeAction : public Action
 {
+    
 public:
     virtual void update(float delta);
     
@@ -23,7 +26,9 @@ public:
         m_duration = dt; 
         
         if (m_duration == 0.0) 
-            m_duration = FLT_EPSILON; 
+            m_duration = FLT_EPSILON;
+        
+        m_firstTick =  true;
     }
     
     bool isDone() { 
@@ -37,4 +42,6 @@ private:
     
 };
 
+}}
+    
 #endif

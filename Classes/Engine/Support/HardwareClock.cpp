@@ -1,9 +1,7 @@
 #include "HardwareClock.h"
 #include <mach/mach_time.h>
 
-namespace st
-{
-
+namespace gg { namespace utils {
 
 HardwareClock::HardwareClock()
 {
@@ -48,4 +46,4 @@ double HardwareClock::GetTime() const
 	return m_time;
 }
 
-}
+}}

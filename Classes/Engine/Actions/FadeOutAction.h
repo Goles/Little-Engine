@@ -11,6 +11,8 @@
 
 #include "FiniteTimeAction.h"
 
+namespace gg { namespace action {
+
 class FadeOutAction : public FiniteTimeAction
 {
     
@@ -19,4 +21,5 @@ public:
     
 };
 
+}}
 #endif

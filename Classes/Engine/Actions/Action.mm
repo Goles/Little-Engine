@@ -8,6 +8,8 @@
 
 #include "Action.h"
 
+namespace gg { namespace action {
+
 bool Action::isDone()
 {
     return true;
@@ -22,3 +24,5 @@ void Action::stop()
 {
     m_target = NULL;
 }
+
+}}

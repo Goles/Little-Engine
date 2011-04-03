@@ -42,7 +42,7 @@ LuaManager* LuaManager::getInstance()
 
 void LuaManager::execScript(const char *script)
 {
-	if(luaL_dofile(L, FileUtils::fullCPathFromRelativePath(script)))
+	if(luaL_dofile(L, gg::utils::fullCPathFromRelativePath(script)))
 	{
 		std::cout	<< "Lua Register Manager: ERROR when trying to execute script: " 
 					<< script 

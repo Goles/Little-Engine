@@ -11,8 +11,8 @@
 #import <Foundation/Foundation.h>
 
 /** Helper class to handle file operations */
-namespace FileUtils
-{
+namespace gg { namespace utils {
+    
     static const NSString * fullPathFromRelativePath(NSString *relPath)
     {
         // do not convert an absolute path (starting with '/')
@@ -39,7 +39,7 @@ namespace FileUtils
     static const char * relativeCPathForFile(const char *fileName)
     {        
         NSString *relPath = [[NSString alloc] initWithCString:fileName encoding:NSUTF8StringEncoding];        
-        NSString *path = FileUtils::fullPathFromRelativePath(relPath);
+        NSString *path = fullPathFromRelativePath(relPath);
         const char *c_path = [[path stringByDeletingLastPathComponent] UTF8String];
         
         return c_path;
@@ -49,12 +49,12 @@ namespace FileUtils
     {
         NSString *relPath = [[NSString alloc] initWithCString:cPath encoding:NSUTF8StringEncoding];
         
-        NSString *path = FileUtils::fullPathFromRelativePath(relPath);
+        NSString *path = fullPathFromRelativePath(relPath);
         
         const char *c_path = [path UTF8String];
         
         return c_path;
     }
-}
+}}
 
 #endif

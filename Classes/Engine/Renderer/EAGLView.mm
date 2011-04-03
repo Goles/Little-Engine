@@ -72,7 +72,7 @@
 	delta	= (time - lastTime);
 	
     /* Update Actions Manager */
-    ACTION_MANAGER;
+    ACTION_MANAGER->update(delta);
     
 	/* Update Renderer */
 	[renderer update:delta];

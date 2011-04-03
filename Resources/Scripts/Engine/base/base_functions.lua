@@ -65,6 +65,13 @@ function textRenderer(in_font_name, in_font_size)
 end
 
 --
+-- Action Manager Interface
+--
+function addAction(in_action)
+	ActionManager.getInstance():addAction(in_action)
+end
+
+--
 -- Simple Audio Engine Interface
 --
 function preloadBackgroundMusic(in_fileName)

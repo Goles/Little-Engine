@@ -13,17 +13,21 @@
 
 class GameEntity;
 
+namespace gg { namespace action {
+
 class Action: public IAction
 {
-
+    
 public:
     virtual bool isDone();
     virtual void startWithTarget(GameEntity *target);    
     virtual void stop();
+    virtual const GameEntity* target() { return m_target; }
     
 protected:
     GameEntity* m_target;
-
+    
 };
 
+}}
 #endif
