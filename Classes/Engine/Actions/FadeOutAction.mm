@@ -17,7 +17,7 @@ void FadeOutAction::refresh(float dt)
     gecVisual *visual = static_cast<gecVisual *>(m_target->getGEC("CompVisual"));
     
     if(visual)
-        visual->setAlpha(255.0f * (1 - dt));
+        visual->setAlpha(1 - dt);
 }
 
 }}

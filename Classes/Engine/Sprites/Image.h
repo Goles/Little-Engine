@@ -181,7 +181,7 @@ private:
 	GLushort	*indices;
 	
 	//Texture
-	Texture2D	*texture;
+    Texture2D *texture;
 	
 	std::string	textureName;
 	int			imageWidth;

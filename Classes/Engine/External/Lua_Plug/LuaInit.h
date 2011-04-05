@@ -21,6 +21,8 @@
 #include "Action.h"
 #include "FiniteTimeAction.h"
 #include "FadeInAction.h"
+#include "FadeOutAction.h"
+#include "MoveToAction.h"
 
 #include "Particle.h"
 #include "GameEntity.h"
@@ -134,7 +136,12 @@ namespace gg
              luabind::class_<FiniteTimeAction, Action> ("FiniteTimeAction")
              .def("setDuration", &FiniteTimeAction::setDuration),
              luabind::class_<FadeInAction, FiniteTimeAction> ("FadeInAction")
+             .def(luabind::constructor<>()),
+             luabind::class_<FadeOutAction, FiniteTimeAction> ("FadeOutAction")
+             .def(luabind::constructor<>()),
+             luabind::class_<MoveToAction, FiniteTimeAction> ("MoveToAction")
              .def(luabind::constructor<>())
+             .def("setEndPoint", &MoveToAction::setEndPoint)
              ];
 		}
         
