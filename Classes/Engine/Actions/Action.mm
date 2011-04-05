@@ -17,7 +17,12 @@ bool Action::isDone()
 
 void Action::startWithTarget(GameEntity *target)
 {
+    static int incremental_id = 0;
+    
+    m_id = incremental_id;
     m_target = target;
+    
+    ++incremental_id;
 }
 
 void Action::stop()

@@ -23,12 +23,15 @@ void MoveToAction::startWithTarget(GameEntity *e)
 {
     Action::m_target = e;
     m_startPoint = e->getPosition();
-    m_delta.x = (m_endPoint.x - m_startPoint.x);
-    m_delta.y = (m_endPoint.y - m_startPoint.y);
+    m_delta.x = (m_startPoint.x - m_endPoint.x);
+    m_delta.y = (m_startPoint.y - m_endPoint.y);
 }
 
 void MoveToAction::refresh(float dt)
 {
+    float x = m_delta.x;
+    float y = m_delta.y;
+    
     m_target->setPosition(m_startPoint.x - (m_delta.x * dt), m_startPoint.y - (m_delta.y * dt));
 }
 

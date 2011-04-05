@@ -17,7 +17,13 @@ GameEntity::GameEntity() : height(0.0f), width(0.0f), speed(0.0f),  unique_id(-1
 
 void GameEntity::initialize()
 {
-	unique_id = gg::ID_GENERATOR->generateId();
+    static unsigned incremental_id = 0;
+    
+    //	unique_id = gg::ID_GENERATOR->generateId();
+    
+    unique_id = incremental_id;
+    
+    ++incremental_id;
 }
 
 void GameEntity::setGEC(GEComponent *newGEC)

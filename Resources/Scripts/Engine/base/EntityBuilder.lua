@@ -45,6 +45,9 @@ function buildEntity (e)
 	-- Add the component access interface to the entity
 	addComponentInterface (entity)
 	
+	-- Add Actions interface
+	addActionsInterface (entity)
+	
 	-- Map the entity to store a reference
 	addMapEntity (entity)
 	
@@ -120,4 +123,18 @@ function addComponentInterface (in_entity)
 
 	end
 
+end
+
+-- Adds the Actions interface to the entity
+function addActionsInterface (in_entity)
+	
+	print "Actions Interface"
+	
+	in_entity.attachAction = function (this, in_action)
+		
+		in_action:startWithTarget(this)
+		addAction(in_action)
+		
+	end
+	
 end

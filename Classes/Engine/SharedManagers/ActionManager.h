@@ -30,6 +30,7 @@ public:
     
     void update(float delta);
     void addAction(IAction *action);
+    void removeAction(IAction *action);
     
 protected:
     ActionManager() {}

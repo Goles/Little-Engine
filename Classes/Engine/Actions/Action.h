@@ -23,11 +23,12 @@ public:
     virtual void startWithTarget(GameEntity *target);    
     virtual void stop();
     virtual const GameEntity* target() { return m_target; }
+    const unsigned id() const { return m_id; }
     
 protected:
     GameEntity* m_target;
-    
+    unsigned m_id;
 };
-
+    
 }}
 #endif

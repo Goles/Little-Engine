@@ -1,4 +1,5 @@
 require "base_functions"
+require "actions"
 require "config_functions"
 
 -- Scene Manager Configuration

@@ -32,11 +32,11 @@ Character =
 					playBackgroundMusic("sonic_theme.mp3")
 				end
 
-				action = MoveToAction()
-				action:startWithTarget(this)
-				action:setDuration(10.0)
-				action:setEndPoint(ggp(200.0, 200.0))
-				addAction(action)
+				
+
+				this:attachAction(MoveTo(240.0 , 180.0, 1.0))
+				this:attachAction(MoveTo(180.0 , 180.0, 1.0))
+				
 
 			--
 			--	EVENT DRAG GAMEPAD
