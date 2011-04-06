@@ -23,6 +23,13 @@ void Action::startWithTarget(GameEntity *target)
     m_target = target;
     
     ++incremental_id;
+    
+    init();
+}
+    
+void Action::init()
+{
+    //Init Stuff here ( optional 
 }
 
 void Action::stop()

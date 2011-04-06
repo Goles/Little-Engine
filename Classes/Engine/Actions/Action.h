@@ -10,6 +10,7 @@
 #define __ACTION_H__
 
 #include "IAction.h"
+#include <iostream>
 
 class GameEntity;
 
@@ -19,15 +20,20 @@ class Action: public IAction
 {
     
 public:
+    virtual ~Action() {}
     virtual bool isDone();
     virtual void startWithTarget(GameEntity *target);    
     virtual void stop();
     virtual const GameEntity* target() { return m_target; }
     const unsigned id() const { return m_id; }
+    virtual void init();
     
-protected:
+protected:    
+    
     GameEntity* m_target;
     unsigned m_id;
+    
+    
 };
     
 }}

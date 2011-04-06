@@ -26,7 +26,8 @@ public:
     
     int maxParticles() { return m_maxParticles; }
     
-    Particle *createParticle() {
+    Particle *createParticle() 
+    {
         return &(m_pool->create());
     }
     

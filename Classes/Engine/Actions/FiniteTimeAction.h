@@ -10,6 +10,7 @@
 #define __FINITE_TIME_ACTION_H__
 
 #include "Action.h"
+#include <iostream>
 
 namespace gg { namespace action {
 
@@ -17,6 +18,8 @@ class FiniteTimeAction : public Action
 {
     
 public:
+    virtual ~FiniteTimeAction() {}
+    
     virtual void update(float delta);
     
     virtual void refresh(float time) = 0;

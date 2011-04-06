@@ -19,19 +19,15 @@ MoveToAction::MoveToAction() : m_startPoint(CGPointZero),
     //Constructor.
 }
 
-void MoveToAction::startWithTarget(GameEntity *e)
+void MoveToAction::init()
 {
-    Action::m_target = e;
-    m_startPoint = e->getPosition();
+    m_startPoint = m_target->getPosition();
     m_delta.x = (m_startPoint.x - m_endPoint.x);
-    m_delta.y = (m_startPoint.y - m_endPoint.y);
+    m_delta.y = (m_startPoint.y - m_endPoint.y);  
 }
 
 void MoveToAction::refresh(float dt)
-{
-    float x = m_delta.x;
-    float y = m_delta.y;
-    
+{    
     m_target->setPosition(m_startPoint.x - (m_delta.x * dt), m_startPoint.y - (m_delta.y * dt));
 }
 

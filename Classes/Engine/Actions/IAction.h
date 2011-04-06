@@ -9,6 +9,8 @@
 #ifndef __I_ACTION__
 #define __I_ACTION__
 
+#include <iostream>
+
 class GameEntity;
 
 namespace gg { namespace action {
@@ -23,6 +25,7 @@ public:
     virtual const GameEntity* target() = 0;
     virtual void update(float delta) = 0;
     virtual void refresh(float time) = 0;
+    virtual void init() {} //Optional
 };
 
 }}

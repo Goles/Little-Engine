@@ -34,12 +34,14 @@ public:
     
 protected:
     ActionManager() {}
+    void cleanup();
     
 private:
     typedef std::vector< IAction * > ActionVector;
     typedef std::map< int, ActionVector* > ActionMap;
     
     ActionMap actions;
+    ActionVector cleanupActions; 
     
     static ActionManager *m_instance;
 };

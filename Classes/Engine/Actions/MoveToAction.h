@@ -11,6 +11,7 @@
 
 #include "FiniteTimeAction.h"
 #include "ConstantsAndMacros.h"
+#include <iostream>
 
 class GameEntity;
 
@@ -21,7 +22,7 @@ class MoveToAction : public FiniteTimeAction
 public:
     MoveToAction();
     virtual void refresh(float dt);
-    virtual void startWithTarget(GameEntity *e);
+    virtual void init();
     void setEndPoint(const GGPoint &endPoint);
     
 private:

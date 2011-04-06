@@ -34,8 +34,8 @@ Character =
 
 				
 
-				this:attachAction(MoveTo(240.0 , 180.0, 1.0))
-				this:attachAction(MoveTo(180.0 , 180.0, 1.0))
+				this:attachAction(MoveTo(240.0 , 180.0, 2.0))
+				this:attachAction(FadeOut(10.0))
 				
 
 			--
