@@ -32,11 +32,8 @@ Character =
 					playBackgroundMusic("sonic_theme.mp3")
 				end
 
-				
-
 				this:attachAction(MoveTo(240.0 , 180.0, 2.0))
-				this:attachAction(FadeOut(10.0))
-				
+				this:attachAction(FadeOut(10.0))				
 
 			--
 			--	EVENT DRAG GAMEPAD
