@@ -10,7 +10,6 @@
 #define __ACTION_H__
 
 #include "IAction.h"
-#include <iostream>
 
 class GameEntity;
 

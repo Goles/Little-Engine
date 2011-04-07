@@ -128,8 +128,6 @@ end
 -- Adds the Actions interface to the entity
 function addActionsInterface (in_entity)
 	
-	print "Actions Interface"
-	
 	in_entity.attachAction = function (this, in_action)
 		
 		in_action:startWithTarget(this)

@@ -59,6 +59,7 @@
 		144FF9F2133D8A9C0090800C /* sprite_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9BD133D8A9C0090800C /* sprite_test.png */; };
 		145A10191311E5E00029FE31 /* libFTGLES.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B127C913104A730015D418 /* libFTGLES.a */; };
 		1461BD96134BDADB002C0A79 /* actions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1461BD95134BDADB002C0A79 /* actions.lua */; };
+		1472DA9D134E44C300F349B6 /* ActionManagerTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1472DA9B134E44C300F349B6 /* ActionManagerTest.mm */; };
 		1485C2FB1340131300E0119B /* Action.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1485C2F71340131300E0119B /* Action.mm */; };
 		1485C2FC1340131300E0119B /* FiniteTimeAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1485C2F91340131300E0119B /* FiniteTimeAction.mm */; };
 		1485C2FF1340324900E0119B /* FadeInAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1485C2FD1340324800E0119B /* FadeInAction.mm */; };
@@ -67,6 +68,124 @@
 		148B1F871310A44100B1CE94 /* FontManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1F861310A44100B1CE94 /* FontManager.mm */; };
 		148B1FBD1310AA9E00B1CE94 /* ftglesTextureFont.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1FBC1310AA9E00B1CE94 /* ftglesTextureFont.mm */; };
 		148B20D01310C9CA00B1CE94 /* TOONISH.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 148B20CF1310C9CA00B1CE94 /* TOONISH.ttf */; };
+		14A3716C134E04E3007E9551 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 14E31485121E47FE00917795 /* Shader.fsh */; };
+		14A3716D134E04E3007E9551 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 14E31486121E47FE00917795 /* Shader.vsh */; };
+		14A3716E134E04E3007E9551 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14E31469121E47FE00917795 /* MainWindow.xib */; };
+		14A3716F134E04E3007E9551 /* TOONISH.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 148B20CF1310C9CA00B1CE94 /* TOONISH.ttf */; };
+		14A37170134E04E3007E9551 /* Diavlo_BLACK_II_37.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1430CA7613201A3600AFA083 /* Diavlo_BLACK_II_37.otf */; };
+		14A37171134E04E3007E9551 /* sonic_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 144668FD133A503D001DAE2D /* sonic_theme.mp3 */; };
+		14A37172134E04E3007E9551 /* swing_1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 14466902133A6E91001DAE2D /* swing_1.caf */; };
+		14A37173134E04E3007E9551 /* swing_1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 14466904133A75C3001DAE2D /* swing_1.wav */; };
+		14A37174134E04E3007E9551 /* button_attack.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9AF133D8A9C0090800C /* button_attack.png */; };
+		14A37175134E04E3007E9551 /* character_ss_alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9B0133D8A9C0090800C /* character_ss_alpha.png */; };
+		14A37176134E04E3007E9551 /* gando_box.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9B1133D8A9C0090800C /* gando_box.png */; };
+		14A37177134E04E3007E9551 /* hitbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9B2133D8A9C0090800C /* hitbutton.png */; };
+		14A37178134E04E3007E9551 /* hitter1_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9B3133D8A9C0090800C /* hitter1_1.png */; };
+		14A37179134E04E3007E9551 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9B4133D8A9C0090800C /* Icon.png */; };
+		14A3717A134E04E3007E9551 /* joypad_move.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9B5133D8A9C0090800C /* joypad_move.png */; };
+		14A3717B134E04E3007E9551 /* joystick-moving-path.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9B6133D8A9C0090800C /* joystick-moving-path.png */; };
+		14A3717C134E04E3007E9551 /* Particle2.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9B7133D8A9C0090800C /* Particle2.pvr */; };
+		14A3717D134E04E3007E9551 /* Particles3.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9B8133D8A9C0090800C /* Particles3.pvr */; };
+		14A3717E134E04E3007E9551 /* pixel.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9B9133D8A9C0090800C /* pixel.png */; };
+		14A3717F134E04E3007E9551 /* scenario_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9BA133D8A9C0090800C /* scenario_3.png */; };
+		14A37180134E04E3007E9551 /* smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9BB133D8A9C0090800C /* smoke.png */; };
+		14A37181134E04E3007E9551 /* smoke.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9BC133D8A9C0090800C /* smoke.pvr */; };
+		14A37182134E04E3007E9551 /* sprite_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9BD133D8A9C0090800C /* sprite_test.png */; };
+		14A37183134E04E3007E9551 /* base_functions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2558133D8BE700E80E17 /* base_functions.lua */; };
+		14A37184134E04E3007E9551 /* ComponentBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2559133D8BE700E80E17 /* ComponentBuilder.lua */; };
+		14A37185134E04E3007E9551 /* config_functions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F255A133D8BE700E80E17 /* config_functions.lua */; };
+		14A37186134E04E3007E9551 /* EntityBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F255B133D8BE700E80E17 /* EntityBuilder.lua */; };
+		14A37187134E04E3007E9551 /* EntityMap.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F255C133D8BE700E80E17 /* EntityMap.lua */; };
+		14A37188134E04E3007E9551 /* Pickle.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F255D133D8BE700E80E17 /* Pickle.lua */; };
+		14A37189134E04E3007E9551 /* PrimitiveBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F255E133D8BE700E80E17 /* PrimitiveBuilder.lua */; };
+		14A3718A134E04E3007E9551 /* SceneBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F255F133D8BE700E80E17 /* SceneBuilder.lua */; };
+		14A3718B134E04E3007E9551 /* tableprint.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2560133D8BE700E80E17 /* tableprint.lua */; };
+		14A3718C134E04E3007E9551 /* gecFSM_interface.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2562133D8BE700E80E17 /* gecFSM_interface.lua */; };
+		14A3718D134E04E3007E9551 /* config.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2564133D8BE700E80E17 /* config.lua */; };
+		14A3718E134E04E3007E9551 /* event_manager.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2566133D8BE700E80E17 /* event_manager.lua */; };
+		14A3718F134E04E3007E9551 /* init.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2567133D8BE700E80E17 /* init.lua */; };
+		14A37190134E04E3007E9551 /* button_attack.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F256A133D8BE700E80E17 /* button_attack.lua */; };
+		14A37191134E04E3007E9551 /* character.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F256B133D8BE700E80E17 /* character.lua */; };
+		14A37192134E04E3007E9551 /* hitter_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F256C133D8BE700E80E17 /* hitter_1.lua */; };
+		14A37193134E04E3007E9551 /* joypad_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F256D133D8BE700E80E17 /* joypad_1.lua */; };
+		14A37194134E04E3007E9551 /* particle_emmiter.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F256F133D8BE700E80E17 /* particle_emmiter.lua */; };
+		14A37195134E04E3007E9551 /* particle_emmiter_bomb.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2570133D8BE700E80E17 /* particle_emmiter_bomb.lua */; };
+		14A37196134E04E3007E9551 /* particle_emmiter_spray.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2571133D8BE700E80E17 /* particle_emmiter_spray.lua */; };
+		14A37197134E04E3007E9551 /* weapon_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2572133D8BE700E80E17 /* weapon_1.lua */; };
+		14A37198134E04E3007E9551 /* zero.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2573133D8BE700E80E17 /* zero.lua */; };
+		14A37199134E04E3007E9551 /* particle_test_scene.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2576133D8BE700E80E17 /* particle_test_scene.lua */; };
+		14A3719A134E04E3007E9551 /* game_entities_1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2578133D8BE700E80E17 /* game_entities_1.lua */; };
+		14A3719B134E04E3007E9551 /* gui.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2579133D8BE700E80E17 /* gui.lua */; };
+		14A3719C134E04E3007E9551 /* world1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F257A133D8BE700E80E17 /* world1.lua */; };
+		14A3719D134E04E3007E9551 /* main.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F257B133D8BE700E80E17 /* main.lua */; };
+		14A3719E134E04E3007E9551 /* actions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1461BD95134BDADB002C0A79 /* actions.lua */; };
+		14A371A0134E04E3007E9551 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31415121E47E200917795 /* main.mm */; };
+		14A371A1134E04E3007E9551 /* Particles_2AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31417121E47E200917795 /* Particles_2AppDelegate.mm */; };
+		14A371A2134E04E3007E9551 /* CompBehaviour.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF561310835C0094F680 /* CompBehaviour.mm */; };
+		14A371A3134E04E3007E9551 /* gecFSM.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF581310835C0094F680 /* gecFSM.mm */; };
+		14A371A4134E04E3007E9551 /* CompCollisionable.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF5B1310835C0094F680 /* CompCollisionable.mm */; };
+		14A371A5134E04E3007E9551 /* gecBoxCollisionable.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF5D1310835C0094F680 /* gecBoxCollisionable.mm */; };
+		14A371A6134E04E3007E9551 /* CompTouchable.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF621310835C0094F680 /* CompTouchable.mm */; };
+		14A371A7134E04E3007E9551 /* gecButton.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF641310835C0094F680 /* gecButton.mm */; };
+		14A371A8134E04E3007E9551 /* gecJoystick.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF661310835C0094F680 /* gecJoystick.mm */; };
+		14A371A9134E04E3007E9551 /* TouchableManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF681310835C0094F680 /* TouchableManager.mm */; };
+		14A371AA134E04E3007E9551 /* CompHealth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF6A1310835C0094F680 /* CompHealth.cpp */; };
+		14A371AB134E04E3007E9551 /* gecHealthHuman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF6C1310835C0094F680 /* gecHealthHuman.cpp */; };
+		14A371AC134E04E3007E9551 /* gecAnimatedSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF7B1310835C0094F680 /* gecAnimatedSprite.mm */; };
+		14A371AD134E04E3007E9551 /* gecVisual.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF841310835C0094F680 /* gecVisual.mm */; };
+		14A371AE134E04E3007E9551 /* GEComponent.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF8C1310835C0094F680 /* GEComponent.mm */; };
+		14A371AF134E04E3007E9551 /* GameEntity.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF8F1310835C0094F680 /* GameEntity.mm */; };
+		14A371B0134E04E3007E9551 /* id_generator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF911310835C0094F680 /* id_generator.mm */; };
+		14A371B1134E04E3007E9551 /* GLES-Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFE61310835C0094F680 /* GLES-Render.cpp */; };
+		14A371B2134E04E3007E9551 /* GandoBox2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFE91310835C0094F680 /* GandoBox2D.mm */; };
+		14A371B3134E04E3007E9551 /* GContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFEB1310835C0094F680 /* GContactListener.mm */; };
+		14A371B4134E04E3007E9551 /* LuaManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFF01310835C0094F680 /* LuaManager.mm */; };
+		14A371B5134E04E3007E9551 /* PVRTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFFB1310835C0094F680 /* PVRTexture.m */; };
+		14A371B6134E04E3007E9551 /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFFD1310835C0094F680 /* Texture2D.m */; };
+		14A371B7134E04E3007E9551 /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC00D1310835C0094F680 /* EAGLView.mm */; };
+		14A371B8134E04E3007E9551 /* ES1Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC00F1310835C0094F680 /* ES1Renderer.mm */; };
+		14A371B9134E04E3007E9551 /* ES2Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0111310835C0094F680 /* ES2Renderer.mm */; };
+		14A371BA134E04E3007E9551 /* Scene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0151310835C0094F680 /* Scene.mm */; };
+		14A371BB134E04E3007E9551 /* SceneManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC01A1310835C0094F680 /* SceneManager.mm */; };
+		14A371BC134E04E3007E9551 /* SharedTextureManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0201310835C0094F680 /* SharedTextureManager.mm */; };
+		14A371BD134E04E3007E9551 /* Animation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0231310835C0094F680 /* Animation.mm */; };
+		14A371BE134E04E3007E9551 /* Frame.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0251310835C0094F680 /* Frame.mm */; };
+		14A371BF134E04E3007E9551 /* Image.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0271310835C0094F680 /* Image.mm */; };
+		14A371C0134E04E3007E9551 /* SpriteSheet.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0291310835C0094F680 /* SpriteSheet.mm */; };
+		14A371C1134E04E3007E9551 /* FileUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC02C1310835C0094F680 /* FileUtils.mm */; };
+		14A371C2134E04E3007E9551 /* HardwareClock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC02D1310835C0094F680 /* HardwareClock.cpp */; };
+		14A371C3134E04E3007E9551 /* gecFollowingCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1F731310A2DC00B1CE94 /* gecFollowingCamera.mm */; };
+		14A371C4134E04E3007E9551 /* ICompCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1F751310A2DC00B1CE94 /* ICompCamera.mm */; };
+		14A371C5134E04E3007E9551 /* FontManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1F861310A44100B1CE94 /* FontManager.mm */; };
+		14A371C6134E04E3007E9551 /* ftglesTextureFont.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1FBC1310AA9E00B1CE94 /* ftglesTextureFont.mm */; };
+		14A371C7134E04E3007E9551 /* TextureTextRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1430C7FB131F02F500AFA083 /* TextureTextRenderer.mm */; };
+		14A371C8134E04E3007E9551 /* Particle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1447AA0813272612000DCCD8 /* Particle.mm */; };
+		14A371C9134E04E3007E9551 /* ParticleManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1447AA0B132730E5000DCCD8 /* ParticleManager.mm */; };
+		14A371CA134E04E3007E9551 /* gecParticleSystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1447AA131328897C000DCCD8 /* gecParticleSystem.mm */; };
+		14A371CB134E04E3007E9551 /* CDAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AC903E133083E700BB0A26 /* CDAudioManager.m */; };
+		14A371CC134E04E3007E9551 /* CDOpenALSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9041133083E700BB0A26 /* CDOpenALSupport.m */; };
+		14A371CD134E04E3007E9551 /* CocosDenshion.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9043133083E700BB0A26 /* CocosDenshion.m */; };
+		14A371CE134E04E3007E9551 /* SimpleAudioEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9044133083E700BB0A26 /* SimpleAudioEngine.mm */; };
+		14A371CF134E04E3007E9551 /* SimpleAudioEngine_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9046133083E700BB0A26 /* SimpleAudioEngine_objc.m */; };
+		14A371D0134E04E3007E9551 /* Action.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1485C2F71340131300E0119B /* Action.mm */; };
+		14A371D1134E04E3007E9551 /* FiniteTimeAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1485C2F91340131300E0119B /* FiniteTimeAction.mm */; };
+		14A371D2134E04E3007E9551 /* FadeInAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1485C2FD1340324800E0119B /* FadeInAction.mm */; };
+		14A371D3134E04E3007E9551 /* FadeOutAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14FDD34F1347686D00C0CB60 /* FadeOutAction.mm */; };
+		14A371D4134E04E3007E9551 /* ActionManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14FDD3C31347B03600C0CB60 /* ActionManager.mm */; };
+		14A371D5134E04E3007E9551 /* MoveToAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14EF66F0134B515B0024ADDC /* MoveToAction.mm */; };
+		14A371D7134E04E3007E9551 /* libbox2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DEBD9A1310777C0094F680 /* libbox2d.a */; };
+		14A371D8134E04E3007E9551 /* libFTGLES.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B127C913104A730015D418 /* libFTGLES.a */; };
+		14A371D9134E04E3007E9551 /* libLua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F64F2F13101678006DBA13 /* libLua.a */; };
+		14A371DA134E04E3007E9551 /* libluabind.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 144BAA2113100C77005AD895 /* libluabind.a */; };
+		14A371DB134E04E3007E9551 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14ADA21C132E4F9800D3571D /* AudioToolbox.framework */; };
+		14A371DC134E04E3007E9551 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AC7E13132E4DAB00D5ACA7 /* AVFoundation.framework */; };
+		14A371DD134E04E3007E9551 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AC7E11132E4DA300D5ACA7 /* OpenAL.framework */; };
+		14A371DE134E04E3007E9551 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E314CF121E49B900917795 /* CoreGraphics.framework */; };
+		14A371DF134E04E3007E9551 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FB89E3121E4AC400E1B242 /* QuartzCore.framework */; };
+		14A371E0134E04E3007E9551 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FB89E7121E4ACC00E1B242 /* OpenGLES.framework */; };
+		14A371E1134E04E3007E9551 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FB89EB121E4AD400E1B242 /* UIKit.framework */; };
+		14A371E2134E04E3007E9551 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FB89EF121E4ADB00E1B242 /* Foundation.framework */; };
+		14A371EF134E06B3007E9551 /* libUnitTest++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A371EE134E06B3007E9551 /* libUnitTest++.a */; };
 		14AC7E12132E4DA300D5ACA7 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AC7E11132E4DA300D5ACA7 /* OpenAL.framework */; };
 		14AC7E14132E4DAB00D5ACA7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AC7E13132E4DAB00D5ACA7 /* AVFoundation.framework */; };
 		14AC9047133083E700BB0A26 /* CDAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AC903E133083E700BB0A26 /* CDAudioManager.m */; };
@@ -147,6 +266,41 @@
 			proxyType = 1;
 			remoteGlobalIDString = 63A6FD500FB1F7AF00C38E72;
 			remoteInfo = FTGLES;
+		};
+		14A370DA134E0253007E9551 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14A370D3134E0253007E9551 /* UnitTest++.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 14A37042134E0149007E9551;
+			remoteInfo = "UnitTest++";
+		};
+		14A37166134E04E3007E9551 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 144BAA1913100C77005AD895 /* luabind.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = luabind;
+		};
+		14A37168134E04E3007E9551 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14DEBD921310777C0094F680 /* box2d.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = box2d;
+		};
+		14A3716A134E04E3007E9551 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14B127BD13104A720015D418 /* ftgles.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 63A6FD500FB1F7AF00C38E72;
+			remoteInfo = FTGLES;
+		};
+		14A371EC134E06B0007E9551 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14A370D3134E0253007E9551 /* UnitTest++.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 14A37041134E0149007E9551;
+			remoteInfo = "UnitTest++";
 		};
 		14B127C813104A730015D418 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -237,6 +391,7 @@
 		144FF9BC133D8A9C0090800C /* smoke.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = smoke.pvr; sourceTree = "<group>"; };
 		144FF9BD133D8A9C0090800C /* sprite_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite_test.png; sourceTree = "<group>"; };
 		1461BD95134BDADB002C0A79 /* actions.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = actions.lua; sourceTree = "<group>"; };
+		1472DA9B134E44C300F349B6 /* ActionManagerTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ActionManagerTest.mm; sourceTree = "<group>"; };
 		1485C2F61340131300E0119B /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
 		1485C2F71340131300E0119B /* Action.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Action.mm; sourceTree = "<group>"; };
 		1485C2F81340131300E0119B /* FiniteTimeAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiniteTimeAction.h; sourceTree = "<group>"; };
@@ -254,9 +409,11 @@
 		148B1FBC1310AA9E00B1CE94 /* ftglesTextureFont.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ftglesTextureFont.mm; sourceTree = "<group>"; };
 		148B20CF1310C9CA00B1CE94 /* TOONISH.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TOONISH.ttf; sourceTree = "<group>"; };
 		1498C7241329830400BA6EAF /* Range.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Range.h; sourceTree = "<group>"; };
+		14A370D3134E0253007E9551 /* UnitTest++.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "UnitTest++.xcodeproj"; path = "Libraries/UnitTest++/UnitTest++.xcodeproj"; sourceTree = "<group>"; };
+		14A371E6134E04E3007E9551 /* GandoEngineDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GandoEngineDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		14A371EE134E06B3007E9551 /* libUnitTest++.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libUnitTest++.a"; sourceTree = SOURCE_ROOT; };
 		14AC7E11132E4DA300D5ACA7 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		14AC7E13132E4DAB00D5ACA7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		14AC9036133071DE00BB0A26 /* libCocosDenshion.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libCocosDenshion.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		14AC903A133083E700BB0A26 /* Export.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Export.h; sourceTree = "<group>"; };
 		14AC903B133083E700BB0A26 /* SimpleAudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAudioEngine.h; sourceTree = "<group>"; };
 		14AC903D133083E700BB0A26 /* CDAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAudioManager.h; sourceTree = "<group>"; };
@@ -374,6 +531,26 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		14A371D6134E04E3007E9551 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14A371EF134E06B3007E9551 /* libUnitTest++.a in Frameworks */,
+				14A371D7134E04E3007E9551 /* libbox2d.a in Frameworks */,
+				14A371D8134E04E3007E9551 /* libFTGLES.a in Frameworks */,
+				14A371D9134E04E3007E9551 /* libLua.a in Frameworks */,
+				14A371DA134E04E3007E9551 /* libluabind.a in Frameworks */,
+				14A371DB134E04E3007E9551 /* AudioToolbox.framework in Frameworks */,
+				14A371DC134E04E3007E9551 /* AVFoundation.framework in Frameworks */,
+				14A371DD134E04E3007E9551 /* OpenAL.framework in Frameworks */,
+				14A371DE134E04E3007E9551 /* CoreGraphics.framework in Frameworks */,
+				14A371DF134E04E3007E9551 /* QuartzCore.framework in Frameworks */,
+				14A371E0134E04E3007E9551 /* OpenGLES.framework in Frameworks */,
+				14A371E1134E04E3007E9551 /* UIKit.framework in Frameworks */,
+				14A371E2134E04E3007E9551 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -568,6 +745,7 @@
 		144BAA0F13100C5A005AD895 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				14A370D3134E0253007E9551 /* UnitTest++.xcodeproj */,
 				14AC9038133083E700BB0A26 /* CocosDenshion */,
 				14DEBD921310777C0094F680 /* box2d.xcodeproj */,
 				14B127BD13104A720015D418 /* ftgles.xcodeproj */,
@@ -607,6 +785,14 @@
 			path = Graphics;
 			sourceTree = "<group>";
 		};
+		1472DA9A134E449800F349B6 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				1472DA9B134E44C300F349B6 /* ActionManagerTest.mm */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		1485C2F51340131200E0119B /* Actions */ = {
 			isa = PBXGroup;
 			children = (
@@ -644,6 +830,14 @@
 				1430CA7613201A3600AFA083 /* Diavlo_BLACK_II_37.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		14A370D4134E0253007E9551 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				14A370DB134E0253007E9551 /* libUnitTest++.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		14AC9038133083E700BB0A26 /* CocosDenshion */ = {
@@ -964,6 +1158,7 @@
 		14E31352121E47E100917795 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1472DA9A134E449800F349B6 /* Tests */,
 				14E31353121E47E100917795 /* Engine */,
 				14E31415121E47E200917795 /* main.mm */,
 				14E31416121E47E200917795 /* Particles_2AppDelegate.h */,
@@ -1018,7 +1213,7 @@
 		14E314CE121E49AA00917795 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				14AC9036133071DE00BB0A26 /* libCocosDenshion.a */,
+				14A371EE134E06B3007E9551 /* libUnitTest++.a */,
 				14ADA21C132E4F9800D3571D /* AudioToolbox.framework */,
 				14AC7E13132E4DAB00D5ACA7 /* AVFoundation.framework */,
 				14AC7E11132E4DA300D5ACA7 /* OpenAL.framework */,
@@ -1043,6 +1238,7 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* GandoEngine.app */,
+				14A371E6134E04E3007E9551 /* GandoEngineDebug.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1065,6 +1261,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		14A37164134E04E3007E9551 /* GandoEngineDebug */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14A371E3134E04E3007E9551 /* Build configuration list for PBXNativeTarget "GandoEngineDebug" */;
+			buildPhases = (
+				14A3716B134E04E3007E9551 /* Resources */,
+				14A3719F134E04E3007E9551 /* Sources */,
+				14A371D6134E04E3007E9551 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				14A371ED134E06B0007E9551 /* PBXTargetDependency */,
+				14A37165134E04E3007E9551 /* PBXTargetDependency */,
+				14A37167134E04E3007E9551 /* PBXTargetDependency */,
+				14A37169134E04E3007E9551 /* PBXTargetDependency */,
+			);
+			name = GandoEngineDebug;
+			productName = Particles_2;
+			productReference = 14A371E6134E04E3007E9551 /* GandoEngineDebug.app */;
+			productType = "com.apple.product-type.application";
+		};
 		1D6058900D05DD3D006BFB54 /* GandoEngine */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "GandoEngine" */;
@@ -1122,10 +1339,15 @@
 					ProductGroup = 144BAA1A13100C77005AD895 /* Products */;
 					ProjectRef = 144BAA1913100C77005AD895 /* luabind.xcodeproj */;
 				},
+				{
+					ProductGroup = 14A370D4134E0253007E9551 /* Products */;
+					ProjectRef = 14A370D3134E0253007E9551 /* UnitTest++.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* GandoEngine */,
+				14A37164134E04E3007E9551 /* GandoEngineDebug */,
 			);
 		};
 /* End PBXProject section */
@@ -1136,6 +1358,13 @@
 			fileType = archive.ar;
 			path = libluabind.a;
 			remoteRef = 144BAA2013100C77005AD895 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		14A370DB134E0253007E9551 /* libUnitTest++.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libUnitTest++.a";
+			remoteRef = 14A370DA134E0253007E9551 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		14B127C913104A730015D418 /* libFTGLES.a */ = {
@@ -1162,6 +1391,64 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		14A3716B134E04E3007E9551 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14A3716C134E04E3007E9551 /* Shader.fsh in Resources */,
+				14A3716D134E04E3007E9551 /* Shader.vsh in Resources */,
+				14A3716E134E04E3007E9551 /* MainWindow.xib in Resources */,
+				14A3716F134E04E3007E9551 /* TOONISH.ttf in Resources */,
+				14A37170134E04E3007E9551 /* Diavlo_BLACK_II_37.otf in Resources */,
+				14A37171134E04E3007E9551 /* sonic_theme.mp3 in Resources */,
+				14A37172134E04E3007E9551 /* swing_1.caf in Resources */,
+				14A37173134E04E3007E9551 /* swing_1.wav in Resources */,
+				14A37174134E04E3007E9551 /* button_attack.png in Resources */,
+				14A37175134E04E3007E9551 /* character_ss_alpha.png in Resources */,
+				14A37176134E04E3007E9551 /* gando_box.png in Resources */,
+				14A37177134E04E3007E9551 /* hitbutton.png in Resources */,
+				14A37178134E04E3007E9551 /* hitter1_1.png in Resources */,
+				14A37179134E04E3007E9551 /* Icon.png in Resources */,
+				14A3717A134E04E3007E9551 /* joypad_move.png in Resources */,
+				14A3717B134E04E3007E9551 /* joystick-moving-path.png in Resources */,
+				14A3717C134E04E3007E9551 /* Particle2.pvr in Resources */,
+				14A3717D134E04E3007E9551 /* Particles3.pvr in Resources */,
+				14A3717E134E04E3007E9551 /* pixel.png in Resources */,
+				14A3717F134E04E3007E9551 /* scenario_3.png in Resources */,
+				14A37180134E04E3007E9551 /* smoke.png in Resources */,
+				14A37181134E04E3007E9551 /* smoke.pvr in Resources */,
+				14A37182134E04E3007E9551 /* sprite_test.png in Resources */,
+				14A37183134E04E3007E9551 /* base_functions.lua in Resources */,
+				14A37184134E04E3007E9551 /* ComponentBuilder.lua in Resources */,
+				14A37185134E04E3007E9551 /* config_functions.lua in Resources */,
+				14A37186134E04E3007E9551 /* EntityBuilder.lua in Resources */,
+				14A37187134E04E3007E9551 /* EntityMap.lua in Resources */,
+				14A37188134E04E3007E9551 /* Pickle.lua in Resources */,
+				14A37189134E04E3007E9551 /* PrimitiveBuilder.lua in Resources */,
+				14A3718A134E04E3007E9551 /* SceneBuilder.lua in Resources */,
+				14A3718B134E04E3007E9551 /* tableprint.lua in Resources */,
+				14A3718C134E04E3007E9551 /* gecFSM_interface.lua in Resources */,
+				14A3718D134E04E3007E9551 /* config.lua in Resources */,
+				14A3718E134E04E3007E9551 /* event_manager.lua in Resources */,
+				14A3718F134E04E3007E9551 /* init.lua in Resources */,
+				14A37190134E04E3007E9551 /* button_attack.lua in Resources */,
+				14A37191134E04E3007E9551 /* character.lua in Resources */,
+				14A37192134E04E3007E9551 /* hitter_1.lua in Resources */,
+				14A37193134E04E3007E9551 /* joypad_1.lua in Resources */,
+				14A37194134E04E3007E9551 /* particle_emmiter.lua in Resources */,
+				14A37195134E04E3007E9551 /* particle_emmiter_bomb.lua in Resources */,
+				14A37196134E04E3007E9551 /* particle_emmiter_spray.lua in Resources */,
+				14A37197134E04E3007E9551 /* weapon_1.lua in Resources */,
+				14A37198134E04E3007E9551 /* zero.lua in Resources */,
+				14A37199134E04E3007E9551 /* particle_test_scene.lua in Resources */,
+				14A3719A134E04E3007E9551 /* game_entities_1.lua in Resources */,
+				14A3719B134E04E3007E9551 /* gui.lua in Resources */,
+				14A3719C134E04E3007E9551 /* world1.lua in Resources */,
+				14A3719D134E04E3007E9551 /* main.lua in Resources */,
+				14A3719E134E04E3007E9551 /* actions.lua in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1D60588D0D05DD3D006BFB54 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1223,6 +1510,68 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		14A3719F134E04E3007E9551 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14A371A0134E04E3007E9551 /* main.mm in Sources */,
+				14A371A1134E04E3007E9551 /* Particles_2AppDelegate.mm in Sources */,
+				14A371A2134E04E3007E9551 /* CompBehaviour.mm in Sources */,
+				14A371A3134E04E3007E9551 /* gecFSM.mm in Sources */,
+				14A371A4134E04E3007E9551 /* CompCollisionable.mm in Sources */,
+				14A371A5134E04E3007E9551 /* gecBoxCollisionable.mm in Sources */,
+				14A371A6134E04E3007E9551 /* CompTouchable.mm in Sources */,
+				14A371A7134E04E3007E9551 /* gecButton.mm in Sources */,
+				14A371A8134E04E3007E9551 /* gecJoystick.mm in Sources */,
+				14A371A9134E04E3007E9551 /* TouchableManager.mm in Sources */,
+				14A371AA134E04E3007E9551 /* CompHealth.cpp in Sources */,
+				14A371AB134E04E3007E9551 /* gecHealthHuman.cpp in Sources */,
+				14A371AC134E04E3007E9551 /* gecAnimatedSprite.mm in Sources */,
+				14A371AD134E04E3007E9551 /* gecVisual.mm in Sources */,
+				14A371AE134E04E3007E9551 /* GEComponent.mm in Sources */,
+				14A371AF134E04E3007E9551 /* GameEntity.mm in Sources */,
+				14A371B0134E04E3007E9551 /* id_generator.mm in Sources */,
+				14A371B1134E04E3007E9551 /* GLES-Render.cpp in Sources */,
+				14A371B2134E04E3007E9551 /* GandoBox2D.mm in Sources */,
+				14A371B3134E04E3007E9551 /* GContactListener.mm in Sources */,
+				14A371B4134E04E3007E9551 /* LuaManager.mm in Sources */,
+				14A371B5134E04E3007E9551 /* PVRTexture.m in Sources */,
+				14A371B6134E04E3007E9551 /* Texture2D.m in Sources */,
+				14A371B7134E04E3007E9551 /* EAGLView.mm in Sources */,
+				14A371B8134E04E3007E9551 /* ES1Renderer.mm in Sources */,
+				14A371B9134E04E3007E9551 /* ES2Renderer.mm in Sources */,
+				14A371BA134E04E3007E9551 /* Scene.mm in Sources */,
+				14A371BB134E04E3007E9551 /* SceneManager.mm in Sources */,
+				14A371BC134E04E3007E9551 /* SharedTextureManager.mm in Sources */,
+				14A371BD134E04E3007E9551 /* Animation.mm in Sources */,
+				14A371BE134E04E3007E9551 /* Frame.mm in Sources */,
+				14A371BF134E04E3007E9551 /* Image.mm in Sources */,
+				14A371C0134E04E3007E9551 /* SpriteSheet.mm in Sources */,
+				14A371C1134E04E3007E9551 /* FileUtils.mm in Sources */,
+				14A371C2134E04E3007E9551 /* HardwareClock.cpp in Sources */,
+				14A371C3134E04E3007E9551 /* gecFollowingCamera.mm in Sources */,
+				14A371C4134E04E3007E9551 /* ICompCamera.mm in Sources */,
+				14A371C5134E04E3007E9551 /* FontManager.mm in Sources */,
+				14A371C6134E04E3007E9551 /* ftglesTextureFont.mm in Sources */,
+				14A371C7134E04E3007E9551 /* TextureTextRenderer.mm in Sources */,
+				14A371C8134E04E3007E9551 /* Particle.mm in Sources */,
+				14A371C9134E04E3007E9551 /* ParticleManager.mm in Sources */,
+				14A371CA134E04E3007E9551 /* gecParticleSystem.mm in Sources */,
+				14A371CB134E04E3007E9551 /* CDAudioManager.m in Sources */,
+				14A371CC134E04E3007E9551 /* CDOpenALSupport.m in Sources */,
+				14A371CD134E04E3007E9551 /* CocosDenshion.m in Sources */,
+				14A371CE134E04E3007E9551 /* SimpleAudioEngine.mm in Sources */,
+				14A371CF134E04E3007E9551 /* SimpleAudioEngine_objc.m in Sources */,
+				14A371D0134E04E3007E9551 /* Action.mm in Sources */,
+				14A371D1134E04E3007E9551 /* FiniteTimeAction.mm in Sources */,
+				14A371D2134E04E3007E9551 /* FadeInAction.mm in Sources */,
+				14A371D3134E04E3007E9551 /* FadeOutAction.mm in Sources */,
+				14A371D4134E04E3007E9551 /* ActionManager.mm in Sources */,
+				14A371D5134E04E3007E9551 /* MoveToAction.mm in Sources */,
+				1472DA9D134E44C300F349B6 /* ActionManagerTest.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1D60588E0D05DD3D006BFB54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1297,6 +1646,26 @@
 			name = FTGLES;
 			targetProxy = 145A10171311E5CE0029FE31 /* PBXContainerItemProxy */;
 		};
+		14A37165134E04E3007E9551 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = luabind;
+			targetProxy = 14A37166134E04E3007E9551 /* PBXContainerItemProxy */;
+		};
+		14A37167134E04E3007E9551 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = box2d;
+			targetProxy = 14A37168134E04E3007E9551 /* PBXContainerItemProxy */;
+		};
+		14A37169134E04E3007E9551 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FTGLES;
+			targetProxy = 14A3716A134E04E3007E9551 /* PBXContainerItemProxy */;
+		};
+		14A371ED134E06B0007E9551 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "UnitTest++";
+			targetProxy = 14A371EC134E06B0007E9551 /* PBXContainerItemProxy */;
+		};
 		14DEBDA61310778D0094F680 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = box2d;
@@ -1305,6 +1674,64 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		14A371E4134E04E3007E9551 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = GandoEngine_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					DEBUG,
+					CD_DEBUG,
+					UNIT_TEST,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = 4.2;
+				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\\\"$(SRCROOT)\\\"",
+					"\"$(SRCROOT)\"",
+				);
+				PRODUCT_NAME = GandoEngineDebug;
+			};
+			name = Debug;
+		};
+		14A371E5134E04E3007E9551 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = GandoEngine_Prefix.pch;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_THUMB_SUPPORT = NO;
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = 4.2;
+				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\\\"$(SRCROOT)\\\"",
+					"\\\"$(SRCROOT)/Libraries\\\"",
+					"\"$(SRCROOT)\"",
+				);
+				PRODUCT_NAME = GandoEngineDebug;
+			};
+			name = Release;
+		};
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1426,6 +1853,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		14A371E3134E04E3007E9551 /* Build configuration list for PBXNativeTarget "GandoEngineDebug" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14A371E4134E04E3007E9551 /* Debug */,
+				14A371E5134E04E3007E9551 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "GandoEngine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

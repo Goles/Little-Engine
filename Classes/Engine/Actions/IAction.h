@@ -9,8 +9,6 @@
 #ifndef __I_ACTION__
 #define __I_ACTION__
 
-#include <iostream>
-
 class GameEntity;
 
 namespace gg { namespace action {

@@ -10,7 +10,6 @@
 #define __FINITE_TIME_ACTION_H__
 
 #include "Action.h"
-#include <iostream>
 
 namespace gg { namespace action {
 
