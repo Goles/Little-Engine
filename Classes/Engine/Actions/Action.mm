@@ -7,6 +7,7 @@
 //
 
 #include "Action.h"
+#include "GameEntity.h"
 
 namespace gg { namespace action {
 
@@ -26,6 +27,11 @@ void Action::startWithTarget(GameEntity *target)
     
     init();
 }
+
+unsigned Action::getTargetId()
+{ 
+    return m_target->getId(); 
+}    
     
 void Action::init()
 {

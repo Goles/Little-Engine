@@ -23,7 +23,7 @@ public:
     virtual bool isDone();
     virtual void startWithTarget(GameEntity *target);    
     virtual void stop();
-    virtual const GameEntity* target() { return m_target; }
+    virtual unsigned getTargetId();
     const unsigned id() const { return m_id; }
     virtual void init();
     

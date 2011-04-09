@@ -13,6 +13,7 @@
 
 #include <vector>
 #include <map>
+#include <cstdarg>
 
 namespace gg { namespace action {
 
@@ -28,17 +29,20 @@ public:
         return m_instance;
     }
     
+    ~ActionManager() { m_instance = NULL; }
     void update(float delta);
     void addAction(IAction *action);
+    void addParallelActions(IAction *action, ...);
     void removeAction(IAction *action);
+    unsigned totalActionsNum() const;
+    void cleanup();
     
 protected:
     ActionManager() {}
-    void cleanup();
     
 private:
     typedef std::vector< IAction * > ActionVector;
-    typedef std::map< int, ActionVector* > ActionMap;
+    typedef std::map< unsigned, ActionVector* > ActionMap;
     
     ActionMap actions;
     ActionVector cleanupActions; 

@@ -29,7 +29,7 @@ Character =
 				
 				if(in_data == "World_1") then
 					-- this is level "CoolScene" manage special according to this level.
-					playBackgroundMusic("sonic_theme.mp3")
+					--playBackgroundMusic("sonic_theme.mp3")
 				end
 
 				this:attachAction(MoveTo(240.0 , 180.0, 2.0))

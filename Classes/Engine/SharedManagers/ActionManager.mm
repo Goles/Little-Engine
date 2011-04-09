@@ -30,15 +30,13 @@ void ActionManager::update(float delta)
             (*avp->begin())->update(delta);
         }
     }
-    
-    this->cleanup();
 }
 
 void ActionManager::addAction(IAction *action)
 {
-    const GameEntity *target = action->target();
+    unsigned action_id = action->getTargetId();
     
-    ActionMap::iterator it = actions.find(target->getId());
+    ActionMap::iterator it = actions.find(action_id);
     
     if (it != actions.end())
     {
@@ -48,15 +46,51 @@ void ActionManager::addAction(IAction *action)
        
         newAction->push_back(action);
         
-        std::pair<unsigned, ActionVector *> pair(target->getId(), newAction);        
+        std::pair<unsigned, ActionVector *> pair(action_id, newAction);        
         actions.insert(pair);
     }
+}
+
+void ActionManager::addParallelActions(IAction *action, ...)
+{
+    va_list ap;
+    IAction *p = action;
+    va_start (ap, action);
+    
+    while (p != NULL)
+    {
+        this->addAction(p);
+        p = va_arg (ap, IAction *);
+    }
+    
+    va_end (ap);
 }
     
 void ActionManager::removeAction(IAction *action)
 {
     cleanupActions.push_back(action);
 }
+
+unsigned ActionManager::totalActionsNum() const
+{
+    ActionMap::const_iterator it1 = actions.begin();
+
+    unsigned actionCount = 0;
+    
+    for(; it1 != actions.end(); ++it1)
+    {
+        ActionVector::iterator it2 = it1->second->begin();
+        
+        for(; it2 != it1->second->end(); ++it2)
+        {
+            ++actionCount;
+        }
+    }
+    
+    return actionCount;
+}
+    
+    
     
 void ActionManager::cleanup()
 {
@@ -67,7 +101,7 @@ void ActionManager::cleanup()
     
     for(; actionToErase != cleanupActions.end(); ++actionToErase)
     {        
-        ActionMap::iterator entityActions = actions.find((*actionToErase)->target()->getId());
+        ActionMap::iterator entityActions = actions.find((*actionToErase)->getTargetId());
         ActionVector::iterator it = entityActions->second->begin();
         
         //Note: I didn't use std::find because performance was nearly the same/the same as 

@@ -37,7 +37,7 @@ public:
         return (m_elapsed >= m_duration); 
     } 
     
-private:    
+protected:    
     float m_duration;
     float m_elapsed;
     bool m_firstTick;

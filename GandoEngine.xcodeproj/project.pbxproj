@@ -68,6 +68,8 @@
 		148B1F871310A44100B1CE94 /* FontManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1F861310A44100B1CE94 /* FontManager.mm */; };
 		148B1FBD1310AA9E00B1CE94 /* ftglesTextureFont.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1FBC1310AA9E00B1CE94 /* ftglesTextureFont.mm */; };
 		148B20D01310C9CA00B1CE94 /* TOONISH.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 148B20CF1310C9CA00B1CE94 /* TOONISH.ttf */; };
+		148C3B2E134FB34C000F8444 /* UnisonAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148C3B2C134FB34C000F8444 /* UnisonAction.mm */; };
+		148C3B3C135012C8000F8444 /* UnisonActionTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148C3B3B135012C8000F8444 /* UnisonActionTest.mm */; };
 		14A3716C134E04E3007E9551 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 14E31485121E47FE00917795 /* Shader.fsh */; };
 		14A3716D134E04E3007E9551 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 14E31486121E47FE00917795 /* Shader.vsh */; };
 		14A3716E134E04E3007E9551 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14E31469121E47FE00917795 /* MainWindow.xib */; };
@@ -408,6 +410,9 @@
 		148B1FBB1310AA9E00B1CE94 /* ftglesTextureFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftglesTextureFont.h; sourceTree = "<group>"; };
 		148B1FBC1310AA9E00B1CE94 /* ftglesTextureFont.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ftglesTextureFont.mm; sourceTree = "<group>"; };
 		148B20CF1310C9CA00B1CE94 /* TOONISH.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TOONISH.ttf; sourceTree = "<group>"; };
+		148C3B2C134FB34C000F8444 /* UnisonAction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UnisonAction.mm; sourceTree = "<group>"; };
+		148C3B2D134FB34C000F8444 /* UnisonAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnisonAction.h; sourceTree = "<group>"; };
+		148C3B3B135012C8000F8444 /* UnisonActionTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UnisonActionTest.mm; sourceTree = "<group>"; };
 		1498C7241329830400BA6EAF /* Range.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Range.h; sourceTree = "<group>"; };
 		14A370D3134E0253007E9551 /* UnitTest++.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "UnitTest++.xcodeproj"; path = "Libraries/UnitTest++/UnitTest++.xcodeproj"; sourceTree = "<group>"; };
 		14A371E6134E04E3007E9551 /* GandoEngineDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GandoEngineDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -788,6 +793,7 @@
 		1472DA9A134E449800F349B6 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				148C3B3B135012C8000F8444 /* UnisonActionTest.mm */,
 				1472DA9B134E44C300F349B6 /* ActionManagerTest.mm */,
 			);
 			path = Tests;
@@ -801,6 +807,8 @@
 				1485C2F71340131300E0119B /* Action.mm */,
 				1485C2F81340131300E0119B /* FiniteTimeAction.h */,
 				1485C2F91340131300E0119B /* FiniteTimeAction.mm */,
+				148C3B2D134FB34C000F8444 /* UnisonAction.h */,
+				148C3B2C134FB34C000F8444 /* UnisonAction.mm */,
 				14EF66F1134B515C0024ADDC /* MoveToAction.h */,
 				14EF66F0134B515B0024ADDC /* MoveToAction.mm */,
 				1485C2FE1340324900E0119B /* FadeInAction.h */,
@@ -1569,6 +1577,7 @@
 				14A371D4134E04E3007E9551 /* ActionManager.mm in Sources */,
 				14A371D5134E04E3007E9551 /* MoveToAction.mm in Sources */,
 				1472DA9D134E44C300F349B6 /* ActionManagerTest.mm in Sources */,
+				148C3B3C135012C8000F8444 /* UnisonActionTest.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1630,6 +1639,7 @@
 				14FDD3511347686D00C0CB60 /* FadeOutAction.mm in Sources */,
 				14FDD3C51347B03700C0CB60 /* ActionManager.mm in Sources */,
 				14EF66F2134B515C0024ADDC /* MoveToAction.mm in Sources */,
+				148C3B2E134FB34C000F8444 /* UnisonAction.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

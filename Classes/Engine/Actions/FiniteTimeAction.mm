@@ -17,13 +17,13 @@ void FiniteTimeAction::update(float delta)
     {
         m_firstTick = false;
         m_elapsed = 0.0f;        
-    }else{
-        m_elapsed += delta;
     }
+    
+    m_elapsed += delta;
     
     this->refresh(MIN(1, m_elapsed/m_duration));
     
-    //Cleanup
+    //Remove
     if (this->isDone())
         ACTION_MANAGER->removeAction(this);
 }

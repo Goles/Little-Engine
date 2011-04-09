@@ -71,8 +71,9 @@
 	time	= CFAbsoluteTimeGetCurrent();
 	delta	= (time - lastTime);
 	
-    /* Update Actions Manager */
+    /* Update & Clean ActionManager */
     ACTION_MANAGER->update(delta);
+    ACTION_MANAGER->cleanup();
     
 	/* Update Renderer */
 	[renderer update:delta];
@@ -82,7 +83,7 @@
     
 	/* render */
 	[renderer render];
-	
+    
 	lastTime = time;
 }
 
