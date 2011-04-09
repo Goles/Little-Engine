@@ -9,6 +9,9 @@
 #include "ActionManager.h"
 #include "Action.h"
 #include "GameEntity.h"
+#include "FiniteTimeAction.h"
+#include "UnisonAction.h"
+
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -51,17 +54,23 @@ void ActionManager::addAction(IAction *action)
     }
 }
 
-void ActionManager::addParallelActions(IAction *action, ...)
+void ActionManager::addParallelActions(FiniteTimeAction *action, ...)
 {
     va_list ap;
-    IAction *p = action;
+    FiniteTimeAction *p = action;
     va_start (ap, action);
+    UnisonAction *unison = new UnisonAction();
     
     while (p != NULL)
     {
-        this->addAction(p);
-        p = va_arg (ap, IAction *);
+
+        unison->addAction(p);
+        
+
+        p = va_arg (ap, FiniteTimeAction *);
     }
+    
+    this->addAction(unison);
     
     va_end (ap);
 }
@@ -89,9 +98,7 @@ unsigned ActionManager::totalActionsNum() const
     
     return actionCount;
 }
-    
-    
-    
+
 void ActionManager::cleanup()
 {
     if(cleanupActions.empty())
@@ -137,5 +144,27 @@ void ActionManager::cleanup()
     cleanupActions.clear();
 }
 
+ActionManager::~ActionManager()
+{
+    m_instance = NULL;
+    cleanupActions.clear();
+    
+    ActionMap::iterator it = actions.begin();
+    
+    for(; it != actions.end(); ++it)
+    {
+        ActionVector::iterator action = it->second->begin();
+        
+        for(; action != it->second->end(); ++action)
+        {
+            delete (*action);
+        }
+        
+        it->second->clear();
+    }
+    
+    actions.clear();
+}
+    
 }}
 

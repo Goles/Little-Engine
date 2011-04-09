@@ -20,6 +20,7 @@ class Action: public IAction
     
 public:
     virtual ~Action() {}
+    Action();
     virtual bool isDone();
     virtual void startWithTarget(GameEntity *target);    
     virtual void stop();
@@ -29,9 +30,8 @@ public:
     
 protected:    
     
-    GameEntity* m_target;
+    GameEntity* m_target;    
     unsigned m_id;
-    
     
 };
     

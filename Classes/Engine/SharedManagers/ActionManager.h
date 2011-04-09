@@ -18,6 +18,7 @@
 namespace gg { namespace action {
 
 class IAction;
+class FiniteTimeAction;
     
 class ActionManager 
 {
@@ -29,10 +30,10 @@ public:
         return m_instance;
     }
     
-    ~ActionManager() { m_instance = NULL; }
+    ~ActionManager();
     void update(float delta);
     void addAction(IAction *action);
-    void addParallelActions(IAction *action, ...);
+    void addParallelActions(FiniteTimeAction *action, ...);
     void removeAction(IAction *action);
     unsigned totalActionsNum() const;
     void cleanup();
@@ -41,12 +42,11 @@ protected:
     ActionManager() {}
     
 private:
-    typedef std::vector< IAction * > ActionVector;
-    typedef std::map< unsigned, ActionVector* > ActionMap;
+    typedef std::vector<IAction *> ActionVector;
+    typedef std::map<unsigned, ActionVector*> ActionMap;
     
     ActionMap actions;
-    ActionVector cleanupActions; 
-    
+    ActionVector cleanupActions;     
     static ActionManager *m_instance;
 };
     

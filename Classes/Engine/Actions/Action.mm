@@ -10,7 +10,12 @@
 #include "GameEntity.h"
 
 namespace gg { namespace action {
-
+    
+Action::Action() : m_target(NULL), m_id(UINT_MAX) 
+{
+    
+}
+    
 bool Action::isDone()
 {
     return true;
@@ -29,8 +34,11 @@ void Action::startWithTarget(GameEntity *target)
 }
 
 unsigned Action::getTargetId()
-{ 
-    return m_target->getId(); 
+{
+#ifdef DEBUG
+    assert(m_target != NULL);
+#endif
+    return m_target->getId();
 }    
     
 void Action::init()

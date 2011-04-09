@@ -41,8 +41,6 @@ struct ActionManagerFixture {
     
     ~ActionManagerFixture() {
         delete ACTION_MANAGER;
-        delete a1;
-        delete a2;
         delete e;
     }
     
