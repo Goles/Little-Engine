@@ -12,22 +12,27 @@
 #include "FiniteTimeAction.h"
 #include <vector>
 
-#include "FiniteTimeAction.h"
-
 namespace gg { namespace action {
     
-    class UnisonAction : public FiniteTimeAction
+class UnisonAction : public FiniteTimeAction
+{
+    
+public:
+    void addAction(FiniteTimeAction *a)
     {
         
-    public:
-        void addAction(FiniteTimeAction *a);
+    }
+    
+    virtual void refresh(float dt)
+    {
         
-        virtual void refresh(float dt)
-        {
-            
-        }
-        
-    };
+    }
+    
+private:
+    std::vector<FiniteTimeAction *> unisonActions;
+    
+    
+};
     
 }}
 #endif

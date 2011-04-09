@@ -9,10 +9,6 @@
 #include "UnisonAction.h"
 
 namespace gg { namespace action {
-    
-    void UnisonAction::addAction(FiniteTimeAction *a){
-        
-    }
 
     
 }}
