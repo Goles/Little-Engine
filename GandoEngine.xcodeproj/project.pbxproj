@@ -59,8 +59,9 @@
 		144FF9F2133D8A9C0090800C /* sprite_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9BD133D8A9C0090800C /* sprite_test.png */; };
 		145A10191311E5E00029FE31 /* libFTGLES.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B127C913104A730015D418 /* libFTGLES.a */; };
 		1461BD96134BDADB002C0A79 /* actions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1461BD95134BDADB002C0A79 /* actions.lua */; };
+		146C420713517DE300EA0342 /* Action.mm in Sources */ = {isa = PBXBuildFile; fileRef = 146C420613517DE300EA0342 /* Action.mm */; };
+		146C420813517DE300EA0342 /* Action.mm in Sources */ = {isa = PBXBuildFile; fileRef = 146C420613517DE300EA0342 /* Action.mm */; };
 		1472DA9D134E44C300F349B6 /* ActionManagerTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1472DA9B134E44C300F349B6 /* ActionManagerTest.mm */; };
-		1485C2FB1340131300E0119B /* Action.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1485C2F71340131300E0119B /* Action.mm */; };
 		1485C2FC1340131300E0119B /* FiniteTimeAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1485C2F91340131300E0119B /* FiniteTimeAction.mm */; };
 		1485C2FF1340324900E0119B /* FadeInAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1485C2FD1340324800E0119B /* FadeInAction.mm */; };
 		148B1F761310A2DC00B1CE94 /* gecFollowingCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1F731310A2DC00B1CE94 /* gecFollowingCamera.mm */; };
@@ -169,7 +170,6 @@
 		14A371CD134E04E3007E9551 /* CocosDenshion.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9043133083E700BB0A26 /* CocosDenshion.m */; };
 		14A371CE134E04E3007E9551 /* SimpleAudioEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9044133083E700BB0A26 /* SimpleAudioEngine.mm */; };
 		14A371CF134E04E3007E9551 /* SimpleAudioEngine_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9046133083E700BB0A26 /* SimpleAudioEngine_objc.m */; };
-		14A371D0134E04E3007E9551 /* Action.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1485C2F71340131300E0119B /* Action.mm */; };
 		14A371D1134E04E3007E9551 /* FiniteTimeAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1485C2F91340131300E0119B /* FiniteTimeAction.mm */; };
 		14A371D2134E04E3007E9551 /* FadeInAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1485C2FD1340324800E0119B /* FadeInAction.mm */; };
 		14A371D3134E04E3007E9551 /* FadeOutAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14FDD34F1347686D00C0CB60 /* FadeOutAction.mm */; };
@@ -393,9 +393,9 @@
 		144FF9BC133D8A9C0090800C /* smoke.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = smoke.pvr; sourceTree = "<group>"; };
 		144FF9BD133D8A9C0090800C /* sprite_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite_test.png; sourceTree = "<group>"; };
 		1461BD95134BDADB002C0A79 /* actions.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = actions.lua; sourceTree = "<group>"; };
+		146C420613517DE300EA0342 /* Action.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Action.mm; sourceTree = "<group>"; };
 		1472DA9B134E44C300F349B6 /* ActionManagerTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ActionManagerTest.mm; sourceTree = "<group>"; };
 		1485C2F61340131300E0119B /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
-		1485C2F71340131300E0119B /* Action.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Action.mm; sourceTree = "<group>"; };
 		1485C2F81340131300E0119B /* FiniteTimeAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiniteTimeAction.h; sourceTree = "<group>"; };
 		1485C2F91340131300E0119B /* FiniteTimeAction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FiniteTimeAction.mm; sourceTree = "<group>"; };
 		1485C2FA1340131300E0119B /* IAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAction.h; sourceTree = "<group>"; };
@@ -804,7 +804,7 @@
 			children = (
 				1485C2FA1340131300E0119B /* IAction.h */,
 				1485C2F61340131300E0119B /* Action.h */,
-				1485C2F71340131300E0119B /* Action.mm */,
+				146C420613517DE300EA0342 /* Action.mm */,
 				1485C2F81340131300E0119B /* FiniteTimeAction.h */,
 				1485C2F91340131300E0119B /* FiniteTimeAction.mm */,
 				148C3B2D134FB34C000F8444 /* UnisonAction.h */,
@@ -1570,7 +1570,6 @@
 				14A371CD134E04E3007E9551 /* CocosDenshion.m in Sources */,
 				14A371CE134E04E3007E9551 /* SimpleAudioEngine.mm in Sources */,
 				14A371CF134E04E3007E9551 /* SimpleAudioEngine_objc.m in Sources */,
-				14A371D0134E04E3007E9551 /* Action.mm in Sources */,
 				14A371D1134E04E3007E9551 /* FiniteTimeAction.mm in Sources */,
 				14A371D2134E04E3007E9551 /* FadeInAction.mm in Sources */,
 				14A371D3134E04E3007E9551 /* FadeOutAction.mm in Sources */,
@@ -1578,6 +1577,7 @@
 				14A371D5134E04E3007E9551 /* MoveToAction.mm in Sources */,
 				1472DA9D134E44C300F349B6 /* ActionManagerTest.mm in Sources */,
 				148C3B3C135012C8000F8444 /* UnisonActionTest.mm in Sources */,
+				146C420813517DE300EA0342 /* Action.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1633,13 +1633,13 @@
 				14AC9049133083E700BB0A26 /* CocosDenshion.m in Sources */,
 				14AC904A133083E700BB0A26 /* SimpleAudioEngine.mm in Sources */,
 				14AC904B133083E700BB0A26 /* SimpleAudioEngine_objc.m in Sources */,
-				1485C2FB1340131300E0119B /* Action.mm in Sources */,
 				1485C2FC1340131300E0119B /* FiniteTimeAction.mm in Sources */,
 				1485C2FF1340324900E0119B /* FadeInAction.mm in Sources */,
 				14FDD3511347686D00C0CB60 /* FadeOutAction.mm in Sources */,
 				14FDD3C51347B03700C0CB60 /* ActionManager.mm in Sources */,
 				14EF66F2134B515C0024ADDC /* MoveToAction.mm in Sources */,
 				148C3B2E134FB34C000F8444 /* UnisonAction.mm in Sources */,
+				146C420713517DE300EA0342 /* Action.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
