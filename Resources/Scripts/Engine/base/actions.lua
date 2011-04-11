@@ -1,6 +1,12 @@
-function FadeIn (in_duration)
+function UnisonAction(...)
+	
+	local action = UnisonAction()
+	table.foreach(arg, action:addAction)
+	return action
 
-	print "****** Action!!! **** "
+end
+
+function FadeIn (in_duration)
 	
 	local action = FadeInAction();
 	action:setDuration(in_duration)
