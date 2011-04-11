@@ -1,7 +1,9 @@
-function UnisonAction(...)
+function UnisonActions(...)
 	
 	local action = UnisonAction()
-	table.foreach(arg, action:addAction)
+	
+	for _, v in ipairs(arg) do action:addAction(v) end
+	
 	return action
 
 end

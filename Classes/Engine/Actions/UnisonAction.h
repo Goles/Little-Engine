@@ -9,11 +9,9 @@
 #ifndef __UNISON_ACTION_H__
 #define __UNISON_ACTION_H__
 
-
 #include "FiniteTimeAction.h"
-#include "ActionManager.h"
-#include <vector>
 #include <algorithm>
+#include <vector>
 
 namespace gg { namespace action {
     
@@ -21,7 +19,7 @@ class UnisonAction : public FiniteTimeAction
 {
     
 public:
-    UnisonAction(){
+    UnisonAction() : m_target_id(UINT_MAX) {
         m_duration = 0.0f;
     }
     
@@ -32,12 +30,24 @@ public:
         unisonActions.push_back(a);
     }
     
+    virtual void init() {
+        std::vector<FiniteTimeAction *>::iterator it = unisonActions.begin();
+        
+        for(; it != unisonActions.end(); ++it)
+        {
+            (*it)->startWithTarget(m_target);
+        }
+    }
+    
     virtual void refresh(float dt) {
         
     }
     
     virtual unsigned getTargetId() {
-        return unisonActions[0]->getTargetId();
+        if(m_target_id == UINT_MAX)
+            m_target_id = unisonActions[0]->getTargetId();
+        
+        return m_target_id;
     }
     
     float duration() const { 
@@ -79,15 +89,13 @@ public:
         }
 
         this->refresh(MIN(1, m_elapsed/m_duration));
-        
-        //Remove
-        if (this->isDone())
-            ACTION_MANAGER->removeAction(this);
     }
+    
+    virtual ~UnisonAction() {}
     
 private:
     std::vector<FiniteTimeAction *> unisonActions;
-    
+    unsigned m_target_id;
 };
     
 }}

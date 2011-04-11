@@ -31,6 +31,11 @@ void ActionManager::update(float delta)
         if(!avp->empty())
         {
             (*avp->begin())->update(delta);
+
+            if((*avp->begin())->isDone())
+            {
+                this->removeAction((*avp->begin()));
+            }
         }
     }
 }
@@ -157,7 +162,7 @@ ActionManager::~ActionManager()
         
         for(; action != it->second->end(); ++action)
         {
-            delete (*action);
+            delete *action;
         }
         
         it->second->clear();

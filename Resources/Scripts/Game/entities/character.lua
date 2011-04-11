@@ -32,8 +32,14 @@ Character =
 					--playBackgroundMusic("sonic_theme.mp3")
 				end
 
-				this:attachAction(MoveTo(240.0 , 180.0, 2.0))
-				this:attachAction(FadeOut(10.0))				
+				local actions;
+				
+				actions = UnisonActions(MoveTo(240.0 , 180.0, 2.0), 
+										FadeOut(5.0)
+									   )
+				
+				this:attachAction(actions)
+				
 
 			--
 			--	EVENT DRAG GAMEPAD

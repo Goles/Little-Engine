@@ -33,7 +33,9 @@ public:
         m_firstTick =  true;
     }
     
-    float duration() const { return m_duration; }
+    float duration() const { 
+        return m_duration; 
+    }
     
     bool isDone() { 
         return (m_elapsed >= m_duration); 

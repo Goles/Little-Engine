@@ -9,7 +9,6 @@
 #include "FadeInAction.h"
 #include "GameEntity.h"
 #include "gecVisual.h"
-#include <iostream>
 
 namespace gg { namespace action {
 

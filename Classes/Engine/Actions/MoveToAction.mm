@@ -8,7 +8,6 @@
 
 #include "MoveToAction.h"
 #include "GameEntity.h"
-#include <iostream>
 
 namespace gg { namespace action {
 

@@ -14,9 +14,17 @@
 
 using namespace gg::action;
 
+namespace unisonaction {
+
 struct FiniteActionMock : public FiniteTimeAction
 {
-    FiniteActionMock() : counter_getTargetId(0), counter_refresh(0) {}
+    FiniteActionMock() : counter_getTargetId(0), counter_refresh(0), counter_init(0) {}
+    
+    virtual ~FiniteActionMock() { 
+        counter_refresh = 0; 
+        counter_getTargetId = 0; 
+        counter_init = 0; 
+    }
     
     virtual unsigned getTargetId() {
         counter_getTargetId++;
@@ -27,9 +35,17 @@ struct FiniteActionMock : public FiniteTimeAction
         counter_refresh++;
     }
     
+    virtual void init();
+    
     int counter_refresh;
     int counter_getTargetId;
+    int counter_init;
 };
+
+void FiniteActionMock::init()
+{
+    FiniteActionMock::counter_init++;
+}
 
 struct UnisonActionFixture {
     
@@ -41,14 +57,13 @@ struct UnisonActionFixture {
         
         a1->setDuration(10.0f);
         a2->setDuration(10.1f);
-        a3->setDuration(20.0f);
-        a1->startWithTarget(e);
-        a2->startWithTarget(e);
-        a3->startWithTarget(e);        
+        a3->setDuration(20.0f);      
     }
     
     ~UnisonActionFixture() {
-        delete ACTION_MANAGER;
+        delete a1;
+        delete a2;
+        delete a3;
         delete e;
     }
     
@@ -80,4 +95,25 @@ TEST_FIXTURE (UnisonActionFixture, UnisonActionUpdate)
     a->update(10.0f);
 
     CHECK_EQUAL (3, a1->counter_refresh + a2->counter_refresh + a3->counter_refresh);
+
+    delete a;
+}
+
+TEST_FIXTURE (UnisonActionFixture, UnisonActionSetAllTargets)
+{
+    UnisonAction *a = new UnisonAction();
+    GameEntity *e = new GameEntity();
+    
+    a->addAction(a1);
+    a->addAction(a2);
+    a->addAction(a3);
+    
+    a->startWithTarget(e);
+    
+    CHECK_EQUAL (3, a1->counter_init + a2->counter_init + a3->counter_init);
+    
+    delete a;
+    delete e;
+}
+
 }

@@ -794,6 +794,7 @@
 		146C4209135181A500EA0342 /* Actions */ = {
 			isa = PBXGroup;
 			children = (
+				146C4212135181A500EA0342 /* IAction.h */,
 				146C420A135181A500EA0342 /* Action.h */,
 				146C420B135181A500EA0342 /* Action.mm */,
 				146C420C135181A500EA0342 /* FadeInAction.h */,
@@ -802,7 +803,6 @@
 				146C420F135181A500EA0342 /* FadeOutAction.mm */,
 				146C4210135181A500EA0342 /* FiniteTimeAction.h */,
 				146C4211135181A500EA0342 /* FiniteTimeAction.mm */,
-				146C4212135181A500EA0342 /* IAction.h */,
 				146C4213135181A500EA0342 /* MoveToAction.h */,
 				146C4214135181A500EA0342 /* MoveToAction.mm */,
 				146C4215135181A500EA0342 /* UnisonAction.h */,

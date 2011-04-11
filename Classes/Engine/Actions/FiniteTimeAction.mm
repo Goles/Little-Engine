@@ -7,7 +7,6 @@
 //
 
 #include "FiniteTimeAction.h"
-#include "ActionManager.h"
 
 namespace gg { namespace action {
 
@@ -22,10 +21,6 @@ void FiniteTimeAction::update(float delta)
     m_elapsed += delta;
     
     this->refresh(MIN(1, m_elapsed/m_duration));
-    
-    //Remove
-    if (this->isDone())
-        ACTION_MANAGER->removeAction(this);
 }
 
 }}
