@@ -22,11 +22,11 @@ public:
     virtual ~Action() {}
     Action();
     virtual bool isDone();
-    virtual void startWithTarget(GameEntity *target);    
+    virtual void setTarget(GameEntity *target);    
     virtual void stop();
-    virtual unsigned getTargetId();
+    virtual unsigned targetId();
     const unsigned id() const { return m_id; }
-    virtual void init();
+    virtual void afterSetTarget();
     
 protected:    
     

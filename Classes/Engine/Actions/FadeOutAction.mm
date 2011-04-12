@@ -12,7 +12,7 @@
 
 namespace gg { namespace action {
 
-void FadeOutAction::refresh(float dt)
+void FadeOutAction::afterUpdate(float dt)
 {
     gecVisual *visual = static_cast<gecVisual *>(m_target->getGEC("CompVisual"));
     

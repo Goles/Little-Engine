@@ -21,7 +21,7 @@ bool Action::isDone()
     return true;
 }
 
-void Action::startWithTarget(GameEntity *target)
+void Action::setTarget(GameEntity *target)
 {
     static int incremental_id = 0;
     
@@ -30,10 +30,10 @@ void Action::startWithTarget(GameEntity *target)
     
     ++incremental_id;
     
-    init();
+    afterSetTarget();
 }
 
-unsigned Action::getTargetId()
+unsigned Action::targetId()
 {
 #ifdef DEBUG
     assert(m_target != NULL);
@@ -41,7 +41,7 @@ unsigned Action::getTargetId()
     return m_target->getId();
 }    
     
-void Action::init()
+void Action::afterSetTarget()
 {
     //Init Stuff here ( optional 
 }

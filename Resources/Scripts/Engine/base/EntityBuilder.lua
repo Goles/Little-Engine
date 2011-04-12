@@ -130,7 +130,7 @@ function addActionsInterface (in_entity)
 	
 	in_entity.attachAction = function (this, in_action)
 		
-		in_action:startWithTarget(this)
+		in_action:setTarget(this)
 		addAction(in_action)
 		
 	end

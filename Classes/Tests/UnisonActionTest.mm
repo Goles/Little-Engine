@@ -18,27 +18,27 @@ namespace unisonaction {
 
 struct FiniteActionMock : public FiniteTimeAction
 {
-    FiniteActionMock() : counter_getTargetId(0), counter_refresh(0), counter_init(0) {}
+    FiniteActionMock() : counter_targetId(0), counter_afterUpdate(0), counter_init(0) {}
     
     virtual ~FiniteActionMock() { 
-        counter_refresh = 0; 
-        counter_getTargetId = 0; 
+        counter_afterUpdate = 0; 
+        counter_targetId = 0; 
         counter_init = 0; 
     }
     
-    virtual unsigned getTargetId() {
-        counter_getTargetId++;
+    virtual unsigned targetId() {
+        counter_targetId++;
         return 0;
     }
     
-    virtual void refresh(float dt) {
-        counter_refresh++;
+    virtual void afterUpdate(float dt) {
+        counter_afterUpdate++;
     }
     
     virtual void init();
     
-    int counter_refresh;
-    int counter_getTargetId;
+    int counter_afterUpdate;
+    int counter_targetId;
     int counter_init;
 };
 
@@ -94,7 +94,7 @@ TEST_FIXTURE (UnisonActionFixture, UnisonActionUpdate)
     
     a->update(10.0f);
 
-    CHECK_EQUAL (3, a1->counter_refresh + a2->counter_refresh + a3->counter_refresh);
+    CHECK_EQUAL (3, a1->counter_afterUpdate + a2->counter_afterUpdate + a3->counter_afterUpdate);
 
     delete a;
 }
@@ -108,7 +108,7 @@ TEST_FIXTURE (UnisonActionFixture, UnisonActionSetAllTargets)
     a->addAction(a2);
     a->addAction(a3);
     
-    a->startWithTarget(e);
+    a->setTarget(e);
     
     CHECK_EQUAL (3, a1->counter_init + a2->counter_init + a3->counter_init);
     

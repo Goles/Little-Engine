@@ -19,11 +19,11 @@ public:
     virtual ~IAction() {}
     virtual bool isDone() = 0;
     virtual void stop() = 0;
-    virtual void startWithTarget(GameEntity *target) = 0;    
-    virtual unsigned getTargetId() = 0;
+    virtual unsigned targetId() = 0;    
+    virtual void setTarget(GameEntity *target) = 0; 
+    virtual void afterSetTarget() {} //Optional
     virtual void update(float delta) = 0;
-    virtual void refresh(float time) = 0;
-    virtual void init() {} //Optional
+    virtual void afterUpdate(float time) = 0;
 };
 
 }}

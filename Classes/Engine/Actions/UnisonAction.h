@@ -30,22 +30,22 @@ public:
         unisonActions.push_back(a);
     }
     
-    virtual void init() {
+    virtual void afterSetTarget() {
         std::vector<FiniteTimeAction *>::iterator it = unisonActions.begin();
         
         for(; it != unisonActions.end(); ++it)
         {
-            (*it)->startWithTarget(m_target);
+            (*it)->setTarget(m_target);
         }
     }
     
-    virtual void refresh(float dt) {
+    virtual void afterUpdate(float dt) {
         
     }
     
-    virtual unsigned getTargetId() {
+    virtual unsigned targetId() {
         if(m_target_id == UINT_MAX)
-            m_target_id = unisonActions[0]->getTargetId();
+            m_target_id = unisonActions[0]->targetId();
         
         return m_target_id;
     }
@@ -88,7 +88,7 @@ public:
             }                
         }
 
-        this->refresh(MIN(1, m_elapsed/m_duration));
+        this->afterUpdate(MIN(1, m_elapsed/m_duration));
     }
     
     virtual ~UnisonAction() {}

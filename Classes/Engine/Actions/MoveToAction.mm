@@ -18,14 +18,14 @@ MoveToAction::MoveToAction() : m_startPoint(CGPointZero),
     //Constructor.
 }
 
-void MoveToAction::init()
+void MoveToAction::afterSetTarget()
 {
     m_startPoint = m_target->getPosition();
     m_delta.x = (m_startPoint.x - m_endPoint.x);
     m_delta.y = (m_startPoint.y - m_endPoint.y);  
 }
 
-void MoveToAction::refresh(float dt)
+void MoveToAction::afterUpdate(float dt)
 {    
     m_target->setPosition(m_startPoint.x - (m_delta.x * dt), m_startPoint.y - (m_delta.y * dt));
 }

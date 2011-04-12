@@ -42,7 +42,7 @@ void ActionManager::update(float delta)
 
 void ActionManager::addAction(IAction *action)
 {
-    unsigned action_id = action->getTargetId();
+    unsigned action_id = action->targetId();
     
     ActionMap::iterator it = actions.find(action_id);
     
@@ -113,7 +113,7 @@ void ActionManager::cleanup()
     
     for(; actionToErase != cleanupActions.end(); ++actionToErase)
     {        
-        ActionMap::iterator entityActions = actions.find((*actionToErase)->getTargetId());
+        ActionMap::iterator entityActions = actions.find((*actionToErase)->targetId());
         ActionVector::iterator it = entityActions->second->begin();
         
         //Note: I didn't use std::find because performance was nearly the same/the same as 

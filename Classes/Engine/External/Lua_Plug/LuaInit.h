@@ -131,7 +131,7 @@ namespace gg
             [
              luabind::class_<IAction> ("IAction")
              .def("isDone", &IAction::isDone)
-             .def("startWithTarget", &IAction::startWithTarget)
+             .def("setTarget", &IAction::setTarget)
              .def("stop", &IAction::stop),
              
              luabind::class_<Action, IAction> ("Action"),

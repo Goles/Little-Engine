@@ -21,7 +21,7 @@ public:
     
     virtual void update(float delta);
     
-    virtual void refresh(float time) = 0;
+    virtual void afterUpdate(float time) = 0;
     
     void setDuration(float dt) { 
             

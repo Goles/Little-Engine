@@ -20,8 +20,8 @@ class MoveToAction : public FiniteTimeAction
 {
 public:
     MoveToAction();
-    virtual void refresh(float dt);
-    virtual void init();
+    virtual void afterUpdate(float dt);
+    virtual void afterSetTarget();
     void setEndPoint(const GGPoint &endPoint);
     
 private:

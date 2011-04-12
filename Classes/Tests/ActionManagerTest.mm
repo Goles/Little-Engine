@@ -16,19 +16,19 @@ using namespace gg::action;
 
 struct FiniteActionMock : public FiniteTimeAction
 {
-    FiniteActionMock() : counter_getTargetId(0), counter_refresh(0) {}
+    FiniteActionMock() : counter_targetId(0), counter_afterUpdate(0) {}
     
-    virtual unsigned getTargetId() {
-        counter_getTargetId++;
+    virtual unsigned targetId() {
+        counter_targetId++;
         return 0;
     }
     
-    virtual void refresh(float dt) {
-        counter_refresh++;
+    virtual void afterUpdate(float dt) {
+        counter_afterUpdate++;
     }
     
-    int counter_refresh;
-    int counter_getTargetId;
+    int counter_afterUpdate;
+    int counter_targetId;
 };
 
 struct ActionManagerFixture {
@@ -51,20 +51,20 @@ struct ActionManagerFixture {
 
 TEST_FIXTURE (ActionManagerFixture, AddActionTest)
 {    
-    a1->startWithTarget(e);
-    a2->startWithTarget(e);
+    a1->setTarget(e);
+    a2->setTarget(e);
     ACTION_MANAGER->addAction(a1);
     ACTION_MANAGER->addAction(a2);
     
-    CHECK_EQUAL(2, a1->counter_getTargetId + a2->counter_getTargetId);
+    CHECK_EQUAL(2, a1->counter_targetId + a2->counter_targetId);
 }
 
 TEST_FIXTURE (ActionManagerFixture, UpdateActionsTest)
 {
-    a1->startWithTarget(e);
+    a1->setTarget(e);
     a1->setDuration(10.0f);
     a2->setDuration(10.1f);
-    a2->startWithTarget(e);
+    a2->setTarget(e);
     
     ACTION_MANAGER->addAction(a1);
     ACTION_MANAGER->addAction(a2);
@@ -87,12 +87,12 @@ TEST_FIXTURE (ActionManagerFixture, ParallelActionsAdd)
 {    
     a1->setDuration(10.0f);
     a2->setDuration(10.0f);
-    a1->startWithTarget(e);
-    a2->startWithTarget(e);
+    a1->setTarget(e);
+    a2->setTarget(e);
     
     ACTION_MANAGER->addParallelActions(a1, a2, NULL);
     
     ACTION_MANAGER->update(10.0f);
     
-    CHECK_EQUAL (2, (a1->counter_refresh + a2->counter_refresh));
+    CHECK_EQUAL (2, (a1->counter_afterUpdate + a2->counter_afterUpdate));
 }
