@@ -121,44 +121,52 @@ TEST_FIXTURE (ActionManagerFixture, UpdateFullActionSequence)
     uap->addAction(a2);
     
     ACTION_MANAGER->addAction(uap);
-    ACTION_MANAGER->addAction(a1);
-    ACTION_MANAGER->addAction(a2);
     ACTION_MANAGER->addAction(a3);
     ACTION_MANAGER->addAction(a4);
     
     //First update time check
-    ACTION_MANAGER->update(5.0f);
-    CHECK_EQUAL (5.0f, a1->duration());
-    CHECK_EQUAL (15.0f, a2->duration());
-    CHECK_EQUAL (15.0f, uap->duration());
+    float updateTime1 = 5.0f;
+    
+    ACTION_MANAGER->update(updateTime1);
+    CHECK_EQUAL (5.0f, a1->duration() - updateTime1);
+    CHECK_EQUAL (15.0f, a2->duration() - updateTime1);
+    CHECK_EQUAL (15.0f, uap->duration() - updateTime1);
     CHECK_EQUAL (6.0f, a3->duration());
     CHECK_EQUAL (7.0f, a4->duration());
     
     //Second update time check
-    ACTION_MANAGER->update(5.0f);
+    float updateTime2 = 5.0f;
+    
+    ACTION_MANAGER->update(updateTime2);
     CHECK_EQUAL (true, a1->isDone());
-    CHECK_EQUAL (10.0f, a2->duration());
-    CHECK_EQUAL (10.0f, uap->duration());    
+    CHECK_EQUAL (10.0f, a2->duration() - (updateTime1 + updateTime2));
+    CHECK_EQUAL (10.0f, uap->duration() - (updateTime1 + updateTime2));    
     CHECK_EQUAL (6.0f, a3->duration());
     CHECK_EQUAL (7.0f, a4->duration());
+    ACTION_MANAGER->cleanup();
     
     //Third update time check
-    ACTION_MANAGER->update(10.0f);
+    float updateTime3 = 10.0f;
+    
+    ACTION_MANAGER->update(updateTime3);
     CHECK_EQUAL (true, a2->isDone());
     CHECK_EQUAL (true, uap->isDone());    
     CHECK_EQUAL (6.0f, a3->duration());
     CHECK_EQUAL (7.0f, a4->duration());
+    ACTION_MANAGER->cleanup();
     
     //Fourth update time check
-    ACTION_MANAGER->update(6.0f);   
+    float updateTime4 = 6.0f;
+    
+    ACTION_MANAGER->update(updateTime4);   
     CHECK_EQUAL (true, a3->isDone());
     CHECK_EQUAL (7.0f, a4->duration());
+    ACTION_MANAGER->cleanup();
     
     //Fifth & final update time check
-    ACTION_MANAGER->update(7.0f);   
-    CHECK_EQUAL (true, a4->isDone());  
+    float updateTime5 = 7.0f;
     
-    delete uap; 
-    delete a3;
-    delete a4;
+    ACTION_MANAGER->update(updateTime5);   
+    CHECK_EQUAL (true, a4->isDone());
+    ACTION_MANAGER->cleanup();
 }

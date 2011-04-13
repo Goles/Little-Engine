@@ -118,30 +118,15 @@ void ActionManager::cleanup()
         
         //Note: I didn't use std::find because performance was nearly the same/the same as 
         //sequential search over unsorted std::vector. Maybe it would be a good idea to sort
-        //the actions vector in order to use a binary_search by id().
-        
-        int counter = 0;
-        
+        //the actions vector in order to use a binary_search by id()
         std::vector<int> deleteIndexes;
         
         for (; it != entityActions->second->end(); ++it) 
         {
             if (static_cast<Action *>(*it)->id() == static_cast<Action *>(*actionToErase)->id()) 
             {
-                delete *it;
-                deleteIndexes.push_back(counter);
-            }
-            
-            ++counter;
-        }
-        
-        //Can't modify Vector while iterating through it.
-        for(int i = 0; i < deleteIndexes.size(); ++i)
-        {
-            if(deleteIndexes[i] < entityActions->second->size())
-            {
-                std::swap((*entityActions->second)[deleteIndexes[i]], entityActions->second->back());
-                entityActions->second->pop_back();
+                entityActions->second->erase(it);
+                break;
             }
         }
     }
@@ -149,11 +134,6 @@ void ActionManager::cleanup()
     cleanupActions.clear();
 }
 
-void ActionManager::debugPrintAction(const IAction *action)
-{
-    
-}
-    
 ActionManager::~ActionManager()
 {
     m_instance = NULL;

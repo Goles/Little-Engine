@@ -37,7 +37,7 @@ public:
     void removeAction(IAction *action);
     unsigned totalActionsNum() const;
     void cleanup();    
-    void debugPrintAction(const IAction *action);
+
     
 protected:
     ActionManager() {}
