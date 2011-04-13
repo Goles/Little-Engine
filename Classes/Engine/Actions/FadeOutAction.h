@@ -17,6 +17,7 @@ class FadeOutAction : public FiniteTimeAction
 {
     
 public:
+    FadeOutAction() {}
     void afterUpdate(float dt);
     
 };

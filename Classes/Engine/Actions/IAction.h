@@ -21,9 +21,13 @@ public:
     virtual void stop() = 0;
     virtual unsigned targetId() = 0;    
     virtual void setTarget(GameEntity *target) = 0; 
-    virtual void afterSetTarget() {} //Optional
     virtual void update(float delta) = 0;
     virtual void afterUpdate(float time) = 0;
+    
+    //Optional
+    virtual void afterSetTarget() {}
+    virtual void started() {}
+    virtual void ended() {}
 };
 
 }}

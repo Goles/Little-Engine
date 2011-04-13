@@ -28,7 +28,7 @@ function MoveTo (in_x, in_y, in_duration)
 	
 	local action = MoveToAction()
 	action:setDuration(in_duration)
-	action:setEndPoint(ggp(240.0, 180.0))
+	action:setEndPoint( ggp(in_x, in_y) )
 	return action
 	
 end

@@ -17,6 +17,7 @@ class FadeInAction : public FiniteTimeAction
 {
 
 public:
+    FadeInAction() {} 
     virtual void afterUpdate(float dt);
     
 };

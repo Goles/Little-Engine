@@ -28,12 +28,12 @@ public:
     const unsigned id() const { return m_id; }
     virtual void afterSetTarget();
     
-protected:    
-    
+protected:
     GameEntity* m_target;    
     unsigned m_id;
     
 };
-    
+
 }}
+
 #endif

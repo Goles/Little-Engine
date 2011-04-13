@@ -11,6 +11,7 @@
 #include "FiniteTimeAction.h"
 #include "ActionManager.h"
 #include "GameEntity.h"
+#include "UnisonAction.h"
 
 using namespace gg::action;
 
@@ -95,4 +96,69 @@ TEST_FIXTURE (ActionManagerFixture, ParallelActionsAdd)
     ACTION_MANAGER->update(10.0f);
     
     CHECK_EQUAL (2, (a1->counter_afterUpdate + a2->counter_afterUpdate));
+}
+
+//
+// Acceptance Tests
+//
+TEST_FIXTURE (ActionManagerFixture, UpdateFullActionSequence)
+{
+    UnisonAction *uap = new UnisonAction();
+    FiniteActionMock *a3 = new FiniteActionMock();
+    FiniteActionMock *a4 = new FiniteActionMock();
+    
+    a1->setDuration(10.0f);
+    a2->setDuration(20.0f);
+    a3->setDuration(6.0);
+    a4->setDuration(7.0);
+    
+    a1->setTarget(e);
+    a2->setTarget(e);
+    a3->setTarget(e);
+    a4->setTarget(e);
+    
+    uap->addAction(a1);
+    uap->addAction(a2);
+    
+    ACTION_MANAGER->addAction(uap);
+    ACTION_MANAGER->addAction(a1);
+    ACTION_MANAGER->addAction(a2);
+    ACTION_MANAGER->addAction(a3);
+    ACTION_MANAGER->addAction(a4);
+    
+    //First update time check
+    ACTION_MANAGER->update(5.0f);
+    CHECK_EQUAL (5.0f, a1->duration());
+    CHECK_EQUAL (15.0f, a2->duration());
+    CHECK_EQUAL (15.0f, uap->duration());
+    CHECK_EQUAL (6.0f, a3->duration());
+    CHECK_EQUAL (7.0f, a4->duration());
+    
+    //Second update time check
+    ACTION_MANAGER->update(5.0f);
+    CHECK_EQUAL (true, a1->isDone());
+    CHECK_EQUAL (10.0f, a2->duration());
+    CHECK_EQUAL (10.0f, uap->duration());    
+    CHECK_EQUAL (6.0f, a3->duration());
+    CHECK_EQUAL (7.0f, a4->duration());
+    
+    //Third update time check
+    ACTION_MANAGER->update(10.0f);
+    CHECK_EQUAL (true, a2->isDone());
+    CHECK_EQUAL (true, uap->isDone());    
+    CHECK_EQUAL (6.0f, a3->duration());
+    CHECK_EQUAL (7.0f, a4->duration());
+    
+    //Fourth update time check
+    ACTION_MANAGER->update(6.0f);   
+    CHECK_EQUAL (true, a3->isDone());
+    CHECK_EQUAL (7.0f, a4->duration());
+    
+    //Fifth & final update time check
+    ACTION_MANAGER->update(7.0f);   
+    CHECK_EQUAL (true, a4->isDone());  
+    
+    delete uap; 
+    delete a3;
+    delete a4;
 }

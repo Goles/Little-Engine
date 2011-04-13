@@ -149,6 +149,11 @@ void ActionManager::cleanup()
     cleanupActions.clear();
 }
 
+void ActionManager::debugPrintAction(const IAction *action)
+{
+    
+}
+    
 ActionManager::~ActionManager()
 {
     m_instance = NULL;

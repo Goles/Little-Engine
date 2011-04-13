@@ -37,8 +37,20 @@ public:
         return m_duration; 
     }
     
-    bool isDone() { 
-        return (m_elapsed >= m_duration); 
+    bool isDone() {
+        
+        if(m_elapsed >= m_duration)
+        {
+            ended();
+            return true;
+        }
+        
+        return false;
+    }
+    
+    
+    virtual void ended()
+    {
     }
     
 protected:    
