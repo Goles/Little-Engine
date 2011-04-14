@@ -43,7 +43,7 @@ Weapon1 =
 			elseif in_event == "E_CHARACTER_ATTACK_STOP" then
 				-- deactivate the weapon on attack stop
 				this.active = true
-				playEffect("swing_1.wav")
+				playEffect("swing_1.caf")
 			end	
 					
 		end

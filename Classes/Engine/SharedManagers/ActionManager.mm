@@ -68,10 +68,7 @@ void ActionManager::addParallelActions(FiniteTimeAction *action, ...)
     
     while (p != NULL)
     {
-
-        unison->addAction(p);
-        
-
+        unison->addChildAction(p);        
         p = va_arg (ap, FiniteTimeAction *);
     }
     

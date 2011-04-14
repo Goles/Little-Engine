@@ -21,9 +21,10 @@ class UnisonAction : public FiniteTimeAction
 public:
     UnisonAction() : m_target_id(UINT_MAX) {
         m_duration = 0.0f;
+        m_elapsed = 0.0f;
     }
     
-    void addAction(FiniteTimeAction *a) {
+    void addChildAction(FiniteTimeAction *a) {
         if(m_duration < a->duration())
             m_duration = a->duration();
         
@@ -63,7 +64,7 @@ public:
         }
         
         m_elapsed += delta;
-        
+
         std::vector<FiniteTimeAction *>::iterator it = unisonActions.begin();
         
         std::vector<int> toRemove;

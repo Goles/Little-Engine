@@ -36,7 +36,7 @@ public:
     void addParallelActions(FiniteTimeAction *action, ...);
     void removeAction(IAction *action);
     unsigned totalActionsNum() const;
-    void cleanup();    
+    void cleanup();
 
     
 protected:

@@ -77,9 +77,9 @@ TEST_FIXTURE (UnisonActionFixture, UnisonActionDuration)
 {
     UnisonAction *a = new UnisonAction();
     
-    a->addAction(a1);
-    a->addAction(a2);
-    a->addAction(a3);
+    a->addChildAction(a1);
+    a->addChildAction(a2);
+    a->addChildAction(a3);
     
     CHECK_EQUAL(20.0f, a->duration());
 }
@@ -88,9 +88,9 @@ TEST_FIXTURE (UnisonActionFixture, UnisonActionUpdate)
 {
     UnisonAction *a = new UnisonAction();
 
-    a->addAction(a1);
-    a->addAction(a2);
-    a->addAction(a3);
+    a->addChildAction(a1);
+    a->addChildAction(a2);
+    a->addChildAction(a3);
     
     a->update(10.0f);
 
@@ -104,9 +104,9 @@ TEST_FIXTURE (UnisonActionFixture, UnisonActionSetAllTargets)
     UnisonAction *a = new UnisonAction();
     GameEntity *e = new GameEntity();
     
-    a->addAction(a1);
-    a->addAction(a2);
-    a->addAction(a3);
+    a->addChildAction(a1);
+    a->addChildAction(a2);
+    a->addChildAction(a3);
     
     a->setTarget(e);
     

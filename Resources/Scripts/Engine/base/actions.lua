@@ -2,7 +2,7 @@ function UnisonActions(...)
 	
 	local action = UnisonAction()
 	
-	for _, v in ipairs(arg) do action:addAction(v) end
+	for _, v in ipairs(arg) do action:addChildAction(v) end
 	
 	return action
 

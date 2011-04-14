@@ -151,7 +151,7 @@ namespace gg
              
              luabind::class_<UnisonAction, FiniteTimeAction> ("UnisonAction")
              .def(luabind::constructor<>())
-             .def("addAction", &UnisonAction::addAction)
+             .def("addChildAction", &UnisonAction::addChildAction)
              ];
 		}
         

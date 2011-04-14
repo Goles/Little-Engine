@@ -13,7 +13,9 @@ namespace gg { namespace action {
     
 Action::Action() : m_target(NULL), m_id(UINT_MAX) 
 {
-    
+    static int incremental_id = 0;
+    m_id = incremental_id;
+    ++incremental_id;
 }
     
 bool Action::isDone()
@@ -23,13 +25,7 @@ bool Action::isDone()
 
 void Action::setTarget(GameEntity *target)
 {
-    static int incremental_id = 0;
-    
-    m_id = incremental_id;
     m_target = target;
-    
-    ++incremental_id;
-    
     afterSetTarget();
 }
 

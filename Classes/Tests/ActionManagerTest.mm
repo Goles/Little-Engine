@@ -34,7 +34,7 @@ struct FiniteActionMock : public FiniteTimeAction
 
 struct ActionManagerFixture {
 
-    ActionManagerFixture() {
+    ActionManagerFixture() {        
         a1 = new FiniteActionMock();
         a2 = new FiniteActionMock();        
         e = new GameEntity();
@@ -103,37 +103,37 @@ TEST_FIXTURE (ActionManagerFixture, ParallelActionsAdd)
 //
 TEST_FIXTURE (ActionManagerFixture, UpdateFullActionSequence)
 {
+    CHECK_EQUAL(0, ACTION_MANAGER->totalActionsNum());
+    
     UnisonAction *uap = new UnisonAction();
     FiniteActionMock *a3 = new FiniteActionMock();
-    FiniteActionMock *a4 = new FiniteActionMock();
     
     a1->setDuration(10.0f);
     a2->setDuration(20.0f);
     a3->setDuration(6.0);
-    a4->setDuration(7.0);
-    
+
     a1->setTarget(e);
     a2->setTarget(e);
     a3->setTarget(e);
-    a4->setTarget(e);
-    
-    uap->addAction(a1);
-    uap->addAction(a2);
+
+    uap->addChildAction(a1);
+    uap->addChildAction(a2);
     
     ACTION_MANAGER->addAction(uap);
     ACTION_MANAGER->addAction(a3);
-    ACTION_MANAGER->addAction(a4);
+
+    CHECK_EQUAL(2, ACTION_MANAGER->totalActionsNum());
     
     //First update time check
     float updateTime1 = 5.0f;
     
     ACTION_MANAGER->update(updateTime1);
+
     CHECK_EQUAL (5.0f, a1->duration() - updateTime1);
     CHECK_EQUAL (15.0f, a2->duration() - updateTime1);
     CHECK_EQUAL (15.0f, uap->duration() - updateTime1);
     CHECK_EQUAL (6.0f, a3->duration());
-    CHECK_EQUAL (7.0f, a4->duration());
-    
+
     //Second update time check
     float updateTime2 = 5.0f;
     
@@ -142,9 +142,10 @@ TEST_FIXTURE (ActionManagerFixture, UpdateFullActionSequence)
     CHECK_EQUAL (10.0f, a2->duration() - (updateTime1 + updateTime2));
     CHECK_EQUAL (10.0f, uap->duration() - (updateTime1 + updateTime2));    
     CHECK_EQUAL (6.0f, a3->duration());
-    CHECK_EQUAL (7.0f, a4->duration());
+
     ACTION_MANAGER->cleanup();
-    
+    CHECK_EQUAL(2, ACTION_MANAGER->totalActionsNum());
+
     //Third update time check
     float updateTime3 = 10.0f;
     
@@ -152,21 +153,16 @@ TEST_FIXTURE (ActionManagerFixture, UpdateFullActionSequence)
     CHECK_EQUAL (true, a2->isDone());
     CHECK_EQUAL (true, uap->isDone());    
     CHECK_EQUAL (6.0f, a3->duration());
-    CHECK_EQUAL (7.0f, a4->duration());
+
     ACTION_MANAGER->cleanup();
+    CHECK_EQUAL(1, ACTION_MANAGER->totalActionsNum());    
     
     //Fourth update time check
     float updateTime4 = 6.0f;
     
     ACTION_MANAGER->update(updateTime4);   
     CHECK_EQUAL (true, a3->isDone());
-    CHECK_EQUAL (7.0f, a4->duration());
-    ACTION_MANAGER->cleanup();
     
-    //Fifth & final update time check
-    float updateTime5 = 7.0f;
-    
-    ACTION_MANAGER->update(updateTime5);   
-    CHECK_EQUAL (true, a4->isDone());
     ACTION_MANAGER->cleanup();
+    CHECK_EQUAL(0, ACTION_MANAGER->totalActionsNum());
 }
