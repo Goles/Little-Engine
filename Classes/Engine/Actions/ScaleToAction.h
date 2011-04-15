@@ -17,7 +17,8 @@ class ScaleToAction : public FiniteTimeAction
 {
   
 public:
-    void afterUpdate(float dt);
+    virtual void started();
+    virtual void afterUpdate(float dt);
 };
 
 }}

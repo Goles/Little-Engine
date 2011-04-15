@@ -7,6 +7,7 @@
 //
 
 #include "ScaleToAction.h"
+#include "ConstantsAndMacros.h"
 #include "gecVisual.h"
 
 namespace gg { namespace action {
@@ -19,9 +20,19 @@ namespace gg { namespace action {
 //        visual->setTransform();
 //}
 //    
-//void ScaleToAction::start()
-//    {
-//        
-//    }
+void ScaleToAction::started()
+{
+    gecVisual *visualp = static_cast<gecVisual *>(m_target->getGEC("CompVisual"));
+    
+    if(visualp)
+    {
+        float startScaleX = visualp->getScale().x;        
+        float startScaleY = visualp->getScale().y;
+        
+        mat4f_t *m = new mat4f_t;
+        CGAffineToGL(CGAffineTransformMakeScale(startScaleX, startScaleY), m); 
+    }
+
+}
 
 }}
