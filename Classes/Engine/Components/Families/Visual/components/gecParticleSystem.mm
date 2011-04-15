@@ -7,6 +7,7 @@
 //
 
 #include "gecParticleSystem.h"
+#include "GameEntity.h"
 #include "ParticleManager.h"
 
 #include <algorithm>
@@ -197,8 +198,8 @@ void gecParticleSystem::emit(float delta)
     {
         Particle *p = PARTICLE_MANAGER->createParticle();
         
-        p->position.x = m_defaultParticle.position.x + CCRANDOM_MINUS1_1() * m_originVariance;
-        p->position.y = m_defaultParticle.position.y + CCRANDOM_MINUS1_1() * m_originVariance;
+        p->position.x = this->getOwnerGE()->getPosition().y + CCRANDOM_MINUS1_1() * m_originVariance;
+        p->position.y = this->getOwnerGE()->getPosition().x + CCRANDOM_MINUS1_1() * m_originVariance;
         p->speed.x = m_defaultParticle.speed.x +  CCRANDOM_MINUS1_1() * m_speedVariance;
         p->speed.y = m_defaultParticle.speed.y + CCRANDOM_MINUS1_1() * m_speedVariance;
         p->life = m_defaultParticle.life + CCRANDOM_MINUS1_1() * m_lifeVariance;

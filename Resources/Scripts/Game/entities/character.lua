@@ -29,11 +29,9 @@ Character =
 				
 				if(in_data == "World_1") then
 					-- this is level "CoolScene" manage special according to this level.
-					--playBackgroundMusic("sonic_theme.mp3")
+					-- playBackgroundMusic("sonic_theme.mp3")
 				end
 
-				local actions;
-				
 				this:attachAction(UnisonActions(MoveTo(240.0, 180.0, 2.0), 
 												FadeOut(4.0)
 												))
@@ -41,10 +39,6 @@ Character =
 				this:attachAction(MoveTo(0.0, 100.0, 3.0))
 				this:attachAction(MoveTo(100.0,150.0, 1.0))
 				this:attachAction(FadeOut(1.0))
-				
---[[				this:attachAction(FadeIn(1.0))
-				this:attachAction(MoveTo(30.0, 20.0, 5.0))
-	]]			
 
 			--
 			--	EVENT DRAG GAMEPAD

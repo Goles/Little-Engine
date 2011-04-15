@@ -4,23 +4,23 @@ Emmiter =
 	{
 		gecParticleSystem =
 		{
-			duration = 20.0,
+			duration = 30.0,
 			texture = "Particle2.pvr",	
-			emissionRate = 100.0,
+			emissionRate = 50.0,
 			particle_size = 0.40,
 --			emissionMode = 
 			emissionRateVariance = 0.0,
-			originVariance = 2.0,
+			originVariance = 5.0,
 			lifeVariance = 5.0,
 			speedVariance = 5.0,
 			decayVariance = 2.0,
 
 			defaultParticle = 
 			{
-				position = {x=64 , y=240 },
-				speed = {x=100 , y=0 },
+				position = {x=100 , y=100}, -- this should be removed.
+				speed = {x=75 , y=0 },
 				life = 10,
-				decay = 10,
+				decay = 5,
 				color_R = 255,
 				color_G = 127,
 				color_B = 77,
