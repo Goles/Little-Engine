@@ -87,7 +87,6 @@
 		14A37170134E04E3007E9551 /* Diavlo_BLACK_II_37.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1430CA7613201A3600AFA083 /* Diavlo_BLACK_II_37.otf */; };
 		14A37171134E04E3007E9551 /* sonic_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 144668FD133A503D001DAE2D /* sonic_theme.mp3 */; };
 		14A37172134E04E3007E9551 /* swing_1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 14466902133A6E91001DAE2D /* swing_1.caf */; };
-		14A37173134E04E3007E9551 /* swing_1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 14466904133A75C3001DAE2D /* swing_1.wav */; };
 		14A37174134E04E3007E9551 /* button_attack.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9AF133D8A9C0090800C /* button_attack.png */; };
 		14A37175134E04E3007E9551 /* character_ss_alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9B0133D8A9C0090800C /* character_ss_alpha.png */; };
 		14A37176134E04E3007E9551 /* gando_box.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9B1133D8A9C0090800C /* gando_box.png */; };
@@ -1416,7 +1415,6 @@
 				14A37170134E04E3007E9551 /* Diavlo_BLACK_II_37.otf in Resources */,
 				14A37171134E04E3007E9551 /* sonic_theme.mp3 in Resources */,
 				14A37172134E04E3007E9551 /* swing_1.caf in Resources */,
-				14A37173134E04E3007E9551 /* swing_1.wav in Resources */,
 				14A37174134E04E3007E9551 /* button_attack.png in Resources */,
 				14A37175134E04E3007E9551 /* character_ss_alpha.png in Resources */,
 				14A37176134E04E3007E9551 /* gando_box.png in Resources */,

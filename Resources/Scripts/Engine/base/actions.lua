@@ -32,3 +32,12 @@ function MoveTo (in_x, in_y, in_duration)
 	return action
 	
 end
+
+function ScaleTo (in_x, in_y, in_duration)
+	
+	local action = ScaleToAction()
+	action:setDuration(in_duration)
+	action:setEndScale( ggp(in_x, in_y) )
+	return action
+	
+end

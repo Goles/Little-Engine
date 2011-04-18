@@ -20,10 +20,11 @@
 
 #include "Action.h"
 #include "FiniteTimeAction.h"
+#include "UnisonAction.h"
 #include "FadeInAction.h"
 #include "FadeOutAction.h"
 #include "MoveToAction.h"
-#include "UnisonAction.h"
+#include "ScaleToAction.h"
 
 #include "Particle.h"
 #include "GameEntity.h"
@@ -151,7 +152,11 @@ namespace gg
              
              luabind::class_<UnisonAction, FiniteTimeAction> ("UnisonAction")
              .def(luabind::constructor<>())
-             .def("addChildAction", &UnisonAction::addChildAction)
+             .def("addChildAction", &UnisonAction::addChildAction),
+             
+             luabind::class_<ScaleToAction, FiniteTimeAction> ("ScaleToAction")
+             .def(luabind::constructor<>())
+             .def("setEndScale", &ScaleToAction::setEndScale)
              ];
 		}
         

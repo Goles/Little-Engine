@@ -7,32 +7,39 @@
 //
 
 #include "ScaleToAction.h"
-#include "ConstantsAndMacros.h"
 #include "gecVisual.h"
+#include "GameEntity.h"
 
 namespace gg { namespace action {
-  
-//void ScaleToAction::afterUpdate(float dt)
-//{
-//    gecVisual *visual = static_cast<gecVisual *>(m_target->getGEC("CompVisual"));
-//    
-//    if(visual)
-//        visual->setTransform();
-//}
-//    
+
+ScaleToAction::ScaleToAction() : m_startScale(CGPointMake(1.0f, 1.0f)), m_deltaScale(CGPointZero), m_endScale(CGPointZero)
+{
+}
+
+void ScaleToAction::setEndScale(const GGPoint &scale)
+{
+    m_endScale.x = scale.x;
+    m_endScale.y = scale.y;
+}
+    
 void ScaleToAction::started()
 {
-    gecVisual *visualp = static_cast<gecVisual *>(m_target->getGEC("CompVisual"));
+    gecVisual *visual = static_cast<gecVisual *>(m_target->getGEC("CompVisual"));
     
-    if(visualp)
+    if(visual)
     {
-        float startScaleX = visualp->getScale().x;        
-        float startScaleY = visualp->getScale().y;
-        
-        mat4f_t *m = new mat4f_t;
-        CGAffineToGL(CGAffineTransformMakeScale(startScaleX, startScaleY), m); 
+        m_startScale = visual->scale();
+        m_deltaScale.x = m_endScale.x - m_startScale.x;
+        m_deltaScale.y = m_endScale.y - m_startScale.y;
     }
-
+}
+    
+void ScaleToAction::afterUpdate(float dt)
+{
+    gecVisual *visual = static_cast<gecVisual *>(m_target->getGEC("CompVisual"));
+    
+    if(visual)
+        visual->setScale(CGPointMake (m_startScale.x + (m_deltaScale.x * dt), m_startScale.y + (m_deltaScale.y * dt)));
 }
 
 }}
