@@ -38,7 +38,6 @@
 		1430CA7713201A3600AFA083 /* Diavlo_BLACK_II_37.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1430CA7613201A3600AFA083 /* Diavlo_BLACK_II_37.otf */; };
 		144668FF133A503D001DAE2D /* sonic_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 144668FD133A503D001DAE2D /* sonic_theme.mp3 */; };
 		14466903133A6E91001DAE2D /* swing_1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 14466902133A6E91001DAE2D /* swing_1.caf */; };
-		14466905133A75C3001DAE2D /* swing_1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 14466904133A75C3001DAE2D /* swing_1.wav */; };
 		1447AA0A13272613000DCCD8 /* Particle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1447AA0813272612000DCCD8 /* Particle.mm */; };
 		1447AA0D132730E7000DCCD8 /* ParticleManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1447AA0B132730E5000DCCD8 /* ParticleManager.mm */; };
 		1447AA141328897D000DCCD8 /* gecParticleSystem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1447AA131328897C000DCCD8 /* gecParticleSystem.mm */; };
@@ -370,7 +369,6 @@
 		1430CA7613201A3600AFA083 /* Diavlo_BLACK_II_37.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Diavlo_BLACK_II_37.otf; sourceTree = "<group>"; };
 		144668FD133A503D001DAE2D /* sonic_theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sonic_theme.mp3; sourceTree = "<group>"; };
 		14466902133A6E91001DAE2D /* swing_1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = swing_1.caf; sourceTree = "<group>"; };
-		14466904133A75C3001DAE2D /* swing_1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = swing_1.wav; sourceTree = "<group>"; };
 		1447AA0813272612000DCCD8 /* Particle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Particle.mm; sourceTree = "<group>"; };
 		1447AA0913272612000DCCD8 /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particle.h; sourceTree = "<group>"; };
 		1447AA0B132730E5000DCCD8 /* ParticleManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ParticleManager.mm; path = ../Particles/ParticleManager.mm; sourceTree = "<group>"; };
@@ -746,7 +744,6 @@
 			isa = PBXGroup;
 			children = (
 				14466902133A6E91001DAE2D /* swing_1.caf */,
-				14466904133A75C3001DAE2D /* swing_1.wav */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -1472,7 +1469,6 @@
 				1430CA7713201A3600AFA083 /* Diavlo_BLACK_II_37.otf in Resources */,
 				144668FF133A503D001DAE2D /* sonic_theme.mp3 in Resources */,
 				14466903133A6E91001DAE2D /* swing_1.caf in Resources */,
-				14466905133A75C3001DAE2D /* swing_1.wav in Resources */,
 				144FF9E4133D8A9C0090800C /* button_attack.png in Resources */,
 				144FF9E5133D8A9C0090800C /* character_ss_alpha.png in Resources */,
 				144FF9E6133D8A9C0090800C /* gando_box.png in Resources */,
