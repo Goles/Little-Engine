@@ -10,7 +10,7 @@
 
 std::string gecVisual::m_id = "CompVisual";
 
-gecVisual::gecVisual() : m_dirtyTransform(false), m_dirtyColor(false) 
+gecVisual::gecVisual() : m_scale(CGPointMake(1.0f, 1.0f)), m_dirtyTransform(false), m_dirtyColor(false), m_dirtyScale(false)
 {
     m_color[0] = 1.0f;
     m_color[1] = 1.0f;
@@ -54,4 +54,11 @@ void gecVisual::setAlpha(float alpha)
 { 
     m_color[3] = alpha;
     m_dirtyColor = true;
+}
+
+void gecVisual::setScale(const GGPoint &scale)
+{
+    m_scale.x = scale.x;
+    m_scale.y = scale.y;
+    m_dirtyScale = true;
 }

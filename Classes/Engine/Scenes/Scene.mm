@@ -46,7 +46,8 @@ void Scene::render()
 	SceneVector::const_iterator s_it;
     
 	glPushMatrix();
-	
+	glLoadIdentity();
+    
 	//Apply Camera transformations
 	for (e_it = m_entities.begin(); e_it < m_entities.end(); ++e_it)
 	{

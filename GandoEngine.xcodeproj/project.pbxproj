@@ -57,6 +57,8 @@
 		144FF9F0133D8A9C0090800C /* smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9BB133D8A9C0090800C /* smoke.png */; };
 		144FF9F1133D8A9C0090800C /* smoke.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9BC133D8A9C0090800C /* smoke.pvr */; };
 		144FF9F2133D8A9C0090800C /* sprite_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9BD133D8A9C0090800C /* sprite_test.png */; };
+		14570E1F1357E81900FE1835 /* ScaleToAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14570E1D1357E81700FE1835 /* ScaleToAction.mm */; };
+		14570E201357E81900FE1835 /* ScaleToAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14570E1D1357E81700FE1835 /* ScaleToAction.mm */; };
 		145A10191311E5E00029FE31 /* libFTGLES.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B127C913104A730015D418 /* libFTGLES.a */; };
 		1461BD96134BDADB002C0A79 /* actions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1461BD95134BDADB002C0A79 /* actions.lua */; };
 		146C4217135181A500EA0342 /* Action.mm in Sources */ = {isa = PBXBuildFile; fileRef = 146C420B135181A500EA0342 /* Action.mm */; };
@@ -85,7 +87,6 @@
 		14A37170134E04E3007E9551 /* Diavlo_BLACK_II_37.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1430CA7613201A3600AFA083 /* Diavlo_BLACK_II_37.otf */; };
 		14A37171134E04E3007E9551 /* sonic_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 144668FD133A503D001DAE2D /* sonic_theme.mp3 */; };
 		14A37172134E04E3007E9551 /* swing_1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 14466902133A6E91001DAE2D /* swing_1.caf */; };
-		14A37173134E04E3007E9551 /* swing_1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 14466904133A75C3001DAE2D /* swing_1.wav */; };
 		14A37174134E04E3007E9551 /* button_attack.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9AF133D8A9C0090800C /* button_attack.png */; };
 		14A37175134E04E3007E9551 /* character_ss_alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9B0133D8A9C0090800C /* character_ss_alpha.png */; };
 		14A37176134E04E3007E9551 /* gando_box.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9B1133D8A9C0090800C /* gando_box.png */; };
@@ -393,6 +394,8 @@
 		144FF9BB133D8A9C0090800C /* smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smoke.png; sourceTree = "<group>"; };
 		144FF9BC133D8A9C0090800C /* smoke.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = smoke.pvr; sourceTree = "<group>"; };
 		144FF9BD133D8A9C0090800C /* sprite_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite_test.png; sourceTree = "<group>"; };
+		14570E1D1357E81700FE1835 /* ScaleToAction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ScaleToAction.mm; sourceTree = "<group>"; };
+		14570E1E1357E81800FE1835 /* ScaleToAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleToAction.h; sourceTree = "<group>"; };
 		1461BD95134BDADB002C0A79 /* actions.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = actions.lua; sourceTree = "<group>"; };
 		146C420A135181A500EA0342 /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
 		146C420B135181A500EA0342 /* Action.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Action.mm; sourceTree = "<group>"; };
@@ -807,6 +810,8 @@
 				146C420F135181A500EA0342 /* FadeOutAction.mm */,
 				146C4213135181A500EA0342 /* MoveToAction.h */,
 				146C4214135181A500EA0342 /* MoveToAction.mm */,
+				14570E1E1357E81800FE1835 /* ScaleToAction.h */,
+				14570E1D1357E81700FE1835 /* ScaleToAction.mm */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -1410,7 +1415,6 @@
 				14A37170134E04E3007E9551 /* Diavlo_BLACK_II_37.otf in Resources */,
 				14A37171134E04E3007E9551 /* sonic_theme.mp3 in Resources */,
 				14A37172134E04E3007E9551 /* swing_1.caf in Resources */,
-				14A37173134E04E3007E9551 /* swing_1.wav in Resources */,
 				14A37174134E04E3007E9551 /* button_attack.png in Resources */,
 				14A37175134E04E3007E9551 /* character_ss_alpha.png in Resources */,
 				14A37176134E04E3007E9551 /* gando_box.png in Resources */,
@@ -1579,6 +1583,7 @@
 				146C421E135181A500EA0342 /* FiniteTimeAction.mm in Sources */,
 				146C4220135181A500EA0342 /* MoveToAction.mm in Sources */,
 				146C4222135181A500EA0342 /* UnisonAction.mm in Sources */,
+				14570E201357E81900FE1835 /* ScaleToAction.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1641,6 +1646,7 @@
 				146C421D135181A500EA0342 /* FiniteTimeAction.mm in Sources */,
 				146C421F135181A500EA0342 /* MoveToAction.mm in Sources */,
 				146C4221135181A500EA0342 /* UnisonAction.mm in Sources */,
+				14570E1F1357E81900FE1835 /* ScaleToAction.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

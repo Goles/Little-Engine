@@ -7,10 +7,7 @@
 //
 
 #import "GEComponent.h"
-
 #include <iostream>
-
-#include "GameEntity.h"
 
 GameEntity* GEComponent::getOwnerGE() const
 { 

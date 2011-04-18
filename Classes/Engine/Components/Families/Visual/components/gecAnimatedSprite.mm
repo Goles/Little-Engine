@@ -115,24 +115,33 @@ void gecAnimatedSprite::setFlipVertically(bool f)
 #pragma mark gecVisual Interface
 void gecAnimatedSprite::render() const
 {
-	GameEntity *ge = this->getOwnerGE();
+    GameEntity *ge = this->getOwnerGE();
 	
 	if(!currentAnimation)
 		assert(currentAnimation != NULL);
-    
+  
     glPushMatrix();
+    
+    //Translate to Entity coords.
+    glTranslatef(ge->getPositionX(), ge->getPositionY(), 0);
+
+    if(gecVisual::m_dirtyScale)
+       glScalef(m_scale.x, m_scale.y, 1.0);
     
     if(gecVisual::m_dirtyTransform)
         glMultMatrixf(m_transform);
-    
+
     if(gecVisual::m_dirtyColor)
     {
         Image* frame = currentAnimation->getCurrentFrameImage();
         frame->setColorFilter(m_color[0], m_color[1], m_color[2], m_color[3]);
     }
+
+    //Translate Back to screen coords.
+    glTranslatef(-1 * ge->getPositionX(), -1 * ge->getPositionY(), 0);
     
     currentAnimation->renderAtPoint(ge->getPosition());
-    
+
     glPopMatrix();
 }
 

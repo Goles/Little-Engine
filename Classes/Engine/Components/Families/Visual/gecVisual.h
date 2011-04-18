@@ -23,15 +23,20 @@ public:
     gecVisual();
     virtual ~gecVisual() {}
 	virtual void render() const = 0;
-    virtual void setTransform(const mat4f_t &transform);
-    virtual void setColor(float R, float G, float B, float A = 255.0f);
-    virtual void setAlpha(float alpha);    
-	
+    const GGPoint &scale() { return m_scale; }
+    
+    void setTransform(const mat4f_t &transform);
+    void setColor(float R, float G, float B, float A = 255.0f);
+    void setAlpha(float alpha);
+    void setScale(const GGPoint &scale);
+    
 protected:
     mat4f_t m_transform;
-    float m_color[4];    
+    float m_color[4];
+    GGPoint m_scale;
     bool m_dirtyTransform;
     bool m_dirtyColor;
+    bool m_dirtyScale;
 
 private:
 	static gec_id_type m_id;

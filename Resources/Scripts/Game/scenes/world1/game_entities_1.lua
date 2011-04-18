@@ -10,11 +10,8 @@ Level1 =
 --		{file="weapon_1.lua", position={x=250, y=60}},
   	
   		-- Some particle magic.
-		{file="particle_emmiter_spray.lua", position={x=100, y=100}},		
-		{file="particle_emmiter_spray.lua", position={x=150, y=100}},
-		{file="particle_emmiter_spray.lua", position={x=200, y=100}},
-		{file="particle_emmiter_spray.lua", position={x=250, y=100}},
---[[
+--		{file="particle_emmiter_bomb.lua", position={x=240, y=160}},
+
 		-- Enemies
 		{file="hitter_1.lua"; position={x=120, y=20}},
 		{file="hitter_1.lua"; position={x=120, y=100}},
@@ -26,7 +23,6 @@ Level1 =
 		{file="hitter_1.lua"; position={x=360, y=200}},
 		{file="hitter_1.lua"; position={x=0,   y=160}},
 		{file="hitter_1.lua"; position={x=480, y=160}},
-]]
 	},	
 }
 
