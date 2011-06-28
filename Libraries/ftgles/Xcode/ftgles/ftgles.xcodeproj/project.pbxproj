@@ -164,7 +164,6 @@
 		63AD97DC0FAA2A9F00A79D15 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		63BA7ABA10A1DA040023F917 /* ftglesGlue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftglesGlue.h; sourceTree = "<group>"; };
 		63BA7ABB10A1DC5C0023F917 /* ftglesGlue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ftglesGlue.cpp; sourceTree = "<group>"; };
-		63BA7CB110A1EC6F0023F917 /* AUTHORS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AUTHORS; sourceTree = "<group>"; };
 		E431F793112E8CDA00E393A2 /* freetype2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = freetype2.xcodeproj; path = ../freetype2/freetype2.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E4D1457E112E5EAA00CAD4E4 /* FTPolygonGlyph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTPolygonGlyph.cpp; sourceTree = "<group>"; };
 		E4D1457F112E5EAA00CAD4E4 /* FTPolygonGlyphImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPolygonGlyphImpl.h; sourceTree = "<group>"; };
@@ -367,7 +366,6 @@
 		E431F77C112E8C1E00E393A2 /* ftgles */ = {
 			isa = PBXGroup;
 			children = (
-				63BA7CB110A1EC6F0023F917 /* AUTHORS */,
 				63AD932F0FAA1AE100A79D15 /* src */,
 				63AD91AA0FAA140E00A79D15 /* config.h */,
 			);

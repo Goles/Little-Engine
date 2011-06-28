@@ -4,13 +4,13 @@ Level1 =
 	entities =
 	{	
 		-- Main Character.
-		{file="character.lua", position={x=240, y=160}},
+--		{file="character.lua", position={x=240, y=160}},
 		
 		-- Main Character weapon slot
 --		{file="weapon_1.lua", position={x=250, y=60}},
   	
   		-- Some particle magic.
---		{file="particle_emmiter_bomb.lua", position={x=240, y=160}},
+		{file="particle_emmiter_bomb.lua", position={x=240, y=160}},
 
 		-- Enemies
 		{file="hitter_1.lua"; position={x=120, y=20}},
