@@ -36,6 +36,10 @@
 		142F2596133D8BE700E80E17 /* main.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F257B133D8BE700E80E17 /* main.lua */; };
 		1430C7FC131F02F500AFA083 /* TextureTextRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1430C7FB131F02F500AFA083 /* TextureTextRenderer.mm */; };
 		1430CA7713201A3600AFA083 /* Diavlo_BLACK_II_37.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1430CA7613201A3600AFA083 /* Diavlo_BLACK_II_37.otf */; };
+		143305A513BFADC700DEDB8A /* test1.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 143305A413BFADC700DEDB8A /* test1.fnt */; };
+		143305A613BFADC700DEDB8A /* test1.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 143305A413BFADC700DEDB8A /* test1.fnt */; };
+		143305AB13BFAF0B00DEDB8A /* AngelCodeTextRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 143305AA13BFAF0B00DEDB8A /* AngelCodeTextRenderer.mm */; };
+		143305AC13BFAF0B00DEDB8A /* AngelCodeTextRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 143305AA13BFAF0B00DEDB8A /* AngelCodeTextRenderer.mm */; };
 		144668FF133A503D001DAE2D /* sonic_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 144668FD133A503D001DAE2D /* sonic_theme.mp3 */; };
 		14466903133A6E91001DAE2D /* swing_1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 14466902133A6E91001DAE2D /* swing_1.caf */; };
 		1447AA0A13272613000DCCD8 /* Particle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1447AA0813272612000DCCD8 /* Particle.mm */; };
@@ -59,10 +63,8 @@
 		14570E1F1357E81900FE1835 /* ScaleToAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14570E1D1357E81700FE1835 /* ScaleToAction.mm */; };
 		14570E201357E81900FE1835 /* ScaleToAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14570E1D1357E81700FE1835 /* ScaleToAction.mm */; };
 		145A10191311E5E00029FE31 /* libFTGLES.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B127C913104A730015D418 /* libFTGLES.a */; };
-		145D13C213BA0B1500E110CF /* font1.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 145D13C113BA0B1500E110CF /* font1.fnt */; };
-		145D13C313BA0B1500E110CF /* font1.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 145D13C113BA0B1500E110CF /* font1.fnt */; };
-		145D13C513BA103F00E110CF /* font1.png in Resources */ = {isa = PBXBuildFile; fileRef = 145D13C413BA103F00E110CF /* font1.png */; };
-		145D13C613BA103F00E110CF /* font1.png in Resources */ = {isa = PBXBuildFile; fileRef = 145D13C413BA103F00E110CF /* font1.png */; };
+		145D13C513BA103F00E110CF /* test1.png in Resources */ = {isa = PBXBuildFile; fileRef = 145D13C413BA103F00E110CF /* test1.png */; };
+		145D13C613BA103F00E110CF /* test1.png in Resources */ = {isa = PBXBuildFile; fileRef = 145D13C413BA103F00E110CF /* test1.png */; };
 		1461BD96134BDADB002C0A79 /* actions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1461BD95134BDADB002C0A79 /* actions.lua */; };
 		146C4217135181A500EA0342 /* Action.mm in Sources */ = {isa = PBXBuildFile; fileRef = 146C420B135181A500EA0342 /* Action.mm */; };
 		146C4218135181A500EA0342 /* Action.mm in Sources */ = {isa = PBXBuildFile; fileRef = 146C420B135181A500EA0342 /* Action.mm */; };
@@ -377,6 +379,9 @@
 		1430C7FB131F02F500AFA083 /* TextureTextRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TextureTextRenderer.mm; sourceTree = "<group>"; };
 		1430C81B131F050000AFA083 /* IFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFont.h; sourceTree = "<group>"; };
 		1430CA7613201A3600AFA083 /* Diavlo_BLACK_II_37.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Diavlo_BLACK_II_37.otf; sourceTree = "<group>"; };
+		143305A413BFADC700DEDB8A /* test1.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test1.fnt; sourceTree = "<group>"; };
+		143305AA13BFAF0B00DEDB8A /* AngelCodeTextRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AngelCodeTextRenderer.mm; sourceTree = "<group>"; };
+		143305AD13BFAF1600DEDB8A /* AngelCodeTextRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AngelCodeTextRenderer.h; sourceTree = "<group>"; };
 		144668FD133A503D001DAE2D /* sonic_theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sonic_theme.mp3; sourceTree = "<group>"; };
 		14466902133A6E91001DAE2D /* swing_1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = swing_1.caf; sourceTree = "<group>"; };
 		1447AA0813272612000DCCD8 /* Particle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Particle.mm; sourceTree = "<group>"; };
@@ -404,8 +409,7 @@
 		144FF9BD133D8A9C0090800C /* sprite_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite_test.png; sourceTree = "<group>"; };
 		14570E1D1357E81700FE1835 /* ScaleToAction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ScaleToAction.mm; sourceTree = "<group>"; };
 		14570E1E1357E81800FE1835 /* ScaleToAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleToAction.h; sourceTree = "<group>"; };
-		145D13C113BA0B1500E110CF /* font1.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = font1.fnt; sourceTree = "<group>"; };
-		145D13C413BA103F00E110CF /* font1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = font1.png; sourceTree = "<group>"; };
+		145D13C413BA103F00E110CF /* test1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test1.png; sourceTree = "<group>"; };
 		1461BD95134BDADB002C0A79 /* actions.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = actions.lua; sourceTree = "<group>"; };
 		146C420A135181A500EA0342 /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
 		146C420B135181A500EA0342 /* Action.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Action.mm; sourceTree = "<group>"; };
@@ -921,10 +925,12 @@
 			isa = PBXGroup;
 			children = (
 				14D4152A13BC071200C0FB7E /* AngelCodeChar.h */,
-				14D4152213BBFAF200C0FB7E /* AngelCodeFont.h */,
-				14D4152313BBFAF200C0FB7E /* AngelCodeFont.mm */,
 				14D4152513BBFAF200C0FB7E /* AngelCodeParser.h */,
 				14D4152413BBFAF200C0FB7E /* AngelCodeParser.cpp */,
+				14D4152213BBFAF200C0FB7E /* AngelCodeFont.h */,
+				14D4152313BBFAF200C0FB7E /* AngelCodeFont.mm */,
+				143305AD13BFAF1600DEDB8A /* AngelCodeTextRenderer.h */,
+				143305AA13BFAF0B00DEDB8A /* AngelCodeTextRenderer.mm */,
 			);
 			path = AngelCode;
 			sourceTree = "<group>";
@@ -1237,8 +1243,8 @@
 		14E3146A121E47FE00917795 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				145D13C413BA103F00E110CF /* font1.png */,
-				145D13C113BA0B1500E110CF /* font1.fnt */,
+				143305A413BFADC700DEDB8A /* test1.fnt */,
+				145D13C413BA103F00E110CF /* test1.png */,
 				142F2555133D8BE700E80E17 /* Scripts */,
 				144FF9AE133D8A9C0090800C /* Graphics */,
 				144668FB133A503D001DAE2D /* Audio */,
@@ -1493,8 +1499,8 @@
 				14A3719C134E04E3007E9551 /* world1.lua in Resources */,
 				14A3719D134E04E3007E9551 /* main.lua in Resources */,
 				14A3719E134E04E3007E9551 /* actions.lua in Resources */,
-				145D13C313BA0B1500E110CF /* font1.fnt in Resources */,
-				145D13C613BA103F00E110CF /* font1.png in Resources */,
+				145D13C613BA103F00E110CF /* test1.png in Resources */,
+				143305A613BFADC700DEDB8A /* test1.fnt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1552,8 +1558,8 @@
 				142F2595133D8BE700E80E17 /* world1.lua in Resources */,
 				142F2596133D8BE700E80E17 /* main.lua in Resources */,
 				1461BD96134BDADB002C0A79 /* actions.lua in Resources */,
-				145D13C213BA0B1500E110CF /* font1.fnt in Resources */,
-				145D13C513BA103F00E110CF /* font1.png in Resources */,
+				145D13C513BA103F00E110CF /* test1.png in Resources */,
+				143305A513BFADC700DEDB8A /* test1.fnt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1626,6 +1632,7 @@
 				14D4152913BBFAF200C0FB7E /* AngelCodeParser.cpp in Sources */,
 				14DF00F513BD0603002E0FF7 /* AngelCodeParserTest.mm in Sources */,
 				14DF00F713BD0620002E0FF7 /* AngelCodeFontTest.mm in Sources */,
+				143305AC13BFAF0B00DEDB8A /* AngelCodeTextRenderer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1691,6 +1698,7 @@
 				14570E1F1357E81900FE1835 /* ScaleToAction.mm in Sources */,
 				14D4152613BBFAF200C0FB7E /* AngelCodeFont.mm in Sources */,
 				14D4152813BBFAF200C0FB7E /* AngelCodeParser.cpp in Sources */,
+				143305AB13BFAF0B00DEDB8A /* AngelCodeTextRenderer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

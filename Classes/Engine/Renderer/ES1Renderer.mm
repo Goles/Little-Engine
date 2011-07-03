@@ -10,6 +10,9 @@
 
 #include "ggEngine.h"
 #include "FontManager.h"
+#include "AngelCodeFont.h"
+#include "AngelCodeTextRenderer.h"
+#include "FileUtils.h"
 
 static int frames;
 static char fpsText[32];
@@ -50,6 +53,15 @@ static char fpsText[32];
 		[self initGame];
 		game_init = YES;
 	}
+    
+    //Test
+    f = new AngelCodeFont();
+    r = new AngelCodeTextRenderer();
+    
+    f->openFont(gg::utils::fullCPathFromRelativePath("test1.fnt"), 12.0);
+    r->setFont(f);
+    r->setText("HELL YEAH");
+    r->setPosition(100.0f, 100.0f);
     
 	return self;
 }
@@ -96,15 +108,17 @@ static char fpsText[32];
 		viewSetup = YES;
 	}
 	
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
-    Scene *current = SCENE_MANAGER->getActiveScene();
+    //    Scene *current = SCENE_MANAGER->getActiveScene();
     
-    if(current)
-        current->render();
+    //    if(current)
+        //    current->render();
     
-    FONT_MANAGER->render();
+    //FONT_MANAGER->render();
+    r->render();
+
     
 	glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
 	[context presentRenderbuffer:GL_RENDERBUFFER_OES];

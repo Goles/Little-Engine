@@ -14,6 +14,8 @@
 
 namespace gg { namespace font {
     
+#define DEFAULT_FONT_SCALE 1.0f
+    
     struct AngelCodeChar 
     {
         GGRect m_coords;
@@ -34,6 +36,7 @@ namespace gg { namespace font {
         angelChar->m_xOffset = char_data[kAngelChar_xoffset];
         angelChar->m_yOffset = char_data[kAngelChar_yoffset];
         angelChar->m_xAdvance = char_data[kAngelChar_xadvance];
+        angelChar->scale = DEFAULT_FONT_SCALE; 
     }
 }}
 

@@ -10,6 +10,7 @@
 #include "AngelCodeParser.h"
 #include "AngelCodeChar.h"
 #include "AngelCodeFont.h"
+#include <iostream>
 
 struct AngelCodeParserMock : public AngelCodeParser
 {
@@ -27,7 +28,7 @@ struct AngelCodeFontMock : public AngelCodeFont
 {
 public:
     virtual ~AngelCodeFontMock() {}
-    std::vector<gg::font::AngelCodeChar *> &fontDescription() { return m_fontDescription; }
+    CharMap &charDictionary() { return m_charDictionary; }
 };
 
 struct AngelCodeFontFixture {
@@ -38,7 +39,7 @@ struct AngelCodeFontFixture {
         
         fileContainer =     "info face=\"Arcade\" size=40 bold=0 italic=0 charset="" unicode=0 stretchH=100 smooth=1 aa=1 padding=0,0,0,0 spacing=1,1 \n \
                             common lineHeight=40 base=26 scaleW=256 scaleH=512 pages=1 packed=0 \n \
-                            page id=0 file=\"font1.png\" \n \
+                            page id=0 file=\"test1.png\" \n \
                             chars count=94 \n \
                             char id=32   x=0     y=0     width=0     height=0     xoffset=0     yoffset=32    xadvance=20     page=0  chnl=0 \n \
                             char id=124   x=0     y=0     width=5     height=38     xoffset=6     yoffset=1    xadvance=14     page=0  chnl=0 \n \
@@ -143,6 +144,8 @@ struct AngelCodeFontFixture {
         delete font;
     }
     
+    typedef std::map<int, gg::font::AngelCodeChar *> CharMap;
+    
     AngelCodeParserMock *parser;
     AngelCodeFontMock *font;
     const char * fileContainer;
@@ -152,7 +155,8 @@ struct AngelCodeFontFixture {
 
 TEST_FIXTURE(AngelCodeFontFixture, NumberOfCharLoaded)
 {
-    const int VECTOR_SIZE = 95;
+    const int MAP_SIZE = 95;
+    const int KEY_TO_FETCH = 122;
     
     //Init Parser
     AngelCodeParserMock parser;
@@ -167,19 +171,31 @@ TEST_FIXTURE(AngelCodeFontFixture, NumberOfCharLoaded)
     {
         gg::font::AngelCodeChar *aChar = new gg::font::AngelCodeChar;      
         gg::font::fillCharData(aChar, *it);
-        font->fontDescription().push_back(aChar);
+        
+        //Insert into map
+        CharMap::iterator lb = font->charDictionary().lower_bound(aChar->m_id);
+        font->charDictionary().insert(lb, CharMap::value_type(aChar->m_id, aChar));
+
     }
-    
+ 
     //Vector Size
-    CHECK_EQUAL(VECTOR_SIZE, font->fontDescription().size());
+    CHECK_EQUAL(MAP_SIZE, font->charDictionary().size());
+    
+    CharMap::iterator lb = font->charDictionary().lower_bound(KEY_TO_FETCH);
+    
+    //Just be sure the map is properly made.
+    CHECK_EQUAL(lb->second->m_id, KEY_TO_FETCH);
+    
+    gg::font::AngelCodeChar *aChar = lb->second;
     
     //Last Char Element Values.
-    CHECK_EQUAL(45, font->fontDescription()[VECTOR_SIZE - 1]->m_id);
-    CHECK_EQUAL(188, font->fontDescription()[VECTOR_SIZE - 1]->m_coords.origin.x);
-    CHECK_EQUAL(133, font->fontDescription()[VECTOR_SIZE - 1]->m_coords.origin.y);
-    CHECK_EQUAL(15, font->fontDescription()[VECTOR_SIZE - 1]->m_coords.size.width);
-    CHECK_EQUAL(4, font->fontDescription()[VECTOR_SIZE - 1]->m_coords.size.height);
-    CHECK_EQUAL(0, font->fontDescription()[VECTOR_SIZE - 1]->m_xOffset);
-    CHECK_EQUAL(13, font->fontDescription()[VECTOR_SIZE - 1]->m_yOffset);
-    CHECK_EQUAL(15, font->fontDescription()[VECTOR_SIZE - 1]->m_xAdvance);        
+    CHECK_EQUAL(122, aChar->m_id);
+    CHECK_EQUAL(51, aChar->m_coords.origin.x);
+    CHECK_EQUAL(118, aChar->m_coords.origin.y);
+    CHECK_EQUAL(21, aChar->m_coords.size.width);
+    CHECK_EQUAL(15, aChar->m_coords.size.height);
+    CHECK_EQUAL(0, aChar->m_xOffset);
+    CHECK_EQUAL(10, aChar->m_yOffset);
+    CHECK_EQUAL(20, aChar->m_xAdvance);
+    
 }

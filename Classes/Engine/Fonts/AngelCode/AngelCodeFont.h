@@ -12,6 +12,7 @@
 #include "IFont.h"
 #include "AngelCodeChar.h"
 #include <vector>
+#include <map>
 
 class Image;
 class Quad2;
@@ -19,7 +20,7 @@ class Quad2;
 class AngelCodeFont : public IFont
 {
 public:
-    AngelCodeFont() : scale(1.0f), bitmap(NULL), coords(NULL), vertices(NULL), index(NULL) 
+    AngelCodeFont() : scale(1.0f), bitmap(NULL), m_coords(NULL), m_vertex(NULL), m_index(NULL) 
     {
         colourFilter[0] = 1.0f;
         colourFilter[1] = 1.0f;
@@ -32,7 +33,11 @@ public:
 	virtual void render(const std::string &in_text);
 
 protected:
-    std::vector<gg::font::AngelCodeChar *> m_fontDescription;
+    typedef std::map<int, gg::font::AngelCodeChar *> CharMap;
+    
+    void initVertexArrays();
+    void drawString(const std::string &text, GGPoint &point);
+    CharMap m_charDictionary;
     
 private:
 	float colourFilter[4];
@@ -40,9 +45,9 @@ private:
 	int commonHeight;
 	float scale;
     Image *bitmap;
-    Quad2 *coords;
-    Quad2 *vertices;
-    unsigned short *index;
+    Quad2 *m_coords;
+    Quad2 *m_vertex;
+    unsigned short *m_index;
 };
 
 #endif

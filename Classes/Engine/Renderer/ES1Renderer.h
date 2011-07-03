@@ -11,6 +11,8 @@
 #import <OpenGLES/ES1/gl.h>
 #import <OpenGLES/ES1/glext.h>
 #include "ITextRenderer.h"
+#include "IFont.h"
+#include "ITextRenderer.h"
 
 @interface ES1Renderer : NSObject <ESRenderer>
 {
@@ -37,6 +39,10 @@
 	
 	//FPS renderer
 	ITextRenderer *textRenderer;
+    
+    //Test
+    ITextRenderer *r;
+    IFont *f;
 }
 
 - (void) update:(float)delta;

@@ -20,7 +20,7 @@
 {
 	[glView startAnimation];
     AngelCodeFont *fnt = new AngelCodeFont();
-    fnt->openFont(gg::utils::fullCPathFromRelativePath("font1.fnt"), 0);
+    fnt->openFont(gg::utils::fullCPathFromRelativePath("test1.fnt"), 0);
 }
 
 - (void) applicationWillResignActive:(UIApplication *)application
