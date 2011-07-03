@@ -10,7 +10,6 @@
 #include "gecVisual.h"
 #include "ICompCamera.h"
 #include "GandoBox2D.h"
-#include "FontManager.h"
 #include <OpenGLES/ES1/gl.h>
 
 Scene::Scene() : m_label("unnamed_scene"), m_zOrder(-1), m_position(CGPointZero)
@@ -24,7 +23,7 @@ void Scene::update(float delta)
 	SceneVector::iterator s_it;
 	
 	//Update our Entities
-	/*for(e_it = m_entities.begin(); e_it < m_entities.end(); ++e_it)
+	for(e_it = m_entities.begin(); e_it < m_entities.end(); ++e_it)
 	{
 		if((*e_it) != NULL)
 			if((*e_it)->isActive)
@@ -38,7 +37,7 @@ void Scene::update(float delta)
 	{
 		(*s_it)->update(delta);
 	}
-     */
+     
 }
 
 void Scene::render()

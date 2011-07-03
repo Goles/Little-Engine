@@ -9,7 +9,6 @@
 #import "ES1Renderer.h"
 
 #include "ggEngine.h"
-#include "FontManager.h"
 #include "AngelCodeFont.h"
 #include "AngelCodeTextRenderer.h"
 #include "FileUtils.h"
@@ -53,15 +52,6 @@ static char fpsText[32];
 		[self initGame];
 		game_init = YES;
 	}
-    
-    //Test
-    f = new AngelCodeFont();
-    r = new AngelCodeTextRenderer();
-    
-    f->openFont(gg::utils::fullCPathFromRelativePath("test1.fnt"), 12.0);
-    r->setFont(f);
-    r->setText("HELL YEAH");
-    r->setPosition(100.0f, 100.0f);
     
 	return self;
 }
@@ -108,15 +98,14 @@ static char fpsText[32];
 		viewSetup = YES;
 	}
 	
-	glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
-    //    Scene *current = SCENE_MANAGER->getActiveScene();
+    Scene *current = SCENE_MANAGER->getActiveScene();
     
-    //    if(current)
-        //    current->render();
+    if(current)
+        current->render();
     
-    //FONT_MANAGER->render();
     r->render();
 
     
@@ -133,13 +122,16 @@ static char fpsText[32];
 	{ 
 		snprintf(fpsText, 32, "FPS: %d", frames);
 	
-		if(!textRenderer)
+		if(!r)
 		{
-			textRenderer = FONT_MANAGER->getTextRenderer("TOONISH.ttf", 16);
-			textRenderer->setPosition(420, 300);
+            f = new AngelCodeFont();
+            r = new AngelCodeTextRenderer();
+            f->openFont(gg::utils::fullCPathFromRelativePath("test1.fnt"), 1.0);
+            r->setFont(f);
+			r->setPosition(350, 280);
 		}			
 		
-		textRenderer->setText(fpsText);
+		r->setText(fpsText);
 		
 		frames = 0;
 		LastFPSUpdate = CurrentTime;

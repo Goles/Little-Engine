@@ -8,8 +8,6 @@
 
 #import "Particles_2AppDelegate.h"
 #import "EAGLView.h"
-#include "AngelCodeFont.h"
-#include "FileUtils.h"
 
 @implementation Particles_2AppDelegate
 
@@ -19,8 +17,6 @@
 - (void) applicationDidFinishLaunching:(UIApplication *)application
 {
 	[glView startAnimation];
-    AngelCodeFont *fnt = new AngelCodeFont();
-    fnt->openFont(gg::utils::fullCPathFromRelativePath("test1.fnt"), 0);
 }
 
 - (void) applicationWillResignActive:(UIApplication *)application

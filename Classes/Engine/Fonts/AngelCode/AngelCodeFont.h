@@ -11,7 +11,6 @@
 
 #include "IFont.h"
 #include "AngelCodeChar.h"
-#include <vector>
 #include <map>
 
 class Image;
@@ -22,25 +21,25 @@ class AngelCodeFont : public IFont
 public:
     AngelCodeFont() : scale(1.0f), bitmap(NULL), m_coords(NULL), m_vertex(NULL), m_index(NULL) 
     {
-        colourFilter[0] = 1.0f;
-        colourFilter[1] = 1.0f;
-        colourFilter[2] = 1.0f;
-        colourFilter[3] = 1.0f;
+        colorFilter[0] = 1.0f;
+        colorFilter[1] = 1.0f;
+        colorFilter[2] = 1.0f;
+        colorFilter[3] = 1.0f;
     }
     
-    virtual ~AngelCodeFont() {}
+    virtual ~AngelCodeFont();
     virtual void openFont(const std::string &in_fontName, int in_fontSize);
 	virtual void render(const std::string &in_text);
 
 protected:
     typedef std::map<int, gg::font::AngelCodeChar *> CharMap;
     
-    void initVertexArrays();
+    void initVertexArrays();    
     void drawString(const std::string &text, GGPoint &point);
     CharMap m_charDictionary;
     
 private:
-	float colourFilter[4];
+	float colorFilter[4];
 	unsigned int lineHeight;
 	int commonHeight;
 	float scale;

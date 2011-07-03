@@ -21,11 +21,11 @@ AngelCodeTextRenderer::AngelCodeTextRenderer(): m_position(CGPointZero),
 void AngelCodeTextRenderer::render()
 {
 	glPushMatrix();
-	//glTranslatef(m_position.x, m_position.y, 0);
+	glTranslatef(m_position.x, m_position.y, 0);
 	
 	m_font->render(m_text);
 	
-    //TEXTURE_MANAGER->rebindPreviousTexture();
+    TEXTURE_MANAGER->rebindPreviousTexture();
     
 	glPopMatrix();
 }

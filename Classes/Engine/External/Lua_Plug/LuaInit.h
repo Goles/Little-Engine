@@ -47,7 +47,6 @@
 #include "gecParticleSystem.h"
 
 #include "SceneManager.h"
-#include "FontManager.h"
 #include "ParticleManager.h"
 #include "SimpleAudioEngine.h"
 #include "CocosDenshion.h"
@@ -361,18 +360,7 @@ namespace gg
              [
                 luabind::def("getInstance", &SceneManager::getInstance)
               ]
-             ];
-            
-            /* Bind Font Manager*/
-            luabind::module(LR_MANAGER_STATE) 
-            [
-			 luabind::class_<FontManager> ("FontManager")
-			 .def("getTextRenderer", &FontManager::getTextRenderer)
-			 .scope
-			 [
-              luabind::def("getInstance", &FontManager::getInstance)
-              ]
-             ];
+             ];            
             
             /* Bind Particle Manager */
             luabind::module(LR_MANAGER_STATE)

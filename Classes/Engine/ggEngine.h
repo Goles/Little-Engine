@@ -16,7 +16,6 @@
 #include "SharedTextureManager.h"
 #include "ParticleManager.h"
 #include "GandoBox2D.h"
-#include "FontManager.h"
 #include "SimpleAudioEngine.h"
 
 #include "LuaInit.h"
@@ -39,7 +38,6 @@ namespace gg
 		TEXTURE_MANAGER;	/** < Initialize the Texture Manager*/
 		PARTICLE_MANAGER;	/** < Initialize the Particles Manager*/
 		GBOX_2D;			/** < Initialize the Box2D Plug for GG*/
-		FONT_MANAGER;		/** < Initialize the FontManager*/
         CocosDenshion::SimpleAudioEngine::sharedEngine(); /** < Initialize the Audio Engine */
         LR_MANAGER;			/** < Initialize the Lua Registrate Manager */        
 	}
@@ -63,7 +61,6 @@ namespace gg
 		delete TEXTURE_MANAGER;		/** < delete the Texture Manager */
 		delete PARTICLE_MANAGER;	/** < delete the Particles Manager */
 		delete GBOX_2D;				/** < delete the Box2D Plug for GG */
-		delete FONT_MANAGER;		/** < delete the Font Manager */
         CocosDenshion::SimpleAudioEngine::sharedEngine()->end();
 	}
 }
