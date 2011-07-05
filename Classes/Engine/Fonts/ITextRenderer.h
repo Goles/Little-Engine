@@ -10,7 +10,6 @@
 #ifndef __I_TEXT_RENDERER_H__
 #define __I_TEXT_RENDERER_H__
 
-#include <string>
 #include "IFont.h"
 
 class ITextRenderer

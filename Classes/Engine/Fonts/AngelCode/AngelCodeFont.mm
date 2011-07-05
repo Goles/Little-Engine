@@ -30,15 +30,12 @@ void AngelCodeFont::openFont(const std::string &in_fontFile, int in_fontSize)
     std::vector<std::vector<int> > charLines = parser.charLines();
     std::vector<std::vector<int> >::iterator it = charLines.begin();
     
-    for (; it != charLines.end(); ++it) 
-    {
-        gg::font::AngelCodeChar *aChar = new gg::font::AngelCodeChar;      
+    for (; it != charLines.end(); ++it) {
+        gg::font::AngelCodeChar *aChar = new gg::font::AngelCodeChar;
         gg::font::fillCharData(aChar, *it);
-        
-        //Set fontScale
         aChar->scale = in_fontSize;
         
-        //Insert into map
+        //Insert Char into map
         CharMap::iterator lb = m_charDictionary.lower_bound(aChar->m_id);
         m_charDictionary.insert(lb, CharMap::value_type(aChar->m_id, aChar));
     }
@@ -78,8 +75,7 @@ void AngelCodeFont::drawString(const std::string &text, GGPoint &point)
 	
     const char *c_text = text.c_str();
     
-	for(int i = 0; i < strlen(c_text); i++) 
-    {
+	for (int i = 0; i < strlen(c_text); i++) {
 		// Grab the ASCII code of the current character
         CharMap::iterator lb = m_charDictionary.lower_bound(c_text[i]);
 		
@@ -89,10 +85,10 @@ void AngelCodeFont::drawString(const std::string &text, GGPoint &point)
         
 		// Only render the current character if it is going to be visible otherwise move the variables such as currentQuad and point.x
 		// as normal but don't render the character which should save some cycles
-		if(point.x > 0 - (currentChar->m_coords.size.width * scale) || 
-           point.x < [[UIScreen mainScreen] bounds].size.width || 
-           point.y > 0 - (currentChar->m_coords.size.height * scale) || 
-           point.y < [[UIScreen mainScreen] bounds].size.height) 
+		if (point.x > 0 - (currentChar->m_coords.size.width * scale) 
+           || point.x < [[UIScreen mainScreen] bounds].size.width 
+           || point.y > 0 - (currentChar->m_coords.size.height * scale) 
+           || point.y < [[UIScreen mainScreen] bounds].size.height) 
         {			
 			//correct positioning of characters
 			int y = point.y + (commonHeight * currentChar->scale) - (currentChar->m_coords.size.height + currentChar->m_yOffset) * currentChar->scale;
@@ -135,14 +131,13 @@ void AngelCodeFont::initVertexArrays()
     
 	m_coords = (Quad2 *) malloc(sizeof(m_coords[0]) * totalQuads);
 	m_vertex = (Quad2 *) malloc(sizeof(m_vertex[0]) * totalQuads);
-	m_index = (unsigned short *) malloc(sizeof(m_index[0]) * totalQuads * 6);
+	m_index = (unsigned short *) malloc(sizeof(m_index[0]) * totalQuads * 6);	
 	
-	bzero(m_coords, sizeof(m_coords[0]) * totalQuads);
+    bzero(m_coords, sizeof(m_coords[0]) * totalQuads);
 	bzero(m_vertex, sizeof(m_vertex[0]) * totalQuads);
 	bzero(m_index, sizeof(m_index[0]) * totalQuads * 6);
 	
-	for(int i = 0; i < totalQuads; i++) 
-    {
+	for (int i = 0; i < totalQuads; i++) {
 		m_index[i * 6 + 0] = i * 4 + 0;
 		m_index[i * 6 + 1] = i * 4 + 1;
 		m_index[i * 6 + 2] = i * 4 + 2;
@@ -159,10 +154,8 @@ AngelCodeFont::~AngelCodeFont()
     free(m_index);
     
     CharMap::iterator it = m_charDictionary.begin();
-        
-    //Free font map memory
-    for (; it != m_charDictionary.end(); ++it) {        
-        delete it->second;        
+    for (; it != m_charDictionary.end(); ++it) {
+        delete it->second;
         m_charDictionary.erase(it);
     }
 }

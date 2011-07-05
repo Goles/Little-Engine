@@ -108,9 +108,7 @@ namespace gg
                 _interleavedPointSprites[(*_pointSpriteCount)].v[0] = x;
                 _interleavedPointSprites[(*_pointSpriteCount)].v[1] = y;
                 _interleavedPointSprites[(*_pointSpriteCount)].size = size;
-                _interleavedPointSprites[(*_pointSpriteCount)].color = color;
-
-                
+                _interleavedPointSprites[(*_pointSpriteCount)].color = color;      
                 (*_pointSpriteCount)++;
             }
         }

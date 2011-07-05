@@ -13,7 +13,7 @@
 
 class IFont;
 
-class AngelCodeTextRenderer : public ITextRenderer 
+class AngelCodeTextRenderer : public ITextRenderer
 {
 public:
 	AngelCodeTextRenderer();

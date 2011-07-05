@@ -38,6 +38,7 @@ namespace gg { namespace font {
         angelChar->m_xAdvance = char_data[kAngelChar_xadvance];
         angelChar->scale = DEFAULT_FONT_SCALE; 
     }
-}}
+
+}} //END namespace gg::font
 
 #endif

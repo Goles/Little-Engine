@@ -193,6 +193,8 @@
 		14B85BF413C0AD1A003C7D90 /* AngelCodeTextRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14B85BEC13C0AD19003C7D90 /* AngelCodeTextRenderer.mm */; };
 		14B85BF513C0AD1A003C7D90 /* AngelCodeParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14B85BEF13C0AD19003C7D90 /* AngelCodeParser.cpp */; };
 		14B85BF613C0AD1A003C7D90 /* AngelCodeParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14B85BEF13C0AD19003C7D90 /* AngelCodeParser.cpp */; };
+		14BB7CA413C1694A002A8663 /* FontManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14BB7CA313C1694A002A8663 /* FontManager.mm */; };
+		14BB7CA513C1694A002A8663 /* FontManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14BB7CA313C1694A002A8663 /* FontManager.mm */; };
 		14DEBDC7131077B90094F680 /* libbox2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DEBD9A1310777C0094F680 /* libbox2d.a */; };
 		14DEC0301310835C0094F680 /* CompBehaviour.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF561310835C0094F680 /* CompBehaviour.mm */; };
 		14DEC0311310835C0094F680 /* gecFSM.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF581310835C0094F680 /* gecFSM.mm */; };
@@ -417,6 +419,8 @@
 		14B85BEE13C0AD19003C7D90 /* AngelCodeChar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AngelCodeChar.h; sourceTree = "<group>"; };
 		14B85BEF13C0AD19003C7D90 /* AngelCodeParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AngelCodeParser.cpp; sourceTree = "<group>"; };
 		14B85BF013C0AD19003C7D90 /* AngelCodeParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AngelCodeParser.h; sourceTree = "<group>"; };
+		14BB7CA213C1694A002A8663 /* FontManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontManager.h; sourceTree = "<group>"; };
+		14BB7CA313C1694A002A8663 /* FontManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FontManager.mm; sourceTree = "<group>"; };
 		14D2BA12132ABC0C00840B7C /* SharedTextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedTextureManager.h; sourceTree = "<group>"; };
 		14DEBD921310777C0094F680 /* box2d.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = box2d.xcodeproj; path = Libraries/box2d/box2d.xcodeproj; sourceTree = "<group>"; };
 		14DEBF531310835C0094F680 /* BehaviourActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BehaviourActions.h; sourceTree = "<group>"; };
@@ -859,8 +863,8 @@
 			isa = PBXGroup;
 			children = (
 				14B85BEE13C0AD19003C7D90 /* AngelCodeChar.h */,
-				14B85BEF13C0AD19003C7D90 /* AngelCodeParser.cpp */,
 				14B85BF013C0AD19003C7D90 /* AngelCodeParser.h */,
+				14B85BEF13C0AD19003C7D90 /* AngelCodeParser.cpp */,
 			);
 			path = Generic;
 			sourceTree = "<group>";
@@ -1104,6 +1108,8 @@
 		14DEC0161310835C0094F680 /* SharedManagers */ = {
 			isa = PBXGroup;
 			children = (
+				14BB7CA213C1694A002A8663 /* FontManager.h */,
+				14BB7CA313C1694A002A8663 /* FontManager.mm */,
 				14DEC0191310835C0094F680 /* SceneManager.h */,
 				14DEC01A1310835C0094F680 /* SceneManager.mm */,
 				14D2BA12132ABC0C00840B7C /* SharedTextureManager.h */,
@@ -1560,6 +1566,7 @@
 				14B85BF213C0AD1A003C7D90 /* AngelCodeFont.mm in Sources */,
 				14B85BF413C0AD1A003C7D90 /* AngelCodeTextRenderer.mm in Sources */,
 				14B85BF613C0AD1A003C7D90 /* AngelCodeParser.cpp in Sources */,
+				14BB7CA513C1694A002A8663 /* FontManager.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1623,6 +1630,7 @@
 				14B85BF113C0AD1A003C7D90 /* AngelCodeFont.mm in Sources */,
 				14B85BF313C0AD1A003C7D90 /* AngelCodeTextRenderer.mm in Sources */,
 				14B85BF513C0AD1A003C7D90 /* AngelCodeParser.cpp in Sources */,
+				14BB7CA413C1694A002A8663 /* FontManager.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,14 +19,19 @@ class Quad2;
 class AngelCodeFont : public IFont
 {
 public:
-    AngelCodeFont() : scale(1.0f), bitmap(NULL), m_coords(NULL), m_vertex(NULL), m_index(NULL) 
+    AngelCodeFont() 
+        : scale(1.0f)
+        , bitmap(NULL)
+        , m_coords(NULL)
+        , m_vertex(NULL)
+        , m_index(NULL) 
     {
         colorFilter[0] = 1.0f;
         colorFilter[1] = 1.0f;
         colorFilter[2] = 1.0f;
         colorFilter[3] = 1.0f;
     }
-    
+
     virtual ~AngelCodeFont();
     virtual void openFont(const std::string &in_fontName, int in_fontSize);
 	virtual void render(const std::string &in_text);
@@ -37,7 +42,7 @@ protected:
     void initVertexArrays();    
     void drawString(const std::string &text, GGPoint &point);
     CharMap m_charDictionary;
-    
+
 private:
 	float colorFilter[4];
 	unsigned int lineHeight;

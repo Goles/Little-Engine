@@ -14,7 +14,6 @@
 
 namespace gg
 {
-
 	#define ID_GENERATOR IdGenerator::getInstance()
 	
 	class IdGenerator

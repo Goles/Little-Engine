@@ -8,25 +8,20 @@
 
 #include "AngelCodeTextRenderer.h"
 #include "SharedTextureManager.h"
-#import <OpenGLES/ES1/gl.h>
-#import <OpenGLES/ES1/glext.h>
 
-AngelCodeTextRenderer::AngelCodeTextRenderer(): m_position(CGPointZero), 
-                                                m_font(NULL), 
-                                                m_active(true)
+AngelCodeTextRenderer::AngelCodeTextRenderer()
+    : m_position(CGPointZero)
+    , m_font(NULL)
+    , m_active(true)
 {
-    //Build something here.
 }
 
 void AngelCodeTextRenderer::render()
 {
 	glPushMatrix();
 	glTranslatef(m_position.x, m_position.y, 0);
-	
 	m_font->render(m_text);
-	
     TEXTURE_MANAGER->rebindPreviousTexture();
-    
 	glPopMatrix();
 }
 

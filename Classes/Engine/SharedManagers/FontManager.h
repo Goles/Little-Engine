@@ -14,12 +14,11 @@
 #ifndef __FONT_MANAGER_H__
 #define __FONT_MANAGER_H__
 
-#include <map>
-#include <vector>
-#include <string>
-
-#include "FTGL/ftgles.h"
 #include "ITextRenderer.h"
+#include "IFont.h"
+#include <string>
+#include <vector>
+#include <tr1/unordered_map>
 
 #define FONT_MANAGER FontManager::getInstance()
 
@@ -29,15 +28,15 @@ public:
 	~FontManager();
 	static FontManager* getInstance();
 	void render();
-	FTFont *getFont(const std::string &fontName, int fontSize);
-	ITextRenderer* getTextRenderer(const std::string &in_fontName, int font_size);
-	
+	ITextRenderer* textRenderer(const std::string &fontName, int fontSize);
+    
 protected:
-	FTFont *createFont(const std::string &fontName, int fontSize, const std::string &key);
+	IFont *createFont(const std::string &fontName, int fontSize, const std::string &key);
 	
 private:
-	typedef std::map<std::string, FTFont *> FontMap;
-	typedef std::vector<ITextRenderer *> TextureStrings;
+	typedef std::vector<ITextRenderer *> TextRendererVector;
+    typedef std::tr1::unordered_map<std::string, IFont *, std::tr1::hash<std::string> > FontMap;
+	
 	FontManager(){}	
 	
 	//Self Instance
@@ -45,7 +44,7 @@ private:
 
 	//Font Container
 	FontMap m_fonts;
-	TextureStrings m_strings;
+    TextRendererVector m_renderers;
 };
 
 #endif

@@ -26,6 +26,8 @@
 #include "MoveToAction.h"
 #include "ScaleToAction.h"
 
+#include "AngelCodeTextRenderer.h"
+#include "AngelCodeFont.h"
 #include "Particle.h"
 #include "GameEntity.h"
 #include "Scene.h"
@@ -34,8 +36,10 @@
 #include "Animation.h"
 #include "SpriteSheet.h"
 
+#include "IFont.h"
 #include "ITextRenderer.h"
 #include "IAction.h"
+
 
 #include "GEComponent.h"
 #include "gecAnimatedSprite.h"
@@ -157,6 +161,8 @@ namespace gg
              .def(luabind::constructor<>())
              .def("setEndScale", &ScaleToAction::setEndScale)
              ];
+            
+
 		}
         
 		static inline void bindAbstractInterfaces(void)
@@ -166,7 +172,9 @@ namespace gg
 				 luabind::class_<ITextRenderer> ("ITextRenderer")
 				 .def("setText", &ITextRenderer::setText)
 				 .def("setFont", &ITextRenderer::setFont)
-				 .def("setPosition", &ITextRenderer::setPosition)
+				 .def("setPosition", &ITextRenderer::setPosition),
+                 luabind::class_<AngelCodeTextRenderer, ITextRenderer> ("AngelCodeTextRenderer")
+                 .def(luabind::constructor<>())             
             ];
 		}
 		
@@ -343,7 +351,18 @@ namespace gg
              .def("getTime", &gg::utils::HardwareClock::GetTime)
              .def("getDeltaTime", &gg::utils::HardwareClock::GetDeltaTime)
              .def("Update", &gg::utils::HardwareClock::Update)
-            ];         
+            ];
+            
+            /* Fonts */
+            luabind::module(LR_MANAGER_STATE)
+            [
+             luabind::class_<IFont> ("IFont")
+             .def("openFont", &IFont::openFont),
+             
+             luabind::class_<AngelCodeFont, IFont> ("AngelCodeFont")
+             .def(luabind::constructor<>())
+             
+            ];
 		}
 		
 		static inline void bindManagers(void)

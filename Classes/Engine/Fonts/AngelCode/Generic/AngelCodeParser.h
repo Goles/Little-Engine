@@ -43,18 +43,18 @@ public:
     const std::vector<std::vector<int> > &charLines() const { return m_charLines; }
     const std::vector<int> &commonLine() const { return m_commonLine; }
     const std::string &bitMapFileName() const { return m_bitMapFileName; }
-    
+
 protected:
     void parseAngelFileContainer(const std::string &fileContainer);
     
     std::vector<int> processCharLine(const std::string &charLine);
     std::vector<int> processCommonLine(const std::string &commonLine);
     std::string processPageLine(const std::string &pageLine);
-    
+
     void tokenizeCommonLine(const std::string &line, std::vector<int> &tokenHolder);
     void tokenizeCharLine(const std::string &line, std::vector<int> &tokenHolder);
     void tokenizePageLine(const std::string &pageLine, std::string &bitMapFileNameHolder);
-    
+
 private:
     std::vector<std::vector<int> > m_charLines;
     std::vector<int> m_commonLine;
