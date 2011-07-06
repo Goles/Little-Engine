@@ -64,7 +64,6 @@ void AngelCodeFont::render(const std::string &in_text)
 void AngelCodeFont::drawString(const std::string &text, GGPoint &point)
 {
 	int currentQuad = 0;
-
 	glEnable(GL_TEXTURE_2D);
     glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);

@@ -132,7 +132,7 @@ void AngelCodeParser::tokenizePageLine(const std::string &pageLine, std::string 
         bool isFileName = false;
         
         while(std::getline(input, value, '=')) {
-            if (isFileName) {                
+            if (isFileName) {
                 size_t foundCommas;
                 
                 //Strip " from file Name. 
@@ -145,7 +145,7 @@ void AngelCodeParser::tokenizePageLine(const std::string &pageLine, std::string 
             }
             
             if(value.compare("file") == 0)
-                isFileName = true;                
-        }     
+                isFileName = true;
+        }
     }
 }

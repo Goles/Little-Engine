@@ -18,11 +18,11 @@ AngelCodeTextRenderer::AngelCodeTextRenderer()
 
 void AngelCodeTextRenderer::render()
 {
-	glPushMatrix();
+    glPushMatrix();
+    glLoadIdentity();
 	glTranslatef(m_position.x, m_position.y, 0);
 	m_font->render(m_text);
-    TEXTURE_MANAGER->rebindPreviousTexture();
-	glPopMatrix();
+    glPopMatrix();
 }
 
 bool AngelCodeTextRenderer::isActive()

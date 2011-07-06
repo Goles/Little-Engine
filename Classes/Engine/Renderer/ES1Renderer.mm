@@ -11,7 +11,7 @@
 #include "ggEngine.h"
 #include "AngelCodeFont.h"
 #include "AngelCodeTextRenderer.h"
-#include "FileUtils.h"
+#include "FontManager.h"
 
 static int frames;
 static char fpsText[32];
@@ -41,7 +41,7 @@ static char fpsText[32];
 	
 	//Show the FPS if DEBUG is ON.
 #ifdef DEBUG
-	showFps = YES;
+	showFPS = YES;
 #endif
     
 	//Start the ggEngine + Game up
@@ -70,6 +70,7 @@ static char fpsText[32];
 	glRotatef(-90.0, 0.0, 0.0, 1.0);
 	glOrthof(0, SCENE_MANAGER->getWindow().width, 0, SCENE_MANAGER->getWindow().height, -1, 1);
 	glMatrixMode(GL_MODELVIEW);
+    glDisable(GL_DEPTH_TEST);
 }
 
 #pragma mark update_game
@@ -83,7 +84,8 @@ static char fpsText[32];
         currentScene->update(delta);
     }
 
-	[self setFps];
+    if (showFPS)
+        [self setFPS];
 }
 
 #pragma mark render_scene
@@ -92,49 +94,44 @@ static char fpsText[32];
 	[EAGLContext setCurrentContext:context];
 	glBindFramebufferOES(GL_FRAMEBUFFER_OES, defaultFramebuffer);
 
-	if(!viewSetup)
-	{
+	if (!viewSetup) {
 		[self setupView];
 		viewSetup = YES;
 	}
-	
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+
+	glClearColor(0.4f, 0.4f, 0.4f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
     Scene *current = SCENE_MANAGER->getActiveScene();
     
-    if(current)
+     if(current)
         current->render();
     
-    r->render();
+    FONT_MANAGER->render();
 
-    
 	glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
 	[context presentRenderbuffer:GL_RENDERBUFFER_OES];
 }
 
-- (void) setFps
+- (void) setFPS
 {
 	++frames;
 	CurrentTime = CACurrentMediaTime();
 	
-	if ((CurrentTime - LastFPSUpdate) > 1.0f)
-	{ 
+    static bool didInitFPS = NO;
+    
+	if ((CurrentTime - LastFPSUpdate) > 1.0f) { 
+                
+        if (!didInitFPS) {
+            m_fpsRenderer = FONT_MANAGER->textRenderer("test1.fnt", 1.0);
+            m_fpsRenderer->setPosition(350, 280);
+            didInitFPS = YES;
+        }
+            
 		snprintf(fpsText, 32, "FPS: %d", frames);
-	
-		if(!r)
-		{
-            f = new AngelCodeFont();
-            r = new AngelCodeTextRenderer();
-            f->openFont(gg::utils::fullCPathFromRelativePath("test1.fnt"), 1.0);
-            r->setFont(f);
-			r->setPosition(350, 280);
-		}			
-		
-		r->setText(fpsText);
-		
-		frames = 0;
+		m_fpsRenderer->setText(fpsText);
 		LastFPSUpdate = CurrentTime;
+        frames = 0;
 	}
 }
 
@@ -146,8 +143,7 @@ static char fpsText[32];
 	glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_WIDTH_OES, &backingWidth);
     glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_HEIGHT_OES, &backingHeight);
 	
-    if (glCheckFramebufferStatusOES(GL_FRAMEBUFFER_OES) != GL_FRAMEBUFFER_COMPLETE_OES)
-	{
+    if (glCheckFramebufferStatusOES(GL_FRAMEBUFFER_OES) != GL_FRAMEBUFFER_COMPLETE_OES) {
 		NSLog(@"Failed to make complete framebuffer object %x", glCheckFramebufferStatusOES(GL_FRAMEBUFFER_OES));
         return NO;
     }

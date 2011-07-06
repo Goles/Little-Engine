@@ -17,9 +17,7 @@
 @interface ES1Renderer : NSObject <ESRenderer>
 {
 @private
-	/* Time since the last frame was rendered */
 	CFTimeInterval lastTime;
-	
 	EAGLContext *context;
 	
 	// The pixel dimensions of the CAEAGLLayer
@@ -28,7 +26,7 @@
 	
 	//setup
 	BOOL viewSetup;
-	BOOL showFps;
+	BOOL showFPS;
 	
 	//Display Fps if needed
 	CFTimeInterval CurrentTime;
@@ -38,8 +36,7 @@
 	GLuint defaultFramebuffer, colorRenderbuffer;
     
     //FPS Renderer
-    ITextRenderer *r;
-    IFont *f;
+    ITextRenderer *m_fpsRenderer;
 }
 
 - (void) update:(float)delta;
@@ -47,6 +44,6 @@
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer;
 - (void) setupView;
 - (void) initGame;
-- (void) setFps;
+- (void) setFPS;
 
 @end
