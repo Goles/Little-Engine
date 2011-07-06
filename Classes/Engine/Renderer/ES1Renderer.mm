@@ -21,12 +21,10 @@ static char fpsText[32];
 // Create an ES 1.1 context
 - (id) init
 {
-	if (self = [super init])
-	{
+	if (self = [super init]) {
 		context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
         
-        if (!context || ![EAGLContext setCurrentContext:context])
-		{
+        if (!context || ![EAGLContext setCurrentContext:context]) {
             [self release];
             return NULL;
         }
@@ -47,8 +45,7 @@ static char fpsText[32];
 	//Start the ggEngine + Game up
 	static bool game_init = NO;
 	
-	if(!game_init)
-	{
+	if(!game_init) {
 		[self initGame];
 		game_init = YES;
 	}
@@ -78,8 +75,7 @@ static char fpsText[32];
 {
     Scene *currentScene = SCENE_MANAGER->getActiveScene();
     
-    if(currentScene)
-    {
+    if(currentScene) {
         currentScene->sortEntitiesY();
         currentScene->update(delta);
     }
@@ -154,14 +150,12 @@ static char fpsText[32];
 - (void) dealloc
 {
 	// Tear down GL
-	if (defaultFramebuffer)
-	{
+	if (defaultFramebuffer) {
 		glDeleteFramebuffersOES(1, &defaultFramebuffer);
 		defaultFramebuffer = 0;
 	}
 
-	if (colorRenderbuffer)
-	{
+	if (colorRenderbuffer) {
 		glDeleteRenderbuffersOES(1, &colorRenderbuffer);
 		colorRenderbuffer = 0;
 	}
