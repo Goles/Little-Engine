@@ -33,7 +33,7 @@ ITextRenderer* FontManager::textRenderer(const std::string &fontFile, int fontSi
     if (fontValue == m_fonts.end()) {
         
         font = new AngelCodeFont();
-        font->openFont(gg::utils::fullCPathFromRelativePath(fontFile.c_str()), fontSize);
+        font->openFont(gg::util::fullCPathFromRelativePath(fontFile.c_str()), fontSize);
         m_fonts[fontFile] = font;
         
     } else {        

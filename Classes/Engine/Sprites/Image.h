@@ -42,10 +42,10 @@ public:
 	/** Initializer for pre-loaded textures
     	@param inTexture Pointer to a Texture2D object.
 	 */
-	void	initWithTexture2D(const Texture2D* const inTexture);
+	void	initWithTexture2D(Texture2D* inTexture);
 	
 	/** @param scale Optional scaling amount. */
-	void	initWithTexture2D(const Texture2D* const inTexture, float scale);
+	void	initWithTexture2D(Texture2D* inTexture, float scale);
 	
 	/** Use a file name to load texture data
 	    @param inTextureName file name containing texture data. 
@@ -56,13 +56,13 @@ public:
 	void	initWithTextureFile(const std::string &textureName, float inScale);
 	
 	/** Use pre-loaded texture data. */
-	void	initWithUIImage(const UIImage* const inImage);
+	void	initWithUIImage(UIImage* inImage);
 	
 	/** @param filter Optional GLFilter to apply. */
-	void	initWithUIImage(const UIImage* const inImage, GLenum filter);
+	void	initWithUIImage(UIImage* inImage, GLenum filter);
 	
 	/** @param inScale Optional scaling amount */
-	void	initWithUIImage(const UIImage* const inImage, float inScale, GLenum filter);
+	void	initWithUIImage(UIImage* inImage, float inScale, GLenum filter);
 	
 //------------------------------------------------------------------------------	
 	/** Crop an existing Image object to form a sub-image.

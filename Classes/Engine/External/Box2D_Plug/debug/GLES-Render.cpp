@@ -38,7 +38,9 @@ GLESDebugDraw::GLESDebugDraw( float32 ratio )
 
 void GLESDebugDraw::DrawPolygon(const b2Vec2* old_vertices, int32 vertexCount, const b2Color& color)
 {
-	b2Vec2 vertices[vertexCount];
+    //Added by Nicolas Goles on July 6 to fix Clang compiling issue.
+    b2Vec2 *vertices = new b2Vec2[vertexCount];
+    
 	for( int i=0;i<vertexCount;i++) {
 		vertices[i] = old_vertices[i];
 		vertices[i] *= mRatio;
@@ -47,11 +49,16 @@ void GLESDebugDraw::DrawPolygon(const b2Vec2* old_vertices, int32 vertexCount, c
 	glColor4f(color.r, color.g, color.b,1);
 	glVertexPointer(2, GL_FLOAT, 0, vertices);
 	glDrawArrays(GL_LINE_LOOP, 0, vertexCount);	
+    
+    delete vertices;
 }
 
 void GLESDebugDraw::DrawSolidPolygon(const b2Vec2* old_vertices, int32 vertexCount, const b2Color& color)
 {
-	b2Vec2 vertices[vertexCount];
+    //Added by Nicolas Goles on July 6 to fix Clang compiling issue.
+    b2Vec2 *vertices = new b2Vec2[vertexCount]; 
+    
+	//b2Vec2 vertices[vertexCount];
 	for( int i=0;i<vertexCount;i++) {
 		vertices[i] = old_vertices[i];
 		vertices[i] *= mRatio;
@@ -64,6 +71,8 @@ void GLESDebugDraw::DrawSolidPolygon(const b2Vec2* old_vertices, int32 vertexCou
 	
 	glColor4f(color.r, color.g, color.b,1);
 	glDrawArrays(GL_LINE_LOOP, 0, vertexCount);
+    
+    delete vertices;
 }
 
 void GLESDebugDraw::DrawCircle(const b2Vec2& center, float32 radius, const b2Color& color)

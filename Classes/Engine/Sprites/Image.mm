@@ -68,7 +68,7 @@ void Image::initImplementation()
 }
 
 /*Init an image with pre-allocated Texture2D*/
-void Image::initWithTexture2D(const Texture2D *inTexture)
+void Image::initWithTexture2D(Texture2D *inTexture)
 {
 	if(inTexture)
 	{
@@ -81,7 +81,7 @@ void Image::initWithTexture2D(const Texture2D *inTexture)
 }
 
 /*Init an image with pre-allocated Texture2D and a input scaling*/
-void Image::initWithTexture2D(const Texture2D *inTexture, float inScale)
+void Image::initWithTexture2D(Texture2D *inTexture, float inScale)
 {
 	if(inTexture)
 	{
@@ -127,7 +127,7 @@ void Image::initWithTextureFile(const std::string &inTextureName, float imageSca
 }
 
 /*Does initialize an Image with a UIImage*/
-void Image::initWithUIImage(const UIImage* const image)
+void Image::initWithUIImage(UIImage* image)
 {
 	texture = [[Texture2D alloc] initWithImage:image filter:GL_NEAREST];
 	scale	= 1.0f;
@@ -135,13 +135,13 @@ void Image::initWithUIImage(const UIImage* const image)
 }
 
 /*Does initialize an Image with a UIImage and a GL_FILTER*/
-void Image::initWithUIImage(const UIImage* const inImage, GLenum filter)
+void Image::initWithUIImage(UIImage* inImage, GLenum filter)
 {
 	texture	= [[Texture2D alloc] initWithImage:inImage filter:filter];
 }
 
 /*Does initialize an Image with a UIImage a Scale and a GL_FILTER*/
-void Image::initWithUIImage(const UIImage* const inImage, float inScale, GLenum inFilter)
+void Image::initWithUIImage(UIImage* inImage, float inScale, GLenum inFilter)
 {
 	texture = [[Texture2D alloc] initWithImage:inImage filter:inFilter];
 	scale	= inScale;

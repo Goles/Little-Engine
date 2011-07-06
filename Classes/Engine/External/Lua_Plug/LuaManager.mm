@@ -42,10 +42,12 @@ LuaManager* LuaManager::getInstance()
 
 void LuaManager::execScript(const char *script)
 {
-	if(luaL_dofile(L, gg::utils::fullCPathFromRelativePath(script)))
+    const char *scriptFullPath = gg::util::fullCPathFromRelativePath(script); 
+    
+	if(luaL_dofile(L, scriptFullPath))
 	{
 		std::cout	<< "Lua Register Manager: ERROR when trying to execute script: " 
-					<< script 
+					<< scriptFullPath 
 					<< std::endl
 					<< "Error: "
                     << lua_tostring(L, -1)
@@ -56,7 +58,8 @@ void LuaManager::execScript(const char *script)
 LuaManager::LuaManager()
 {
 	//Init Lua, open the default libs and register state with Luabind.
-	L = luaL_newstate();
+    
+	L = lua_open();
 	luaL_openlibs(L);
 	luabind::open(L);
 	

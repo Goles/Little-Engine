@@ -59,7 +59,6 @@
 
 using namespace gg::action;
 
-
 namespace gg
 {
 	namespace lua 
@@ -73,8 +72,8 @@ namespace gg
         {
             luabind::module(LR_MANAGER_STATE) 
             [
-                luabind::def("fileRelativePath", &gg::utils::relativeCPathForFile),
-				luabind::def("filePath", &gg::utils::fullCPathFromRelativePath),
+                luabind::def("fileRelativePath", &gg::util::relativeCPathForFile),
+				luabind::def("filePath", &gg::util::fullCPathFromRelativePath),
 				luabind::def("ggr", &CGRectMake),
 				luabind::def("ggs", &CGSizeMake),
                 luabind::def("ggp", &CGPointMake),
