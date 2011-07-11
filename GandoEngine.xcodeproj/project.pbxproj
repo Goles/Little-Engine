@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		141BDE2713CB4F1E003B6B1A /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 141BDE2613CB4F1E003B6B1A /* EAGLView.mm */; };
+		141BDE2813CB4F1E003B6B1A /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 141BDE2613CB4F1E003B6B1A /* EAGLView.mm */; };
 		142F257C133D8BE700E80E17 /* base_functions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2558133D8BE700E80E17 /* base_functions.lua */; };
 		142F257D133D8BE700E80E17 /* ComponentBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2559133D8BE700E80E17 /* ComponentBuilder.lua */; };
 		142F257E133D8BE700E80E17 /* config_functions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F255A133D8BE700E80E17 /* config_functions.lua */; };
@@ -144,9 +146,7 @@
 		14A371B4134E04E3007E9551 /* LuaManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFF01310835C0094F680 /* LuaManager.mm */; };
 		14A371B5134E04E3007E9551 /* PVRTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFFB1310835C0094F680 /* PVRTexture.m */; };
 		14A371B6134E04E3007E9551 /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFFD1310835C0094F680 /* Texture2D.m */; };
-		14A371B7134E04E3007E9551 /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC00D1310835C0094F680 /* EAGLView.mm */; };
 		14A371B8134E04E3007E9551 /* ES1Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC00F1310835C0094F680 /* ES1Renderer.mm */; };
-		14A371B9134E04E3007E9551 /* ES2Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0111310835C0094F680 /* ES2Renderer.mm */; };
 		14A371BA134E04E3007E9551 /* Scene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0151310835C0094F680 /* Scene.mm */; };
 		14A371BB134E04E3007E9551 /* SceneManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC01A1310835C0094F680 /* SceneManager.mm */; };
 		14A371BC134E04E3007E9551 /* SharedTextureManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0201310835C0094F680 /* SharedTextureManager.mm */; };
@@ -217,9 +217,7 @@
 		14DEC0701310835C0094F680 /* LuaManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFF01310835C0094F680 /* LuaManager.mm */; };
 		14DEC0721310835C0094F680 /* PVRTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFFB1310835C0094F680 /* PVRTexture.m */; };
 		14DEC0731310835C0094F680 /* Texture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBFFD1310835C0094F680 /* Texture2D.m */; };
-		14DEC0791310835C0094F680 /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC00D1310835C0094F680 /* EAGLView.mm */; };
 		14DEC07A1310835C0094F680 /* ES1Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC00F1310835C0094F680 /* ES1Renderer.mm */; };
-		14DEC07B1310835C0094F680 /* ES2Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0111310835C0094F680 /* ES2Renderer.mm */; };
 		14DEC07C1310835C0094F680 /* Scene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0151310835C0094F680 /* Scene.mm */; };
 		14DEC07E1310835C0094F680 /* SceneManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC01A1310835C0094F680 /* SceneManager.mm */; };
 		14DEC0811310835C0094F680 /* SharedTextureManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEC0201310835C0094F680 /* SharedTextureManager.mm */; };
@@ -317,6 +315,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		141BDE2513CB4F1E003B6B1A /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
+		141BDE2613CB4F1E003B6B1A /* EAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EAGLView.mm; sourceTree = "<group>"; };
 		142F2558133D8BE700E80E17 /* base_functions.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = base_functions.lua; sourceTree = "<group>"; };
 		142F2559133D8BE700E80E17 /* ComponentBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ComponentBuilder.lua; sourceTree = "<group>"; };
 		142F255A133D8BE700E80E17 /* config_functions.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config_functions.lua; sourceTree = "<group>"; };
@@ -475,12 +475,8 @@
 		14DEBFFB1310835C0094F680 /* PVRTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVRTexture.m; sourceTree = "<group>"; };
 		14DEBFFC1310835C0094F680 /* Texture2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture2D.h; sourceTree = "<group>"; };
 		14DEBFFD1310835C0094F680 /* Texture2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Texture2D.m; sourceTree = "<group>"; };
-		14DEC00C1310835C0094F680 /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
-		14DEC00D1310835C0094F680 /* EAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EAGLView.mm; sourceTree = "<group>"; };
 		14DEC00E1310835C0094F680 /* ES1Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ES1Renderer.h; sourceTree = "<group>"; };
 		14DEC00F1310835C0094F680 /* ES1Renderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ES1Renderer.mm; sourceTree = "<group>"; };
-		14DEC0101310835C0094F680 /* ES2Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ES2Renderer.h; sourceTree = "<group>"; };
-		14DEC0111310835C0094F680 /* ES2Renderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ES2Renderer.mm; sourceTree = "<group>"; };
 		14DEC0121310835C0094F680 /* ESRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESRenderer.h; sourceTree = "<group>"; };
 		14DEC0141310835C0094F680 /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
 		14DEC0151310835C0094F680 /* Scene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Scene.mm; sourceTree = "<group>"; };
@@ -1085,12 +1081,8 @@
 		14DEC00B1310835C0094F680 /* Renderer */ = {
 			isa = PBXGroup;
 			children = (
-				14DEC00C1310835C0094F680 /* EAGLView.h */,
-				14DEC00D1310835C0094F680 /* EAGLView.mm */,
 				14DEC00E1310835C0094F680 /* ES1Renderer.h */,
 				14DEC00F1310835C0094F680 /* ES1Renderer.mm */,
-				14DEC0101310835C0094F680 /* ES2Renderer.h */,
-				14DEC0111310835C0094F680 /* ES2Renderer.mm */,
 				14DEC0121310835C0094F680 /* ESRenderer.h */,
 			);
 			path = Renderer;
@@ -1170,6 +1162,8 @@
 				14E31415121E47E200917795 /* main.mm */,
 				14E31416121E47E200917795 /* Particles_2AppDelegate.h */,
 				14E31417121E47E200917795 /* Particles_2AppDelegate.mm */,
+				141BDE2513CB4F1E003B6B1A /* EAGLView.h */,
+				141BDE2613CB4F1E003B6B1A /* EAGLView.mm */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1529,9 +1523,7 @@
 				14A371B4134E04E3007E9551 /* LuaManager.mm in Sources */,
 				14A371B5134E04E3007E9551 /* PVRTexture.m in Sources */,
 				14A371B6134E04E3007E9551 /* Texture2D.m in Sources */,
-				14A371B7134E04E3007E9551 /* EAGLView.mm in Sources */,
 				14A371B8134E04E3007E9551 /* ES1Renderer.mm in Sources */,
-				14A371B9134E04E3007E9551 /* ES2Renderer.mm in Sources */,
 				14A371BA134E04E3007E9551 /* Scene.mm in Sources */,
 				14A371BB134E04E3007E9551 /* SceneManager.mm in Sources */,
 				14A371BC134E04E3007E9551 /* SharedTextureManager.mm in Sources */,
@@ -1567,6 +1559,7 @@
 				14B85BF413C0AD1A003C7D90 /* AngelCodeTextRenderer.mm in Sources */,
 				14B85BF613C0AD1A003C7D90 /* AngelCodeParser.cpp in Sources */,
 				14BB7CA513C1694A002A8663 /* FontManager.mm in Sources */,
+				141BDE2813CB4F1E003B6B1A /* EAGLView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1597,9 +1590,7 @@
 				14DEC0701310835C0094F680 /* LuaManager.mm in Sources */,
 				14DEC0721310835C0094F680 /* PVRTexture.m in Sources */,
 				14DEC0731310835C0094F680 /* Texture2D.m in Sources */,
-				14DEC0791310835C0094F680 /* EAGLView.mm in Sources */,
 				14DEC07A1310835C0094F680 /* ES1Renderer.mm in Sources */,
-				14DEC07B1310835C0094F680 /* ES2Renderer.mm in Sources */,
 				14DEC07C1310835C0094F680 /* Scene.mm in Sources */,
 				14DEC07E1310835C0094F680 /* SceneManager.mm in Sources */,
 				14DEC0811310835C0094F680 /* SharedTextureManager.mm in Sources */,
@@ -1631,6 +1622,7 @@
 				14B85BF313C0AD1A003C7D90 /* AngelCodeTextRenderer.mm in Sources */,
 				14B85BF513C0AD1A003C7D90 /* AngelCodeParser.cpp in Sources */,
 				14BB7CA413C1694A002A8663 /* FontManager.mm in Sources */,
+				141BDE2713CB4F1E003B6B1A /* EAGLView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

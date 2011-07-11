@@ -7,7 +7,6 @@
 //
 
 #import "EAGLView.h"
-#import "ES2Renderer.h"
 #import "ES1Renderer.h"
 #import "TouchableManager.h"
 #import "GandoBox2D.h"
