@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 #endif
     
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, nil);
+    int retVal = UIApplicationMain(argc, argv, nil, @"Particles_2AppDelegate");
     [pool release];
     return retVal; 
 }

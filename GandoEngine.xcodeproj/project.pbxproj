@@ -77,7 +77,6 @@
 		148C3B3C135012C8000F8444 /* UnisonActionTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148C3B3B135012C8000F8444 /* UnisonActionTest.mm */; };
 		14A3716C134E04E3007E9551 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 14E31485121E47FE00917795 /* Shader.fsh */; };
 		14A3716D134E04E3007E9551 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 14E31486121E47FE00917795 /* Shader.vsh */; };
-		14A3716E134E04E3007E9551 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14E31469121E47FE00917795 /* MainWindow.xib */; };
 		14A37171134E04E3007E9551 /* sonic_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 144668FD133A503D001DAE2D /* sonic_theme.mp3 */; };
 		14A37172134E04E3007E9551 /* swing_1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 14466902133A6E91001DAE2D /* swing_1.caf */; };
 		14A37174134E04E3007E9551 /* button_attack.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9AF133D8A9C0090800C /* button_attack.png */; };
@@ -235,7 +234,6 @@
 		14DF615813C0FE4100CAEF7B /* test1.png in Resources */ = {isa = PBXBuildFile; fileRef = 14DF615413C0FE4100CAEF7B /* test1.png */; };
 		14E31465121E47E200917795 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31415121E47E200917795 /* main.mm */; };
 		14E31466121E47E200917795 /* Particles_2AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31417121E47E200917795 /* Particles_2AppDelegate.mm */; };
-		14E31488121E47FE00917795 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14E31469121E47FE00917795 /* MainWindow.xib */; };
 		14E314D0121E49B900917795 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E314CF121E49B900917795 /* CoreGraphics.framework */; };
 		14F64F2513101665006DBA13 /* libluabind.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 144BAA2113100C77005AD895 /* libluabind.a */; };
 		14F64F3013101681006DBA13 /* libLua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F64F2F13101678006DBA13 /* libLua.a */; };
@@ -505,7 +503,6 @@
 		14E31417121E47E200917795 /* Particles_2AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Particles_2AppDelegate.mm; sourceTree = "<group>"; };
 		14E31467121E47FE00917795 /* GandoEngine_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GandoEngine_Prefix.pch; sourceTree = "<group>"; };
 		14E31468121E47FE00917795 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		14E31469121E47FE00917795 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		14E31485121E47FE00917795 /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
 		14E31486121E47FE00917795 /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
 		14E314CF121E49B900917795 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1252,7 +1249,6 @@
 				14E31352121E47E100917795 /* Classes */,
 				14E31467121E47FE00917795 /* GandoEngine_Prefix.pch */,
 				14E31468121E47FE00917795 /* Info.plist */,
-				14E31469121E47FE00917795 /* MainWindow.xib */,
 				14E3146A121E47FE00917795 /* Resources */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -1385,7 +1381,6 @@
 			files = (
 				14A3716C134E04E3007E9551 /* Shader.fsh in Resources */,
 				14A3716D134E04E3007E9551 /* Shader.vsh in Resources */,
-				14A3716E134E04E3007E9551 /* MainWindow.xib in Resources */,
 				14A37171134E04E3007E9551 /* sonic_theme.mp3 in Resources */,
 				14A37172134E04E3007E9551 /* swing_1.caf in Resources */,
 				14A37174134E04E3007E9551 /* button_attack.png in Resources */,
@@ -1442,7 +1437,6 @@
 			files = (
 				14FB89FA121E4C3300E1B242 /* Shader.fsh in Resources */,
 				14FB89FB121E4C3300E1B242 /* Shader.vsh in Resources */,
-				14E31488121E47FE00917795 /* MainWindow.xib in Resources */,
 				144668FF133A503D001DAE2D /* sonic_theme.mp3 in Resources */,
 				14466903133A6E91001DAE2D /* swing_1.caf in Resources */,
 				144FF9E4133D8A9C0090800C /* button_attack.png in Resources */,

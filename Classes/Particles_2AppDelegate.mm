@@ -16,7 +16,11 @@
 
 - (void) applicationDidFinishLaunching:(UIApplication *)application
 {
-	[glView startAnimation];
+    window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    glView = [[EAGLView alloc] initWithFrame:window.bounds];
+    [window addSubview:glView];
+    [window makeKeyAndVisible];
+    [glView startAnimation];
 }
 
 - (void) applicationWillResignActive:(UIApplication *)application

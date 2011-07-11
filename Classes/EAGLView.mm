@@ -24,9 +24,9 @@
 }
 
 //The GL view is stored in the nib file. When it's unarchived it's sent -initWithCoder:
-- (id) initWithCoder:(NSCoder*)coder
+- (id) initWithFrame:(CGRect) bounds
 {    
-    if ((self = [super initWithCoder:coder]))
+    if ((self = [super initWithFrame:bounds]))
 	{
         // Get the layer
         CAEAGLLayer *eaglLayer = (CAEAGLLayer *)self.layer;
