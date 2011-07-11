@@ -115,7 +115,7 @@ public:
 			Used for debug purposes.
 	 */
 	void debugPrintEntities();
-	
+
 	/** Print the Scene child list.
 	 */
 	void debugPrintChildren();

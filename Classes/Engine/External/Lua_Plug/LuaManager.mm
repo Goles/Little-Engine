@@ -12,7 +12,11 @@
 #include <iostream>
 
 
-#include "lua.hpp"
+extern "C" {
+#include "lua.h"
+#include "lualib.h"
+#include "lauxlib.h"
+}
 
 #include "FileUtils.h"
 #include "LuaInit.h"
