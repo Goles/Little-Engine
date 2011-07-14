@@ -61,7 +61,7 @@ end
 -- Font Manager Interface
 --
 function textRenderer(in_font_name, in_font_size)
-	return FontManager.getInstance():getTextRenderer(in_font_name, in_font_size)
+	return FontManager.getInstance():textRenderer(in_font_name)
 end
 
 --

@@ -7,6 +7,7 @@ require "base_functions"
 require "event_manager"
 require "ComponentBuilder"
 require "EntityMap"
+require "tableprint"
 
 -- ====================================== --
 --         ENTITY BUILDER FUNCTION        --
@@ -32,7 +33,7 @@ function buildEntity (e)
 		entity:setPosition(e.position.x, e.position.y) 
 	end
 
-	-- attach the respective components to the entity	
+	-- attach the respective components to the entity		
 	if entityTable.components then 
 		addComponents (entityTable.components, entity) 
 	end

@@ -103,7 +103,9 @@ static char fpsText[32];
      if(current)
         current->render();
     
+
     FONT_MANAGER->render();
+
 
 	glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
 	[context presentRenderbuffer:GL_RENDERBUFFER_OES];

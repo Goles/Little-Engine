@@ -26,7 +26,7 @@ end
 
 function buildSceneTable(t, root_scene)
 
-	for _, e in pairs(t.entities) do
+	for _, e in pairs(t.entities) do		
 		root_scene:addEntity( buildEntity(e) )
 	end
 	

@@ -8,6 +8,7 @@
 
 #include "AngelCodeFont.h"
 #include "AngelCodeParser.h"
+#include "SharedTextureManager.h"
 #include "Quad2.h"
 #include "Image.h"
 
@@ -70,7 +71,7 @@ void AngelCodeFont::drawString(const std::string &text, GGPoint &point)
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
-    bitmap->bind();
+    TEXTURE_MANAGER->bindTexture(bitmap->getTextureName());
 	
     const char *c_text = text.c_str();
     

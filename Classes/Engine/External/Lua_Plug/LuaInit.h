@@ -56,6 +56,7 @@
 #include "CocosDenshion.h"
 #include "CDAudioManager.h"
 #include "ActionManager.h"
+#include "FontManager.h"
 
 using namespace gg::action;
 
@@ -420,6 +421,17 @@ namespace gg
                 .scope
                 [
                  luabind::def("getInstance", &ActionManager::getInstance)
+                ]
+            ];
+            
+            /* Bind the Font Manager */
+            luabind::module(LR_MANAGER_STATE)
+            [
+                luabind::class_<FontManager> ("FontManager")
+                .def("textRenderer", &FontManager::textRenderer)
+                .scope
+                [
+                 luabind::def("getInstance", &FontManager::getInstance)
                 ]
             ];
 		}

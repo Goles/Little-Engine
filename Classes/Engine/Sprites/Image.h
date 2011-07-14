@@ -37,7 +37,7 @@ public:
 	        Sets all coordinates and offsets to 0.
 	        Additionally, the texture can be initialized in various ways, using pre-loaded textures or files. */
 	            
-	Image();	
+	Image();
 //------------------------------------------------------------------------------	
 	/** Initializer for pre-loaded textures
     	@param inTexture Pointer to a Texture2D object.

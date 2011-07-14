@@ -72,6 +72,8 @@
 		146C4221135181A500EA0342 /* UnisonAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 146C4216135181A500EA0342 /* UnisonAction.mm */; };
 		146C4222135181A500EA0342 /* UnisonAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 146C4216135181A500EA0342 /* UnisonAction.mm */; };
 		1472DA9D134E44C300F349B6 /* ActionManagerTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1472DA9B134E44C300F349B6 /* ActionManagerTest.mm */; };
+		1476147913CE0C8B000916A7 /* gecImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1476147813CE0C8B000916A7 /* gecImage.mm */; };
+		1476147A13CE0C8B000916A7 /* gecImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1476147813CE0C8B000916A7 /* gecImage.mm */; };
 		148B1F761310A2DC00B1CE94 /* gecFollowingCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1F731310A2DC00B1CE94 /* gecFollowingCamera.mm */; };
 		148B1F771310A2DC00B1CE94 /* ICompCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1F751310A2DC00B1CE94 /* ICompCamera.mm */; };
 		148C3B3C135012C8000F8444 /* UnisonActionTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148C3B3B135012C8000F8444 /* UnisonActionTest.mm */; };
@@ -385,6 +387,8 @@
 		146C4215135181A500EA0342 /* UnisonAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnisonAction.h; sourceTree = "<group>"; };
 		146C4216135181A500EA0342 /* UnisonAction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UnisonAction.mm; sourceTree = "<group>"; };
 		1472DA9B134E44C300F349B6 /* ActionManagerTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ActionManagerTest.mm; sourceTree = "<group>"; };
+		1476147713CE0C7F000916A7 /* gecImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecImage.h; sourceTree = "<group>"; };
+		1476147813CE0C8B000916A7 /* gecImage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecImage.mm; sourceTree = "<group>"; };
 		148B1F721310A2DC00B1CE94 /* gecFollowingCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecFollowingCamera.h; sourceTree = "<group>"; };
 		148B1F731310A2DC00B1CE94 /* gecFollowingCamera.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecFollowingCamera.mm; sourceTree = "<group>"; };
 		148B1F741310A2DC00B1CE94 /* ICompCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICompCamera.h; sourceTree = "<group>"; };
@@ -972,6 +976,8 @@
 				14DEBF7B1310835C0094F680 /* gecAnimatedSprite.mm */,
 				1447AA121328897C000DCCD8 /* gecParticleSystem.h */,
 				1447AA131328897C000DCCD8 /* gecParticleSystem.mm */,
+				1476147713CE0C7F000916A7 /* gecImage.h */,
+				1476147813CE0C8B000916A7 /* gecImage.mm */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -1554,6 +1560,7 @@
 				14B85BF613C0AD1A003C7D90 /* AngelCodeParser.cpp in Sources */,
 				14BB7CA513C1694A002A8663 /* FontManager.mm in Sources */,
 				141BDE2813CB4F1E003B6B1A /* EAGLView.mm in Sources */,
+				1476147A13CE0C8B000916A7 /* gecImage.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1617,6 +1624,7 @@
 				14B85BF513C0AD1A003C7D90 /* AngelCodeParser.cpp in Sources */,
 				14BB7CA413C1694A002A8663 /* FontManager.mm in Sources */,
 				141BDE2713CB4F1E003B6B1A /* EAGLView.mm in Sources */,
+				1476147913CE0C8B000916A7 /* gecImage.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1769,6 +1777,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nicolas Goles (K29F552GKG)";
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
@@ -1790,6 +1799,7 @@
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = NO;
 				USER_HEADER_SEARCH_PATHS = "/usr/include/my_boost $(SRCROOT)/**";
@@ -1801,6 +1811,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nicolas Goles (K29F552GKG)";
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
@@ -1822,6 +1833,7 @@
 				OTHER_CPLUSPLUSFLAGS = "-DTARGET_OS_IPHONE";
 				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = YES;
 				USER_HEADER_SEARCH_PATHS = "/usr/include/my_boost $(SRCROOT)/**";

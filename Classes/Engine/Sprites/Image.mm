@@ -249,10 +249,6 @@ Quad2* Image::getVertex()
 	return vertices;
 }
 
-#pragma mark lua interface
-//static void Image::registrate(void)
-
-
 #pragma mark rendering
 
 void Image::renderAtPoint(CGPoint point, BOOL center)
