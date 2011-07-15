@@ -24,6 +24,15 @@ function FadeOut (in_duration)
 
 end
 
+function MoveBy (in_x, in_y, in_duration)
+	
+	local action = MoveByAction()
+	action:setDuration(in_duration)
+	action:setMovementOffset( ggp(in_x, in_y) )
+	return action
+
+end
+
 function MoveTo (in_x, in_y, in_duration)
 	
 	local action = MoveToAction()

@@ -18,6 +18,7 @@ class MoveToAction : public FiniteTimeAction
 {
 public:
     MoveToAction();
+    virtual ~MoveToAction() {}
     virtual void afterUpdate(float dt);
     virtual void started();
     void setEndPoint(const GGPoint &endPoint);
@@ -28,6 +29,6 @@ private:
     GGPoint m_delta;
 };
     
-}}
+}} //END gg::action
 
 #endif

@@ -34,6 +34,6 @@ protected:
     
 };
 
-}}
+}} //END gg::action
 
 #endif

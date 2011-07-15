@@ -20,4 +20,4 @@ void FadeOutAction::afterUpdate(float dt)
         visual->setAlpha(1 - dt);
 }
 
-}}
+}} //END gg::action

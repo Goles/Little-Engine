@@ -30,5 +30,5 @@ public:
     virtual void ended() {}
 };
 
-}}
+}} //END gg::action
 #endif

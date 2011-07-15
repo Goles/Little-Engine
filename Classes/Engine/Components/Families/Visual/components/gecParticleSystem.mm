@@ -59,7 +59,6 @@ void gecParticleSystem::render() const
 			glEnable(GL_BLEND);
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE);
 			
-			
 			glEnable(GL_POINT_SPRITE_OES);
 			glTexEnvi(GL_POINT_SPRITE_OES, GL_COORD_REPLACE_OES, GL_TRUE);
 			

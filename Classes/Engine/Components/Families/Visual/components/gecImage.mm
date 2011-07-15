@@ -11,12 +11,14 @@
 #include "GameEntity.h"
 #include "Image.h"
 
+const std::string gecImage::m_componentID = "gecImage";
+
 void gecImage::render() const
 {
     m_image->renderAtPoint(m_position, false);
 }
 
-void gecImage::update()
+void gecImage::update(float delta)
 {
     GameEntity *ge = this->getOwnerGE();
     m_position = ge->getPosition();

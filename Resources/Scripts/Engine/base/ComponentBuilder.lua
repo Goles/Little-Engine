@@ -180,7 +180,7 @@ end
 --	Build a gecParticleSystem
 --
 function gecParticleSystemBuild(t)	
-	particleSystem = gecParticleSystem()
+	local particleSystem = gecParticleSystem()
 
 	assert(t.defaultParticle ~= nil, "'defaultParticle' can't be nil on gecParticleSystem definition")
 	assert(t.duration ~= nil, "'duration' can't be nil on gecParticleSystem definition")
@@ -232,6 +232,22 @@ function gecParticleSystemBuild(t)
 	return particleSystem
 end
 
+--
+-- Build a gecImage
+--
+function gecImageBuild(t)
+	local gec = gecImage()
+	local image = Image()
+	
+	assert(t.file, "You need to specify an image name in order to build a gecImage component.")
+	
+	image:initWithTextureFile(t.file)
+	
+	gec:setImage(image)
+	
+	return gec
+end
+
 -- =================================================================== --
 -- Function table with { Key, function() } for each component builder. --
 -- =================================================================== --
@@ -244,4 +260,5 @@ component_function_table =
 	["gecFollowingCamera"] = gecFollowingCameraBuild,
 	["gecJoystick"] = gecJoystickBuild,
 	["gecParticleSystem"] = gecParticleSystemBuild,
+	["gecImage"] = gecImageBuild,
 }

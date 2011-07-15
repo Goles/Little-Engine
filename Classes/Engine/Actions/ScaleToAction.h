@@ -18,6 +18,7 @@ class ScaleToAction : public FiniteTimeAction
 {
 public:
     ScaleToAction();
+    virtual ~ScaleToAction() {}
     virtual void afterUpdate(float dt);    
     virtual void started();
     void setEndScale(const GGPoint &endScale);
@@ -28,6 +29,6 @@ private:
     GGPoint m_endScale;
 };
 
-}}
+}} //END gg::action
     
 #endif

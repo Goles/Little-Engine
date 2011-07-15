@@ -17,10 +17,11 @@ class FadeInAction : public FiniteTimeAction
 {
 
 public:
-    FadeInAction() {} 
+    virtual ~FadeInAction() {}
     virtual void afterUpdate(float dt);
     
 };
 
-}}
+}} //END gg::action
+
 #endif

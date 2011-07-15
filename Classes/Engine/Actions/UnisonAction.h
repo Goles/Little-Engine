@@ -19,10 +19,14 @@ class UnisonAction : public FiniteTimeAction
 {
     
 public:
-    UnisonAction() : m_target_id(UINT_MAX) {
+    UnisonAction() 
+    : m_target_id(UINT_MAX) 
+    {
         m_duration = 0.0f;
         m_elapsed = 0.0f;
     }
+    
+    virtual ~UnisonAction() {}
     
     void addChildAction(FiniteTimeAction *a) {
         if(m_duration < a->duration())
@@ -92,12 +96,11 @@ public:
         this->afterUpdate(MIN(1, m_elapsed/m_duration));
     }
     
-    virtual ~UnisonAction() {}
-    
 private:
     std::vector<FiniteTimeAction *> unisonActions;
     unsigned m_target_id;
 };
     
-}}
+}} //END gg::action
+
 #endif

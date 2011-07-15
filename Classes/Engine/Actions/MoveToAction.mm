@@ -11,9 +11,10 @@
 
 namespace gg { namespace action {
 
-MoveToAction::MoveToAction() : m_startPoint(CGPointZero), 
-                               m_endPoint(CGPointZero), 
-                               m_delta(CGPointZero)
+MoveToAction::MoveToAction() 
+    : m_startPoint(CGPointZero)
+    , m_endPoint(CGPointZero)
+    , m_delta(CGPointZero)
 {
     //Constructor.
 }
@@ -35,4 +36,4 @@ void MoveToAction::setEndPoint(const GGPoint &endPoint)
     m_endPoint = endPoint;
 }   
     
-}}
+}} //END gg::action

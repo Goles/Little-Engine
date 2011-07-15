@@ -23,6 +23,7 @@
 #include "UnisonAction.h"
 #include "FadeInAction.h"
 #include "FadeOutAction.h"
+#include "MoveByAction.h"
 #include "MoveToAction.h"
 #include "ScaleToAction.h"
 
@@ -40,7 +41,6 @@
 #include "ITextRenderer.h"
 #include "IAction.h"
 
-
 #include "GEComponent.h"
 #include "gecAnimatedSprite.h"
 #include "gecFollowingCamera.h"
@@ -49,6 +49,7 @@
 #include "gecButton.h"
 #include "gecBoxCollisionable.h"
 #include "gecParticleSystem.h"
+#include "gecImage.h"
 
 #include "SceneManager.h"
 #include "ParticleManager.h"
@@ -153,6 +154,10 @@ namespace gg
              .def(luabind::constructor<>())
              .def("setEndPoint", &MoveToAction::setEndPoint),
              
+             luabind::class_<MoveByAction, FiniteTimeAction> ("MoveByAction")
+             .def(luabind::constructor<>())
+             .def("setMovementOffset", &MoveByAction::setMovementOffset),
+             
              luabind::class_<UnisonAction, FiniteTimeAction> ("UnisonAction")
              .def(luabind::constructor<>())
              .def("addChildAction", &UnisonAction::addChildAction),
@@ -161,9 +166,8 @@ namespace gg
              .def(luabind::constructor<>())
              .def("setEndScale", &ScaleToAction::setEndScale)
              ];
-            
-
-		}
+		
+        } //END bindBasicTypes
         
 		static inline void bindAbstractInterfaces(void)
 		{            
@@ -178,47 +182,8 @@ namespace gg
             ];
 		}
 		
-		static inline void bindClasses(void)
-		{
-            /* Bind the Image Class */
-            luabind::module(LR_MANAGER_STATE) 
-            [
-             luabind::class_<Image> ("Image")
-             .def(luabind::constructor<>())
-             .def("initWithTextureFile", (void(Image::*)(const std::string &))&Image::initWithTextureFile)
-             .property("scale", &Image::getScale, &Image::setScale)
-             ];
-
-            /* Bind the Frame Class */
-            luabind::module(LR_MANAGER_STATE) 
-            [
-             luabind::class_<Frame> ("Frame")	/** < Binds the GameEntity class */
-             .def(luabind::constructor<>())		/** < Binds the GameEntity constructor */
-             .property("image", &Frame::getFrameImage, &Frame::setFrameImage)
-             .property("delay", &Frame::getFrameDelay, &Frame::setFrameDelay)
-             ];
-            
-            /* Bind the Animation Class */
-            luabind::module(LR_MANAGER_STATE) 
-            [
-             luabind::class_<Animation> ("Animation")	/** < Binds the GameEntity class*/
-             .def(luabind::constructor<>())				/** < Binds the GameEntity constructor  */
-             .def("addFrame", &Animation::addFrame)
-             .property("running", &Animation::getIsRunning, &Animation::setIsRunning)
-             .property("repeating", &Animation::getIsRepeating, &Animation::setIsRepeating)
-             .property("pingpong", &Animation::getIsPingPong, &Animation::setIsPingPong)
-             .property("animation_label", &Animation::getAnimationLabel, &Animation::setAnimationLabel)
-             ];
-            
-            /* Bind the SpriteSheet Class */
-            luabind::module(LR_MANAGER_STATE) 
-            [
-             luabind::class_<SpriteSheet> ("SpriteSheet")
-             .def(luabind::constructor<>())
-             .def("initWithImageNamed", &SpriteSheet::initWithImageNamed)
-             .def("getSpriteAtCoordinate", &SpriteSheet::getSpriteAt)
-             ];
-            
+        static inline void bindComponents(void)
+        {
             /* Bind the GEComponent Class */            
             luabind::module(LR_MANAGER_STATE) 
             [
@@ -289,30 +254,83 @@ namespace gg
              .property("solid", &CompCollisionable::getSolid, &CompCollisionable::setSolid)
              ];
             
-            /* Bind the gecParticleSystem Class */
+            /* Bind the gecVisual Components */
             luabind::module(LR_MANAGER_STATE)
             [
-                 luabind::class_<gecParticleSystem, GEComponent> ("gecParticleSystem")
-                 .enum_("RenderMode")
-                 [
-                      luabind::value("POINT_SPRITES", gg::particle::render::kRenderingMode_PointSprites),
-                      luabind::value("QUADS", gg::particle::render::kRenderingMode_2xTriangles)
-                  ]
-                 .def(luabind::constructor<>())
-                 .def("emit", &gecParticleSystem::setEmit)
-                 .def("setDefaultParticle", &gecParticleSystem::setDefaultParticle)
-                 .property("texture", &gecParticleSystem::texture, &gecParticleSystem::setTexture)
-                 .property("emissionRate", &gecParticleSystem::emissionRate, &gecParticleSystem::setEmissionRate)
-                 .property("emissionRateVariance", &gecParticleSystem::emissionRateVariance, &gecParticleSystem::setEmissionRateVariance)
-                 .property("originVariance", &gecParticleSystem::originVariance, &gecParticleSystem::setOriginVariance)
-                 .property("lifeVariance", &gecParticleSystem::lifeVariance, &gecParticleSystem::setLifeVariance)
-                 .property("speedVariance", &gecParticleSystem::speedVariance, &gecParticleSystem::setSpeedVariance)
-                 .property("decayVariance", &gecParticleSystem::decayVariance, &gecParticleSystem::setDecayVariance)
-                 .property("emissionDuration", &gecParticleSystem::emissionDuration, &gecParticleSystem::setEmissionDuration)
-                 .property("size", &gecParticleSystem::size, &gecParticleSystem::setSize)
+             luabind::class_<gecVisual, GEComponent> ("gecVisual")
+             .def("setColor", &gecVisual::setColor)
+             .def("setScale", &gecVisual::setScale)
+             .def("setAlpha", &gecVisual::setAlpha),             
+             
+             luabind::class_<gecImage, gecVisual> ("gecImage")
+             .def(luabind::constructor<>())
+             .def("setImage", &gecImage::setImage),
+             
+             luabind::class_<gecParticleSystem, gecVisual> ("gecParticleSystem")
+             .enum_("RenderMode")
+             [
+              luabind::value("POINT_SPRITES", gg::particle::render::kRenderingMode_PointSprites),
+              luabind::value("QUADS", gg::particle::render::kRenderingMode_2xTriangles)
+              ]
+             .def(luabind::constructor<>())
+             .def("emit", &gecParticleSystem::setEmit)
+             .def("setDefaultParticle", &gecParticleSystem::setDefaultParticle)
+             .property("texture", &gecParticleSystem::texture, &gecParticleSystem::setTexture)
+             .property("emissionRate", &gecParticleSystem::emissionRate, &gecParticleSystem::setEmissionRate)
+             .property("emissionRateVariance", &gecParticleSystem::emissionRateVariance, &gecParticleSystem::setEmissionRateVariance)
+             .property("originVariance", &gecParticleSystem::originVariance, &gecParticleSystem::setOriginVariance)
+             .property("lifeVariance", &gecParticleSystem::lifeVariance, &gecParticleSystem::setLifeVariance)
+             .property("speedVariance", &gecParticleSystem::speedVariance, &gecParticleSystem::setSpeedVariance)
+             .property("decayVariance", &gecParticleSystem::decayVariance, &gecParticleSystem::setDecayVariance)
+             .property("emissionDuration", &gecParticleSystem::emissionDuration, &gecParticleSystem::setEmissionDuration)
+             .property("size", &gecParticleSystem::size, &gecParticleSystem::setSize)             
 
             ];
+
+        } //END bindComponents
+        
+		static inline void bindClasses(void)
+		{
+            /* Bind the Image Class */
+            luabind::module(LR_MANAGER_STATE) 
+            [
+             luabind::class_<Image> ("Image")
+             .def(luabind::constructor<>())
+             .def("initWithTextureFile", (void(Image::*)(const std::string &))&Image::initWithTextureFile)
+             .property("scale", &Image::getScale, &Image::setScale)
+             ];
+
+            /* Bind the Frame Class */
+            luabind::module(LR_MANAGER_STATE) 
+            [
+             luabind::class_<Frame> ("Frame")	/** < Binds the GameEntity class */
+             .def(luabind::constructor<>())		/** < Binds the GameEntity constructor */
+             .property("image", &Frame::getFrameImage, &Frame::setFrameImage)
+             .property("delay", &Frame::getFrameDelay, &Frame::setFrameDelay)
+             ];
             
+            /* Bind the Animation Class */
+            luabind::module(LR_MANAGER_STATE) 
+            [
+             luabind::class_<Animation> ("Animation")	/** < Binds the GameEntity class*/
+             .def(luabind::constructor<>())				/** < Binds the GameEntity constructor  */
+             .def("addFrame", &Animation::addFrame)
+             .property("running", &Animation::getIsRunning, &Animation::setIsRunning)
+             .property("repeating", &Animation::getIsRepeating, &Animation::setIsRepeating)
+             .property("pingpong", &Animation::getIsPingPong, &Animation::setIsPingPong)
+             .property("animation_label", &Animation::getAnimationLabel, &Animation::setAnimationLabel)
+             ];
+            
+            /* Bind the SpriteSheet Class */
+            luabind::module(LR_MANAGER_STATE) 
+            [
+             luabind::class_<SpriteSheet> ("SpriteSheet")
+             .def(luabind::constructor<>())
+             .def("initWithImageNamed", &SpriteSheet::initWithImageNamed)
+             .def("getSpriteAtCoordinate", &SpriteSheet::getSpriteAt)
+             ];
+            
+                        
             /* Bind the Game Entity Class */
             luabind::module(LR_MANAGER_STATE) 
             [
@@ -363,7 +381,7 @@ namespace gg
              .def(luabind::constructor<>())
              
             ];
-		}
+		} //END bindClasses
 		
 		static inline void bindManagers(void)
 		{
@@ -442,6 +460,7 @@ namespace gg
             bindBasicFunctions();
 			bindAbstractInterfaces();
 			bindClasses();
+            bindComponents();
 			bindManagers();
 		}
 	}

@@ -47,4 +47,4 @@ void Action::stop()
     m_target = NULL;
 }
 
-}}
+}} //END gg::action

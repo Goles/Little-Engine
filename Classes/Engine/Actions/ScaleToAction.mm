@@ -26,8 +26,7 @@ void ScaleToAction::started()
 {
     gecVisual *visual = static_cast<gecVisual *>(m_target->getGEC("CompVisual"));
     
-    if(visual)
-    {
+    if (visual) {
         m_startScale = visual->scale();
         m_deltaScale.x = m_endScale.x - m_startScale.x;
         m_deltaScale.y = m_endScale.y - m_startScale.y;
@@ -38,8 +37,8 @@ void ScaleToAction::afterUpdate(float dt)
 {
     gecVisual *visual = static_cast<gecVisual *>(m_target->getGEC("CompVisual"));
     
-    if(visual)
+    if (visual)
         visual->setScale(CGPointMake (m_startScale.x + (m_deltaScale.x * dt), m_startScale.y + (m_deltaScale.y * dt)));
 }
 
-}}
+}} //END gg::action

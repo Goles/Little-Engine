@@ -18,11 +18,8 @@ class FiniteTimeAction : public Action
     
 public:
     virtual ~FiniteTimeAction() {}
-    
     virtual void update(float delta);
-    
     virtual void afterUpdate(float time) = 0;
-    
     void setDuration(float dt) { 
             
         m_duration = dt; 
@@ -48,7 +45,6 @@ public:
         return false;
     }
     
-    
     virtual void ended()
     {
     }
@@ -56,10 +52,9 @@ public:
 protected:    
     float m_duration;
     float m_elapsed;
-    bool m_firstTick;
-    
+    bool m_firstTick;    
 };
 
-}}
+}} //END gg::action
     
 #endif

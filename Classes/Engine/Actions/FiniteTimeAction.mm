@@ -24,4 +24,4 @@ void FiniteTimeAction::update(float delta)
     this->afterUpdate(MIN(1, m_elapsed/m_duration));
 }
 
-}}
+}} //END gg::action
