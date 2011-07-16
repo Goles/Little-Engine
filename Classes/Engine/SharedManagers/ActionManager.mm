@@ -153,5 +153,5 @@ ActionManager::~ActionManager()
     actions.clear();
 }
     
-}}
+}} //END gg::action
 

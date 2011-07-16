@@ -33,7 +33,7 @@ function buildEntity (e)
 		entity:setPosition(e.position.x, e.position.y) 
 	end
 
-	-- attach the respective components to the entity		
+	-- attach the respective components to the entity	
 	if entityTable.components then 
 		addComponents (entityTable.components, entity) 
 	end

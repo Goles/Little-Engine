@@ -12,8 +12,7 @@ namespace gg { namespace action {
 
 void FiniteTimeAction::update(float delta)
 {
-    if(m_firstTick)
-    {
+    if(m_firstTick) {
         started();
         m_firstTick = false;
         m_elapsed = 0.0f;        

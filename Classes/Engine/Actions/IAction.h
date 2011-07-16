@@ -27,7 +27,7 @@ public:
     //Optional
     virtual void afterSetTarget() {}
     virtual void started() {}
-    virtual void ended() {}
+    virtual bool ended() { return true; }
 };
 
 }} //END gg::action

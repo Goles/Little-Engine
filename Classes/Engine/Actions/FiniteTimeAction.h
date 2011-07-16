@@ -36,17 +36,15 @@ public:
     
     bool isDone() {
         
-        if(m_elapsed >= m_duration)
-        {
-            ended();
-            return true;
+        if (m_elapsed >= m_duration) {
+            if (!Action::ended()) { //This means that the action is repeating
+                m_firstTick = true;
+            } else {
+                return true;
+            }                
         }
         
         return false;
-    }
-    
-    virtual void ended()
-    {
     }
     
 protected:    

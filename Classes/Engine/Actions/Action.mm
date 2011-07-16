@@ -11,7 +11,10 @@
 
 namespace gg { namespace action {
     
-Action::Action() : m_target(NULL), m_id(UINT_MAX) 
+Action::Action() 
+    : m_target(NULL)
+    , m_id(UINT_MAX)
+    , m_repeatTimes(0)
 {
     static int incremental_id = 0;
     m_id = incremental_id;
@@ -27,6 +30,11 @@ void Action::setTarget(GameEntity *target)
 {
     m_target = target;
     afterSetTarget();
+}
+    
+void Action::setRepeatTimes(unsigned times)
+{
+    m_repeatTimes = times;
 }
 
 unsigned Action::targetId()
@@ -47,4 +55,15 @@ void Action::stop()
     m_target = NULL;
 }
 
+bool Action::ended()
+{
+    if (m_repeatTimes > 1) {
+        --m_repeatTimes;
+        return false;
+    }
+
+    return true;
+}
+                       
+    
 }} //END gg::action

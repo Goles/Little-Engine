@@ -9,11 +9,9 @@ AnImage =
 
 		handle_event = function (this, in_event, in_data)
 			
-			--
-			--	EVENT ACTIVE SCENE
-			--
+			--	EVENT SCENE ACTIVE
 			if (in_event == "E_SCENE_ACTIVE") then
-				this:attachAction(MoveBy(240, 160, 4.0))
+				this:attachAction(MoveBy(32, 0, 2.0))
 			end
 			
 		end

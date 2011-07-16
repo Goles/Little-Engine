@@ -63,6 +63,6 @@ namespace gg
 		delete GBOX_2D;				/** < delete the Box2D Plug for GG */
         CocosDenshion::SimpleAudioEngine::sharedEngine()->end();
 	}
-}
+} //END gg::
 
 #endif

@@ -139,7 +139,8 @@ namespace gg
              .def("setTarget", &IAction::setTarget)
              .def("stop", &IAction::stop),
              
-             luabind::class_<Action, IAction> ("Action"),
+             luabind::class_<Action, IAction> ("Action")
+             .def("setRepeatTimes", &Action::setRepeatTimes),
              
              luabind::class_<FiniteTimeAction, Action> ("FiniteTimeAction")
              .def("setDuration", &FiniteTimeAction::setDuration),

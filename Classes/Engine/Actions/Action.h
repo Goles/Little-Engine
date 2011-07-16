@@ -19,19 +19,21 @@ class Action: public IAction
 {
     
 public:
-    virtual ~Action() {}
     Action();
+    virtual ~Action() {}
     virtual bool isDone();
-    virtual void setTarget(GameEntity *target);    
+    virtual void setTarget(GameEntity *target);
+    virtual void setRepeatTimes(unsigned times);
     virtual void stop();
     virtual unsigned targetId();
     const unsigned id() const { return m_id; }
     virtual void afterSetTarget();
+    virtual bool ended();
     
 protected:
     GameEntity* m_target;    
     unsigned m_id;
-    
+    unsigned m_repeatTimes;    
 };
 
 }} //END gg::action
