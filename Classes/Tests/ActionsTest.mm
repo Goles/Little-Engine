@@ -165,9 +165,9 @@ TEST_FIXTURE(ActionFixture, MoveByActionRepeat)
     moveByAction->setMovementOffset(ggp(MOVEMENT_OFFSET, MOVEMENT_OFFSET));
     moveByAction->setTarget(entity);
     moveByAction->setRepeatTimes(REPEAT_TIMES);
+    moveByAction->update(TIME_DELTA);
     
     //Update 1 repetition, the action shouldn't finish yet (4 more repetitions to go)
-    moveByAction->update(TIME_DELTA);
     CHECK_EQUAL (moveByAction->isDone(), false);
     
     //Only one repetition (1*TIME_DELTA), means an increase of 1 movementOffset
@@ -176,7 +176,8 @@ TEST_FIXTURE(ActionFixture, MoveByActionRepeat)
     CHECK_EQUAL (aPoint.y, entity->getPositionY());
     
     //Repeat the action (REPEAT TIMES - 1)
-    while (accumulator < (TIME_DELTA *(REPEAT_TIMES - 1)) && !moveByAction->isDone()) {
+    while (accumulator < (TIME_DELTA *(REPEAT_TIMES - 1)) 
+           && !moveByAction->isDone()) {
         accumulator += TIME_STEP;
         moveByAction->update(TIME_STEP);
     }
@@ -191,8 +192,8 @@ TEST_FIXTURE(ActionFixture, MoveByActionRepeat)
 
 TEST_FIXTURE(ActionFixture, MoveToAction)
 {
-    const float TIME_DELTA = 2.0;
     const GGPoint targetPoint = ggp(250, 250);
+    const float TIME_DELTA = 2.0;
     
     MoveToAction *moveToAction = new MoveToAction();
     moveToAction->setDuration(TIME_DELTA);
@@ -206,20 +207,87 @@ TEST_FIXTURE(ActionFixture, MoveToAction)
     delete moveToAction;
 }
 
+TEST_FIXTURE(ActionFixture, MoveToActionRepeat)
+{
+    const GGPoint targetPoint = ggp(250, 250);
+    const float TIME_DELTA = 2.0;
+    const float REPEAT_TIMES = 5;
+    const float TIME_STEP = 1.0/60.0;
+    float accumulator = 0.0;
+    
+    MoveToAction *moveToAction = new MoveToAction();
+    moveToAction->setDuration(TIME_DELTA);
+    moveToAction->setEndPoint(targetPoint);
+    moveToAction->setTarget(entity);
+    moveToAction->setRepeatTimes(REPEAT_TIMES);
+    moveToAction->update(TIME_DELTA);
+    
+    //One Repetition should already take it to the target.
+    CHECK_EQUAL(targetPoint.x, entity->getPositionX());
+    CHECK_EQUAL(targetPoint.y, entity->getPositionY());
+        
+    //Repeat the action (REPEAT TIMES - 1)
+    while (accumulator < (TIME_DELTA *(REPEAT_TIMES - 1)) 
+           && !moveToAction->isDone()) {
+        accumulator += TIME_STEP;
+        moveToAction->update(TIME_STEP);
+    }
+    
+    //N more repetitions of MoveToAction shouldn't change the entity position anymore.
+    CHECK_EQUAL(targetPoint.x, entity->getPositionX());
+    CHECK_EQUAL(targetPoint.y, entity->getPositionY());
+    
+    delete moveToAction;
+}
+
 TEST_FIXTURE(ActionFixture, ScaleToAction)
 {
-    const float TIME_DELTA = 2.0;
     const GGPoint endScale = ggp(2.0, 2.0);
+    const float TIME_DELTA = 2.0;
     
     gecImageMock *visualComponent = new gecImageMock();
     entity->setGEC(visualComponent);
-    
     ScaleToAction *scaleToAction = new ScaleToAction();
     scaleToAction->setDuration(TIME_DELTA);
     scaleToAction->setEndScale(endScale);
     scaleToAction->setTarget(entity);
     scaleToAction->update(TIME_DELTA);
     
+    CHECK_EQUAL (endScale.x, visualComponent->getScale().x);
+    CHECK_EQUAL (endScale.y, visualComponent->getScale().y);
+    
+    delete visualComponent;
+    delete scaleToAction;
+}
+
+TEST_FIXTURE(ActionFixture, ScaleToActionRepeat)
+{
+    const GGPoint endScale = ggp(2.0, 2.0);    
+    const float TIME_DELTA = 2.0;
+    const float REPEAT_TIMES = 5;
+    const float TIME_STEP = 1.0/60.0;    
+    float accumulator = 0.0;
+    
+    gecImageMock *visualComponent = new gecImageMock();
+    entity->setGEC(visualComponent);
+    ScaleToAction *scaleToAction = new ScaleToAction();
+    scaleToAction->setDuration(TIME_DELTA);
+    scaleToAction->setEndScale(endScale);
+    scaleToAction->setTarget(entity);
+    scaleToAction->update(TIME_DELTA);
+    
+    //One repetition should set the Scale to the final value
+    CHECK_EQUAL (endScale.x, visualComponent->getScale().x);
+    CHECK_EQUAL (endScale.y, visualComponent->getScale().y);
+    
+    //Repeat the action (REPEAT TIMES - 1)    
+    while (accumulator < (TIME_DELTA *(REPEAT_TIMES - 1)) 
+           && !scaleToAction->isDone()) {
+        accumulator += TIME_STEP;
+        scaleToAction->update(TIME_STEP);
+    }
+    
+    //N more repetitions of ScaleToAction shouldn't affect the scale anymore.
     CHECK_EQUAL (endScale.x, visualComponent->getScale().x);
     CHECK_EQUAL (endScale.y, visualComponent->getScale().y);
     
