@@ -1,11 +1,12 @@
-
 //
-//  ActionsTest.mm
+//  ActionTest.cpp
 //  GandoEngine
 //
 //  Created by Nicolas Goles on 7/16/11.
 //  Copyright 2011 GandoGames. All rights reserved.
 //
+
+#ifdef UNIT_TEST
 
 #include "unittestpp.h"
 
@@ -38,7 +39,7 @@ public:
 
 //Test fixture in order to avoid creating Game Entity on each test.
 struct ActionFixture {
-  
+    
     ActionFixture() {
         entity = new GameEntity();
         entity->setPosition(200, 200);
@@ -64,7 +65,7 @@ TEST_FIXTURE(ActionFixture, FadeInAction)
     fadeInAction->update(TIME_DELTA);
     
     CHECK_EQUAL (1.0, visualComponent->getAlpha());    
- 
+    
     delete visualComponent;
     delete fadeInAction;
 }
@@ -99,9 +100,9 @@ TEST_FIXTURE(ActionFixture, FadeOutAction)
     fadeOutAction->setDuration(TIME_DELTA);
     fadeOutAction->setTarget(entity);
     fadeOutAction->update(TIME_DELTA);
-   
+    
     CHECK_EQUAL (0.0, visualComponent->getAlpha());
- 
+    
     delete visualComponent;
     delete fadeOutAction;
 }
@@ -136,12 +137,12 @@ TEST_FIXTURE(ActionFixture, MoveByAction)
     moveByAction->setMovementOffset(ggp(100, 100));
     moveByAction->setTarget(entity);
     moveByAction->update(TIME_DELTA/2);
-
-     //Since it's linear it should update half of the movement offset in TIME_DELTA/2
+    
+    //Since it's linear it should update half of the movement offset in TIME_DELTA/2
     GGPoint aPoint = ggp(250, 250);
     CHECK_EQUAL (aPoint.x, entity->getPositionX());
     CHECK_EQUAL (aPoint.y, entity->getPositionY());
-
+    
     moveByAction->update(TIME_DELTA/2);
     
     //Should move the entity +100, +100. The new position should be 300,300 (full TIME_DELTA)
@@ -225,7 +226,7 @@ TEST_FIXTURE(ActionFixture, MoveToActionRepeat)
     //One Repetition should already take it to the target.
     CHECK_EQUAL(targetPoint.x, entity->getPositionX());
     CHECK_EQUAL(targetPoint.y, entity->getPositionY());
-        
+    
     //Repeat the action (REPEAT TIMES - 1)
     while (accumulator < (TIME_DELTA *(REPEAT_TIMES - 1)) 
            && !moveToAction->isDone()) {
@@ -294,3 +295,5 @@ TEST_FIXTURE(ActionFixture, ScaleToActionRepeat)
     delete visualComponent;
     delete scaleToAction;
 }
+
+#endif

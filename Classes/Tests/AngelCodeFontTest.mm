@@ -6,6 +6,8 @@
 //  Copyright 2011 GandoGames. All rights reserved.
 //
 
+#ifdef UNIT_TEST
+
 #include "unittestpp.h"
 #include "AngelCodeParser.h"
 #include "AngelCodeChar.h"
@@ -199,3 +201,5 @@ TEST_FIXTURE(AngelCodeFontFixture, NumberOfCharLoaded)
     CHECK_EQUAL(20, aChar->m_xAdvance);
     
 }
+
+#endif

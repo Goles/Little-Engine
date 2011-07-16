@@ -6,6 +6,8 @@
 //  Copyright 2011 GandoGames. All rights reserved.
 //
 
+#ifdef UNIT_TEST
+
 #include "unittestpp.h"
 #include "ActionManager.h"
 #include "FiniteTimeAction.h"
@@ -116,4 +118,6 @@ TEST_FIXTURE (UnisonActionFixture, UnisonActionSetAllTargets)
     delete e;
 }
 
-}
+} // END namespace unisonaction
+
+#endif

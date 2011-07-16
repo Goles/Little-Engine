@@ -36,8 +36,6 @@
 		142F2594133D8BE700E80E17 /* gui.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2579133D8BE700E80E17 /* gui.lua */; };
 		142F2595133D8BE700E80E17 /* world1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F257A133D8BE700E80E17 /* world1.lua */; };
 		142F2596133D8BE700E80E17 /* main.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F257B133D8BE700E80E17 /* main.lua */; };
-		142F66F813D1F68C00B9A850 /* ActionsTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 142F66F713D1F68C00B9A850 /* ActionsTest.mm */; };
-		142F66F913D1F68C00B9A850 /* ActionsTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 142F66F713D1F68C00B9A850 /* ActionsTest.mm */; };
 		144668FF133A503D001DAE2D /* sonic_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 144668FD133A503D001DAE2D /* sonic_theme.mp3 */; };
 		14466903133A6E91001DAE2D /* swing_1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 14466902133A6E91001DAE2D /* swing_1.caf */; };
 		1447AA0A13272613000DCCD8 /* Particle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1447AA0813272612000DCCD8 /* Particle.mm */; };
@@ -185,7 +183,6 @@
 		14A371E0134E04E3007E9551 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FB89E7121E4ACC00E1B242 /* OpenGLES.framework */; };
 		14A371E1134E04E3007E9551 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FB89EB121E4AD400E1B242 /* UIKit.framework */; };
 		14A371E2134E04E3007E9551 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FB89EF121E4ADB00E1B242 /* Foundation.framework */; };
-		14A371EF134E06B3007E9551 /* libUnitTest++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A371EE134E06B3007E9551 /* libUnitTest++.a */; };
 		14AC7E12132E4DA300D5ACA7 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AC7E11132E4DA300D5ACA7 /* OpenAL.framework */; };
 		14AC7E14132E4DAB00D5ACA7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AC7E13132E4DAB00D5ACA7 /* AVFoundation.framework */; };
 		14AC9047133083E700BB0A26 /* CDAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AC903E133083E700BB0A26 /* CDAudioManager.m */; };
@@ -202,6 +199,9 @@
 		14B85BF613C0AD1A003C7D90 /* AngelCodeParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14B85BEF13C0AD19003C7D90 /* AngelCodeParser.cpp */; };
 		14BB7CA413C1694A002A8663 /* FontManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14BB7CA313C1694A002A8663 /* FontManager.mm */; };
 		14BB7CA513C1694A002A8663 /* FontManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14BB7CA313C1694A002A8663 /* FontManager.mm */; };
+		14CA84DE13D22DFB00527ACF /* ActionTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14CA84DD13D22DFB00527ACF /* ActionTest.mm */; };
+		14CA84DF13D22DFB00527ACF /* ActionTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14CA84DD13D22DFB00527ACF /* ActionTest.mm */; };
+		14CA84E513D2311200527ACF /* libUnitTest++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A370DB134E0253007E9551 /* libUnitTest++.a */; };
 		14DEBDC7131077B90094F680 /* libbox2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DEBD9A1310777C0094F680 /* libbox2d.a */; };
 		14DEC0301310835C0094F680 /* CompBehaviour.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF561310835C0094F680 /* CompBehaviour.mm */; };
 		14DEC0311310835C0094F680 /* gecFSM.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF581310835C0094F680 /* gecFSM.mm */; };
@@ -290,7 +290,14 @@
 			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = box2d;
 		};
-		14A371EC134E06B0007E9551 /* PBXContainerItemProxy */ = {
+		14CA84E013D22E8D00527ACF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14A370D3134E0253007E9551 /* UnitTest++.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 14A37041134E0149007E9551;
+			remoteInfo = "UnitTest++";
+		};
+		14CA84E313D2310800527ACF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 14A370D3134E0253007E9551 /* UnitTest++.xcodeproj */;
 			proxyType = 1;
@@ -350,7 +357,6 @@
 		142F2579133D8BE700E80E17 /* gui.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gui.lua; sourceTree = "<group>"; };
 		142F257A133D8BE700E80E17 /* world1.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = world1.lua; sourceTree = "<group>"; };
 		142F257B133D8BE700E80E17 /* main.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.lua; sourceTree = "<group>"; };
-		142F66F713D1F68C00B9A850 /* ActionsTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ActionsTest.mm; sourceTree = "<group>"; };
 		1430C81B131F050000AFA083 /* IFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFont.h; sourceTree = "<group>"; };
 		144668FD133A503D001DAE2D /* sonic_theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sonic_theme.mp3; sourceTree = "<group>"; };
 		14466902133A6E91001DAE2D /* swing_1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = swing_1.caf; sourceTree = "<group>"; };
@@ -433,6 +439,7 @@
 		14B85BF013C0AD19003C7D90 /* AngelCodeParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AngelCodeParser.h; sourceTree = "<group>"; };
 		14BB7CA213C1694A002A8663 /* FontManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontManager.h; sourceTree = "<group>"; };
 		14BB7CA313C1694A002A8663 /* FontManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FontManager.mm; sourceTree = "<group>"; };
+		14CA84DD13D22DFB00527ACF /* ActionTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ActionTest.mm; sourceTree = "<group>"; };
 		14D2BA12132ABC0C00840B7C /* SharedTextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedTextureManager.h; sourceTree = "<group>"; };
 		14DEBD921310777C0094F680 /* box2d.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = box2d.xcodeproj; path = Libraries/box2d/box2d.xcodeproj; sourceTree = "<group>"; };
 		14DEBF531310835C0094F680 /* BehaviourActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BehaviourActions.h; sourceTree = "<group>"; };
@@ -535,7 +542,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14A371EF134E06B3007E9551 /* libUnitTest++.a in Frameworks */,
+				14CA84E513D2311200527ACF /* libUnitTest++.a in Frameworks */,
 				14A371D7134E04E3007E9551 /* libbox2d.a in Frameworks */,
 				14A371D9134E04E3007E9551 /* libLua.a in Frameworks */,
 				14A371DA134E04E3007E9551 /* libluabind.a in Frameworks */,
@@ -806,11 +813,11 @@
 		1472DA9A134E449800F349B6 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				142F66F713D1F68C00B9A850 /* ActionsTest.mm */,
 				1472DA9B134E44C300F349B6 /* ActionManagerTest.mm */,
 				148C3B3B135012C8000F8444 /* UnisonActionTest.mm */,
 				14DF00F413BD0603002E0FF7 /* AngelCodeParserTest.mm */,
 				14DF00F613BD0620002E0FF7 /* AngelCodeFontTest.mm */,
+				14CA84DD13D22DFB00527ACF /* ActionTest.mm */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1289,7 +1296,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				14A371ED134E06B0007E9551 /* PBXTargetDependency */,
+				14CA84E413D2310800527ACF /* PBXTargetDependency */,
 				14A37165134E04E3007E9551 /* PBXTargetDependency */,
 				14A37167134E04E3007E9551 /* PBXTargetDependency */,
 			);
@@ -1309,6 +1316,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				14CA84E113D22E8D00527ACF /* PBXTargetDependency */,
 				144BAA2A13100CCD005AD895 /* PBXTargetDependency */,
 				14DEBDA61310778D0094F680 /* PBXTargetDependency */,
 			);
@@ -1579,7 +1587,7 @@
 				141BDE2813CB4F1E003B6B1A /* EAGLView.mm in Sources */,
 				1476147A13CE0C8B000916A7 /* gecImage.mm in Sources */,
 				1450A52613D0BED200139A2A /* MoveByAction.mm in Sources */,
-				142F66F913D1F68C00B9A850 /* ActionsTest.mm in Sources */,
+				14CA84DF13D22DFB00527ACF /* ActionTest.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1645,7 +1653,7 @@
 				141BDE2713CB4F1E003B6B1A /* EAGLView.mm in Sources */,
 				1476147913CE0C8B000916A7 /* gecImage.mm in Sources */,
 				1450A52513D0BED200139A2A /* MoveByAction.mm in Sources */,
-				142F66F813D1F68C00B9A850 /* ActionsTest.mm in Sources */,
+				14CA84DE13D22DFB00527ACF /* ActionTest.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1667,10 +1675,15 @@
 			name = box2d;
 			targetProxy = 14A37168134E04E3007E9551 /* PBXContainerItemProxy */;
 		};
-		14A371ED134E06B0007E9551 /* PBXTargetDependency */ = {
+		14CA84E113D22E8D00527ACF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "UnitTest++";
-			targetProxy = 14A371EC134E06B0007E9551 /* PBXContainerItemProxy */;
+			targetProxy = 14CA84E013D22E8D00527ACF /* PBXContainerItemProxy */;
+		};
+		14CA84E413D2310800527ACF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "UnitTest++";
+			targetProxy = 14CA84E313D2310800527ACF /* PBXContainerItemProxy */;
 		};
 		14DEBDA61310778D0094F680 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

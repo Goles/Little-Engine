@@ -6,6 +6,8 @@
 //  Copyright 2011 GandoGames. All rights reserved.
 //
 
+#ifdef UNIT_TEST
+
 #include "unittestpp.h"
 
 #include "FiniteTimeAction.h"
@@ -166,3 +168,5 @@ TEST_FIXTURE (ActionManagerFixture, UpdateFullActionSequence)
     ACTION_MANAGER->cleanup();
     CHECK_EQUAL(0, ACTION_MANAGER->totalActionsNum());
 }
+
+#endif

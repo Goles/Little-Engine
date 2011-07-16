@@ -6,6 +6,8 @@
 //  Copyright 2011 GandoGames. All rights reserved.
 //
 
+#ifdef UNIT_TEST
+
 #include "unittestpp.h"
 
 #include "IFont.h"
@@ -136,3 +138,4 @@ TEST ( FileContainerParser )
     CHECK_EQUAL ("font1.png", parser.bitMapFileName().c_str()); 
 }
 
+#endif
