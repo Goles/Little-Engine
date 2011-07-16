@@ -57,7 +57,7 @@ void Action::stop()
 
 bool Action::ended()
 {
-    if (m_repeatTimes > 1) {
+    if (m_repeatTimes > 0) {
         --m_repeatTimes;
         return false;
     }

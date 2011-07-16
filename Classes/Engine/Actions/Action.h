@@ -33,7 +33,7 @@ public:
 protected:
     GameEntity* m_target;    
     unsigned m_id;
-    unsigned m_repeatTimes;    
+    unsigned m_repeatTimes;
 };
 
 }} //END gg::action
