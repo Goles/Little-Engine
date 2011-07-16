@@ -24,7 +24,9 @@ void ScaleToAction::setEndScale(const GGPoint &scale)
     
 void ScaleToAction::started()
 {
+#ifdef DEBUG
     assert(m_target != NULL);
+#endif
     
     gecVisual *visual = static_cast<gecVisual *>(m_target->getGEC("CompVisual"));
     

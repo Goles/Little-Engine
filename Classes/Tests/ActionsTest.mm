@@ -62,7 +62,11 @@ TEST_FIXTURE(ActionFixture, FadeInAction)
     fadeInAction->setDuration(TIME_DELTA);
     fadeInAction->setTarget(entity);
     fadeInAction->update(TIME_DELTA);
-    CHECK_EQUAL (1.0, visualComponent->getAlpha());
+    
+    CHECK_EQUAL (1.0, visualComponent->getAlpha());    
+ 
+    delete visualComponent;
+    delete fadeInAction;
 }
 
 TEST_FIXTURE(ActionFixture, FadeOutAction)
@@ -75,7 +79,11 @@ TEST_FIXTURE(ActionFixture, FadeOutAction)
     fadeOutAction->setDuration(TIME_DELTA);
     fadeOutAction->setTarget(entity);
     fadeOutAction->update(TIME_DELTA);
+   
     CHECK_EQUAL (0.0, visualComponent->getAlpha());
+ 
+    delete visualComponent;
+    delete fadeOutAction;
 }
 
 TEST_FIXTURE(ActionFixture, MoveByAction)
@@ -99,6 +107,8 @@ TEST_FIXTURE(ActionFixture, MoveByAction)
     aPoint = ggp(300, 300);
     CHECK_EQUAL(aPoint.x, entity->getPositionX());
     CHECK_EQUAL(aPoint.y, entity->getPositionY());
+    
+    delete moveByAction;
 }
 
 TEST_FIXTURE(ActionFixture, MoveToAction)
@@ -114,6 +124,8 @@ TEST_FIXTURE(ActionFixture, MoveToAction)
     
     CHECK_EQUAL(targetPoint.x, entity->getPositionX());
     CHECK_EQUAL(targetPoint.y, entity->getPositionY());
+    
+    delete moveToAction;
 }
 
 TEST_FIXTURE(ActionFixture, ScaleToAction)
@@ -132,4 +144,7 @@ TEST_FIXTURE(ActionFixture, ScaleToAction)
     
     CHECK_EQUAL (endScale.x, visualComponent->getScale().x);
     CHECK_EQUAL (endScale.y, visualComponent->getScale().y);
+    
+    delete visualComponent;
+    delete scaleToAction;
 }
