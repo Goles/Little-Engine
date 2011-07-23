@@ -26,56 +26,65 @@ public:
         m_elapsed = 0.0f;
     }
     
-    virtual ~UnisonAction() {}
+    virtual ~UnisonAction() 
+    {
+    }
     
-    void addChildAction(FiniteTimeAction *a) {
-        if(m_duration < a->duration())
-            m_duration = a->duration();
+    void addChildAction(FiniteTimeAction *a) 
+    {
+        int repeatTimes = a->repeatTimes();
+        float currentDuration = a->duration();
+        
+        if(repeatTimes)
+            currentDuration *= repeatTimes;
+        
+        if(m_duration < currentDuration)
+            m_duration = currentDuration;
         
         unisonActions.push_back(a);
     }
     
-    virtual void afterSetTarget() {
+    virtual void afterSetTarget() 
+    {
         std::vector<FiniteTimeAction *>::iterator it = unisonActions.begin();
         
-        for(; it != unisonActions.end(); ++it)
-        {
+        for (; it != unisonActions.end(); ++it) {
             (*it)->setTarget(m_target);
         }
     }
     
-    virtual void afterUpdate(float dt) {
+    virtual void afterUpdate(float dt) 
+    {
         
     }
     
-    virtual unsigned targetId() {
+    virtual unsigned targetId() 
+    {
         if(m_target_id == UINT_MAX)
             m_target_id = unisonActions[0]->targetId();
         
         return m_target_id;
     }
     
-    float duration() const { 
+    float duration() const 
+    { 
         return m_duration; 
     }    
     
     virtual void update(float delta) 
     {
-        if(m_firstTick)
-        {
+        if(m_firstTick) {
             m_firstTick = false;
             m_elapsed = 0.0f;        
         }
         
         m_elapsed += delta;
 
-        std::vector<FiniteTimeAction *>::iterator it = unisonActions.begin();
-        
+        std::vector<FiniteTimeAction *>::iterator it = unisonActions.begin();        
         std::vector<int> toRemove;
         int counter = 0;
         
-        for (; it != unisonActions.end(); ++it)
-        {
+        for (; it != unisonActions.end(); ++it) {
             (*it)->update(delta);
             
             if ((*it)->isDone())
@@ -84,10 +93,8 @@ public:
             ++counter;
         }
         
-        for(int i = 0; i < toRemove.size(); ++i)
-        {
-            if (i < unisonActions.size())
-            {
+        for (int i = 0; i < toRemove.size(); ++i) {
+            if (i < unisonActions.size()) {
                 std::swap(unisonActions[i],unisonActions.back());
                 unisonActions.pop_back();
             }                

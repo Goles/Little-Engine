@@ -35,10 +35,10 @@ public:
     }
     
     bool isDone() {
-        
+
         if (m_elapsed >= m_duration) {
-            if (!Action::ended()) { //This means that the action is repeating
-                m_firstTick = true;
+            if (!Action::ended()) { //Is the action is repeating or done ?
+                m_firstTick = true; 
             } else {
                 return true;
             }                

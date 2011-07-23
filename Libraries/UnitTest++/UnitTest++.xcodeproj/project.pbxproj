@@ -294,6 +294,7 @@
 		14A37039134E0149007E9551 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = GandoGames;
 			};
 			buildConfigurationList = 14A3703C134E0149007E9551 /* Build configuration list for PBXProject "UnitTest++" */;

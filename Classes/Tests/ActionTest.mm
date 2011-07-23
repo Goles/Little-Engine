@@ -52,7 +52,7 @@ struct ActionFixture {
     GameEntity *entity;    
 };
 
-TEST_FIXTURE(ActionFixture, FadeInAction)
+TEST_FIXTURE (ActionFixture, FadeInAction)
 {
     const float TIME_DELTA = 2.0;
     
@@ -70,7 +70,7 @@ TEST_FIXTURE(ActionFixture, FadeInAction)
     delete fadeInAction;
 }
 
-TEST_FIXTURE(ActionFixture, FadeInActionRepeat)
+TEST_FIXTURE (ActionFixture, FadeInActionRepeat)
 {
     const float TIME_DELTA = 2.0;
     const unsigned REPEAT_TIMES = 20;
@@ -90,7 +90,7 @@ TEST_FIXTURE(ActionFixture, FadeInActionRepeat)
     delete fadeInAction; 
 }
 
-TEST_FIXTURE(ActionFixture, FadeOutAction)
+TEST_FIXTURE (ActionFixture, FadeOutAction)
 {
     const float TIME_DELTA = 2.0;
     
@@ -107,7 +107,7 @@ TEST_FIXTURE(ActionFixture, FadeOutAction)
     delete fadeOutAction;
 }
 
-TEST_FIXTURE(ActionFixture, FadeOutActionRepeat)
+TEST_FIXTURE (ActionFixture, FadeOutActionRepeat)
 {
     const float TIME_DELTA = 2.0;
     const unsigned REPEAT_TIMES = 20;
@@ -128,7 +128,7 @@ TEST_FIXTURE(ActionFixture, FadeOutActionRepeat)
     delete fadeOutAction;
 }
 
-TEST_FIXTURE(ActionFixture, MoveByAction)
+TEST_FIXTURE (ActionFixture, MoveByAction)
 {
     const float TIME_DELTA = 2.0;
     
@@ -153,7 +153,7 @@ TEST_FIXTURE(ActionFixture, MoveByAction)
     delete moveByAction;
 }
 
-TEST_FIXTURE(ActionFixture, MoveByActionRepeat)
+TEST_FIXTURE (ActionFixture, MoveByActionRepeat)
 {
     const float TIME_DELTA = 0.5;
     const float REPEAT_TIMES = 5;
@@ -191,7 +191,7 @@ TEST_FIXTURE(ActionFixture, MoveByActionRepeat)
     delete moveByAction;
 }
 
-TEST_FIXTURE(ActionFixture, MoveToAction)
+TEST_FIXTURE (ActionFixture, MoveToAction)
 {
     const GGPoint targetPoint = ggp(250, 250);
     const float TIME_DELTA = 2.0;
@@ -208,7 +208,7 @@ TEST_FIXTURE(ActionFixture, MoveToAction)
     delete moveToAction;
 }
 
-TEST_FIXTURE(ActionFixture, MoveToActionRepeat)
+TEST_FIXTURE (ActionFixture, MoveToActionRepeat)
 {
     const GGPoint targetPoint = ggp(250, 250);
     const float TIME_DELTA = 2.0;
@@ -241,7 +241,7 @@ TEST_FIXTURE(ActionFixture, MoveToActionRepeat)
     delete moveToAction;
 }
 
-TEST_FIXTURE(ActionFixture, ScaleToAction)
+TEST_FIXTURE (ActionFixture, ScaleToAction)
 {
     const GGPoint endScale = ggp(2.0, 2.0);
     const float TIME_DELTA = 2.0;
@@ -261,7 +261,7 @@ TEST_FIXTURE(ActionFixture, ScaleToAction)
     delete scaleToAction;
 }
 
-TEST_FIXTURE(ActionFixture, ScaleToActionRepeat)
+TEST_FIXTURE (ActionFixture, ScaleToActionRepeat)
 {
     const GGPoint endScale = ggp(2.0, 2.0);    
     const float TIME_DELTA = 2.0;

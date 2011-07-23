@@ -25,7 +25,8 @@ struct FiniteActionMock : public FiniteTimeAction
     virtual ~FiniteActionMock() { 
         counter_afterUpdate = 0; 
         counter_targetId = 0; 
-        counter_afterSetTarget = 0; 
+        counter_afterSetTarget = 0;
+        counter_done = 0;
     }
     
     virtual unsigned targetId() {
@@ -39,6 +40,7 @@ struct FiniteActionMock : public FiniteTimeAction
     
     virtual void afterSetTarget();
     
+    int counter_done;
     int counter_afterUpdate;
     int counter_targetId;
     int counter_afterSetTarget;
@@ -78,7 +80,6 @@ struct UnisonActionFixture {
 TEST_FIXTURE (UnisonActionFixture, UnisonActionDuration)
 {
     UnisonAction *a = new UnisonAction();
-    
     a->addChildAction(a1);
     a->addChildAction(a2);
     a->addChildAction(a3);
@@ -89,7 +90,6 @@ TEST_FIXTURE (UnisonActionFixture, UnisonActionDuration)
 TEST_FIXTURE (UnisonActionFixture, UnisonActionUpdate)
 {
     UnisonAction *a = new UnisonAction();
-
     a->addChildAction(a1);
     a->addChildAction(a2);
     a->addChildAction(a3);
@@ -105,17 +105,48 @@ TEST_FIXTURE (UnisonActionFixture, UnisonActionSetAllTargets)
 {
     UnisonAction *a = new UnisonAction();
     GameEntity *e = new GameEntity();
-    
     a->addChildAction(a1);
     a->addChildAction(a2);
     a->addChildAction(a3);
-    
     a->setTarget(e);
     
     CHECK_EQUAL (3, a1->counter_afterSetTarget + a2->counter_afterSetTarget + a3->counter_afterSetTarget);
     
     delete a;
     delete e;
+}
+    
+TEST_FIXTURE (UnisonActionFixture, UnisonActionWithRepeat)
+{
+    const unsigned REPEAT_TIMES = 5;
+    const float DURATION = 0.1;
+    const float TIME_STEP = 1.0/60.0;
+
+    UnisonAction *unisonAction = new UnisonAction();
+    GameEntity *entity = new GameEntity();
+    int counter = 0;
+    int unisonDoneCounter = 0;
+    float accumulator = 0.0;
+    
+    a1->setDuration(DURATION);
+    a1->setRepeatTimes(REPEAT_TIMES);
+    unisonAction->addChildAction(a1);
+    unisonAction->setTarget(entity);
+    
+    //Repeat the action (REPEAT_TIMES)    
+    while (accumulator < (DURATION * REPEAT_TIMES)) {
+        accumulator += TIME_STEP;
+        unisonAction->update(TIME_STEP);
+        
+        if(unisonAction->isDone())
+            unisonDoneCounter++;
+        counter++;        
+    }
+        
+    CHECK_EQUAL (1, unisonDoneCounter);
+
+    delete unisonAction;
+    delete entity;
 }
 
 } // END namespace unisonaction

@@ -21,14 +21,15 @@ class Action: public IAction
 public:
     Action();
     virtual ~Action() {}
-    virtual bool isDone();
-    virtual void setTarget(GameEntity *target);
-    virtual void setRepeatTimes(unsigned times);
-    virtual void stop();
-    virtual unsigned targetId();
-    const unsigned id() const { return m_id; }
+    virtual void setTarget(GameEntity *target);    
     virtual void afterSetTarget();
+    virtual unsigned targetId();
+    virtual bool isDone();
     virtual bool ended();
+    virtual void stop();
+    inline const unsigned id() const { return m_id; }
+    inline const unsigned repeatTimes() { return m_repeatTimes; }
+    inline void setRepeatTimes(unsigned times) { m_repeatTimes = times; }
     
 protected:
     GameEntity* m_target;    

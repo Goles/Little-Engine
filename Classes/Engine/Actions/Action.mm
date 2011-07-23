@@ -31,11 +31,6 @@ void Action::setTarget(GameEntity *target)
     m_target = target;
     afterSetTarget();
 }
-    
-void Action::setRepeatTimes(unsigned times)
-{
-    m_repeatTimes = times;
-}
 
 unsigned Action::targetId()
 {
