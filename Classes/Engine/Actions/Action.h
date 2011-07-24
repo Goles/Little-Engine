@@ -15,9 +15,11 @@ class GameEntity;
 
 namespace gg { namespace action {
 
+static const int REPEAT_INFINITE = INT_MAX;
+static const float DURATION_INFINITE = FLT_MAX;
+
 class Action: public IAction
 {
-    
 public:
     Action();
     virtual ~Action() {}

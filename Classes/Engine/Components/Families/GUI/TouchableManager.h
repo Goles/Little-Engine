@@ -25,12 +25,14 @@
 #define MAX_TOUCHES 2
 
 //Input enumeration for the touch types.
-typedef enum
-{
-	kTouchType_began = 0,
-	kTouchType_moved,
-	kTouchType_ended
-} kTouchType;
+struct TouchTypes {
+    typedef enum
+    {
+        BEGAN = 0,
+        MOVED,
+        ENDED,
+    } kTouchType;
+};
 
 //The input manager will track the UIstate
 typedef struct

@@ -12,3 +12,4 @@ activateScene(scene)
 
 -- BROADCAST THAT THIS SCENE WAS BUILT
 broadcast("E_SCENE_ACTIVE", scene.label)
+

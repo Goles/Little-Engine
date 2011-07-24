@@ -94,7 +94,7 @@ void TouchableManager::touchesBegan(float x, float y, int touchID)
 			GUIState[i].fingerDown = true;
 			GUIState[i].hitFirst = true;
 			GUIState[i].touchID	= touchID;
-			this->broadcastInteraction(x, y, i, touchID, kTouchType_began);
+			this->broadcastInteraction(x, y, i, touchID, TouchTypes::BEGAN);
 			break;
 		}
 	}
@@ -116,7 +116,7 @@ void TouchableManager::touchesMoved(float x, float y, int touchID)
 			GUIState[i].y = y;
 			GUIState[i].fingerDown = true;
 			GUIState[i].hitFirst = false;
-			this->broadcastInteraction(x, y, i, touchID, kTouchType_moved);
+			this->broadcastInteraction(x, y, i, touchID, TouchTypes::MOVED);
 			break;
 		}
 	}
@@ -139,7 +139,7 @@ void TouchableManager::touchesEnded(float x, float y, int touchID)
 			GUIState[i].fingerDown	= false;
 			GUIState[i].touchID	= touchID;
 			GUIState[i].hitFirst = false;
-			this->broadcastInteraction(x, y, i, touchID, kTouchType_ended);
+			this->broadcastInteraction(x, y, i, touchID, TouchTypes::ENDED);
 			GUIState[i].touchID = NULL;
 			break;
 		}

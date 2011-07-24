@@ -20,8 +20,9 @@ public:
     virtual ~FiniteTimeAction() {}
     virtual void update(float delta);
     virtual void afterUpdate(float time) = 0;
-    void setDuration(float dt) { 
-            
+
+    void setDuration(float dt) {         
+        assert(dt < DURATION_INFINITE);        
         m_duration = dt; 
         
         if (m_duration == 0.0) 

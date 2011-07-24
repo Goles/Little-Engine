@@ -38,6 +38,10 @@ public:
         if(repeatTimes)
             currentDuration *= repeatTimes;
         
+        if (repeatTimes == REPEAT_INFINITE) {
+            repeatTimes = FLT_MAX;
+        }
+        
         if(m_duration < currentDuration)
             m_duration = currentDuration;
         
@@ -72,8 +76,8 @@ public:
     }    
     
     virtual void update(float delta) 
-    {
-        if(m_firstTick) {
+    {        
+        if (m_firstTick) {
             m_firstTick = false;
             m_elapsed = 0.0f;        
         }

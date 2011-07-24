@@ -20,11 +20,6 @@ Action::Action()
     m_id = incremental_id;
     ++incremental_id;
 }
-    
-bool Action::isDone()
-{
-    return true;
-}
 
 void Action::setTarget(GameEntity *target)
 {
@@ -32,33 +27,37 @@ void Action::setTarget(GameEntity *target)
     afterSetTarget();
 }
 
+void Action::afterSetTarget()
+{
+    //Overload if needed.
+}
+    
 unsigned Action::targetId()
 {
 #ifdef DEBUG
     assert(m_target != NULL);
 #endif
     return m_target->getId();
-}    
+}
+
+bool Action::isDone()
+{
+    return true;
+}
     
-void Action::afterSetTarget()
-{
-    //Init Stuff here ( optional 
-}
-
-void Action::stop()
-{
-    m_target = NULL;
-}
-
 bool Action::ended()
 {
     if (m_repeatTimes > 0) {
         --m_repeatTimes;
         return false;
     }
-
-    return true;
-}
-                       
     
+    return true;
+}    
+    
+void Action::stop()
+{
+    m_target = NULL;
+}
+
 }} //END gg::action

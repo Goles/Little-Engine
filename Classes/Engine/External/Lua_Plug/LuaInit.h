@@ -92,6 +92,17 @@ namespace gg
 				.def(luabind::constructor<>())
 				.def("push_back", &std::vector<float>::push_back)
 			];
+            
+            luabind::module(LR_MANAGER_STATE)
+            [
+                luabind::class_<TouchTypes> ("TouchTypes")
+                .enum_("constants")
+                [
+                    luabind::value("BEGAN", TouchTypes::BEGAN),
+                    luabind::value("MOVED", TouchTypes::MOVED),
+                    luabind::value("ENDED", TouchTypes::ENDED)
+                ]
+            ];
 			
 			luabind::module(LR_MANAGER_STATE)
 			[				
