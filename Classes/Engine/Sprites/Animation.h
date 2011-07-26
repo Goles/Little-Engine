@@ -11,6 +11,7 @@
 
 #include <vector>
 
+#include "ConstantsAndMacros.h"
 #include "SpriteSheet.h"
 #include "Frame.h"
 
@@ -22,6 +23,7 @@ enum {
 typedef std::vector<Frame *> FRAMES_VECTOR;
 
 class gecAnimatedSprite;
+class CGPoint;
 
 class Animation
 {
@@ -44,6 +46,8 @@ public:
 	Frame*	getFrame(GLuint frameNumber);
 	GLuint	getCurrentFrameNumber();
 	GLuint	getAnimationFrameCount();
+    float getCurrentFrameWidth();
+    float getCurrentFrameHeight();
 	const bool getIsRunning(){ return isRunning; }
 	const bool getIsRepeating(){ return isRepeating; }	
 	const bool getIsPingPong(){ return isPingPong; }

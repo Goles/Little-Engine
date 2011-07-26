@@ -157,7 +157,7 @@ void Animation::renderAtPoint(CGPoint inPoint)
     //If it's not running we display the last rendered frame
     if(renderFrame != NULL)
     {
-        renderFrame->getFrameImage()->renderAtPoint(inPoint, true);
+        renderFrame->getFrameImage()->renderAtPoint(inPoint, false);
         this->notifyDelegate();   
     }
 }
@@ -186,6 +186,18 @@ void Animation::update()
 Image* Animation::getCurrentFrameImage()
 {
 	return (spriteFrames.at(currentFrame)->getFrameImage());
+}
+
+float Animation::getCurrentFrameHeight()
+{
+    Image *currentImage = spriteFrames.at(currentFrame)->getFrameImage();
+    return currentImage->getImageHeight();
+}
+
+float Animation::getCurrentFrameWidth()
+{
+    Image *currentImage = spriteFrames.at(currentFrame)->getFrameImage();
+    return currentImage->getImageWidth();
 }
 
 Frame* Animation::getFrame(GLuint frameNumber)

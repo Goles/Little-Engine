@@ -14,7 +14,6 @@
 class Image;
 
 class gecImage : public gecVisual {
-
 public:
     gecImage()
         : m_image(NULL)

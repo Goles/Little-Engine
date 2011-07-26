@@ -23,17 +23,18 @@ public:
     gecVisual();
     virtual ~gecVisual() {}
 	virtual void render() const = 0;
-    const GGPoint &scale() { return m_scale; }
-    
+    const GGPoint &scale() { return m_scale; }    
     void setTransform(const mat4f_t &transform);
     void setColor(float R, float G, float B, float A = 255.0f);
     void setAlpha(float alpha);
     void setScale(const GGPoint &scale);
+    void setAnchorPoint(const GGPoint &anchorPoint);
     
 protected:
     mat4f_t m_transform;
     float m_color[4];
     GGPoint m_scale;
+    GGPoint m_anchor;
     bool m_dirtyTransform;
     bool m_dirtyColor;
     bool m_dirtyScale;

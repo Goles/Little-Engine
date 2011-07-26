@@ -231,7 +231,7 @@ int Image::getImageWidth()
 
 int Image::getImageHeight()
 {
-	return imageWidth;
+	return imageHeight;
 }
 
 float const Image::getScale()

@@ -11,7 +11,7 @@ AnImage =
 			
 			--	EVENT SCENE ACTIVE
 			if (in_event == "E_SCENE_ACTIVE") then
-				this:attachAction(MoveBy(32, 0, 2.0))
+				this:attachAction(MoveBy(80, 0, 2.0))
 			end
 			
 		end

@@ -9,6 +9,7 @@
 #include "gecAnimatedSprite.h"
 #include "GameEntity.h"
 #include "Image.h"
+#include "ConstantsAndMacros.h"
 
 std::string gecAnimatedSprite::mGECTypeID = "gecAnimatedSprite";
 
@@ -26,12 +27,11 @@ void gecAnimatedSprite::addAnimation(const std::string &animationName, Animation
 {
 	AnimationMap::iterator it = componentAnimations.find(animationName);
 	
-	if(it != componentAnimations.end())
+	if (it != componentAnimations.end())
 		return;
 	
 	//set the GameEntity "owner" uid of this animation ( used as payload for animations
 	animation->setOwnerGAS(this);
-	
 	componentAnimations.insert(AnimationMapPair(animationName, animation));
 }
 
@@ -72,12 +72,10 @@ void gecAnimatedSprite::setCurrentAnimation(const std::string &animationName)
 {	
 	AnimationMap::iterator it = componentAnimations.find(animationName);
 	
-	if(it != componentAnimations.end()) //if the texture IS in the map, we switch the current texture.
-	{	
+	if (it != componentAnimations.end()) { //if the texture IS in the map, we switch the current texture.
 		currentAnimation = componentAnimations[animationName];
         currentAnimation->setIsRunning(true);
-	}
-	else {
+	} else {
 		std::cout << "Warning, " << animationName << " is not present in the animation Map, animation NOT being changed. " << std::endl;
 	}	
 }
@@ -86,7 +84,7 @@ Animation* gecAnimatedSprite::getAnimation(const std::string& animationName)
 {
 	AnimationMap::iterator it = componentAnimations.find(animationName);
 	
-	if(it != componentAnimations.end())
+	if (it != componentAnimations.end())
 		return it->second;
 	
 	return NULL;
@@ -95,8 +93,7 @@ Animation* gecAnimatedSprite::getAnimation(const std::string& animationName)
 void gecAnimatedSprite::setFlipHorizontally(bool f)
 {
 	AnimationMap::iterator it;
-	for(it = componentAnimations.begin(); it != componentAnimations.end(); ++it)
-	{
+	for (it = componentAnimations.begin(); it != componentAnimations.end(); ++it) {
 		((Animation*)(*it).second)->setFlipHorizontally(f);
 	}
 }
@@ -105,8 +102,7 @@ void gecAnimatedSprite::setFlipVertically(bool f)
 {
 	AnimationMap::iterator it;
 	
-	for(it = componentAnimations.begin(); it != componentAnimations.end(); ++it)
-	{
+	for (it = componentAnimations.begin(); it != componentAnimations.end(); ++it) {
 		(it->second)->setFlipVertically(f);
 	}
 }
@@ -121,27 +117,27 @@ void gecAnimatedSprite::render() const
 		assert(currentAnimation != NULL);
   
     glPushMatrix();
-    
-    //Translate to Entity coords.
-    glTranslatef(ge->getPositionX(), ge->getPositionY(), 0);
 
-    if(gecVisual::m_dirtyScale)
+    //Anchor Point Translate
+    glTranslatef(-m_anchor.x * currentAnimation->getCurrentFrameWidth(), -m_anchor.y * currentAnimation->getCurrentFrameHeight(), 0.0);
+    
+    //Translate to Entity coords.    
+    glTranslatef(ge->getPositionX(), ge->getPositionY(), 0);
+ 
+    if (gecVisual::m_dirtyScale)
        glScalef(m_scale.x, m_scale.y, 1.0);
     
-    if(gecVisual::m_dirtyTransform)
+    if (gecVisual::m_dirtyTransform)
         glMultMatrixf(m_transform);
 
-    if(gecVisual::m_dirtyColor)
-    {
+    if (gecVisual::m_dirtyColor) {
         Image* frame = currentAnimation->getCurrentFrameImage();
         frame->setColorFilter(m_color[0], m_color[1], m_color[2], m_color[3]);
     }
 
     //Translate Back to screen coords.
-    glTranslatef(-1 * ge->getPositionX(), -1 * ge->getPositionY(), 0);
-    
+    glTranslatef(-1 * ge->getPositionX(), -1 * ge->getPositionY(), 0);    
     currentAnimation->renderAtPoint(ge->getPosition());
-
     glPopMatrix();
 }
 
@@ -154,12 +150,10 @@ void gecAnimatedSprite::update(float delta)
 
 void gecAnimatedSprite::debugPrintAnimationMap()
 {
-	AnimationMap::iterator it;
-	
+	AnimationMap::iterator it;	
 	std::cout << "**DEBUG ANIMATION MAP ** "<< std::endl;
 	
-	for(it = componentAnimations.begin(); it != componentAnimations.end(); it++)
-	{
+	for (it = componentAnimations.begin(); it != componentAnimations.end(); it++) {
 		//Print Animation Name & Address
 		std::cout << (*it).first <<" " <<  (*it).second;
 		Animation *a = (*it).second;

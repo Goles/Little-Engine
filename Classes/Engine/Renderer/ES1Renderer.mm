@@ -103,9 +103,7 @@ static char fpsText[32];
      if(current)
         current->render();
     
-
     FONT_MANAGER->render();
-
 
 	glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
 	[context presentRenderbuffer:GL_RENDERBUFFER_OES];
@@ -114,8 +112,7 @@ static char fpsText[32];
 - (void) setFPS
 {
 	++frames;
-	CurrentTime = CACurrentMediaTime();
-	
+	CurrentTime = CACurrentMediaTime();	
     static bool didInitFPS = NO;
     
 	if ((CurrentTime - LastFPSUpdate) > 1.0f) { 

@@ -12,6 +12,7 @@ std::string gecVisual::m_id = "CompVisual";
 
 gecVisual::gecVisual() 
     : m_scale(CGPointMake(1.0f, 1.0f))
+    , m_anchor(CGPointMake(0.5f, 0.5f))
     , m_dirtyTransform(false)
     , m_dirtyColor(false)
     , m_dirtyScale(false)
@@ -66,3 +67,9 @@ void gecVisual::setScale(const GGPoint &scale)
     m_scale.y = scale.y;
     m_dirtyScale = true;
 }
+
+void gecVisual::setAnchorPoint(const CGPoint &anchorPoint)
+{
+    m_anchor = anchorPoint;
+}
+
