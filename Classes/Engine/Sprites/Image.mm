@@ -24,7 +24,8 @@ Image::Image()
 	textureOffsetX		= 0;
 	textureOffsetY		= 0;
 	rotation			= 0;
-	scale				= 0;
+	m_scale.x			= 1;
+    m_scale.y           = 1;    
 	flipHorizontally	= 0;
 	flipVertically		= 0;
 	colourFilter[0]		= 1.0f;
@@ -37,8 +38,18 @@ Image::Image()
 	textureName			= std::string("No Texture Name set");
 }
 
-#pragma mark initializers
+Image::~Image()
+{
+    free(vertices);
+	free(texCoords);
+	free(indices);
+    vertices = NULL;
+    texCoords = NULL;
+    indices = NULL;
+    texture = NULL; //Not free.
+}
 
+#pragma mark initializers
 void Image::initImplementation()
 {
 	if(texture)
@@ -61,9 +72,9 @@ void Image::initImplementation()
 		
 		// Init vertex arrays
 		int totalQuads = 1;
-		texCoords	= (Quad2 *)malloc( sizeof(texCoords[0]) * totalQuads);
-		vertices	= (Quad2 *)malloc( sizeof(vertices[0]) * totalQuads);
-		indices		= (GLushort *)malloc( sizeof(indices[0]) * totalQuads * 6);
+		texCoords = (Quad2 *)malloc( sizeof(texCoords[0]) * totalQuads);
+		vertices = (Quad2 *)malloc( sizeof(vertices[0]) * totalQuads);
+		indices	= (GLushort *)malloc( sizeof(indices[0]) * totalQuads * 6);
 	}
 }
 
@@ -73,7 +84,8 @@ void Image::initWithTexture2D(Texture2D *inTexture)
 	if(inTexture)
 	{
 		texture = inTexture;
-		scale = 1.0f;
+		m_scale.x = 1.0f;
+        m_scale.y = 1.0f;
 		initImplementation();
 	}else{
 		printf("Could not load texture when creating Image from Texture2D\n");
@@ -81,15 +93,16 @@ void Image::initWithTexture2D(Texture2D *inTexture)
 }
 
 /*Init an image with pre-allocated Texture2D and a input scaling*/
-void Image::initWithTexture2D(Texture2D *inTexture, float inScale)
+void Image::initWithTexture2D(Texture2D *inTexture, const GGPoint &inScale)
 {
 	if(inTexture)
 	{
 		texture = inTexture;
-		scale = inScale;
+		m_scale.x = inScale.x;
+		m_scale.y = inScale.y;        
 		initImplementation();
 	}else {
-		printf("Could not load texture when creating Image from Texture2D with scale: %f\n", inScale);
+		printf("Could not load texture when creating Image from Texture2D with scale: %f, %f\n", inScale.x, inScale.y);
 	}
 }
 
@@ -101,7 +114,8 @@ void Image::initWithTextureFile(const std::string &inTextureName)
 	if(imTexture)
 	{
 		texture = imTexture;
-		scale = 1.0f;
+		m_scale.x = 1.0f;
+        m_scale.y = 1.0f;
 		textureName = std::string(inTextureName);
 		initImplementation();
 	}else {
@@ -114,11 +128,12 @@ void Image::initWithTextureFile(const std::string &inTextureName)
 void Image::initWithTextureFile(const std::string &inTextureName, float imageScale)
 {	
 	Texture2D *imTexture = TEXTURE_MANAGER->createTexture(inTextureName);
-
+    
 	if(imTexture)
 	{
 		texture = imTexture;
-		scale = imageScale;
+		m_scale.x = imageScale;
+        m_scale.y = imageScale;        
 		textureName = inTextureName;
 		initImplementation();
 	}else {
@@ -130,7 +145,8 @@ void Image::initWithTextureFile(const std::string &inTextureName, float imageSca
 void Image::initWithUIImage(UIImage* image)
 {
 	texture = [[Texture2D alloc] initWithImage:image filter:GL_NEAREST];
-	scale	= 1.0f;
+	m_scale.x = 1.0f;
+    m_scale.y = 1.0f;
 	initImplementation();
 }
 
@@ -144,7 +160,8 @@ void Image::initWithUIImage(UIImage* inImage, GLenum filter)
 void Image::initWithUIImage(UIImage* inImage, float inScale, GLenum inFilter)
 {
 	texture = [[Texture2D alloc] initWithImage:inImage filter:inFilter];
-	scale	= inScale;
+	m_scale.x = inScale;
+    m_scale.y = inScale;
 	initImplementation();
 }
 
@@ -196,7 +213,7 @@ void Image::setAlpha(float alpha)
 }
 
 #pragma mark getters
-Image* Image::getSubImage(CGPoint inPoint,  GLuint inSubImageWidth, GLuint inSubImageHeight, float inSubImageScale)
+Image* Image::getSubImage(const GGPoint &inPoint,  GLuint inSubImageWidth, GLuint inSubImageHeight, const GGPoint &inSubImageScale)
 {
 	//Create a new Image instance using the texture which has been assigned to the current instance
 	Image *subImage = new Image();
@@ -215,7 +232,7 @@ Image* Image::getSubImage(CGPoint inPoint,  GLuint inSubImageWidth, GLuint inSub
 	
 	// Set the rotatoin of the subImage to match the current images rotation
 	subImage->setRotation(rotation);
-
+    
 	return subImage;
 }
 
@@ -234,9 +251,9 @@ int Image::getImageHeight()
 	return imageHeight;
 }
 
-float const Image::getScale()
+GGPoint &Image::getScale()
 {
-	return scale;
+	return m_scale;
 }
 
 Quad2* Image::getTexCoords()
@@ -407,8 +424,8 @@ void Image::calculateVertices(CGPoint point, GLuint subImageWidth, GLuint subIma
 {
 	// Calculate the width and the height of the quad using the current image scale and the width and height
 	// of the image we are going to render
-	GLfloat quadWidth = subImageWidth * scale;
-	GLfloat quadHeight = subImageHeight * scale;
+	GLfloat quadWidth = subImageWidth * m_scale.x;
+	GLfloat quadHeight = subImageHeight * m_scale.y;
 	
 	// Define the vertices for each corner of the quad which is going to contain our image.
 	// We calculate the size of the quad to match the size of the subimage which has been defined.

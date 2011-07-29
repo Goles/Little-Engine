@@ -19,6 +19,7 @@
 #include <string>
 #include <iostream>
 
+#include "ConstantsAndMacros.h"
 #import "Texture2D.h"
 #include "Quad2.h"
 
@@ -38,6 +39,7 @@ public:
 	        Additionally, the texture can be initialized in various ways, using pre-loaded textures or files. */
 	            
 	Image();
+    ~Image();
 //------------------------------------------------------------------------------	
 	/** Initializer for pre-loaded textures
     	@param inTexture Pointer to a Texture2D object.
@@ -45,7 +47,7 @@ public:
 	void	initWithTexture2D(Texture2D* inTexture);
 	
 	/** @param scale Optional scaling amount. */
-	void	initWithTexture2D(Texture2D* inTexture, float scale);
+	void	initWithTexture2D(Texture2D* inTexture, const GGPoint &scale);
 	
 	/** Use a file name to load texture data
 	    @param inTextureName file name containing texture data. 
@@ -71,7 +73,7 @@ public:
 	    @param subImageHeight Height of selected area.
 	    @param subImageScale Scaling factor for the resulting Image.	        
 	*/
-	Image*	getSubImage(CGPoint point,  GLuint subImageWidth, GLuint subImageHeight, float subImageScale);
+	Image*	getSubImage(const GGPoint &point,  GLuint subImageWidth, GLuint subImageHeight, const GGPoint &subImageScale);
 
 	/** Renders the Image
 	    @param point Coordinates of a point.
@@ -143,17 +145,23 @@ public:
 	/** Sets the Vertical Flip toggle */
 	void setFlipVertically(bool f) { flipVertically = f; }
 	
-	/** Directly set the scale of the Image*/
-	void setScale(float s){ scale = s; }
-	
 	/** Gets Image width */
 	int	getImageWidth();
 	
 	/** Gets Image height */
 	int	getImageHeight();
 	
-	/** Gets Image scale */
-	float const getScale();
+	/** Get Image scale */
+	GGPoint &getScale();
+    
+    /** Set Image Scale */
+    void setScale(const GGPoint &scale) { m_scale = scale; }
+    
+    /** Directly set the scale X of the Image*/
+	void setScaleX(float s){ m_scale.x = s; }
+    
+    /** Directly set the scale Y of the Image*/
+	void setScaleY(float s){ m_scale.y = s; }  
 	
 	/** Get texture coordinates */
 	Quad2*	getTexCoords();
@@ -178,7 +186,8 @@ private:
     Texture2D *texture;
 	
 	std::string	textureName;
-	int			imageWidth;
+    GGPoint		m_scale;
+    int			imageWidth;
 	int			imageHeight;
 	int			textureWidth;
 	int			textureHeight;
@@ -190,7 +199,6 @@ private:
 	float		texWidthRatio;
 	float		texHeightRatio;
 	float		rotation;
-	float		scale;
 	bool		flipHorizontally;
 	bool		flipVertically;
 };

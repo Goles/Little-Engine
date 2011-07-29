@@ -17,11 +17,13 @@ void gecImage::render() const
 {
     glPushMatrix();
     
-    //Apply Anchor point translate
+    //Apply Anchor Point translate
     glTranslatef(-m_anchor.x * m_image->getImageWidth(), -m_anchor.y * m_image->getImageHeight(), 0.0);
     
-    if (gecVisual::m_dirtyScale)
-        glScalef(m_scale.x, m_scale.y, 1.0);
+    if (gecVisual::m_dirtyScale) {
+        m_image->setScaleX(m_scale.x);
+        m_image->setScaleY(m_scale.y);
+    }
     
     if (gecVisual::m_dirtyTransform)
         glMultMatrixf(m_transform);

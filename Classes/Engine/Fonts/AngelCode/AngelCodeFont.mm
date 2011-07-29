@@ -50,7 +50,7 @@ void AngelCodeFont::openFont(const std::string &in_fontFile, int in_fontSize)
     //Init Bitmap
     bitmap = new Image();
     bitmap->initWithTextureFile(parser.bitMapFileName().c_str());
-    bitmap->setScale(in_fontSize);
+    bitmap->setScale(ggp(in_fontSize, in_fontSize));
 
     //Init Vertex Arrays for Rendering
     this->initVertexArrays();
