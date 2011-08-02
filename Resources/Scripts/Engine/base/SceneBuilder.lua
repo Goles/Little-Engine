@@ -8,7 +8,12 @@ require "EntityBuilder"
 function buildScene(sceneName, root_scene)
 	
 	assert(type(sceneName) == "string", "The Scene Name for buildScene must be a File Name")
-	
+    assert(root_scene.label ~= nil, "Every Scene must have a label")
+    
+    if root_scene.entities == nil
+        root_scene.entities = {}
+    end
+
 	if not root_scene then
 		root_scene = Scene() 
 	end

@@ -18,7 +18,9 @@ void gecImage::render() const
     glPushMatrix();
     
     //Apply Anchor Point translate
-    glTranslatef(-m_anchor.x * m_image->getImageWidth(), -m_anchor.y * m_image->getImageHeight(), 0.0);
+    glTranslatef(-m_anchor.x * m_image->getImageWidth() * m_image->getScale().x, 
+                 -m_anchor.y * m_image->getImageHeight() * m_image->getScale().y, 
+                 0.0);
     
     if (gecVisual::m_dirtyScale) {
         m_image->setScaleX(m_scale.x);
