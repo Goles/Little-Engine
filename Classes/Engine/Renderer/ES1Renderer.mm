@@ -70,20 +70,6 @@ static char fpsText[32];
     glDisable(GL_DEPTH_TEST);
 }
 
-#pragma mark update_game
-- (void) update:(float) delta
-{
-    Scene *currentScene = SCENE_MANAGER->getActiveScene();
-    
-    if(currentScene) {
-        currentScene->sortEntitiesY();
-        currentScene->update(delta);
-    }
-
-    if (showFPS)
-        [self setFPS];
-}
-
 #pragma mark render_scene
 - (void) render
 {

@@ -39,7 +39,6 @@
     ITextRenderer *m_fpsRenderer;
 }
 
-- (void) update:(float)delta;
 - (void) render;
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer;
 - (void) setupView;

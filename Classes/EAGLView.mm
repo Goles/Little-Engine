@@ -11,6 +11,7 @@
 #import "TouchableManager.h"
 #import "GandoBox2D.h"
 #include "ActionManager.h"
+#include "SceneManager.h"
 
 @implementation EAGLView
 
@@ -64,26 +65,43 @@
 
 - (void) mainGameLoop:(id)sender
 {
-	CFTimeInterval		time;
-	static float		delta = 0;
+    static const double timeStep = 1.0/60.0;
+    static const int frameskipTreshold = 5;
+	static double dt = 0.0;
+	double currentTime = 0.0;
+    double accumulator = 0.0;
+    int counter = 0;
+    
+	currentTime	= CFAbsoluteTimeGetCurrent();
+	dt = currentTime - lastTime;
+    lastTime = currentTime;
+    accumulator = dt;
+    
+    // Sync the physics
+    while (accumulator >= timeStep) {
+        counter++;
+        
+        if (counter > frameskipTreshold) {            
+            printf("[WARNING] frame skipped for physics synchronization\n");
+        } else {
+            GBOX_2D->update(timeStep);
+        }
+        
+        accumulator -= timeStep;
+    } 
 	
-	time	= CFAbsoluteTimeGetCurrent();
-	delta	= (time - lastTime);
-	
-    /* Update & Clean ActionManager */
-    ACTION_MANAGER->update(delta);
+    // Update & Clean ActionManager
+    ACTION_MANAGER->update(timeStep);
     ACTION_MANAGER->cleanup();
     
-	/* Update Renderer */
-	[renderer update:delta];
-
-    /* Update Box2d World */
-    GBOX_2D->update(delta);
+    // Update Scene
+    Scene *currentScene = SCENE_MANAGER->getActiveScene();
+    if (currentScene) {
+        currentScene->update(timeStep);
+    }
     
-	/* render */
+	// Render
 	[renderer render];
-    
-	lastTime = time;
 }
 
 - (void) layoutSubviews
