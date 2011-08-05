@@ -68,7 +68,6 @@ void gecFollowingCamera::locate()
 		
 		gluLookAt(m_cameraView.origin.x, m_cameraView.origin.y, 1.0f,
 				  m_cameraView.origin.x, m_cameraView.origin.y, 0.0f,
-				  0.0f, 1.0f, 0.0f
-				  );
+				  0.0f, 1.0f, 0.0f);
 	}
 }

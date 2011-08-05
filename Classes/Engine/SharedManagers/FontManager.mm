@@ -11,8 +11,6 @@
 #include "AngelCodeFont.h"
 #include "AngelCodeTextRenderer.h"
 #include "FileUtils.h"
-#include <iostream>
-#include <sstream>
 
 FontManager *FontManager::instance = NULL;
 
@@ -30,12 +28,10 @@ ITextRenderer* FontManager::textRenderer(const std::string &fontFile, int fontSi
 	IFont *font = NULL;
     FontMap::iterator fontValue = m_fonts.find(fontFile);
     
-    if (fontValue == m_fonts.end()) {
-        
+    if (fontValue == m_fonts.end()) {        
         font = new AngelCodeFont();
         font->openFont(gg::util::fullCPathFromRelativePath(fontFile.c_str()), fontSize);
         m_fonts[fontFile] = font;
-        
     } else {        
         font = fontValue->second;
     }

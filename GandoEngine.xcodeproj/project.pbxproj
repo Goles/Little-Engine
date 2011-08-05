@@ -60,6 +60,10 @@
 		1450A52613D0BED200139A2A /* MoveByAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1450A52413D0BED200139A2A /* MoveByAction.mm */; };
 		14570E1F1357E81900FE1835 /* ScaleToAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14570E1D1357E81700FE1835 /* ScaleToAction.mm */; };
 		14570E201357E81900FE1835 /* ScaleToAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14570E1D1357E81700FE1835 /* ScaleToAction.mm */; };
+		1457FAC113EAEA4800E12D76 /* EventScheduler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1457FAC013EAEA4800E12D76 /* EventScheduler.mm */; };
+		1457FAC213EAEA4800E12D76 /* EventScheduler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1457FAC013EAEA4800E12D76 /* EventScheduler.mm */; };
+		1457FAC513EB674000E12D76 /* EventSchedulerTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1457FAC413EB674000E12D76 /* EventSchedulerTest.mm */; };
+		1457FAC613EB674000E12D76 /* EventSchedulerTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1457FAC413EB674000E12D76 /* EventSchedulerTest.mm */; };
 		1461BD96134BDADB002C0A79 /* actions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1461BD95134BDADB002C0A79 /* actions.lua */; };
 		146C4217135181A500EA0342 /* Action.mm in Sources */ = {isa = PBXBuildFile; fileRef = 146C420B135181A500EA0342 /* Action.mm */; };
 		146C4218135181A500EA0342 /* Action.mm in Sources */ = {isa = PBXBuildFile; fileRef = 146C420B135181A500EA0342 /* Action.mm */; };
@@ -393,6 +397,10 @@
 		1450A52413D0BED200139A2A /* MoveByAction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MoveByAction.mm; sourceTree = "<group>"; };
 		14570E1D1357E81700FE1835 /* ScaleToAction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ScaleToAction.mm; sourceTree = "<group>"; };
 		14570E1E1357E81800FE1835 /* ScaleToAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleToAction.h; sourceTree = "<group>"; };
+		1457FABF13EAEA4800E12D76 /* EventScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventScheduler.h; sourceTree = "<group>"; };
+		1457FAC013EAEA4800E12D76 /* EventScheduler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EventScheduler.mm; sourceTree = "<group>"; };
+		1457FAC313EAEBE600E12D76 /* ScheduledEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduledEvent.h; sourceTree = "<group>"; };
+		1457FAC413EB674000E12D76 /* EventSchedulerTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EventSchedulerTest.mm; sourceTree = "<group>"; };
 		1461BD95134BDADB002C0A79 /* actions.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = actions.lua; sourceTree = "<group>"; };
 		146C420A135181A500EA0342 /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
 		146C420B135181A500EA0342 /* Action.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Action.mm; sourceTree = "<group>"; };
@@ -830,6 +838,7 @@
 				14DF00F413BD0603002E0FF7 /* AngelCodeParserTest.mm */,
 				14DF00F613BD0620002E0FF7 /* AngelCodeFontTest.mm */,
 				14CA84DD13D22DFB00527ACF /* ActionTest.mm */,
+				1457FAC413EB674000E12D76 /* EventSchedulerTest.mm */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1030,6 +1039,7 @@
 			isa = PBXGroup;
 			children = (
 				14DEBF931310835C0094F680 /* EventBroadcaster.h */,
+				1457FAC313EAEBE600E12D76 /* ScheduledEvent.h */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -1146,6 +1156,8 @@
 				1447AA0B132730E5000DCCD8 /* ParticleManager.mm */,
 				14FDD3C41347B03700C0CB60 /* ActionManager.h */,
 				14FDD3C31347B03600C0CB60 /* ActionManager.mm */,
+				1457FABF13EAEA4800E12D76 /* EventScheduler.h */,
+				1457FAC013EAEA4800E12D76 /* EventScheduler.mm */,
 			);
 			path = SharedManagers;
 			sourceTree = "<group>";
@@ -1606,6 +1618,8 @@
 				1476147A13CE0C8B000916A7 /* gecImage.mm in Sources */,
 				1450A52613D0BED200139A2A /* MoveByAction.mm in Sources */,
 				14CA84DF13D22DFB00527ACF /* ActionTest.mm in Sources */,
+				1457FAC213EAEA4800E12D76 /* EventScheduler.mm in Sources */,
+				1457FAC613EB674000E12D76 /* EventSchedulerTest.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1672,6 +1686,8 @@
 				1476147913CE0C8B000916A7 /* gecImage.mm in Sources */,
 				1450A52513D0BED200139A2A /* MoveByAction.mm in Sources */,
 				14CA84DE13D22DFB00527ACF /* ActionTest.mm in Sources */,
+				1457FAC113EAEA4800E12D76 /* EventScheduler.mm in Sources */,
+				1457FAC513EB674000E12D76 /* EventSchedulerTest.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

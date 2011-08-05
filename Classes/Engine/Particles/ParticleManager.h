@@ -18,7 +18,6 @@ namespace gg { namespace particle {
     
 class ParticleManager 
 {
-    
 public:
     static ParticleManager* getInstance();
     
@@ -46,7 +45,6 @@ protected:
     
 private:        
     typedef gg::utils::ObjectPool<gg::particle::Particle> ParticlePool;
-
     int m_maxParticles;
     ParticlePool *m_pool;
 
