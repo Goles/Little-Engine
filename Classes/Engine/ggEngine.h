@@ -17,7 +17,6 @@
 #include "ParticleManager.h"
 #include "GandoBox2D.h"
 #include "SimpleAudioEngine.h"
-
 #include "LuaInit.h"
 
 /** Good Game Engine Namespace

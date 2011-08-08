@@ -10,7 +10,6 @@
 #define __EventScheduler_H__
 
 #include "ScheduledEvent.h"
-#include <string>
 #include <vector>
 
 namespace gg { namespace event {
@@ -93,7 +92,6 @@ public:
         return (unsigned)m_scheduledEvents.size();
     }
     
-
 private:
     unsigned m_incrementalEventHandle;
     typedef std::vector<gg::event::ScheduledEvent * > ScheduledEventVector;

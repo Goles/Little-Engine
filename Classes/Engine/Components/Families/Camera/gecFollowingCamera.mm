@@ -9,17 +9,16 @@
 
 #include "gecFollowingCamera.h"
 #include <OpenGLES/ES1/gl.h>
-#include <iostream>
 #include "OpenGLCommon.h"
 
-std::string gecFollowingCamera::m_id = "gecFollowingCamera";
+//Static Init
+const GEComponent::gec_id_type gecFollowingCamera::m_componentID = "gecFollowingCamera";
 
 void gecFollowingCamera::update(float delta)
 {
 	GameEntity *ownerge_p = this->getOwnerGE();
 	
-	if(m_follow_x)
-	{
+	if (m_follow_x) {
 		int owner_x = ownerge_p->getPositionX();
 		
 		//Check if we scroll to the right
@@ -31,8 +30,7 @@ void gecFollowingCamera::update(float delta)
 			this->setCameraX(m_cameraView.origin.x + (owner_x - m_cameraView.origin.x) - m_deathZoneX);		
 	}
 	
-	if(m_follow_y)
-	{
+	if (m_follow_y) {
 		int owner_y = ownerge_p->getPositionY();		
 		
 		//Check if we scroll up
@@ -61,11 +59,9 @@ void gecFollowingCamera::restore()
 
 void gecFollowingCamera::locate()
 {
-	if(m_active)
-	{
+	if (m_active) {
 		glMatrixMode(GL_MODELVIEW);
-		glLoadIdentity();
-		
+		glLoadIdentity();		
 		gluLookAt(m_cameraView.origin.x, m_cameraView.origin.y, 1.0f,
 				  m_cameraView.origin.x, m_cameraView.origin.y, 0.0f,
 				  0.0f, 1.0f, 0.0f);

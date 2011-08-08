@@ -8,7 +8,6 @@
  */
 
 #include "LuaManager.h"
-
 #include <iostream>
 
 
@@ -25,8 +24,7 @@ LuaManager *LuaManager::instance = NULL;
 
 LuaManager* LuaManager::getInstance()
 {
-	if(instance == NULL)
-	{
+	if (instance == NULL) {
 		instance = new LuaManager();
 		gg::lua::enableSettings();
 		gg::lua::bindAll();
@@ -48,8 +46,7 @@ void LuaManager::execScript(const char *script)
 {
     const char *scriptFullPath = gg::util::fullCPathFromRelativePath(script); 
     
-	if(luaL_dofile(L, scriptFullPath))
-	{
+	if (luaL_dofile(L, scriptFullPath)) {
 		std::cout	<< "Lua Register Manager: ERROR when trying to execute script: " 
 					<< scriptFullPath 
 					<< std::endl

@@ -24,7 +24,7 @@ public:
 	const std::string &familyID() const { return m_id; }
 	
 private:
-	static std::string m_id;
+	static const std::string m_id;
 };
 
 #endif

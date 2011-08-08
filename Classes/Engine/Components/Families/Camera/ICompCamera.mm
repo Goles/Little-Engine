@@ -9,4 +9,5 @@
 
 #include "ICompCamera.h"
 
-std::string ICompCamera::m_id = "ICompCamera";
+//Static Init
+const std::string ICompCamera::m_id = "ICompCamera";

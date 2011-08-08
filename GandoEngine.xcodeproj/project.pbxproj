@@ -80,6 +80,8 @@
 		1472DA9D134E44C300F349B6 /* ActionManagerTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1472DA9B134E44C300F349B6 /* ActionManagerTest.mm */; };
 		1476147913CE0C8B000916A7 /* gecImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1476147813CE0C8B000916A7 /* gecImage.mm */; };
 		1476147A13CE0C8B000916A7 /* gecImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1476147813CE0C8B000916A7 /* gecImage.mm */; };
+		147DE76F13F06F4D005FE70D /* gecTinyEventScheduler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 147DE76E13F06F4C005FE70D /* gecTinyEventScheduler.mm */; };
+		147DE77013F06F4D005FE70D /* gecTinyEventScheduler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 147DE76E13F06F4C005FE70D /* gecTinyEventScheduler.mm */; };
 		148B1F761310A2DC00B1CE94 /* gecFollowingCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1F731310A2DC00B1CE94 /* gecFollowingCamera.mm */; };
 		148B1F771310A2DC00B1CE94 /* ICompCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1F751310A2DC00B1CE94 /* ICompCamera.mm */; };
 		148C3B3C135012C8000F8444 /* UnisonActionTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148C3B3B135012C8000F8444 /* UnisonActionTest.mm */; };
@@ -418,6 +420,9 @@
 		1472DA9B134E44C300F349B6 /* ActionManagerTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ActionManagerTest.mm; sourceTree = "<group>"; };
 		1476147713CE0C7F000916A7 /* gecImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecImage.h; sourceTree = "<group>"; };
 		1476147813CE0C8B000916A7 /* gecImage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecImage.mm; sourceTree = "<group>"; };
+		147DE76913F069DC005FE70D /* CompEventScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompEventScheduler.h; sourceTree = "<group>"; };
+		147DE76D13F06F4C005FE70D /* gecTinyEventScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecTinyEventScheduler.h; sourceTree = "<group>"; };
+		147DE76E13F06F4C005FE70D /* gecTinyEventScheduler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecTinyEventScheduler.mm; sourceTree = "<group>"; };
 		148B1F721310A2DC00B1CE94 /* gecFollowingCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecFollowingCamera.h; sourceTree = "<group>"; };
 		148B1F731310A2DC00B1CE94 /* gecFollowingCamera.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecFollowingCamera.mm; sourceTree = "<group>"; };
 		148B1F741310A2DC00B1CE94 /* ICompCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICompCamera.h; sourceTree = "<group>"; };
@@ -843,6 +848,16 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
+		147DE76813F069C0005FE70D /* EventScheduler */ = {
+			isa = PBXGroup;
+			children = (
+				147DE76913F069DC005FE70D /* CompEventScheduler.h */,
+				147DE76D13F06F4C005FE70D /* gecTinyEventScheduler.h */,
+				147DE76E13F06F4C005FE70D /* gecTinyEventScheduler.mm */,
+			);
+			path = EventScheduler;
+			sourceTree = "<group>";
+		};
 		148B1F711310A2DC00B1CE94 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
@@ -941,6 +956,7 @@
 		14DEBF511310835C0094F680 /* Families */ = {
 			isa = PBXGroup;
 			children = (
+				147DE76813F069C0005FE70D /* EventScheduler */,
 				148B1F711310A2DC00B1CE94 /* Camera */,
 				14DEBF521310835C0094F680 /* Behaviour */,
 				14DEBF591310835C0094F680 /* Collision */,
@@ -1620,6 +1636,7 @@
 				14CA84DF13D22DFB00527ACF /* ActionTest.mm in Sources */,
 				1457FAC213EAEA4800E12D76 /* EventScheduler.mm in Sources */,
 				1457FAC613EB674000E12D76 /* EventSchedulerTest.mm in Sources */,
+				147DE77013F06F4D005FE70D /* gecTinyEventScheduler.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1688,6 +1705,7 @@
 				14CA84DE13D22DFB00527ACF /* ActionTest.mm in Sources */,
 				1457FAC113EAEA4800E12D76 /* EventScheduler.mm in Sources */,
 				1457FAC513EB674000E12D76 /* EventSchedulerTest.mm in Sources */,
+				147DE76F13F06F4D005FE70D /* gecTinyEventScheduler.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
