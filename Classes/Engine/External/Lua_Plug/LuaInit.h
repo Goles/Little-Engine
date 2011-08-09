@@ -36,12 +36,14 @@
 #include "Frame.h"
 #include "Animation.h"
 #include "SpriteSheet.h"
+#include "ScheduledEvent.h"
 
 #include "IFont.h"
 #include "ITextRenderer.h"
 #include "IAction.h"
 
 #include "GEComponent.h"
+#include "CompEventScheduler.h"
 #include "gecAnimatedSprite.h"
 #include "gecFollowingCamera.h"
 #include "gecFSM.h"
@@ -50,6 +52,8 @@
 #include "gecBoxCollisionable.h"
 #include "gecParticleSystem.h"
 #include "gecImage.h"
+#include "gecTinyEventScheduler.h"
+
 
 #include "SceneManager.h"
 #include "ParticleManager.h"
@@ -60,6 +64,7 @@
 #include "FontManager.h"
 
 using namespace gg::action;
+using namespace gg::event;
 
 namespace gg
 {
@@ -138,7 +143,7 @@ namespace gg
                  .def_readwrite("color_R", &Particle::color_R)
                  .def_readwrite("color_G", &Particle::color_G)
                  .def_readwrite("color_B", &Particle::color_B)
-                 .def_readwrite("color_A", &Particle::color_A)             
+                 .def_readwrite("color_A", &Particle::color_A)
                  .def_readwrite("rotation", &Particle::rotation)
              ];
             
@@ -178,7 +183,19 @@ namespace gg
              .def(luabind::constructor<>())
              .def("setEndScale", &ScaleToAction::setEndScale)
              ];
-		
+            
+            luabind::module(LR_MANAGER_STATE)
+            [
+             luabind::class_<gg::event::ScheduledEvent> ("ScheduledEvent")
+             .def(luabind::constructor<>())
+             .def_readwrite("type", &gg::event::ScheduledEvent::type)
+             .def_readwrite("trigerTime", &gg::event::ScheduledEvent::triggerTime)
+             .def_readwrite("elapsedTime", &gg::event::ScheduledEvent::elapsedTime)
+             .def_readwrite("handle", &gg::event::ScheduledEvent::handle)
+             .def_readwrite("isPaused", &gg::event::ScheduledEvent::isPaused)
+             .def_readwrite("isRepeating", &gg::event::ScheduledEvent::isRepeating)
+             ];
+            
         } //END bindBasicTypes
         
 		static inline void bindAbstractInterfaces(void)
@@ -272,7 +289,7 @@ namespace gg
              luabind::class_<gecVisual, GEComponent> ("gecVisual")
              .def("setColor", &gecVisual::setColor)
              .def("setScale", &gecVisual::setScale)
-             .def("setAlpha", &gecVisual::setAlpha),             
+             .def("setAlpha", &gecVisual::setAlpha),
              
              luabind::class_<gecImage, gecVisual> ("gecImage")
              .def(luabind::constructor<>())
@@ -298,6 +315,18 @@ namespace gg
              .property("size", &gecParticleSystem::size, &gecParticleSystem::setSize)             
 
             ];
+            
+            /* Bind the event scheduler components */
+            luabind::module(LR_MANAGER_STATE)
+            [
+             luabind::class_<CompEventScheduler, GEComponent> ("CompEventScheduler")
+             .def("scheduleEvent", &CompEventScheduler::scheduleEvent)
+             .def("unscheduleEvent", &CompEventScheduler::unscheduleEvent)
+             .def("pauseScheduledEvent", &CompEventScheduler::pauseScheduledEvent)
+             .def("resetScheduledEvent", &CompEventScheduler::resetScheduledEvent),
+             luabind::class_<CompEventScheduler, gecTinyEventScheduler> ("gecTinyEventScheduler")
+             .def(luabind::constructor< gg::event::EventScheduler * >())
+             ];
 
         } //END bindComponents
         

@@ -80,6 +80,8 @@
 		1472DA9D134E44C300F349B6 /* ActionManagerTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1472DA9B134E44C300F349B6 /* ActionManagerTest.mm */; };
 		1476147913CE0C8B000916A7 /* gecImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1476147813CE0C8B000916A7 /* gecImage.mm */; };
 		1476147A13CE0C8B000916A7 /* gecImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1476147813CE0C8B000916A7 /* gecImage.mm */; };
+		147C9B2913F13575001E5128 /* CompEventScheduler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 147C9B2813F13575001E5128 /* CompEventScheduler.mm */; };
+		147C9B2A13F13575001E5128 /* CompEventScheduler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 147C9B2813F13575001E5128 /* CompEventScheduler.mm */; };
 		147DE76F13F06F4D005FE70D /* gecTinyEventScheduler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 147DE76E13F06F4C005FE70D /* gecTinyEventScheduler.mm */; };
 		147DE77013F06F4D005FE70D /* gecTinyEventScheduler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 147DE76E13F06F4C005FE70D /* gecTinyEventScheduler.mm */; };
 		148B1F761310A2DC00B1CE94 /* gecFollowingCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 148B1F731310A2DC00B1CE94 /* gecFollowingCamera.mm */; };
@@ -420,6 +422,7 @@
 		1472DA9B134E44C300F349B6 /* ActionManagerTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ActionManagerTest.mm; sourceTree = "<group>"; };
 		1476147713CE0C7F000916A7 /* gecImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecImage.h; sourceTree = "<group>"; };
 		1476147813CE0C8B000916A7 /* gecImage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecImage.mm; sourceTree = "<group>"; };
+		147C9B2813F13575001E5128 /* CompEventScheduler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CompEventScheduler.mm; sourceTree = "<group>"; };
 		147DE76913F069DC005FE70D /* CompEventScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompEventScheduler.h; sourceTree = "<group>"; };
 		147DE76D13F06F4C005FE70D /* gecTinyEventScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecTinyEventScheduler.h; sourceTree = "<group>"; };
 		147DE76E13F06F4C005FE70D /* gecTinyEventScheduler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecTinyEventScheduler.mm; sourceTree = "<group>"; };
@@ -852,6 +855,7 @@
 			isa = PBXGroup;
 			children = (
 				147DE76913F069DC005FE70D /* CompEventScheduler.h */,
+				147C9B2813F13575001E5128 /* CompEventScheduler.mm */,
 				147DE76D13F06F4C005FE70D /* gecTinyEventScheduler.h */,
 				147DE76E13F06F4C005FE70D /* gecTinyEventScheduler.mm */,
 			);
@@ -1637,6 +1641,7 @@
 				1457FAC213EAEA4800E12D76 /* EventScheduler.mm in Sources */,
 				1457FAC613EB674000E12D76 /* EventSchedulerTest.mm in Sources */,
 				147DE77013F06F4D005FE70D /* gecTinyEventScheduler.mm in Sources */,
+				147C9B2A13F13575001E5128 /* CompEventScheduler.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1706,6 +1711,7 @@
 				1457FAC113EAEA4800E12D76 /* EventScheduler.mm in Sources */,
 				1457FAC513EB674000E12D76 /* EventSchedulerTest.mm in Sources */,
 				147DE76F13F06F4D005FE70D /* gecTinyEventScheduler.mm in Sources */,
+				147C9B2913F13575001E5128 /* CompEventScheduler.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

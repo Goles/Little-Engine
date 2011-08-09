@@ -26,6 +26,4 @@ private:
     static const gec_id_type m_familyID;
 };
 
-const GEComponent::gec_id_type CompEventScheduler::m_familyID = "CompEventScheduler";
-
 #endif
