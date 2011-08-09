@@ -248,6 +248,14 @@ function gecImageBuild(t)
 	return gec
 end
 
+--
+-- Build a gecTinyEventScheduler
+--
+function tinyEventSchedulerBuild(t)
+	local gec = gecTinyEventScheduler()	
+	return gec
+end
+
 -- =================================================================== --
 -- Function table with { Key, function() } for each component builder. --
 -- =================================================================== --
@@ -261,4 +269,5 @@ component_function_table =
 	["gecJoystick"] = gecJoystickBuild,
 	["gecParticleSystem"] = gecParticleSystemBuild,
 	["gecImage"] = gecImageBuild,
+	["gecTinyEventScheduler"] = gecTinyEventSchedulerBuild,	
 }

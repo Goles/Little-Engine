@@ -54,7 +54,6 @@
 #include "gecImage.h"
 #include "gecTinyEventScheduler.h"
 
-
 #include "SceneManager.h"
 #include "ParticleManager.h"
 #include "SimpleAudioEngine.h"
@@ -324,7 +323,7 @@ namespace gg
              .def("unscheduleEvent", &CompEventScheduler::unscheduleEvent)
              .def("pauseScheduledEvent", &CompEventScheduler::pauseScheduledEvent)
              .def("resetScheduledEvent", &CompEventScheduler::resetScheduledEvent),
-             luabind::class_<CompEventScheduler, gecTinyEventScheduler> ("gecTinyEventScheduler")
+             luabind::class_<gecTinyEventScheduler, CompEventScheduler> ("gecTinyEventScheduler")
              .def(luabind::constructor< gg::event::EventScheduler * >())
              ];
 

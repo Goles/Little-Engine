@@ -64,6 +64,12 @@ TestEntity =
 	-- Component definitions for this Entity
 	components = 
 	{
+		-- Tiny Event Scheduler
+		gecTinyEventScheduler = 
+		{
+			
+		},
+		
 		-- Sprite Sheet Animations Component
 		gecAnimatedSprite =
 		{
