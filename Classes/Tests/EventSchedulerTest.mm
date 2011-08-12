@@ -11,12 +11,32 @@
 #include "unittestpp.h"
 #include "ScheduledEvent.h"
 #include "EventScheduler.h"
+#include "EventBroadcaster.h"
+
+struct EventBroadcasterMock : public gg::event::IEventBroadcaster 
+{
+    virtual inline void broadcast(const char *eventType, const luabind::object &payload)
+    {
+        // Do stuff
+    }
+    
+    virtual inline void broadcastTouch(float x, float y, int touchIndex, int touchID, int touchType)
+    {
+        // Do more stuff
+    }
+    
+    virtual inline void notifyTargetEntity(const char *eventType, const luabind::object &payload, int entityID)
+    {
+        // Do event more stuff
+    }
+};
 
 struct EventSchedulerFixture 
 {
     EventSchedulerFixture() 
     {
-        scheduler = new gg::event::EventScheduler();
+        broadcaster = new EventBroadcasterMock();
+        scheduler = new gg::event::EventScheduler(broadcaster);
     }
     
     ~EventSchedulerFixture()
@@ -26,6 +46,7 @@ struct EventSchedulerFixture
     }
     
     gg::event::EventScheduler *scheduler;
+    gg::event::IEventBroadcaster *broadcaster;
 };
 
 TEST_FIXTURE (EventSchedulerFixture, ScheduleEventHandle)

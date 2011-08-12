@@ -20,20 +20,46 @@
 namespace gg {
 	namespace event {
         
-		static inline void broadcast(const char *in_eventType, const luabind::object &in_event_payload)
-		{	
-			luabind::call_function<void>(LR_MANAGER_STATE, "broadcast", in_eventType, in_event_payload);
-		}
-		
-		static inline void broadcast_touch(float in_x, float in_y, int in_touchIndex, int in_touchId, int in_touchType)
-		{			
-			luabind::call_function<void>(LR_MANAGER_STATE, "broadcast_touch", in_x, in_y, in_touchIndex, in_touchId, in_touchType);	
-		}
-		
-		static inline void notify_target_entity(const char *in_eventType, const luabind::object &in_event_payload, const int in_uid)
-		{
-			luabind::call_function<void>(LR_MANAGER_STATE, "notify_target_entity", in_eventType, in_event_payload, in_uid);
-		}
+        //TODO: replace const luabind::object parameters with something more generic?
+        // <const char *key, const char *value> or simmilar? (with ... multi parameters)
+        struct IEventBroadcaster {
+        public:
+            virtual inline void broadcast(const char *eventType, const luabind::object &payload) = 0;
+            virtual inline void broadcastTouch(float x, float y, int touchIndex, int touchID, int touchType) = 0;
+            virtual inline void notifyTargetEntity(const char *eventType, const luabind::object &payload, int entityID) = 0;
+        };
+        
+        struct LuabindBroadcaster : public IEventBroadcaster
+        {
+            virtual inline void broadcast(const char *eventType, const luabind::object &payload)
+            {	
+                luabind::call_function<void>(LR_MANAGER_STATE, "broadcast", eventType, payload);
+            }
+            
+            virtual inline void broadcastTouch(float x, float y, int touchIndex, int touchID, int touchType) 
+            {			
+                luabind::call_function<void>(LR_MANAGER_STATE, "broadcast_touch", x, y, touchIndex, touchID, touchType);	
+            }
+            
+            virtual inline void notifyTargetEntity(const char *eventType, const luabind::object &payload, int entityID)
+            {
+                luabind::call_function<void>(LR_MANAGER_STATE, "notify_target_entity", eventType, payload, entityID);
+            }
+        };
+        
+        //Pseudo-Abstract Factory function for a "singleton" (not really singleton) Luabind Broadcaster.
+        
+        static IEventBroadcaster *LUABIND_BROADCASTER = NULL;
+        
+        static inline IEventBroadcaster* luabindBroadcaster()
+        {
+            if (!LUABIND_BROADCASTER) {
+                LUABIND_BROADCASTER = new LuabindBroadcaster();
+            }
+            
+            return LUABIND_BROADCASTER;
+        }
+
 	}
 }
 

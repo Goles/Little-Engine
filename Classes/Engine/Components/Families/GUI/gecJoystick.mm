@@ -7,28 +7,28 @@
 //
 
 #include "gecJoystick.h"
-
 #include "GEComponent.h"
 #include "GameEntity.h"
-
 #include "TouchableManager.h"
 #include "EventBroadcaster.h"
 #include "gecAnimatedSprite.h"
+#include "EventScheduler.h"
 
 std::string gecJoystick::mComponentID = "gecJoystick";
 
 #pragma mark Contrstructor
-gecJoystick::gecJoystick():	inRadius(0.0f),
-							outRadius(0.0f),
-							active(false), 							
-							firstTouch(true),
-							dx_negative(false),
-							currentTouchID(0)
+gecJoystick::gecJoystick(gg::event::IEventBroadcaster *scheduler)
+    :	inRadius(0.0f)
+    ,   outRadius(0.0f)
+    ,   active(false)
+    ,   firstTouch(true)
+    ,   dx_negative(false)
+    ,   currentTouchID(0)
+    ,   m_broadcaster(scheduler)
 {
 	shape = CGRectZero;
 	center = CGPointZero;
 	latestVelocity = CGPointZero;
-	
 	this->registerTouchable(this);
 }
 
@@ -41,7 +41,7 @@ void gecJoystick::update(float delta)
 		payload["latest_speed"] = latestVelocity;
 		payload["delta"] = delta;
 		payload["dx_negative"] = dx_negative;
-		gg::event::broadcast("E_DRAG_GAMEPAD", payload);
+        m_broadcaster->broadcast("E_DRAG_GAMEPAD", payload);
 	}
 }
 
@@ -147,7 +147,7 @@ Boolean gecJoystick::handle_touch(float x, float y, int touchIndex, int touchID,
 				gAni->setCurrentAnimation("normal");
 
 				luabind::object payload = luabind::newtable(LR_MANAGER_STATE);
-				gg::event::broadcast("E_STOP_GAMEPAD", payload);
+				m_broadcaster->broadcast("E_STOP_GAMEPAD", payload);
 				
 				//Return to center.
 				this->getOwnerGE()->setPositionX(center.x);
@@ -187,7 +187,7 @@ Boolean gecJoystick::handle_touch(float x, float y, int touchIndex, int touchID,
 				gAni->setCurrentAnimation("normal");
 
 				luabind::object payload = luabind::newtable(LR_MANAGER_STATE);	
-				gg::event::broadcast("E_STOP_GAMEPAD", payload);				
+				m_broadcaster->broadcast("E_STOP_GAMEPAD", payload);				
 				
 				//Return to the center
 				this->updateVelocity(x, y);

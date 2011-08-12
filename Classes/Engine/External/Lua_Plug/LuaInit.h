@@ -37,7 +37,7 @@
 #include "Animation.h"
 #include "SpriteSheet.h"
 #include "ScheduledEvent.h"
-
+#include "EventBroadcaster.h"
 #include "IFont.h"
 #include "ITextRenderer.h"
 #include "IAction.h"
@@ -84,7 +84,8 @@ namespace gg
 				luabind::def("ggs", &CGSizeMake),
                 luabind::def("ggp", &CGPointMake),
 				luabind::def("gluLookAt", &gluLookAt),
-                luabind::def("makeParticle", &gg::particle::utils::makeParticle)
+                luabind::def("makeParticle", &gg::particle::utils::makeParticle),
+                luabind::def("eventBroadcaster", &gg::event::luabindBroadcaster)
 			 ];
         }
         
@@ -208,6 +209,11 @@ namespace gg
                  luabind::class_<AngelCodeTextRenderer, ITextRenderer> ("AngelCodeTextRenderer")
                  .def(luabind::constructor<>())             
             ];
+            
+            luabind::module(LR_MANAGER_STATE)
+            [
+             luabind::class_<gg::event::IEventBroadcaster> ("IEventBroadcaster")
+            ];
 		}
 		
         static inline void bindComponents(void)
@@ -255,7 +261,7 @@ namespace gg
             luabind::module(LR_MANAGER_STATE) 
             [
              luabind::class_<gecJoystick, GEComponent> ("gecJoystick")
-             .def(luabind::constructor<>())
+             .def(luabind::constructor<gg::event::IEventBroadcaster *>())
              .def("handle_touch", &gecJoystick::handle_touch)
              .def("setShape", &gecJoystick::setShape)
              .def("setCenter", &gecJoystick::setCenter)
@@ -267,7 +273,7 @@ namespace gg
             luabind::module(LR_MANAGER_STATE) 
             [
              luabind::class_<gecButton, GEComponent> ("gecButton")
-             .def(luabind::constructor<>())
+             .def(luabind::constructor<gg::event::IEventBroadcaster *>())
              .def("handle_touch", &gecButton::handle_touch)
              .def("setShape", &gecButton::setShape)
              .def("setParentSharedShape", &gecButton::setParentSharedShape)

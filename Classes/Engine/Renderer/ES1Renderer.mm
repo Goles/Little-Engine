@@ -86,11 +86,16 @@ static char fpsText[32];
 	
     Scene *current = SCENE_MANAGER->getActiveScene();
     
-     if(current)
+     if (current)
         current->render();
     
     FONT_MANAGER->render();
-
+    
+    if (showFPS) {
+        [self setFPS];
+        m_fpsRenderer->render();
+    }
+    
 	glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
 	[context presentRenderbuffer:GL_RENDERBUFFER_OES];
 }

@@ -147,8 +147,13 @@ void TouchableManager::touchesEnded(float x, float y, int touchID)
 }
 
 void TouchableManager::broadcastInteraction(float x, float y, int touchIndex, int touchID, int touchType)
-{	
-	gg::event::broadcast_touch(x, y, touchIndex, touchID, touchType);
+{
+#ifdef DEBUG
+    assert(m_broadcaster != NULL);
+#endif
+    
+    if (m_broadcaster)
+        m_broadcaster->broadcastTouch(x, y, touchIndex, touchID, touchType);
 }
 
 TouchableManager::~TouchableManager()

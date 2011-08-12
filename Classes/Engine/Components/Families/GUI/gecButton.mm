@@ -16,7 +16,8 @@
 std::string gecButton::mComponentID = "gecButton";
 
 #pragma mark contructor
-gecButton::gecButton()
+gecButton::gecButton(gg::event::IEventBroadcaster *broadcaster)
+    : m_broadcaster(broadcaster)
 {	
 	this->registerTouchable(this);
 }
@@ -76,8 +77,8 @@ Boolean gecButton::handle_touch(float x, float y, int touchIndex, int touchID, i
 void gecButton::setShape(CGRect aRect)
 {	
 	//We need to center our CGRect
-	shape = CGRectMake(aRect.origin.x - aRect.size.width*0.5, 
-					   aRect.origin.y - aRect.size.height*0.5, 
+	shape = CGRectMake(aRect.origin.x - aRect.size.width * 0.5, 
+					   aRect.origin.y - aRect.size.height * 0.5, 
 					   aRect.size.width, 
 					   aRect.size.height);
 }
@@ -97,12 +98,12 @@ void gecButton::broadcastButtonPress()
 {
 	luabind::object payload = luabind::newtable(LR_MANAGER_STATE);
 	payload["label"] = this->getOwnerGE()->getLabel();
-	gg::event::broadcast("E_BUTTON_PRESS", payload);
+    m_broadcaster->broadcast("E_BUTTON_PRESS", payload);
 }
 
 void gecButton::broadcastButtonRelease()
 {
 	luabind::object payload = luabind::newtable(LR_MANAGER_STATE);
 	payload["label"] = this->getOwnerGE()->getLabel();
-	gg::event::broadcast("E_BUTTON_RELEASE", payload);
+    m_broadcaster->broadcast("E_BUTTON_RELEASE", payload);
 }

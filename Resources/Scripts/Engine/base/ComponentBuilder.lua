@@ -46,7 +46,7 @@ end
 function gecJoystickBuild(t)
 	assert(t.shape ~= nil, "To build a joystick a shape should be defined containing x, y, width and height")
 
-	joypad = gecJoystick()
+	local joypad = gecJoystick(eventBroadcaster()) -- joypad needs an event broadcaster to communicate
 	local shape = ggr(t.shape.x, t.shape.y, t.shape.width, t.shape.height)
 	joypad:setShape(shape)
 	joypad:setCenter(t.shape.x, t.shape.y)
@@ -59,8 +59,8 @@ end
 --
 function gecButtonBuild(t)
 	assert(t.shape ~= nil, "To build a gecButton a shape should be defined containing x, y, width and height")
-	
-	button = gecButton()
+
+	local button = gecButton(eventBroadcaster()) -- gecButton needs an Event Broadcaster to communicate.
 	local shape = ggr(t.shape.x, t.shape.y, t.shape.width, t.shape.height)
 	button:setShape(shape)
 	

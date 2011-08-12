@@ -60,8 +60,6 @@
 		1450A52613D0BED200139A2A /* MoveByAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1450A52413D0BED200139A2A /* MoveByAction.mm */; };
 		14570E1F1357E81900FE1835 /* ScaleToAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14570E1D1357E81700FE1835 /* ScaleToAction.mm */; };
 		14570E201357E81900FE1835 /* ScaleToAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14570E1D1357E81700FE1835 /* ScaleToAction.mm */; };
-		1457FAC113EAEA4800E12D76 /* EventScheduler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1457FAC013EAEA4800E12D76 /* EventScheduler.mm */; };
-		1457FAC213EAEA4800E12D76 /* EventScheduler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1457FAC013EAEA4800E12D76 /* EventScheduler.mm */; };
 		1457FAC513EB674000E12D76 /* EventSchedulerTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1457FAC413EB674000E12D76 /* EventSchedulerTest.mm */; };
 		1457FAC613EB674000E12D76 /* EventSchedulerTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1457FAC413EB674000E12D76 /* EventSchedulerTest.mm */; };
 		1461BD96134BDADB002C0A79 /* actions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1461BD95134BDADB002C0A79 /* actions.lua */; };
@@ -191,6 +189,8 @@
 		14A371E0134E04E3007E9551 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FB89E7121E4ACC00E1B242 /* OpenGLES.framework */; };
 		14A371E1134E04E3007E9551 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FB89EB121E4AD400E1B242 /* UIKit.framework */; };
 		14A371E2134E04E3007E9551 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FB89EF121E4ADB00E1B242 /* Foundation.framework */; };
+		14A3C17913F2AD530005A821 /* EventScheduler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14A3C17813F2AD530005A821 /* EventScheduler.mm */; };
+		14A3C17A13F2AD530005A821 /* EventScheduler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14A3C17813F2AD530005A821 /* EventScheduler.mm */; };
 		14AC7E12132E4DA300D5ACA7 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AC7E11132E4DA300D5ACA7 /* OpenAL.framework */; };
 		14AC7E14132E4DAB00D5ACA7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AC7E13132E4DAB00D5ACA7 /* AVFoundation.framework */; };
 		14AC9047133083E700BB0A26 /* CDAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AC903E133083E700BB0A26 /* CDAudioManager.m */; };
@@ -401,8 +401,6 @@
 		1450A52413D0BED200139A2A /* MoveByAction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MoveByAction.mm; sourceTree = "<group>"; };
 		14570E1D1357E81700FE1835 /* ScaleToAction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ScaleToAction.mm; sourceTree = "<group>"; };
 		14570E1E1357E81800FE1835 /* ScaleToAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleToAction.h; sourceTree = "<group>"; };
-		1457FABF13EAEA4800E12D76 /* EventScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventScheduler.h; sourceTree = "<group>"; };
-		1457FAC013EAEA4800E12D76 /* EventScheduler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EventScheduler.mm; sourceTree = "<group>"; };
 		1457FAC313EAEBE600E12D76 /* ScheduledEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduledEvent.h; sourceTree = "<group>"; };
 		1457FAC413EB674000E12D76 /* EventSchedulerTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EventSchedulerTest.mm; sourceTree = "<group>"; };
 		1461BD95134BDADB002C0A79 /* actions.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = actions.lua; sourceTree = "<group>"; };
@@ -437,6 +435,8 @@
 		14A370D3134E0253007E9551 /* UnitTest++.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "UnitTest++.xcodeproj"; path = "Libraries/UnitTest++/UnitTest++.xcodeproj"; sourceTree = "<group>"; };
 		14A371E6134E04E3007E9551 /* GandoEngineDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GandoEngineDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14A371EE134E06B3007E9551 /* libUnitTest++.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libUnitTest++.a"; sourceTree = SOURCE_ROOT; };
+		14A3C17713F2AD530005A821 /* EventScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventScheduler.h; sourceTree = "<group>"; };
+		14A3C17813F2AD530005A821 /* EventScheduler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EventScheduler.mm; sourceTree = "<group>"; };
 		14AC7E11132E4DA300D5ACA7 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		14AC7E13132E4DAB00D5ACA7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		14AC903A133083E700BB0A26 /* Export.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Export.h; sourceTree = "<group>"; };
@@ -1058,6 +1058,8 @@
 		14DEBF921310835C0094F680 /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				14A3C17713F2AD530005A821 /* EventScheduler.h */,
+				14A3C17813F2AD530005A821 /* EventScheduler.mm */,
 				14DEBF931310835C0094F680 /* EventBroadcaster.h */,
 				1457FAC313EAEBE600E12D76 /* ScheduledEvent.h */,
 			);
@@ -1176,8 +1178,6 @@
 				1447AA0B132730E5000DCCD8 /* ParticleManager.mm */,
 				14FDD3C41347B03700C0CB60 /* ActionManager.h */,
 				14FDD3C31347B03600C0CB60 /* ActionManager.mm */,
-				1457FABF13EAEA4800E12D76 /* EventScheduler.h */,
-				1457FAC013EAEA4800E12D76 /* EventScheduler.mm */,
 			);
 			path = SharedManagers;
 			sourceTree = "<group>";
@@ -1638,10 +1638,10 @@
 				1476147A13CE0C8B000916A7 /* gecImage.mm in Sources */,
 				1450A52613D0BED200139A2A /* MoveByAction.mm in Sources */,
 				14CA84DF13D22DFB00527ACF /* ActionTest.mm in Sources */,
-				1457FAC213EAEA4800E12D76 /* EventScheduler.mm in Sources */,
 				1457FAC613EB674000E12D76 /* EventSchedulerTest.mm in Sources */,
 				147DE77013F06F4D005FE70D /* gecTinyEventScheduler.mm in Sources */,
 				147C9B2A13F13575001E5128 /* CompEventScheduler.mm in Sources */,
+				14A3C17A13F2AD530005A821 /* EventScheduler.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1708,10 +1708,10 @@
 				1476147913CE0C8B000916A7 /* gecImage.mm in Sources */,
 				1450A52513D0BED200139A2A /* MoveByAction.mm in Sources */,
 				14CA84DE13D22DFB00527ACF /* ActionTest.mm in Sources */,
-				1457FAC113EAEA4800E12D76 /* EventScheduler.mm in Sources */,
 				1457FAC513EB674000E12D76 /* EventSchedulerTest.mm in Sources */,
 				147DE76F13F06F4D005FE70D /* gecTinyEventScheduler.mm in Sources */,
 				147C9B2913F13575001E5128 /* CompEventScheduler.mm in Sources */,
+				14A3C17913F2AD530005A821 /* EventScheduler.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

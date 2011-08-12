@@ -18,6 +18,7 @@
 #include "GandoBox2D.h"
 #include "SimpleAudioEngine.h"
 #include "LuaInit.h"
+#include "EventBroadcaster.h"
 
 /** Good Game Engine Namespace
 	@remarks
@@ -33,10 +34,12 @@ namespace gg
 	inline void init(void)
 	{		 
 		TOUCHABLE_MANAGER;	/** < Initialize the Input Manager*/
+        TOUCHABLE_MANAGER->setEventBroadcaster(gg::event::luabindBroadcaster());        
 		SCENE_MANAGER;		/** < Initialize the Scene Manager */
 		TEXTURE_MANAGER;	/** < Initialize the Texture Manager*/
 		PARTICLE_MANAGER;	/** < Initialize the Particles Manager*/
 		GBOX_2D;			/** < Initialize the Box2D Plug for GG*/
+        GBOX_2D->setEventBroadcaster(gg::event::luabindBroadcaster());        
         CocosDenshion::SimpleAudioEngine::sharedEngine(); /** < Initialize the Audio Engine */
         LR_MANAGER;			/** < Initialize the Lua Registrate Manager */        
 	}
@@ -61,6 +64,7 @@ namespace gg
 		delete PARTICLE_MANAGER;	/** < delete the Particles Manager */
 		delete GBOX_2D;				/** < delete the Box2D Plug for GG */
         CocosDenshion::SimpleAudioEngine::sharedEngine()->end();
+        delete gg::event::luabindBroadcaster(); /** < Delete the event broadcaster */
 	}
 } //END gg::
 

@@ -254,16 +254,16 @@ void Animation::notifyDelegate()
 	if(notify)
 	{
 		
-		luabind::object payload = luabind::newtable(LR_MANAGER_STATE);
-		
-		if(ownerGAS != NULL)
-		{
-			payload["owner_ge_uid"] = ownerGAS->getOwnerGE()->getId();
-		}
-		
-		payload["animation_label"] = animation_label;
-		gg::event::broadcast("E_ANIMATION_FINISH", payload);
-		notify = false;
+//		luabind::object payload = luabind::newtable(LR_MANAGER_STATE);
+//		
+//		if(ownerGAS != NULL)
+//		{
+//			payload["owner_ge_uid"] = ownerGAS->getOwnerGE()->getId();
+//		}
+//		
+//		payload["animation_label"] = animation_label;
+//		gg::event::broadcast("E_ANIMATION_FINISH", payload);
+//		notify = false;
 	}
 }
 

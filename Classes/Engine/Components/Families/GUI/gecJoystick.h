@@ -11,6 +11,10 @@
 
 #include "CompTouchable.h"
 
+namespace gg { namespace event {
+    class IEventBroadcaster;
+}}
+
 class gecJoystick: public CompTouchable
 {	
 	//GEComponent Interface
@@ -25,7 +29,7 @@ public:
 	
 	//gecJoystick Interface
 public:
-	gecJoystick();
+    gecJoystick(gg::event::IEventBroadcaster *);
 	Boolean		outerRegionHit();
 	void		updateVelocity(float x, float y);
 	
@@ -47,6 +51,7 @@ private:
 	CGPoint				latestVelocity;
 	bool				dx_negative;
 	int					currentTouchID;
+    gg::event::IEventBroadcaster* m_broadcaster;
 };
 
 #endif

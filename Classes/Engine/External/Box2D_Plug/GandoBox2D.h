@@ -32,14 +32,16 @@
 #define PTM_RATIO 32
 
 #include <vector>
-
 #include "Box2D.h"
 #include "GandoBox2DDebug.h"
 #include "GContactListener.h"
-
 #include "GEComponent.h"
 
-class GLESDebugDraw; /** < Forward declaration for GLESDebugDraw */
+namespace gg { namespace event { 
+    class IEventBroadcaster; 
+}}
+
+class GLESDebugDraw;
 
 /** Singleton Class to Integrate Box2D to the GGEngine
  @remarks
@@ -106,6 +108,12 @@ public:
 	
 	/** Updates the state of the Debug Box2D bodies and entities */
 	void				debugUpdate(float delta); 
+    
+    /** Adds an event broadcaster to GandoBox2D note that this is mandatory */
+    inline void         setEventBroadcaster(gg::event::IEventBroadcaster *broadcaster)
+    {
+        m_broadcaster = broadcaster;
+    }
 
 //------------------------------------------------------------------------------
 protected:
@@ -116,12 +124,11 @@ protected:
 //------------------------------------------------------------------------------	
 private:
 	b2World*			world; /** < Instance of the Box2D world*/
-	GContactListener*	contactListener; /** < Listens for collision between in-world Box2D bodies*/
-	
+	GContactListener*	contactListener; /** < Listens for collision between in-world Box2D bodies*/	
 	static GandoBox2D*	instance; /** < Singleton Instance of GandoBox2D*/
-	GLESDebugDraw*		debugDraw; /** < Instance of the Box2D debug draw*/
-	
+	GLESDebugDraw*		debugDraw; /** < Instance of the Box2D debug draw*/	
 	std::vector<Gbox *> boxes; /** < Vector of boxes used for debug */
+    gg::event::IEventBroadcaster* m_broadcaster; /** < Used to broadcast collision events to affected Game Entities */
 };
 
 #endif

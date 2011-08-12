@@ -12,6 +12,10 @@
 #include "CompTouchable.h"
 #include "BehaviourActions.h"
 
+namespace gg { namespace event {
+    class IEventBroadcaster;
+}}
+
 class gecButton : public CompTouchable
 {
 	//GEComponent interface
@@ -26,7 +30,7 @@ public:
 	
 	//gecButton Interface
 public:
-	gecButton();
+    gecButton(gg::event::IEventBroadcaster *);
 	void setShape(CGRect aShape);
 	void setParentSharedShape(CGRect aRect);
 	CGRect getShape() const { return shape; }
@@ -38,6 +42,7 @@ protected:
 private:
 	static gec_id_type mComponentID;
 	CGRect shape;
+    gg::event::IEventBroadcaster* m_broadcaster;
 };
 
 #endif

@@ -11,20 +11,20 @@
 #include "GandoBox2DDebug.h"
 #include "CompCollisionable.h"
 #include "GLES-Render.h"
-
 #include "EventBroadcaster.h"
 #include "GameEntity.h"
-
 #include "ConstantsAndMacros.h"
+#include "EventBroadcaster.h"
 
 GandoBox2D* GandoBox2D::instance = NULL;
 
-#pragma mark -
-#pragma mark init
-GandoBox2D::GandoBox2D() : world(NULL), contactListener(NULL), debugDraw(NULL)
+GandoBox2D::GandoBox2D() 
+    : world(NULL)
+    , contactListener(NULL)
+    , debugDraw(NULL)
+    , m_broadcaster(NULL)
 {
 	this->initBaseWorld();
-//	this->initDebugDraw();
 }
 
 void GandoBox2D::initBaseWorld()
@@ -172,12 +172,10 @@ void GandoBox2D::update(const float delta)
 	}	
 }
 
-void GandoBox2D::notifyCollisionEntity(const GameEntity * const in_entity)
+void GandoBox2D::notifyCollisionEntity(const GameEntity * const targetEntity)
 {
 	//TODO:Add payload data of the collisioned entity.
-	luabind::object payload = luabind::newtable(LR_MANAGER_STATE);
-    
-	gg::event::notify_target_entity("E_COLLISION", payload, in_entity->getId());
+    m_broadcaster->notifyTargetEntity("E_COLLISION", luabind::newtable(LR_MANAGER_STATE), targetEntity->getId());
 }
 
 #pragma mark -
@@ -276,13 +274,12 @@ void GandoBox2D::debugUpdate(float delta)
 #pragma mark cleanup
 GandoBox2D::~GandoBox2D()
 {
-	if(debugDraw != NULL)
+	if(debugDraw)
 		delete debugDraw;
 	
-	if(world != NULL)
+	if(world)
 		delete world;
 	
-	if(contactListener != NULL)
-		delete contactListener;
-	
+	if(contactListener)
+		delete contactListener;	
 }

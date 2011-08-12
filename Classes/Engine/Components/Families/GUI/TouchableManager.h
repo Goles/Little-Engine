@@ -45,6 +45,10 @@ typedef struct
 } GTouch;
 
 class CompTouchable;
+namespace gg { namespace event {
+    class IEventBroadcaster;
+}}
+
 
 class TouchableManager
 {
@@ -60,7 +64,7 @@ public:
 	void						touchesMoved(float x, float y, int touchId);
 	void						touchesEnded(float x, float y, int touchId);
 	int							generateID(){ return (++incrementalID); }
-	
+	void                        setEventBroadcaster(gg::event::IEventBroadcaster *broadcaster) { m_broadcaster = broadcaster; }
 	GTouch GUIState[MAX_TOUCHES]; //public for easier accesibility no thread safe though.
 	
 	~TouchableManager();
@@ -72,12 +76,12 @@ protected:
 	//private Atributes
 private:
 	typedef std::map<int, const CompTouchable *> TouchableMap;
-	typedef std::pair<int, const CompTouchable *> TouchableMapPair;
-	
+	typedef std::pair<int, const CompTouchable *> TouchableMapPair;	
 	static TouchableManager*	singletonInstance;
 	TouchableMap				touchReceivers;
 	int							incrementalID;
 	int							touchCount;
+    gg::event::IEventBroadcaster* m_broadcaster;
 	
 	//private Methods
 private:
