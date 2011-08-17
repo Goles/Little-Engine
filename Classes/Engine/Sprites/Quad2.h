@@ -7,7 +7,7 @@
 //
 
 #ifndef __QUAD_2_H__
-#define __QUAD_2_H__`
+#define __QUAD_2_H__
 
 struct Quad2 {
 	float tl_x, tl_y;
