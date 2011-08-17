@@ -118,7 +118,7 @@ void gecParticleSystem::render() const
     
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glDisable(GL_BLEND);
-	glDisableClientState(GL_TEXTURE_2D);
+	glDisable(GL_TEXTURE_2D);
     glPopMatrix();
 }
 

@@ -11,31 +11,31 @@
 #include "SharedTextureManager.h"
 
 Image::Image()
+    : vertices(NULL)
+    , texCoords(NULL)
+    , indices(NULL)
+    , texture(NULL)
+    , imageWidth(0)
+    , imageHeight(0)
+    , textureWidth(0)
+    , textureHeight(0)
+    , textureOffsetX(0)
+    , textureOffsetY(0)
+    , maxTexWidth(0)
+    , maxTexHeight(0)
+    , texWidthRatio(0)
+    , texHeightRatio(0)
+    , rotation(0)
+    , flipHorizontally(false)
+    , flipVertically(false)
+
 {
-	texture				= NULL;	
-	imageWidth			= 0;
-	imageHeight			= 0;
-	textureWidth		= 0;
-	textureHeight		= 0;
-	maxTexWidth			= 0;
-	maxTexHeight		= 0;
-	texWidthRatio		= 0;
-	texHeightRatio		= 0;
-	textureOffsetX		= 0;
-	textureOffsetY		= 0;
-	rotation			= 0;
-	m_scale.x			= 1;
-    m_scale.y           = 1;    
-	flipHorizontally	= 0;
-	flipVertically		= 0;
-	colourFilter[0]		= 1.0f;
-	colourFilter[1]		= 1.0f;
-	colourFilter[2]		= 1.0f;
-	colourFilter[3]		= 1.0f;
-	vertices			= NULL;
-	texCoords			= NULL;
-	indices				= NULL;
-	textureName			= std::string("No Texture Name set");
+	m_scale.x = 1.0f;
+    m_scale.y = 1.0f;    
+	colourFilter[0]	= 1.0f;
+	colourFilter[1]	= 1.0f;
+	colourFilter[2]	= 1.0f;
+	colourFilter[3]	= 1.0f;
 }
 
 Image::~Image()
@@ -62,14 +62,7 @@ void Image::initImplementation()
 		maxTexHeight = imageHeight / (float)textureHeight;
 		texWidthRatio = 1.0f / (float)textureWidth;
 		texHeightRatio = 1.0f / (float)textureHeight;
-		textureOffsetX = 0;
-		textureOffsetY = 0;
-		rotation = 0.0f;
-		colourFilter[0] = 1.0f;
-		colourFilter[1] = 1.0f;
-		colourFilter[2] = 1.0f;
-		colourFilter[3] = 1.0f;
-		
+
 		// Init vertex arrays
 		int totalQuads = 1;
 		texCoords = (Quad2 *)malloc( sizeof(texCoords[0]) * totalQuads);
@@ -84,8 +77,6 @@ void Image::initWithTexture2D(Texture2D *inTexture)
 	if(inTexture)
 	{
 		texture = inTexture;
-		m_scale.x = 1.0f;
-        m_scale.y = 1.0f;
 		initImplementation();
 	}else{
 		printf("Could not load texture when creating Image from Texture2D\n");
@@ -97,9 +88,7 @@ void Image::initWithTexture2D(Texture2D *inTexture, const GGPoint &inScale)
 {
 	if(inTexture)
 	{
-		texture = inTexture;
-		m_scale.x = inScale.x;
-		m_scale.y = inScale.y;        
+		texture = inTexture;     
 		initImplementation();
 	}else {
 		printf("Could not load texture when creating Image from Texture2D with scale: %f, %f\n", inScale.x, inScale.y);
@@ -114,8 +103,6 @@ void Image::initWithTextureFile(const std::string &inTextureName)
 	if(imTexture)
 	{
 		texture = imTexture;
-		m_scale.x = 1.0f;
-        m_scale.y = 1.0f;
 		textureName = std::string(inTextureName);
 		initImplementation();
 	}else {
@@ -145,8 +132,6 @@ void Image::initWithTextureFile(const std::string &inTextureName, float imageSca
 void Image::initWithUIImage(UIImage* image)
 {
 	texture = [[Texture2D alloc] initWithImage:image filter:GL_NEAREST];
-	m_scale.x = 1.0f;
-    m_scale.y = 1.0f;
 	initImplementation();
 }
 
@@ -299,8 +284,8 @@ const void Image::render(const CGPoint point, const Quad2* tc, const Quad2* qv)
 	glRotatef(-rotation, 0.0f, 0.0f, 1.0f);
 	glTranslatef(-point.x, -point.y, 0);
     
-	// Set the glColor to apply alpha to the image
-	glColor4f(colourFilter[0], colourFilter[1], colourFilter[2], colourFilter[3]);
+    //Default is no color filter.
+    glColor4f(colourFilter[0], colourFilter[1], colourFilter[2], colourFilter[3]);
 	
 	// Set client states so that the Texture Coordinate Array will be used during rendering
 	glEnableClientState(GL_VERTEX_ARRAY);
@@ -320,7 +305,7 @@ const void Image::render(const CGPoint point, const Quad2* tc, const Quad2* qv)
 	
 	// Enable blending as we want the transparent parts of the image to be transparent
 	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);// removed due to "duplicate glFunction"
 	
 	// Draw the vertices to the screen
 	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
