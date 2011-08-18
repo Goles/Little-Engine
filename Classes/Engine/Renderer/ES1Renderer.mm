@@ -45,7 +45,7 @@ static char fpsText[32];
 	//Start the ggEngine + Game up
 	static bool game_init = NO;
 	
-	if(!game_init) {
+	if (!game_init) {
 		[self initGame];
 		game_init = YES;
 	}
@@ -82,8 +82,7 @@ static char fpsText[32];
 	}
 
 	glClearColor(0.4f, 0.4f, 0.4f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT);
-	
+	glClear(GL_COLOR_BUFFER_BIT);	
     Scene *current = SCENE_MANAGER->getActiveScene();
     
      if (current)
@@ -91,10 +90,9 @@ static char fpsText[32];
     
     FONT_MANAGER->render();
     
-    if (showFPS) {
-        [self setFPS];
-        m_fpsRenderer->render();
-    }
+#ifdef DEBUG    
+    [self setFPS];
+#endif
     
 	glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
 	[context presentRenderbuffer:GL_RENDERBUFFER_OES];

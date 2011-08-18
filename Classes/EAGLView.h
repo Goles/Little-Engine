@@ -18,8 +18,7 @@
 @interface EAGLView : UIView
 {    
 @private
-	id <ESRenderer> renderer;
-	
+	id <ESRenderer> renderer;	
 	BOOL animating;
 	BOOL displayLinkSupported;
 	BOOL viewSetup;
@@ -38,7 +37,6 @@
 }
 
 @property (readonly, nonatomic, getter=isAnimating) BOOL animating;
-@property (nonatomic) NSInteger animationFrameInterval;
 
 /**Animation state toggles*/
 - (void) startAnimation;
