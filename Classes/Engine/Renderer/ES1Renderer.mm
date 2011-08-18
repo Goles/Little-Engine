@@ -45,7 +45,7 @@ static char fpsText[32];
 	//Start the ggEngine + Game up
 	static bool game_init = NO;
 	
-	if(!game_init) {
+	if (!game_init) {
 		[self initGame];
 		game_init = YES;
 	}
@@ -82,15 +82,18 @@ static char fpsText[32];
 	}
 
 	glClearColor(0.4f, 0.4f, 0.4f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT);
-	
+	glClear(GL_COLOR_BUFFER_BIT);	
     Scene *current = SCENE_MANAGER->getActiveScene();
     
      if(current)
         current->render();
     
     FONT_MANAGER->render();
-
+    
+#ifdef DEBUG    
+    [self setFPS];
+#endif
+    
 	glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
 	[context presentRenderbuffer:GL_RENDERBUFFER_OES];
 }
@@ -107,8 +110,7 @@ static char fpsText[32];
             m_fpsRenderer = FONT_MANAGER->textRenderer("test1.fnt", 1.0);
             m_fpsRenderer->setPosition(350, 280);
             didInitFPS = YES;
-        }
-            
+        }            
 		snprintf(fpsText, 32, "FPS: %d", frames);
 		m_fpsRenderer->setText(fpsText);
 		LastFPSUpdate = CurrentTime;
@@ -153,7 +155,7 @@ static char fpsText[32];
 	gg::shutDown();
 	
 	[context release];
-	context = NULL;	
+	context = 0;	
 	[super dealloc];
 }
 

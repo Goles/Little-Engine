@@ -13,7 +13,6 @@
 
 @protocol ESRenderer <NSObject>
 
-- (void) update:(float) delta;
 - (void) render;
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer;
 

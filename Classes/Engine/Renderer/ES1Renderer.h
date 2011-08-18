@@ -28,7 +28,7 @@
 	BOOL viewSetup;
 	BOOL showFPS;
 	
-	//Display Fps if needed
+	//Display FPS if needed
 	CFTimeInterval CurrentTime;
 	CFTimeInterval LastFPSUpdate;
 
@@ -39,10 +39,10 @@
     ITextRenderer *m_fpsRenderer;
 }
 
-- (void) render;
-- (BOOL) resizeFromLayer:(CAEAGLLayer *)layer;
-- (void) setupView;
 - (void) initGame;
+- (void) setupView;
+- (void) render;
 - (void) setFPS;
+- (BOOL) resizeFromLayer:(CAEAGLLayer *)layer;
 
 @end

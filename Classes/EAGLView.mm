@@ -16,7 +16,6 @@
 @implementation EAGLView
 
 @synthesize animating;
-@dynamic animationFrameInterval;
 
 // You must implement this method
 + (Class) layerClass
