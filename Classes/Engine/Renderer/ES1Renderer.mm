@@ -21,9 +21,10 @@ static char fpsText[32];
 // Create an ES 1.1 context
 - (id) init
 {
-	if (self = [super init]) {
+    self = [super init];
+	if (self) {
 		context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
-        
+
         if (!context || ![EAGLContext setCurrentContext:context]) {
             [self release];
             return NULL;
@@ -104,10 +105,9 @@ static char fpsText[32];
 	CurrentTime = CACurrentMediaTime();	
     static bool didInitFPS = NO;
     
-	if ((CurrentTime - LastFPSUpdate) > 1.0f) { 
-                
+	if ((CurrentTime - LastFPSUpdate) > 1.0f) {
         if (!didInitFPS) {
-            m_fpsRenderer = FONT_MANAGER->textRenderer("test1.fnt", 1.0);
+            m_fpsRenderer = FONT_MANAGER->textRenderer("test1.fnt", 1);
             m_fpsRenderer->setPosition(350, 280);
             didInitFPS = YES;
         }

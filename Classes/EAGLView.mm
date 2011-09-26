@@ -158,8 +158,8 @@
 	}
 }
 
-#pragma mark -
-#pragma mark touches
+#pragma mark - touches
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
 	CGPoint loc;
@@ -190,4 +190,9 @@
 	}
 }
 
+- (void) dealloc
+{
+    [renderer release];
+    [super release];
+}
 @end

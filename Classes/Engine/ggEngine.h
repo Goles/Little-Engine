@@ -51,7 +51,6 @@ namespace gg
 #ifdef DEBUG
 		GBOX_2D->initDebugDraw();
 #endif
-		
 		LR_MANAGER->execScript("init.lua");
 	}
 	

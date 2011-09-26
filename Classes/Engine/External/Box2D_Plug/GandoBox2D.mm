@@ -92,7 +92,7 @@ b2World* GandoBox2D::getWorld() const
 	return world;
 }
 
-void GandoBox2D::update(const float delta)
+void GandoBox2D::update(const double delta)
 {
 	//It is recommended that a fixed time step is used with Box2D for stability
 	//of the simulation, however, we are using a variable time step here.

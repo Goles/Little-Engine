@@ -69,7 +69,7 @@ public:
 		algorithms of Box2D.
 	 @param delta is the interval of time since the last update was called, usually 1/60 (60 fps)	 
 	 */
-	void				update(const float delta);
+	void				update(const double delta);
 	
 	/** Returns the constant b2World (box2d world) for you to access some of it's elements
 		in a more direct way. 
