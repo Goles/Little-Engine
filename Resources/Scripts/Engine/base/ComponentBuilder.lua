@@ -252,7 +252,22 @@ end
 -- Build a gecTinyEventScheduler
 --
 function tinyEventSchedulerBuild(t)
-	local gec = gecTinyEventScheduler()	
+	local gec = gecTinyEventScheduler()
+	
+	if t.events ~= nil then
+		for _, v in pairs(t.events) do
+			local _isRepeating = v.isRepeating
+			local event
+			if v.isRepeating then
+				event = createScheduledEvent(v.type, v.triggerInterval, _isRepeating)
+			else
+				event = createScheduledEvent(v.type, v.triggerInterval)
+			end
+			
+			gec:scheduleEvent(event)
+		end
+	end
+	
 	return gec
 end
 
