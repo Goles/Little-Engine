@@ -22,6 +22,8 @@
 		142F2586133D8BE700E80E17 /* config.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2564133D8BE700E80E17 /* config.lua */; };
 		142F2587133D8BE700E80E17 /* event_manager.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2566133D8BE700E80E17 /* event_manager.lua */; };
 		142F2588133D8BE700E80E17 /* init.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2567133D8BE700E80E17 /* init.lua */; };
+		143795E3144B78D700352070 /* Game in Resources */ = {isa = PBXBuildFile; fileRef = 143795E2144B78D700352070 /* Game */; };
+		143795E4144B78D700352070 /* Game in Resources */ = {isa = PBXBuildFile; fileRef = 143795E2144B78D700352070 /* Game */; };
 		144668FF133A503D001DAE2D /* sonic_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 144668FD133A503D001DAE2D /* sonic_theme.mp3 */; };
 		14466903133A6E91001DAE2D /* swing_1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 14466902133A6E91001DAE2D /* swing_1.caf */; };
 		1447AA0A13272613000DCCD8 /* Particle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1447AA0813272612000DCCD8 /* Particle.mm */; };
@@ -61,8 +63,6 @@
 		146C4220135181A500EA0342 /* MoveToAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 146C4214135181A500EA0342 /* MoveToAction.mm */; };
 		146C4221135181A500EA0342 /* UnisonAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 146C4216135181A500EA0342 /* UnisonAction.mm */; };
 		146C4222135181A500EA0342 /* UnisonAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 146C4216135181A500EA0342 /* UnisonAction.mm */; };
-		146F155C144B513100C3A29C /* Game in Resources */ = {isa = PBXBuildFile; fileRef = 146F155B144B513100C3A29C /* Game */; };
-		146F155D144B513100C3A29C /* Game in Resources */ = {isa = PBXBuildFile; fileRef = 146F155B144B513100C3A29C /* Game */; };
 		1472DA9D134E44C300F349B6 /* ActionManagerTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1472DA9B134E44C300F349B6 /* ActionManagerTest.mm */; };
 		1476147913CE0C8B000916A7 /* gecImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1476147813CE0C8B000916A7 /* gecImage.mm */; };
 		1476147A13CE0C8B000916A7 /* gecImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1476147813CE0C8B000916A7 /* gecImage.mm */; };
@@ -326,6 +326,7 @@
 		142F2566133D8BE700E80E17 /* event_manager.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = event_manager.lua; sourceTree = "<group>"; };
 		142F2567133D8BE700E80E17 /* init.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = init.lua; sourceTree = "<group>"; };
 		1430C81B131F050000AFA083 /* IFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFont.h; sourceTree = "<group>"; };
+		143795E2144B78D700352070 /* Game */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Game; sourceTree = "<group>"; };
 		144668FD133A503D001DAE2D /* sonic_theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sonic_theme.mp3; sourceTree = "<group>"; };
 		14466902133A6E91001DAE2D /* swing_1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = swing_1.caf; sourceTree = "<group>"; };
 		1447AA0813272612000DCCD8 /* Particle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Particle.mm; sourceTree = "<group>"; };
@@ -371,7 +372,6 @@
 		146C4214135181A500EA0342 /* MoveToAction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MoveToAction.mm; sourceTree = "<group>"; };
 		146C4215135181A500EA0342 /* UnisonAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnisonAction.h; sourceTree = "<group>"; };
 		146C4216135181A500EA0342 /* UnisonAction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UnisonAction.mm; sourceTree = "<group>"; };
-		146F155B144B513100C3A29C /* Game */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Game; path = Resources/Scripts/Game; sourceTree = "<group>"; };
 		1472DA9B134E44C300F349B6 /* ActionManagerTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ActionManagerTest.mm; sourceTree = "<group>"; };
 		1476147713CE0C7F000916A7 /* gecImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gecImage.h; sourceTree = "<group>"; };
 		1476147813CE0C8B000916A7 /* gecImage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gecImage.mm; sourceTree = "<group>"; };
@@ -1202,7 +1202,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				146F155B144B513100C3A29C /* Game */,
+				143795E2144B78D700352070 /* Game */,
 				144BAA0F13100C5A005AD895 /* Libraries */,
 				14E314CE121E49AA00917795 /* Frameworks */,
 				14E31352121E47E100917795 /* Classes */,
@@ -1376,7 +1376,7 @@
 				14DF615613C0FE4100CAEF7B /* test1.fnt in Resources */,
 				14DF615813C0FE4100CAEF7B /* test1.png in Resources */,
 				14D77AE713DE70290038DD11 /* grid_32.png in Resources */,
-				146F155D144B513100C3A29C /* Game in Resources */,
+				143795E4144B78D700352070 /* Game in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1420,7 +1420,7 @@
 				14DF615513C0FE4100CAEF7B /* test1.fnt in Resources */,
 				14DF615713C0FE4100CAEF7B /* test1.png in Resources */,
 				14D77AE613DE70290038DD11 /* grid_32.png in Resources */,
-				146F155C144B513100C3A29C /* Game in Resources */,
+				143795E3144B78D700352070 /* Game in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
