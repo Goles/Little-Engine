@@ -3,7 +3,7 @@ Grid =
 	label = "Grid",	
 	entities =
 	{
-		{file="grid.lua", position={x=240, y=160}}
+		{file="game/entities/grid.lua", position={x=240, y=160}}
 	},
 }
 

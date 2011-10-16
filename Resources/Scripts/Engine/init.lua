@@ -10,4 +10,4 @@ package.path = fileRelativePath("init.lua") .. "/?.lua;"
 dofile(filePath("config.lua"))
 
 -- Execute the main.
-dofile(filePath("main.lua"))
+dofile(filePath("game/main.lua"))
