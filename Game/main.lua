@@ -2,7 +2,7 @@ require "SceneBuilder"
 require "event_manager"
 
 -- BUILD A SCENE
-scene = buildScene("game/scenes/monsters_test_scene/monsters.lua")
+scene = buildScene("game/test_scenes/monsters_test_scene/monsters.lua")
 
 -- PUSH SCENE TO SCENE MAP
 pushScene(scene)

@@ -9,19 +9,6 @@
 /* Begin PBXBuildFile section */
 		141BDE2713CB4F1E003B6B1A /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 141BDE2613CB4F1E003B6B1A /* EAGLView.mm */; };
 		141BDE2813CB4F1E003B6B1A /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 141BDE2613CB4F1E003B6B1A /* EAGLView.mm */; };
-		142F257C133D8BE700E80E17 /* base_functions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2558133D8BE700E80E17 /* base_functions.lua */; };
-		142F257D133D8BE700E80E17 /* ComponentBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2559133D8BE700E80E17 /* ComponentBuilder.lua */; };
-		142F257E133D8BE700E80E17 /* config_functions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F255A133D8BE700E80E17 /* config_functions.lua */; };
-		142F257F133D8BE700E80E17 /* EntityBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F255B133D8BE700E80E17 /* EntityBuilder.lua */; };
-		142F2580133D8BE700E80E17 /* EntityMap.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F255C133D8BE700E80E17 /* EntityMap.lua */; };
-		142F2581133D8BE700E80E17 /* Pickle.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F255D133D8BE700E80E17 /* Pickle.lua */; };
-		142F2582133D8BE700E80E17 /* PrimitiveBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F255E133D8BE700E80E17 /* PrimitiveBuilder.lua */; };
-		142F2583133D8BE700E80E17 /* SceneBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F255F133D8BE700E80E17 /* SceneBuilder.lua */; };
-		142F2584133D8BE700E80E17 /* tableprint.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2560133D8BE700E80E17 /* tableprint.lua */; };
-		142F2585133D8BE700E80E17 /* gecFSM_interface.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2562133D8BE700E80E17 /* gecFSM_interface.lua */; };
-		142F2586133D8BE700E80E17 /* config.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2564133D8BE700E80E17 /* config.lua */; };
-		142F2587133D8BE700E80E17 /* event_manager.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2566133D8BE700E80E17 /* event_manager.lua */; };
-		142F2588133D8BE700E80E17 /* init.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2567133D8BE700E80E17 /* init.lua */; };
 		143795E3144B78D700352070 /* Game in Resources */ = {isa = PBXBuildFile; fileRef = 143795E2144B78D700352070 /* Game */; };
 		143795E4144B78D700352070 /* Game in Resources */ = {isa = PBXBuildFile; fileRef = 143795E2144B78D700352070 /* Game */; };
 		144668FF133A503D001DAE2D /* sonic_theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 144668FD133A503D001DAE2D /* sonic_theme.mp3 */; };
@@ -50,7 +37,6 @@
 		14570E201357E81900FE1835 /* ScaleToAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14570E1D1357E81700FE1835 /* ScaleToAction.mm */; };
 		1457FAC513EB674000E12D76 /* EventSchedulerTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1457FAC413EB674000E12D76 /* EventSchedulerTest.mm */; };
 		1457FAC613EB674000E12D76 /* EventSchedulerTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1457FAC413EB674000E12D76 /* EventSchedulerTest.mm */; };
-		1461BD96134BDADB002C0A79 /* actions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1461BD95134BDADB002C0A79 /* actions.lua */; };
 		146C4217135181A500EA0342 /* Action.mm in Sources */ = {isa = PBXBuildFile; fileRef = 146C420B135181A500EA0342 /* Action.mm */; };
 		146C4218135181A500EA0342 /* Action.mm in Sources */ = {isa = PBXBuildFile; fileRef = 146C420B135181A500EA0342 /* Action.mm */; };
 		146C4219135181A500EA0342 /* FadeInAction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 146C420D135181A500EA0342 /* FadeInAction.mm */; };
@@ -92,20 +78,6 @@
 		14A37180134E04E3007E9551 /* smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9BB133D8A9C0090800C /* smoke.png */; };
 		14A37181134E04E3007E9551 /* smoke.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9BC133D8A9C0090800C /* smoke.pvr */; };
 		14A37182134E04E3007E9551 /* sprite_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 144FF9BD133D8A9C0090800C /* sprite_test.png */; };
-		14A37183134E04E3007E9551 /* base_functions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2558133D8BE700E80E17 /* base_functions.lua */; };
-		14A37184134E04E3007E9551 /* ComponentBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2559133D8BE700E80E17 /* ComponentBuilder.lua */; };
-		14A37185134E04E3007E9551 /* config_functions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F255A133D8BE700E80E17 /* config_functions.lua */; };
-		14A37186134E04E3007E9551 /* EntityBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F255B133D8BE700E80E17 /* EntityBuilder.lua */; };
-		14A37187134E04E3007E9551 /* EntityMap.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F255C133D8BE700E80E17 /* EntityMap.lua */; };
-		14A37188134E04E3007E9551 /* Pickle.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F255D133D8BE700E80E17 /* Pickle.lua */; };
-		14A37189134E04E3007E9551 /* PrimitiveBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F255E133D8BE700E80E17 /* PrimitiveBuilder.lua */; };
-		14A3718A134E04E3007E9551 /* SceneBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F255F133D8BE700E80E17 /* SceneBuilder.lua */; };
-		14A3718B134E04E3007E9551 /* tableprint.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2560133D8BE700E80E17 /* tableprint.lua */; };
-		14A3718C134E04E3007E9551 /* gecFSM_interface.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2562133D8BE700E80E17 /* gecFSM_interface.lua */; };
-		14A3718D134E04E3007E9551 /* config.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2564133D8BE700E80E17 /* config.lua */; };
-		14A3718E134E04E3007E9551 /* event_manager.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2566133D8BE700E80E17 /* event_manager.lua */; };
-		14A3718F134E04E3007E9551 /* init.lua in Resources */ = {isa = PBXBuildFile; fileRef = 142F2567133D8BE700E80E17 /* init.lua */; };
-		14A3719E134E04E3007E9551 /* actions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 1461BD95134BDADB002C0A79 /* actions.lua */; };
 		14A371A0134E04E3007E9551 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31415121E47E200917795 /* main.mm */; };
 		14A371A1134E04E3007E9551 /* Particles_2AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31417121E47E200917795 /* Particles_2AppDelegate.mm */; };
 		14A371A2134E04E3007E9551 /* CompBehaviour.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF561310835C0094F680 /* CompBehaviour.mm */; };
@@ -222,11 +194,39 @@
 		14DF615613C0FE4100CAEF7B /* test1.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 14DF615313C0FE4100CAEF7B /* test1.fnt */; };
 		14DF615713C0FE4100CAEF7B /* test1.png in Resources */ = {isa = PBXBuildFile; fileRef = 14DF615413C0FE4100CAEF7B /* test1.png */; };
 		14DF615813C0FE4100CAEF7B /* test1.png in Resources */ = {isa = PBXBuildFile; fileRef = 14DF615413C0FE4100CAEF7B /* test1.png */; };
-		14E31465121E47E200917795 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31415121E47E200917795 /* main.mm */; };
+		14E31465121E47E200917795 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31415121E47E200917795 /* main.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		14E31466121E47E200917795 /* Particles_2AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31417121E47E200917795 /* Particles_2AppDelegate.mm */; };
 		14E314D0121E49B900917795 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E314CF121E49B900917795 /* CoreGraphics.framework */; };
 		14F64F2513101665006DBA13 /* libluabind.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 144BAA2113100C77005AD895 /* libluabind.a */; };
 		14F64F3013101681006DBA13 /* libLua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F64F2F13101678006DBA13 /* libLua.a */; };
+		14F8854714507DCA005DCC66 /* actions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8853614507DCA005DCC66 /* actions.lua */; };
+		14F8854814507DCA005DCC66 /* actions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8853614507DCA005DCC66 /* actions.lua */; };
+		14F8854914507DCA005DCC66 /* base_functions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8853714507DCA005DCC66 /* base_functions.lua */; };
+		14F8854A14507DCA005DCC66 /* base_functions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8853714507DCA005DCC66 /* base_functions.lua */; };
+		14F8854B14507DCA005DCC66 /* ComponentBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8853814507DCA005DCC66 /* ComponentBuilder.lua */; };
+		14F8854C14507DCA005DCC66 /* ComponentBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8853814507DCA005DCC66 /* ComponentBuilder.lua */; };
+		14F8854D14507DCA005DCC66 /* config_functions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8853914507DCA005DCC66 /* config_functions.lua */; };
+		14F8854E14507DCA005DCC66 /* config_functions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8853914507DCA005DCC66 /* config_functions.lua */; };
+		14F8854F14507DCA005DCC66 /* EntityBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8853A14507DCA005DCC66 /* EntityBuilder.lua */; };
+		14F8855014507DCA005DCC66 /* EntityBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8853A14507DCA005DCC66 /* EntityBuilder.lua */; };
+		14F8855114507DCA005DCC66 /* EntityMap.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8853B14507DCA005DCC66 /* EntityMap.lua */; };
+		14F8855214507DCA005DCC66 /* EntityMap.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8853B14507DCA005DCC66 /* EntityMap.lua */; };
+		14F8855314507DCA005DCC66 /* Pickle.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8853C14507DCA005DCC66 /* Pickle.lua */; };
+		14F8855414507DCA005DCC66 /* Pickle.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8853C14507DCA005DCC66 /* Pickle.lua */; };
+		14F8855514507DCA005DCC66 /* PrimitiveBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8853D14507DCA005DCC66 /* PrimitiveBuilder.lua */; };
+		14F8855614507DCA005DCC66 /* PrimitiveBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8853D14507DCA005DCC66 /* PrimitiveBuilder.lua */; };
+		14F8855714507DCA005DCC66 /* SceneBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8853E14507DCA005DCC66 /* SceneBuilder.lua */; };
+		14F8855814507DCA005DCC66 /* SceneBuilder.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8853E14507DCA005DCC66 /* SceneBuilder.lua */; };
+		14F8855914507DCA005DCC66 /* tableprint.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8853F14507DCA005DCC66 /* tableprint.lua */; };
+		14F8855A14507DCA005DCC66 /* tableprint.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8853F14507DCA005DCC66 /* tableprint.lua */; };
+		14F8855B14507DCA005DCC66 /* gecFSM_interface.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8854114507DCA005DCC66 /* gecFSM_interface.lua */; };
+		14F8855C14507DCA005DCC66 /* gecFSM_interface.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8854114507DCA005DCC66 /* gecFSM_interface.lua */; };
+		14F8855D14507DCA005DCC66 /* config.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8854314507DCA005DCC66 /* config.lua */; };
+		14F8855E14507DCA005DCC66 /* config.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8854314507DCA005DCC66 /* config.lua */; };
+		14F8855F14507DCA005DCC66 /* event_manager.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8854514507DCA005DCC66 /* event_manager.lua */; };
+		14F8856014507DCA005DCC66 /* event_manager.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8854514507DCA005DCC66 /* event_manager.lua */; };
+		14F8856114507DCA005DCC66 /* init.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8854614507DCA005DCC66 /* init.lua */; };
+		14F8856214507DCA005DCC66 /* init.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8854614507DCA005DCC66 /* init.lua */; };
 		14FB89E4121E4AC400E1B242 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FB89E3121E4AC400E1B242 /* QuartzCore.framework */; };
 		14FB89E8121E4ACC00E1B242 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FB89E7121E4ACC00E1B242 /* OpenGLES.framework */; };
 		14FB89EC121E4AD400E1B242 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FB89EB121E4AD400E1B242 /* UIKit.framework */; };
@@ -312,19 +312,6 @@
 /* Begin PBXFileReference section */
 		141BDE2513CB4F1E003B6B1A /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
 		141BDE2613CB4F1E003B6B1A /* EAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EAGLView.mm; sourceTree = "<group>"; };
-		142F2558133D8BE700E80E17 /* base_functions.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = base_functions.lua; sourceTree = "<group>"; };
-		142F2559133D8BE700E80E17 /* ComponentBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ComponentBuilder.lua; sourceTree = "<group>"; };
-		142F255A133D8BE700E80E17 /* config_functions.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config_functions.lua; sourceTree = "<group>"; };
-		142F255B133D8BE700E80E17 /* EntityBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EntityBuilder.lua; sourceTree = "<group>"; };
-		142F255C133D8BE700E80E17 /* EntityMap.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EntityMap.lua; sourceTree = "<group>"; };
-		142F255D133D8BE700E80E17 /* Pickle.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Pickle.lua; sourceTree = "<group>"; };
-		142F255E133D8BE700E80E17 /* PrimitiveBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PrimitiveBuilder.lua; sourceTree = "<group>"; };
-		142F255F133D8BE700E80E17 /* SceneBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SceneBuilder.lua; sourceTree = "<group>"; };
-		142F2560133D8BE700E80E17 /* tableprint.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tableprint.lua; sourceTree = "<group>"; };
-		142F2562133D8BE700E80E17 /* gecFSM_interface.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gecFSM_interface.lua; sourceTree = "<group>"; };
-		142F2564133D8BE700E80E17 /* config.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.lua; sourceTree = "<group>"; };
-		142F2566133D8BE700E80E17 /* event_manager.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = event_manager.lua; sourceTree = "<group>"; };
-		142F2567133D8BE700E80E17 /* init.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = init.lua; sourceTree = "<group>"; };
 		1430C81B131F050000AFA083 /* IFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFont.h; sourceTree = "<group>"; };
 		143795E2144B78D700352070 /* Game */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Game; sourceTree = "<group>"; };
 		144668FD133A503D001DAE2D /* sonic_theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sonic_theme.mp3; sourceTree = "<group>"; };
@@ -358,7 +345,6 @@
 		14570E1E1357E81800FE1835 /* ScaleToAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleToAction.h; sourceTree = "<group>"; };
 		1457FAC313EAEBE600E12D76 /* ScheduledEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduledEvent.h; sourceTree = "<group>"; };
 		1457FAC413EB674000E12D76 /* EventSchedulerTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EventSchedulerTest.mm; sourceTree = "<group>"; };
-		1461BD95134BDADB002C0A79 /* actions.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = actions.lua; sourceTree = "<group>"; };
 		146C420A135181A500EA0342 /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
 		146C420B135181A500EA0342 /* Action.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Action.mm; sourceTree = "<group>"; };
 		146C420C135181A500EA0342 /* FadeInAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FadeInAction.h; sourceTree = "<group>"; };
@@ -505,6 +491,20 @@
 		14E31486121E47FE00917795 /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
 		14E314CF121E49B900917795 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		14F64F2A13101678006DBA13 /* Lua.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Lua.xcodeproj; path = Libraries/Lua/Lua.xcodeproj; sourceTree = "<group>"; };
+		14F8853614507DCA005DCC66 /* actions.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = actions.lua; sourceTree = "<group>"; };
+		14F8853714507DCA005DCC66 /* base_functions.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = base_functions.lua; sourceTree = "<group>"; };
+		14F8853814507DCA005DCC66 /* ComponentBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ComponentBuilder.lua; sourceTree = "<group>"; };
+		14F8853914507DCA005DCC66 /* config_functions.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config_functions.lua; sourceTree = "<group>"; };
+		14F8853A14507DCA005DCC66 /* EntityBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EntityBuilder.lua; sourceTree = "<group>"; };
+		14F8853B14507DCA005DCC66 /* EntityMap.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EntityMap.lua; sourceTree = "<group>"; };
+		14F8853C14507DCA005DCC66 /* Pickle.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Pickle.lua; sourceTree = "<group>"; };
+		14F8853D14507DCA005DCC66 /* PrimitiveBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PrimitiveBuilder.lua; sourceTree = "<group>"; };
+		14F8853E14507DCA005DCC66 /* SceneBuilder.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SceneBuilder.lua; sourceTree = "<group>"; };
+		14F8853F14507DCA005DCC66 /* tableprint.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tableprint.lua; sourceTree = "<group>"; };
+		14F8854114507DCA005DCC66 /* gecFSM_interface.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gecFSM_interface.lua; sourceTree = "<group>"; };
+		14F8854314507DCA005DCC66 /* config.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.lua; sourceTree = "<group>"; };
+		14F8854514507DCA005DCC66 /* event_manager.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = event_manager.lua; sourceTree = "<group>"; };
+		14F8854614507DCA005DCC66 /* init.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = init.lua; sourceTree = "<group>"; };
 		14FB89E3121E4AC400E1B242 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		14FB89E7121E4ACC00E1B242 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		14FB89EB121E4AD400E1B242 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -558,62 +558,8 @@
 		142F2555133D8BE700E80E17 /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
-				142F2556133D8BE700E80E17 /* Engine */,
 			);
 			path = Scripts;
-			sourceTree = "<group>";
-		};
-		142F2556133D8BE700E80E17 /* Engine */ = {
-			isa = PBXGroup;
-			children = (
-				142F2557133D8BE700E80E17 /* base */,
-				142F2561133D8BE700E80E17 /* components */,
-				142F2563133D8BE700E80E17 /* configuration */,
-				142F2565133D8BE700E80E17 /* events */,
-				142F2567133D8BE700E80E17 /* init.lua */,
-			);
-			path = Engine;
-			sourceTree = "<group>";
-		};
-		142F2557133D8BE700E80E17 /* base */ = {
-			isa = PBXGroup;
-			children = (
-				1461BD95134BDADB002C0A79 /* actions.lua */,
-				142F2558133D8BE700E80E17 /* base_functions.lua */,
-				142F2559133D8BE700E80E17 /* ComponentBuilder.lua */,
-				142F255A133D8BE700E80E17 /* config_functions.lua */,
-				142F255B133D8BE700E80E17 /* EntityBuilder.lua */,
-				142F255C133D8BE700E80E17 /* EntityMap.lua */,
-				142F255D133D8BE700E80E17 /* Pickle.lua */,
-				142F255E133D8BE700E80E17 /* PrimitiveBuilder.lua */,
-				142F255F133D8BE700E80E17 /* SceneBuilder.lua */,
-				142F2560133D8BE700E80E17 /* tableprint.lua */,
-			);
-			path = base;
-			sourceTree = "<group>";
-		};
-		142F2561133D8BE700E80E17 /* components */ = {
-			isa = PBXGroup;
-			children = (
-				142F2562133D8BE700E80E17 /* gecFSM_interface.lua */,
-			);
-			path = components;
-			sourceTree = "<group>";
-		};
-		142F2563133D8BE700E80E17 /* configuration */ = {
-			isa = PBXGroup;
-			children = (
-				142F2564133D8BE700E80E17 /* config.lua */,
-			);
-			path = configuration;
-			sourceTree = "<group>";
-		};
-		142F2565133D8BE700E80E17 /* events */ = {
-			isa = PBXGroup;
-			children = (
-				142F2566133D8BE700E80E17 /* event_manager.lua */,
-			);
-			path = events;
 			sourceTree = "<group>";
 		};
 		1430C81C131F050700AFA083 /* Interfaces */ = {
@@ -1147,6 +1093,7 @@
 		14E3146A121E47FE00917795 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				14F8853414507DCA005DCC66 /* Engine */,
 				14DF615213C0FE4100CAEF7B /* Fonts */,
 				142F2555133D8BE700E80E17 /* Scripts */,
 				144FF9AE133D8A9C0090800C /* Graphics */,
@@ -1188,6 +1135,59 @@
 				14F64F2F13101678006DBA13 /* libLua.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		14F8853414507DCA005DCC66 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				14F8853514507DCA005DCC66 /* base */,
+				14F8854014507DCA005DCC66 /* components */,
+				14F8854214507DCA005DCC66 /* configuration */,
+				14F8854414507DCA005DCC66 /* events */,
+				14F8854614507DCA005DCC66 /* init.lua */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		14F8853514507DCA005DCC66 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				14F8853614507DCA005DCC66 /* actions.lua */,
+				14F8853714507DCA005DCC66 /* base_functions.lua */,
+				14F8853814507DCA005DCC66 /* ComponentBuilder.lua */,
+				14F8853914507DCA005DCC66 /* config_functions.lua */,
+				14F8853A14507DCA005DCC66 /* EntityBuilder.lua */,
+				14F8853B14507DCA005DCC66 /* EntityMap.lua */,
+				14F8853C14507DCA005DCC66 /* Pickle.lua */,
+				14F8853D14507DCA005DCC66 /* PrimitiveBuilder.lua */,
+				14F8853E14507DCA005DCC66 /* SceneBuilder.lua */,
+				14F8853F14507DCA005DCC66 /* tableprint.lua */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		14F8854014507DCA005DCC66 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				14F8854114507DCA005DCC66 /* gecFSM_interface.lua */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		14F8854214507DCA005DCC66 /* configuration */ = {
+			isa = PBXGroup;
+			children = (
+				14F8854314507DCA005DCC66 /* config.lua */,
+			);
+			path = configuration;
+			sourceTree = "<group>";
+		};
+		14F8854414507DCA005DCC66 /* events */ = {
+			isa = PBXGroup;
+			children = (
+				14F8854514507DCA005DCC66 /* event_manager.lua */,
+			);
+			path = events;
 			sourceTree = "<group>";
 		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
@@ -1359,24 +1359,24 @@
 				14A37180134E04E3007E9551 /* smoke.png in Resources */,
 				14A37181134E04E3007E9551 /* smoke.pvr in Resources */,
 				14A37182134E04E3007E9551 /* sprite_test.png in Resources */,
-				14A37183134E04E3007E9551 /* base_functions.lua in Resources */,
-				14A37184134E04E3007E9551 /* ComponentBuilder.lua in Resources */,
-				14A37185134E04E3007E9551 /* config_functions.lua in Resources */,
-				14A37186134E04E3007E9551 /* EntityBuilder.lua in Resources */,
-				14A37187134E04E3007E9551 /* EntityMap.lua in Resources */,
-				14A37188134E04E3007E9551 /* Pickle.lua in Resources */,
-				14A37189134E04E3007E9551 /* PrimitiveBuilder.lua in Resources */,
-				14A3718A134E04E3007E9551 /* SceneBuilder.lua in Resources */,
-				14A3718B134E04E3007E9551 /* tableprint.lua in Resources */,
-				14A3718C134E04E3007E9551 /* gecFSM_interface.lua in Resources */,
-				14A3718D134E04E3007E9551 /* config.lua in Resources */,
-				14A3718E134E04E3007E9551 /* event_manager.lua in Resources */,
-				14A3718F134E04E3007E9551 /* init.lua in Resources */,
-				14A3719E134E04E3007E9551 /* actions.lua in Resources */,
 				14DF615613C0FE4100CAEF7B /* test1.fnt in Resources */,
 				14DF615813C0FE4100CAEF7B /* test1.png in Resources */,
 				14D77AE713DE70290038DD11 /* grid_32.png in Resources */,
 				143795E4144B78D700352070 /* Game in Resources */,
+				14F8854814507DCA005DCC66 /* actions.lua in Resources */,
+				14F8854A14507DCA005DCC66 /* base_functions.lua in Resources */,
+				14F8854C14507DCA005DCC66 /* ComponentBuilder.lua in Resources */,
+				14F8854E14507DCA005DCC66 /* config_functions.lua in Resources */,
+				14F8855014507DCA005DCC66 /* EntityBuilder.lua in Resources */,
+				14F8855214507DCA005DCC66 /* EntityMap.lua in Resources */,
+				14F8855414507DCA005DCC66 /* Pickle.lua in Resources */,
+				14F8855614507DCA005DCC66 /* PrimitiveBuilder.lua in Resources */,
+				14F8855814507DCA005DCC66 /* SceneBuilder.lua in Resources */,
+				14F8855A14507DCA005DCC66 /* tableprint.lua in Resources */,
+				14F8855C14507DCA005DCC66 /* gecFSM_interface.lua in Resources */,
+				14F8855E14507DCA005DCC66 /* config.lua in Resources */,
+				14F8856014507DCA005DCC66 /* event_manager.lua in Resources */,
+				14F8856214507DCA005DCC66 /* init.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1403,24 +1403,24 @@
 				144FF9F0133D8A9C0090800C /* smoke.png in Resources */,
 				144FF9F1133D8A9C0090800C /* smoke.pvr in Resources */,
 				144FF9F2133D8A9C0090800C /* sprite_test.png in Resources */,
-				142F257C133D8BE700E80E17 /* base_functions.lua in Resources */,
-				142F257D133D8BE700E80E17 /* ComponentBuilder.lua in Resources */,
-				142F257E133D8BE700E80E17 /* config_functions.lua in Resources */,
-				142F257F133D8BE700E80E17 /* EntityBuilder.lua in Resources */,
-				142F2580133D8BE700E80E17 /* EntityMap.lua in Resources */,
-				142F2581133D8BE700E80E17 /* Pickle.lua in Resources */,
-				142F2582133D8BE700E80E17 /* PrimitiveBuilder.lua in Resources */,
-				142F2583133D8BE700E80E17 /* SceneBuilder.lua in Resources */,
-				142F2584133D8BE700E80E17 /* tableprint.lua in Resources */,
-				142F2585133D8BE700E80E17 /* gecFSM_interface.lua in Resources */,
-				142F2586133D8BE700E80E17 /* config.lua in Resources */,
-				142F2587133D8BE700E80E17 /* event_manager.lua in Resources */,
-				142F2588133D8BE700E80E17 /* init.lua in Resources */,
-				1461BD96134BDADB002C0A79 /* actions.lua in Resources */,
 				14DF615513C0FE4100CAEF7B /* test1.fnt in Resources */,
 				14DF615713C0FE4100CAEF7B /* test1.png in Resources */,
 				14D77AE613DE70290038DD11 /* grid_32.png in Resources */,
 				143795E3144B78D700352070 /* Game in Resources */,
+				14F8854714507DCA005DCC66 /* actions.lua in Resources */,
+				14F8854914507DCA005DCC66 /* base_functions.lua in Resources */,
+				14F8854B14507DCA005DCC66 /* ComponentBuilder.lua in Resources */,
+				14F8854D14507DCA005DCC66 /* config_functions.lua in Resources */,
+				14F8854F14507DCA005DCC66 /* EntityBuilder.lua in Resources */,
+				14F8855114507DCA005DCC66 /* EntityMap.lua in Resources */,
+				14F8855314507DCA005DCC66 /* Pickle.lua in Resources */,
+				14F8855514507DCA005DCC66 /* PrimitiveBuilder.lua in Resources */,
+				14F8855714507DCA005DCC66 /* SceneBuilder.lua in Resources */,
+				14F8855914507DCA005DCC66 /* tableprint.lua in Resources */,
+				14F8855B14507DCA005DCC66 /* gecFSM_interface.lua in Resources */,
+				14F8855D14507DCA005DCC66 /* config.lua in Resources */,
+				14F8855F14507DCA005DCC66 /* event_manager.lua in Resources */,
+				14F8856114507DCA005DCC66 /* init.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

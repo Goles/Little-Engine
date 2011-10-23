@@ -1,4 +1,4 @@
-hitter1_path = "game/entities/hitter_1.lua"
+hitter1_path = "game/test_entities/hitter_1.lua"
 
 Entities = 
 {
