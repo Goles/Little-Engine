@@ -31,6 +31,8 @@
 
 namespace luabind { namespace detail
 {
+    // Added to avoid compiler warning by _NG Oct 24 2011
+	LUABIND_API void do_call_member_selection(lua_State* L, char const* name);
 	LUABIND_API void do_call_member_selection(lua_State* L, char const* name)
 	{
 		object_rep* obj = static_cast<object_rep*>(lua_touserdata(L, -1));

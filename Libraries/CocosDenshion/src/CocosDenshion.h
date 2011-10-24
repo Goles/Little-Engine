@@ -135,6 +135,10 @@ typedef struct _sourceInfo {
 	ALuint attachedBufferId;
 } sourceInfo;	
 
+#pragma mark Prototpyes Added by Nicolas Goles Oct 24 2011 to avoid warning
+ALvoid  alBufferDataStaticProc(const ALint bid, ALenum format, ALvoid* data, ALsizei size, ALsizei freq);
+ALvoid  alcMacOSXMixerOutputRateProc(const ALdouble value);
+
 #pragma mark CDAudioTransportProtocol
 
 @protocol CDAudioTransportProtocol <NSObject>

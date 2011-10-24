@@ -33,6 +33,8 @@ namespace luabind { namespace detail {
 
     LUABIND_API void push_instance_metatable(lua_State* L);
 
+        // To eliminate missing prototype warning _NG October 24 2011
+        int create_cpp_class_metatable(lua_State* L);
         int create_cpp_class_metatable(lua_State* L)
         {
             lua_newtable(L);
@@ -69,6 +71,8 @@ namespace luabind { namespace detail {
             return luaL_ref(L, LUA_REGISTRYINDEX);
         }
 
+        // To eliminate missing prototype warning _NG October 24 2011
+        int create_lua_class_metatable(lua_State* L);
         int create_lua_class_metatable(lua_State* L)
         {
             lua_newtable(L);

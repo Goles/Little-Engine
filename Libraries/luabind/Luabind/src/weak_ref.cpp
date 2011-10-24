@@ -39,6 +39,8 @@ namespace
 
 } // namespace unnamed
 
+// Added to remove compiler Warning _NG Oct 24, 2011
+LUABIND_API void get_weak_table(lua_State* L);
 LUABIND_API void get_weak_table(lua_State* L)
 {
     lua_pushlightuserdata(L, &weak_table_tag);

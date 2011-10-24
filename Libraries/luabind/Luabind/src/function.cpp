@@ -45,6 +45,8 @@ namespace
 
 } // namespace unnamed
 
+// Added to remove compiler Warning _NG Oct 24, 2011
+LUABIND_API bool is_luabind_function(lua_State* L, int index);
 LUABIND_API bool is_luabind_function(lua_State* L, int index)
 {
     if (!lua_getupvalue(L, index, 2))

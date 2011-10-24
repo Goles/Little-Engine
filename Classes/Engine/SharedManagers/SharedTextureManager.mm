@@ -77,12 +77,6 @@ void SharedTextureManager::rebindPreviousTexture()
         glBindTexture(GL_TEXTURE_2D, boundTexture_id);
 }
 
-#pragma mark getters_setters
-void setBoundTexture(GLuint glTextureName)
-{
-	
-}
-
 #pragma mark DEBUG
 void SharedTextureManager::printTextureMap()
 {

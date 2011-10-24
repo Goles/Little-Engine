@@ -289,6 +289,7 @@ namespace luabind { namespace detail {
         m_registration->m_casts.push_back(cast_entry(src, target, cast));
     }
 
+	void add_custom_name(type_id const& i, std::string& s); // To eliminate missing prototype warning _NG October 24 2011
 	void add_custom_name(type_id const& i, std::string& s)
 	{
 		s += " [";

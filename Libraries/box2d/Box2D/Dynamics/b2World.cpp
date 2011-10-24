@@ -926,7 +926,12 @@ void b2World::DrawShape(b2Fixture* fixture, const b2Transform& xf, const b2Color
 			m_debugDraw->DrawSolidPolygon(vertices, vertexCount, color);
 		}
 		break;
+
+    // Added to avoid compiler warning by _NG Oct 24 2011
+    default:            
+        break;
 	}
+
 }
 
 void b2World::DrawJoint(b2Joint* joint)
