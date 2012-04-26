@@ -4,15 +4,15 @@ Emmiter =
 	{
 		gecParticleSystem =
 		{
-			duration = 30.0,
+			duration = 60.0,
 			texture = "Particle2.pvr",	
-			emissionRate = 50.0,
-			particle_size = 0.40,
+			emissionRate = 300.0,
+			particle_size = 0.2,
 --			emissionMode = 
 			emissionRateVariance = 0.0,
 			originVariance = 5.0,
-			lifeVariance = 5.0,
-			speedVariance = 5.0,
+			lifeVariance = 15.0,
+			speedVariance = 15.0,
 			decayVariance = 2.0,
 
 			defaultParticle = 
