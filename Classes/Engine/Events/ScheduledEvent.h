@@ -14,7 +14,7 @@
 namespace gg { namespace event {
 
     struct ScheduledEvent {
-        
+
         ScheduledEvent()
             : triggerTime(0.0)
             , elapsedTime(0.0)
@@ -22,7 +22,7 @@ namespace gg { namespace event {
             , isPaused(false)
             , isRepeating(false)
         {}
-        
+
         std::string type;
         double triggerTime;
         double elapsedTime;
@@ -30,8 +30,8 @@ namespace gg { namespace event {
         bool isPaused;
         bool isRepeating;
     };
-    
-    
+
+
     static inline ScheduledEvent *createScheduledEvent(const std::string &eventType, double triggerTime, bool isRepeating = false) 
     {
         ScheduledEvent *event = new ScheduledEvent();
@@ -40,6 +40,6 @@ namespace gg { namespace event {
         event->type = eventType;
         return event;
     }
-    
+
 }} //END: gg::event
 #endif
