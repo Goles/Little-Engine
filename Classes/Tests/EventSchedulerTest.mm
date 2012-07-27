@@ -15,7 +15,7 @@
 
 struct EventBroadcasterMock : public gg::event::IEventBroadcaster 
 {
-    virtual inline void broadcast(const char *eventType, const luabind::object &payload)
+    virtual inline void broadcast(const char *eventType, const char *payloadTableName)
     {
         // Do stuff
     }
@@ -25,10 +25,10 @@ struct EventBroadcasterMock : public gg::event::IEventBroadcaster
         // Do more stuff
     }
     
-    virtual inline void notifyTargetEntity(const char *eventType, const luabind::object &payload, int entityID)
-    {
-        // Do event more stuff
-    }
+//    virtual inline void notifyTargetEntity(const char *eventType, const luabind::object &payload, int entityID)
+//    {
+//        // Do event more stuff
+//    }
 };
 
 struct EventSchedulerFixture 

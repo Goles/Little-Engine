@@ -37,11 +37,12 @@ void gecJoystick::update(float delta)
 {	
 	if(latestVelocity.x != 0.0 || latestVelocity.y != 0.0f)
 	{			
-		luabind::object payload = luabind::newtable(LR_MANAGER_STATE);
-		payload["latest_speed"] = latestVelocity;
-		payload["delta"] = delta;
-		payload["dx_negative"] = dx_negative;
-        m_broadcaster->broadcast("E_DRAG_GAMEPAD", payload);
+        //TODO: Fix This
+//		luabind::object payload = luabind::newtable(LR_MANAGER_STATE);
+//		payload["latest_speed"] = latestVelocity;
+//		payload["delta"] = delta;
+//		payload["dx_negative"] = dx_negative;
+//        m_broadcaster->broadcast("E_DRAG_GAMEPAD", payload);
 	}
 }
 
@@ -145,9 +146,9 @@ Boolean gecJoystick::handle_touch(float x, float y, int touchIndex, int touchID,
 				//De-activate Joystick
 				active = false;
 				gAni->setCurrentAnimation("normal");
-
-				luabind::object payload = luabind::newtable(LR_MANAGER_STATE);
-				m_broadcaster->broadcast("E_STOP_GAMEPAD", payload);
+//TODO: Fix this
+//				luabind::object payload = luabind::newtable(LR_MANAGER_STATE);
+//				m_broadcaster->broadcast("E_STOP_GAMEPAD", payload);
 				
 				//Return to center.
 				this->getOwnerGE()->setPositionX(center.x);
@@ -186,8 +187,9 @@ Boolean gecJoystick::handle_touch(float x, float y, int touchIndex, int touchID,
 				active = false;
 				gAni->setCurrentAnimation("normal");
 
-				luabind::object payload = luabind::newtable(LR_MANAGER_STATE);	
-				m_broadcaster->broadcast("E_STOP_GAMEPAD", payload);				
+                //TODO: Fix this
+//				luabind::object payload = luabind::newtable(LR_MANAGER_STATE);
+//				m_broadcaster->broadcast("E_STOP_GAMEPAD", payload);				
 				
 				//Return to the center
 				this->updateVelocity(x, y);

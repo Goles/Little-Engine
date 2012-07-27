@@ -96,14 +96,16 @@ void gecButton::setParentSharedShape(CGRect aRect)
 
 void gecButton::broadcastButtonPress()
 {
-	luabind::object payload = luabind::newtable(LR_MANAGER_STATE);
-	payload["label"] = this->getOwnerGE()->getLabel();
-    m_broadcaster->broadcast("E_BUTTON_PRESS", payload);
+    //TODO: Fix this
+//	luabind::object payload = luabind::newtable(LR_MANAGER_STATE);
+//	payload["label"] = this->getOwnerGE()->getLabel();
+//    m_broadcaster->broadcast("E_BUTTON_PRESS", payload);
 }
 
 void gecButton::broadcastButtonRelease()
 {
-	luabind::object payload = luabind::newtable(LR_MANAGER_STATE);
-	payload["label"] = this->getOwnerGE()->getLabel();
-    m_broadcaster->broadcast("E_BUTTON_RELEASE", payload);
+    //TODO: Fix this
+//	luabind::object payload = luabind::newtable(LR_MANAGER_STATE);
+//	payload["label"] = this->getOwnerGE()->getLabel();
+//    m_broadcaster->broadcast("E_BUTTON_RELEASE", payload);
 }

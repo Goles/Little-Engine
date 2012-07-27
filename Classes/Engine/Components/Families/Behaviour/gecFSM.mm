@@ -23,5 +23,6 @@ void gecFSM::update(float delta)
 
 void gecFSM::performAction(const std::string &action)
 {
-	luabind::call_function<void>(LR_MANAGER_STATE, "targetPerformAction", action.c_str(), this->getOwnerGE()->getId());
+    //TODO: Fix this
+//	luabind::call_function<void>(LR_MANAGER_STATE, "targetPerformAction", action.c_str(), this->getOwnerGE()->getId());
 }

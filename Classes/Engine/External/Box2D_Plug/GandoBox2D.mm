@@ -174,8 +174,8 @@ void GandoBox2D::update(const double delta)
 
 void GandoBox2D::notifyCollisionEntity(const GameEntity * const targetEntity)
 {
-	//TODO:Add payload data of the collisioned entity.
-    m_broadcaster->notifyTargetEntity("E_COLLISION", luabind::newtable(LR_MANAGER_STATE), targetEntity->getId());
+	//TODO: Add payload data of the collisioned entity.
+//    m_broadcaster->notifyTargetEntity("E_COLLISION", luabind::newtable(LR_MANAGER_STATE), targetEntity->getId());
 }
 
 #pragma mark -

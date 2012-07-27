@@ -72,9 +72,10 @@ void EventScheduler::resetScheduledEvent(unsigned eventHandle)
 
 void EventScheduler::broadcastEvent(gg::event::ScheduledEvent *scheduledEvent)
 {
+    //TODO: Fix This
     //For now Event Scheduler doesn't support payload.
-    luabind::object eventPayload = luabind::newtable(LR_MANAGER_STATE);
-    m_broadcaster->broadcast(scheduledEvent->type.c_str(), eventPayload);
+//    luabind::object eventPayload = luabind::newtable(LR_MANAGER_STATE);
+//    m_broadcaster->broadcast(scheduledEvent->type.c_str(), eventPayload);
 }
 
 }} //end gg::event

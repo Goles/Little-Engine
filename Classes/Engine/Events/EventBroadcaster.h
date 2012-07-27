@@ -16,6 +16,7 @@
 #define __EVENT_BROADCASTER_H__
 
 #import "LuaManager.h"
+#import "nanoluadict.h"
 
 namespace gg {
     namespace event {
@@ -24,36 +25,38 @@ namespace gg {
         // <const char *key, const char *value> or simmilar? (with ... multi parameters)
         struct IEventBroadcaster {
             public:
-                virtual inline void broadcast(const char *eventType, const luabind::object &payload) = 0;
+
+                virtual inline void broadcast(const char *eventType, const char *payloadTableName) = 0;
                 virtual inline void broadcastTouch(float x, float y, int touchIndex, int touchID, int touchType) = 0;
-                virtual inline void notifyTargetEntity(const char *eventType, const luabind::object &payload, int entityID) = 0;
+                // virtual inline void notifyTargetEntity(const char *eventType, const luabind::object &payload, int entityID) = 0;
         };
 
         struct LuabindBroadcaster : public IEventBroadcaster
         {
-            virtual inline void broadcast(const char *eventType, const luabind::object &payload)
+            virtual inline void broadcast(const char *eventType, const char *payloadTableName)
             {
                 lua_getglobal(LR_MANAGER_STATE, "broadcast");
-                if (!lua_isfunction(LR_MANAGER_STATE, -1)) {
-                    lua_pop(L, 1);
-                    return; 
-                }
-                luabind::call_function<void>(LR_MANAGER_STATE, "broadcast", eventType, payload);
+                assert(lua_isfunction(LR_MANAGER_STATE, -1));
+
+                lua_pushstring(LR_MANAGER_STATE, eventType);
+                lua_getglobal(LR_MANAGER_STATE, payloadTableName);
+                assert(lua_istable(LR_MANAGER_STATE, -1));
+
+                lua_pcall(LR_MANAGER_STATE, 2, 0, 0); 
             }
 
             virtual inline void broadcastTouch(float x, float y, int touchIndex, int touchID, int touchType)
             {
-                luabind::call_function<void>(LR_MANAGER_STATE, "broadcast_touch", x, y, touchIndex, touchID, touchType);
+                //luabind::call_function<void>(LR_MANAGER_STATE, "broadcast_touch", x, y, touchIndex, touchID, touchType);
             }
 
-            virtual inline void notifyTargetEntity(const char *eventType, const luabind::object &payload, int entityID)
-            {
-                luabind::call_function<void>(LR_MANAGER_STATE, "notify_target_entity", eventType, payload, entityID);
-            }
+            // virtual inline void notifyTargetEntity(const char *eventType, const luabind::object &payload, int entityID)
+            // {
+                // luabind::call_function<void>(LR_MANAGER_STATE, "notify_target_entity", eventType, payload, entityID);
+            // }
         };
 
         //Pseudo-Abstract Factory function for a "singleton" (not really singleton) Luabind Broadcaster.
-
         static IEventBroadcaster *LUABIND_BROADCASTER = NULL;
 
         static inline IEventBroadcaster* luabindBroadcaster()

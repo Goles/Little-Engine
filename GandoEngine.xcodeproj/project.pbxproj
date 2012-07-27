@@ -488,6 +488,7 @@
 		14FDD3C31347B03600C0CB60 /* ActionManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ActionManager.mm; sourceTree = "<group>"; };
 		14FDD3C41347B03700C0CB60 /* ActionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionManager.h; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* GandoEngine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GandoEngine.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8F67E6015BF3348005BA104 /* nanoluadict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nanoluadict.h; path = Libraries/nanoluadict/nanoluadict.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -581,6 +582,7 @@
 		144BAA0F13100C5A005AD895 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				C8F67E5F15BF333B005BA104 /* NanoLuaDict */,
 				14A370D3134E0253007E9551 /* UnitTest++.xcodeproj */,
 				14AC9038133083E700BB0A26 /* CocosDenshion */,
 				14DEBD921310777C0094F680 /* box2d.xcodeproj */,
@@ -1177,6 +1179,14 @@
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
 			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		C8F67E5F15BF333B005BA104 /* NanoLuaDict */ = {
+			isa = PBXGroup;
+			children = (
+				C8F67E6015BF3348005BA104 /* nanoluadict.h */,
+			);
+			name = NanoLuaDict;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
