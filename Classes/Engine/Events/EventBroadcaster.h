@@ -35,14 +35,14 @@ namespace gg {
         {
             virtual inline void broadcast(const char *eventType, const char *payloadTableName)
             {
-                lua_getglobal(LR_MANAGER_STATE, "broadcast");
-                assert(lua_isfunction(LR_MANAGER_STATE, -1));
-
-                lua_pushstring(LR_MANAGER_STATE, eventType);
-                lua_getglobal(LR_MANAGER_STATE, payloadTableName);
-                assert(lua_istable(LR_MANAGER_STATE, -1));
-
-                lua_pcall(LR_MANAGER_STATE, 2, 0, 0); 
+//                lua_getglobal(LR_MANAGER_STATE, "broadcast");
+//                assert(lua_isfunction(LR_MANAGER_STATE, -1));
+//
+//                lua_pushstring(LR_MANAGER_STATE, eventType);
+//                lua_getglobal(LR_MANAGER_STATE, payloadTableName);
+//                assert(lua_istable(LR_MANAGER_STATE, -1));
+//
+//                lua_pcall(LR_MANAGER_STATE, 2, 0, 0); 
             }
 
             virtual inline void broadcastTouch(float x, float y, int touchIndex, int touchID, int touchType)

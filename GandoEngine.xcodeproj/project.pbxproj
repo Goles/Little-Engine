@@ -232,6 +232,8 @@
 		14FB89FA121E4C3300E1B242 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 14E31485121E47FE00917795 /* Shader.fsh */; };
 		14FB89FB121E4C3300E1B242 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 14E31486121E47FE00917795 /* Shader.vsh */; };
 		14FDD3C51347B03700C0CB60 /* ActionManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14FDD3C31347B03600C0CB60 /* ActionManager.mm */; };
+		C80099F715E98670005B3E79 /* nanoluadict.c in Sources */ = {isa = PBXBuildFile; fileRef = C80099F515E98670005B3E79 /* nanoluadict.c */; };
+		C80099F815E98670005B3E79 /* nanoluadict.c in Sources */ = {isa = PBXBuildFile; fileRef = C80099F515E98670005B3E79 /* nanoluadict.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -488,7 +490,8 @@
 		14FDD3C31347B03600C0CB60 /* ActionManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ActionManager.mm; sourceTree = "<group>"; };
 		14FDD3C41347B03700C0CB60 /* ActionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionManager.h; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* GandoEngine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GandoEngine.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C8F67E6015BF3348005BA104 /* nanoluadict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nanoluadict.h; path = Libraries/nanoluadict/nanoluadict.h; sourceTree = "<group>"; };
+		C80099F515E98670005B3E79 /* nanoluadict.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = nanoluadict.c; path = Libraries/nanoluadict/nanoluadict.c; sourceTree = "<group>"; };
+		C80099F615E98670005B3E79 /* nanoluadict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nanoluadict.h; path = Libraries/nanoluadict/nanoluadict.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1184,7 +1187,8 @@
 		C8F67E5F15BF333B005BA104 /* NanoLuaDict */ = {
 			isa = PBXGroup;
 			children = (
-				C8F67E6015BF3348005BA104 /* nanoluadict.h */,
+				C80099F515E98670005B3E79 /* nanoluadict.c */,
+				C80099F615E98670005B3E79 /* nanoluadict.h */,
 			);
 			name = NanoLuaDict;
 			sourceTree = "<group>";
@@ -1491,6 +1495,7 @@
 				147DE77013F06F4D005FE70D /* gecTinyEventScheduler.mm in Sources */,
 				147C9B2A13F13575001E5128 /* CompEventScheduler.mm in Sources */,
 				14A3C17A13F2AD530005A821 /* EventScheduler.mm in Sources */,
+				C80099F815E98670005B3E79 /* nanoluadict.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1561,6 +1566,7 @@
 				147DE76F13F06F4D005FE70D /* gecTinyEventScheduler.mm in Sources */,
 				147C9B2913F13575001E5128 /* CompEventScheduler.mm in Sources */,
 				14A3C17913F2AD530005A821 /* EventScheduler.mm in Sources */,
+				C80099F715E98670005B3E79 /* nanoluadict.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

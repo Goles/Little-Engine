@@ -62,18 +62,18 @@ LuaManager::LuaManager()
     
 	L = lua_open();
 	luaL_openlibs(L);
-	luabind::open(L);
-	
-	//Register with luabind.
-	luabind::module(L) 
-	[
-	 luabind::class_<LuaManager>("LuaManager")
-	 .def("execScript", &LuaManager::execScript)
-	 .scope
-	 [
-	  luabind::def("getInstance", &LuaManager::getInstance) //returns static singleton instance
-      ]
-	 ];
+//	luabind::open(L);
+//	
+//	//Register with luabind.
+//	luabind::module(L) 
+//	[
+//	 luabind::class_<LuaManager>("LuaManager")
+//	 .def("execScript", &LuaManager::execScript)
+//	 .scope
+//	 [
+//	  luabind::def("getInstance", &LuaManager::getInstance) //returns static singleton instance
+//      ]
+//	 ];
 }
 
 LuaManager::~LuaManager()
