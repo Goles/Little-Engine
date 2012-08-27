@@ -122,8 +122,6 @@
 		14A371CE134E04E3007E9551 /* SimpleAudioEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9044133083E700BB0A26 /* SimpleAudioEngine.mm */; };
 		14A371CF134E04E3007E9551 /* SimpleAudioEngine_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AC9046133083E700BB0A26 /* SimpleAudioEngine_objc.m */; };
 		14A371D4134E04E3007E9551 /* ActionManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14FDD3C31347B03600C0CB60 /* ActionManager.mm */; };
-		14A371D7134E04E3007E9551 /* libbox2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DEBD9A1310777C0094F680 /* libbox2d.a */; };
-		14A371D9134E04E3007E9551 /* libLua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F64F2F13101678006DBA13 /* libLua.a */; };
 		14A371DB134E04E3007E9551 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14ADA21C132E4F9800D3571D /* AudioToolbox.framework */; };
 		14A371DC134E04E3007E9551 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AC7E13132E4DAB00D5ACA7 /* AVFoundation.framework */; };
 		14A371DD134E04E3007E9551 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AC7E11132E4DA300D5ACA7 /* OpenAL.framework */; };
@@ -152,10 +150,8 @@
 		14BB7CA513C1694A002A8663 /* FontManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14BB7CA313C1694A002A8663 /* FontManager.mm */; };
 		14CA84DE13D22DFB00527ACF /* ActionTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14CA84DD13D22DFB00527ACF /* ActionTest.mm */; };
 		14CA84DF13D22DFB00527ACF /* ActionTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14CA84DD13D22DFB00527ACF /* ActionTest.mm */; };
-		14CA84E513D2311200527ACF /* libUnitTest++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A370DB134E0253007E9551 /* libUnitTest++.a */; };
 		14D77AE613DE70290038DD11 /* grid_32.png in Resources */ = {isa = PBXBuildFile; fileRef = 14D77AE513DE70290038DD11 /* grid_32.png */; };
 		14D77AE713DE70290038DD11 /* grid_32.png in Resources */ = {isa = PBXBuildFile; fileRef = 14D77AE513DE70290038DD11 /* grid_32.png */; };
-		14DEBDC7131077B90094F680 /* libbox2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DEBD9A1310777C0094F680 /* libbox2d.a */; };
 		14DEC0301310835C0094F680 /* CompBehaviour.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF561310835C0094F680 /* CompBehaviour.mm */; };
 		14DEC0311310835C0094F680 /* gecFSM.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF581310835C0094F680 /* gecFSM.mm */; };
 		14DEC0321310835C0094F680 /* CompCollisionable.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DEBF5B1310835C0094F680 /* CompCollisionable.mm */; };
@@ -196,7 +192,6 @@
 		14E31465121E47E200917795 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31415121E47E200917795 /* main.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		14E31466121E47E200917795 /* Particles_2AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14E31417121E47E200917795 /* Particles_2AppDelegate.mm */; };
 		14E314D0121E49B900917795 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E314CF121E49B900917795 /* CoreGraphics.framework */; };
-		14F64F3013101681006DBA13 /* libLua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F64F2F13101678006DBA13 /* libLua.a */; };
 		14F8854714507DCA005DCC66 /* actions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8853614507DCA005DCC66 /* actions.lua */; };
 		14F8854814507DCA005DCC66 /* actions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8853614507DCA005DCC66 /* actions.lua */; };
 		14F8854914507DCA005DCC66 /* base_functions.lua in Resources */ = {isa = PBXBuildFile; fileRef = 14F8853714507DCA005DCC66 /* base_functions.lua */; };
@@ -234,6 +229,11 @@
 		14FDD3C51347B03700C0CB60 /* ActionManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14FDD3C31347B03600C0CB60 /* ActionManager.mm */; };
 		C80099F715E98670005B3E79 /* nanoluadict.c in Sources */ = {isa = PBXBuildFile; fileRef = C80099F515E98670005B3E79 /* nanoluadict.c */; };
 		C80099F815E98670005B3E79 /* nanoluadict.c in Sources */ = {isa = PBXBuildFile; fileRef = C80099F515E98670005B3E79 /* nanoluadict.c */; };
+		C8009A0115EA91F6005B3E79 /* EventBroadcaster.mm in Sources */ = {isa = PBXBuildFile; fileRef = C8009A0015EA91F6005B3E79 /* EventBroadcaster.mm */; };
+		C8009A0215EA91F6005B3E79 /* EventBroadcaster.mm in Sources */ = {isa = PBXBuildFile; fileRef = C8009A0015EA91F6005B3E79 /* EventBroadcaster.mm */; };
+		C8435EFF15EBC02500E199BC /* libbox2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DEBD9A1310777C0094F680 /* libbox2d.a */; };
+		C8435F0015EBC03200E199BC /* libLua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F64F2F13101678006DBA13 /* libLua.a */; };
+		C8435F0115EBC03C00E199BC /* libUnitTest++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A370DB134E0253007E9551 /* libUnitTest++.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -284,6 +284,20 @@
 			containerPortal = 14F64F2A13101678006DBA13 /* Lua.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = Lua;
+		};
+		C80099FA15EA915D005B3E79 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14F64F2A13101678006DBA13 /* Lua.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = Lua;
+		};
+		C80099FC15EA9167005B3E79 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14F64F2A13101678006DBA13 /* Lua.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = Lua;
 		};
 /* End PBXContainerItemProxy section */
@@ -415,7 +429,7 @@
 		14DEBF8F1310835C0094F680 /* GameEntity.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameEntity.mm; sourceTree = "<group>"; };
 		14DEBF901310835C0094F680 /* id_generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = id_generator.h; sourceTree = "<group>"; };
 		14DEBF911310835C0094F680 /* id_generator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = id_generator.mm; sourceTree = "<group>"; };
-		14DEBF931310835C0094F680 /* EventBroadcaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventBroadcaster.h; sourceTree = "<group>"; };
+		14DEBF931310835C0094F680 /* IEventBroadcaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEventBroadcaster.h; sourceTree = "<group>"; };
 		14DEBFE51310835C0094F680 /* GandoBox2DDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GandoBox2DDebug.h; sourceTree = "<group>"; };
 		14DEBFE61310835C0094F680 /* GLES-Render.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "GLES-Render.cpp"; sourceTree = "<group>"; };
 		14DEBFE71310835C0094F680 /* GLES-Render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GLES-Render.h"; sourceTree = "<group>"; };
@@ -492,6 +506,8 @@
 		1D6058910D05DD3D006BFB54 /* GandoEngine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GandoEngine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C80099F515E98670005B3E79 /* nanoluadict.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = nanoluadict.c; path = Libraries/nanoluadict/nanoluadict.c; sourceTree = "<group>"; };
 		C80099F615E98670005B3E79 /* nanoluadict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nanoluadict.h; path = Libraries/nanoluadict/nanoluadict.h; sourceTree = "<group>"; };
+		C8009A0015EA91F6005B3E79 /* EventBroadcaster.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EventBroadcaster.mm; sourceTree = "<group>"; };
+		C8009A0315EA9277005B3E79 /* EventBroadcaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventBroadcaster.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -499,9 +515,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14CA84E513D2311200527ACF /* libUnitTest++.a in Frameworks */,
-				14A371D7134E04E3007E9551 /* libbox2d.a in Frameworks */,
-				14A371D9134E04E3007E9551 /* libLua.a in Frameworks */,
+				C8435F0115EBC03C00E199BC /* libUnitTest++.a in Frameworks */,
+				C8435F0015EBC03200E199BC /* libLua.a in Frameworks */,
+				C8435EFF15EBC02500E199BC /* libbox2d.a in Frameworks */,
 				14A371DB134E04E3007E9551 /* AudioToolbox.framework in Frameworks */,
 				14A371DC134E04E3007E9551 /* AVFoundation.framework in Frameworks */,
 				14A371DD134E04E3007E9551 /* OpenAL.framework in Frameworks */,
@@ -517,8 +533,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14DEBDC7131077B90094F680 /* libbox2d.a in Frameworks */,
-				14F64F3013101681006DBA13 /* libLua.a in Frameworks */,
 				14ADA21D132E4F9800D3571D /* AudioToolbox.framework in Frameworks */,
 				14AC7E14132E4DAB00D5ACA7 /* AVFoundation.framework in Frameworks */,
 				14AC7E12132E4DA300D5ACA7 /* OpenAL.framework in Frameworks */,
@@ -863,8 +877,10 @@
 			children = (
 				14A3C17713F2AD530005A821 /* EventScheduler.h */,
 				14A3C17813F2AD530005A821 /* EventScheduler.mm */,
-				14DEBF931310835C0094F680 /* EventBroadcaster.h */,
 				1457FAC313EAEBE600E12D76 /* ScheduledEvent.h */,
+				14DEBF931310835C0094F680 /* IEventBroadcaster.h */,
+				C8009A0315EA9277005B3E79 /* EventBroadcaster.h */,
+				C8009A0015EA91F6005B3E79 /* EventBroadcaster.mm */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -1208,6 +1224,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C80099FD15EA9167005B3E79 /* PBXTargetDependency */,
 				14CA84E413D2310800527ACF /* PBXTargetDependency */,
 				14A37167134E04E3007E9551 /* PBXTargetDependency */,
 			);
@@ -1228,6 +1245,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C80099FB15EA915D005B3E79 /* PBXTargetDependency */,
 				14CA84E113D22E8D00527ACF /* PBXTargetDependency */,
 				14DEBDA61310778D0094F680 /* PBXTargetDependency */,
 			);
@@ -1496,6 +1514,7 @@
 				147C9B2A13F13575001E5128 /* CompEventScheduler.mm in Sources */,
 				14A3C17A13F2AD530005A821 /* EventScheduler.mm in Sources */,
 				C80099F815E98670005B3E79 /* nanoluadict.c in Sources */,
+				C8009A0215EA91F6005B3E79 /* EventBroadcaster.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1567,6 +1586,7 @@
 				147C9B2913F13575001E5128 /* CompEventScheduler.mm in Sources */,
 				14A3C17913F2AD530005A821 /* EventScheduler.mm in Sources */,
 				C80099F715E98670005B3E79 /* nanoluadict.c in Sources */,
+				C8009A0115EA91F6005B3E79 /* EventBroadcaster.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1593,6 +1613,16 @@
 			name = box2d;
 			targetProxy = 14DEBDA51310778D0094F680 /* PBXContainerItemProxy */;
 		};
+		C80099FB15EA915D005B3E79 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Lua;
+			targetProxy = C80099FA15EA915D005B3E79 /* PBXContainerItemProxy */;
+		};
+		C80099FD15EA9167005B3E79 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Lua;
+			targetProxy = C80099FC15EA9167005B3E79 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -1616,16 +1646,18 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\"$(SRCROOT)\\\"",
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = GandoEngineDebug;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 			};
 			name = Debug;
 		};
@@ -1643,16 +1675,17 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_THUMB_SUPPORT = NO;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\"$(SRCROOT)\\\"",
-					"\\\"$(SRCROOT)/Libraries\\\"",
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = GandoEngineDebug;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 			};
 			name = Release;
 		};

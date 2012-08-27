@@ -15,6 +15,16 @@
 
 struct EventBroadcasterMock : public gg::event::IEventBroadcaster 
 {
+    
+    IEventBroadcaster *eventBroadcaster()
+    {
+        static IEventBroadcaster *instance = NULL;
+        if (instance == NULL) {
+            instance = new EventBroadcasterMock();
+        }
+        return instance;
+    }
+    
     virtual inline void broadcast(const char *eventType, const char *payloadTableName)
     {
         // Do stuff
