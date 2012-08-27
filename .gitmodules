@@ -1,3 +1,6 @@
 [submodule "Libraries/nanoluadict"]
 	path = Libraries/nanoluadict
 	url = https://github.com/Goles/Nano-Lua-Dictionary.git
+[submodule "Libraries/Luabridge"]
+	path = Libraries/Luabridge
+	url = https://github.com/vinniefalco/LuaBridge.git

@@ -508,6 +508,9 @@
 		C80099F615E98670005B3E79 /* nanoluadict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nanoluadict.h; path = Libraries/nanoluadict/nanoluadict.h; sourceTree = "<group>"; };
 		C8009A0015EA91F6005B3E79 /* EventBroadcaster.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EventBroadcaster.mm; sourceTree = "<group>"; };
 		C8009A0315EA9277005B3E79 /* EventBroadcaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventBroadcaster.h; sourceTree = "<group>"; };
+		C8435F0315EBC30100E199BC /* LuaBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LuaBridge.h; path = Libraries/Luabridge/LuaBridge.h; sourceTree = "<group>"; };
+		C8435F0415EBC30100E199BC /* RefCountedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RefCountedObject.h; path = Libraries/Luabridge/RefCountedObject.h; sourceTree = "<group>"; };
+		C8435F0515EBC30100E199BC /* RefCountedPtr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RefCountedPtr.h; path = Libraries/Luabridge/RefCountedPtr.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -599,6 +602,7 @@
 		144BAA0F13100C5A005AD895 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				C8435F0215EBC27400E199BC /* Luabridge */,
 				C8F67E5F15BF333B005BA104 /* NanoLuaDict */,
 				14A370D3134E0253007E9551 /* UnitTest++.xcodeproj */,
 				14AC9038133083E700BB0A26 /* CocosDenshion */,
@@ -1198,6 +1202,16 @@
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
 			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		C8435F0215EBC27400E199BC /* Luabridge */ = {
+			isa = PBXGroup;
+			children = (
+				C8435F0315EBC30100E199BC /* LuaBridge.h */,
+				C8435F0415EBC30100E199BC /* RefCountedObject.h */,
+				C8435F0515EBC30100E199BC /* RefCountedPtr.h */,
+			);
+			name = Luabridge;
 			sourceTree = "<group>";
 		};
 		C8F67E5F15BF333B005BA104 /* NanoLuaDict */ = {

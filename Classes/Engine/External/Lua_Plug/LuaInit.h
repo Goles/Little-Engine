@@ -19,6 +19,8 @@ extern "C" {
     #include "lauxlib.h"
 }
 
+#include "LuaBridge.h"
+
 #include "FileUtils.h"
 #include "ConstantsAndMacros.h"
 #include "OpenGLCommon.h"
