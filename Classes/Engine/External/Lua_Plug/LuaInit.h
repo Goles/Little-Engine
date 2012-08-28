@@ -96,25 +96,13 @@ namespace gg
                 .addFunction("ggr", &CGRectMake)
                 .addFunction("ggs", &CGSizeMake)
                 .addFunction("ggp", &CGPointMake)
-                .addFunction("eventBroadcaster", &gg::event::EventBroadcaster::sharedManager)
+                .addFunction("eventBroadcaster", &gg::event::EventBroadcaster::sharedManager);
 //                .addFunction("makeParticle", gg::particle::utils::makeParticle)
-            .endNamespace();
-            
-//            luabind::module(LR_MANAGER_STATE)
-//            [
-//                luabind::def("fileRelativePath", &gg::util::relativeCPathForFile),
-//				luabind::def("filePath", &gg::util::fullCPathFromRelativePath),
-//				luabind::def("ggr", &CGRectMake),
-//				luabind::def("ggs", &CGSizeMake),
-//                luabind::def("ggp", &CGPointMake),
-//				luabind::def("gluLookAt", &gluLookAt),
-//                luabind::def("makeParticle", &gg::particle::utils::makeParticle),
-//                luabind::def("eventBroadcaster", &gg::event::luabindBroadcaster)
-//			 ];
         }
-        
+       
 		static inline void bindBasicTypes(void)
-		{			
+		{
+            lua_State *L = LR_MANAGER_STATE;
 //			luabind::module(LR_MANAGER_STATE)
 //			[
 //				luabind::class_<std::vector<float> > ("float_vector")
@@ -147,6 +135,21 @@ namespace gg
 //				.def_readwrite("width", &GGSize::width)
 //				.def_readwrite("height", &GGSize::height)
 //			];
+            
+            luabridge::getGlobalNamespace (L)
+                .beginClass<GGPoint> ("GGPoint")
+                    .addData("x", &GGPoint::x)
+                    .addData("y", &GGPoint::y)
+                .endClass()
+                .beginClass<GGSize> ("GGSize")
+                    .addData("width", &GGSize::width)
+                    .addData("height", &GGSize::height)
+                .endClass()
+                .beginClass<CGRect> ("GGRect")
+                    .addData("origin", &GGRect::origin)
+                    .addData("size", &GGRect::size)
+                .endClass();
+            
 //			
 //			luabind::module(LR_MANAGER_STATE)
 //			[
@@ -455,83 +458,50 @@ namespace gg
 		
 		static inline void bindManagers(void)
 		{
-//            /* Bind Scene Manager */ 
-//            luabind::module(LR_MANAGER_STATE) 
-//            [
-//             luabind::class_<SceneManager> ("SceneManager")
-//             .def("addScene", &SceneManager::addScene)
-//             .def("getScene", &SceneManager::getScene)
-//             .def("setActiveScene", &SceneManager::setActiveScene)
-//             .property("window", &SceneManager::getWindow, &SceneManager::setWindow)
-//             .scope
-//             [
-//                luabind::def("getInstance", &SceneManager::getInstance)
-//              ]
-//             ];            
-//            
-//            /* Bind Particle Manager */
-//            luabind::module(LR_MANAGER_STATE)
-//            [
-//             luabind::class_<gg::particle::ParticleManager> ("ParticleManager")
-//             .def("setMaxParticles", &gg::particle::ParticleManager::setMaxParticles)
-//             .scope
-//             [
-//              luabind::def("getInstance", &gg::particle::ParticleManager::getInstance)
-//             ]
-//            ];
-//            
-//            /* Bind the Audio Manager */
-//            luabind::module(LR_MANAGER_STATE)
-//            [
-//                luabind::class_<CocosDenshion::SimpleAudioEngine>("SimpleAudioEngine")
-//                .def("_preloadBackgroundMusic", &CocosDenshion::SimpleAudioEngine::preloadBackgroundMusic)
-//                .def("_stopBackgroundMusic", &CocosDenshion::SimpleAudioEngine::stopBackgroundMusic)
-//                .def("_playBackgroundMusic", &CocosDenshion::SimpleAudioEngine::playBackgroundMusic)
-//                .def("_pauseBackgroundMusic", &CocosDenshion::SimpleAudioEngine::pauseBackgroundMusic)
-//                .def("_resumeBackgroundMusic", &CocosDenshion::SimpleAudioEngine::resumeBackgroundMusic)
-//                .def("_setBackgroundMusicVolume", &CocosDenshion::SimpleAudioEngine::setBackgroundMusicVolume)
-//                .def("_setEffectsVolume", &CocosDenshion::SimpleAudioEngine::setEffectsVolume)
-//                .def("_playEffect", &CocosDenshion::SimpleAudioEngine::playEffect)
-//                .def("_stopEffect", &CocosDenshion::SimpleAudioEngine::stopEffect)
-//                .def("_preloadEffect", &CocosDenshion::SimpleAudioEngine::preloadEffect)
-//                .def("_unloadEffect", &CocosDenshion::SimpleAudioEngine::unloadEffect)
-//                .scope
-//                [
-//                 luabind::def("getInstance", &CocosDenshion::SimpleAudioEngine::sharedEngine)
-//                ]
-//             ];
-//            
-//            /* Bind the Action Manager */
-//            luabind::module(LR_MANAGER_STATE)
-//            [
-//                luabind::class_<ActionManager> ("ActionManager")
-//                .def("addAction", &ActionManager::addAction)
-//                .scope
-//                [
-//                 luabind::def("getInstance", &ActionManager::getInstance)
-//                ]
-//            ];
-//            
-//            /* Bind the Font Manager */
-//            luabind::module(LR_MANAGER_STATE)
-//            [
-//                luabind::class_<FontManager> ("FontManager")
-//                .def("textRenderer", &FontManager::textRenderer)
-//                .scope
-//                [
-//                 luabind::def("getInstance", &FontManager::getInstance)
-//                ]
-//            ];
+            /* Bind Scene Manager */
+            lua_State *L = LR_MANAGER_STATE;
+            
+            luabridge::getGlobalNamespace (L)
+                .beginClass<SceneManager> ("SceneManager")
+                    .addFunction("addScene", &SceneManager::addScene)
+                    .addFunction("getScene", &SceneManager::getScene)
+                    .addStaticFunction("getInstance", &SceneManager::getInstance)
+                .endClass()
+                .beginClass<gg::particle::ParticleManager> ("ParticleManager")
+                    .addFunction("setMaxParticles", &gg::particle::ParticleManager::setMaxParticles)
+                    .addStaticFunction("getInstance", &gg::particle::ParticleManager::getInstance)
+                .endClass()
+                .beginClass<CocosDenshion::SimpleAudioEngine>("SimpleAudioEngine")
+                    .addFunction("_preloadBackgroundMusic", &CocosDenshion::SimpleAudioEngine::preloadBackgroundMusic)
+                    .addFunction("_stopBackgroundMusic", &CocosDenshion::SimpleAudioEngine::stopBackgroundMusic)
+                    .addFunction("_playBackgroundMusic", &CocosDenshion::SimpleAudioEngine::playBackgroundMusic)
+                    .addFunction("_pauseBackgroundMusic", &CocosDenshion::SimpleAudioEngine::pauseBackgroundMusic)
+                    .addFunction("_resumeBackgroundMusic", &CocosDenshion::SimpleAudioEngine::resumeBackgroundMusic)
+                    .addFunction("_setBackgroundMusicVolume", &CocosDenshion::SimpleAudioEngine::setBackgroundMusicVolume)
+                    .addFunction("_setEffectsVolume", &CocosDenshion::SimpleAudioEngine::setEffectsVolume)
+                    .addFunction("_playEffect", &CocosDenshion::SimpleAudioEngine::playEffect)
+                    .addFunction("_stopEffect", &CocosDenshion::SimpleAudioEngine::stopEffect)
+                    .addFunction("_preloadEffect", &CocosDenshion::SimpleAudioEngine::preloadEffect)
+                    .addFunction("_unloadEffect", &CocosDenshion::SimpleAudioEngine::unloadEffect)
+                .endClass()
+                .beginClass<ActionManager> ("ActionManager")
+                    .addFunction("addAction", &ActionManager::addAction)
+                    .addStaticFunction("getInstance", &ActionManager::getInstance)
+                .endClass()
+                .beginClass<FontManager> ("FontManager")
+                    .addFunction("textRenderer", &FontManager::textRenderer)
+                    .addStaticFunction("getInstance", &FontManager::getInstance)
+                .endClass();
 		}
 
 		static inline void bindAll(void)
 		{			
-//			bindBasicTypes();
-//            bindBasicFunctions();
+			bindBasicTypes();
+            bindBasicFunctions();
 //			bindAbstractInterfaces();
 //			bindClasses();
 //            bindComponents();
-//			bindManagers();
+			bindManagers();
 		}
 	}
 }

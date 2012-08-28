@@ -234,6 +234,8 @@
 		C8435EFF15EBC02500E199BC /* libbox2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DEBD9A1310777C0094F680 /* libbox2d.a */; };
 		C8435F0015EBC03200E199BC /* libLua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F64F2F13101678006DBA13 /* libLua.a */; };
 		C8435F0115EBC03C00E199BC /* libUnitTest++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A370DB134E0253007E9551 /* libUnitTest++.a */; };
+		C89E1E7615ED461D00062721 /* print_table.lua in Resources */ = {isa = PBXBuildFile; fileRef = C89E1E7515ED461D00062721 /* print_table.lua */; };
+		C89E1E7715ED461D00062721 /* print_table.lua in Resources */ = {isa = PBXBuildFile; fileRef = C89E1E7515ED461D00062721 /* print_table.lua */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -511,6 +513,7 @@
 		C8435F0315EBC30100E199BC /* LuaBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LuaBridge.h; path = Libraries/Luabridge/LuaBridge.h; sourceTree = "<group>"; };
 		C8435F0415EBC30100E199BC /* RefCountedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RefCountedObject.h; path = Libraries/Luabridge/RefCountedObject.h; sourceTree = "<group>"; };
 		C8435F0515EBC30100E199BC /* RefCountedPtr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RefCountedPtr.h; path = Libraries/Luabridge/RefCountedPtr.h; sourceTree = "<group>"; };
+		C89E1E7515ED461D00062721 /* print_table.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = print_table.lua; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -553,6 +556,7 @@
 		142F2555133D8BE700E80E17 /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				C89E1E7515ED461D00062721 /* print_table.lua */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
@@ -1377,6 +1381,7 @@
 				14F8855E14507DCA005DCC66 /* config.lua in Resources */,
 				14F8856014507DCA005DCC66 /* event_manager.lua in Resources */,
 				14F8856214507DCA005DCC66 /* init.lua in Resources */,
+				C89E1E7715ED461D00062721 /* print_table.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1421,6 +1426,7 @@
 				14F8855D14507DCA005DCC66 /* config.lua in Resources */,
 				14F8855F14507DCA005DCC66 /* event_manager.lua in Resources */,
 				14F8856114507DCA005DCC66 /* init.lua in Resources */,
+				C89E1E7615ED461D00062721 /* print_table.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

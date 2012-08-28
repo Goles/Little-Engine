@@ -6,11 +6,13 @@
 -- ===============================================
 -- = Configuration Functions for System Managers =
 -- ===============================================
+require "print_table"
 
 function SceneManagerConfig(t)
-	
+    
+    print(t.window.height)
 	if t.window then
-		SceneManager.getInstance().window = ggs(t.window.width, t.window.height)
+        -- SceneManager.getInstance().window = ggs(t.window.width, t.window.height)
 	end
 		
 end
