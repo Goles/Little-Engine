@@ -18,6 +18,17 @@ extern "C" {
 namespace gg {
     namespace event {
         
+        EventBroadcaster *EventBroadcaster::_instance = NULL;
+        
+        EventBroadcaster *EventBroadcaster::sharedManager()
+        {
+            if (_instance) {
+                _instance = new EventBroadcaster();
+            }
+            
+            return _instance;
+        }
+        
         void EventBroadcaster::broadcast(const char *eventType, const char *payloadTableName)
         {
             lua_State *L = LR_MANAGER_STATE;

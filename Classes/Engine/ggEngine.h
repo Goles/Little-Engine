@@ -28,23 +28,21 @@
  */
 namespace gg 
 {	
-    
 	/** Initialize the Good Game Engine (ggEngine)
 	 @remarks
 	 Basically startup all the required singletons ( shared managers ). 
 	 */
 	inline void init(void)
 	{
-//        static IEventBroadcaster *broadcaster = new EventBroadcaster();
-//		TOUCHABLE_MANAGER;	/** < Initialize the Input Manager*/
-//        TOUCHABLE_MANAGER->setEventBroadcaster(broadcaster);
-//		SCENE_MANAGER;		/** < Initialize the Scene Manager */
-//		TEXTURE_MANAGER;	/** < Initialize the Texture Manager*/
-//		PARTICLE_MANAGER;	/** < Initialize the Particles Manager*/
-//		GBOX_2D;			/** < Initialize the Box2D Plug for GG*/
-//        GBOX_2D->setEventBroadcaster(broadcaster);
-//        CocosDenshion::SimpleAudioEngine::sharedEngine(); /** < Initialize the Audio Engine */
-//        LR_MANAGER;			/** < Initialize the Lua Registrate Manager */        
+		TOUCHABLE_MANAGER;                                                                          /** < Initialize the Input Manager */
+        TOUCHABLE_MANAGER->setEventBroadcaster(gg::event::EventBroadcaster::sharedManager());       /** < set the broadcaster for the Input Manager */
+		SCENE_MANAGER;                                                                              /** < Initialize the Scene Manager */
+		TEXTURE_MANAGER;                                                                            /** < Initialize the Texture Manager*/
+		PARTICLE_MANAGER;                                                                           /** < Initialize the Particles Manager*/
+		GBOX_2D;                                                                                    /** < Initialize the Box2D Plug for GG*/
+        GBOX_2D->setEventBroadcaster(gg::event::EventBroadcaster::sharedManager());                 /** < Set the Broadcaster for the BOX_2D */
+        CocosDenshion::SimpleAudioEngine::sharedEngine();                                           /** < Initialize the Audio Engine */
+        LR_MANAGER;                                                                                 /** < Initialize the Lua Registrate Manager */
 	}
 	
 	inline void startup(void)
@@ -68,6 +66,7 @@ namespace gg
         CocosDenshion::SimpleAudioEngine::sharedEngine()->end();
 //        delete gg::event::luabindBroadcaster(); /** < Delete the event broadcaster */
 	}
-} //END gg::
+
+} // END gg::
 
 #endif

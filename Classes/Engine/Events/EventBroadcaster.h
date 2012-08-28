@@ -17,9 +17,12 @@ namespace gg {
         class EventBroadcaster: public IEventBroadcaster
         {
         public:
+            static EventBroadcaster *sharedManager(); // TODO: Remove singleton 4evah.
             // virtual inline void notifyTargetEntity(const char *eventType, const luabind::object &payload, int entityID) = 0;
             virtual void broadcast(const char *eventType, const char *payloadTableName);
             virtual void broadcastTouch(float x, float y, int touchIndex, int touchID, int touchType);
+        private:
+            static EventBroadcaster *_instance;
         };
         
     }

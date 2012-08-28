@@ -21,6 +21,8 @@ extern "C" {
 
 #include "LuaBridge.h"
 
+#include "ggEngine.h"
+
 #include "FileUtils.h"
 #include "ConstantsAndMacros.h"
 #include "OpenGLCommon.h"
@@ -70,6 +72,8 @@ extern "C" {
 #include "ActionManager.h"
 #include "FontManager.h"
 
+#include "EventBroadcaster.h"
+
 using namespace gg::action;
 using namespace gg::event;
 
@@ -84,7 +88,19 @@ namespace gg
 		
         static inline void bindBasicFunctions(void)
         {
-//            luabind::module(LR_MANAGER_STATE) 
+            lua_State *L = LR_MANAGER_STATE;
+            
+            luabridge::getGlobalNamespace (L)
+                .addFunction("fileRelativePath", &gg::util::relativeCPathForFile)
+                .addFunction("filePath", &gg::util::fullCPathFromRelativePath)
+                .addFunction("ggr", &CGRectMake)
+                .addFunction("ggs", &CGSizeMake)
+                .addFunction("ggp", &CGPointMake)
+                .addFunction("eventBroadcaster", &gg::event::EventBroadcaster::sharedManager)
+//                .addFunction("makeParticle", gg::particle::utils::makeParticle)
+            .endNamespace();
+            
+//            luabind::module(LR_MANAGER_STATE)
 //            [
 //                luabind::def("fileRelativePath", &gg::util::relativeCPathForFile),
 //				luabind::def("filePath", &gg::util::fullCPathFromRelativePath),
