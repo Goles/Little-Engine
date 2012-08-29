@@ -86,7 +86,7 @@ public:
 	/** Gets the scene unique id 
 	 @returns reference to sceneId
 	 */
-	const std::string &getSceneLabel(void) { return m_label; }
+	std::string getSceneLabel(void) const { return m_label; }
 	
 	/** Sets the scene unique id 
 		@param _id is an std::string unique for this scene.
@@ -103,7 +103,7 @@ public:
 	
 	/**
 	 */
-	const CGPoint &getPosition() { return m_position; }
+	CGPoint getPosition() const { return m_position; }
 	
 	/**
 	 */

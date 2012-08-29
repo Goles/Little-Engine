@@ -89,7 +89,7 @@ public:
     
     const float     getPositionY() const { return m_position.y; }
     
-    const GGPoint   &getPosition() const { return m_position; }
+    const GGPoint   getPosition() const { return m_position; }
     
 	
 	/** Flips the GameEntity Horizontally (facing right or left)*/

@@ -364,6 +364,30 @@ namespace gg
         
 		static inline void bindClasses(void)
 		{
+            lua_State *L = LR_MANAGER_STATE;
+            luabridge::getGlobalNamespace(L)
+                .beginClass<Scene> ("Scene")
+                    .addFunction ("addEntity", &Scene::addGameEntity)
+                    .addFunction ("addChild", &Scene::addChild)
+                    .addProperty ("position", &Scene::getPosition, &Scene::setPosition)
+                    .addProperty ("z_order", &Scene::getZOrder, &Scene::setZOrder)
+                    .addProperty ("label", &Scene::getSceneLabel, &Scene::setSceneLabel)
+                .endClass();
+            
+            
+            //            /* Bind the Scene Class */
+//            luabind::module(LR_MANAGER_STATE) 
+//            [
+//             luabind::class_<Scene> ("Scene")
+//             .def(luabind::constructor<>())
+//             .def("addEntity", &Scene::addGameEntity)
+//             .def("addChild", &Scene::addChild)
+//             .property("z_order", &Scene::getZOrder, &Scene::setZOrder)
+//             .property("position", &Scene::getPosition, &Scene::setPosition)
+//             .property("label", &Scene::getSceneLabel, &Scene::setSceneLabel)
+//                         ];
+            
+            
 //            /* Bind the Image Class */
 //            luabind::module(LR_MANAGER_STATE) 
 //            [
@@ -421,17 +445,7 @@ namespace gg
 //             .def_readwrite("speed", &GameEntity::speed)
 //             ];
 //            
-//            /* Bind the Scene Class */
-//            luabind::module(LR_MANAGER_STATE) 
-//            [
-//             luabind::class_<Scene> ("Scene")
-//             .def(luabind::constructor<>())
-//             .def("addEntity", &Scene::addGameEntity)
-//             .def("addChild", &Scene::addChild)
-//             .property("z_order", &Scene::getZOrder, &Scene::setZOrder)
-//             .property("position", &Scene::getPosition, &Scene::setPosition)
-//             .property("label", &Scene::getSceneLabel, &Scene::setSceneLabel)
-//             ];
+
 //           
 //            /* Bind the Class Hardware Clock */
 //            luabind::module(LR_MANAGER_STATE)

@@ -13,4 +13,4 @@ print(package.path)
 dofile(filePath("config.lua"))
 
 -- Execute the main.
--- dofile(filePath("game/main.lua"))
+dofile(filePath("game/main.lua"))
