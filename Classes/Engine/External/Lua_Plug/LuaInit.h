@@ -103,38 +103,6 @@ namespace gg
 		static inline void bindBasicTypes(void)
 		{
             lua_State *L = LR_MANAGER_STATE;
-//			luabind::module(LR_MANAGER_STATE)
-//			[
-//				luabind::class_<std::vector<float> > ("float_vector")
-//				.def(luabind::constructor<>())
-//				.def("push_back", &std::vector<float>::push_back)
-//			];
-//            
-//            luabind::module(LR_MANAGER_STATE)
-//            [
-//                luabind::class_<TouchTypes> ("TouchTypes")
-//                .enum_("constants")
-//                [
-//                    luabind::value("BEGAN", TouchTypes::BEGAN),
-//                    luabind::value("MOVED", TouchTypes::MOVED),
-//                    luabind::value("ENDED", TouchTypes::ENDED)
-//                ]
-//            ];
-//			
-//			luabind::module(LR_MANAGER_STATE)
-//			[				
-//				luabind::class_<GGPoint> ("GGPoint")
-//				.def(luabind::constructor<>())
-//				.def_readwrite("x", &GGPoint::x)
-//				.def_readwrite("y", &GGPoint::y)
-//			 ];
-//			
-//			luabind::module(LR_MANAGER_STATE)
-//			[
-//				luabind::class_<GGSize> ("GGSize")
-//				.def_readwrite("width", &GGSize::width)
-//				.def_readwrite("height", &GGSize::height)
-//			];
             
             luabridge::getGlobalNamespace (L)
                 .beginClass<GGPoint> ("GGPoint")
@@ -150,15 +118,6 @@ namespace gg
                     .addData("size", &GGRect::size)
                 .endClass();
             
-//			
-//			luabind::module(LR_MANAGER_STATE)
-//			[
-//				luabind::class_<CGRect> ("GGRect")
-//				.def(luabind::constructor<>())
-//				.def_readwrite("origin", &GGRect::origin)
-//				.def_readwrite("size", &GGRect::size)
-//			];
-//            
 //            luabind::module(LR_MANAGER_STATE)
 //            [
 //                 luabind::class_<Particle> ("Particle")
@@ -226,7 +185,8 @@ namespace gg
         } //END bindBasicTypes
         
 		static inline void bindAbstractInterfaces(void)
-		{            
+		{
+            
 //			luabind::module(LR_MANAGER_STATE) 
 //			[
 //				 luabind::class_<ITextRenderer> ("ITextRenderer")
@@ -241,139 +201,139 @@ namespace gg
 //            [
 //             luabind::class_<gg::event::IEventBroadcaster> ("IEventBroadcaster")
 //            ];
-//		}
-//		
-//        static inline void bindComponents(void)
-//        {
-//            /* Bind the GEComponent Class */            
-//            luabind::module(LR_MANAGER_STATE) 
-//            [
-//             luabind::class_<GEComponent> ("GEComponent"),
-//             luabind::class_<gecAnimatedSprite, GEComponent> ("gecAnimatedSprite")
-//             .def(luabind::constructor<>())
-//             .def("addAnimation", (void(gecAnimatedSprite::*)(const std::string &, Animation *)) &gecAnimatedSprite::addAnimation)
-//             .def("addCustomAnimation", (void(gecAnimatedSprite::*)(const std::string &,
-//                                                                    const std::vector<int> &, 
-//                                                                    const std::vector<float> &, 
-//                                                                    SpriteSheet *)) 
-//                  &gecAnimatedSprite::addAnimation)
-//             .def("setCurrentAnimation", &gecAnimatedSprite::setCurrentAnimation)
-//             .def("setCurrentRunning", &gecAnimatedSprite::setCurrentRunning)
-//             .def("setCurrentRepeating", &gecAnimatedSprite::setCurrentRepeating)
-//             .def("setCurrentPingPong", &gecAnimatedSprite::setCurrentPingPong)		 
-//             .def("setOwnerGE", &GEComponent::setOwnerGE)
-//             ];
-//            
-//            /* Bind the gecFollowingCamera Class */
-//            luabind::module(LR_MANAGER_STATE) 
-//            [
-//             luabind::class_<gecFollowingCamera, GEComponent> ("gecFollowingCamera")
-//             .def(luabind::constructor<>())		
-//             .property("follow_x", &gecFollowingCamera::getFollowX, &gecFollowingCamera::setFollowX)
-//             .property("follow_y", &gecFollowingCamera::getFollowY, &gecFollowingCamera::setFollowY)
-//             .property("death_zone_x", &gecFollowingCamera::getDeathZoneX, &gecFollowingCamera::setDeathZoneX)
-//             .property("death_zone_y", &gecFollowingCamera::getDeathZoneY, &gecFollowingCamera::setDeathZoneY)
-//             .property("active", &gecFollowingCamera::getActive, &gecFollowingCamera::setActive)
-//             ];
-//            
-//            /* Bind the gecFSM Class */
-//            luabind::module(LR_MANAGER_STATE) 
-//            [
-//             luabind::class_<gecFSM, GEComponent> ("gecFSM")	/** < Binds the gecFSM class*/
-//             .def(luabind::constructor<>())
-//             .def("setOwnerGE", &GEComponent::setOwnerGE)
-//             ];
-//            
-//            /* Bind the gecJoystick Class */
-//            luabind::module(LR_MANAGER_STATE) 
-//            [
-//             luabind::class_<gecJoystick, GEComponent> ("gecJoystick")
-//             .def(luabind::constructor<gg::event::IEventBroadcaster *>())
-//             .def("handle_touch", &gecJoystick::handle_touch)
-//             .def("setShape", &gecJoystick::setShape)
-//             .def("setCenter", &gecJoystick::setCenter)
-//             .def("setInRadius", &gecJoystick::setInRadius)
-//             .def("setOutRadius", &gecJoystick::setOutRadius)
-//             ];
-//            
-//            /* Bind the gecButton Class */
-//            luabind::module(LR_MANAGER_STATE) 
-//            [
-//             luabind::class_<gecButton, GEComponent> ("gecButton")
-//             .def(luabind::constructor<gg::event::IEventBroadcaster *>())
-//             .def("handle_touch", &gecButton::handle_touch)
-//             .def("setShape", &gecButton::setShape)
-//             .def("setParentSharedShape", &gecButton::setParentSharedShape)
-//             ];
-//            
-//            /* Bind the gecBoxCollisionable Class */
-//            luabind::module(LR_MANAGER_STATE)
-//            [
-//             luabind::class_<gecBoxCollisionable, GEComponent> ("gecBoxCollisionable")
-//             .def(luabind::constructor<>())
-//             .def("setSize", &gecBoxCollisionable::setSize)
-//             .property("solid", &CompCollisionable::getSolid, &CompCollisionable::setSolid)
-//             ];
-//            
-//            /* Bind the gecVisual Components */
-//            luabind::module(LR_MANAGER_STATE)
-//            [
-//             luabind::class_<gecVisual, GEComponent> ("gecVisual")
-//             .def("setColor", &gecVisual::setColor)
-//             .def("setScale", &gecVisual::setScale)
-//             .def("setAlpha", &gecVisual::setAlpha),
-//             
-//             luabind::class_<gecImage, gecVisual> ("gecImage")
-//             .def(luabind::constructor<>())
-//             .def("setImage", &gecImage::setImage),
-//             
-//             luabind::class_<gecParticleSystem, gecVisual> ("gecParticleSystem")
-//             .enum_("RenderMode")
-//             [
-//              luabind::value("POINT_SPRITES", gg::particle::render::kRenderingMode_PointSprites),
-//              luabind::value("QUADS", gg::particle::render::kRenderingMode_2xTriangles)
-//              ]
-//             .def(luabind::constructor<>())
-//             .def("emit", &gecParticleSystem::setEmit)
-//             .def("setDefaultParticle", &gecParticleSystem::setDefaultParticle)
-//             .property("texture", &gecParticleSystem::texture, &gecParticleSystem::setTexture)
-//             .property("emissionRate", &gecParticleSystem::emissionRate, &gecParticleSystem::setEmissionRate)
-//             .property("emissionRateVariance", &gecParticleSystem::emissionRateVariance, &gecParticleSystem::setEmissionRateVariance)
-//             .property("originVariance", &gecParticleSystem::originVariance, &gecParticleSystem::setOriginVariance)
-//             .property("lifeVariance", &gecParticleSystem::lifeVariance, &gecParticleSystem::setLifeVariance)
-//             .property("speedVariance", &gecParticleSystem::speedVariance, &gecParticleSystem::setSpeedVariance)
-//             .property("decayVariance", &gecParticleSystem::decayVariance, &gecParticleSystem::setDecayVariance)
-//             .property("emissionDuration", &gecParticleSystem::emissionDuration, &gecParticleSystem::setEmissionDuration)
-//             .property("size", &gecParticleSystem::size, &gecParticleSystem::setSize)             
-//
-//            ];
-//            
-//            /* Bind the event scheduler components */
-//            luabind::module(LR_MANAGER_STATE)
-//            [
-//             luabind::class_<CompEventScheduler, GEComponent> ("CompEventScheduler")
-//             .def("scheduleEvent", &CompEventScheduler::scheduleEvent)
-//             .def("unscheduleEvent", &CompEventScheduler::unscheduleEvent)
-//             .def("pauseScheduledEvent", &CompEventScheduler::pauseScheduledEvent)
-//             .def("resetScheduledEvent", &CompEventScheduler::resetScheduledEvent),
-//             luabind::class_<gecTinyEventScheduler, CompEventScheduler> ("gecTinyEventScheduler")
-//             .def(luabind::constructor< gg::event::EventScheduler * >())
-//             ];
-
-        } //END bindComponents
+        }
+        
+        static inline void bindComponents(void)
+        {
+            lua_State *L = LR_MANAGER_STATE;
+            
+            luabridge::getGlobalNamespace (L)
+            .beginClass <GEComponent> ("GEComponent")
+                .addFunction("setOwnerGE", &GEComponent::setOwnerGE)
+            .endClass()
+            .deriveClass <gecAnimatedSprite, GEComponent> ("gecAnimatedSprite")
+                .addConstructor <void (*) (void)> ()
+                .addFunction("addAnimation", &gecAnimatedSprite::addAnimation)
+                .addFunction("setCurrentAnimation", &gecAnimatedSprite::setCurrentAnimation)
+                .addFunction("setCurrentRunning", &gecAnimatedSprite::setCurrentRunning)
+                .addFunction("setCurrentRepeating", &gecAnimatedSprite::setCurrentRepeating)
+                .addFunction("setCurrentPingPong", &gecAnimatedSprite::setCurrentPingPong)
+            .endClass()
+            .deriveClass <gecFollowingCamera, GEComponent> ("gecFollowingCamera")
+                .addConstructor <void (*) (void)> ()
+                .addProperty("follow_x", &gecFollowingCamera::getFollowX, &gecFollowingCamera::setFollowX)
+                .addProperty("follow_y", &gecFollowingCamera::getFollowY, &gecFollowingCamera::setFollowY)
+                .addProperty("death_zone_x", &gecFollowingCamera::getDeathZoneX, &gecFollowingCamera::setDeathZoneX)
+                .addProperty("death_zone_y", &gecFollowingCamera::getDeathZoneY, &gecFollowingCamera::setDeathZoneY)
+                .addProperty("active", &gecFollowingCamera::getActive, &gecFollowingCamera::setActive)
+            .endClass()
+            .deriveClass <gecFSM, GEComponent> ("gecFSM")
+                .addConstructor <void (*) (void)> ()
+            .endClass()
+            .deriveClass <gecJoystick, GEComponent> ("gecJoystick")
+                .addConstructor <void (*) (gg::event::IEventBroadcaster *)> ()
+                .addFunction("handle_touch", &gecJoystick::handle_touch)
+                .addFunction("setShape", &gecJoystick::setShape)
+                .addFunction("setCenter", &gecJoystick::setCenter)
+                .addFunction("setInRadius", &gecJoystick::setInRadius)
+                .addFunction("setOutRadius", &gecJoystick::setOutRadius)
+            .endClass()
+            .deriveClass <gecButton, GEComponent> ("gecButton")
+                .addConstructor <void (*) (gg::event::IEventBroadcaster *)> ()
+                .addFunction("handle_touch", &gecButton::handle_touch)
+                .addFunction("setShape", &gecButton::setShape)
+                .addFunction("setParentSharedShape", &gecButton::setParentSharedShape)
+            .endClass()
+            .deriveClass <gecBoxCollisionable, GEComponent> ("gecBoxCollisionable")
+                .addConstructor <void (*) (void)> ()
+                .addFunction("setSize", &gecBoxCollisionable::setSize)
+                .addProperty("solid", &gecBoxCollisionable::getSolid, &gecBoxCollisionable::setSolid)
+            .endClass()
+            .deriveClass <gecVisual, GEComponent> ("gecVisual")
+                .addFunction("setColor", &gecVisual::setColor)
+                .addFunction("setScale", &gecVisual::setScale)
+                .addFunction("setAlpha", &gecVisual::setAlpha)
+            .endClass()
+            .deriveClass <gecImage, gecVisual> ("gecImage")
+                .addConstructor <void (*) (void)> ()
+                .addFunction("setImage", &gecImage::setImage)
+            .endClass()
+            .deriveClass <gecParticleSystem, gecVisual> ("gecParticleSystem")
+                .addConstructor <void (*) (void)> ()
+                .addFunction("setEmit", &gecParticleSystem::setEmit)
+                .addFunction("setDefaultParticle", &gecParticleSystem::setDefaultParticle)
+                .addProperty("texture", &gecParticleSystem::texture, &gecParticleSystem::setTexture)
+                .addProperty("emissionRate", &gecParticleSystem::emissionRate, &gecParticleSystem::setEmissionRate)
+                .addProperty("emissionRateVariance", &gecParticleSystem::emissionRateVariance, &gecParticleSystem::setEmissionRateVariance)
+                .addProperty("originVariance", &gecParticleSystem::originVariance, &gecParticleSystem::setOriginVariance)
+                .addProperty("lifeVariance", &gecParticleSystem::lifeVariance, &gecParticleSystem::setLifeVariance)
+                .addProperty("speedVariance", &gecParticleSystem::speedVariance, &gecParticleSystem::setSpeedVariance)
+                .addProperty("decayVariance", &gecParticleSystem::decayVariance, &gecParticleSystem::setDecayVariance)
+                .addProperty("emissionDuration", &gecParticleSystem::emissionDuration, &gecParticleSystem::setEmissionDuration)
+                .addProperty("size", &gecParticleSystem::size, &gecParticleSystem::setSize)
+            .endClass()
+            .deriveClass <CompEventScheduler, GEComponent> ("CompEventScheduler")
+                .addFunction("scheduleEvent", &CompEventScheduler::scheduleEvent)
+                .addFunction("unscheduleEvent", &CompEventScheduler::unscheduleEvent)
+                .addFunction("pauseScheduledEvent", &CompEventScheduler::pauseScheduledEvent)
+                .addFunction("resetScheduledEvent", &CompEventScheduler::resetScheduledEvent)
+            .endClass()
+            .deriveClass <gecTinyEventScheduler, CompEventScheduler> ("gecTinyEventScheduler")
+                .addConstructor <void (*) (gg::event::EventScheduler *)> ()
+            .endClass();
+            
+        } // END Bind Components
         
 		static inline void bindClasses(void)
 		{
             lua_State *L = LR_MANAGER_STATE;
-            luabridge::getGlobalNamespace(L)
+            luabridge::getGlobalNamespace (L)
                 .beginClass<Scene> ("Scene")
+                    .addConstructor <void (*) (void)> ()
                     .addFunction ("addEntity", &Scene::addGameEntity)
                     .addFunction ("addChild", &Scene::addChild)
                     .addProperty ("position", &Scene::getPosition, &Scene::setPosition)
                     .addProperty ("z_order", &Scene::getZOrder, &Scene::setZOrder)
                     .addProperty ("label", &Scene::getSceneLabel, &Scene::setSceneLabel)
+                .endClass()
+                .beginClass<GameEntity> ("GameEntity")
+                    .addConstructor<void (*) (void)> ()
+                    .addFunction("setGEC", &GameEntity::setGEC)
+                    .addFunction("setPosition", &GameEntity::setPosition)
+                    .addFunction("debugPrintComponents", &GameEntity::debugPrintComponents)
+                    .addProperty("id", &GameEntity::getId)
+                    .addProperty("active", &GameEntity::getIsActive, &GameEntity::setIsActive)
+                    .addProperty("flipped", &GameEntity::getFlipHorizontally, &GameEntity::setFlipHorizontally)
+                    .addProperty("x", &GameEntity::getPositionX, &GameEntity::setPositionX)
+                    .addProperty("y", &GameEntity::getPositionY, &GameEntity::setPositionY)
+                    .addProperty("speed", &GameEntity::getSpeed, &GameEntity::setSpeed)
                 .endClass();
             
+ /* Bind the Game Entity Class */
+//            luabind::module(LR_MANAGER_STATE) 
+//            [
+//             luabind::class_<GameEntity> ("GameEntity")		/** < Binds the GameEntity class */
+//             .def(luabind::constructor<>())					/** < Binds the GameEntity constructor  */
+//             .def("setGEC", &GameEntity::setGEC)			/** < Binds the GameEntity setGEC method  */
+//             .def("setPosition", &GameEntity::setPosition)	/** < Binds the GameEntity setPositon method */
+//             .def("getId", &GameEntity::getId)
+//             .def("debugPrintComponents", &GameEntity::debugPrintComponents)
+//             .property("active", &GameEntity::getIsActive, &GameEntity::setIsActive)
+//             .property("flipped", &GameEntity::getFlipHorizontally, &GameEntity::setFlipHorizontally)
+//             .property("label", &GameEntity::getLabel, &GameEntity::setLabel)
+//             .property("x", &GameEntity::getPositionX, &GameEntity::setPositionX)
+//             .property("y", &GameEntity::getPositionY, &GameEntity::setPositionY)
+//             .def_readwrite("speed", &GameEntity::speed)
+            //             ];
+  /* Bind the Frame Class */
+//            luabind::module(LR_MANAGER_STATE) 
+//            [
+//             luabind::class_<Frame> ("Frame")	/** < Binds the GameEntity class */
+//             .def(luabind::constructor<>())		/** < Binds the GameEntity constructor */
+//             .property("image", &Frame::getFrameImage, &Frame::setFrameImage)
+//             .property("delay", &Frame::getFrameDelay, &Frame::setFrameDelay)
+//             ];
+            //
             
             //            /* Bind the Scene Class */
 //            luabind::module(LR_MANAGER_STATE) 
@@ -513,7 +473,7 @@ namespace gg
 			bindBasicTypes();
             bindBasicFunctions();
 //			bindAbstractInterfaces();
-//			bindClasses();
+			bindClasses();
 //            bindComponents();
 			bindManagers();
 		}

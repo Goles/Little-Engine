@@ -51,9 +51,9 @@ public:
 		in the SpriteSheet. - The positions are in the format, [COL, ROW] 1,0 is COL 1, ROW 0-
 		@param ss is a pointer to a SpriteSheet object.
 	 */
-	void addAnimation(const std::string &animationName, 
-					  const std::vector<int> &positions, 
-					  SpriteSheet *ss);
+//	void addAnimation(const std::string &animationName, 
+//					  const std::vector<int> &positions, 
+//					  SpriteSheet *ss);
 
 	/** Adds an anitmation to the componentAnimations map.
 		@param animationName will be the "key" used to obtain the animation.
@@ -62,10 +62,10 @@ public:
 		@param durations will be a vector<float> with the duration of each frame of an animation.
 		@param ss is a pointer to a SpriteSheet object.
 	 */
-	void addAnimation(const std::string &animationName,
-					  const std::vector<int> &positions,
-					  const std::vector<float> &durations,
-					  SpriteSheet *ss);
+//	void addAnimation(const std::string &animationName,
+//					  const std::vector<int> &positions,
+//					  const std::vector<float> &durations,
+//					  SpriteSheet *ss);
     
 //------------------------------------------------------------------------------	
 	/** Set's the active animation to animationName

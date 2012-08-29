@@ -65,31 +65,31 @@ public:
 	void clearGECs() { components.clear(); }
 //------------------------------------------------------------------------------
 	/** Returns TRUE or FALSE if the GameEntity is active or not*/
-	const bool		getIsActive() const { return isActive; }
+	bool		getIsActive(void) const { return isActive; }
 
 	/** Put's a Game Entity in an Active/Inactive state. 
 	 @param inActive set's an entity to active when true, and the opposite when false
 	 */
-	const void		setIsActive(bool inActive) { isActive = inActive; }
+	void		setIsActive(bool inActive) { isActive = inActive; }
 	
 	/** Returns the GameEntity speed */
-	const float		getSpeed() const { return speed; }
+	float		getSpeed() const { return speed; }
 	
 	/** Set's the GameEntity speed */
-	const void		setSpeed(float s) { speed = s; }
+	void		setSpeed(float s) { speed = s; }
 	
 	/** Set the GameEntity position*/
-	const void		setPosition(float _x, float _y) { m_position.x = _x; m_position.y = _y; }
+	void		setPosition(float _x, float _y) { m_position.x = _x; m_position.y = _y; }
     
-    const void      setPositionX(float _x) { m_position.x = _x; }
+    void      setPositionX(float _x) { m_position.x = _x; }
     
-    const void      setPositionY(float _y) { m_position.y = _y; }
+    void      setPositionY(float _y) { m_position.y = _y; }
     
-    const float     getPositionX() const { return m_position.x; }
+    float     getPositionX() const { return m_position.x; }
     
-    const float     getPositionY() const { return m_position.y; }
+    float     getPositionY() const { return m_position.y; }
     
-    const GGPoint   getPosition() const { return m_position; }
+    const GGPoint   &getPosition() const { return m_position; }
     
 	
 	/** Flips the GameEntity Horizontally (facing right or left)*/

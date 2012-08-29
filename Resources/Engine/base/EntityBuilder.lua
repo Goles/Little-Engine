@@ -7,6 +7,7 @@ require "base_functions"
 require "event_manager"
 require "ComponentBuilder"
 require "EntityMap"
+require "print_table"
 require "tableprint"
 
 -- ====================================== --
@@ -18,10 +19,9 @@ function buildEntity (e)
 	assert(entityTable, "ERROR: EntityTable == nil, maybe forgot to return the GameEntity at the end of " .. e.file)
 	
 	-- create a new entity
-	entity = GameEntity(); 
-	
-	-- assign the entity a unique_id.
-	entity.id = entity:getId()
+	entity = GameEntity()
+    entity.components = {}
+    print("YEAH")
 	
 	-- add entity attributes
 	if entityTable.attributes then	

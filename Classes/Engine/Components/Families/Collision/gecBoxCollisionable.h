@@ -23,7 +23,8 @@ public:
 	//CompCollisionable interface
 public:
 	virtual void setTransform(b2Body * const b);
-	
+	bool getSolid() const { return CompCollisionable::getSolid(); }
+	void setSolid(const bool in_solid) { CompCollisionable::setSolid(in_solid); }
 	//gecBoxCollisionable interface
 public:
 	gecBoxCollisionable();

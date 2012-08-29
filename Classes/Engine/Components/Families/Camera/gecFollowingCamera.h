@@ -36,7 +36,7 @@ public:
 	inline void setFollowY(bool doesFollow) { m_follow_y = doesFollow; }
 	inline int getDeathZoneX() const { return m_deathZoneX; }
 	inline int getDeathZoneY() const { return m_deathZoneY; }	
-	inline bool getActive() { return m_active; }
+	inline bool getActive() const { return m_active; }
 	inline void setActive(bool active) { m_active = active; }
     
     inline void setDeathZoneX(int x) 
