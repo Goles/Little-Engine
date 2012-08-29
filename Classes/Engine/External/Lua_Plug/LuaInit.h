@@ -187,20 +187,7 @@ namespace gg
 		static inline void bindAbstractInterfaces(void)
 		{
             
-//			luabind::module(LR_MANAGER_STATE) 
-//			[
-//				 luabind::class_<ITextRenderer> ("ITextRenderer")
-//				 .def("setText", &ITextRenderer::setText)
-//				 .def("setFont", &ITextRenderer::setFont)
-//				 .def("setPosition", &ITextRenderer::setPosition),
-//                 luabind::class_<AngelCodeTextRenderer, ITextRenderer> ("AngelCodeTextRenderer")
-//                 .def(luabind::constructor<>())             
-//            ];
-//            
-//            luabind::module(LR_MANAGER_STATE)
-//            [
-//             luabind::class_<gg::event::IEventBroadcaster> ("IEventBroadcaster")
-//            ];
+
         }
         
         static inline void bindComponents(void)
@@ -287,6 +274,7 @@ namespace gg
 		static inline void bindClasses(void)
 		{
             lua_State *L = LR_MANAGER_STATE;
+            
             luabridge::getGlobalNamespace (L)
                 .beginClass<Scene> ("Scene")
                     .addConstructor <void (*) (void)> ()
@@ -299,6 +287,7 @@ namespace gg
                 .beginClass<GameEntity> ("GameEntity")
                     .addConstructor<void (*) (void)> ()
                     .addFunction("setGEC", &GameEntity::setGEC)
+                    .addFunction("getGEC", &GameEntity::getGEC)
                     .addFunction("setPosition", &GameEntity::setPosition)
                     .addFunction("debugPrintComponents", &GameEntity::debugPrintComponents)
                     .addProperty("id", &GameEntity::getId)
@@ -307,127 +296,52 @@ namespace gg
                     .addProperty("x", &GameEntity::getPositionX, &GameEntity::setPositionX)
                     .addProperty("y", &GameEntity::getPositionY, &GameEntity::setPositionY)
                     .addProperty("speed", &GameEntity::getSpeed, &GameEntity::setSpeed)
+                .endClass()
+                .beginClass<SpriteSheet> ("SpriteSheet")
+                    .addConstructor<void (*) (void)> ()
+                    .addFunction("initWithImageNamed", &SpriteSheet::initWithImageNamed)
+                    .addFunction("getSpriteAtCoordinate", &SpriteSheet::getSpriteAt)
+                .endClass()
+                .beginClass<Image> ("Image")
+                    .addConstructor<void (*) (void)> ()
+                    .addFunction("initWithTextureFile", &Image::initWithTextureFile)
+                    .addProperty("scale", &Image::getScale, &Image::setScale)
+                .endClass()
+                .beginClass<Frame> ("Frame")
+                    .addConstructor<void (*) (void)> ()
+                    .addProperty("image", &Frame::getFrameImage, &Frame::setFrameImage)
+                    .addProperty("delay", &Frame::getFrameDelay, &Frame::setFrameDelay)
+                .endClass()
+                .beginClass<Animation> ("Animation")
+                    .addConstructor<void (*) (void)> ()
+                    .addFunction("addFrame", &Animation::addFrame)
+                    .addProperty("running", &Animation::getIsRunning, &Animation::setIsRunning)
+                    .addProperty("repeating", &Animation::getIsRepeating, &Animation::setIsRepeating)
+                    .addProperty("pingpong", &Animation::getIsPingPong, &Animation::setIsPingPong)
+                    .addProperty("animation_label", &Animation::getAnimationLabel, &Animation::setAnimationLabel)
+                .endClass()
+                .beginClass<gg::utils::HardwareClock> ("HardwareClock")
+                    .addConstructor<void (*) (void)> ()
+                    .addFunction("reset", &gg::utils::HardwareClock::Reset)
+                    .addFunction("getTime", &gg::utils::HardwareClock::GetTime)
+                    .addFunction("getDeltaTime", &gg::utils::HardwareClock::GetDeltaTime)
+                    .addFunction("Update", &gg::utils::HardwareClock::GetDeltaTime)
+                .endClass()
+                .beginClass <IFont> ("IFont")
+                    .addFunction("openFont", &IFont::openFont)
+                .endClass()
+                .deriveClass<AngelCodeFont, IFont> ("AngelCodeFont")
+                    .addConstructor<void (*) (void)> ()
+                .endClass()
+                .beginClass <ITextRenderer> ("ITextRenderer")
+                    .addFunction("setText", &ITextRenderer::setText)
+                    .addFunction("setFont", &ITextRenderer::setFont)
+                    .addFunction("setPosition", &ITextRenderer::setPosition)
+                .endClass()
+                .deriveClass<AngelCodeTextRenderer, ITextRenderer> ("AngelCodeTextRenderer")
+                    .addConstructor<void (*) (void)> ()
                 .endClass();
             
- /* Bind the Game Entity Class */
-//            luabind::module(LR_MANAGER_STATE) 
-//            [
-//             luabind::class_<GameEntity> ("GameEntity")		/** < Binds the GameEntity class */
-//             .def(luabind::constructor<>())					/** < Binds the GameEntity constructor  */
-//             .def("setGEC", &GameEntity::setGEC)			/** < Binds the GameEntity setGEC method  */
-//             .def("setPosition", &GameEntity::setPosition)	/** < Binds the GameEntity setPositon method */
-//             .def("getId", &GameEntity::getId)
-//             .def("debugPrintComponents", &GameEntity::debugPrintComponents)
-//             .property("active", &GameEntity::getIsActive, &GameEntity::setIsActive)
-//             .property("flipped", &GameEntity::getFlipHorizontally, &GameEntity::setFlipHorizontally)
-//             .property("label", &GameEntity::getLabel, &GameEntity::setLabel)
-//             .property("x", &GameEntity::getPositionX, &GameEntity::setPositionX)
-//             .property("y", &GameEntity::getPositionY, &GameEntity::setPositionY)
-//             .def_readwrite("speed", &GameEntity::speed)
-            //             ];
-  /* Bind the Frame Class */
-//            luabind::module(LR_MANAGER_STATE) 
-//            [
-//             luabind::class_<Frame> ("Frame")	/** < Binds the GameEntity class */
-//             .def(luabind::constructor<>())		/** < Binds the GameEntity constructor */
-//             .property("image", &Frame::getFrameImage, &Frame::setFrameImage)
-//             .property("delay", &Frame::getFrameDelay, &Frame::setFrameDelay)
-//             ];
-            //
-            
-            //            /* Bind the Scene Class */
-//            luabind::module(LR_MANAGER_STATE) 
-//            [
-//             luabind::class_<Scene> ("Scene")
-//             .def(luabind::constructor<>())
-//             .def("addEntity", &Scene::addGameEntity)
-//             .def("addChild", &Scene::addChild)
-//             .property("z_order", &Scene::getZOrder, &Scene::setZOrder)
-//             .property("position", &Scene::getPosition, &Scene::setPosition)
-//             .property("label", &Scene::getSceneLabel, &Scene::setSceneLabel)
-//                         ];
-            
-            
-//            /* Bind the Image Class */
-//            luabind::module(LR_MANAGER_STATE) 
-//            [
-//             luabind::class_<Image> ("Image")
-//             .def(luabind::constructor<>())
-//             .def("initWithTextureFile", (void(Image::*)(const std::string &))&Image::initWithTextureFile)
-//             .property("scale", &Image::getScale, &Image::setScale)
-//             ];
-//
-//            /* Bind the Frame Class */
-//            luabind::module(LR_MANAGER_STATE) 
-//            [
-//             luabind::class_<Frame> ("Frame")	/** < Binds the GameEntity class */
-//             .def(luabind::constructor<>())		/** < Binds the GameEntity constructor */
-//             .property("image", &Frame::getFrameImage, &Frame::setFrameImage)
-//             .property("delay", &Frame::getFrameDelay, &Frame::setFrameDelay)
-//             ];
-//            
-//            /* Bind the Animation Class */
-//            luabind::module(LR_MANAGER_STATE) 
-//            [
-//             luabind::class_<Animation> ("Animation")	/** < Binds the GameEntity class*/
-//             .def(luabind::constructor<>())				/** < Binds the GameEntity constructor  */
-//             .def("addFrame", &Animation::addFrame)
-//             .property("running", &Animation::getIsRunning, &Animation::setIsRunning)
-//             .property("repeating", &Animation::getIsRepeating, &Animation::setIsRepeating)
-//             .property("pingpong", &Animation::getIsPingPong, &Animation::setIsPingPong)
-//             .property("animation_label", &Animation::getAnimationLabel, &Animation::setAnimationLabel)
-//             ];
-//            
-//            /* Bind the SpriteSheet Class */
-//            luabind::module(LR_MANAGER_STATE) 
-//            [
-//             luabind::class_<SpriteSheet> ("SpriteSheet")
-//             .def(luabind::constructor<>())
-//             .def("initWithImageNamed", &SpriteSheet::initWithImageNamed)
-//             .def("getSpriteAtCoordinate", &SpriteSheet::getSpriteAt)
-//             ];
-//            
-//                        
-//            /* Bind the Game Entity Class */
-//            luabind::module(LR_MANAGER_STATE) 
-//            [
-//             luabind::class_<GameEntity> ("GameEntity")		/** < Binds the GameEntity class */
-//             .def(luabind::constructor<>())					/** < Binds the GameEntity constructor  */
-//             .def("setGEC", &GameEntity::setGEC)			/** < Binds the GameEntity setGEC method  */
-//             .def("setPosition", &GameEntity::setPosition)	/** < Binds the GameEntity setPositon method */
-//             .def("getId", &GameEntity::getId)
-//             .def("debugPrintComponents", &GameEntity::debugPrintComponents)
-//             .property("active", &GameEntity::getIsActive, &GameEntity::setIsActive)
-//             .property("flipped", &GameEntity::getFlipHorizontally, &GameEntity::setFlipHorizontally)
-//             .property("label", &GameEntity::getLabel, &GameEntity::setLabel)
-//             .property("x", &GameEntity::getPositionX, &GameEntity::setPositionX)
-//             .property("y", &GameEntity::getPositionY, &GameEntity::setPositionY)
-//             .def_readwrite("speed", &GameEntity::speed)
-//             ];
-//            
-
-//           
-//            /* Bind the Class Hardware Clock */
-//            luabind::module(LR_MANAGER_STATE)
-//            [
-//             luabind::class_<gg::utils::HardwareClock> ("HardwareClock")
-//             .def(luabind::constructor<>())
-//             .def("reset", &gg::utils::HardwareClock::Reset)
-//             .def("getTime", &gg::utils::HardwareClock::GetTime)
-//             .def("getDeltaTime", &gg::utils::HardwareClock::GetDeltaTime)
-//             .def("Update", &gg::utils::HardwareClock::Update)
-//            ];
-//            
-//            /* Fonts */
-//            luabind::module(LR_MANAGER_STATE)
-//            [
-//             luabind::class_<IFont> ("IFont")
-//             .def("openFont", &IFont::openFont),
-//             
-//             luabind::class_<AngelCodeFont, IFont> ("AngelCodeFont")
-//             .def(luabind::constructor<>())
-//             
-//            ];
 		} //END bindClasses
 		
 		static inline void bindManagers(void)
@@ -474,7 +388,7 @@ namespace gg
             bindBasicFunctions();
 //			bindAbstractInterfaces();
 			bindClasses();
-//            bindComponents();
+            bindComponents();
 			bindManagers();
 		}
 	}

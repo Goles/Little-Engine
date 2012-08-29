@@ -20,8 +20,8 @@ public:
 	Frame();
 	
 	//getters
-	Image*	getFrameImage() const;
-	float	getFrameDelay();
+	Image*	getFrameImage() const { return frameImage; }
+	float	getFrameDelay() const { return frameDelay; }
 	
 	//Setters
 	void	setFrameImage(Image* _image) { frameImage = _image; }

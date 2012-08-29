@@ -20,8 +20,6 @@ function buildEntity (e)
 	
 	-- create a new entity
 	entity = GameEntity()
-    entity.components = {}
-    print("YEAH")
 	
 	-- add entity attributes
 	if entityTable.attributes then	
@@ -58,8 +56,6 @@ end
 -- Adds components from a component table to a given entity.
 function addComponents ( in_components , in_entity )
 	
-	in_entity.components = {}
-	
 	-- add the corresponding components to the entity in question
 	for key,value in pairs(in_components)	do
 		
@@ -67,7 +63,7 @@ function addComponents ( in_components , in_entity )
 			component = component_function_table[ key ]( value )
 			component.ownerGE = in_entity
 			in_entity:setGEC(component)
-			in_entity.components[ key ] = component					
+-- 			in_entity.components[ key ] = component					
 			in_entity.active = true
 		end
 		

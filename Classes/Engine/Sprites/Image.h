@@ -53,10 +53,10 @@ public:
 	    @param inTextureName file name containing texture data. 
 	 */
 	void	initWithTextureFile(const std::string &inTextureName);
-	
-	/**  @param scale Optional scaling amount */
-	void	initWithTextureFile(const std::string &textureName, float inScale);
-	
+//	
+//	/**  @param scale Optional scaling amount */
+//	void	initWithTextureFile(const std::string &textureName, float inScale);
+//	
 	/** Use pre-loaded texture data. */
 	void	initWithUIImage(UIImage* inImage);
 	
@@ -152,7 +152,7 @@ public:
 	int	getImageHeight();
 	
 	/** Get Image scale */
-	GGPoint &getScale();
+	GGPoint getScale() const { return m_scale; }
     
     /** Set Image Scale */
     void setScale(const GGPoint &scale) { m_scale = scale; }

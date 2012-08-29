@@ -112,21 +112,21 @@ void Image::initWithTextureFile(const std::string &inTextureName)
 }
 
 /*Does try to initialize an Image with a texture file and an input Scaling*/
-void Image::initWithTextureFile(const std::string &inTextureName, float imageScale)
-{	
-	Texture2D *imTexture = TEXTURE_MANAGER->createTexture(inTextureName);
-    
-	if(imTexture)
-	{
-		texture = imTexture;
-		m_scale.x = imageScale;
-        m_scale.y = imageScale;        
-		textureName = inTextureName;
-		initImplementation();
-	}else {
-		printf("Could not load texture when creating Image from File :%s\n",inTextureName.c_str());
-	}
-}
+//void Image::initWithTextureFile(const std::string &inTextureName, float imageScale)
+//{	
+//	Texture2D *imTexture = TEXTURE_MANAGER->createTexture(inTextureName);
+//    
+//	if(imTexture)
+//	{
+//		texture = imTexture;
+//		m_scale.x = imageScale;
+//        m_scale.y = imageScale;        
+//		textureName = inTextureName;
+//		initImplementation();
+//	}else {
+//		printf("Could not load texture when creating Image from File :%s\n",inTextureName.c_str());
+//	}
+//}
 
 /*Does initialize an Image with a UIImage*/
 void Image::initWithUIImage(UIImage* image)
@@ -234,11 +234,6 @@ int Image::getImageWidth()
 int Image::getImageHeight()
 {
 	return imageHeight;
-}
-
-GGPoint &Image::getScale()
-{
-	return m_scale;
 }
 
 Quad2* Image::getTexCoords()

@@ -16,12 +16,3 @@ Frame::Frame()
 }
 
 #pragma mark getters
-Image* Frame::getFrameImage() const
-{
-	return frameImage;
-}
-
-float Frame::getFrameDelay()
-{
-	return frameDelay;
-}

@@ -48,9 +48,9 @@ public:
 	GLuint	getAnimationFrameCount();
     float getCurrentFrameWidth();
     float getCurrentFrameHeight();
-	const bool getIsRunning(){ return isRunning; }
-	const bool getIsRepeating(){ return isRepeating; }	
-	const bool getIsPingPong(){ return isPingPong; }
+	bool getIsRunning() const { return isRunning; }
+	bool getIsRepeating() const { return isRepeating; }
+	bool getIsPingPong() const { return isPingPong; }
 	std::string getAnimationLabel() const { return animation_label; }
 	
 	//Setters
